@@ -1,6 +1,5 @@
 class_name GameInputEvents
 
-
 static var direction : Vector2
 
 static func movement_input() -> Vector2:

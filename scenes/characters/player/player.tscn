@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7q46owluqudi"]
 
 [ext_resource type="Texture2D" uid="uid://cfwkk4fp5c2vn" path="res://assets/素材库/Sprout Lands - Sprites - premium pack/Characters/Basic Charakter Spritesheet.png" id="1_7uws0"]
+[ext_resource type="Script" uid="uid://dmapod3n5dd44" path="res://scenes/characters/player/player.gd" id="1_qd3e3"]
 [ext_resource type="Script" uid="uid://dguvl6v420tyd" path="res://scripts/state_machine/node_state_machine.gd" id="2_686vu"]
 [ext_resource type="Script" uid="uid://bybm84okp5rpu" path="res://scenes/characters/player/idle_state.gd" id="3_hss88"]
 [ext_resource type="Script" uid="uid://c3wybd6f6lhu8" path="res://scenes/characters/player/walk_state.gd" id="4_hss88"]
@@ -161,9 +162,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ro20i"]
-radius = 6.0
+radius = 5.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1223088320]
+script = ExtResource("1_qd3e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=422571853]
 position = Vector2(0, -8)
@@ -172,7 +174,7 @@ animation = &"idle_front"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=656387466]
-position = Vector2(0, -6)
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_ro20i")
 
 [node name="StateMachine" type="Node" parent="." unique_id=513705598 node_paths=PackedStringArray("initial_node_state")]
@@ -188,4 +190,3 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 script = ExtResource("4_hss88")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
-speed = null
