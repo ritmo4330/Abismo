@@ -17,7 +17,7 @@ func load_player_state():
 	# 还原速度、朝向等属性
 	move_speed = PlayerState.move_speed
 	player_direction = PlayerState.player_direction
-	# PlayerState.hp  # 如需还原血量可在这里赋值
+
 	
 	# 位置还原交给场景的 Room 脚本处理，因为它需要根据出生点来设置玩家位置
 	# if PlayerState.global_position != Vector2.ZERO:
@@ -28,4 +28,3 @@ func load_player_state():
 func save_current_state():
 	PlayerState.move_speed = move_speed
 	PlayerState.player_direction = player_direction
-	# PlayerState.hp = self.hp  # 如需保存血量可在这里赋值

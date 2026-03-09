@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://kxi3v8a21o68"]
+
+[ext_resource type="Script" uid="uid://dwfmtw0om50hr" path="res://scenes/objects/pickable_item.gd" id="1_iik35"]
+[ext_resource type="Resource" uid="uid://c4xyhynqnlfsd" path="res://scenes/objects/item2.tres" id="2_rat1r"]
+[ext_resource type="Texture2D" uid="uid://dfheiyd16tomo" path="res://assets/素材库/keyboard/Keyboard Letters and Symbols.png" id="4_rat1r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xw3mt"]
+radius = 16.03122
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4prjy"]
+atlas = ExtResource("4_rat1r")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci6hi"]
+atlas = ExtResource("4_rat1r")
+region = Rect2(80, 144, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nv3ed"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4prjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci6hi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="PickableItem" type="Area2D" unique_id=2140447268]
+position = Vector2(172, 105)
+script = ExtResource("1_iik35")
+item_data = ExtResource("2_rat1r")
+metadata/_edit_vertical_guides_ = [91.0]
+metadata/_edit_horizontal_guides_ = [96.0, 105.0, 89.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=481887663]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1712393211]
+shape = SubResource("CircleShape2D_xw3mt")
+
+[node name="PromptUI" type="AnimatedSprite2D" parent="." unique_id=294224003]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_nv3ed")
+frame_progress = 0.517992
