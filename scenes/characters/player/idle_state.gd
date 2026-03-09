@@ -8,7 +8,7 @@ func _on_process(_delta : float) -> void:
 	pass
 
 
-func _on_physics_process(_delta : float) -> void:
+func update_idle_animation():
 	if player.player_direction == Vector2.UP:
 		animated_sprite_2d.play("idle_back")
 	elif player.player_direction == Vector2.DOWN:
@@ -21,6 +21,10 @@ func _on_physics_process(_delta : float) -> void:
 		animated_sprite_2d.play("idle_front")
 
 
+func _on_physics_process(_delta : float) -> void:
+	update_idle_animation()
+
+
 func _on_next_transitions() -> void:
 	GameInputEvents.movement_input()
 	# 这里需要调用movement_input()来更新direction变量的值，以便在is_movement_input()中正确判断是否有移动输入
@@ -30,7 +34,7 @@ func _on_next_transitions() -> void:
 
 
 func _on_enter() -> void:
-	pass
+	update_idle_animation()
 
 
 func _on_exit() -> void:

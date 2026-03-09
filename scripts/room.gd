@@ -10,9 +10,8 @@ func _ready():
 	# 检查场景内是否已有玩家，无则实例化
 	if not get_tree().get_first_node_in_group("player") and spawn_point:
 		var player = player_scene.instantiate()
-		add_child(player)
 		# 给玩家绑定出生点名称
 		player.spawn_point_name = default_spawn_point
-		player.global_position = spawn_point.global_position
-		# 手动触发状态还原（确保位置正确）
-		player.load_player_state()
+
+		add_child(player)
+		
