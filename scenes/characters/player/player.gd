@@ -19,16 +19,13 @@ func load_player_state():
 	player_direction = PlayerState.player_direction
 	# PlayerState.hp  # 如需还原血量可在这里赋值
 	
-	# 优先用场景内出生点，无则用全局保存的位置
-	var spawn_point = get_parent().get_node_or_null(spawn_point_name)
-	if spawn_point:
-		global_position = spawn_point.global_position
-	elif PlayerState.global_position != Vector2.ZERO:
-		global_position = PlayerState.global_position
+	# 位置还原交给场景的 Room 脚本处理，因为它需要根据出生点来设置玩家位置
+	# if PlayerState.global_position != Vector2.ZERO:
+	# 	global_position = PlayerState.global_position
+
 
 # 供外部调用：手动保存玩家状态（门触发时会自动调用）
 func save_current_state():
-	PlayerState.global_position = global_position
 	PlayerState.move_speed = move_speed
 	PlayerState.player_direction = player_direction
 	# PlayerState.hp = self.hp  # 如需保存血量可在这里赋值

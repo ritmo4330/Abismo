@@ -4,6 +4,7 @@ extends Node
 var global_position: Vector2 = Vector2.ZERO  # 玩家位置
 var move_speed: float = 200.0               # 移动速度
 var player_direction: Vector2 = Vector2.DOWN        # 玩家朝向
+var current_spawn_point_name: String = "" # 用于记录玩家应该在哪出生
 var hp: int = 100                            # 血量（示例扩展）
 var inventory: Array = []                   # 背包（示例扩展）
 var story_progress: String = ""             # 剧情进度（示例扩展）
@@ -13,6 +14,7 @@ func reset_state():
 	global_position = Vector2.ZERO
 	move_speed = 200.0
 	player_direction = Vector2.DOWN
+	current_spawn_point_name = ""
 	hp = 100
 	inventory.clear()
 	story_progress = ""

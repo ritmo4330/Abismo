@@ -29,13 +29,13 @@ tile_set = ExtResource("1_4b2ii")
 position = Vector2(-199, 0)
 script = ExtResource("2_7cwvm")
 target_scene_path = "uid://c2w1luor4yt1f"
-target_spawn_point = "DoorSpawn"
+target_spawn_point = "SpawnFromWu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Door" unique_id=1329260454]
 position = Vector2(563.5, 216)
 shape = SubResource("RectangleShape2D_ss71a")
 
-[node name="DoorSpawn" type="Marker2D" parent="." unique_id=220187508]
+[node name="SpawnFromSong" type="Marker2D" parent="." unique_id=220187508]
 position = Vector2(376, 223)
 
 [connection signal="body_entered" from="Scene/Door" to="Scene/Door" method="_on_body_entered"]
