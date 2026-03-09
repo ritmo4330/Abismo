@@ -1,22 +1,21 @@
 extends Area2D
 
-@export_file("*.tcsn") var target_scene: String
-# 目标场景中玩家出生点 Marker2D 名称
-@export var spawn_point_name: String = "door_spawn"
+# 编辑器可配置：目标场景路径
+@export_file("*.tscn") var target_scene_path: String
+# 编辑器可配置：目标场景的出生点名称
+@export var target_spawn_point: String
 
 func _on_body_entered(body):
-	if body.is_in_group("player"): # 建议用组，比 name 更稳健
-		# 关键：切换前保存玩家当前状态到全局单例
-		save_player_state(body)
-		# 带淡入淡出切换场景
-		Transition.change_scene_with_fade(target_scene)
+	# 检测是否是玩家（建议给玩家节点加 "player" 组）
+	print("door triggered")
+	if body.is_in_group("player"):
+		print("player triggered")
+		# 1. 保存玩家当前状态
+		body.save_current_state()
+		# 2. 记录目标场景的出生点（可选，如需多出生点可扩展）
+		#PlayerState.spawn_point_name = target_spawn_point
+		# 3. 带淡入淡出切换场景
+		Transition.change_scene_with_fade(target_scene_path)
 
-# 保存玩家状态到全局单例
-func save_player_state(player_node):
-	# 位置
-	PlayerState.global_position = player_node.global_position
-	# 移动速度
-	PlayerState.move_speed = player_node.move_speed
-	# 其他自定义状态按需加
-	# PlayerState.inventory = player_node.inventory
-	# PlayerState.hp = player_node.hp
+# ========== 信号连接提示 ==========
+# 选中门节点 → 右侧信号面板 → 找到 body_entered → 连接到本脚本的 _on_body_entered

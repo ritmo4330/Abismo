@@ -2,19 +2,16 @@ extends CharacterBody2D
 class_name Player
 
 # 可在编辑器调整的参数
-@export var move_speed: float = 200.0
+@export var move_speed: float = 50.0
 # 出生点名称（与场景内 Marker2D 对应）
 var spawn_point_name: String = "door_spawn"
+var player_direction: Vector2
+
 
 func _ready():
 	# 场景加载后自动还原玩家状态
 	load_player_state()
 
-func _physics_process(delta):
-	# 基础上下左右移动
-	var input_dir = Input.get_vector("left", "right", "up", "down")
-	velocity = input_dir.normalized() * move_speed  # normalized 防止斜向加速
-	move_and_slide()
 
 # 从全局单例还原玩家状态
 func load_player_state():

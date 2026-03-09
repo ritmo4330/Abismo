@@ -1,9 +1,15 @@
 [gd_scene format=4 uid="uid://bgug2736oj2pc"]
 
 [ext_resource type="TileSet" uid="uid://ctxipbxd20b15" path="res://Tilesets/room_tile_set.tres" id="1_4b2ii"]
+[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/room.gd" id="1_ss71a"]
+[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/door.gd" id="2_7cwvm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ss71a"]
+size = Vector2(7, 12)
 
 [node name="RoomWuTingXiang" type="Node2D" unique_id=1315035317]
 position = Vector2(-193, -83)
+script = ExtResource("1_ss71a")
 
 [node name="Scene" type="Node2D" parent="." unique_id=2065940674]
 
@@ -18,3 +24,18 @@ tile_set = ExtResource("1_4b2ii")
 [node name="Furniture" type="TileMapLayer" parent="Scene" unique_id=161780996]
 tile_map_data = PackedByteArray("AAAZAAsAAQAAAAEAAAAcAAsAAQABAAEAAAAZAA0AAQACAAEAAAAcAA0AAQABAAMAAAAZABEAAQACAAMAAFAbABEAAQACAAEAAGAdABEAAQACAAEAAGAfABEAAQACAAEAAGA=")
 tile_set = ExtResource("1_4b2ii")
+
+[node name="Door" type="Area2D" parent="Scene" unique_id=2145288820]
+position = Vector2(-199, 0)
+script = ExtResource("2_7cwvm")
+target_scene_path = "uid://c2w1luor4yt1f"
+target_spawn_point = "DoorSpawn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Door" unique_id=1329260454]
+position = Vector2(563.5, 216)
+shape = SubResource("RectangleShape2D_ss71a")
+
+[node name="DoorSpawn" type="Marker2D" parent="." unique_id=220187508]
+position = Vector2(376, 223)
+
+[connection signal="body_entered" from="Scene/Door" to="Scene/Door" method="_on_body_entered"]
