@@ -28,9 +28,9 @@ func _ready():
 	_init_slots()
 
 func _input(event):
-	# 监听键盘事件，这里以按 'E' 键开关背包为例
+	# 监听键盘事件，这里以按 'B' 键开关背包为例
 	if event is InputEventKey and event.pressed and not event.echo:
-		if event.physical_keycode == KEY_E:
+		if event.physical_keycode == KEY_B:
 			visible = not visible
 			
 			if visible:

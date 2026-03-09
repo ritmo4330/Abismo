@@ -13,8 +13,15 @@ func _ready():
 	
 	var spawn_point = get_node_or_null(target_spawn_name)
 	
+	# 检查场景内是否已有活着的玩家（必须排除掉那些正准备被销毁的旧玩家节点）
+	var existing_player = get_tree().get_first_node_in_group("player")
+	var needs_player = true
+	
+	if existing_player and not existing_player.is_queued_for_deletion():
+		needs_player = false
+		
 	# 检查场景内是否已有玩家，无则实例化
-	if not get_tree().get_first_node_in_group("player") and spawn_point:
+	if needs_player and spawn_point:
 		var player = player_scene.instantiate()
 
 		# 先添加到场景树，再设置位置，确保玩家位置正确更新

@@ -45,7 +45,28 @@ func change_scene_with_fade(target_scene_path: String):
 	get_tree().paused = true  # 暂停游戏逻辑，防止玩家在过渡期间乱动
 
 	await fade_out()                  # 先淡出（屏幕变黑）
-	get_tree().change_scene_to_file(target_scene_path)  # 切新场景
+	
+	# 如果当前有 GameRoot（画中画方案），我们应该替换内部的 SubViewport 子节点
+	var current_scene = get_tree().current_scene
+	if current_scene and current_scene.has_node("SubViewportContainer/SubViewport"):
+		var viewport = current_scene.get_node("SubViewportContainer/SubViewport")
+		# 清理旧场景
+		for child in viewport.get_children():
+			child.queue_free()
+		
+		# 等待一帧，确保旧场景和旧玩家实体已经彻底从内存(和群体group)中移除
+		await get_tree().process_frame
+		
+		# 载入新场景
+		var new_level = load(target_scene_path)
+		if new_level:
+			var level_instance = new_level.instantiate()
+			level_instance.process_mode = Node.PROCESS_MODE_PAUSABLE
+			viewport.add_child(level_instance)
+	else:
+		# 没有 GameRoot 时（旧版独立调试），回退为直接修改树的根场景
+		get_tree().change_scene_to_file(target_scene_path)
+		
 	await fade_in()                   # 再淡入（屏幕恢复画面）
 
 	get_tree().paused = false  # 恢复游戏逻辑

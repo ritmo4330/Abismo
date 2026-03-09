@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dguvl6v420tyd" path="res://scripts/state_machine/node_state_machine.gd" id="2_686vu"]
 [ext_resource type="Script" uid="uid://bybm84okp5rpu" path="res://scenes/characters/player/idle_state.gd" id="3_hss88"]
 [ext_resource type="Script" uid="uid://c3wybd6f6lhu8" path="res://scenes/characters/player/walk_state.gd" id="4_hss88"]
+[ext_resource type="PackedScene" uid="uid://oywvpgyj08un" path="res://scenes/UI/inventory_ui.tscn" id="5_invui"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t61fv"]
 atlas = ExtResource("1_7uws0")
@@ -191,3 +192,6 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 script = ExtResource("4_hss88")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="InventoryUI" parent="." instance=ExtResource("5_invui")]
+
