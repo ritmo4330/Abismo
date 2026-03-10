@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Transition="*uid://c5g7yq8ccn6pt"
 PlayerState="*uid://b5d53uj0ekijn"
+DialogueManager="*uid://b7t6haavth0ks"
 
 [display]
 

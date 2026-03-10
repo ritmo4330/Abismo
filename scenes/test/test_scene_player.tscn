@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bwu67ufx071kh" path="res://assets/素材库/Sprout Lands - Sprites - premium pack/Tilesets/Building parts/Basic_Furniture.png" id="2_np1fs"]
 [ext_resource type="PackedScene" uid="uid://7q46owluqudi" path="res://scenes/characters/player/player.tscn" id="4_e46wm"]
 [ext_resource type="PackedScene" uid="uid://kxi3v8a21o68" path="res://scenes/objects/pickable_item.tscn" id="5_np1fs"]
-[ext_resource type="Resource" uid="uid://c5y75mwd5dyyu" path="res://scenes/objects/item1.tres" id="6_q8rd1"]
+[ext_resource type="Resource" uid="uid://c5y75mwd5dyyu" path="res://resources/objects/item1.tres" id="6_q8rd1"]
+[ext_resource type="PackedScene" uid="uid://ccoalm2taxdwe" path="res://scenes/characters/npcs/npc.tscn" id="7_q8rd1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5vxv"]
 texture = ExtResource("1_e46wm")
@@ -205,3 +206,5 @@ position = Vector2(546, 156)
 position = Vector2(424, 157)
 item_data = ExtResource("6_q8rd1")
 
+[node name="NPC" parent="." unique_id=315533828 instance=ExtResource("7_q8rd1")]
+position = Vector2(425, 252)
