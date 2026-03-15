@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://brdnsrc1qaho3"]
 
-[ext_resource type="Texture2D" uid="uid://cfwkk4fp5c2vn" path="res://assets/素材库/Sprout Lands - Sprites - premium pack/Characters/Basic Charakter Spritesheet.png" id="1_wpnk7"]
+[ext_resource type="Texture2D" uid="uid://cfwkk4fp5c2vn" path="res://素材库/Sprout Lands - Sprites - premium pack/Characters/Basic Charakter Spritesheet.png" id="1_wpnk7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t61fv"]
 atlas = ExtResource("1_wpnk7")

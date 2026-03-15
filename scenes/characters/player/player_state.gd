@@ -1,25 +1,19 @@
 extends Node
 
-# 玩家核心状态（可直接扩展）
-var global_position: Vector2 = Vector2.ZERO  # 玩家位置
-var move_speed: float = 200.0               # 移动速度
-var player_direction: Vector2 = Vector2.DOWN        # 玩家朝向
-var current_spawn_point_name: String = "" # 用于记录玩家应该在哪出生
-var inventory: Dictionary = {}                      # 背包
-var max_slots: int = 4                       # 背包最大格数
-var story_progress: String = ""             # 剧情进度（示例扩展）
-var hp: int = 100                            # 血量（示例扩展）
+# 这个单例仅作为“游戏数据存储中心（Data Center / Save Manager）”
+# 不再负责场景切换当中的坐标、朝向等物理实体的中转工作
 
-# 重置玩家状态（可选调用）
+# ============ 宏观游戏数据 ============
+var inventory: Dictionary = {}               # 背包
+var max_slots: int = 4                       # 背包最大格数
+var story_progress: String = ""              # 剧情进度（示例扩展）
+var hp: int = 100                            # 血量（这里血量存单例是因为即使重启游戏通常也要继承血量）
+
+# 重置游戏存档状态（比如回到主菜单重新开始新游戏时调用）
 func reset_state():
-	global_position = Vector2.ZERO
-	move_speed = 200.0
-	player_direction = Vector2.DOWN
-	current_spawn_point_name = ""
 	hp = 100
 	inventory.clear()
 	story_progress = ""
-
 
 # 添加物品
 func add_item(item: ItemData, amount: int = 1) -> bool:

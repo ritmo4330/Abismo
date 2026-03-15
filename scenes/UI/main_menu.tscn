@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://qyyt35714fu4"]
 
-[ext_resource type="Texture2D" uid="uid://cjdcrs3hw3yoq" path="res://Snipaste_2026-02-14_12-20-02.png" id="1_qwnig"]
 [ext_resource type="Script" uid="uid://cwjajf0rkcmxg" path="res://scripts/main_menu.gd" id="1_yonvy"]
+[ext_resource type="Texture2D" uid="uid://dgqyp38b7b5mb" path="res://icon.svg" id="2_yonvy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hifd2"]
 font_size = 100
@@ -20,14 +20,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1039.5
-offset_top = -585.0
-offset_right = 1039.5
-offset_bottom = 585.0
+offset_left = 466.0
+offset_top = 14.0
+offset_right = -475.0
+offset_bottom = -100.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_qwnig")
-expand_mode = 1
+texture = ExtResource("2_yonvy")
 stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1025803147]

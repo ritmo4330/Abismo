@@ -2,28 +2,5 @@
 
 [ext_resource type="Script" uid="uid://bisc2wlwvnu2q" path="res://scripts/game_root.gd" id="1_78s5d"]
 
-[node name="GameRoot" type="Control" unique_id=591011851]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="GameRoot" type="Node2D" unique_id=591011851]
 script = ExtResource("1_78s5d")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1670480535]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1880.0
-offset_bottom = 1040.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=636217913]
-handle_input_locally = false
-canvas_item_default_texture_filter = 0
-size = Vector2i(1920, 1080)
-size_2d_override = Vector2i(480, 270)
-size_2d_override_stretch = true
-render_target_update_mode = 4

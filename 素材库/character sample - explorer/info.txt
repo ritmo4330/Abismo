@@ -1,0 +1,11 @@
+This is a sample for an animated Character that is available as a separate asset pack on itch.io.
+
+You can find the full Version here: 
+https://schwarnhild.itch.io/basic-character-001
+
+The pack currently contains the following animations:
+
+-    4-frame idle animation in 4 directions (FREE)
+-    4-frame walk animation in 4 directions (FREE)
+-    8-frame running animation in 4 directions (Plus Version)
+

@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://bdwo7upisla6t"
+path="res://.godot/imported/ZX Palm.fnt-33793a65d48bf825572eef31b15991a7.fontdata"
+
+[deps]
+
+source_file="res://素材库/ZX Palm/Atari8/ZX Palm.fnt"
+dest_files=["res://.godot/imported/ZX Palm.fnt-33793a65d48bf825572eef31b15991a7.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2
