@@ -33,11 +33,8 @@ func setup_camera_limits(player: Node2D):
 	if not camera:
 		return
 		
-	var map_rect = Rect2i()
+	var map_pixel_rect = Rect2()
 	var found_any = false
-	var cell_size = Vector2(16, 16)
-	var offset_x = 0.0
-	var offset_y = 0.0
 	
 	var nodes_to_check = [self]
 	while nodes_to_check.size() > 0:
@@ -45,30 +42,53 @@ func setup_camera_limits(player: Node2D):
 		if current_node is TileMapLayer or current_node is TileMap:
 			var current_rect = current_node.get_used_rect()
 			if current_rect.size.x > 0 and current_rect.size.y > 0:
+				var cell_size = Vector2(16, 16)
+				if current_node.get("tile_set") and current_node.tile_set:
+					cell_size = current_node.tile_set.tile_size
+				
+				# 必须先转换为统一的全局像素坐标，再做 merge
+				# 否则不同 layer 拥有不同的 cell_size 或 offset 时会导致边界爆炸
+				var px = current_node.global_position.x + current_rect.position.x * cell_size.x
+				var py = current_node.global_position.y + current_rect.position.y * cell_size.y
+				var pw = current_rect.size.x * cell_size.x
+				var ph = current_rect.size.y * cell_size.y
+				var layer_pixel_rect = Rect2(px, py, pw, ph)
+				
 				if not found_any:
-					map_rect = current_rect
-					offset_x = current_node.global_position.x
-					offset_y = current_node.global_position.y
-					if current_node.get("tile_set") and current_node.tile_set:
-						cell_size = current_node.tile_set.tile_size
+					map_pixel_rect = layer_pixel_rect
 					found_any = true
 				else:
-					map_rect = map_rect.merge(current_rect)
+					map_pixel_rect = map_pixel_rect.merge(layer_pixel_rect)
+					
 		for child in current_node.get_children():
 			nodes_to_check.push_back(child)
 			
 	if found_any:
-		# 计算像素边界
-		# 给摄像机设置限制，但允许玩家在地图边缘有一点点余量，避免完全贴边时画面不舒服
-		# （注意：必须加上 tilemap 本身的 global_position，否则对于有偏移的子节点地图就会出错！）
+		var limit_left = map_pixel_rect.position.x - 16
+		var limit_top = map_pixel_rect.position.y - 16
+		var limit_right = map_pixel_rect.end.x + 16
+		var limit_bottom = map_pixel_rect.end.y + 16
 		
-		var limit_left = offset_x + map_rect.position.x * cell_size.x - 16
-		var limit_top = offset_y + map_rect.position.y * cell_size.y - 16
-		var limit_right = offset_x + map_rect.end.x * cell_size.x + 16
-		var limit_bottom = offset_y + map_rect.end.y * cell_size.y + 16
+		# 获取相机的实际可视物理尺寸
+		var viewport_size = get_viewport_rect().size / camera.zoom
 		
-		camera.limit_left = int(limit_left)
-		camera.limit_top = int(limit_top)
-		camera.limit_right = int(limit_right)
-		camera.limit_bottom = int(limit_bottom)
+		var map_width = limit_right - limit_left
+		var map_height = limit_bottom - limit_top
+		
+		# 如果地图宽度小于相机可视宽度，将其居中
+		if map_width < viewport_size.x:
+			var diff = (viewport_size.x - map_width) / 2.0
+			limit_left -= diff
+			limit_right += diff
+			
+		# 如果地图高度小于相机可视高度，将其居中
+		if map_height < viewport_size.y:
+			var diff = (viewport_size.y - map_height) / 2.0
+			limit_top -= diff
+			limit_bottom += diff
+		
+		camera.limit_left = int(round(limit_left))
+		camera.limit_top = int(round(limit_top))
+		camera.limit_right = int(round(limit_right))
+		camera.limit_bottom = int(round(limit_bottom))
 		

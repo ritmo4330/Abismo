@@ -38,12 +38,14 @@ func _on_body_exited(body: Node2D):
 		if prompt_ui.has_method("stop"):
 			prompt_ui.stop()
 
-func _input(event):
+func _unhandled_input(event):
 	# 如果玩家在范围内，并且按下了键盘
 	if player_in_range and event is InputEventKey:
 		# 判断是否是 F 键被按下 (不包含长按的 echo)
 		if event.physical_keycode == KEY_F and event.pressed and not event.echo:
+			# 消耗掉该输入，防止其他底层节点重复触发
+			get_viewport().set_input_as_handled()
+			
 			var added = PlayerState.add_item(item_data, amount)
-			print("item %s added" % item_data.name)
 			if added:
 				queue_free() # 成功放入背包后销毁场景中的物品

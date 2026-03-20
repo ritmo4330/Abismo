@@ -14,6 +14,7 @@ func reset_state():
 	hp = 100
 	inventory.clear()
 	story_progress = ""
+	EventBus.inventory_changed.emit()
 
 # 添加物品
 func add_item(item: ItemData, amount: int = 1) -> bool:
@@ -22,15 +23,19 @@ func add_item(item: ItemData, amount: int = 1) -> bool:
 		var current_amount = inventory[item.id]["amount"]
 		if current_amount + amount <= item.max_stack:
 			inventory[item.id]["amount"] += amount
-			return true
 		else:
 			# 处理溢出或者直接给满
 			inventory[item.id]["amount"] = item.max_stack
-			return true
+			
+		EventBus.inventory_changed.emit()
+		EventBus.item_picked_up.emit(item, amount)
+		return true
 	else:
 		# 没有该物品，检查格子总数（字典的 keys 数量代表占用的格子数）
 		if inventory.size() < max_slots:
 			inventory[item.id] = {"item": item, "amount": amount}
+			EventBus.inventory_changed.emit()
+			EventBus.item_picked_up.emit(item, amount)
 			return true
 		else:
 			print("背包已满！")
@@ -44,6 +49,8 @@ func remove_item(item_id: String, amount: int = 1) -> bool:
 			# 数量归零，从字典删除该键值对
 			if inventory[item_id]["amount"] <= 0:
 				inventory.erase(item_id)
+				
+			EventBus.inventory_changed.emit()
 			return true
 	print("物品数量不足或不存在！")
 	return false

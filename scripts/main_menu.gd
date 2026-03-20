@@ -3,9 +3,9 @@ extends Control
 # 在这里配置你的第一关场景路径
 const FIRST_LEVEL_PATH = "res://scenes/test/test_scene_player.tscn"
 
-@onready var start_button = $MarginContainer/VBoxContainer/Buttons/StartButton
-@onready var options_button = $MarginContainer/VBoxContainer/Buttons/OptionsButton
-@onready var quit_button = $MarginContainer/VBoxContainer/Buttons/QuitButton
+@onready var start_button = $StartButton
+@onready var options_button = $OptionsButton
+@onready var quit_button = $QuitButton
 
 func _ready():
 

@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://dqsp2afscxoqa" path="res://scenes/characters/npcs/npc.gd" id="1_idr7u"]
 [ext_resource type="SpriteFrames" uid="uid://brdnsrc1qaho3" path="res://resources/characters/cat1.tres" id="1_mp4vq"]
 [ext_resource type="SpriteFrames" uid="uid://cn01ehhqar6a2" path="res://resources/interact/key_E_frames.tres" id="2_idr7u"]
-[ext_resource type="Texture2D" uid="uid://dgulsde5spmvh" path="res://assets/素材库/Sprout Lands - Sprites - Basic pack/Objects/Free_Chicken_House.png" id="2_xxdnj"]
+[ext_resource type="Texture2D" uid="uid://dgulsde5spmvh" path="res://素材库/Sprout Lands - Sprites - Basic pack/Objects/Free_Chicken_House.png" id="2_xxdnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxdnj"]
-size = Vector2(10, 11)
+size = Vector2(12, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mp4vq"]
-radius = 13.0
+radius = 16.0
 
 [node name="NPC" type="CharacterBody2D" unique_id=315533828]
 script = ExtResource("1_idr7u")
@@ -17,15 +17,17 @@ avatar = ExtResource("2_xxdnj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=278144488]
 sprite_frames = ExtResource("1_mp4vq")
-animation = &"idle_back"
+animation = &"idle_front"
+autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1048617042]
-position = Vector2(0, 1.5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_xxdnj")
 
 [node name="InteractArea" type="Area2D" parent="." unique_id=1603013461]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=2059319510]
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_mp4vq")
 
 [node name="PromptUI" type="AnimatedSprite2D" parent="." unique_id=319962830]

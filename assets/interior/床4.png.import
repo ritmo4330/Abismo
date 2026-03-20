@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjdcrs3hw3yoq"
-path="res://.godot/imported/Snipaste_2026-02-14_12-20-02.png-91fb09ed87de1293c716341b2bef4336.ctex"
+uid="uid://d00bo5um13aoo"
+path="res://.godot/imported/床4.png-b8788256c619f22f16a1e815f42d7e0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Snipaste_2026-02-14_12-20-02.png"
-dest_files=["res://.godot/imported/Snipaste_2026-02-14_12-20-02.png-91fb09ed87de1293c716341b2bef4336.ctex"]
+source_file="res://assets/interior/床4.png"
+dest_files=["res://.godot/imported/床4.png-b8788256c619f22f16a1e815f42d7e0b.ctex"]
 
 [params]
 

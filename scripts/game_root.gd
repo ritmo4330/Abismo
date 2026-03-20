@@ -27,8 +27,8 @@ func _ready():
 		# 这样就模拟了原本 480x270 的低分辨率视野
 		# =====================
 		var camera = current_player.get_node_or_null("Camera2D")
-		if camera:
-			camera.zoom = Vector2(4.0, 4.0)
+		#if camera:
+			#camera.zoom = Vector2(4.0, 4.0)
 		
 		# 先不将其 addTo_Child(放到任何节点下)，让下面的 _load_room 去主动将它放入关卡中
 		
@@ -41,6 +41,7 @@ func _ready():
 # 当门或其他逻辑触发切换请求时执行
 func _on_change_room_requested(target_path: String, spawn_point_name: String):
 	if is_transitioning:
+		print("正在过渡中，忽略重复的切换请求：", target_path, spawn_point_name)
 		return # 防抖：如果正在过渡中，直接忽略所有的重复触发请求
 		
 	is_transitioning = true
@@ -69,6 +70,12 @@ func _on_change_room_requested(target_path: String, spawn_point_name: String):
 	
 	# 7. 恢复游戏游玩
 	get_tree().paused = false
+	
+	# 8. 等待两个物理帧，让刚出生就重叠在Door上的碰撞事件被触发并被本函数的防抖(is_transitioning)吞掉
+	# 防止玩家从房间A传送房间B时，因为正巧处于B的门上又立刻被传回A
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	
 	is_transitioning = false
 
 # 核心加载逻辑提取为独立函数
