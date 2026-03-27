@@ -220,8 +220,8 @@ sources/0 = SubResource("TileSetAtlasSource_lh35s")
 size = Vector2(30, 7)
 
 [sub_resource type="Gradient" id="Gradient_3r0n3"]
-offsets = PackedFloat32Array(0, 0.6610577, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.7658863, 0.7658863, 0.7658863, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.004, 0.148, 1)
+colors = PackedColorArray(0.78467673, 0.78467673, 0.78467673, 1, 1, 1, 1, 1, 0.7658863, 0.7658863, 0.7658863, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lbdex"]
 gradient = SubResource("Gradient_3r0n3")
@@ -248,8 +248,13 @@ tile_map_data = PackedByteArray("AACUADAAAwADAAEAAACUADEAAwADAAIAAACUADoAAwADAAE
 tile_set = ExtResource("1_xhnn5")
 
 [node name="WallUp" type="TileMapLayer" parent="Scene" unique_id=908360237]
-tile_map_data = PackedByteArray("AAA9AAIABwAAAAAAAAA+AAIABwABAAAAAAA/AAIABwACAAAAAABAAAIABwADAAAAAABBAAIABwAAAAAAAABCAAIABwABAAAAAABDAAIABwACAAAAAABEAAIABwADAAAAAABFAAIABwAAAAAAAABGAAIABwABAAAAAABHAAIABwACAAAAAABIAAIABwADAAAAAABJAAIABwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAA+AAIAAQAAAAAAAAA/AAIAAQABAAAAAABAAAIAAQACAAAAAABBAAIAAQADAAAAAABCAAIABwAAAAAAAABDAAIABwABAAAAAABEAAIABwACAAAAAABFAAIABwADAAAAAABGAAIABwAAAAAAAABHAAIABwABAAAAAABIAAIABwACAAAAAABJAAIABwADAAAAAAA9AAIABwADAAAAAAA=")
 tile_set = ExtResource("4_3r0n3")
+
+[node name="DiaoLan" type="TileMapLayer" parent="Scene" unique_id=2003262845]
+position = Vector2(-11, 3)
+tile_map_data = PackedByteArray("AAA/ABQACgAAAAAAAAA/ABUACgAAAAEAAAA/ABYACgAAAAIAAAA=")
+tile_set = ExtResource("3_y755l")
 
 [node name="Bed" type="TileMapLayer" parent="Scene" unique_id=513379740]
 position = Vector2(8, 0)

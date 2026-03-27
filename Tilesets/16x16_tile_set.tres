@@ -1,10 +1,12 @@
 [gd_resource type="TileSet" format=3 uid="uid://b6amhc3omysdy"]
 
 [ext_resource type="Texture2D" uid="uid://sl3f65ph88li" path="res://assets/interior/书桌_3.png" id="1_wskf0"]
+[ext_resource type="Texture2D" uid="uid://viq58oumglcp" path="res://assets/interior/吊兰2.png" id="2_hjjgu"]
 [ext_resource type="Texture2D" uid="uid://cyu5ntocecxba" path="res://assets/interior/townInterior.png" id="4_hjjgu"]
 [ext_resource type="Texture2D" uid="uid://dx8dpghducajd" path="res://assets/interior/书桌_2.png" id="4_kvl2b"]
 [ext_resource type="Texture2D" uid="uid://s8tpqth1pnx8" path="res://assets/interior/furniture.png" id="5_7agiq"]
 [ext_resource type="Texture2D" uid="uid://bkhseeo8nad7s" path="res://assets/interior/卧室地毯_1.png" id="7_hjjgu"]
+[ext_resource type="Texture2D" uid="uid://ccptvwb4t8p4g" path="res://assets/interior/吊兰1.png" id="7_kvl2b"]
 [ext_resource type="Texture2D" uid="uid://hhwrn8q77y4w" path="res://assets/interior/凳子_1.png" id="8_hjjgu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvl2b"]
@@ -21,6 +23,12 @@ texture = ExtResource("1_wskf0")
 1:2/0 = 0
 2:2/0 = 0
 3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nia8"]
+texture = ExtResource("2_hjjgu")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7agiq"]
 texture = ExtResource("4_kvl2b")
@@ -160,6 +168,12 @@ texture = ExtResource("8_hjjgu")
 0:1/0 = 0
 1:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hjjgu"]
+texture = ExtResource("7_kvl2b")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/4 = SubResource("TileSetAtlasSource_nio8j")
@@ -168,3 +182,5 @@ sources/3 = SubResource("TileSetAtlasSource_7agiq")
 sources/6 = SubResource("TileSetAtlasSource_dy27h")
 sources/7 = SubResource("TileSetAtlasSource_15wnc")
 sources/1 = SubResource("TileSetAtlasSource_kvl2b")
+sources/9 = SubResource("TileSetAtlasSource_hjjgu")
+sources/10 = SubResource("TileSetAtlasSource_4nia8")

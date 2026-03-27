@@ -13,7 +13,7 @@ config_version=5
 config/name="yishu"
 run/main_scene="uid://qyyt35714fu4"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://bcwh7upcxi31p"
 
 [autoload]
 

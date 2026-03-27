@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d3p2nvhaptmyb" path="res://assets/interior/床6.png" id="7_gbxq7"]
 [ext_resource type="Texture2D" uid="uid://b6dlef8blldfe" path="res://assets/interior/凳子_2.png" id="8_830n6"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4fv7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jnr7r"]
 texture = ExtResource("6_dutdi")
 texture_region_size = Vector2i(8, 8)
 0:1/0 = 0
@@ -96,7 +96,7 @@ texture_region_size = Vector2i(8, 8)
 9:9/0 = 0
 10:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_htvj8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ktxaq"]
 texture = ExtResource("7_gbxq7")
 texture_region_size = Vector2i(8, 8)
 0:1/0 = 0
@@ -179,10 +179,10 @@ texture_region_size = Vector2i(8, 8)
 9:9/0 = 0
 10:9/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_fw07j"]
+[sub_resource type="TileSet" id="TileSet_62ug7"]
 tile_size = Vector2i(8, 8)
-sources/0 = SubResource("TileSetAtlasSource_g4fv7")
-sources/2 = SubResource("TileSetAtlasSource_htvj8")
+sources/0 = SubResource("TileSetAtlasSource_jnr7r")
+sources/2 = SubResource("TileSetAtlasSource_ktxaq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa5hf"]
 texture = ExtResource("7_fw07j")
@@ -198,7 +198,7 @@ texture_region_size = Vector2i(8, 16)
 tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_qa5hf")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_830n6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lh35s"]
 texture = ExtResource("8_830n6")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -210,9 +210,9 @@ texture_region_size = Vector2i(8, 8)
 0:2/0 = 0
 2:2/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_dutdi"]
+[sub_resource type="TileSet" id="TileSet_jnr7r"]
 tile_size = Vector2i(8, 8)
-sources/0 = SubResource("TileSetAtlasSource_830n6")
+sources/0 = SubResource("TileSetAtlasSource_lh35s")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1w88"]
 size = Vector2(30, 7)
@@ -229,6 +229,7 @@ fill_to = Vector2(0.5, 0)
 
 [node name="RoomWuTingXiang" type="Node2D" unique_id=1315035317]
 script = ExtResource("1_ss71a")
+default_spawn_point = ""
 
 [node name="Scene" type="Node2D" parent="." unique_id=2065940674]
 
@@ -237,7 +238,7 @@ tile_map_data = PackedByteArray("AABBABgACwAAAAAAAABBABkACwAAAAEAAABCABgACwABAAA
 tile_set = ExtResource("2_dutdi")
 
 [node name="Carpet" type="TileMapLayer" parent="Scene" unique_id=348453742]
-position = Vector2(-4, 0)
+position = Vector2(-4, 7)
 tile_map_data = PackedByteArray("AABAABkABgAAAAAAAABAABoABgAAAAEAAABAABsABgAAAAIAAABAABwABgAAAAMAAABAAB0ABgAAAAQAAABBABkABgABAAAAAABBABoABgABAAEAAABBABsABgABAAIAAABBABwABgABAAMAAABBAB0ABgABAAQAAABCABkABgACAAAAAABCABoABgACAAEAAABCABsABgACAAIAAABCABwABgACAAMAAABCAB0ABgACAAQAAABDABkABgADAAAAAABDABoABgADAAEAAABDABsABgADAAIAAABDABwABgADAAMAAABDAB0ABgADAAQAAABEABkABgAEAAAAAABEABoABgAEAAEAAABEABsABgAEAAIAAABEABwABgAEAAMAAABEAB0ABgAEAAQAAABFABkABgAFAAAAAABFABoABgAFAAEAAABFABsABgAFAAIAAABFABwABgAFAAMAAABFAB0ABgAFAAQAAABGABkABgAGAAAAAABGABoABgAGAAEAAABGABsABgAGAAIAAABGABwABgAGAAMAAABGAB0ABgAGAAQAAABHABkABgAHAAAAAABHABoABgAHAAEAAABHABsABgAHAAIAAABHABwABgAHAAMAAABHAB0ABgAHAAQAAAA=")
 tile_set = ExtResource("3_gbxq7")
 
@@ -246,13 +247,18 @@ tile_map_data = PackedByteArray("AACUADAAAwADAAEAAACUADEAAwADAAIAAACUADoAAwADAAE
 tile_set = ExtResource("1_4b2ii")
 
 [node name="WallUp" type="TileMapLayer" parent="Scene" unique_id=908360237]
-tile_map_data = PackedByteArray("AAA9AAIABwAAAAAAAAA+AAIABwABAAAAAAA/AAIABwACAAAAAABAAAIABwADAAAAAABBAAIABwAAAAAAAABCAAIABwABAAAAAABDAAIABwACAAAAAABEAAIABwADAAAAAABFAAIABwAAAAAAAABGAAIABwABAAAAAABHAAIABwACAAAAAABIAAIABwADAAAAAABJAAIABwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAA+AAIAAQAAAAAAAAA/AAIAAQABAAAAAABAAAIAAQACAAAAAABBAAIAAQADAAAAAABCAAIABwAAAAAAAABDAAIABwABAAAAAABEAAIABwACAAAAAABFAAIABwADAAAAAABGAAIABwAAAAAAAABHAAIABwABAAAAAABIAAIABwACAAAAAABJAAIABwADAAAAAAA9AAIABwADAAAAAAA=")
 tile_set = ExtResource("5_g4fv7")
 
-[node name="Bed" type="TileMapLayer" parent="Scene" unique_id=1017216882]
+[node name="DiaoLan" type="TileMapLayer" parent="Scene" unique_id=2003262845]
+position = Vector2(-11, 3)
+tile_map_data = PackedByteArray("AAA/ABQACgAAAAAAAAA/ABUACgAAAAEAAAA/ABYACgAAAAIAAAA=")
+tile_set = ExtResource("3_gbxq7")
+
+[node name="Bed" type="TileMapLayer" parent="Scene" unique_id=513379740]
 position = Vector2(8, 0)
 tile_map_data = PackedByteArray("AAB5ADIAAgAAAAEAAAB5ADMAAgAAAAIAAAB5ADQAAgAAAAMAAAB5ADUAAgAAAAQAAAB5ADYAAgAAAAUAAAB5ADcAAgAAAAYAAAB5ADgAAgAAAAcAAAB5ADkAAgAAAAgAAAB5ADoAAgAAAAkAAAB6ADQAAgABAAMAAAB6ADUAAgABAAQAAAB6ADYAAgABAAUAAAB6ADcAAgABAAYAAAB6ADgAAgABAAcAAAB6ADkAAgABAAgAAAB6ADoAAgABAAkAAAB7ADQAAgACAAMAAAB7ADUAAgACAAQAAAB7ADYAAgACAAUAAAB7ADcAAgACAAYAAAB7ADgAAgACAAcAAAB7ADkAAgACAAgAAAB7ADoAAgACAAkAAAB8ADQAAgADAAMAAAB8ADUAAgADAAQAAAB8ADYAAgADAAUAAAB8ADcAAgADAAYAAAB8ADgAAgADAAcAAAB8ADkAAgADAAgAAAB8ADoAAgADAAkAAAB9ADQAAgAEAAMAAAB9ADUAAgAEAAQAAAB9ADYAAgAEAAUAAAB9ADcAAgAEAAYAAAB9ADgAAgAEAAcAAAB9ADkAAgAEAAgAAAB9ADoAAgAEAAkAAAB+ADQAAgAFAAMAAAB+ADUAAgAFAAQAAAB+ADYAAgAFAAUAAAB+ADcAAgAFAAYAAAB+ADgAAgAFAAcAAAB+ADkAAgAFAAgAAAB+ADoAAgAFAAkAAAB/ADQAAgAGAAMAAAB/ADUAAgAGAAQAAAB/ADYAAgAGAAUAAAB/ADcAAgAGAAYAAAB/ADgAAgAGAAcAAAB/ADkAAgAGAAgAAAB/ADoAAgAGAAkAAACAADQAAgAHAAMAAACAADUAAgAHAAQAAACAADYAAgAHAAUAAACAADcAAgAHAAYAAACAADgAAgAHAAcAAACAADkAAgAHAAgAAACAADoAAgAHAAkAAACBADQAAgAIAAMAAACBADUAAgAIAAQAAACBADYAAgAIAAUAAACBADcAAgAIAAYAAACBADgAAgAIAAcAAACBADkAAgAIAAgAAACBADoAAgAIAAkAAACCADQAAgAJAAMAAACCADUAAgAJAAQAAACCADYAAgAJAAUAAACCADcAAgAJAAYAAACCADgAAgAJAAcAAACCADkAAgAJAAgAAACCADoAAgAJAAkAAACDADQAAgAKAAMAAACDADUAAgAKAAQAAACDADYAAgAKAAUAAACDADcAAgAKAAYAAACDADgAAgAKAAcAAACDADkAAgAKAAgAAACDADoAAgAKAAkAAAA=")
-tile_set = SubResource("TileSet_fw07j")
+tile_set = SubResource("TileSet_62ug7")
 
 [node name="ChuangTouGui" type="TileMapLayer" parent="Scene" unique_id=161780996]
 position = Vector2(0, 1)
@@ -269,15 +275,15 @@ position = Vector2(10, 5)
 tile_map_data = PackedByteArray("AACFACgAAAAAAAAAAACFACkAAAAAAAEAAACGACgAAAABAAAAAACGACkAAAABAAEAAACHACgAAAACAAAAAACHACkAAAACAAEAAAA=")
 tile_set = SubResource("TileSet_y755l")
 
-[node name="ShuZhuo" type="TileMapLayer" parent="Scene" unique_id=1489925555]
+[node name="ShuZhuo" type="TileMapLayer" parent="Scene" unique_id=1895908091]
 position = Vector2(3, -23)
 tile_map_data = PackedByteArray("AABCABgAAQAAAAAAAABCABkAAQAAAAEAAABCABoAAQAAAAIAAABDABgAAQABAAAAAABDABkAAQABAAEAAABDABoAAQABAAIAAABEABgAAQACAAAAAABEABkAAQACAAEAAABEABoAAQACAAIAAABFABgAAQADAAAAAABFABkAAQADAAEAAABFABoAAQADAAIAAAA=")
 tile_set = ExtResource("3_gbxq7")
 
-[node name="DengZi" type="TileMapLayer" parent="Scene" unique_id=1665615729]
+[node name="DengZi" type="TileMapLayer" parent="Scene" unique_id=1144369767]
 position = Vector2(-2, 1)
 tile_map_data = PackedByteArray("AACHADIAAAAAAAAAAACHADMAAAAAAAEAAACHADQAAAAAAAIAAACIADIAAAABAAAAAACIADMAAAABAAEAAACJADIAAAACAAAAAACJADMAAAACAAEAAACJADQAAAACAAIAAAA=")
-tile_set = SubResource("TileSet_dutdi")
+tile_set = SubResource("TileSet_jnr7r")
 
 [node name="Door" type="Area2D" parent="Scene" unique_id=1109773949]
 script = ExtResource("2_7cwvm")
@@ -285,11 +291,13 @@ target_scene_path = "uid://c2w1luor4yt1f"
 target_spawn_point = "SpawnFromWu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Door" unique_id=780276797]
+visible = false
 position = Vector2(1080, 516.5)
 shape = SubResource("RectangleShape2D_x1w88")
 
 [node name="SpawnFromSong" type="Marker2D" parent="." unique_id=829932385]
-position = Vector2(1080, 500)
+visible = false
+position = Vector2(1079, 497)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=736756762]
 color = Color(0.50949115, 0.4061685, 0.32444108, 1)

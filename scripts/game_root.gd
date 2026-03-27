@@ -1,7 +1,7 @@
 extends Node2D
 
 # 你实际要启动的游玩关卡
-const FIRST_LEVEL_PATH = "res://scenes/rooms/room_song_lin_xi.tscn"
+const FIRST_LEVEL_PATH = "res://scenes/rooms/hall.tscn"
 const PLAYER_SCENE_PATH = "res://scenes/characters/player/player.tscn"
 
 var level_container: Node2D
