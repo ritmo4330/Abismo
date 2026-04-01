@@ -18,7 +18,7 @@ func _ready():
 		_spawn_test_player()
 
 func _spawn_test_player():
-	var spawn_point = get_node_or_null(default_spawn_point)
+	var spawn_point = find_child(default_spawn_point, true, false)
 	if not spawn_point: return
 	
 	var player_instance = player_scene.instantiate()

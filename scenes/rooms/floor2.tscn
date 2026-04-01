@@ -1,74 +1,155 @@
 [gd_scene format=4 uid="uid://c4rbw46jkpav"]
 
-[ext_resource type="Texture2D" uid="uid://d02yvumb5ji7j" path="res://assets/interior/二楼.png" id="1_2xbj6"]
+[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/room.gd" id="1_ydu0m"]
+[ext_resource type="TileSet" uid="uid://bbl3ftom8ktcx" path="res://Tilesets/floor2.tres" id="2_qslkk"]
+[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/door.gd" id="4_eu8ld"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydu0m"]
-texture = ExtResource("1_2xbj6")
-texture_region_size = Vector2i(128, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia6ke"]
+size = Vector2(88, 23.25)
 
-[sub_resource type="TileSet" id="TileSet_qslkk"]
-tile_size = Vector2i(128, 64)
-sources/0 = SubResource("TileSetAtlasSource_ydu0m")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qslkk"]
+size = Vector2(32, 62.625)
+
+[sub_resource type="Gradient" id="Gradient_hcmxa"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qslkk"]
+gradient = SubResource("Gradient_hcmxa")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [node name="Floor2" type="Node2D" unique_id=790534765]
-metadata/_edit_vertical_guides_ = [1543.0]
+y_sort_enabled = true
+script = ExtResource("1_ydu0m")
 
 [node name="Scene" type="Node2D" parent="." unique_id=408395029]
 
 [node name="Floor&Wall" type="TileMapLayer" parent="Scene" unique_id=1017321713]
-tile_map_data = PackedByteArray("AAAFAAcAAAABAAQAAAAFAAgAAAABAAUAAAAFAAkAAAABAAYAAAAFAAoAAAABAAcAAAAFAAsAAAABAAgAAAAGAAcAAAACAAQAAAAGAAgAAAACAAUAAAAGAAkAAAACAAYAAAAGAAoAAAACAAcAAAAGAAsAAAACAAgAAAAHAAcAAAADAAQAAAAHAAgAAAADAAUAAAAHAAkAAAADAAYAAAAHAAoAAAADAAcAAAAHAAsAAAADAAgAAAAIAAcAAAAEAAQAAAAIAAgAAAAEAAUAAAAIAAkAAAAEAAYAAAAIAAoAAAAEAAcAAAAIAAsAAAAEAAgAAAAJAAcAAAAFAAQAAAAJAAgAAAAFAAUAAAAJAAkAAAAFAAYAAAAJAAoAAAAFAAcAAAAJAAsAAAAFAAgAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAEAAAAEAAUAAAAAAAIAAAAEAAYAAAAAAAMAAAAEAAcAAAAAAAQAAAAEAAgAAAAAAAUAAAAEAAkAAAAAAAYAAAAEAAoAAAAAAAcAAAAEAAsAAAAAAAgAAAAFAAMAAAABAAAAAAAFAAQAAAABAAEAAAAFAAUAAAABAAIAAAAFAAYAAAABAAMAAAAGAAMAAAACAAAAAAAGAAQAAAACAAEAAAAGAAUAAAACAAIAAAAGAAYAAAACAAMAAAAHAAMAAAADAAAAAAAHAAQAAAADAAEAAAAHAAUAAAADAAIAAAAHAAYAAAADAAMAAAAIAAMAAAAEAAAAAAAIAAQAAAAEAAEAAAAIAAUAAAAEAAIAAAAIAAYAAAAEAAMAAAAJAAMAAAAFAAAAAAAJAAQAAAAFAAEAAAAJAAUAAAAFAAIAAAAJAAYAAAAFAAMAAAA=")
-tile_set = SubResource("TileSet_qslkk")
+position = Vector2(-1, 15)
+tile_map_data = PackedByteArray("AAAEAAMABAAAAAAAAAAEAAQABAAAAAEAAAAEAAUABAAAAAIAAAAEAAYABAAAAAMAAAAEAAcABAAAAAQAAAAEAAgABAAAAAUAAAAEAAkABAAAAAYAAAAEAAoABAAAAAcAAAAEAAsABAAAAAgAAAAFAAMABAABAAAAAAAFAAQABAABAAEAAAAFAAUABAABAAIAAAAFAAYABAABAAMAAAAFAAcABAABAAQAAAAFAAgABAABAAUAAAAFAAkABAABAAYAAAAFAAoABAABAAcAAAAFAAsABAABAAgAAAAGAAMABAACAAAAAAAGAAQABAACAAEAAAAGAAUABAACAAIAAAAGAAYABAACAAMAAAAGAAcABAACAAQAAAAGAAgABAACAAUAAAAGAAkABAACAAYAAAAGAAoABAACAAcAAAAGAAsABAACAAgAAAAHAAMABAADAAAAAAAHAAQABAADAAEAAAAHAAUABAADAAIAAAAHAAYABAADAAMAAAAHAAcABAADAAQAAAAHAAgABAADAAUAAAAHAAkABAADAAYAAAAHAAoABAADAAcAAAAHAAsABAADAAgAAAAIAAMABAAEAAAAAAAIAAQABAAEAAEAAAAIAAUABAAEAAIAAAAIAAYABAAEAAMAAAAIAAcABAAEAAQAAAAIAAgABAAEAAUAAAAIAAkABAAEAAYAAAAIAAoABAAEAAcAAAAIAAsABAAEAAgAAAAJAAMABAAFAAAAAAAJAAQABAAFAAEAAAAJAAUABAAFAAIAAAAJAAYABAAFAAMAAAAJAAcABAAFAAQAAAAJAAgABAAFAAUAAAAJAAkABAAFAAYAAAAJAAoABAAFAAcAAAAJAAsABAAFAAgAAAA=")
+tile_set = ExtResource("2_qslkk")
+
+[node name="LanGan" type="TileMapLayer" parent="Scene" unique_id=1780326030]
+position = Vector2(-1, 14)
+tile_map_data = PackedByteArray("AAAGAAUABQACAAIAAAAGAAYABQACAAMAAAAGAAcABQACAAQAAAAHAAUABQADAAIAAAAHAAYABQADAAMAAAAHAAcABQADAAQAAAAFAAUABQABAAIAAAAFAAYABQABAAMAAAAIAAUABQAEAAIAAAAIAAYABQAEAAMAAAA=")
+tile_set = ExtResource("2_qslkk")
+
+[node name="SpawnPoints" type="Node2D" parent="Scene" unique_id=1327913692]
+
+[node name="SpawnFromHallLeft" type="Marker2D" parent="Scene/SpawnPoints" unique_id=1911974858]
+position = Vector2(737, 459)
+
+[node name="SpawnFromHallRight" type="Marker2D" parent="Scene/SpawnPoints" unique_id=2055269365]
+position = Vector2(1051, 458)
+
+[node name="SpawnFromSong" type="Marker2D" parent="Scene/SpawnPoints" unique_id=1385526887]
+position = Vector2(606, 640)
+
+[node name="SpawnFromWu" type="Marker2D" parent="Scene/SpawnPoints" unique_id=389426969]
+position = Vector2(1171, 640)
+
+[node name="Doors" type="Node2D" parent="Scene" unique_id=1067666787]
+
+[node name="HallLeft" type="Area2D" parent="Scene/Doors" unique_id=1171518174]
+script = ExtResource("4_eu8ld")
+target_scene_path = "uid://4k1fp08quy17"
+target_spawn_point = "SpawnFromFloor2Left"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/HallLeft" unique_id=1760409944]
+position = Vector2(733, 514)
+shape = SubResource("RectangleShape2D_ia6ke")
+
+[node name="HallRight" type="Area2D" parent="Scene/Doors" unique_id=2011165499]
+script = ExtResource("4_eu8ld")
+target_scene_path = "uid://4k1fp08quy17"
+target_spawn_point = "SpawnFromFloor2Right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/HallRight" unique_id=1831483847]
+position = Vector2(1052, 517)
+shape = SubResource("RectangleShape2D_ia6ke")
+
+[node name="RoomSong" type="Area2D" parent="Scene/Doors" unique_id=1713368441]
+script = ExtResource("4_eu8ld")
+target_scene_path = "uid://c2w1luor4yt1f"
+target_spawn_point = "SpawnFromF2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/RoomSong" unique_id=170077714]
+position = Vector2(534, 619)
+shape = SubResource("RectangleShape2D_qslkk")
+
+[node name="RoomWu" type="Area2D" parent="Scene/Doors" unique_id=1978153615]
+position = Vector2(279, -8)
+script = ExtResource("4_eu8ld")
+target_scene_path = "uid://bgug2736oj2pc"
+target_spawn_point = "SpawnFromF2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/RoomWu" unique_id=946260033]
+position = Vector2(963, 636)
+shape = SubResource("RectangleShape2D_qslkk")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2015139736]
+color = Color(0.52311194, 0.43217155, 0.38109663, 1)
+
+[node name="Lights" type="Node2D" parent="." unique_id=354626469]
+
+[node name="BiZhu1" type="PointLight2D" parent="Lights" unique_id=266747529]
+position = Vector2(564, 394.00003)
+scale = Vector2(3.4140625, 3.4140625)
+color = Color(0.49862182, 0.4747619, 0.48354977, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_qslkk")
+
+[node name="BiZhu2" type="PointLight2D" parent="Lights" unique_id=1331077658]
+position = Vector2(747.99994, 313)
+scale = Vector2(3.80078, 3.80078)
+color = Color(0.49862182, 0.4747619, 0.48354977, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_qslkk")
+
+[node name="BiZhu3" type="PointLight2D" parent="Lights" unique_id=1680412591]
+position = Vector2(1031, 316)
+scale = Vector2(3.785154, 3.785154)
+color = Color(0.49862182, 0.4747619, 0.48354977, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_qslkk")
+
+[node name="BiZhu4" type="PointLight2D" parent="Lights" unique_id=1545336469]
+position = Vector2(1202, 391)
+scale = Vector2(3.4140625, 3.4140625)
+color = Color(0.49862182, 0.4747619, 0.48354977, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_qslkk")
+
+[node name="BiZhu5" type="PointLight2D" parent="Lights" unique_id=1459586248]
+position = Vector2(1234, 572)
+scale = Vector2(3.4140625, 3.4140625)
+color = Color(0.49862182, 0.4747619, 0.48354977, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_qslkk")
+
+[node name="BiZhu6" type="PointLight2D" parent="Lights" unique_id=1368656043]
+position = Vector2(544.0001, 574.00006)
+scale = Vector2(3.4140625, 3.4140625)
+color = Color(0.49862182, 0.4747619, 0.48354977, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_qslkk")
+
+[node name="BiZhu7" type="PointLight2D" parent="Lights" unique_id=1276267022]
+position = Vector2(740, 635.00006)
+scale = Vector2(3.4140625, 3.4140625)
+color = Color(0.58665305, 0.4543379, 0.29612488, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_qslkk")
+
+[node name="BiZhu8" type="PointLight2D" parent="Lights" unique_id=129333493]
+position = Vector2(1044, 635.00006)
+scale = Vector2(3.4140625, 3.4140625)
+color = Color(0.58665305, 0.4543379, 0.29612488, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_qslkk")
+
+[connection signal="body_entered" from="Scene/Doors/HallLeft" to="Scene/Doors/HallLeft" method="_on_body_entered"]
+[connection signal="body_entered" from="Scene/Doors/HallRight" to="Scene/Doors/HallRight" method="_on_body_entered"]
+[connection signal="body_entered" from="Scene/Doors/RoomSong" to="Scene/Doors/RoomSong" method="_on_body_entered"]
+[connection signal="body_entered" from="Scene/Doors/RoomWu" to="Scene/Doors/RoomWu" method="_on_body_entered"]

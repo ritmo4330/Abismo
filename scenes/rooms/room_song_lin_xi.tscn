@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://kxi3v8a21o68" path="res://scenes/objects/pickable_item.tscn" id="4_ssrmc"]
 [ext_resource type="TileSet" uid="uid://dm0s0q71gk12" path="res://Tilesets/16x32_tile_set.tres" id="5_3r0n3"]
 [ext_resource type="PackedScene" uid="uid://ccoalm2taxdwe" path="res://scenes/characters/npcs/npc.tscn" id="5_48a5x"]
-[ext_resource type="Texture2D" uid="uid://dd5vytskgh7a8" path="res://assets/interior/壁烛_2.png" id="6_lbdex"]
 [ext_resource type="Texture2D" uid="uid://6g5iowc4gkwt" path="res://assets/interior/床5.png" id="7_jnr7r"]
 [ext_resource type="Texture2D" uid="uid://d3p2nvhaptmyb" path="res://assets/interior/床6.png" id="8_ktxaq"]
 [ext_resource type="Texture2D" uid="uid://b6dlef8blldfe" path="res://assets/interior/凳子_2.png" id="8_y755l"]
+[ext_resource type="TileSet" uid="uid://7ywdudam4ou4" path="res://Tilesets/8x8.tres" id="9_jnr7r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jnr7r"]
 texture = ExtResource("7_jnr7r")
@@ -186,20 +186,6 @@ tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_jnr7r")
 sources/2 = SubResource("TileSetAtlasSource_ktxaq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa5hf"]
-texture = ExtResource("6_lbdex")
-texture_region_size = Vector2i(8, 16)
-0:0/0 = 0
-1:0/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_y755l"]
-tile_size = Vector2i(8, 8)
-sources/0 = SubResource("TileSetAtlasSource_qa5hf")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lh35s"]
 texture = ExtResource("8_y755l")
 texture_region_size = Vector2i(8, 8)
@@ -219,17 +205,18 @@ sources/0 = SubResource("TileSetAtlasSource_lh35s")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1w88"]
 size = Vector2(30, 7)
 
-[sub_resource type="Gradient" id="Gradient_3r0n3"]
+[sub_resource type="Gradient" id="Gradient_jnr7r"]
 offsets = PackedFloat32Array(0, 0.004, 0.148, 1)
 colors = PackedColorArray(0.78467673, 0.78467673, 0.78467673, 1, 1, 1, 1, 1, 0.7658863, 0.7658863, 0.7658863, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lbdex"]
-gradient = SubResource("Gradient_3r0n3")
+gradient = SubResource("Gradient_jnr7r")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [node name="RoomSongLinXi" type="Node2D" unique_id=1315035317]
+y_sort_enabled = true
 script = ExtResource("1_x1w88")
 
 [node name="Scene" type="Node2D" parent="." unique_id=2065940674]
@@ -274,7 +261,7 @@ tile_set = ExtResource("5_3r0n3")
 [node name="BiZhu" type="TileMapLayer" parent="Scene" unique_id=1469095291]
 position = Vector2(10, 5)
 tile_map_data = PackedByteArray("AACFACgAAAAAAAAAAACFACkAAAAAAAEAAACGACgAAAABAAAAAACGACkAAAABAAEAAACHACgAAAACAAAAAACHACkAAAACAAEAAAA=")
-tile_set = SubResource("TileSet_y755l")
+tile_set = ExtResource("9_jnr7r")
 
 [node name="ShuZhuo" type="TileMapLayer" parent="Scene" unique_id=1895908091]
 position = Vector2(3, -23)
@@ -288,18 +275,15 @@ tile_set = SubResource("TileSet_jnr7r")
 
 [node name="Door" type="Area2D" parent="Scene" unique_id=1109773949]
 script = ExtResource("3_x1w88")
-target_scene_path = "uid://bgug2736oj2pc"
+target_scene_path = "uid://c4rbw46jkpav"
 target_spawn_point = "SpawnFromSong"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Door" unique_id=780276797]
 position = Vector2(1080, 516.5)
 shape = SubResource("RectangleShape2D_x1w88")
 
-[node name="SpawnFromWu" type="Marker2D" parent="." unique_id=829932385]
+[node name="SpawnFromF2" type="Marker2D" parent="Scene" unique_id=829932385]
 position = Vector2(1079, 497)
-
-[node name="InitialSpawn" type="Marker2D" parent="." unique_id=444438849]
-position = Vector2(1085, 440)
 
 [node name="PickableItem" parent="." unique_id=2140447268 instance=ExtResource("4_ssrmc")]
 position = Vector2(1073, 424)

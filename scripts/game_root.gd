@@ -96,11 +96,11 @@ func _load_room(path: String, spawn_point_name: String):
 		level_instance.add_child(current_player)
 		
 		# 我们优先尝试去新房间寻找目标名称的出生点
-		var spawn_point = level_instance.get_node_or_null(spawn_point_name)
+		var spawn_point = level_instance.find_child(spawn_point_name, true, false)
 		
 		# 找不到指定名称（或未传递），尝试寻找缺省出生的点
 		if not spawn_point and level_instance.get("default_spawn_point"):
-			spawn_point = level_instance.get_node_or_null(level_instance.default_spawn_point)
+			spawn_point = level_instance.find_child(level_instance.default_spawn_point, true, false)
 			
 		if spawn_point:
 			current_player.global_position = spawn_point.global_position

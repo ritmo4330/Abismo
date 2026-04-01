@@ -8,21 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://oywvpgyj08un" path="res://scenes/UI/inventory_ui.tscn" id="5_invui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd3e3"]
-size = Vector2(12, 22)
+size = Vector2(8, 10)
 
 [node name="Player" type="CharacterBody2D" unique_id=1223088320 groups=["player"]]
-position = Vector2(75, 55)
+y_sort_enabled = true
 script = ExtResource("1_qd3e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=422571853]
-position = Vector2(0, -8)
+position = Vector2(0, -12)
 sprite_frames = ExtResource("2_6avc5")
 animation = &"walk_back"
 autoplay = "idle_front"
 frame_progress = 0.8700467
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=656387466]
-position = Vector2(0, -5)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_qd3e3")
 
 [node name="StateMachine" type="Node" parent="." unique_id=513705598 node_paths=PackedStringArray("initial_node_state")]

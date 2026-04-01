@@ -1,19 +1,19 @@
 [gd_scene format=4 uid="uid://bgug2736oj2pc"]
 
-[ext_resource type="TileSet" uid="uid://ctxipbxd20b15" path="res://Tilesets/room_tile_set.tres" id="1_4b2ii"]
-[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/room.gd" id="1_ss71a"]
-[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/door.gd" id="2_7cwvm"]
-[ext_resource type="TileSet" uid="uid://dexypyamdy0x0" path="res://Tilesets/floor_tile_set.tres" id="2_dutdi"]
-[ext_resource type="TileSet" uid="uid://b6amhc3omysdy" path="res://Tilesets/16x16_tile_set.tres" id="3_gbxq7"]
-[ext_resource type="TileSet" uid="uid://k4rii8ww8hjj" path="res://Tilesets/wall_tile_set.tres" id="5_g4fv7"]
-[ext_resource type="Texture2D" uid="uid://6g5iowc4gkwt" path="res://assets/interior/床5.png" id="6_dutdi"]
-[ext_resource type="TileSet" uid="uid://dm0s0q71gk12" path="res://Tilesets/16x32_tile_set.tres" id="6_htvj8"]
-[ext_resource type="Texture2D" uid="uid://dd5vytskgh7a8" path="res://assets/interior/壁烛_2.png" id="7_fw07j"]
-[ext_resource type="Texture2D" uid="uid://d3p2nvhaptmyb" path="res://assets/interior/床6.png" id="7_gbxq7"]
-[ext_resource type="Texture2D" uid="uid://b6dlef8blldfe" path="res://assets/interior/凳子_2.png" id="8_830n6"]
+[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/room.gd" id="1_g4fv7"]
+[ext_resource type="TileSet" uid="uid://dexypyamdy0x0" path="res://Tilesets/floor_tile_set.tres" id="2_htvj8"]
+[ext_resource type="TileSet" uid="uid://b6amhc3omysdy" path="res://Tilesets/16x16_tile_set.tres" id="3_fw07j"]
+[ext_resource type="TileSet" uid="uid://ctxipbxd20b15" path="res://Tilesets/room_tile_set.tres" id="4_oj0cq"]
+[ext_resource type="TileSet" uid="uid://k4rii8ww8hjj" path="res://Tilesets/wall_tile_set.tres" id="5_pig82"]
+[ext_resource type="Texture2D" uid="uid://6g5iowc4gkwt" path="res://assets/interior/床5.png" id="6_mf02a"]
+[ext_resource type="Texture2D" uid="uid://d3p2nvhaptmyb" path="res://assets/interior/床6.png" id="7_vhi80"]
+[ext_resource type="TileSet" uid="uid://dm0s0q71gk12" path="res://Tilesets/16x32_tile_set.tres" id="8_rqx2r"]
+[ext_resource type="Texture2D" uid="uid://dd5vytskgh7a8" path="res://assets/interior/壁烛_2.png" id="9_l7gxf"]
+[ext_resource type="Texture2D" uid="uid://b6dlef8blldfe" path="res://assets/interior/凳子_2.png" id="10_erv7p"]
+[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/door.gd" id="11_1p7w7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jnr7r"]
-texture = ExtResource("6_dutdi")
+texture = ExtResource("6_mf02a")
 texture_region_size = Vector2i(8, 8)
 0:1/0 = 0
 0:2/0 = 0
@@ -97,7 +97,7 @@ texture_region_size = Vector2i(8, 8)
 10:9/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ktxaq"]
-texture = ExtResource("7_gbxq7")
+texture = ExtResource("7_vhi80")
 texture_region_size = Vector2i(8, 8)
 0:1/0 = 0
 0:2/0 = 0
@@ -185,7 +185,7 @@ sources/0 = SubResource("TileSetAtlasSource_jnr7r")
 sources/2 = SubResource("TileSetAtlasSource_ktxaq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa5hf"]
-texture = ExtResource("7_fw07j")
+texture = ExtResource("9_l7gxf")
 texture_region_size = Vector2i(8, 16)
 0:0/0 = 0
 1:0/0 = 0
@@ -199,7 +199,7 @@ tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_qa5hf")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lh35s"]
-texture = ExtResource("8_830n6")
+texture = ExtResource("10_erv7p")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
 1:0/0 = 0
@@ -218,8 +218,8 @@ sources/0 = SubResource("TileSetAtlasSource_lh35s")
 size = Vector2(30, 7)
 
 [sub_resource type="Gradient" id="Gradient_3r0n3"]
-offsets = PackedFloat32Array(0, 0.6610577, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.7658863, 0.7658863, 0.7658863, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.004, 0.148, 1)
+colors = PackedColorArray(0.78467673, 0.78467673, 0.78467673, 1, 1, 1, 1, 1, 0.7658863, 0.7658863, 0.7658863, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lbdex"]
 gradient = SubResource("Gradient_3r0n3")
@@ -228,32 +228,32 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [node name="RoomWuTingXiang" type="Node2D" unique_id=1315035317]
-script = ExtResource("1_ss71a")
-default_spawn_point = ""
+y_sort_enabled = true
+script = ExtResource("1_g4fv7")
 
 [node name="Scene" type="Node2D" parent="." unique_id=2065940674]
 
 [node name="Floor" type="TileMapLayer" parent="Scene" unique_id=1098640335]
 tile_map_data = PackedByteArray("AABBABgACwAAAAAAAABBABkACwAAAAEAAABCABgACwABAAAAAABCABkACwABAAEAAABBABoACwAAAAAAAABBABsACwAAAAEAAABCABoACwABAAAAAABCABsACwABAAEAAABBABwACwAAAAAAAABBAB0ACwAAAAEAAABCABwACwABAAAAAABCAB0ACwABAAEAAABBAB4ACwAAAAAAAABBAB8ACwAAAAEAAABCAB4ACwABAAAAAABCAB8ACwABAAEAAABDABgACwAAAAAAAABDABkACwAAAAEAAABEABgACwABAAAAAABEABkACwABAAEAAABDABoACwAAAAAAAABDABsACwAAAAEAAABEABoACwABAAAAAABEABsACwABAAEAAABDABwACwAAAAAAAABDAB0ACwAAAAEAAABEABwACwABAAAAAABEAB0ACwABAAEAAABDAB4ACwAAAAAAAABDAB8ACwAAAAEAAABEAB4ACwABAAAAAABEAB8ACwABAAEAAABFABgACwAAAAAAAABFABkACwAAAAEAAABGABgACwABAAAAAABGABkACwABAAEAAABFABoACwAAAAAAAABFABsACwAAAAEAAABGABoACwABAAAAAABGABsACwABAAEAAABFABwACwAAAAAAAABFAB0ACwAAAAEAAABGABwACwABAAAAAABGAB0ACwABAAEAAABFAB4ACwAAAAAAAABFAB8ACwAAAAEAAABGAB4ACwABAAAAAABGAB8ACwABAAEAAABHABgACwAAAAAAAABHABkACwAAAAEAAABIABgACwABAAAAAABIABkACwABAAEAAABHABoACwAAAAAAAABHABsACwAAAAEAAABIABoACwABAAAAAABIABsACwABAAEAAABHABwACwAAAAAAAABHAB0ACwAAAAEAAABIABwACwABAAAAAABIAB0ACwABAAEAAABHAB4ACwAAAAAAAABHAB8ACwAAAAEAAABIAB4ACwABAAAAAABIAB8ACwABAAEAAABJABgACwAAAAAAAABJABkACwAAAAEAAABJABoACwAAAAAAAABJABsACwAAAAEAAABJABwACwAAAAAAAABJAB0ACwAAAAEAAABJAB4ACwAAAAAAAABJAB8ACwAAAAEAAAA/ABgACwAAAAAAAAA/ABkACwAAAAEAAABAABgACwABAAAAAABAABkACwABAAEAAAA/ABoACwAAAAAAAAA/ABsACwAAAAEAAABAABoACwABAAAAAABAABsACwABAAEAAAA/ABwACwAAAAAAAAA/AB0ACwAAAAEAAABAABwACwABAAAAAABAAB0ACwABAAEAAAA/AB4ACwAAAAAAAAA/AB8ACwAAAAEAAABAAB4ACwABAAAAAABAAB8ACwABAAEAAAA9ABgACwAAAAAAAAA9ABkACwAAAAEAAAA+ABgACwABAAAAAAA+ABkACwABAAEAAAA9ABoACwAAAAAAAAA9ABsACwAAAAEAAAA+ABoACwABAAAAAAA+ABsACwABAAEAAAA9ABwACwAAAAAAAAA9AB0ACwAAAAEAAAA+ABwACwABAAAAAAA+AB0ACwABAAEAAAA9AB4ACwAAAAAAAAA9AB8ACwAAAAEAAAA+AB4ACwABAAAAAAA+AB8ACwABAAEAAAA=")
-tile_set = ExtResource("2_dutdi")
+tile_set = ExtResource("2_htvj8")
 
 [node name="Carpet" type="TileMapLayer" parent="Scene" unique_id=348453742]
 position = Vector2(-4, 7)
 tile_map_data = PackedByteArray("AABAABkABgAAAAAAAABAABoABgAAAAEAAABAABsABgAAAAIAAABAABwABgAAAAMAAABAAB0ABgAAAAQAAABBABkABgABAAAAAABBABoABgABAAEAAABBABsABgABAAIAAABBABwABgABAAMAAABBAB0ABgABAAQAAABCABkABgACAAAAAABCABoABgACAAEAAABCABsABgACAAIAAABCABwABgACAAMAAABCAB0ABgACAAQAAABDABkABgADAAAAAABDABoABgADAAEAAABDABsABgADAAIAAABDABwABgADAAMAAABDAB0ABgADAAQAAABEABkABgAEAAAAAABEABoABgAEAAEAAABEABsABgAEAAIAAABEABwABgAEAAMAAABEAB0ABgAEAAQAAABFABkABgAFAAAAAABFABoABgAFAAEAAABFABsABgAFAAIAAABFABwABgAFAAMAAABFAB0ABgAFAAQAAABGABkABgAGAAAAAABGABoABgAGAAEAAABGABsABgAGAAIAAABGABwABgAGAAMAAABGAB0ABgAGAAQAAABHABkABgAHAAAAAABHABoABgAHAAEAAABHABsABgAHAAIAAABHABwABgAHAAMAAABHAB0ABgAHAAQAAAA=")
-tile_set = ExtResource("3_gbxq7")
+tile_set = ExtResource("3_fw07j")
 
 [node name="WallSideBottom" type="TileMapLayer" parent="Scene" unique_id=601671635]
 tile_map_data = PackedByteArray("AACUADAAAwADAAEAAACUADEAAwADAAIAAACUADoAAwADAAEAAACUADsAAwADAAIAAACUADwAAwADAAMAAACUAD0AAwADAAAAAACUAD4AAwADAAEAAACUAD8AAwADAAIAAACUAEAAAwACAAIAAACUADgAAwADAAAAAACUADkAAwADAAEAAACUADIAAwADAAIAAACCAEAAAwABAAAAAACDAEAAAwACAAAAAACEAEAAAwABAAAAAACJAEAAAwACAAAAAACKAEAAAwABAAAAAACLAEAAAwACAAAAAACMAEAAAwABAAAAAACNAEAAAwACAAAAAACOAEAAAwABAAAAAACPAEAAAwACAAAAAACQAEAAAwABAAAAAACRAEAAAwACAAAAAACSAEAAAwABAAAAAACTAEAAAwACAAAAAACUADcAAwADAAAAAAB5ADAAAwAAAAAAAAB5ADEAAwAAAAEAAAB5ADIAAwAAAAIAAAB5ADMAAwAAAAMAAAB5ADQAAwAAAAAAAAB5ADUAAwAAAAEAAAB5ADYAAwAAAAIAAAB5ADcAAwAAAAMAAAB5ADgAAwAAAAAAAAB5ADkAAwAAAAEAAAB5ADoAAwAAAAIAAAB5ADsAAwAAAAMAAAB5ADwAAwAAAAAAAAB5AD0AAwAAAAEAAAB5AD4AAwAAAAIAAAB5AD8AAwAAAAMAAAB6AEAAAwABAAAAAAB7AEAAAwACAAAAAAB8AEAAAwABAAAAAAB9AEAAAwACAAAAAAB+AEAAAwABAAAAAAB/AEAAAwACAAAAAACAAEAAAwABAAAAAACBAEAAAwACAAAAAAB5AEAAAwABAAIAAACUADMAAwADAAAAAACUADQAAwADAAEAAACUADUAAwADAAIAAACUADYAAwADAAMAAAB5AC8AAwAAAAMAAACUAC8AAwADAAMAAAB5ACwAAwAAAAAAAAB5AC0AAwAAAAEAAAB5AC4AAwAAAAIAAAB5ACgAAwAAAAAAAAB5ACkAAwAAAAEAAAB5ACoAAwAAAAIAAAB5ACsAAwAAAAMAAAB5ACQAAwABAAMAAAB5ACUAAwAAAAEAAAB5ACYAAwAAAAIAAAB5ACcAAwAAAAMAAACUACwAAwADAAAAAACUAC0AAwADAAEAAACUAC4AAwADAAIAAACUACgAAwADAAAAAACUACkAAwADAAEAAACUACoAAwADAAIAAACUACsAAwADAAMAAACUACQAAwACAAMAAACUACUAAwADAAEAAACUACYAAwADAAIAAACUACcAAwADAAMAAAA=")
-tile_set = ExtResource("1_4b2ii")
+tile_set = ExtResource("4_oj0cq")
 
 [node name="WallUp" type="TileMapLayer" parent="Scene" unique_id=908360237]
 tile_map_data = PackedByteArray("AAA+AAIAAQAAAAAAAAA/AAIAAQABAAAAAABAAAIAAQACAAAAAABBAAIAAQADAAAAAABCAAIABwAAAAAAAABDAAIABwABAAAAAABEAAIABwACAAAAAABFAAIABwADAAAAAABGAAIABwAAAAAAAABHAAIABwABAAAAAABIAAIABwACAAAAAABJAAIABwADAAAAAAA9AAIABwADAAAAAAA=")
-tile_set = ExtResource("5_g4fv7")
+tile_set = ExtResource("5_pig82")
 
 [node name="DiaoLan" type="TileMapLayer" parent="Scene" unique_id=2003262845]
 position = Vector2(-11, 3)
 tile_map_data = PackedByteArray("AAA/ABQACgAAAAAAAAA/ABUACgAAAAEAAAA/ABYACgAAAAIAAAA=")
-tile_set = ExtResource("3_gbxq7")
+tile_set = ExtResource("3_fw07j")
 
 [node name="Bed" type="TileMapLayer" parent="Scene" unique_id=513379740]
 position = Vector2(8, 0)
@@ -263,12 +263,12 @@ tile_set = SubResource("TileSet_62ug7")
 [node name="ChuangTouGui" type="TileMapLayer" parent="Scene" unique_id=161780996]
 position = Vector2(0, 1)
 tile_map_data = PackedByteArray("AAA9ABwADgAAAAEAAAA9AB0ADgAAAAIAAAA9AB4ADgAAAAMAAAA+ABwADgABAAEAAAA+AB0ADgABAAIAAAA+AB4ADgABAAMAAAA9ABsADgAAAAAAAAA+ABsADgABAAAAAAA=")
-tile_set = ExtResource("6_htvj8")
+tile_set = ExtResource("8_rqx2r")
 
 [node name="Yigui" type="TileMapLayer" parent="Scene" unique_id=1132209678]
 position = Vector2(0, 4)
 tile_map_data = PackedByteArray("AABGABQACgAAAAAAAABGABUACgAAAAEAAABGABYACgAAAAIAAABGABcACgAAAAMAAABGABgACgAAAAQAAABHABQACgABAAAAAABHABUACgABAAEAAABHABYACgABAAIAAABHABcACgABAAMAAABHABgACgABAAQAAABIABQACgACAAAAAABIABUACgACAAEAAABIABYACgACAAIAAABIABcACgACAAMAAABIABgACgACAAQAAABJABQACgADAAAAAABJABUACgADAAEAAABJABYACgADAAIAAABJABcACgADAAMAAABJABgACgADAAQAAAA=")
-tile_set = ExtResource("6_htvj8")
+tile_set = ExtResource("8_rqx2r")
 
 [node name="BiZhu" type="TileMapLayer" parent="Scene" unique_id=1469095291]
 position = Vector2(10, 5)
@@ -278,7 +278,7 @@ tile_set = SubResource("TileSet_y755l")
 [node name="ShuZhuo" type="TileMapLayer" parent="Scene" unique_id=1895908091]
 position = Vector2(3, -23)
 tile_map_data = PackedByteArray("AABCABgAAQAAAAAAAABCABkAAQAAAAEAAABCABoAAQAAAAIAAABDABgAAQABAAAAAABDABkAAQABAAEAAABDABoAAQABAAIAAABEABgAAQACAAAAAABEABkAAQACAAEAAABEABoAAQACAAIAAABFABgAAQADAAAAAABFABkAAQADAAEAAABFABoAAQADAAIAAAA=")
-tile_set = ExtResource("3_gbxq7")
+tile_set = ExtResource("3_fw07j")
 
 [node name="DengZi" type="TileMapLayer" parent="Scene" unique_id=1144369767]
 position = Vector2(-2, 1)
@@ -286,17 +286,15 @@ tile_map_data = PackedByteArray("AACHADIAAAAAAAAAAACHADMAAAAAAAEAAACHADQAAAAAAAI
 tile_set = SubResource("TileSet_jnr7r")
 
 [node name="Door" type="Area2D" parent="Scene" unique_id=1109773949]
-script = ExtResource("2_7cwvm")
-target_scene_path = "uid://c2w1luor4yt1f"
+script = ExtResource("11_1p7w7")
+target_scene_path = "uid://c4rbw46jkpav"
 target_spawn_point = "SpawnFromWu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Door" unique_id=780276797]
-visible = false
 position = Vector2(1080, 516.5)
 shape = SubResource("RectangleShape2D_x1w88")
 
-[node name="SpawnFromSong" type="Marker2D" parent="." unique_id=829932385]
-visible = false
+[node name="SpawnFromF2" type="Marker2D" parent="Scene" unique_id=829932385]
 position = Vector2(1079, 497)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=736756762]

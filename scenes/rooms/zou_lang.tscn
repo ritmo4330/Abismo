@@ -1,0 +1,144 @@
+[gd_scene format=4 uid="uid://706wj0rmsrv7"]
+
+[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/room.gd" id="1_giep8"]
+[ext_resource type="Texture2D" uid="uid://4fua2mj0p7ms" path="res://assets/interior/走廊1.png" id="1_wvrrq"]
+[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/door.gd" id="2_giep8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af6e4"]
+texture = ExtResource("1_wvrrq")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4gety"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_af6e4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro5ho"]
+size = Vector2(37, 87.40625)
+
+[node name="ZouLang" type="Node2D" unique_id=1470491886]
+script = ExtResource("1_giep8")
+
+[node name="Scene" type="Node2D" parent="." unique_id=1943162210]
+
+[node name="Walls&Floor" type="TileMapLayer" parent="Scene" unique_id=1833583619]
+tile_map_data = PackedByteArray("AAAbAAsAAAAAAAIAAAAbAAwAAAAAAAMAAAAbAA0AAAAAAAQAAAAbAA4AAAAAAAUAAAAbAA8AAAAAAAYAAAAbABAAAAAAAAcAAAAbABEAAAAAAAgAAAAbABIAAAAAAAkAAAAbABMAAAAAAAoAAAAbABQAAAAAAAsAAAAbABUAAAAAAAwAAAAbABYAAAAAAA0AAAAbABcAAAAAAA4AAAAbABgAAAAAAA8AAAAcAAkAAAABAAAAAAAcAAoAAAABAAEAAAAcAAsAAAABAAIAAAAcAAwAAAABAAMAAAAcAA0AAAABAAQAAAAcAA4AAAABAAUAAAAcAA8AAAABAAYAAAAcABAAAAABAAcAAAAcABEAAAABAAgAAAAcABIAAAABAAkAAAAcABMAAAABAAoAAAAcABQAAAABAAsAAAAcABUAAAABAAwAAAAcABYAAAABAA0AAAAcABcAAAABAA4AAAAcABgAAAABAA8AAAAdAAkAAAACAAAAAAAdAAoAAAACAAEAAAAdAAsAAAACAAIAAAAdAAwAAAACAAMAAAAdAA0AAAACAAQAAAAdAA4AAAACAAUAAAAdAA8AAAACAAYAAAAdABAAAAACAAcAAAAdABEAAAACAAgAAAAdABIAAAACAAkAAAAdABMAAAACAAoAAAAdABQAAAACAAsAAAAdABUAAAACAAwAAAAdABYAAAACAA0AAAAdABcAAAACAA4AAAAdABgAAAACAA8AAAAeAAkAAAADAAAAAAAeAAoAAAADAAEAAAAeAAsAAAADAAIAAAAeAAwAAAADAAMAAAAeAA0AAAADAAQAAAAeAA4AAAADAAUAAAAeAA8AAAADAAYAAAAeABAAAAADAAcAAAAeABEAAAADAAgAAAAeABIAAAADAAkAAAAeABMAAAADAAoAAAAeABQAAAADAAsAAAAeABUAAAADAAwAAAAeABYAAAADAA0AAAAeABcAAAADAA4AAAAeABgAAAADAA8AAAAfAAkAAAAEAAAAAAAfAAoAAAAEAAEAAAAfAAsAAAAEAAIAAAAfAAwAAAAEAAMAAAAfAA0AAAAEAAQAAAAfAA4AAAAEAAUAAAAfAA8AAAAEAAYAAAAfABAAAAAEAAcAAAAfABEAAAAEAAgAAAAfABIAAAAEAAkAAAAfABMAAAAEAAoAAAAfABQAAAAEAAsAAAAfABUAAAAEAAwAAAAfABYAAAAEAA0AAAAfABcAAAAEAA4AAAAfABgAAAAEAA8AAAAgAA8AAAAFAAYAAAAgABAAAAAFAAcAAAAgABEAAAAFAAgAAAAgABIAAAAFAAkAAAAgABMAAAAFAAoAAAAgABQAAAAFAAsAAAAgABUAAAAFAAwAAAAgABYAAAAFAA0AAAAgABcAAAAFAA4AAAAgABgAAAAFAA8AAAA=")
+tile_set = SubResource("TileSet_4gety")
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1429468122]
+
+[node name="SpawnFromHall" type="Marker2D" parent="SpawnPoints" unique_id=1294081759]
+position = Vector2(989, 690)
+
+[node name="SpawnFromHuiKeTing" type="Marker2D" parent="SpawnPoints" unique_id=1822422502]
+position = Vector2(915, 690)
+
+[node name="Doors" type="Node2D" parent="." unique_id=1136796687]
+
+[node name="Hall" type="Area2D" parent="Doors" unique_id=1778186883]
+script = ExtResource("2_giep8")
+target_scene_path = "uid://4k1fp08quy17"
+target_spawn_point = "SpawnFromZouLang"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Hall" unique_id=96516572]
+position = Vector2(1033, 654)
+shape = SubResource("RectangleShape2D_ro5ho")
+
+[node name="HuiKeTing" type="Area2D" parent="Doors" unique_id=906034040]
+script = ExtResource("2_giep8")
+target_scene_path = "uid://cs45inoo1eq6x"
+target_spawn_point = "SpawnFromZouLang"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/HuiKeTing" unique_id=1823773756]
+position = Vector2(868, 650)
+shape = SubResource("RectangleShape2D_ro5ho")
+
+[connection signal="body_entered" from="Doors/Hall" to="Doors/Hall" method="_on_body_entered"]
+[connection signal="body_entered" from="Doors/HuiKeTing" to="Doors/HuiKeTing" method="_on_body_entered"]
