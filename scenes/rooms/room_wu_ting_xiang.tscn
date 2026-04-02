@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bgug2736oj2pc"]
 
-[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/room.gd" id="1_g4fv7"]
+[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_g4fv7"]
 [ext_resource type="TileSet" uid="uid://dexypyamdy0x0" path="res://Tilesets/floor_tile_set.tres" id="2_htvj8"]
 [ext_resource type="TileSet" uid="uid://b6amhc3omysdy" path="res://Tilesets/16x16_tile_set.tres" id="3_fw07j"]
 [ext_resource type="TileSet" uid="uid://ctxipbxd20b15" path="res://Tilesets/room_tile_set.tres" id="4_oj0cq"]
@@ -10,7 +10,7 @@
 [ext_resource type="TileSet" uid="uid://dm0s0q71gk12" path="res://Tilesets/16x32_tile_set.tres" id="8_rqx2r"]
 [ext_resource type="Texture2D" uid="uid://dd5vytskgh7a8" path="res://assets/interior/壁烛_2.png" id="9_l7gxf"]
 [ext_resource type="Texture2D" uid="uid://b6dlef8blldfe" path="res://assets/interior/凳子_2.png" id="10_erv7p"]
-[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/door.gd" id="11_1p7w7"]
+[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="11_1p7w7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jnr7r"]
 texture = ExtResource("6_mf02a")

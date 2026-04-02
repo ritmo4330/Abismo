@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://kxi3v8a21o68"]
 
-[ext_resource type="Script" uid="uid://dwfmtw0om50hr" path="res://scenes/objects/pickable_item.gd" id="1_iik35"]
-[ext_resource type="Resource" uid="uid://c4xyhynqnlfsd" path="res://resources/objects/item2.tres" id="2_rat1r"]
-[ext_resource type="SpriteFrames" uid="uid://cn01ehhqar6a2" path="res://resources/interact/key_E_frames.tres" id="3_cp8yy"]
+[ext_resource type="Script" uid="uid://dwfmtw0om50hr" path="res://scripts/objects/pickable_item.gd" id="1_iik35"]
+[ext_resource type="Resource" uid="uid://c4xyhynqnlfsd" path="res://assets/objects/item2.tres" id="2_rat1r"]
+[ext_resource type="SpriteFrames" uid="uid://cn01ehhqar6a2" path="res://assets/UI/key_E_frames.tres" id="3_cp8yy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xw3mt"]
 radius = 16.03122

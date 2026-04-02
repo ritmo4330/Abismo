@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://4k1fp08quy17"]
 
-[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/room.gd" id="1_hcmxa"]
+[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_hcmxa"]
 [ext_resource type="Texture2D" uid="uid://u5jdttqgwy6" path="res://assets/interior/大厅1.png" id="1_yj4g8"]
 [ext_resource type="TileSet" uid="uid://dm0s0q71gk12" path="res://Tilesets/16x32_tile_set.tres" id="3_yj4g8"]
-[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/door.gd" id="4_hcmxa"]
+[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="4_hcmxa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8lhao"]
 texture = ExtResource("1_yj4g8")

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://7q46owluqudi"]
 
-[ext_resource type="Script" uid="uid://dmapod3n5dd44" path="res://scenes/characters/player/player.gd" id="1_qd3e3"]
-[ext_resource type="SpriteFrames" uid="uid://bmn7olu3x6bh7" path="res://resources/characters/wu_ting_xiang.tres" id="2_6avc5"]
-[ext_resource type="Script" uid="uid://dguvl6v420tyd" path="res://scripts/state_machine/node_state_machine.gd" id="2_686vu"]
-[ext_resource type="Script" uid="uid://bybm84okp5rpu" path="res://scenes/characters/player/idle_state.gd" id="3_hss88"]
-[ext_resource type="Script" uid="uid://c3wybd6f6lhu8" path="res://scenes/characters/player/walk_state.gd" id="4_hss88"]
+[ext_resource type="Script" uid="uid://dmapod3n5dd44" path="res://scripts/characters/player/player.gd" id="1_qd3e3"]
+[ext_resource type="SpriteFrames" uid="uid://bmn7olu3x6bh7" path="res://assets/characters/wu_ting_xiang.tres" id="2_6avc5"]
+[ext_resource type="Script" uid="uid://dguvl6v420tyd" path="res://scripts/characters/player/state_machine/node_state_machine.gd" id="2_686vu"]
+[ext_resource type="Script" uid="uid://bybm84okp5rpu" path="res://scripts/characters/player/idle_state.gd" id="3_hss88"]
+[ext_resource type="Script" uid="uid://c3wybd6f6lhu8" path="res://scripts/characters/player/walk_state.gd" id="4_hss88"]
 [ext_resource type="PackedScene" uid="uid://oywvpgyj08un" path="res://scenes/UI/inventory_ui.tscn" id="5_invui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd3e3"]

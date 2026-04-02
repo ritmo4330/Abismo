@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://c2w1luor4yt1f"]
 
-[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/room.gd" id="1_x1w88"]
+[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_x1w88"]
 [ext_resource type="TileSet" uid="uid://ctxipbxd20b15" path="res://Tilesets/room_tile_set.tres" id="1_xhnn5"]
 [ext_resource type="TileSet" uid="uid://dexypyamdy0x0" path="res://Tilesets/floor_tile_set.tres" id="2_ddvxm"]
-[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/door.gd" id="3_x1w88"]
+[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="3_x1w88"]
 [ext_resource type="TileSet" uid="uid://b6amhc3omysdy" path="res://Tilesets/16x16_tile_set.tres" id="3_y755l"]
 [ext_resource type="TileSet" uid="uid://k4rii8ww8hjj" path="res://Tilesets/wall_tile_set.tres" id="4_3r0n3"]
 [ext_resource type="PackedScene" uid="uid://kxi3v8a21o68" path="res://scenes/objects/pickable_item.tscn" id="4_ssrmc"]

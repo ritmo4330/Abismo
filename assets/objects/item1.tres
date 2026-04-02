@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c5y75mwd5dyyu"]
+
+[ext_resource type="Script" uid="uid://estetodyc5j" path="res://scripts/objects/item_data.gd" id="1_d4gr3"]
+[ext_resource type="Texture2D" uid="uid://bctpgm28e00gm" path="res://素材库/Sprout Lands - Sprites - Basic pack/Objects/Egg item.png" id="1_nibf5"]
+
+[resource]
+script = ExtResource("1_d4gr3")
+id = "1"
+name = "鸡蛋"
+icon = ExtResource("1_nibf5")
+description = "一枚普普通通的鸡蛋"
+metadata/_custom_type_script = "uid://estetodyc5j"

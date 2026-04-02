@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://ccoalm2taxdwe"]
 
-[ext_resource type="Script" uid="uid://dqsp2afscxoqa" path="res://scenes/characters/npcs/npc.gd" id="1_idr7u"]
-[ext_resource type="SpriteFrames" uid="uid://brdnsrc1qaho3" path="res://resources/characters/cat1.tres" id="1_mp4vq"]
-[ext_resource type="SpriteFrames" uid="uid://cn01ehhqar6a2" path="res://resources/interact/key_E_frames.tres" id="2_idr7u"]
-[ext_resource type="Texture2D" uid="uid://dgulsde5spmvh" path="res://素材库/Sprout Lands - Sprites - Basic pack/Objects/Free_Chicken_House.png" id="2_xxdnj"]
+[ext_resource type="Script" uid="uid://dqsp2afscxoqa" path="res://scripts/characters/npc/npc.gd" id="1_idr7u"]
+[ext_resource type="SpriteFrames" uid="uid://brdnsrc1qaho3" path="res://assets/characters/cat1.tres" id="1_mp4vq"]
+[ext_resource type="SpriteFrames" uid="uid://cn01ehhqar6a2" path="res://assets/UI/key_E_frames.tres" id="2_idr7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxdnj"]
 size = Vector2(12, 24)
@@ -13,7 +12,8 @@ radius = 16.0
 
 [node name="NPC" type="CharacterBody2D" unique_id=315533828]
 script = ExtResource("1_idr7u")
-avatar = ExtResource("2_xxdnj")
+npc_name = ""
+timeline_name = "test"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=278144488]
 sprite_frames = ExtResource("1_mp4vq")
@@ -33,3 +33,5 @@ shape = SubResource("CircleShape2D_mp4vq")
 [node name="PromptUI" type="AnimatedSprite2D" parent="." unique_id=319962830]
 position = Vector2(0, -18)
 sprite_frames = ExtResource("2_idr7u")
+autoplay = "default"
+frame_progress = 0.19732893

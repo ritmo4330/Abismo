@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://cs45inoo1eq6x"]
 
-[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/room.gd" id="1_bfxa5"]
+[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_bfxa5"]
 [ext_resource type="TileSet" uid="uid://dexypyamdy0x0" path="res://Tilesets/floor_tile_set.tres" id="1_h5ahy"]
 [ext_resource type="TileSet" uid="uid://b6amhc3omysdy" path="res://Tilesets/16x16_tile_set.tres" id="2_g4nw3"]
 [ext_resource type="TileSet" uid="uid://k4rii8ww8hjj" path="res://Tilesets/wall_tile_set.tres" id="2_wogx6"]
 [ext_resource type="TileSet" uid="uid://ctxipbxd20b15" path="res://Tilesets/room_tile_set.tres" id="3_g4nw3"]
 [ext_resource type="TileSet" uid="uid://dm0s0q71gk12" path="res://Tilesets/16x32_tile_set.tres" id="4_wogx6"]
-[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/door.gd" id="6_falpv"]
+[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="6_falpv"]
 [ext_resource type="TileSet" uid="uid://7ywdudam4ou4" path="res://Tilesets/8x8.tres" id="6_gwq15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwq15"]

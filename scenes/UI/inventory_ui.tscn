@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://oywvpgyj08un"]
 
-[ext_resource type="Script" uid="uid://gcnrla347rwt" path="res://scripts/inventory_ui.gd" id="1_brv7c"]
-[ext_resource type="Texture2D" uid="uid://bm5mebi3gwbr1" path="res://assets/素材库/Sprout Lands - UI Pack - Premium pack/emojis/emoji style ui/inventory_example_with_slots_2.png" id="2_hhucr"]
+[ext_resource type="Script" uid="uid://gcnrla347rwt" path="res://scripts/UI/inventory_ui.gd" id="1_brv7c"]
+[ext_resource type="Texture2D" uid="uid://bm5mebi3gwbr1" path="res://素材库/Sprout Lands - UI Pack - Premium pack/emojis/emoji style ui/inventory_example_with_slots_2.png" id="2_hhucr"]
 
 [node name="InventoryUI" type="CanvasLayer" unique_id=1035700203]
 script = ExtResource("1_brv7c")
