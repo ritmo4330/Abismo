@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccoalm2taxdwe"]
 
 [ext_resource type="Script" uid="uid://dqsp2afscxoqa" path="res://scripts/characters/npc/npc.gd" id="1_idr7u"]
-[ext_resource type="SpriteFrames" uid="uid://brdnsrc1qaho3" path="res://assets/characters/cat1.tres" id="1_mp4vq"]
+[ext_resource type="SpriteFrames" uid="uid://brdnsrc1qaho3" path="res://assets/characters/npcs/cat1.tres" id="1_mp4vq"]
 [ext_resource type="SpriteFrames" uid="uid://cn01ehhqar6a2" path="res://assets/UI/key_E_frames.tres" id="2_idr7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxdnj"]

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="yishu"
+config/name="Abismo"
 run/main_scene="uid://qyyt35714fu4"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bcwh7upcxi31p"
@@ -20,16 +20,15 @@ config/icon="uid://bcwh7upcxi31p"
 EventBus="*res://scripts/event_bus.gd"
 Transition="*uid://c5g7yq8ccn6pt"
 PlayerState="*uid://b5d53uj0ekijn"
-DialogueManager="*uid://b7t6haavth0ks"
 Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
 directories/dch_directory={
-"song_lin_xi": "res://assets/characters/song_lin_xi.dch"
+"song_lin_xi": "res://assets/characters/npcs/song_lin_xi.dch"
 }
 directories/dtl_directory={
-"test": "res://assets/UI/test.dtl"
+"test": "res://assets/dialogues/test.dtl"
 }
 layout/style_directory={
 "": "res://assets/UI/dialogic_style_1.tres",
