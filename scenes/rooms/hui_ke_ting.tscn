@@ -123,4 +123,3 @@ texture = SubResource("GradientTexture2D_1pjmd")
 [node name="SpawnFromZouLang" type="Marker2D" parent="." unique_id=2030578906]
 position = Vector2(664, 429)
 
-[connection signal="body_entered" from="Scene/Door" to="Scene/Door" method="_on_body_entered"]

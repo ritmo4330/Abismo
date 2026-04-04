@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_ydu0m"]
 [ext_resource type="TileSet" uid="uid://bbl3ftom8ktcx" path="res://Tilesets/floor2.tres" id="2_qslkk"]
 [ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="4_eu8ld"]
+[ext_resource type="Script" uid="uid://w4c4wuwddlye" path="res://scripts/scenes/passage.gd" id="5_m8j1w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ia6ke"]
 size = Vector2(88, 23.25)
@@ -52,7 +53,7 @@ position = Vector2(1171, 640)
 [node name="Doors" type="Node2D" parent="Scene" unique_id=1067666787]
 
 [node name="HallLeft" type="Area2D" parent="Scene/Doors" unique_id=1171518174]
-script = ExtResource("4_eu8ld")
+script = ExtResource("5_m8j1w")
 target_scene_path = "uid://4k1fp08quy17"
 target_spawn_point = "SpawnFromFloor2Left"
 
@@ -61,7 +62,7 @@ position = Vector2(733, 514)
 shape = SubResource("RectangleShape2D_ia6ke")
 
 [node name="HallRight" type="Area2D" parent="Scene/Doors" unique_id=2011165499]
-script = ExtResource("4_eu8ld")
+script = ExtResource("5_m8j1w")
 target_scene_path = "uid://4k1fp08quy17"
 target_spawn_point = "SpawnFromFloor2Right"
 
@@ -151,5 +152,3 @@ texture = SubResource("GradientTexture2D_qslkk")
 
 [connection signal="body_entered" from="Scene/Doors/HallLeft" to="Scene/Doors/HallLeft" method="_on_body_entered"]
 [connection signal="body_entered" from="Scene/Doors/HallRight" to="Scene/Doors/HallRight" method="_on_body_entered"]
-[connection signal="body_entered" from="Scene/Doors/RoomSong" to="Scene/Doors/RoomSong" method="_on_body_entered"]
-[connection signal="body_entered" from="Scene/Doors/RoomWu" to="Scene/Doors/RoomWu" method="_on_body_entered"]

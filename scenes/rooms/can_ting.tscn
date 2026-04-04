@@ -190,5 +190,3 @@ color = Color(0.97034913, 0.73971987, 0.4189001, 1)
 energy = 0.96
 texture = SubResource("GradientTexture2D_1rht5")
 
-[connection signal="body_entered" from="Doors/Hall" to="Doors/Hall" method="_on_body_entered"]
-[connection signal="body_entered" from="Doors/ZouLang" to="Doors/ZouLang" method="_on_body_entered"]

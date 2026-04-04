@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://u5jdttqgwy6" path="res://assets/interior/大厅1.png" id="1_yj4g8"]
 [ext_resource type="TileSet" uid="uid://dm0s0q71gk12" path="res://Tilesets/16x32_tile_set.tres" id="3_yj4g8"]
 [ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="4_hcmxa"]
+[ext_resource type="Script" path="res://scripts/scenes/passage.gd" id="5_l1f20"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8lhao"]
 texture = ExtResource("1_yj4g8")
@@ -177,7 +178,7 @@ position = Vector2(895, 677)
 shape = SubResource("RectangleShape2D_uh015")
 
 [node name="F2Left" type="Area2D" parent="Scene/Doors" unique_id=420603400]
-script = ExtResource("4_hcmxa")
+script = ExtResource("5_l1f20")
 target_scene_path = "uid://c4rbw46jkpav"
 target_spawn_point = "SpawnFromHallLeft"
 
@@ -186,7 +187,7 @@ position = Vector2(714, 330)
 shape = SubResource("RectangleShape2D_uh015")
 
 [node name="F2Right" type="Area2D" parent="Scene/Doors" unique_id=1727113968]
-script = ExtResource("4_hcmxa")
+script = ExtResource("5_l1f20")
 target_scene_path = "uid://c4rbw46jkpav"
 target_spawn_point = "SpawnFromHallRight"
 
@@ -195,7 +196,7 @@ position = Vector2(1075, 329)
 shape = SubResource("RectangleShape2D_uh015")
 
 [node name="ZouLang" type="Area2D" parent="Scene/Doors" unique_id=25102161]
-script = ExtResource("4_hcmxa")
+script = ExtResource("5_l1f20")
 target_scene_path = "uid://706wj0rmsrv7"
 target_spawn_point = "SpawnFromHall"
 
@@ -285,9 +286,6 @@ texture = SubResource("GradientTexture2D_uh015")
 [node name="InitialSpawn" type="Marker2D" parent="." unique_id=214959969]
 position = Vector2(897, 530)
 
-[connection signal="body_entered" from="Scene/Doors/Gate" to="Scene/Doors/Gate" method="_on_body_entered"]
 [connection signal="body_entered" from="Scene/Doors/F2Left" to="Scene/Doors/F2Left" method="_on_body_entered"]
 [connection signal="body_entered" from="Scene/Doors/F2Right" to="Scene/Doors/F2Right" method="_on_body_entered"]
 [connection signal="body_entered" from="Scene/Doors/ZouLang" to="Scene/Doors/ZouLang" method="_on_body_entered"]
-[connection signal="body_entered" from="Scene/Doors/ChuWuJian" to="Scene/Doors/ChuWuJian" method="_on_body_entered"]
-[connection signal="body_entered" from="Scene/Doors/CanTing" to="Scene/Doors/CanTing" method="_on_body_entered"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_giep8"]
 [ext_resource type="Texture2D" uid="uid://4fua2mj0p7ms" path="res://assets/interior/走廊1.png" id="1_wvrrq"]
 [ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="2_giep8"]
+[ext_resource type="Script" path="res://scripts/scenes/passage.gd" id="3_ufhcl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af6e4"]
 texture = ExtResource("1_wvrrq")
@@ -126,7 +127,7 @@ position = Vector2(972, 446)
 [node name="Doors" type="Node2D" parent="." unique_id=1136796687]
 
 [node name="Hall" type="Area2D" parent="Doors" unique_id=1778186883]
-script = ExtResource("2_giep8")
+script = ExtResource("3_ufhcl")
 target_scene_path = "uid://4k1fp08quy17"
 target_spawn_point = "SpawnFromZouLang"
 
@@ -153,5 +154,3 @@ position = Vector2(1016, 405)
 shape = SubResource("RectangleShape2D_ro5ho")
 
 [connection signal="body_entered" from="Doors/Hall" to="Doors/Hall" method="_on_body_entered"]
-[connection signal="body_entered" from="Doors/HuiKeTing" to="Doors/HuiKeTing" method="_on_body_entered"]
-[connection signal="body_entered" from="Doors/HuiKeTing2" to="Doors/HuiKeTing2" method="_on_body_entered"]

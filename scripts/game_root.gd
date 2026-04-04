@@ -34,6 +34,7 @@ func _ready():
 		
 	# 监听 EventBus 传来的切换场景请求
 	EventBus.change_room_requested.connect(_on_change_room_requested)
+	EventBus.scene_change_requested.connect(_on_change_room_requested)
 	
 	EventBus.dialogue_requested.connect(_on_dialogue_requested)
 

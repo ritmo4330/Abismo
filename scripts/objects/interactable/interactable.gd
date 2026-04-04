@@ -3,6 +3,7 @@ extends Area2D
 
 @export var interact_id: String = ""
 @export var is_one_time: bool = false
+@export var prompt_offset: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
