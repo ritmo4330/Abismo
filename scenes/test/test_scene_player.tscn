@@ -4,8 +4,6 @@
 [ext_resource type="TileSet" uid="uid://ctxipbxd20b15" path="res://Tilesets/room_tile_set.tres" id="1_ocjif"]
 [ext_resource type="Texture2D" uid="uid://bwu67ufx071kh" path="res://素材库/Sprout Lands - Sprites - premium pack/Tilesets/Building parts/Basic_Furniture.png" id="2_np1fs"]
 [ext_resource type="PackedScene" uid="uid://7q46owluqudi" path="res://scenes/characters/player/player.tscn" id="4_e46wm"]
-[ext_resource type="PackedScene" uid="uid://kxi3v8a21o68" path="res://scenes/objects/pickable_item.tscn" id="5_np1fs"]
-[ext_resource type="Resource" uid="uid://c5y75mwd5dyyu" path="res://assets/objects/item1.tres" id="6_q8rd1"]
 [ext_resource type="PackedScene" uid="uid://ccoalm2taxdwe" path="res://scenes/characters/npcs/npc.tscn" id="7_q8rd1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5vxv"]
@@ -191,20 +189,6 @@ tile_set = ExtResource("1_ocjif")
 
 [node name="Player" parent="." unique_id=1223088320 instance=ExtResource("4_e46wm")]
 position = Vector2(499, 232)
-
-[node name="PickableItem" parent="." unique_id=2140447268 instance=ExtResource("5_np1fs")]
-position = Vector2(501, 164)
-
-[node name="PickableItem2" parent="." unique_id=214557891 instance=ExtResource("5_np1fs")]
-position = Vector2(534, 203)
-item_data = ExtResource("6_q8rd1")
-
-[node name="PickableItem3" parent="." unique_id=494307475 instance=ExtResource("5_np1fs")]
-position = Vector2(546, 156)
-
-[node name="PickableItem4" parent="." unique_id=1304536845 instance=ExtResource("5_np1fs")]
-position = Vector2(424, 157)
-item_data = ExtResource("6_q8rd1")
 
 [node name="NPC" parent="." unique_id=315533828 instance=ExtResource("7_q8rd1")]
 position = Vector2(425, 252)

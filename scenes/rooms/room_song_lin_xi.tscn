@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="3_x1w88"]
 [ext_resource type="TileSet" uid="uid://b6amhc3omysdy" path="res://Tilesets/16x16_tile_set.tres" id="3_y755l"]
 [ext_resource type="TileSet" uid="uid://k4rii8ww8hjj" path="res://Tilesets/wall_tile_set.tres" id="4_3r0n3"]
-[ext_resource type="PackedScene" uid="uid://kxi3v8a21o68" path="res://scenes/objects/pickable_item.tscn" id="4_ssrmc"]
 [ext_resource type="TileSet" uid="uid://dm0s0q71gk12" path="res://Tilesets/16x32_tile_set.tres" id="5_3r0n3"]
 [ext_resource type="PackedScene" uid="uid://ccoalm2taxdwe" path="res://scenes/characters/npcs/npc.tscn" id="5_48a5x"]
 [ext_resource type="Texture2D" uid="uid://6g5iowc4gkwt" path="res://assets/interior/床5.png" id="7_jnr7r"]
@@ -284,9 +283,6 @@ shape = SubResource("RectangleShape2D_x1w88")
 
 [node name="SpawnFromF2" type="Marker2D" parent="Scene" unique_id=829932385]
 position = Vector2(1079, 497)
-
-[node name="PickableItem" parent="." unique_id=2140447268 instance=ExtResource("4_ssrmc")]
-position = Vector2(1073, 424)
 
 [node name="NPC" parent="." unique_id=315533828 instance=ExtResource("5_48a5x")]
 position = Vector2(1161, 439)

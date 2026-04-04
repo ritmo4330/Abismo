@@ -5,13 +5,10 @@ extends Node
 
 # 场景/房间系统
 signal change_room_requested(target_scene_path: String, spawn_point_name: String)
+signal scene_change_requested(target_scene_path: String, spawn_point_name: String)
 
-# ============ 物品 & 背包系统 ============
-# 当物品被成功拾取时触发（UI可以监听这个信号来在屏幕上弹出提示，比如“获得：苹果 x1”）
-signal item_picked_up(item: Resource, amount: int)
-
-# 当背包内容发生任何变化时触发（背包UI界面用来刷新自己的显示格子）
-signal inventory_changed()
+# 对话系统
+signal dialogue_requested(dialogue_id: String)
 
 # 你可以随着游戏开发，在这里不断追加新的信号，比如：
 # signal player_health_changed(new_health: int)

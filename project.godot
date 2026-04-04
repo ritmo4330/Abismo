@@ -18,8 +18,8 @@ config/icon="uid://bcwh7upcxi31p"
 [autoload]
 
 EventBus="*res://scripts/event_bus.gd"
+DataManager="*res://scripts/data_manager.gd"
 Transition="*uid://c5g7yq8ccn6pt"
-PlayerState="*uid://b5d53uj0ekijn"
 Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]

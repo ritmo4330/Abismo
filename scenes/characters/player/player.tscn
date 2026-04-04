@@ -5,10 +5,13 @@
 [ext_resource type="Script" uid="uid://dguvl6v420tyd" path="res://scripts/characters/player/state_machine/node_state_machine.gd" id="2_686vu"]
 [ext_resource type="Script" uid="uid://bybm84okp5rpu" path="res://scripts/characters/player/state_machine/idle_state.gd" id="3_hss88"]
 [ext_resource type="Script" uid="uid://c3wybd6f6lhu8" path="res://scripts/characters/player/state_machine/walk_state.gd" id="4_hss88"]
-[ext_resource type="PackedScene" uid="uid://oywvpgyj08un" path="res://scenes/UI/inventory_ui.tscn" id="5_invui"]
+[ext_resource type="Script" uid="uid://di4a0mn1f02h7" path="res://scripts/characters/player/player_interaction_area.gd" id="6_intar"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd3e3"]
 size = Vector2(8, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_intar"]
+radius = 18.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1223088320 groups=["player"]]
 y_sort_enabled = true
@@ -40,7 +43,23 @@ player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 speed = 120.0
 
-[node name="InventoryUI" parent="." unique_id=1746716395 instance=ExtResource("5_invui")]
+[node name="InteractionArea" type="Area2D" parent="." unique_id=939770101 node_paths=PackedStringArray("player", "interaction_hint")]
+script = ExtResource("6_intar")
+player = NodePath("..")
+interaction_hint = NodePath("../InteractionHint")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1560872404]
+shape = SubResource("CircleShape2D_intar")
+
+[node name="InteractionHint" type="Label" parent="." unique_id=763710943]
+visible = false
+offset_left = -18.0
+offset_top = -40.0
+offset_right = 18.0
+offset_bottom = -20.0
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1715043308]
 zoom = Vector2(3, 3)
