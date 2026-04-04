@@ -2,36 +2,27 @@
 
 [ext_resource type="Script" uid="uid://dqsp2afscxoqa" path="res://scripts/characters/npc/npc.gd" id="1_idr7u"]
 [ext_resource type="SpriteFrames" uid="uid://brdnsrc1qaho3" path="res://assets/characters/npcs/cat1.tres" id="1_mp4vq"]
-[ext_resource type="SpriteFrames" uid="uid://cn01ehhqar6a2" path="res://assets/UI/key_E_frames.tres" id="2_idr7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxdnj"]
-size = Vector2(12, 24)
+size = Vector2(12, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mp4vq"]
-radius = 16.0
-
-[node name="NPC" type="CharacterBody2D" unique_id=315533828]
+[node name="NPC" type="Area2D" unique_id=315533828]
 script = ExtResource("1_idr7u")
 npc_name = ""
 timeline_name = "test"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=278144488]
+position = Vector2(0, -15)
 sprite_frames = ExtResource("1_mp4vq")
 animation = &"idle_front"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1048617042]
-position = Vector2(0, 4)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_xxdnj")
 
-[node name="InteractArea" type="Area2D" parent="." unique_id=1603013461]
+[node name="ColliderBody" type="StaticBody2D" parent="." unique_id=1376400112]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=2059319510]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_mp4vq")
-
-[node name="PromptUI" type="AnimatedSprite2D" parent="." unique_id=319962830]
-position = Vector2(0, -18)
-sprite_frames = ExtResource("2_idr7u")
-autoplay = "default"
-frame_progress = 0.19732893
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColliderBody" unique_id=1866209514]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_xxdnj")

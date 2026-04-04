@@ -35,8 +35,34 @@ func _ready():
 	# 监听 EventBus 传来的切换场景请求
 	EventBus.change_room_requested.connect(_on_change_room_requested)
 	
+	EventBus.dialogue_requested.connect(_on_dialogue_requested)
+
+	if not Dialogic.timeline_ended.is_connected(_on_dialogue_ended):
+		Dialogic.timeline_ended.connect(_on_dialogue_ended)
+	
 	# 游戏启动时，加载第一个关卡（使用默认出生点或空字符串由 Room 决定）
 	_load_room(FIRST_LEVEL_PATH, "InitialSpawn")
+
+
+func _on_dialogue_requested(dialogue_id: String) -> void:
+	if dialogue_id.is_empty():
+		return
+	if Dialogic.current_timeline != null:
+		return
+
+	get_tree().paused = true
+	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+
+	var layout: Node = Dialogic.start(dialogue_id)
+	if layout != null:
+		layout.process_mode = Node.PROCESS_MODE_ALWAYS
+
+
+func _on_dialogue_ended() -> void:
+	# 避免在场景过渡期间提前解除暂停
+	if is_transitioning:
+		return
+	get_tree().paused = false
 
 # 当门或其他逻辑触发切换请求时执行
 func _on_change_room_requested(target_path: String, spawn_point_name: String):
