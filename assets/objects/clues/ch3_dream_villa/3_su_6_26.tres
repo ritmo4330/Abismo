@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ClueData" format=3 uid="uid://b4sfqrdjn3284"]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "3_su_6_26"
+title = "通灵法阵"
+description = "粗略翻阅书中的内容，发现其中记载的都是“通灵法阵”的使用方法。通灵法阵由五行祭品和中央祭品组成。五行祭品需按一定顺序置于五芒星的五角，中央祭品最后放入，并遵循“求什么，就要献什么”的原则。等待十分钟后，火焰将在法阵上方燃起，届时向神明默祷，祈求便能得到回应。仪式结束后，法阵的痕迹与祭品都将消失。"
+chapter_id = "3"
+room_id = "su"
+category_path = PackedStringArray("梦墅", "苏溟玖房间", "深入调查")
+tags = PackedStringArray("chapter_3", "dream_villa", "deep_investigation")
+clue_type = "lore"
+parent_clue_id = "3_su_6"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

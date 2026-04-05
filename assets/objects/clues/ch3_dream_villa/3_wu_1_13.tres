@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ClueData" format=3 uid="uid://cdw42m45p3j1f"]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "3_wu_1_13"
+title = "旧报纸"
+description = "挖开沙粒，盒子底部有一张被折起来的报纸。报纸记载了1999年9月8日，警方抓获一群邪教分子的事件。警方拍摄了一张邪教仪式现场的照片，是画在地上的一个大五芒星。邪教分子声称神明是存在的，并要求警方让其证明。警方没有理会他们的无稽之谈，呼吁民众相信科学。"
+chapter_id = "3"
+room_id = "wu"
+category_path = PackedStringArray("梦墅", "乌停湘房间", "深入调查")
+tags = PackedStringArray("chapter_3", "dream_villa", "deep_investigation")
+clue_type = "lore"
+parent_clue_id = "3_wu_1"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

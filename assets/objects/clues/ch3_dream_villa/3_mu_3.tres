@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "3_mu_3"
+title = "林羽的信件"
+description = "书桌的抽屉里有一封信件，署名“林羽”。\\n\\n林羽的回信\\n穆暌信先生：\\n很抱歉现在才写这封信给你，距离你问我关于人脑遗忘机制的问题已经过了几个月了，希望没有带来不便。\\n人的意识分为三层：表层意识、前意识、潜意识。表层意识中储存着那些较活跃的记忆，而那些不活跃的便逐渐被压抑进潜意识，而前意识如同表层意识与潜意识之间连接的玄关，对记忆起审查作用。经由前意识审查，表层意识与潜意识之间才实现了信息交换。\\n我们能够记住的记忆往往是我们愿意记住的，即对我们的人生有积极意义的。这类积极意义包括成长、教训、目标以及身边的人的积极影响——当然，这类积极意义仅是对个人而言，在社会范围内不具有意义。因此，容易被遗忘的记忆则是无意义或只有消极意义的。但值得注意的是，那些被遗忘的记忆会永远保存在潜意识中，并无时无刻不在影响人的行为，这就是为什么一个品德高尚的人偶尔地会冒出邪恶的念头，不是因为他不够高尚，而是因为他对那些不好的念头选择了压抑而非承认与和解。同时，潜意识中的内容有时会突破前意识的申查而进入意识，尤其是在审查能力较弱的梦中。\\n由此回到遗忘机制的问题。我将通常的遗忘分为两类：器质性和心因性。器质性指人脑本身受损，导致记忆遗失。心因性还可分为两类：催眠导致的心因性遗忘和前意识压抑导致的心因性遗忘。催眠是一种能够直接影响潜意识的手段，是种主动行为，催眠既可以来自外人，也可以来自自身，这种方法带来的遗忘非常深刻。至于前意识压抑，正如前面所说，是不具有积极意义的记忆被动地被压抑进潜意识的过程。\\n以上，即是我对你的问题的回答。\\n顺祝近祺。\\n林羽\\n2021年12月20日"
+chapter_id = "3"
+room_id = "mu"
+category_path = PackedStringArray("梦墅", "穆暌信房间")
+tags = PackedStringArray("chapter_3", "dream_villa", "scene")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

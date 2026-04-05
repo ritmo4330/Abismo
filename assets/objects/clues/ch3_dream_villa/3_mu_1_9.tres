@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ClueData" format=3 uid="uid://cn63vusr0yfgl"]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "3_mu_1_9"
+title = "笔记本"
+description = "笔记本记录了一些语句，应该有所出处。\\n\\n箴言录节选\\n①神明创生了这世界的源起，并使命运之线贯穿其中，使一切物质相互联系并处于永恒的运动之中。命运之线不被凡人所视，自遵循一定的规律振动和迁移。所谓科学探索出的一切规律，均为命运之线本身的特质。在命运之线的牵引下，所有的事物按规律自然发展，并逐渐演化出如今的世界。神明可以轻易操控命运之线的运动，从而掌控世间的一切。\\n②神明将命运之线的一部分结成环形，命名‘因果’。因果之理不同于可被相互牵引的命运之线，是每个人不可撼动的宿命，无论意识到与否，不存在能改变被因果束缚的宿命之可能。神明为维护世间的秩序而设下因果，便不至于出现严重出格的事件。\\n③神明居于神明之境，与我们的世界有一道黑色门扉相隔，任何妄图窥探神明之境的行为决不允许，一切妄图通过黑色门扉的人将被修正。人类不应怀有不当的好奇心，行僭越之事，否则将自取灭亡。除触及神明之境，神明不会对任何行为亲施惩戒。\\n④世界处于叠加当中，神明以‘阿尔法’‘贝塔’‘伽马’‘西塔’等为之命名，所有处于叠加中的世界都由神明掌管，彼此之间互不干扰。我们的世界以‘西塔’命名，我们无法窥探到其它世界的情况，正如我们无法窥探到神明之境一般。\\n⑤关于世间的生灵，都经历了从无到有，从低级到高级的过程，这一切都遵从命运之线的规则。在规则的选择中，人类这一物种脱颖而出，成为世界上最强盛的物种。因此，拥有智慧的人类应着力探索规则，并利用规则发展自身。\\n⑥在可知论的范围内，人的梦境是最为神秘的区域，在那里不存在命运之线，因此现实中的规则在梦境中大多不适用。人恐惧至极的事物可能化为梦魇，使被缠绕之人痛苦不堪，甚者因此而死亡。"
+chapter_id = "3"
+room_id = "mu"
+category_path = PackedStringArray("梦墅", "穆暌信房间", "深入调查")
+tags = PackedStringArray("chapter_3", "dream_villa", "deep_investigation")
+clue_type = "lore"
+parent_clue_id = "3_mu_1"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

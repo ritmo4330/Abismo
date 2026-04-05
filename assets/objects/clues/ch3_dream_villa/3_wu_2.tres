@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "3_wu_2"
+title = "上锁的密码本"
+description = "书桌的抽屉里有一本密码本，被上锁。密码为四位数。\\n\\n梦境笔记\\n阳光透过窗户照入的房间内，一名和我长相相似的少女十分悲伤的哭泣着，我想安慰她，却发现我与她之间有一段不可逾越的距离。少女的面前站着另一个人，看不清相貌，看不出性别。少女抽泣着说出一句话：“为什么？老师……那样的世界真的不存在吗……”\\n \\n我身处一片花海，无数鲜艳的花在此绽放。明媚的阳光下，我看见一名身着白色连衣裙的女子站在花海中，面朝着我，却看不清面容。她的嘴唇一开一合，似乎在说些什么，却没有发出声音。\\n \\n我的面前是一扇木门，紧闭着，我没有任何打开它的想法。虽然没有看见，但我感觉视线之外的地方铺满了沙粒，这种感觉越来越强烈，随之而来的是越来越强烈的悲哀。\\n \\n我看见一张照片，虽然看不清内容，但是我知道那是一家三口的全家福。\\n \\n一双手捧着一个白色的立方体，送到我面前。我接过了它，那一瞬，四周的一切被红色的丝线包裹，接着，丝线消失，出现在我眼前的是一群紫袍人，他们围着一个五芒星形状的法阵，法阵的五角各摆着一样物品，一名紫袍人往法阵中心再放入了一个物品……\\n \\n我走在一条无尽的长廊中，每前进一段距离，身后的路都会随之塌陷。我的眼前闪现出一幕幕图景——战乱、疫病、饥饿、仇恨、你死我活、零和博弈、真相被取代、善意被埋没、付出被糟践、真心被叛离、黑夜中最后的烛光被狂风倾灭，风浪中沉浮的鸟儿兀自发出无意义的哀鸣……眼前的图景渐渐崩坏，以至支离破碎，我感到如此的无能和自责，却只能不断前进，看着新诞生的美好又毫无例外地破碎、重建、再破碎……接下来破碎的，是我脚下的立足之地，还有——我的心。\\n \\n西西弗斯收到众神的惩罚，众神让他永不停息地推着一块沉重的石头上山。当西西弗斯将巨石推至山顶时，石头便会不可阻挡地滚下山去。但与神话故事不同的是，西西弗斯发觉，从来没有哪位神明监管着自己，勒令自己推着巨石的，正是他自己。"
+chapter_id = "3"
+room_id = "wu"
+category_path = PackedStringArray("梦墅", "乌停湘房间")
+tags = PackedStringArray("chapter_3", "dream_villa", "scene")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

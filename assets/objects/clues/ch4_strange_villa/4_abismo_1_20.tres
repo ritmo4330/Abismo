@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ClueData" format=3 uid="uid://ymbcqnryhwcp"]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "4_abismo_1_20"
+title = "异数0373档案"
+description = "办公桌上的一个文件袋上写着“异数0373”观测记录。内部有大量的纸质资料，详细记录了与0373号异数有关的信息。观测表明，异数0373是一种能量体，可附着在生命体身上，使之拥有神一般的能力，似乎每隔一段时间将更替一代。观测工作由历任会长负责，并被列为最高等级项目。现任会长时今指出，异数0373或许与黑门事件的解决有关，它不一定对世界及人类具有恶意。"
+chapter_id = "4"
+room_id = "abismo"
+category_path = PackedStringArray("异墅", "异测会研究所", "深入调查")
+tags = PackedStringArray("chapter_4", "strange_villa", "deep_investigation")
+clue_type = "lore"
+parent_clue_id = "4_abismo_1"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"
