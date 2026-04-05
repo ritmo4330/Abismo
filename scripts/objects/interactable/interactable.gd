@@ -7,6 +7,8 @@ extends Area2D
 
 
 func _ready() -> void:
+	if not is_one_time:
+		return
 	if interact_id.is_empty():
 		return
 	if DataManager.get_world_flag(interact_id):
