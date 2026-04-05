@@ -28,7 +28,8 @@ DialogueManager="*res://scripts/dialogue/dialogue_manager.gd"
 [dialogic]
 
 directories/dch_directory={
-"song_lin_xi": "res://assets/characters/npcs/song_lin_xi.dch"
+"song_lin_xi": "res://assets/characters/npcs/song_lin_xi.dch",
+"wu_ting_xiang": "res://assets/characters/npcs/wu_ting_xiang.dch"
 }
 directories/dtl_directory={
 "test": "res://assets/dialogues/test.dtl"
