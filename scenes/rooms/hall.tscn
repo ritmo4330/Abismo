@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://u5jdttqgwy6" path="res://assets/interior/大厅1.png" id="1_yj4g8"]
 [ext_resource type="TileSet" uid="uid://dm0s0q71gk12" path="res://Tilesets/16x32_tile_set.tres" id="3_yj4g8"]
 [ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="4_hcmxa"]
-[ext_resource type="Script" path="res://scripts/scenes/passage.gd" id="5_l1f20"]
+[ext_resource type="Script" uid="uid://w4c4wuwddlye" path="res://scripts/scenes/passage.gd" id="5_l1f20"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8lhao"]
 texture = ExtResource("1_yj4g8")
