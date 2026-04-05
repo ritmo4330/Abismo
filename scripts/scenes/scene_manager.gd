@@ -12,10 +12,8 @@ var _is_initialized: bool = false
 
 
 func _ready() -> void:
-	if not EventBus.change_room_requested.is_connected(_on_change_room_requested):
-		EventBus.change_room_requested.connect(_on_change_room_requested)
-	if not EventBus.scene_change_requested.is_connected(_on_change_room_requested):
-		EventBus.scene_change_requested.connect(_on_change_room_requested)
+	if not EventBus.scene_change_requested.is_connected(_on_scene_change_requested):
+		EventBus.scene_change_requested.connect(_on_scene_change_requested)
 
 
 func initialize(host_root: Node2D, first_level_path: String = DEFAULT_FIRST_LEVEL_PATH, first_spawn_point: String = "InitialSpawn") -> void:
@@ -34,7 +32,7 @@ func initialize(host_root: Node2D, first_level_path: String = DEFAULT_FIRST_LEVE
 		_load_room(first_level_path, first_spawn_point)
 
 
-func _on_change_room_requested(target_path: String, spawn_point_name: String) -> void:
+func _on_scene_change_requested(target_path: String, spawn_point_name: String) -> void:
 	if not _is_initialized:
 		return
 	if is_transitioning:
@@ -42,7 +40,10 @@ func _on_change_room_requested(target_path: String, spawn_point_name: String) ->
 		return
 
 	is_transitioning = true
-	get_tree().paused = true
+	if GameManager != null and GameManager.has_method("request_pause"):
+		GameManager.request_pause(GameManager.SCENE_TRANSITION_PAUSE_TOKEN)
+	else:
+		get_tree().paused = true
 
 	if Transition != null and Transition.has_method("fade_out"):
 		await Transition.fade_out()
@@ -59,7 +60,10 @@ func _on_change_room_requested(target_path: String, spawn_point_name: String) ->
 	if Transition != null and Transition.has_method("fade_in"):
 		await Transition.fade_in()
 
-	get_tree().paused = false
+	if GameManager != null and GameManager.has_method("release_pause"):
+		GameManager.release_pause(GameManager.SCENE_TRANSITION_PAUSE_TOKEN)
+	else:
+		get_tree().paused = false
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	is_transitioning = false

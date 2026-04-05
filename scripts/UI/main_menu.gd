@@ -1,13 +1,11 @@
 extends Control
 
-# 在这里配置你的第一关场景路径
-const FIRST_LEVEL_PATH = "res://scenes/test/test_scene_player.tscn"
-
 @onready var start_button = $StartButton
 @onready var options_button = $OptionsButton
 @onready var quit_button = $QuitButton
 
 func _ready():
+	GameManager.enter_main_menu()
 
 	# 绑定按钮按下的信号
 	if start_button:
@@ -22,6 +20,7 @@ func _ready():
 		quit_button.hide()
 
 func _on_start_button_pressed():
+	GameManager.enter_gameplay()
 	# 加载一个用来包装低分辨率游戏的通用容器场景（我们将其命名为 game_root）
 	# （注意：如果你的主场景是别的名字，这里需要改成对应的路径）
 	get_tree().change_scene_to_file("res://scenes/game_root.tscn")

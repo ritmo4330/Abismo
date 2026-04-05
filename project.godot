@@ -21,7 +21,9 @@ EventBus="*res://scripts/event_bus.gd"
 DataManager="*res://scripts/data_manager.gd"
 Transition="*uid://c5g7yq8ccn6pt"
 SceneManager="*res://scripts/scenes/scene_manager.gd"
+GameManager="*res://scripts/game_manager.gd"
 Dialogic="*uid://ds2q0uclmolvu"
+DialogueManager="*res://scripts/dialogue/dialogue_manager.gd"
 
 [dialogic]
 
