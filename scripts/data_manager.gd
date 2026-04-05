@@ -77,7 +77,7 @@ func get_clue_state(clue_id: String) -> Dictionary:
 	return clue_states[clue_id].duplicate(true)
 
 
-func get_discovered_clues() -> Array[String]:
+func get_discovered_clues() -> PackedStringArray:
 	var ordered_pairs: Array[Dictionary] = []
 	for clue_id: String in clue_states.keys():
 		var state: Dictionary = clue_states[clue_id]
@@ -90,31 +90,31 @@ func get_discovered_clues() -> Array[String]:
 
 	ordered_pairs.sort_custom(_sort_by_discover_order)
 
-	var result: Array[String] = []
+	var result: PackedStringArray = PackedStringArray()
 	for pair: Dictionary in ordered_pairs:
 		result.append(String(pair.get("clue_id", "")))
 	return result
 
 
-func get_clues_by_category_path(path: Array[String]) -> Array[String]:
+func get_clues_by_category_path(path: PackedStringArray) -> PackedStringArray:
 	if path.is_empty():
-		return []
+		return PackedStringArray()
 
-	var result: Array[String] = []
+	var result: PackedStringArray = PackedStringArray()
 	for clue_id: String in get_discovered_clues():
 		var clue_def: ClueData = clue_defs.get(clue_id, null)
 		if clue_def == null:
 			continue
-		if _string_array_equals(clue_def.category_path, path):
+		if _packed_string_array_equals(clue_def.category_path, path):
 			result.append(clue_id)
 	return result
 
 
-func get_clues_by_tag(tag: String) -> Array[String]:
+func get_clues_by_tag(tag: String) -> PackedStringArray:
 	if tag.is_empty():
-		return []
+		return PackedStringArray()
 
-	var result: Array[String] = []
+	var result: PackedStringArray = PackedStringArray()
 	for clue_id: String in get_discovered_clues():
 		var clue_def: ClueData = clue_defs.get(clue_id, null)
 		if clue_def == null:
@@ -133,12 +133,12 @@ func get_parent_clue_id(clue_id: String) -> String:
 	return clue_def.parent_clue_id
 
 
-func get_child_clue_ids(clue_id: String) -> Array[String]:
+func get_child_clue_ids(clue_id: String) -> PackedStringArray:
 	if clue_id.is_empty():
-		return []
+		return PackedStringArray()
 	var clue_def: ClueData = clue_defs.get(clue_id, null)
 	if clue_def == null:
-		return []
+		return PackedStringArray()
 	return clue_def.child_clue_ids.duplicate()
 
 
@@ -198,7 +198,7 @@ func _emit_new_clue_notice(clue_id: String) -> void:
 
 
 func _emit_deep_clue_notice(parent_clue_id: String) -> void:
-	var child_ids: Array[String] = get_child_clue_ids(parent_clue_id)
+	var child_ids: PackedStringArray = get_child_clue_ids(parent_clue_id)
 	var titles: Array[String] = []
 	for child_id: String in child_ids:
 		titles.append(_get_clue_title(child_id))
@@ -219,7 +219,7 @@ func _get_clue_title(clue_id: String) -> String:
 	return clue_def.title
 
 
-func _string_array_equals(left: Array[String], right: Array[String]) -> bool:
+func _packed_string_array_equals(left: PackedStringArray, right: PackedStringArray) -> bool:
 	if left.size() != right.size():
 		return false
 	for i: int in left.size():

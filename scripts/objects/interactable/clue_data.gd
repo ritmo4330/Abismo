@@ -8,8 +8,8 @@ extends Resource
 @export var chapter_id: String = ""
 @export var room_id: String = ""
 
-@export var category_path: Array[String] = []
-@export var tags: Array[String] = []
+@export var category_path: PackedStringArray = PackedStringArray()
+@export var tags: PackedStringArray = PackedStringArray()
 
 @export_enum("scene_evidence", "testimony", "conclusion", "lore")
 var clue_type: String = "scene_evidence"
@@ -18,4 +18,4 @@ var clue_type: String = "scene_evidence"
 @export var highlight_visible: bool = true
 
 @export var parent_clue_id: String = ""
-@export var child_clue_ids: Array[String] = []
+@export var child_clue_ids: PackedStringArray = PackedStringArray()

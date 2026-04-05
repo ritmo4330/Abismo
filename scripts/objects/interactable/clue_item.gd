@@ -25,7 +25,7 @@ func interact(_player: Player) -> void:
 
 	DataManager.add_clue(target_clue_id, "scene", _resolve_source_id(target_clue_id))
 
-	var child_ids: Array[String] = DataManager.get_child_clue_ids(target_clue_id)
+	var child_ids: PackedStringArray = DataManager.get_child_clue_ids(target_clue_id)
 	if child_ids.is_empty():
 		_emit_single_detail(target_clue_id)
 		return
@@ -83,16 +83,20 @@ func _emit_single_detail(target_clue_id: String) -> void:
 	EventBus.clue_interaction_details_requested.emit(payload)
 
 
-func _emit_hierarchical_detail(parent_clue_id: String, child_ids: Array[String]) -> void:
-	var clue_ids: Array[String] = [parent_clue_id]
+func _emit_hierarchical_detail(parent_clue_id: String, child_ids: PackedStringArray) -> void:
+	var child_clue_ids_array: Array[String] = []
 	for child_id: String in child_ids:
+		child_clue_ids_array.append(child_id)
+
+	var clue_ids: Array[String] = [parent_clue_id]
+	for child_id: String in child_clue_ids_array:
 		clue_ids.append(child_id)
 
 	var payload: Dictionary = {
 		"mode": "interaction",
 		"display_type": "hierarchical",
 		"parent_clue_id": parent_clue_id,
-		"child_clue_ids": child_ids.duplicate(),
+		"child_clue_ids": child_clue_ids_array.duplicate(),
 		"clue_ids": clue_ids,
 	}
 	EventBus.clue_interaction_details_requested.emit(payload)

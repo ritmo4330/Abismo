@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "2_storeroom_2"
+title = "上锁的暗门"
+description = "地毯被掀起了一角，全部掀开后露出一道被上了锁的暗门，门上有锁孔，似乎能用钥匙打开。"
+chapter_id = "2"
+room_id = "storeroom"
+category_path = PackedStringArray("雪墅", "储物间")
+tags = PackedStringArray("chapter_2", "snow_villa", "scene")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

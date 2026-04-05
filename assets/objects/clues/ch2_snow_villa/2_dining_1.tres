@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3 uid="uid://eh0g5g34w6k4"]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "2_dining_1"
+title = "餐桌水渍"
+description = "餐厅内非常整洁，餐桌上留有近期打扫的水渍。"
+chapter_id = "2"
+room_id = "dining"
+category_path = PackedStringArray("雪墅", "餐厅")
+tags = PackedStringArray("chapter_2", "snow_villa", "scene")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"
