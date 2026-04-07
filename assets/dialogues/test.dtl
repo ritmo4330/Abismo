@@ -4,7 +4,6 @@ song_lin_xi: 我是松林夕
 song_lin_xi: 你是？
 - 玩家
 	song_lin_xi: 哦你好玩家
-	jump 
 - 你大爷
 	song_lin_xi: 别搞
 - 你叫？

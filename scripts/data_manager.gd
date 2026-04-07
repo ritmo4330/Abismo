@@ -163,6 +163,7 @@ func mark_deep_unlocked(parent_clue_id: String) -> bool:
 
 	state["deep_unlocked"] = true
 	clue_states[parent_clue_id] = state
+	_discover_deep_child_clues(parent_clue_id)
 
 	clue_updated.emit(parent_clue_id)
 	_emit_deep_clue_notice(parent_clue_id)
@@ -190,6 +191,22 @@ func _create_default_clue_state(source_type: String, source_id: String) -> Dicti
 		"first_source_id": source_id,
 		"deep_unlocked": false,
 	}
+
+
+func _discover_deep_child_clues(parent_clue_id: String) -> void:
+	var child_ids: PackedStringArray = get_child_clue_ids(parent_clue_id)
+	for child_id: String in child_ids:
+		if child_id.is_empty():
+			continue
+		if has_clue(child_id):
+			continue
+
+		# 深入调查子线索加入手册，但不重复触发“发现新线索”提示。
+		var state: Dictionary = _create_default_clue_state("scene", parent_clue_id)
+		state["discovered"] = true
+		_discover_counter += 1
+		state["discover_order"] = _discover_counter
+		clue_states[child_id] = state
 
 
 func _emit_new_clue_notice(clue_id: String) -> void:

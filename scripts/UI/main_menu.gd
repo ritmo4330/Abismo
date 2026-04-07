@@ -4,6 +4,8 @@ extends Control
 @onready var options_button = $OptionsButton
 @onready var quit_button = $QuitButton
 
+const TEST_SCENE_PATH: String = "res://scenes/test/test_scene_player.tscn"
+
 func _ready():
 	GameManager.enter_main_menu()
 
@@ -26,8 +28,8 @@ func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/game_root.tscn")
 
 func _on_options_button_pressed():
-	# 如果有设置界面，可以在这里显示
-	print("打开设置界面")
+	GameManager.enter_gameplay()
+	get_tree().change_scene_to_file(TEST_SCENE_PATH)
 
 func _on_quit_button_pressed():
 	# 退出游戏

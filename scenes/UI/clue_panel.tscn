@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://dhdr1aqijhpnp"]
+
+[ext_resource type="Script" uid="uid://b75rgyy3q316e" path="res://scripts/UI/clue_ui.gd" id="1_clue_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.09, 0.09, 0.09, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.86, 0.86, 0.86, 1)
+
+[node name="CluePanel" type="CanvasLayer" unique_id=1906499596]
+script = ExtResource("1_clue_script")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=1076258196]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.32)
+
+[node name="PanelRoot" type="Control" parent="." unique_id=808854885]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelFrame" type="PanelContainer" parent="PanelRoot" unique_id=647446284]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 140.0
+offset_right = 1600.0
+offset_bottom = 940.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="FrameMargin" type="MarginContainer" parent="PanelRoot/PanelFrame" unique_id=767671692]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="FrameVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin" unique_id=2102964142]
+layout_mode = 2
+
+[node name="HeaderBar" type="HBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox" unique_id=2095190979]
+layout_mode = 2
+
+[node name="HeaderTitle" type="Label" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/HeaderBar" unique_id=1913265912]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "线索手册"
+
+[node name="ModeLabel" type="Label" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/HeaderBar" unique_id=1906339533]
+layout_mode = 2
+text = "模式：线索手册"
+
+[node name="CloseButton" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/HeaderBar" unique_id=329044403]
+custom_minimum_size = Vector2(48, 40)
+layout_mode = 2
+text = "X"
+
+[node name="HeaderSeparator" type="HSeparator" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox" unique_id=234309078]
+layout_mode = 2
+
+[node name="BodySplit" type="HSplitContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox" unique_id=1241150840]
+layout_mode = 2
+size_flags_vertical = 3
+split_offsets = PackedInt32Array(320)
+split_offset = 320
+
+[node name="LeftPane" type="PanelContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit" unique_id=921533046]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="LeftVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane" unique_id=809773973]
+layout_mode = 2
+
+[node name="SearchRow" type="HBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox"]
+layout_mode = 2
+
+[node name="SearchLineEdit" type="LineEdit" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SearchRow" unique_id=1640331587]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "搜索线索标题、内容、标签"
+
+[node name="SortOptionButton" type="OptionButton" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SearchRow"]
+custom_minimum_size = Vector2(156, 0)
+layout_mode = 2
+
+[node name="CatalogTree" type="Tree" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox" unique_id=2028057174]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RightPane" type="PanelContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit" unique_id=2096980038]
+layout_mode = 2
+
+[node name="RightVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane" unique_id=670996834]
+layout_mode = 2
+
+[node name="DetailTitle" type="Label" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox" unique_id=396203337]
+layout_mode = 2
+text = "线索详情"
+
+[node name="DetailSeparator" type="HSeparator" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox" unique_id=1046660621]
+layout_mode = 2
+
+[node name="DetailBody" type="RichTextLabel" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox" unique_id=1202689860]
+layout_mode = 2
+size_flags_vertical = 3

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://fi0cij1f6sxv"]
 
 [ext_resource type="Script" uid="uid://bisc2wlwvnu2q" path="res://scripts/game_root.gd" id="1_78s5d"]
+[ext_resource type="PackedScene" path="res://scenes/UI/clue_panel.tscn" id="2_clue_panel"]
 
 [node name="GameRoot" type="Node2D" unique_id=591011851]
 script = ExtResource("1_78s5d")
+
+[node name="CluePanel" parent="." instance=ExtResource("2_clue_panel")]
