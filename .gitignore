@@ -1,6 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-assets/素材库/
+素材库/
 tutorial-components-and-scripts-main/
 .vscode/

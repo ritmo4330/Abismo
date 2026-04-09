@@ -20,6 +20,7 @@
 [ext_resource type="Resource" path="res://assets/objects/clues/ch4_strange_villa/4_flower_sea_1.tres" id="16_6t7u2"]
 [ext_resource type="Resource" path="res://assets/objects/clues/ch4_strange_villa/4_flower_sea_1_3.tres" id="17_fpywe"]
 [ext_resource type="Resource" uid="uid://dxy033gbbefb8" path="res://assets/objects/clues/ch4_strange_villa/4_abismo_2.tres" id="17_wbq2x"]
+[ext_resource type="Resource" path="res://assets/objects/clues/ch4_strange_villa/4_study_darkroom_4.tres" id="19_wbq2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5vxv"]
 texture = ExtResource("1_e46wm")
@@ -337,6 +338,15 @@ texture = ExtResource("12_debug_icon")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClueChapter4\'" unique_id=62654507]
 shape = SubResource("CircleShape2D_clue_single")
 
+[node name="ClueChapter4\'DeepChild4" type="Area2D" parent="Interactables" unique_id=1180835585]
+position = Vector2(-10020, -9999)
+monitoring = false
+monitorable = false
+script = ExtResource("8_clue_item")
+clue_id = "4_flower_sea_1_3"
+clue_def = ExtResource("17_fpywe")
+source_id = "test_scene_player/body_search_child_registry"
+
 [node name="ClueChapter4\'2" type="Area2D" parent="Interactables" unique_id=167206786]
 position = Vector2(762, 157)
 script = ExtResource("8_clue_item")
@@ -353,16 +363,24 @@ texture = ExtResource("12_debug_icon")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClueChapter4\'2" unique_id=1289141124]
 shape = SubResource("CircleShape2D_clue_single")
 
-[node name="ClueChapter4\'DeepChild4" type="Area2D" parent="Interactables" unique_id=1180835585]
-position = Vector2(-10020, -9999)
-monitoring = false
-monitorable = false
+[node name="ClueChapter4\'3" type="Area2D" parent="Interactables" unique_id=240725374]
+position = Vector2(948, 218)
 script = ExtResource("8_clue_item")
-clue_id = "4_flower_sea_1_3"
-clue_def = ExtResource("17_fpywe")
-source_id = "test_scene_player/body_search_child_registry"
+clue_id = "4_study_darkroom_4"
+clue_def = ExtResource("19_wbq2x")
+source_id = "test_scene_player/ch4_single"
+interact_id = "4_xiayue_1"
+
+[node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueChapter4\'3" unique_id=615078395]
+modulate = Color(0.95, 0.6, 0.6, 1)
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("12_debug_icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClueChapter4\'3" unique_id=589830127]
+shape = SubResource("CircleShape2D_clue_single")
 
 [node name="Player" parent="." unique_id=1223088320 instance=ExtResource("4_e46wm")]
 position = Vector2(483, 209)
 
 [node name="CluePanel" parent="." unique_id=471501377 instance=ExtResource("13_clue_panel")]
+visible = false

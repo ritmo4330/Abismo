@@ -6,8 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dgy6l2q3gmvvc" path="res://assets/interior/壁炉1.png" id="6_udjf2"]
 [ext_resource type="Texture2D" uid="uid://j0euaxxi0b2i" path="res://assets/interior/床头柜_4.png" id="7_0k62j"]
 [ext_resource type="Texture2D" uid="uid://glyaqspmvbcb" path="res://assets/interior/茶几.png" id="7_kgvr5"]
+[ext_resource type="Texture2D" uid="uid://bm5mpdb5qkvfx" path="res://assets/interior/书架.png" id="7_rkqwl"]
+[ext_resource type="Texture2D" uid="uid://ctmdi8priiypy" path="res://assets/interior/书架侧.png" id="9_actkm"]
 [ext_resource type="Texture2D" uid="uid://c84gthnncu01a" path="res://assets/interior/沙发.png" id="10_sktce"]
 [ext_resource type="Texture2D" uid="uid://cq5aiswwdoowi" path="res://assets/interior/餐桌及餐椅.png" id="12_05igb"]
+[ext_resource type="Texture2D" uid="uid://3v3idvgsc2gv" path="res://assets/interior/书桌.png" id="12_udjf2"]
 [ext_resource type="Texture2D" uid="uid://bc37s4ddokp0j" path="res://assets/interior/壁炉2.png" id="14_h8v67"]
 [ext_resource type="Texture2D" uid="uid://dgt8e6d2xugti" path="res://assets/interior/沙发'.png" id="14_hn2t1"]
 
@@ -563,6 +566,45 @@ texture = ExtResource("12_05igb")
 9:5/0 = 0
 10:5/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn2t1"]
+texture = ExtResource("7_rkqwl")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_actkm"]
 texture = ExtResource("7_kgvr5")
 0:0/0 = 0
@@ -581,6 +623,18 @@ texture = ExtResource("7_kgvr5")
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 3, -8, 3)
 1:3/0 = 0
 1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 3, -8, 3)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0k62j"]
+texture = ExtResource("9_actkm")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+0:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0fkh6"]
 texture = ExtResource("14_h8v67")
@@ -640,6 +694,34 @@ texture = ExtResource("10_sktce")
 1:4/0 = 0
 1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 3.5, -8, 3.5)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8v67"]
+texture = ExtResource("12_udjf2")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53au1"]
 texture = ExtResource("14_hn2t1")
 0:0/0 = 0
@@ -675,3 +757,6 @@ sources/9 = SubResource("TileSetAtlasSource_53au1")
 sources/13 = SubResource("TileSetAtlasSource_qqm5e")
 sources/6 = SubResource("TileSetAtlasSource_0fkh6")
 sources/19 = SubResource("TileSetAtlasSource_68bp4")
+sources/2 = SubResource("TileSetAtlasSource_hn2t1")
+sources/5 = SubResource("TileSetAtlasSource_0k62j")
+sources/8 = SubResource("TileSetAtlasSource_h8v67")
