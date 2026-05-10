@@ -28,8 +28,12 @@ DialogueManager="*res://scripts/dialogue/dialogue_manager.gd"
 [dialogic]
 
 directories/dch_directory={
-"song_lin_xi": "res://assets/characters/npcs/song_lin_xi.dch",
-"wu_ting_xiang": "res://assets/characters/npcs/wu_ting_xiang.dch"
+"butler": "res://assets/characters/npcs/butler.dch",
+"lin_jiu": "res://assets/characters/npcs/lin_jiu.dch",
+"mu_zhi": "res://assets/characters/npcs/mu_zhi.dch",
+"wu_ting_xiang": "res://assets/characters/npcs/wu_ting_xiang.dch",
+"zhong_qi": "res://assets/characters/npcs/zhong_qi.dch",
+"zhou_chong_an": "res://assets/characters/npcs/zhou_chong_an.dch"
 }
 directories/dtl_directory={
 "test": "res://assets/dialogues/test.dtl"
@@ -40,7 +44,12 @@ layout/style_directory={
 "default_visual_novel": "res://assets/UI/default_visual_novel.tres"
 }
 glossary/default_case_sensitive=true
-variables={}
+variables={
+"g1": {
+"name": ""
+},
+"player_name": ""
+}
 layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres"]
 layout/default_style="res://assets/UI/default_visual_novel.tres"
 extensions_folder="res://addons/dialogic_additions"
@@ -77,6 +86,12 @@ audio/channel_defaults={
 }
 }
 glossary/glossary_files=["uid://d3srr1j48d7jw"]
+translation/enabled=false
+translation/original_locale="zh_Hans"
+translation/file_mode=1
+translation/translation_folder=""
+translation/save_mode=0
+translation/add_separator=false
 
 [display]
 
@@ -86,7 +101,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/godot_mcp/plugin.cfg")
 
 [filesystem]
 

@@ -1,13 +1,16 @@
 [style name="default_visual_novel"]
-join song_lin_xi (New portrait) left
-song_lin_xi: 你好
-song_lin_xi (New portrait): 我是松林夕
+label 这是Label的示例
+join zhou_chong_an left
+zhou_chong_an: 你好
+zhou_chong_an: 我是周崇安
 join wu_ting_xiang right
-song_lin_xi (New portrait): 你是？
+zhou_chong_an: 你是？
 - 玩家
-	update song_lin_xi (New portrait) leftmost [move_time="0.5"]
-	song_lin_xi: 哦你好玩家，啊士大夫立刻就阿里山可见度分厘卡手拉手爱上了对方看见啦深刻搭街坊螺丝扣京东方撒赖扩大激发了上空的飞机拉萨扩大飞机爱丽丝的咖啡机拉萨扩大解放拉萨扩大解放按时灯笼裤飞机啊老师的课件法律上的开发偶爱无阿飞机离开在苏共俩就而受到了覅u奥islug那儿上课vu拉过来快乐
+	update zhou_chong_an leftmost [move_time="0.5"]
+	zhou_chong_an: 你好玩家
 - 你大爷
-	song_lin_xi (New portrait): 别搞
+	zhou_chong_an: ？
 - 你叫？
-	[text_input]
+	[text_input var="g1.name"]
+	song_lin_xi (New portrait): 你好 {g1.name}
+	if :

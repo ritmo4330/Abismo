@@ -44,7 +44,7 @@ position = Vector2(717, 499)
 [node name="SpawnFromHallRight" type="Marker2D" parent="Scene/SpawnPoints" unique_id=2055269365]
 position = Vector2(1219, 492)
 
-[node name="SpawnFromSong" type="Marker2D" parent="Scene/SpawnPoints" unique_id=1385526887]
+[node name="SpawnFromZhou" type="Marker2D" parent="Scene/SpawnPoints" unique_id=1385526887]
 position = Vector2(480, 981)
 
 [node name="SpawnFromWu" type="Marker2D" parent="Scene/SpawnPoints" unique_id=389426969]
@@ -70,12 +70,12 @@ target_spawn_point = "SpawnFromFloor2Right"
 position = Vector2(1213, 560)
 shape = SubResource("RectangleShape2D_ia6ke")
 
-[node name="RoomSong" type="Area2D" parent="Scene/Doors" unique_id=1713368441]
+[node name="RoomZhou" type="Area2D" parent="Scene/Doors" unique_id=1713368441]
 script = ExtResource("4_eu8ld")
 target_scene_path = "uid://c2w1luor4yt1f"
 target_spawn_point = "SpawnFromF2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/RoomSong" unique_id=170077714]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/RoomZhou" unique_id=170077714]
 position = Vector2(420, 918)
 shape = SubResource("RectangleShape2D_qslkk")
 

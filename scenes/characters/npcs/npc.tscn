@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccoalm2taxdwe"]
 
 [ext_resource type="Script" uid="uid://dqsp2afscxoqa" path="res://scripts/characters/npc/npc.gd" id="1_idr7u"]
-[ext_resource type="SpriteFrames" uid="uid://brdnsrc1qaho3" path="res://assets/characters/npcs/cat1.tres" id="1_mp4vq"]
+[ext_resource type="SpriteFrames" path="res://assets/characters/npcs/zhou_chong_an.tres" id="2_mp4vq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxdnj"]
 size = Vector2(12, 16)
@@ -13,7 +13,7 @@ prompt_offset = Vector2(0, -10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=278144488]
 position = Vector2(0, -15)
-sprite_frames = ExtResource("1_mp4vq")
+sprite_frames = ExtResource("2_mp4vq")
 animation = &"idle_front"
 autoplay = "idle_front"
 

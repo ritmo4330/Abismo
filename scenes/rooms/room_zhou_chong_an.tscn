@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://c2w1luor4yt1f"]
 
-[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_x1w88"]
-[ext_resource type="Texture2D" uid="uid://bvl6vkxaxnmxh" path="res://assets/interior/客房.png" id="2_r3w2p"]
-[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="3_x1w88"]
-[ext_resource type="PackedScene" uid="uid://ccoalm2taxdwe" path="res://scenes/characters/npcs/npc.tscn" id="5_48a5x"]
+[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_saltl"]
+[ext_resource type="Texture2D" uid="uid://bvl6vkxaxnmxh" path="res://assets/interior/客房.png" id="2_wnj6q"]
+[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="3_1d4v4"]
+[ext_resource type="PackedScene" uid="uid://ccoalm2taxdwe" path="res://scenes/characters/npcs/npc.tscn" id="4_logxu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ssrmc"]
-texture = ExtResource("2_r3w2p")
+texture = ExtResource("2_wnj6q")
 texture_region_size = Vector2i(32, 32)
 3:2/0 = 0
 4:2/0 = 0
@@ -606,9 +606,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
-[node name="RoomSongLinXi" type="Node2D" unique_id=1315035317]
+[node name="RoomZhouChongAn" type="Node2D" unique_id=1315035317]
 y_sort_enabled = true
-script = ExtResource("1_x1w88")
+script = ExtResource("1_saltl")
 
 [node name="Scene" type="Node2D" parent="." unique_id=2065940674]
 
@@ -617,7 +617,7 @@ tile_map_data = PackedByteArray("AAAXAAEAAAADAAIAAAAXAAIAAAADAAMAAAAXAAMAAAADAAQ
 tile_set = SubResource("TileSet_48a5x")
 
 [node name="Door" type="Area2D" parent="Scene" unique_id=1109773949]
-script = ExtResource("3_x1w88")
+script = ExtResource("3_1d4v4")
 target_scene_path = "uid://c4rbw46jkpav"
 target_spawn_point = "SpawnFromSong"
 
@@ -628,7 +628,7 @@ shape = SubResource("RectangleShape2D_x1w88")
 [node name="SpawnFromF2" type="Marker2D" parent="Scene" unique_id=829932385]
 position = Vector2(1047, 867)
 
-[node name="NPC" parent="." unique_id=315533828 instance=ExtResource("5_48a5x")]
+[node name="NPC" parent="." unique_id=315533828 instance=ExtResource("4_logxu")]
 position = Vector2(1311, 580)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=736756762]
