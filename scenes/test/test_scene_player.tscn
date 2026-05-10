@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ccoalm2taxdwe" path="res://scenes/characters/npcs/npc.tscn" id="7_q8rd1"]
 [ext_resource type="Script" uid="uid://daw4qwopm7n4l" path="res://scripts/objects/interactable/clue_item.gd" id="8_clue_item"]
 [ext_resource type="Resource" uid="uid://eh0g5g34w6k4" path="res://assets/objects/clues/ch2_snow_villa/2_dining_1.tres" id="9_clue_dining_1"]
-[ext_resource type="Resource" path="res://assets/objects/clues/ch2_snow_villa/2_su_1.tres" id="10_clue_su_1"]
-[ext_resource type="Resource" path="res://assets/objects/clues/ch2_snow_villa/2_su_1_1.tres" id="11_clue_su_1_1"]
+[ext_resource type="Resource" path="res://assets/objects/clues/ch2_snow_villa/2_lin_1.tres" id="10_clue_lin_1"]
+[ext_resource type="Resource" path="res://assets/objects/clues/ch2_snow_villa/2_lin_1_1.tres" id="11_clue_lin_1_1"]
 [ext_resource type="Texture2D" uid="uid://bcwh7upcxi31p" path="res://pixel-art (1).png" id="12_debug_icon"]
 [ext_resource type="Resource" uid="uid://cxj0jicf2564u" path="res://assets/objects/clues/ch4_strange_villa/4_abismo_1.tres" id="12_spt5d"]
 [ext_resource type="PackedScene" uid="uid://dhdr1aqijhpnp" path="res://scenes/UI/clue_panel.tscn" id="13_clue_panel"]
@@ -232,10 +232,10 @@ shape = SubResource("CircleShape2D_clue_single")
 [node name="ClueDeepParent" type="Area2D" parent="Interactables" unique_id=2050080830]
 position = Vector2(650, 228)
 script = ExtResource("8_clue_item")
-clue_id = "2_su_1"
-clue_def = ExtResource("10_clue_su_1")
+clue_id = "2_lin_1"
+clue_def = ExtResource("10_clue_lin_1")
 source_id = "test_scene_player/deep_parent"
-interact_id = "2_su_1"
+interact_id = "2_lin_1"
 
 [node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueDeepParent" unique_id=895465851]
 modulate = Color(1, 0.82, 0.25, 1)
@@ -250,8 +250,8 @@ position = Vector2(-9999, -9999)
 monitoring = false
 monitorable = false
 script = ExtResource("8_clue_item")
-clue_id = "2_su_1_1"
-clue_def = ExtResource("11_clue_su_1_1")
+clue_id = "2_lin_1_1"
+clue_def = ExtResource("11_clue_lin_1_1")
 source_id = "test_scene_player/deep_child_registry"
 
 [node name="ClueBodySearchDeepParent" type="Area2D" parent="Interactables" unique_id=365161665]

@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_ufucf")
-id = "3_mu_2_7"
-title = "管家的回应"
-description = "管家：“这是上界教会枢机卿的圣袍。”"
+id = "3_lin_3"
+title = "白色盒子"
+description = "双层床的床底有一个白色的盒子，打开盖子，里面装半满了白色的细沙。盒子长宽一致，高约是长宽的一半。"
 chapter_id = "3"
-room_id = "mu"
-category_path = PackedStringArray("梦墅", "穆执房间", "深入调查")
-tags = PackedStringArray("chapter_3", "dream_villa", "deep_investigation")
+room_id = "lin"
+category_path = PackedStringArray("梦墅", "林玖房间")
+tags = PackedStringArray("chapter_3", "dream_villa", "scene")
 clue_type = "scene_evidence"
 is_conclusion = false
 highlight_visible = true
-parent_clue_id = "3_mu_2"
+parent_clue_id = ""
 child_clue_ids = PackedStringArray()
 metadata/_custom_type_script = "uid://cbkmf2phn35d3"

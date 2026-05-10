@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource("1_ufucf")
-id = "2_mu_1"
-title = "床单"
-description = "房间内非常整洁，除了床单略有褶皱。"
-chapter_id = "2"
-room_id = "mu"
-category_path = PackedStringArray("雪墅", "穆执房间")
-tags = PackedStringArray("chapter_2", "snow_villa", "scene")
+id = "4_zhou_4"
+title = "提线木偶"
+description = "休息间的角落里有一个被拆得七零八落的提线木偶。"
+chapter_id = "4"
+room_id = "zhou"
+category_path = PackedStringArray("异墅", "周崇安研究所")
+tags = PackedStringArray("chapter_4", "strange_villa", "scene")
 clue_type = "scene_evidence"
 is_conclusion = false
 highlight_visible = true

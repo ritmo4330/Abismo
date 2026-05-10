@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_ufucf")
-id = "3_mu_2_7"
-title = "管家的回应"
-description = "管家：“这是上界教会枢机卿的圣袍。”"
+id = "3_zhou_1"
+title = "捐款记录本"
+description = "书架上有一个笔记本，专门用于记录好心人捐赠给孤儿院的善款。捐赠人一栏，穆执的名字多次出现。"
 chapter_id = "3"
-room_id = "mu"
-category_path = PackedStringArray("梦墅", "穆执房间", "深入调查")
-tags = PackedStringArray("chapter_3", "dream_villa", "deep_investigation")
+room_id = "zhou"
+category_path = PackedStringArray("梦墅", "周崇安房间")
+tags = PackedStringArray("chapter_3", "dream_villa", "scene")
 clue_type = "scene_evidence"
 is_conclusion = false
 highlight_visible = true
-parent_clue_id = "3_mu_2"
+parent_clue_id = ""
 child_clue_ids = PackedStringArray()
 metadata/_custom_type_script = "uid://cbkmf2phn35d3"

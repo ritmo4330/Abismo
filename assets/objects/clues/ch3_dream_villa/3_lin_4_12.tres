@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_ufucf")
-id = "3_mu_1_8"
-title = "书"
-description = "书大多是关于“教义复古运动”内容的书，记载了前人对先知的《箴言录》的研究成果。还有一本《先知伊斯自传》，扉页上印有一句话：“当世人陷入迷惘，我将受神之命指点迷津；当上界降下箴语，我将承天之启觐见神明。”"
+id = "3_lin_4_12"
+title = "五芒星纸"
+description = "箱子底有一张被折起来的纸，摊开，上面画着一个五芒星的图案和几个文字（从上顶角开始顺时针分别为“金”“水”“木”“火”“土”，中央为“生”）"
 chapter_id = "3"
-room_id = "mu"
-category_path = PackedStringArray("梦墅", "穆执房间", "深入调查")
+room_id = "lin"
+category_path = PackedStringArray("梦墅", "林玖房间", "深入调查")
 tags = PackedStringArray("chapter_3", "dream_villa", "deep_investigation")
 clue_type = "scene_evidence"
 is_conclusion = false
 highlight_visible = true
-parent_clue_id = "3_mu_1"
+parent_clue_id = "3_lin_4"
 child_clue_ids = PackedStringArray()
 metadata/_custom_type_script = "uid://cbkmf2phn35d3"

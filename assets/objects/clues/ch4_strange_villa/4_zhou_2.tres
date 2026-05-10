@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_ufucf")
-id = "4_xiayue_3"
-title = "工作清单"
-description = "研究所的墙上贴着目前的工作清单，为揭示平行世界理论的合理性。一旁还有两行手写的字：“探索连接脑电波的方法，找到钟歧”（“找到”两个字上被划上了一个√）“那些出现在他梦境中的红色线状物是什么？”"
+id = "4_zhou_2"
+title = "装置和手稿"
+description = "储物间的一角整齐地摆放着十多个相同的装置，装置下有一份手稿，上面记载了十多个地点，以及装置的安放方式和启动说明。部分地名后已经写下了“已安装”的字样。"
 chapter_id = "4"
-room_id = "xiayue"
-category_path = PackedStringArray("异墅", "夏月研究所")
+room_id = "zhou"
+category_path = PackedStringArray("异墅", "周崇安研究所")
 tags = PackedStringArray("chapter_4", "strange_villa", "scene")
 clue_type = "scene_evidence"
 is_conclusion = false

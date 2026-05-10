@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource("1_ufucf")
-id = "2_mu_1"
-title = "床单"
-description = "房间内非常整洁，除了床单略有褶皱。"
+id = "2_zhou_0"
+title = "周崇安搜身线索"
+description = "上着一件白色大衣，口袋里没有东西。脖子上围着一条浅灰色长围巾。下着一条棕色长裤，口袋里没有东西。"
 chapter_id = "2"
-room_id = "mu"
-category_path = PackedStringArray("雪墅", "穆执房间")
-tags = PackedStringArray("chapter_2", "snow_villa", "scene")
+room_id = "zhou"
+category_path = PackedStringArray("雪墅", "搜身线索", "周崇安")
+tags = PackedStringArray("chapter_2", "snow_villa", "body_search")
 clue_type = "scene_evidence"
 is_conclusion = false
 highlight_visible = true

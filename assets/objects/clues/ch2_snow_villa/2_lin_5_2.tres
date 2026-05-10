@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_ufucf")
-id = "2_mu_1"
-title = "床单"
-description = "房间内非常整洁，除了床单略有褶皱。"
+id = "2_lin_5_2"
+title = "锁闩"
+description = "门锁的锁闩有因猛烈撞击留下的痕迹，没有损坏。锁闩为缩入状态。"
 chapter_id = "2"
-room_id = "mu"
-category_path = PackedStringArray("雪墅", "穆执房间")
-tags = PackedStringArray("chapter_2", "snow_villa", "scene")
+room_id = "lin"
+category_path = PackedStringArray("雪墅", "林玖房间", "深入调查")
+tags = PackedStringArray("chapter_2", "snow_villa", "deep_investigation")
 clue_type = "scene_evidence"
 is_conclusion = false
-highlight_visible = true
-parent_clue_id = ""
+highlight_visible = false
+parent_clue_id = "2_lin_5"
 child_clue_ids = PackedStringArray()
 metadata/_custom_type_script = "uid://cbkmf2phn35d3"

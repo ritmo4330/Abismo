@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_ufucf")
-id = "3_mu_2"
-title = "独特的长袍"
-description = "衣柜中有一套样式非常独特的长袍，看起来神圣而又庄重。"
+id = "3_lin_2"
+title = "贴有封条的密码门"
+description = "一扇被锁上的门，似乎要输入四位数的密码。门上贴有封条，每张封条上均写有一行字，分别为：“不可回首”“不堪回首”“不配回首”“不准回首”。"
 chapter_id = "3"
-room_id = "mu"
-category_path = PackedStringArray("梦墅", "穆执房间")
+room_id = "lin"
+category_path = PackedStringArray("梦墅", "林玖房间")
 tags = PackedStringArray("chapter_3", "dream_villa", "scene")
 clue_type = "scene_evidence"
 is_conclusion = false
 highlight_visible = true
 parent_clue_id = ""
-child_clue_ids = PackedStringArray("3_mu_2_7")
+child_clue_ids = PackedStringArray()
 metadata/_custom_type_script = "uid://cbkmf2phn35d3"

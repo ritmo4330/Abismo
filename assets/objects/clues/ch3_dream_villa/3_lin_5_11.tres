@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_ufucf")
-id = "3_mu_1_8"
-title = "书"
-description = "书大多是关于“教义复古运动”内容的书，记载了前人对先知的《箴言录》的研究成果。还有一本《先知伊斯自传》，扉页上印有一句话：“当世人陷入迷惘，我将受神之命指点迷津；当上界降下箴语，我将承天之启觐见神明。”"
+id = "3_lin_5_11"
+title = "相框纸条"
+description = "拆开相框，发现一张纸条夹在其中。纸条上写着：“只身赴往明日，却生踟蹰迷茫。哀鸣兮于幽谷，沉默兮于汪洋。黑白无须颠倒，善恶终将还偿。若使临渊待旦，必见朗朗天光。”"
 chapter_id = "3"
-room_id = "mu"
-category_path = PackedStringArray("梦墅", "穆执房间", "深入调查")
+room_id = "lin"
+category_path = PackedStringArray("梦墅", "林玖房间", "深入调查")
 tags = PackedStringArray("chapter_3", "dream_villa", "deep_investigation")
 clue_type = "scene_evidence"
 is_conclusion = false
 highlight_visible = true
-parent_clue_id = "3_mu_1"
+parent_clue_id = "3_lin_5"
 child_clue_ids = PackedStringArray()
 metadata/_custom_type_script = "uid://cbkmf2phn35d3"
