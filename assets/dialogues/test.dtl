@@ -1,10 +1,13 @@
-[style name="dialogic_style_2"]
+[style name="default_visual_novel"]
+join song_lin_xi (New portrait) left
 song_lin_xi: 你好
-song_lin_xi: 我是松林夕
-song_lin_xi: 你是？
+song_lin_xi (New portrait): 我是松林夕
+join wu_ting_xiang right
+song_lin_xi (New portrait): 你是？
 - 玩家
-	song_lin_xi: 哦你好玩家
+	update song_lin_xi (New portrait) leftmost [move_time="0.5"]
+	song_lin_xi: 哦你好玩家，啊士大夫立刻就阿里山可见度分厘卡手拉手爱上了对方看见啦深刻搭街坊螺丝扣京东方撒赖扩大激发了上空的飞机拉萨扩大飞机爱丽丝的咖啡机拉萨扩大解放拉萨扩大解放按时灯笼裤飞机啊老师的课件法律上的开发偶爱无阿飞机离开在苏共俩就而受到了覅u奥islug那儿上课vu拉过来快乐
 - 你大爷
-	song_lin_xi: 别搞
+	song_lin_xi (New portrait): 别搞
 - 你叫？
 	[text_input]

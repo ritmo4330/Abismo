@@ -2,5 +2,8 @@
 .godot/
 /android/
 素材库/
-tutorial-components-and-scripts-main/
 .vscode/
+*.exe
+*.pck
+*.zip
+*.cfg

@@ -35,14 +35,14 @@ directories/dtl_directory={
 "test": "res://assets/dialogues/test.dtl"
 }
 layout/style_directory={
-"": "res://assets/UI/dialogic_style_1.tres",
-"dialogic_style_1": "res://assets/UI/dialogic_style_1.tres",
-"dialogic_style_2": "res://assets/UI/dialogic_style_2.tres"
+"": "res://assets/UI/default_visual_novel.tres",
+"default_speaker_style": "res://assets/UI/default_speaker_style.tres",
+"default_visual_novel": "res://assets/UI/default_visual_novel.tres"
 }
 glossary/default_case_sensitive=true
 variables={}
-layout/style_list=["res://assets/UI/dialogic_style_1.tres", "res://assets/UI/dialogic_style_2.tres"]
-layout/default_style="res://assets/UI/dialogic_style_1.tres"
+layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres"]
+layout/default_style="res://assets/UI/default_visual_novel.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -76,21 +76,30 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+glossary/glossary_files=["uid://d3srr1j48d7jw"]
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
-window/stretch/scale_mode="integer"
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
+[filesystem]
+
+import/defaults/default_clear_color=Color(0, 0, 0, 1)
+
 [global_group]
 
 player=""
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+theme/custom_font="uid://bnjqo3imypyjo"
 
 [input]
 
@@ -140,3 +149,4 @@ dialogic_default_action={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

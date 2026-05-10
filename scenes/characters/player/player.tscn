@@ -19,10 +19,11 @@ script = ExtResource("1_qd3e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=422571853]
 position = Vector2(0, -12)
+scale = Vector2(0.6, 0.6)
 sprite_frames = ExtResource("2_6avc5")
-animation = &"walk_back"
+animation = &"idle_left"
 autoplay = "idle_front"
-frame_progress = 0.8700467
+frame_progress = 0.9126535
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=656387466]
 position = Vector2(0, -4)
@@ -41,7 +42,7 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 script = ExtResource("4_hss88")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
-speed = 120.0
+speed = 240.0
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=939770101 node_paths=PackedStringArray("player")]
 script = ExtResource("6_intar")
@@ -51,7 +52,7 @@ player = NodePath("..")
 shape = SubResource("CircleShape2D_intar")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1715043308]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
 limit_right = 1920

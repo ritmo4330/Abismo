@@ -83,17 +83,20 @@ layout_mode = 2
 [node name="LeftVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane" unique_id=809773973]
 layout_mode = 2
 
-[node name="SearchRow" type="HBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox"]
+[node name="SearchRow" type="HBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox" unique_id=1069944850]
 layout_mode = 2
 
 [node name="SearchLineEdit" type="LineEdit" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SearchRow" unique_id=1640331587]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.25
 placeholder_text = "搜索线索标题、内容、标签"
 
-[node name="SortOptionButton" type="OptionButton" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SearchRow"]
-custom_minimum_size = Vector2(156, 0)
+[node name="SortOptionButton" type="OptionButton" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SearchRow" unique_id=1084017250]
+custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
 
 [node name="CatalogTree" type="Tree" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox" unique_id=2028057174]
 layout_mode = 2

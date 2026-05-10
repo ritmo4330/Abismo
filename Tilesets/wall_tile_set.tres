@@ -1,10 +1,19 @@
 [gd_resource type="TileSet" format=3 uid="uid://k4rii8ww8hjj"]
 
 [ext_resource type="Texture2D" uid="uid://br1j4blvhlmbp" path="res://assets/interior/窗户3.png" id="2_6onp8"]
+[ext_resource type="Texture2D" uid="uid://ce2hkr8jyjd3a" path="res://assets/interior/书房暗门.png" id="2_ixx0s"]
 [ext_resource type="Texture2D" uid="uid://jt42vpcj4cg5" path="res://assets/interior/墙面1_3.png" id="8_igrcq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igrcq"]
 texture = ExtResource("2_6onp8")
+texture_region_size = Vector2i(16, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wquc"]
+texture = ExtResource("2_ixx0s")
 texture_region_size = Vector2i(16, 128)
 0:0/0 = 0
 1:0/0 = 0
@@ -28,3 +37,4 @@ tile_size = Vector2i(16, 128)
 physics_layer_0/collision_layer = 1
 sources/7 = SubResource("TileSetAtlasSource_t33qu")
 sources/1 = SubResource("TileSetAtlasSource_igrcq")
+sources/3 = SubResource("TileSetAtlasSource_8wquc")
