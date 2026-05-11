@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ClueData" format=3 uid="uid://clq3xgtjmciee"]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "3_xiayue_2"
+title = "夏月的笔记本"
+description = "研究所的墙上挂着几件研究服，在一件挂有“夏月”名字的铭牌的衣服口袋中找到一本笔记本。笔记本中记录了“研究清单”，从中提取信息可知，夏月等人正在进行与平行世界有关的研究，但遇到了瓶颈，一直难以突破。夏月等人猜测，在普朗克常数的差异下，多个世界可以叠加存在，然而，即使他们已经掌握了量子力学的终极秘密，他们仍做不到联通不同的平行世界，就像正被什么阻止着。"
+chapter_id = "3"
+room_id = "xiayue"
+category_path = PackedStringArray("异墅", "夏月研究所")
+tags = PackedStringArray("chapter_3", "strange_villa", "scene")
+clue_type = "lore"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

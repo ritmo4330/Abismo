@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "2_zhong_2"
+title = "病号服"
+description = "衣柜的角落有一套被折起来的病号服，其上印有“十七号精神卫生中心”的字样。"
+chapter_id = "2"
+room_id = "zhong"
+category_path = PackedStringArray("梦墅", "钟歧房间")
+tags = PackedStringArray("chapter_2", "dream_villa", "scene")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray("2_zhong_2_14")
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

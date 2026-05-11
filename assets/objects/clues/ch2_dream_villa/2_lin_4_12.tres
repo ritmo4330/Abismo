@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "2_lin_4_12"
+title = "五芒星纸"
+description = "箱子底有一张被折起来的纸，摊开，上面画着一个五芒星的图案和几个文字（从上顶角开始顺时针分别为“金”“水”“木”“火”“土”，中央为“生”）"
+chapter_id = "2"
+room_id = "lin"
+category_path = PackedStringArray("梦墅", "林玖房间", "深入调查")
+tags = PackedStringArray("chapter_2", "dream_villa", "deep_investigation")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = "2_lin_4"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

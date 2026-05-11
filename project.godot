@@ -31,12 +31,19 @@ directories/dch_directory={
 "butler": "res://assets/characters/npcs/butler.dch",
 "lin_jiu": "res://assets/characters/npcs/lin_jiu.dch",
 "mu_zhi": "res://assets/characters/npcs/mu_zhi.dch",
+"player": "res://assets/characters/player.dch",
 "wu_ting_xiang": "res://assets/characters/npcs/wu_ting_xiang.dch",
 "zhong_qi": "res://assets/characters/npcs/zhong_qi.dch",
 "zhou_chong_an": "res://assets/characters/npcs/zhou_chong_an.dch"
 }
 directories/dtl_directory={
-"test": "res://assets/dialogues/test.dtl"
+"butler_1_1": "res://assets/dialogues/ch1_snow_villa/butler_1_1.dtl",
+"lin_1_1": "res://assets/dialogues/ch1_snow_villa/lin_1_1.dtl",
+"mu_1_1": "res://assets/dialogues/ch1_snow_villa/mu_1_1.dtl",
+"prologue1": "res://assets/dialogues/ch0_prologue/prologue1.dtl",
+"prologue2": "res://assets/dialogues/ch0_prologue/prologue2.dtl",
+"test": "res://assets/dialogues/test.dtl",
+"zhou_1_1": "res://assets/dialogues/ch1_snow_villa/zhou_1_1.dtl"
 }
 layout/style_directory={
 "": "res://assets/UI/default_visual_novel.tres",
@@ -45,10 +52,21 @@ layout/style_directory={
 }
 glossary/default_case_sensitive=true
 variables={
-"g1": {
-"name": ""
+"Affinity": {
+"Lin": 50,
+"Mu": 40,
+"Wu": 55,
+"Zhong": 45,
+"Zhou": 60
 },
-"player_name": ""
+"Ch1NPCIntro": {
+"Lin": false,
+"Mu": false,
+"Wu": false,
+"Zhong": false,
+"Zhou": false
+},
+"PlayerName": ""
 }
 layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres"]
 layout/default_style="res://assets/UI/default_visual_novel.tres"
@@ -64,7 +82,7 @@ animations/join_default_wait=true
 animations/leave_default_length=0.5
 animations/leave_default_wait=true
 animations/cross_fade_default_length=0.5
-choices/autofocus_first=true
+choices/autofocus_first=false
 choices/delay=0.2
 choices/reveal_delay=0
 choices/reveal_by_input=false

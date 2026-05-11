@@ -6,21 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://7q46owluqudi" path="res://scenes/characters/player/player.tscn" id="4_e46wm"]
 [ext_resource type="PackedScene" uid="uid://ccoalm2taxdwe" path="res://scenes/characters/npcs/npc.tscn" id="7_q8rd1"]
 [ext_resource type="Script" uid="uid://daw4qwopm7n4l" path="res://scripts/objects/interactable/clue_item.gd" id="8_clue_item"]
-[ext_resource type="Resource" uid="uid://eh0g5g34w6k4" path="res://assets/objects/clues/ch2_snow_villa/2_dining_1.tres" id="9_clue_dining_1"]
-[ext_resource type="Resource" path="res://assets/objects/clues/ch2_snow_villa/2_lin_1.tres" id="10_clue_lin_1"]
-[ext_resource type="Resource" path="res://assets/objects/clues/ch2_snow_villa/2_lin_1_1.tres" id="11_clue_lin_1_1"]
+[ext_resource type="Resource" uid="uid://eh0g5g34w6k4" path="res://assets/objects/clues/ch1_snow_villa/1_dining_1.tres" id="9_clue_dining_1"]
+[ext_resource type="Resource" path="res://assets/objects/clues/ch1_snow_villa/1_lin_1.tres" id="10_clue_lin_1"]
+[ext_resource type="Resource" path="res://assets/objects/clues/ch1_snow_villa/1_lin_1_1.tres" id="11_clue_lin_1_1"]
 [ext_resource type="Texture2D" uid="uid://bcwh7upcxi31p" path="res://pixel-art (1).png" id="12_debug_icon"]
-[ext_resource type="Resource" uid="uid://cxj0jicf2564u" path="res://assets/objects/clues/ch4_strange_villa/4_abismo_1.tres" id="12_spt5d"]
+[ext_resource type="Resource" uid="uid://cxj0jicf2564u" path="res://assets/objects/clues/ch3_strange_villa/3_abismo_1.tres" id="12_spt5d"]
 [ext_resource type="PackedScene" uid="uid://dhdr1aqijhpnp" path="res://scenes/UI/clue_panel.tscn" id="13_clue_panel"]
-[ext_resource type="Resource" uid="uid://d3jfpaxdllf1a" path="res://assets/objects/clues/ch4_strange_villa/4_abismo_1_19.tres" id="13_oetau"]
-[ext_resource type="Resource" uid="uid://ymbcqnryhwcp" path="res://assets/objects/clues/ch4_strange_villa/4_abismo_1_20.tres" id="14_6t7u2"]
-[ext_resource type="Resource" uid="uid://c24j8k70tivhq" path="res://assets/objects/clues/ch2_snow_villa/2_mu_0.tres" id="14_clue_mu_0"]
-[ext_resource type="Resource" path="res://assets/objects/clues/ch2_snow_villa/2_mu_0_27.tres" id="15_clue_mu_0_27"]
-[ext_resource type="Resource" uid="uid://dg7mbua45tt8d" path="res://assets/objects/clues/ch4_strange_villa/4_abismo_1_21.tres" id="15_fpywe"]
-[ext_resource type="Resource" path="res://assets/objects/clues/ch4_strange_villa/4_flower_sea_1.tres" id="16_6t7u2"]
-[ext_resource type="Resource" path="res://assets/objects/clues/ch4_strange_villa/4_flower_sea_1_3.tres" id="17_fpywe"]
-[ext_resource type="Resource" uid="uid://dxy033gbbefb8" path="res://assets/objects/clues/ch4_strange_villa/4_abismo_2.tres" id="17_wbq2x"]
-[ext_resource type="Resource" path="res://assets/objects/clues/ch4_strange_villa/4_study_darkroom_4.tres" id="19_wbq2x"]
+[ext_resource type="Resource" uid="uid://d3jfpaxdllf1a" path="res://assets/objects/clues/ch3_strange_villa/3_abismo_1_19.tres" id="13_oetau"]
+[ext_resource type="Resource" uid="uid://ymbcqnryhwcp" path="res://assets/objects/clues/ch3_strange_villa/3_abismo_1_20.tres" id="14_6t7u2"]
+[ext_resource type="Resource" uid="uid://c24j8k70tivhq" path="res://assets/objects/clues/ch1_snow_villa/1_mu_0.tres" id="14_clue_mu_0"]
+[ext_resource type="Resource" path="res://assets/objects/clues/ch1_snow_villa/1_mu_0_27.tres" id="15_clue_mu_0_27"]
+[ext_resource type="Resource" uid="uid://dg7mbua45tt8d" path="res://assets/objects/clues/ch3_strange_villa/3_abismo_1_21.tres" id="15_fpywe"]
+[ext_resource type="Resource" path="res://assets/objects/clues/ch3_strange_villa/3_flower_sea_1.tres" id="16_6t7u2"]
+[ext_resource type="Resource" path="res://assets/objects/clues/ch3_strange_villa/3_flower_sea_1_3.tres" id="17_fpywe"]
+[ext_resource type="Resource" uid="uid://dxy033gbbefb8" path="res://assets/objects/clues/ch3_strange_villa/3_abismo_2.tres" id="17_wbq2x"]
+[ext_resource type="Resource" uid="uid://pooid1es2o3u" path="res://assets/objects/clues/ch3_strange_villa/3_study_darkroom_4.tres" id="19_wbq2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5vxv"]
 texture = ExtResource("1_e46wm")
@@ -217,10 +217,10 @@ position = Vector2(425, 252)
 [node name="ClueSingle" type="Area2D" parent="Interactables" unique_id=1172170660]
 position = Vector2(575, 228)
 script = ExtResource("8_clue_item")
-clue_id = "2_dining_1"
+clue_id = "1_dining_1"
 clue_def = ExtResource("9_clue_dining_1")
 source_id = "test_scene_player/single"
-interact_id = "2_dining_1"
+interact_id = "1_dining_1"
 
 [node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueSingle" unique_id=750196931]
 scale = Vector2(0.035, 0.035)
@@ -232,10 +232,10 @@ shape = SubResource("CircleShape2D_clue_single")
 [node name="ClueDeepParent" type="Area2D" parent="Interactables" unique_id=2050080830]
 position = Vector2(650, 228)
 script = ExtResource("8_clue_item")
-clue_id = "2_lin_1"
+clue_id = "1_lin_1"
 clue_def = ExtResource("10_clue_lin_1")
 source_id = "test_scene_player/deep_parent"
-interact_id = "2_lin_1"
+interact_id = "1_lin_1"
 
 [node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueDeepParent" unique_id=895465851]
 modulate = Color(1, 0.82, 0.25, 1)
@@ -250,17 +250,17 @@ position = Vector2(-9999, -9999)
 monitoring = false
 monitorable = false
 script = ExtResource("8_clue_item")
-clue_id = "2_lin_1_1"
+clue_id = "1_lin_1_1"
 clue_def = ExtResource("11_clue_lin_1_1")
 source_id = "test_scene_player/deep_child_registry"
 
 [node name="ClueBodySearchDeepParent" type="Area2D" parent="Interactables" unique_id=365161665]
 position = Vector2(725, 228)
 script = ExtResource("8_clue_item")
-clue_id = "2_mu_0"
+clue_id = "1_mu_0"
 clue_def = ExtResource("14_clue_mu_0")
 source_id = "test_scene_player/body_search_parent"
-interact_id = "2_mu_0"
+interact_id = "1_mu_0"
 
 [node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueBodySearchDeepParent" unique_id=1553119058]
 modulate = Color(0.6, 0.95, 0.7, 1)
@@ -275,108 +275,108 @@ position = Vector2(-10020, -9999)
 monitoring = false
 monitorable = false
 script = ExtResource("8_clue_item")
-clue_id = "2_mu_0_27"
+clue_id = "1_mu_0_27"
 clue_def = ExtResource("15_clue_mu_0_27")
 source_id = "test_scene_player/body_search_child_registry"
 
-[node name="ClueChapter4" type="Area2D" parent="Interactables" unique_id=1162021992]
+[node name="ClueChapter3" type="Area2D" parent="Interactables" unique_id=1162021992]
 position = Vector2(800, 228)
 script = ExtResource("8_clue_item")
-clue_id = "4_abismo_1"
+clue_id = "3_abismo_1"
 clue_def = ExtResource("12_spt5d")
-source_id = "test_scene_player/ch4_single"
-interact_id = "4_xiayue_1"
+source_id = "test_scene_player/ch3_single"
+interact_id = "3_xiayue_1"
 
-[node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueChapter4" unique_id=758029546]
+[node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueChapter3" unique_id=758029546]
 modulate = Color(0.95, 0.6, 0.6, 1)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_debug_icon")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClueChapter4" unique_id=1371677370]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClueChapter3" unique_id=1371677370]
 shape = SubResource("CircleShape2D_clue_single")
 
-[node name="ClueChapter4DeepChild" type="Area2D" parent="Interactables" unique_id=1585757407]
+[node name="ClueChapter3DeepChild" type="Area2D" parent="Interactables" unique_id=1585757407]
 position = Vector2(-10020, -9999)
 monitoring = false
 monitorable = false
 script = ExtResource("8_clue_item")
-clue_id = "4_abismo_1_19"
+clue_id = "3_abismo_1_19"
 clue_def = ExtResource("13_oetau")
 source_id = "test_scene_player/body_search_child_registry"
 
-[node name="ClueChapter4DeepChild2" type="Area2D" parent="Interactables" unique_id=1583077527]
+[node name="ClueChapter3DeepChild2" type="Area2D" parent="Interactables" unique_id=1583077527]
 position = Vector2(-10020, -9999)
 monitoring = false
 monitorable = false
 script = ExtResource("8_clue_item")
-clue_id = "4_abismo_1_20"
+clue_id = "3_abismo_1_20"
 clue_def = ExtResource("14_6t7u2")
 source_id = "test_scene_player/body_search_child_registry"
 
-[node name="ClueChapter4DeepChild3" type="Area2D" parent="Interactables" unique_id=340437]
+[node name="ClueChapter3DeepChild3" type="Area2D" parent="Interactables" unique_id=340437]
 position = Vector2(-10020, -9999)
 monitoring = false
 monitorable = false
 script = ExtResource("8_clue_item")
-clue_id = "4_abismo_1_21"
+clue_id = "3_abismo_1_21"
 clue_def = ExtResource("15_fpywe")
 source_id = "test_scene_player/body_search_child_registry"
 
-[node name="ClueChapter4\'" type="Area2D" parent="Interactables" unique_id=250467559]
+[node name="ClueChapter3\'" type="Area2D" parent="Interactables" unique_id=250467559]
 position = Vector2(879, 180)
 script = ExtResource("8_clue_item")
-clue_id = "4_flower_sea_1"
+clue_id = "3_flower_sea_1"
 clue_def = ExtResource("16_6t7u2")
-source_id = "test_scene_player/ch4_single"
-interact_id = "4_xiayue_1"
+source_id = "test_scene_player/ch3_single"
+interact_id = "3_xiayue_1"
 
-[node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueChapter4\'" unique_id=1459060958]
+[node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueChapter3\'" unique_id=1459060958]
 modulate = Color(0.95, 0.6, 0.6, 1)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_debug_icon")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClueChapter4\'" unique_id=62654507]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClueChapter3\'" unique_id=62654507]
 shape = SubResource("CircleShape2D_clue_single")
 
-[node name="ClueChapter4\'DeepChild4" type="Area2D" parent="Interactables" unique_id=1180835585]
+[node name="ClueChapter3\'DeepChild4" type="Area2D" parent="Interactables" unique_id=1180835585]
 position = Vector2(-10020, -9999)
 monitoring = false
 monitorable = false
 script = ExtResource("8_clue_item")
-clue_id = "4_flower_sea_1_3"
+clue_id = "3_flower_sea_1_3"
 clue_def = ExtResource("17_fpywe")
 source_id = "test_scene_player/body_search_child_registry"
 
-[node name="ClueChapter4\'2" type="Area2D" parent="Interactables" unique_id=167206786]
+[node name="ClueChapter3\'2" type="Area2D" parent="Interactables" unique_id=167206786]
 position = Vector2(762, 157)
 script = ExtResource("8_clue_item")
-clue_id = "4_abismo_2"
+clue_id = "3_abismo_2"
 clue_def = ExtResource("17_wbq2x")
-source_id = "test_scene_player/ch4_single"
-interact_id = "4_xiayue_1"
+source_id = "test_scene_player/ch3_single"
+interact_id = "3_xiayue_1"
 
-[node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueChapter4\'2" unique_id=1776122917]
+[node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueChapter3\'2" unique_id=1776122917]
 modulate = Color(0.95, 0.6, 0.6, 1)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_debug_icon")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClueChapter4\'2" unique_id=1289141124]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClueChapter3\'2" unique_id=1289141124]
 shape = SubResource("CircleShape2D_clue_single")
 
-[node name="ClueChapter4\'3" type="Area2D" parent="Interactables" unique_id=240725374]
+[node name="ClueChapter3\'3" type="Area2D" parent="Interactables" unique_id=240725374]
 position = Vector2(948, 218)
 script = ExtResource("8_clue_item")
-clue_id = "4_study_darkroom_4"
+clue_id = "3_study_darkroom_4"
 clue_def = ExtResource("19_wbq2x")
-source_id = "test_scene_player/ch4_single"
-interact_id = "4_xiayue_1"
+source_id = "test_scene_player/ch3_single"
+interact_id = "3_xiayue_1"
 
-[node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueChapter4\'3" unique_id=615078395]
+[node name="DebugIcon" type="Sprite2D" parent="Interactables/ClueChapter3\'3" unique_id=615078395]
 modulate = Color(0.95, 0.6, 0.6, 1)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_debug_icon")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClueChapter4\'3" unique_id=589830127]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClueChapter3\'3" unique_id=589830127]
 shape = SubResource("CircleShape2D_clue_single")
 
 [node name="Player" parent="." unique_id=1223088320 instance=ExtResource("4_e46wm")]

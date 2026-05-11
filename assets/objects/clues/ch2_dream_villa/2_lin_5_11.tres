@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "2_lin_5_11"
+title = "相框纸条"
+description = "拆开相框，发现一张纸条夹在其中。纸条上写着：“只身赴往明日，却生踟蹰迷茫。哀鸣兮于幽谷，沉默兮于汪洋。黑白无须颠倒，善恶终将还偿。若使临渊待旦，必见朗朗天光。”"
+chapter_id = "2"
+room_id = "lin"
+category_path = PackedStringArray("梦墅", "林玖房间", "深入调查")
+tags = PackedStringArray("chapter_2", "dream_villa", "deep_investigation")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = "2_lin_5"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

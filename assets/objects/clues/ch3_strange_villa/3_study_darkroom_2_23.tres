@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "3_study_darkroom_2_23"
+title = "报纸上的小字"
+description = "在报纸头条的旁边写有歪歪扭扭的小字：“为什么不能回来陪我？”"
+chapter_id = "3"
+room_id = "study_darkroom"
+category_path = PackedStringArray("异墅", "书房暗室", "深入调查")
+tags = PackedStringArray("chapter_3", "strange_villa", "deep_investigation")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = "3_study_darkroom_2"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

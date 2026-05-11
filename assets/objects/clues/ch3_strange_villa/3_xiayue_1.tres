@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ClueData" format=3 uid="uid://dysh7kmlqmqx1"]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "3_xiayue_1"
+title = "巨大的光球"
+description = "研究所中央有一个球形容器，其中悬浮着一个巨大的光球，容器旁有一个笔记本，据笔记内容，这是“量子力学终极秘密”的具象化产物，可以用于控制粒子的运动，而若要发挥更大的作用，则必须拥有更高的权限。最高权限下，终极秘密甚至可以发挥世界级的作用。但无论如何，终极秘密遵循能量守恒。"
+chapter_id = "3"
+room_id = "xiayue"
+category_path = PackedStringArray("异墅", "夏月研究所")
+tags = PackedStringArray("chapter_3", "strange_villa", "scene")
+clue_type = "lore"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

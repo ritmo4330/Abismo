@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "3_flower_sea_1_22"
+title = "尸体细节"
+description = "梅塔的身体被锋利的防盗杆洞穿，血流成河。尸体的位置太高，无法进一步观察。防盗杆两侧落有花盆的碎片和一株吊兰。"
+chapter_id = "3"
+room_id = "flower_sea"
+category_path = PackedStringArray("异墅", "花海", "深入调查")
+tags = PackedStringArray("chapter_3", "strange_villa", "deep_investigation")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = "3_flower_sea_1"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

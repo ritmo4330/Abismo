@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccoalm2taxdwe"]
 
 [ext_resource type="Script" uid="uid://dqsp2afscxoqa" path="res://scripts/characters/npc/npc.gd" id="1_idr7u"]
-[ext_resource type="SpriteFrames" path="res://assets/characters/npcs/zhou_chong_an.tres" id="2_mp4vq"]
+[ext_resource type="SpriteFrames" uid="uid://b2mxv72amr8xk" path="res://assets/characters/npcs/zhou_chong_an.tres" id="2_mp4vq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxdnj"]
 size = Vector2(12, 16)

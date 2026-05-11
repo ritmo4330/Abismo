@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "2_mei_2_15"
+title = "计划本"
+description = "归纳整理后，发现整个笔记本实际上是一个计划本。第一步：找到联通不同世界的人的梦境的方法；第二步：找到所有的“神选者”；第三步：找到“神选者”恐惧至深的梦魇；第四步：在梦中触发梦魇，杀死那些“神选者”。其中前两步已完成。"
+chapter_id = "2"
+room_id = "mei"
+category_path = PackedStringArray("梦墅", "梅塔房间", "深入调查")
+tags = PackedStringArray("chapter_2", "dream_villa", "deep_investigation")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = "2_mei_2"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ClueData" format=3 uid="uid://jfcw8b6vm8ia"]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "3_abismo_1_28"
+title = "异数0564档案"
+description = "办公桌上的一个文件袋上写着“异数0564”观测记录。内部有大量的纸质资料，详细记录了与0564号异数有关的信息。0564号异数是一类现象，由异测会成员梅塔的父母在过去指出。世界上已知的所有对世界之理研究的较为透彻的科学家，甚至知晓某些世界之理的人（不论渠道），都会突发事故或疾病而死亡。异数0564-01与0564-02是梅塔父母的死亡事件，据记载，1995年4月13日，梅塔母亲从自家窗台坠下，落在楼下的防盗杆上，被尖刺洞穿身体，而随后，梅塔父亲似乎想查看情况，却以同样的方式结束了生命。二人都是弦理论的专家，梅塔也因此事拒绝一切发展弦理论的研究。"
+chapter_id = "3"
+room_id = "abismo"
+category_path = PackedStringArray("异墅", "异测会研究所", "深入调查")
+tags = PackedStringArray("chapter_3", "strange_villa", "deep_investigation")
+clue_type = "lore"
+parent_clue_id = "3_abismo_1"
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

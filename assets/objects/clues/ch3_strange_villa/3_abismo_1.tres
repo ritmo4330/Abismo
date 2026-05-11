@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ClueData" format=3 uid="uid://cxj0jicf2564u"]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "3_abismo_1"
+title = "会长的文件袋"
+description = "许多办公室内都有不少独立办公桌，只有一间办公室仅供一人使用。该办公室的办公桌上挂有“异数观测协会会长：时今”的铭牌。办公桌上摆有四个文件袋。"
+chapter_id = "3"
+room_id = "abismo"
+category_path = PackedStringArray("异墅", "异测会研究所")
+tags = PackedStringArray("chapter_3", "strange_villa", "scene")
+child_clue_ids = PackedStringArray("3_abismo_1_19", "3_abismo_1_20", "3_abismo_1_21", "3_abismo_1_28")
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

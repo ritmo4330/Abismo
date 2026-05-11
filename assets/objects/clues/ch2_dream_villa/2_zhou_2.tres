@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "2_zhou_2"
+title = "林羽的名片"
+description = "书桌上的物品摆放得非常整齐，笔筒里有一张名片，记录着一名名叫林羽的心理咨询师的联系方式。"
+chapter_id = "2"
+room_id = "zhou"
+category_path = PackedStringArray("梦墅", "周崇安房间")
+tags = PackedStringArray("chapter_2", "dream_villa", "scene")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

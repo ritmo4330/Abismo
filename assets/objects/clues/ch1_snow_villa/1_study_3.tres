@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_study_3"
+title = "被划线的书页"
+description = "书桌上有一本书，书中某页夹着一张书签，在那一页，一行文字下被划了一条线，“自由不是在黑与白中做出选择，而是可以放弃这样被规定好的选择。——西奥多·阿多诺”。书签上也有一段文字：“真正可怕的，并不是那种人人都难以避免的一念之差，而是那种深入习俗、盘踞于人心深处的谬误与偏见。——培根”。"
+chapter_id = "1"
+room_id = "study"
+category_path = PackedStringArray("雪墅", "书房")
+tags = PackedStringArray("chapter_1", "snow_villa", "scene")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

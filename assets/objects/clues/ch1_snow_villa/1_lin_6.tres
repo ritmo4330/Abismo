@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_lin_6"
+title = "衣柜"
+description = "衣柜中除了衣架以外空无一物，只有暗褐色的血迹残留其中。"
+chapter_id = "1"
+room_id = "lin"
+category_path = PackedStringArray("雪墅", "林玖房间")
+tags = PackedStringArray("chapter_1", "snow_villa", "scene")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"
