@@ -1,0 +1,48 @@
+[style name="default_visual_novel"]
+join wu_ting_xiang left
+if {Ch1.NPCIntro.Wu.Introed} == true:
+	jump 可重复选项
+wu_ting_xiang: 你好，我的名字是乌停湘。虽然按理来说你的确有不在场证明，但我们可以相信你吗？
+label 抉择9
+- 当然，我叫{PlayerName}
+	wu_ting_xiang: 嗯，我会尽力配合调查。
+	set {Affinity.Wu} += 5
+- 我会尽力而为
+	wu_ting_xiang: 嗯……我想也是，毕竟大家都不是警察。
+- 需要取得信任的人是你们才对
+	wu_ting_xiang: ……你说得对。
+	set {Affinity.Wu} -= 5
+set {Ch1.NPCIntro.Wu.Introed} = true
+label 可重复选项
+wu_ting_xiang: 我会尽可能如实回答的。
+- 自我介绍
+	wu_ting_xiang: 我是一名高中生，和林姐姐——噢，她叫林玖——我们居住在孤儿院。我和她一起在孤儿院长大，我没有9岁之前的记忆，警察也找不到我的家人，所以我从有记忆起就住在孤儿院了。
+	set {Ch1.NPCIntro.Wu.Selected1} = true
+	jump 可重复选项
+- 来到别墅的原因
+	wu_ting_xiang: 是林姐姐带我跑出孤儿院的，她说异测会要来抓我，于是我们就跑了出来。
+	set {Ch1.NPCIntro.Wu.Selected2} = true
+	jump 可重复选项
+- 接下来的打算
+	wu_ting_xiang: 被卷入了这么一场案件，也只能在雪停之前尽可能找到真相了吧。
+	set {Ch1.NPCIntro.Wu.Selected3} = true
+	jump 可重复选项
+- 搜身 | [if {Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Wu.FirstDone} != true]
+	wu_ting_xiang: 真的会有人把关键物品藏在身上吗？
+	乌停湘上着一件白色羽绒服，口袋里没有东西。下着一条黑色长裤，口袋里没有东西。
+	set {Ch1.BodySearch.Wu.FirstDone} = true
+	do DataManager.add_clue("1_wu_0", "dialogue", "1_wu_0")
+	jump 可重复选项
+- 再次搜身 | [if {Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Wu.FirstDone} == true and {Ch1.BodySearch.Wu.SecondDone} != true]
+	wu_ting_xiang: 你的关注点不太对吧？真的会有人把关键物品藏在自己身上吗？
+	- 【坚持搜身】
+		wu_ting_xiang: 唉，怎么这样……
+		set {Affinity.Wu} -= 10
+		……你从她的身上没能再发现任何有价值的线索。
+		set {Ch1.BodySearch.Wu.SecondDone} = true
+		jump 可重复选项
+	- 【放弃搜身】
+		wu_ting_xiang: 对吧，你不如先去想想密室的问题。
+		jump 可重复选项
+- 暂时没有问题了 | [if {Ch1.NPCIntro.Wu.Selected1} == true and {Ch1.NPCIntro.Wu.Selected2} == true and {Ch1.NPCIntro.Wu.Selected3} == true]
+	wu_ting_xiang: 好，有什么别的疑问要记得和我交流哦。

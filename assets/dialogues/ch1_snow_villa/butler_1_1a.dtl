@@ -1,0 +1,9 @@
+[style name="default_visual_novel"]
+join butler left
+butler: 和嫌疑人都聊过了？准备好调查现场了吗？
+label 抉择13
+- 准备好了 | [if {Ch1.NPCIntro.Zhou.Selected1} == true and {Ch1.NPCIntro.Zhou.Selected2} == true and {Ch1.NPCIntro.Zhou.Selected3} == true and {Ch1.NPCIntro.Mu.Selected1} == true and {Ch1.NPCIntro.Mu.Selected2} == true and {Ch1.NPCIntro.Mu.Selected3} == true and {Ch1.NPCIntro.Lin.Selected1} == true and {Ch1.NPCIntro.Lin.Selected2} == true and {Ch1.NPCIntro.Lin.Selected3} == true and {Ch1.NPCIntro.Wu.Selected1} == true and {Ch1.NPCIntro.Wu.Selected2} == true and {Ch1.NPCIntro.Wu.Selected3} == true and {Ch1.NPCIntro.Zhong.Selected1} == true and {Ch1.NPCIntro.Zhong.Selected2} == true and {Ch1.NPCIntro.Zhong.Selected3} == true]
+	butler: 好的，请跟我来。
+	[signal arg="start_initial_search"]
+- 稍等一下
+	butler: 好的，我会在这里等你。

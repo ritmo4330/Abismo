@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_testimony_2_butler"
+title = "尸检"
+description = "管家：“尸体的左后胸有一处贯穿伤，是出血量最大的位置，此外没有别的伤口或痕迹，可以判断为致命伤，但是凶器已经被拔出，暂未找到。”\n\n“此外，死者的衣服一角有擦拭状的血迹。口袋里还有一把可以打开别墅内所有门的万能钥匙。”"
+chapter_id = "1"
+room_id = "butler"
+category_path = PackedStringArray("雪墅", "口供线索", "管家")
+tags = PackedStringArray("chapter_1", "snow_villa", "testimony", "butler")
+clue_type = "testimony"
+is_conclusion = false
+highlight_visible = false
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

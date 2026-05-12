@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_testimony_4_all"
+title = "作案时间"
+description = "你：“请大家回忆一下，你们最后一次见到死者是什么时候？”\n\n钟歧：“休息时间之前，具体时间不清楚，当时应该所有人都在。梅塔从自己的卧室走出来，喊了一声管家。再之后，我看见穆执和他走进了餐厅，此后就再也没有见到他了。”\n周崇安：“他说的没错，梅塔喊管家的时候我们都看见了他。在那之后我就没有见过他了，只从管家口中听说过梅塔和穆执在餐厅用过餐。”\n林玖：“我知道的和周院长一样，不过我倒是不知道梅塔和穆执有用过餐这件事。”\n乌停湘：“我和林姐姐基本上一直待在一起，也只在主卧门口见到过一次。”\n穆执：“我的确和梅塔在餐厅用过餐，是他主动邀请我的。我想着承蒙关照，不太好拒绝主人的邀请。用餐后我们就分开了，各自回到自己的房间，再也没有见过。”\n管家：“我可以证明穆先生的说法属实。主人和穆先生从餐厅出来并回到房间后，我才宣布休息时间到，这个时候我可以确认主人还活着。”"
+chapter_id = "1"
+room_id = "all"
+category_path = PackedStringArray("雪墅", "口供线索", "作案时间")
+tags = PackedStringArray("chapter_1", "snow_villa", "testimony", "all")
+clue_type = "testimony"
+is_conclusion = false
+highlight_visible = false
+parent_clue_id = ""
+child_clue_ids = PackedStringArray("1_testimony_6_lin")
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

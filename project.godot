@@ -38,11 +38,18 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "butler_1_1": "res://assets/dialogues/ch1_snow_villa/butler_1_1.dtl",
+"butler_1_1a": "res://assets/dialogues/ch1_snow_villa/butler_1_1a.dtl",
+"butler_1_2a": "res://assets/dialogues/ch1_snow_villa/butler_1_2a.dtl",
+"butler_1_2b": "res://assets/dialogues/ch1_snow_villa/butler_1_2b.dtl",
+"butler_1_2c": "res://assets/dialogues/ch1_snow_villa/butler_1_2c.dtl",
+"butler_1_2d": "res://assets/dialogues/ch1_snow_villa/butler_1_2d.dtl",
 "lin_1_1": "res://assets/dialogues/ch1_snow_villa/lin_1_1.dtl",
 "mu_1_1": "res://assets/dialogues/ch1_snow_villa/mu_1_1.dtl",
 "prologue1": "res://assets/dialogues/ch0_prologue/prologue1.dtl",
 "prologue2": "res://assets/dialogues/ch0_prologue/prologue2.dtl",
 "test": "res://assets/dialogues/test.dtl",
+"wu_1_1": "res://assets/dialogues/ch1_snow_villa/wu_1_1.dtl",
+"zhong_1_1": "res://assets/dialogues/ch1_snow_villa/zhong_1_1.dtl",
 "zhou_1_1": "res://assets/dialogues/ch1_snow_villa/zhou_1_1.dtl"
 }
 layout/style_directory={
@@ -59,12 +66,43 @@ variables={
 "Zhong": 45,
 "Zhou": 60
 },
-"Ch1NPCIntro": {
-"Lin": false,
-"Mu": false,
-"Wu": false,
-"Zhong": false,
-"Zhou": false
+"Ch1": {
+"InitialSearch": {
+"Finished": false
+},
+"NPCIntro": {
+"Lin": {
+"Introed": false,
+"Selected1": false,
+"Selected2": false,
+"Selected3": false
+},
+"Mu": {
+"Introed": false,
+"Selected1": false,
+"Selected2": false,
+"Selected3": false
+},
+"ReadyForSearch": false,
+"Wu": {
+"Introed": false,
+"Selected1": false,
+"Selected2": false,
+"Selected3": false
+},
+"Zhong": {
+"Introed": false,
+"Selected1": false,
+"Selected2": false,
+"Selected3": false
+},
+"Zhou": {
+"Introed": false,
+"Selected1": false,
+"Selected2": false,
+"Selected3": false
+}
+}
 },
 "PlayerName": ""
 }

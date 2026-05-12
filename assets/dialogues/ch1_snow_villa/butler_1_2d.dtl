@@ -1,0 +1,9 @@
+[style name="default_visual_novel"]
+join butler left
+butler: 调查结束了吗？
+label 抉择14
+- 调查完了
+	butler: 明白了，我们回大厅吧。
+	[signal arg="start_initial_reasoning"]
+- 稍等一下
+	butler: 好的，我就在你的身边。

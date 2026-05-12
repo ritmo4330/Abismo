@@ -8,17 +8,17 @@ const ARCHIVE_SORT_DEFAULT: int = 0
 const ARCHIVE_SORT_DISCOVER: int = 1
 
 const CHAPTER_ORDER: Dictionary = {
-	"2": 0,
-	"3": 1,
-	"4": 2,
+	"1": 0,
+	"2": 1,
+	"3": 2,
 }
 
 const CH2_ROOM_ORDER: Dictionary = {
 	"mu": 0,
-	"song": 1,
-	"su": 2,
+	"zhou": 1,
+	"lin": 2,
 	"wu": 3,
-	"xia": 4,
+	"zhong": 4,
 	"mei": 5,
 	"storeroom": 6,
 	"dining": 7,
@@ -30,28 +30,28 @@ const CH2_ROOM_ORDER: Dictionary = {
 
 const CH3_ROOM_ORDER: Dictionary = {
 	"mu": 0,
-	"song": 1,
-	"su": 2,
+	"zhou": 1,
+	"lin": 2,
 	"wu": 3,
-	"xia": 4,
+	"zhong": 4,
 	"mei": 5,
 }
 
 const CH4_ROOM_ORDER: Dictionary = {
 	"mei": 0,
 	"abismo": 1,
-	"song": 2,
-	"xiayue": 3,
+	"zhou": 2,
+	"zhongyue": 3,
 	"study_darkroom": 4,
 	"flower_sea": 5,
 }
 
 const BODY_SEARCH_PERSON_ORDER: Dictionary = {
 	"mu": 0,
-	"song": 1,
-	"su": 2,
+	"zhou": 1,
+	"lin": 2,
 	"wu": 3,
-	"xia": 4,
+	"zhong": 4,
 }
 
 @onready var panel_root: Control = $PanelRoot

@@ -1,0 +1,49 @@
+[style name="default_visual_novel"]
+join zhong_qi left
+if {Ch1.NPCIntro.Zhong.Introed} == true:
+	jump 可重复选项
+zhong_qi: 我叫钟歧。我有话就直说了，那个AI管家安排你这个来历不明的陌生人调查我们让我很不满意，但只要你不做出什么出格的举动，或者如果你能够证明你的能力，我暂时会配合你。
+label 抉择11
+- 我叫{PlayerName}，熟悉之前谁不是陌生人呢？
+	zhong_qi: 看来你很有自信，那就期待一下你的表现吧。
+	set {Affinity.Zhong} += 5
+- 我会尽力打消你的顾虑
+	zhong_qi: 但愿你可以。
+- 我可以理解为你在抗拒调查吗？
+	zhong_qi: 如果你的结论不会影响你的调查，那你便这么理解吧。
+	set {Affinity.Zhong} -= 5
+set {Ch1.NPCIntro.Zhong.Introed} = true
+label 可重复选项
+zhong_qi: 问吧。
+- 自我介绍
+	zhong_qi: 我是一名物理学研究助理，参与我爷爷的研究团队的研究。
+	set {Ch1.NPCIntro.Zhong.Selected1} = true
+	jump 可重复选项
+- 来到别墅的原因
+	zhong_qi: 梅塔要来抓我，我打算躲在山深处避一避，没成想正好掉进了他的圈套。好在他死了，人不是我杀的，但我要感谢这个除害的凶手。
+	set {Ch1.NPCIntro.Zhong.Selected2} = true
+	jump 可重复选项
+- 接下来的打算
+	zhong_qi: 梅塔不是什么好人，我好奇的是案件背后的真相。
+	set {Ch1.NPCIntro.Zhong.Selected3} = true
+	jump 可重复选项
+- 搜身 | [if {Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Zhong.FirstDone} != true]
+	zhong_qi: ……你搜吧。
+	钟歧上着一件黑色羽绒服，内袋中有一把水果刀。下着一条深灰色长裤，口袋里没有东西。
+	zhong_qi: 别想多了，这是我拿来防身用的，目前还没有用到过。
+	set {Ch1.BodySearch.Zhong.FirstDone} = true
+	do DataManager.add_clue("1_zhong_0", "dialogue", "1_zhong_0")
+	jump 可重复选项
+- 再次搜身 | [if {Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Zhong.FirstDone} == true and {Ch1.BodySearch.Zhong.SecondDone} != true]
+	zhong_qi: 我开始怀疑你缺乏基本的判断力了。我给你机会不是让你得寸进尺的。
+	- 【坚持搜身】
+		zhong_qi: ……
+		set {Affinity.Zhong} -= 10
+		……你从他的身上没能再发现任何有价值的线索。
+		set {Ch1.BodySearch.Zhong.SecondDone} = true
+		jump 可重复选项
+	- 【放弃搜身】
+		zhong_qi: 这还差不多。
+		jump 可重复选项
+- 暂时没有问题了 | [if {Ch1.NPCIntro.Zhong.Selected1} == true and {Ch1.NPCIntro.Zhong.Selected2} == true and {Ch1.NPCIntro.Zhong.Selected3} == true]
+	zhong_qi: 嗯。

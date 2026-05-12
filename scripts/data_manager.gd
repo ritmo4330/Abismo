@@ -5,12 +5,19 @@ signal suspicion_updated(suspicion_id: String)
 signal affinity_changed(npc_id: String, new_value: int)
 signal ui_notice_requested(message: String, notice_type: String)
 
+const CLUE_RESOURCE_ROOT: String = "res://assets/objects/clues"
+const CLUE_RESOURCE_EXTENSION: String = "tres"
+
 var clue_defs: Dictionary[String, ClueData] = {}
 var clue_states: Dictionary[String, Dictionary] = {}
 var suspicions: Dictionary[String, Variant] = {}
 var world_flags: Dictionary[String, bool] = {}
 var affinity: Dictionary[String, int] = {}
 var _discover_counter: int = 0
+
+
+func _ready() -> void:
+	_register_all_clue_defs()
 
 
 func register_clue_def(clue_def: ClueData) -> void:
@@ -30,6 +37,9 @@ func register_clue_defs(clue_def_list: Array[ClueData]) -> void:
 func add_clue(clue_id: String, source_type: String = "scene", source_id: String = "") -> bool:
 	if clue_id.is_empty():
 		return false
+
+	if not clue_defs.has(clue_id):
+		push_warning("DataManager.add_clue(): clue id '%s' has no registered ClueData." % clue_id)
 
 	if has_clue(clue_id):
 		return false
@@ -180,6 +190,44 @@ func get_world_flag(flag_id: String) -> bool:
 	if flag_id.is_empty():
 		return false
 	return world_flags.get(flag_id, false)
+
+
+func _register_all_clue_defs() -> void:
+	_register_clue_defs_in_directory(CLUE_RESOURCE_ROOT)
+
+
+func _register_clue_defs_in_directory(directory_path: String) -> void:
+	var directory: DirAccess = DirAccess.open(directory_path)
+	if directory == null:
+		push_warning("DataManager: unable to open clue resource directory '%s'." % directory_path)
+		return
+
+	directory.list_dir_begin()
+	var entry_name: String = directory.get_next()
+	while not entry_name.is_empty():
+		if entry_name.begins_with("."):
+			entry_name = directory.get_next()
+			continue
+
+		var entry_path: String = directory_path.path_join(entry_name)
+		if directory.current_is_dir():
+			_register_clue_defs_in_directory(entry_path)
+		elif entry_name.get_extension().to_lower() == CLUE_RESOURCE_EXTENSION:
+			_try_register_clue_def_resource(entry_path)
+
+		entry_name = directory.get_next()
+	directory.list_dir_end()
+
+
+func _try_register_clue_def_resource(resource_path: String) -> void:
+	var resource: Resource = load(resource_path)
+	if resource == null:
+		push_warning("DataManager: failed to load clue resource '%s'." % resource_path)
+		return
+	if not (resource is ClueData):
+		return
+
+	register_clue_def(resource as ClueData)
 
 
 func _create_default_clue_state(source_type: String, source_id: String) -> Dictionary:

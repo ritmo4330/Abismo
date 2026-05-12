@@ -1,0 +1,49 @@
+[style name="default_visual_novel"]
+join mu_zhi left
+if {Ch1.NPCIntro.Mu.Introed} == true:
+	jump 可重复选项
+mu_zhi: 你好，我叫穆执。请问该怎么称呼你？
+label 抉择2
+- 我叫{PlayerName}
+	mu_zhi: 好的，{PlayerName}先生。
+	set {Affinity.Mu} += 5
+- 叫我侦探就行
+	mu_zhi: 好的，侦探先生。
+- 闲话少说
+	mu_zhi: 原来您是重视效率的类型，恕我冒犯了。
+	set {Affinity.Mu} -= 5
+set {Ch1.NPCIntro.Mu.Introed} = true
+label 可重复选项
+mu_zhi: 你想从我这里了解什么？
+- 自我介绍一下
+	mu_zhi: 我是一名教徒，如果你对我的信仰感兴趣的话，晚些我可以和你交流。
+	set {Ch1.NPCIntro.Mu.Selected1} = true
+	jump 可重复选项
+- 来到别墅的原因
+	mu_zhi: 实不相瞒，我的住处同样在这座山上。来到此地之前，我前往教堂参加礼拜，返回时突遇暴风雪，我只能就近找到这里，便请求管家收留了我。
+	set {Ch1.NPCIntro.Mu.Selected2} = true
+	jump 可重复选项
+- 接下来的打算
+	mu_zhi: 我对逝者的遭遇深感不幸，希望你能帮助我们找到凶手。否则就这样待在同一个屋檐下，难免有些芥蒂。
+	set {Ch1.NPCIntro.Mu.Selected3} = true
+	jump 可重复选项
+- 搜身 | [if {Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Mu.FirstDone} != true]
+	mu_zhi: 如果你执意要求的话，我可以配合。
+	穆执身着一套考究的黑色西装，以白色衬衣打底，口袋里没有东西。
+	set {Ch1.BodySearch.Mu.FirstDone} = true
+	do DataManager.add_clue("1_mu_0", "dialogue", "1_mu_0")
+	jump 可重复选项
+- 再次搜身 | [if {Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Mu.FirstDone} == true and {Ch1.BodySearch.Mu.SecondDone} != true]
+	mu_zhi: 恕我直言，一般人对于被搜身是会反感的，尤其是当你本没有搜身的权利时。
+	- 【坚持搜身】
+		mu_zhi: 好吧，希望你的行为是有价值的。
+		set {Affinity.Mu} -= 10
+		仔细观察，你发现穆执西装的衣袖上沾有些许尘土。
+		set {Ch1.BodySearch.Mu.SecondDone} = true
+		do DataManager.add_clue("1_mu_0_27", "dialogue", "1_mu_0_27")
+		jump 可重复选项
+	- 【放弃搜身】
+		mu_zhi: 嗯，把你的注意力放在有价值的地方。
+		jump 可重复选项
+- 暂时没有问题了 | [if {Ch1.NPCIntro.Mu.Selected1} == true and {Ch1.NPCIntro.Mu.Selected2} == true and {Ch1.NPCIntro.Mu.Selected3} == true]
+	mu_zhi: 好的，如果有其他问题，欢迎再来和我沟通。

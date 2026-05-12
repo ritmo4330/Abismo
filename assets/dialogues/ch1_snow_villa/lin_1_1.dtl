@@ -1,0 +1,46 @@
+[style name="default_visual_novel"]
+join lin_jiu left
+if {Ch1.NPCIntro.Lin.Introed} == true:
+	jump 可重复选项
+lin_jiu: 你好……我叫林玖，轮到我了吗？
+label 抉择7
+- 放轻松，你可以叫我{PlayerName}
+	lin_jiu: 嗯，好。
+	set {Affinity.Lin} += 5.0
+- 没错
+	lin_jiu: ……我应该说些什么？
+set {Ch1.NPCIntro.Lin.Introed} = true
+label 可重复选项
+lin_jiu: 你要问什么？
+- 自我介绍
+	lin_jiu: 我是一名学前教师，在周院长管理的孤儿院任职。周院长就是那边那位最年长的人，对大家都很好。
+	set {Ch1.NPCIntro.Lin.Selected1} = true
+	jump 可重复选项
+- 来到别墅的原因
+	lin_jiu: 我带乌停湘上山来找穆执，结果还没赶到他的小木屋就下起了暴风雪，我们只好找到最近的这座别墅避雪。
+	set {Ch1.NPCIntro.Lin.Selected2} = true
+	jump 可重复选项
+- 接下来的打算
+	lin_jiu: 凶手……就在我们之中，对吧？我很担心……
+	set {Ch1.NPCIntro.Lin.Selected3} = true
+	jump 可重复选项
+- 搜身 | [if {Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Lin.FirstDone} != true]
+	lin_jiu: 要搜身吗？好吧……
+	林玖上着一件米色的羊毛衫，衣袖口被卷起。下着一条浅色的棉裤，口袋里没有东西。
+	set {Ch1.BodySearch.Lin.FirstDone} = true
+	do DataManager.add_clue("1_lin_0", "dialogue", "1_lin_0")
+	jump 可重复选项
+- 再次搜身 | [if {Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Lin.FirstDone} == true and {Ch1.BodySearch.Lin.SecondDone} != true]
+	lin_jiu: 你不是已经搜过了吗？为什么还要搜一次？
+	- 【坚持搜身】
+		lin_jiu: ……
+		set {Affinity.Lin} -= 10
+		你将她的衣袖翻下来后，露出袖口上一片暗褐色的印迹。
+		set {Ch1.BodySearch.Lin.SecondDone} = true
+		do DataManager.add_clue("1_lin_0_25", "dialogue", "1_lin_0_25")
+		jump 可重复选项
+	- 【放弃搜身】
+		lin_jiu: 嗯……没事就好。
+		jump 可重复选项
+- 暂时没有问题了 | [if {Ch1.NPCIntro.Lin.Selected1} == true and {Ch1.NPCIntro.Lin.Selected2} == true and {Ch1.NPCIntro.Lin.Selected3} == true]
+	lin_jiu: 好的。

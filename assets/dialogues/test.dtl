@@ -11,6 +11,6 @@ zhou_chong_an: 你是？
 - 你大爷
 	zhou_chong_an: ？
 - 你叫？
-	[text_input var="g1.name"]
-	song_lin_xi (New portrait): 你好 {g1.name}
+	[text_input var="PlayerName"]
+	zhou_chong_an: 你好 {PlayerName}
 	if :

@@ -1,0 +1,57 @@
+[style name="default_visual_novel"]
+join zhou_chong_an left
+if {Ch1.NPCIntro.Zhou.Introed} == true:
+	jump 可重复选项
+zhou_chong_an: 你好，我叫周崇安，请问你是……
+label 抉择4
+- 我叫{PlayerName}
+	zhou_chong_an: 我感觉你有些熟悉，我们在哪里见过吗？
+	set {Affinity.Zhou} += 5.0
+- 叫我侦探就行
+	zhou_chong_an: 我感觉你有些熟悉，我们在哪里见过吗？
+- 关于案发前后的事情
+	zhou_chong_an: 在此之前……我感觉你有些熟悉，我们在哪里见过吗？
+	set {Affinity.Zhou} -= 5.0
+label 抉择5
+- 或许是的
+	zhou_chong_an: 或许是吧，原谅我年纪大了脑子不太灵光。
+	set {Affinity.Zhou} += 5.0
+- 我不知道
+	zhou_chong_an: 好吧，其实我也没有把握。
+- 应该没有
+	zhou_chong_an: 那应该是我记错了，不好意思。
+	set {Affinity.Zhou} -= 5.0
+set {Ch1.NPCIntro.Zhou.Introed} = true
+label 可重复选项
+zhou_chong_an: 有什么事吗？
+- 自我介绍
+	zhou_chong_an: 我是一名孤儿院院长，管理着本市的孤儿院。
+	set {Ch1.NPCIntro.Zhou.Selected1} = true
+	jump 可重复选项
+- 来到别墅的原因
+	zhou_chong_an: 我来到这座山上有一些事情要处理，下山的时候突然遇到暴风雪，幸好能找到这幢别墅让我避避风雪。
+	set {Ch1.NPCIntro.Zhou.Selected2} = true
+	jump 可重复选项
+- 接下来的打算
+	zhou_chong_an: 我还有些自己的事情想要调查，不过我也会尽力配合你的调查。
+	set {Ch1.NPCIntro.Zhou.Selected3} = true
+	jump 可重复选项
+- 搜身 | [if {Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Zhou.FirstDone} != true]
+	zhou_chong_an: 我身上没有什么可以藏的。
+	周崇安上着一件白色大衣，口袋里没有东西。脖子上围着一条浅灰色长围巾。下着一条棕色长裤，口袋里没有东西。
+	set {Ch1.BodySearch.Zhou.FirstDone} = true
+	do DataManager.add_clue("1_zhou_0", "dialogue", "1_zhou_0")
+	jump 可重复选项
+- 再次搜身 | [if {Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Zhou.FirstDone} == true and {Ch1.BodySearch.Zhou.SecondDone} != true]
+	zhou_chong_an: 如果你是在怀疑我的话，我奉劝你大可不必。
+	- 【坚持搜身】
+		zhou_chong_an: ……我给予你信任，是希望你也能信任我。
+		set {Affinity.Zhou} -= 10
+		……你从他的身上没能再发现任何有价值的线索。
+		set {Ch1.BodySearch.Zhou.SecondDone} = true
+		jump 可重复选项
+	- 【放弃搜身】
+		zhou_chong_an: 感谢信任。
+		jump 可重复选项
+- 暂时没有问题了 | [if {Ch1.NPCIntro.Zhou.Selected1} == true and {Ch1.NPCIntro.Zhou.Selected2} == true and {Ch1.NPCIntro.Zhou.Selected3} == true]
+	zhou_chong_an: 嗯，我还需要调查一下。
