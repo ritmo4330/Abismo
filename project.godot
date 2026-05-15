@@ -37,20 +37,21 @@ directories/dch_directory={
 "zhou_chong_an": "res://assets/characters/npcs/zhou_chong_an.dch"
 }
 directories/dtl_directory={
-"butler_1_1": "res://assets/dialogues/ch1_snow_villa/butler_1_1.dtl",
-"butler_1_1a": "res://assets/dialogues/ch1_snow_villa/butler_1_1a.dtl",
-"butler_1_2a": "res://assets/dialogues/ch1_snow_villa/butler_1_2a.dtl",
-"butler_1_2b": "res://assets/dialogues/ch1_snow_villa/butler_1_2b.dtl",
-"butler_1_2c": "res://assets/dialogues/ch1_snow_villa/butler_1_2c.dtl",
-"butler_1_2d": "res://assets/dialogues/ch1_snow_villa/butler_1_2d.dtl",
-"lin_1_1": "res://assets/dialogues/ch1_snow_villa/lin_1_1.dtl",
-"mu_1_1": "res://assets/dialogues/ch1_snow_villa/mu_1_1.dtl",
+"1_1_butler": "res://assets/dialogues/ch1_snow_villa/1_1_butler.dtl",
+"1_1_butler_a": "res://assets/dialogues/ch1_snow_villa/1_1_butler_a.dtl",
+"1_1_lin": "res://assets/dialogues/ch1_snow_villa/1_1_lin.dtl",
+"1_1_mu": "res://assets/dialogues/ch1_snow_villa/1_1_mu.dtl",
+"1_1_wu": "res://assets/dialogues/ch1_snow_villa/1_1_wu.dtl",
+"1_1_zhong": "res://assets/dialogues/ch1_snow_villa/1_1_zhong.dtl",
+"1_1_zhou": "res://assets/dialogues/ch1_snow_villa/1_1_zhou.dtl",
+"1_2_butler_a": "res://assets/dialogues/ch1_snow_villa/1_2_butler_a.dtl",
+"1_2_butler_b": "res://assets/dialogues/ch1_snow_villa/1_2_butler_b.dtl",
+"1_2_butler_c": "res://assets/dialogues/ch1_snow_villa/1_2_butler_c.dtl",
+"1_2_butler_d": "res://assets/dialogues/ch1_snow_villa/1_2_butler_d.dtl",
+"1_3_butler_lin_mu_wu_zhong_zhou": "res://assets/dialogues/ch1_snow_villa/1_3_butler_lin_mu_wu_zhong_zhou.dtl",
 "prologue1": "res://assets/dialogues/ch0_prologue/prologue1.dtl",
 "prologue2": "res://assets/dialogues/ch0_prologue/prologue2.dtl",
-"test": "res://assets/dialogues/test.dtl",
-"wu_1_1": "res://assets/dialogues/ch1_snow_villa/wu_1_1.dtl",
-"zhong_1_1": "res://assets/dialogues/ch1_snow_villa/zhong_1_1.dtl",
-"zhou_1_1": "res://assets/dialogues/ch1_snow_villa/zhou_1_1.dtl"
+"test": "res://assets/dialogues/test.dtl"
 }
 layout/style_directory={
 "": "res://assets/UI/default_visual_novel.tres",
