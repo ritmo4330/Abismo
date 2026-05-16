@@ -5,6 +5,7 @@ const DEFAULT_PLAYER_SCENE_PATH: String = "res://scenes/characters/player/player
 
 var level_container: Node2D = null
 var current_player: Node2D = null
+var current_room: Node2D = null
 var is_transitioning: bool = false
 
 var _host_root: Node2D = null
@@ -29,7 +30,9 @@ func initialize(host_root: Node2D, first_level_path: String = DEFAULT_FIRST_LEVE
 	_is_initialized = true
 
 	if should_bootstrap_room:
-		_load_room(first_level_path, first_spawn_point)
+		var loaded_room: Node2D = _load_room(first_level_path, first_spawn_point)
+		if loaded_room != null:
+			_emit_room_loaded(loaded_room, first_level_path)
 
 
 func _on_scene_change_requested(target_path: String, spawn_point_name: String) -> void:
@@ -55,7 +58,7 @@ func _on_scene_change_requested(target_path: String, spawn_point_name: String) -
 		child.queue_free()
 
 	await get_tree().process_frame
-	_load_room(target_path, spawn_point_name)
+	var loaded_room: Node2D = _load_room(target_path, spawn_point_name)
 
 	if Transition != null and Transition.has_method("fade_in"):
 		await Transition.fade_in()
@@ -67,6 +70,8 @@ func _on_scene_change_requested(target_path: String, spawn_point_name: String) -
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	is_transitioning = false
+	if loaded_room != null:
+		_emit_room_loaded(loaded_room, target_path)
 
 
 func _ensure_level_container() -> void:
@@ -100,22 +105,23 @@ func _ensure_player() -> void:
 	current_player.name = "Player"
 
 
-func _load_room(path: String, spawn_point_name: String) -> void:
+func _load_room(path: String, spawn_point_name: String) -> Node2D:
 	var level_resource: PackedScene = load(path)
 	if level_resource == null:
 		push_error("无法加载关卡：" + path)
-		return
+		return null
 
 	var level_instance: Node2D = level_resource.instantiate() as Node2D
 	if level_instance == null:
 		push_error("关卡实例化失败：" + path)
-		return
+		return null
 
 	level_instance.process_mode = Node.PROCESS_MODE_PAUSABLE
 	level_container.add_child(level_instance)
+	current_room = level_instance
 
 	if current_player == null:
-		return
+		return level_instance
 
 	level_instance.add_child(current_player)
 
@@ -134,3 +140,23 @@ func _load_room(path: String, spawn_point_name: String) -> void:
 
 	if level_instance.has_method("setup_camera_limits"):
 		level_instance.setup_camera_limits(current_player)
+
+	return level_instance
+
+
+func _emit_room_loaded(room: Node2D, source_path: String) -> void:
+	var room_id: String = _resolve_room_id(room, source_path)
+	EventBus.room_loaded.emit(room, room_id)
+
+
+func _resolve_room_id(room: Node2D, source_path: String) -> String:
+	if room != null:
+		var configured_room_id: Variant = room.get("room_id")
+		if configured_room_id != null and not String(configured_room_id).is_empty():
+			return String(configured_room_id)
+		if not room.name.is_empty():
+			return String(room.name).to_snake_case()
+
+	if not source_path.is_empty() and source_path.get_extension() == "tscn":
+		return source_path.get_file().get_basename()
+	return ""

@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_ufucf")
 id = "1_lin_0"
-title = "林玖搜身线索"
+title = "林玖"
 description = "上着一件米色的羊毛衫，衣袖口被卷起。下着一条浅色的棉裤，口袋里没有东西。"
 chapter_id = "1"
 room_id = "lin"
-category_path = PackedStringArray("雪墅", "搜身线索", "林玖")
+category_path = PackedStringArray("雪墅", "搜身线索")
 tags = PackedStringArray("chapter_1", "snow_villa", "body_search")
 clue_type = "scene_evidence"
 is_conclusion = false

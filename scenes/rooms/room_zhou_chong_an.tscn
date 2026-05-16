@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_saltl"]
 [ext_resource type="Texture2D" uid="uid://bvl6vkxaxnmxh" path="res://assets/interior/客房.png" id="2_wnj6q"]
 [ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="3_1d4v4"]
-[ext_resource type="PackedScene" uid="uid://ccoalm2taxdwe" path="res://scenes/characters/npcs/npc.tscn" id="4_logxu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ssrmc"]
 texture = ExtResource("2_wnj6q")
@@ -609,6 +608,7 @@ fill_to = Vector2(0.5, 0)
 [node name="RoomZhouChongAn" type="Node2D" unique_id=1315035317]
 y_sort_enabled = true
 script = ExtResource("1_saltl")
+room_id = "room_zhou_chong_an"
 
 [node name="Scene" type="Node2D" parent="." unique_id=2065940674]
 
@@ -628,8 +628,13 @@ shape = SubResource("RectangleShape2D_x1w88")
 [node name="SpawnFromF2" type="Marker2D" parent="Scene" unique_id=829932385]
 position = Vector2(1047, 867)
 
-[node name="NPC" parent="." unique_id=315533828 instance=ExtResource("4_logxu")]
+[node name="NPCSpawnPoints" type="Node2D" parent="."]
+
+[node name="Zhou" type="Marker2D" parent="NPCSpawnPoints"]
 position = Vector2(1311, 580)
+
+[node name="DynamicActors" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=736756762]
 visible = false

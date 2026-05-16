@@ -23,6 +23,7 @@ fill_to = Vector2(0.5, 0)
 [node name="Floor2" type="Node2D" unique_id=790534765]
 y_sort_enabled = true
 script = ExtResource("1_ydu0m")
+room_id = "floor2"
 
 [node name="Scene" type="Node2D" parent="." unique_id=408395029]
 
@@ -151,6 +152,14 @@ scale = Vector2(3.4140625, 3.4140625)
 color = Color(0.58665305, 0.4543379, 0.29612488, 1)
 energy = 1.5
 texture = SubResource("GradientTexture2D_qslkk")
+
+[node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=790493581]
+
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints" unique_id=2018863964]
+position = Vector2(686, 445)
+
+[node name="DynamicActors" type="Node2D" parent="." unique_id=1789960558]
+y_sort_enabled = true
 
 [connection signal="body_entered" from="Scene/Doors/HallLeft" to="Scene/Doors/HallLeft" method="_on_body_entered"]
 [connection signal="body_entered" from="Scene/Doors/HallRight" to="Scene/Doors/HallRight" method="_on_body_entered"]

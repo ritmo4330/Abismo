@@ -1,0 +1,20 @@
+[style name="default_visual_novel"]
+其余人已经先行前往储物间了，你和钟歧在管家的带领下在储物间会合。
+join butler leftmost
+join mu_zhi left
+join wu_ting_xiang center
+join lin_jiu right
+join zhong_qi rightmost
+众人移动到储物间暗门边。
+mu_zhi: 周先生似乎有一些急于调查的东西，他觉得没必要等大家私聊完再调查，就先下去了。
+wu_ting_xiang: 周院长这么做，一定有他的道理。
+zhong_qi: 林玖，稍等一下，我还有些问题要问你。
+lin_jiu: 啊？好……
+leave mu_zhi
+leave wu_ting_xiang
+leave lin_jiu
+你看见地毯已经被完全掀开，暗门也被打开了，一条通往地下的楼梯出现在眼前。楼梯非常狭窄，宽度仅能供一人行走。管家摊开右手指向暗门，对你说道。
+butler: 请吧，我们就在你的身后。
+set {Ch1.SecondSearch.Enabled} = true
+leave --All--
+[end_timeline]

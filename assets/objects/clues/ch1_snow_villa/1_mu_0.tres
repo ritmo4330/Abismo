@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_ufucf")
 id = "1_mu_0"
-title = "穆执搜身线索"
+title = "穆执"
 description = "身着一套考究的黑色西装，以白色衬衣打底，口袋里没有东西。"
 chapter_id = "1"
 room_id = "mu"
-category_path = PackedStringArray("雪墅", "搜身线索", "穆执")
+category_path = PackedStringArray("雪墅", "搜身线索")
 tags = PackedStringArray("chapter_1", "snow_villa", "body_search")
 child_clue_ids = PackedStringArray("1_mu_0_27")
 metadata/_custom_type_script = "uid://cbkmf2phn35d3"

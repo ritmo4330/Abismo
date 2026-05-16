@@ -1,0 +1,28 @@
+[style name="default_visual_novel"]
+正当你准备离开时，钟歧从你来时的入口走了进来。
+join zhong_qi left
+zhong_qi: 这是……怎么可能？
+player: 什么？
+钟歧在房间内走了一圈，面色复杂。
+zhong_qi: 这里是我爷爷他们的研究所。但它不可能出现在这里！
+label 抉择18
+- 为什么不可能？ | [if {Ch1.SecondSearch.Zhong.AskedImpossible} != true]
+	zhong_qi: 这是一座海底研究所，而我们所在的别墅在山上，两个地方隔了十万八千里。
+	set {Ch1.SecondSearch.Zhong.AskedImpossible} = true
+	jump 抉择18
+- 其他人呢？ | [if {Ch1.SecondSearch.Zhong.AskedOthers} != true]
+	zhong_qi: 我不知道，周崇安先进了暗门，我跟林玖和乌停湘聊了一会才下来，她们估计在后面。你没有看到周崇安和穆执吗？
+	player: 没有，我也觉得很奇怪。
+	set {Ch1.SecondSearch.Zhong.AskedOthers} = true
+	jump 抉择18
+- 你的爷爷是谁？ | [if {Ch1.SecondSearch.Zhong.AskedGrandfather} != true]
+	zhong_qi: 他叫钟岳，量子物理学家，正在研究平行世界相关的课题。我也是研究助理之一。
+	set {Ch1.SecondSearch.Zhong.AskedGrandfather} = true
+	jump 抉择18
+- 继续 | [if {Ch1.SecondSearch.Zhong.AskedImpossible} == true and {Ch1.SecondSearch.Zhong.AskedOthers} == true and {Ch1.SecondSearch.Zhong.AskedGrandfather} == true]
+	player: 你还需要调查吗？
+	zhong_qi: 不必了，我刚刚转了一圈，这里的陈设和我记忆中一般无二。实在是太奇怪了，得回去找到其他人。
+	player: 那就走吧。
+	set {Ch1.SecondSearch.Zhong.Finished} = true
+	leave --All--
+	[end_timeline]

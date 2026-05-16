@@ -1,6 +1,20 @@
 extends Node
 
+const FLOW_SIGNAL_PREFIX: String = "flow:"
+const LEGACY_FLOW_SIGNALS: Array[String] = [
+	"start_initial_search",
+	"enter_room_lin",
+	"start_search_tutorial",
+	"start_initial_reasoning",
+	"enable_private_chat",
+	"enter_private_chat",
+	"exit_private_chat",
+	"start_second_search",
+	"exit_second_search",
+]
+
 var _is_dialogue_active: bool = false
+var _current_timeline_name: String = ""
 
 
 func _ready() -> void:
@@ -11,6 +25,9 @@ func _ready() -> void:
 
 	if not Dialogic.timeline_ended.is_connected(_on_dialogue_ended):
 		Dialogic.timeline_ended.connect(_on_dialogue_ended)
+
+	if not Dialogic.signal_event.is_connected(_on_dialogic_signal_event):
+		Dialogic.signal_event.connect(_on_dialogic_signal_event)
 
 
 func bootstrap() -> void:
@@ -76,6 +93,7 @@ func _start_dialogue(timeline_name: String) -> void:
 	if layout != null:
 		layout.process_mode = Node.PROCESS_MODE_ALWAYS
 
+	_current_timeline_name = timeline_name
 	_is_dialogue_active = true
 
 
@@ -83,12 +101,34 @@ func _on_dialogue_ended() -> void:
 	if not _is_dialogue_active and Dialogic.current_timeline == null:
 		return
 
+	var ended_timeline_name: String = _current_timeline_name
 	_is_dialogue_active = false
+	_current_timeline_name = ""
 
 	if SceneManager != null and SceneManager.is_transitioning:
+		EventBus.dialogue_finished.emit(ended_timeline_name)
 		return
 
 	if GameManager != null and GameManager.has_method("end_dialogue_state"):
 		GameManager.end_dialogue_state()
 	else:
 		get_tree().paused = false
+
+	EventBus.dialogue_finished.emit(ended_timeline_name)
+
+
+func _on_dialogic_signal_event(argument: String) -> void:
+	var signal_name: String = _normalize_flow_signal(argument)
+	if signal_name.is_empty():
+		return
+	EventBus.flow_signal_requested.emit(signal_name)
+
+
+func _normalize_flow_signal(argument: String) -> String:
+	if argument.is_empty():
+		return ""
+	if argument.begins_with(FLOW_SIGNAL_PREFIX):
+		return argument.substr(FLOW_SIGNAL_PREFIX.length())
+	if LEGACY_FLOW_SIGNALS.has(argument):
+		return argument
+	return ""

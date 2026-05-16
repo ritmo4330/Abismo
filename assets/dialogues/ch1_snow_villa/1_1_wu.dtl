@@ -47,6 +47,6 @@ wu_ting_xiang: 我会尽可能如实回答的。
 - 邀请私聊 | [if {Ch1.PrivateChat.Enabled} == true]
 	wu_ting_xiang: 好，我们走吧。
 	set {Ch1.PrivateChat.Target} = "wu"
-	[signal arg="enter_private_chat"]
+	[signal arg="flow:enter_private_chat"]
 - 暂时没有问题了 | [if {Ch1.NPCIntro.Wu.Selected1} == true and {Ch1.NPCIntro.Wu.Selected2} == true and {Ch1.NPCIntro.Wu.Selected3} == true]
 	wu_ting_xiang: 好，有什么别的疑问要记得和我交流哦。

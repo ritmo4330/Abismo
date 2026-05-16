@@ -4,6 +4,7 @@ extends Node2D
 @export var player_scene: PackedScene = preload("res://scenes/characters/player/player.tscn")
 # 编辑器配置：本场景的默认出生点名称
 @export var default_spawn_point: String = "InitialSpawn"
+@export var room_id: String = ""
 
 func _ready():
 	# =====================
@@ -26,6 +27,17 @@ func _spawn_test_player():
 	player_instance.global_position = spawn_point.global_position
 	
 	setup_camera_limits(player_instance)
+
+
+func get_dynamic_actors_root() -> Node2D:
+	return find_child("DynamicActors", true, false) as Node2D
+
+
+func get_npc_spawn_point(spawn_point_name: String) -> Marker2D:
+	var root: Node = find_child("NPCSpawnPoints", true, false)
+	if root == null:
+		return null
+	return root.find_child(spawn_point_name, true, false) as Marker2D
 
 # 动态获取当前地图的边界，并设置给玩家的摄像机
 func setup_camera_limits(player: Node2D):

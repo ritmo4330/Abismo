@@ -230,6 +230,7 @@ fill_to = Vector2(0.5, 0)
 [node name="RoomWuTingXiang" type="Node2D" unique_id=1315035317]
 y_sort_enabled = true
 script = ExtResource("1_g4fv7")
+room_id = "room_wu_ting_xiang"
 
 [node name="Scene" type="Node2D" parent="." unique_id=2065940674]
 
@@ -297,6 +298,14 @@ shape = SubResource("RectangleShape2D_x1w88")
 [node name="SpawnFromF2" type="Marker2D" parent="Scene" unique_id=829932385]
 position = Vector2(1079, 497)
 
+[node name="NPCSpawnPoints" type="Node2D" parent="."]
+
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(1026, 520)
+
+[node name="DynamicActors" type="Node2D" parent="."]
+y_sort_enabled = true
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=736756762]
 color = Color(0.50949115, 0.4061685, 0.32444108, 1)
 
@@ -315,4 +324,3 @@ scale = Vector2(1.8659662, 1.8659662)
 color = Color(1, 0.6509804, 0, 1)
 energy = 0.72
 texture = SubResource("GradientTexture2D_lbdex")
-

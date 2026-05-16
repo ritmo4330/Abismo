@@ -54,4 +54,4 @@ mu_zhi: 你想从我这里了解什么？
 - 暂时没有问题了
 	mu_zhi: 好的，如果有其他问题，欢迎再来和我沟通。
 	set {Ch1.PrivateChat.Mu.Finished} = true
-	[signal arg="exit_private_chat"]
+	[signal arg="flow:exit_private_chat"]

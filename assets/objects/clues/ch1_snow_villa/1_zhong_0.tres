@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_ufucf")
 id = "1_zhong_0"
-title = "钟歧搜身线索"
+title = "钟歧"
 description = "上着一件黑色羽绒服，内袋中有一把水果刀。下着一条深灰色长裤，口袋里没有东西。"
 chapter_id = "1"
 room_id = "zhong"
-category_path = PackedStringArray("雪墅", "搜身线索", "钟歧")
+category_path = PackedStringArray("雪墅", "搜身线索")
 tags = PackedStringArray("chapter_1", "snow_villa", "body_search")
 clue_type = "scene_evidence"
 is_conclusion = false

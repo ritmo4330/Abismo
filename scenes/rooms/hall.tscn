@@ -488,6 +488,7 @@ fill_to = Vector2(0.5, 0)
 [node name="Hall" type="Node2D" unique_id=563566508]
 y_sort_enabled = true
 script = ExtResource("1_hcmxa")
+room_id = "hall"
 
 [node name="Scene" type="Node2D" parent="." unique_id=1817439032]
 y_sort_enabled = true
@@ -586,6 +587,29 @@ target_spawn_point = "SpawnFromHall"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/CanTing" unique_id=327607834]
 position = Vector2(886, 335)
 shape = SubResource("RectangleShape2D_hcmxa")
+
+[node name="NPCSpawnPoints" type="Node2D" parent="."]
+
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(898, 585)
+
+[node name="Zhou" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(645, 642)
+
+[node name="Mu" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(760, 690)
+
+[node name="Lin" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(1038, 690)
+
+[node name="Wu" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(1155, 642)
+
+[node name="Zhong" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(898, 792)
+
+[node name="DynamicActors" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=327528480]
 visible = false

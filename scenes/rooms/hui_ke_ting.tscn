@@ -36,6 +36,7 @@ fill_to = Vector2(0.5, 0)
 [node name="HuiKeTing" type="Node2D" unique_id=1580290273]
 position = Vector2(1, 0)
 script = ExtResource("1_bfxa5")
+room_id = "hui_ke_ting"
 
 [node name="Scene" type="Node2D" parent="." unique_id=1644374723]
 
@@ -82,3 +83,11 @@ texture = SubResource("GradientTexture2D_1pjmd")
 
 [node name="SpawnFromZouLang" type="Marker2D" parent="." unique_id=2030578906]
 position = Vector2(926, 853)
+
+[node name="NPCSpawnPoints" type="Node2D" parent="."]
+
+[node name="Guest" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(925, 690)
+
+[node name="DynamicActors" type="Node2D" parent="."]
+y_sort_enabled = true

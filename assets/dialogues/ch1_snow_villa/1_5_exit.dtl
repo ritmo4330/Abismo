@@ -1,0 +1,12 @@
+[style name="default_visual_novel"]
+label 调查出入口
+调查完毕，准备离开了？
+label 抉择17
+- 调查完了 | [if {Ch1.SecondSearch.Finished} == true]
+	jump 1_5_zhong
+- 调查完了 | [if {Ch1.SecondSearch.Finished} != true]
+	好像还有值得注意的线索，再看看吧。
+	jump 抉择17
+- 稍等一下
+	还是再看看吧。
+	[end_timeline]

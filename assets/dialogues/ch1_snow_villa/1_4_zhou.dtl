@@ -52,4 +52,4 @@ zhou_chong_an: 有什么事吗？
 - 暂时没有问题了
 	zhou_chong_an: 嗯，我还需要调查一下。
 	set {Ch1.PrivateChat.Zhou.Finished} = true
-	[signal arg="exit_private_chat"]
+	[signal arg="flow:exit_private_chat"]

@@ -48,6 +48,6 @@ zhong_qi: 问吧。
 - 邀请私聊 | [if {Ch1.PrivateChat.Enabled} == true]
 	zhong_qi: 嗯。
 	set {Ch1.PrivateChat.Target} = "zhong"
-	[signal arg="enter_private_chat"]
+	[signal arg="flow:enter_private_chat"]
 - 暂时没有问题了 | [if {Ch1.NPCIntro.Zhong.Selected1} == true and {Ch1.NPCIntro.Zhong.Selected2} == true and {Ch1.NPCIntro.Zhong.Selected3} == true]
 	zhong_qi: 嗯。

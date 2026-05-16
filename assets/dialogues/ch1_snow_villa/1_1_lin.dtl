@@ -45,6 +45,6 @@ lin_jiu: 你要问什么？
 - 邀请私聊 | [if {Ch1.PrivateChat.Enabled} == true]
 	lin_jiu: 好，我会配合的。
 	set {Ch1.PrivateChat.Target} = "lin"
-	[signal arg="enter_private_chat"]
+	[signal arg="flow:enter_private_chat"]
 - 暂时没有问题了 | [if {Ch1.NPCIntro.Lin.Selected1} == true and {Ch1.NPCIntro.Lin.Selected2} == true and {Ch1.NPCIntro.Lin.Selected3} == true]
 	lin_jiu: 好的。

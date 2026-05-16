@@ -53,4 +53,4 @@ butler: 请问有何吩咐？
 - 暂时没有问题了
 	butler: 了解了。
 	set {Ch1.PrivateChat.Butler.Finished} = true
-	[signal arg="exit_private_chat"]
+	[signal arg="flow:exit_private_chat"]

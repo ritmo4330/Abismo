@@ -127,4 +127,5 @@ player: 你为什么想知道这些？
 butler: 这是主人下达的指令。
 butler: 请继续吧，{PlayerName}，如果你想要和任何人私聊，直接向他们提出就好。如果你准备好去调查其它地方，和我说一声，我们就进行下一轮调查。
 set {Ch1.PrivateChat.Enabled} = true
+[signal arg="flow:enable_private_chat"]
 leave --All--

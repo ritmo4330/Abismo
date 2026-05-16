@@ -24,6 +24,7 @@ SceneManager="*res://scripts/scenes/scene_manager.gd"
 GameManager="*res://scripts/game_manager.gd"
 Dialogic="*uid://ds2q0uclmolvu"
 DialogueManager="*res://scripts/dialogue/dialogue_manager.gd"
+FlowManager="*res://scripts/flow/flow_manager.gd"
 
 [dialogic]
 
@@ -43,6 +44,8 @@ directories/dtl_directory={
 "1_1_wu": "res://assets/dialogues/ch1_snow_villa/1_1_wu.dtl",
 "1_1_zhong": "res://assets/dialogues/ch1_snow_villa/1_1_zhong.dtl",
 "1_1_zhou": "res://assets/dialogues/ch1_snow_villa/1_1_zhou.dtl",
+"1_2_butler_a": "res://assets/dialogues/ch1_snow_villa/1_2_butler_a.dtl",
+"1_2_butler_b": "res://assets/dialogues/ch1_snow_villa/1_2_butler_b.dtl",
 "1_3_butler_lin_mu_wu_zhong_zhou": "res://assets/dialogues/ch1_snow_villa/1_3_butler_lin_mu_wu_zhong_zhou.dtl",
 "1_4_butler": "res://assets/dialogues/ch1_snow_villa/1_4_butler.dtl",
 "1_4_lin": "res://assets/dialogues/ch1_snow_villa/1_4_lin.dtl",
@@ -50,6 +53,9 @@ directories/dtl_directory={
 "1_4_wu": "res://assets/dialogues/ch1_snow_villa/1_4_wu.dtl",
 "1_4_zhong": "res://assets/dialogues/ch1_snow_villa/1_4_zhong.dtl",
 "1_4_zhou": "res://assets/dialogues/ch1_snow_villa/1_4_zhou.dtl",
+"1_5_all": "res://assets/dialogues/ch1_snow_villa/1_5_all.dtl",
+"1_5_exit": "res://assets/dialogues/ch1_snow_villa/1_5_exit.dtl",
+"1_5_zhong": "res://assets/dialogues/ch1_snow_villa/1_5_zhong.dtl",
 "prologue1": "res://assets/dialogues/ch0_prologue/prologue1.dtl",
 "prologue2": "res://assets/dialogues/ch0_prologue/prologue2.dtl",
 "test": "res://assets/dialogues/test.dtl"
@@ -70,7 +76,7 @@ variables={
 },
 "Ch1": {
 "BodySearch": {
-"Enabled": true,
+"Enabled": false,
 "Lin": {
 "FirstDone": false,
 "SecondDone": false
@@ -105,34 +111,34 @@ variables={
 "NPCIntro": {
 "Lin": {
 "Introed": false,
-"Selected1": false,
-"Selected2": false,
-"Selected3": false
+"Selected1": true,
+"Selected2": true,
+"Selected3": true
 },
 "Mu": {
 "Introed": false,
-"Selected1": false,
-"Selected2": false,
-"Selected3": false
+"Selected1": true,
+"Selected2": true,
+"Selected3": true
 },
 "ReadyForSearch": false,
 "Wu": {
 "Introed": false,
-"Selected1": false,
-"Selected2": false,
-"Selected3": false
+"Selected1": true,
+"Selected2": true,
+"Selected3": true
 },
 "Zhong": {
 "Introed": false,
-"Selected1": false,
-"Selected2": false,
-"Selected3": false
+"Selected1": true,
+"Selected2": true,
+"Selected3": true
 },
 "Zhou": {
 "Introed": false,
-"Selected1": false,
-"Selected2": false,
-"Selected3": false
+"Selected1": true,
+"Selected2": true,
+"Selected3": true
 }
 },
 "PrivateChat": {
@@ -140,7 +146,7 @@ variables={
 "Finished": false,
 "HelpChance": 0
 },
-"Enabled": true,
+"Enabled": false,
 "Lin": {
 "Asked": {
 "Dead": false,
@@ -233,6 +239,16 @@ variables={
 "Lighthouse": false,
 "Tools": false
 }
+}
+},
+"SecondSearch": {
+"Enabled": false,
+"Finished": false,
+"Zhong": {
+"AskedGrandfather": false,
+"AskedImpossible": false,
+"AskedOthers": false,
+"Finished": false
 }
 }
 },

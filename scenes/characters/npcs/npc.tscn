@@ -7,12 +7,16 @@
 size = Vector2(12, 16)
 
 [node name="NPC" type="Area2D" unique_id=315533828]
+scale = Vector2(1.2, 1.2)
 script = ExtResource("1_idr7u")
+npc_id = "zhou"
+npc_name = "zhou"
 timeline_name = "1_1_zhou"
 prompt_offset = Vector2(0, -10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=278144488]
 position = Vector2(0, -15)
+scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("2_mp4vq")
 animation = &"idle_front"
 autoplay = "idle_front"

@@ -46,4 +46,4 @@ label 选择
 - 暂时没有问题了
 	wu_ting_xiang: 好，有什么别的疑问要记得和我交流哦。
 	set {Ch1.PrivateChat.Wu.Finished} = true
-	[signal arg="exit_private_chat"]
+	[signal arg="flow:exit_private_chat"]

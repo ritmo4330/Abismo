@@ -62,4 +62,4 @@ lin_jiu: 你要问什么？
 - 暂时没有问题了
 	lin_jiu: 好的，那我先回大厅了。
 	set {Ch1.PrivateChat.Lin.Finished} = true
-	[signal arg="exit_private_chat"]
+	[signal arg="flow:exit_private_chat"]

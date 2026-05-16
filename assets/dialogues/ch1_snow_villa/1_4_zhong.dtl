@@ -60,4 +60,4 @@ label 选择
 - 暂时没有问题了
 	zhong_qi: 嗯。
 	set {Ch1.PrivateChat.Zhong.Finished} = true
-	[signal arg="exit_private_chat"]
+	[signal arg="flow:exit_private_chat"]

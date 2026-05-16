@@ -10,6 +10,11 @@ signal scene_change_requested(target_scene_path: String, spawn_point_name: Strin
 # 兼容旧格式：String timeline_name
 # 预留新格式：Dictionary { npc_id, entry_id } / { timeline_name }
 signal dialogue_requested(request: Variant)
+signal dialogue_finished(timeline_name: String)
+signal flow_signal_requested(signal_name: String)
+
+# 流程/房间编排
+signal room_loaded(room: Node2D, room_id: String)
 
 # 线索系统
 # 线索交互详情请求：由 ClueItem 发出，供后续 ClueUI 交互详情模式消费
