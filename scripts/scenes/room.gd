@@ -39,6 +39,17 @@ func get_npc_spawn_point(spawn_point_name: String) -> Marker2D:
 		return null
 	return root.find_child(spawn_point_name, true, false) as Marker2D
 
+
+func get_dynamic_clues_root() -> Node2D:
+	return find_child("DynamicClues", true, false) as Node2D
+
+
+func get_clue_spawn_point(spawn_point_name: String) -> Marker2D:
+	var root: Node = find_child("ClueSpawnPoints", true, false)
+	if root == null:
+		return null
+	return root.find_child(spawn_point_name, true, false) as Marker2D
+
 # 动态获取当前地图的边界，并设置给玩家的摄像机
 func setup_camera_limits(player: Node2D):
 	var camera = player.get_node_or_null("Camera2D")

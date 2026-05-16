@@ -25,6 +25,7 @@ GameManager="*res://scripts/game_manager.gd"
 Dialogic="*uid://ds2q0uclmolvu"
 DialogueManager="*res://scripts/dialogue/dialogue_manager.gd"
 FlowManager="*res://scripts/flow/flow_manager.gd"
+CluePlacementManager="*res://scripts/clues/clue_placement_manager.gd"
 
 [dialogic]
 
@@ -105,7 +106,7 @@ variables={
 },
 "InitialSearch": {
 "Enabled": false,
-"Finished": false,
+"Finished": true,
 "ReadyForReasoning": false
 },
 "NPCIntro": {

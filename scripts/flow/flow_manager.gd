@@ -105,6 +105,8 @@ func _ready() -> void:
 		EventBus.flow_signal_requested.connect(_on_flow_signal_requested)
 	if not EventBus.room_loaded.is_connected(_on_room_loaded):
 		EventBus.room_loaded.connect(_on_room_loaded)
+	if not EventBus.room_presented.is_connected(_on_room_presented):
+		EventBus.room_presented.connect(_on_room_presented)
 	if not EventBus.dialogue_finished.is_connected(_on_dialogue_finished):
 		EventBus.dialogue_finished.connect(_on_dialogue_finished)
 
@@ -152,6 +154,11 @@ func on_room_loaded(room: Node2D, room_id: String) -> void:
 	_current_room = room
 	current_room_id = room_id
 	setup_room_actors(room)
+
+
+func on_room_presented(_room: Node2D, room_id: String) -> void:
+	if room_id != current_room_id:
+		return
 	call_deferred("play_pending_auto_timeline")
 
 
@@ -318,6 +325,10 @@ func _on_flow_signal_requested(signal_name: String) -> void:
 
 func _on_room_loaded(room: Node2D, room_id: String) -> void:
 	on_room_loaded(room, room_id)
+
+
+func _on_room_presented(room: Node2D, room_id: String) -> void:
+	on_room_presented(room, room_id)
 
 
 func _on_dialogue_finished(_timeline_name: String) -> void:

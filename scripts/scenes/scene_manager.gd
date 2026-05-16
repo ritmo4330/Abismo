@@ -32,7 +32,9 @@ func initialize(host_root: Node2D, first_level_path: String = DEFAULT_FIRST_LEVE
 	if should_bootstrap_room:
 		var loaded_room: Node2D = _load_room(first_level_path, first_spawn_point)
 		if loaded_room != null:
-			_emit_room_loaded(loaded_room, first_level_path)
+			var room_id: String = _resolve_room_id(loaded_room, first_level_path)
+			_emit_room_loaded(loaded_room, room_id)
+			_emit_room_presented(loaded_room, room_id)
 
 
 func _on_scene_change_requested(target_path: String, spawn_point_name: String) -> void:
@@ -59,6 +61,10 @@ func _on_scene_change_requested(target_path: String, spawn_point_name: String) -
 
 	await get_tree().process_frame
 	var loaded_room: Node2D = _load_room(target_path, spawn_point_name)
+	var loaded_room_id: String = ""
+	if loaded_room != null:
+		loaded_room_id = _resolve_room_id(loaded_room, target_path)
+		_emit_room_loaded(loaded_room, loaded_room_id)
 
 	if Transition != null and Transition.has_method("fade_in"):
 		await Transition.fade_in()
@@ -71,7 +77,7 @@ func _on_scene_change_requested(target_path: String, spawn_point_name: String) -
 	await get_tree().physics_frame
 	is_transitioning = false
 	if loaded_room != null:
-		_emit_room_loaded(loaded_room, target_path)
+		_emit_room_presented(loaded_room, loaded_room_id)
 
 
 func _ensure_level_container() -> void:
@@ -144,9 +150,12 @@ func _load_room(path: String, spawn_point_name: String) -> Node2D:
 	return level_instance
 
 
-func _emit_room_loaded(room: Node2D, source_path: String) -> void:
-	var room_id: String = _resolve_room_id(room, source_path)
+func _emit_room_loaded(room: Node2D, room_id: String) -> void:
 	EventBus.room_loaded.emit(room, room_id)
+
+
+func _emit_room_presented(room: Node2D, room_id: String) -> void:
+	EventBus.room_presented.emit(room, room_id)
 
 
 func _resolve_room_id(room: Node2D, source_path: String) -> String:

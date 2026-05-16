@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bisc2wlwvnu2q" path="res://scripts/game_root.gd" id="1_78s5d"]
 [ext_resource type="PackedScene" path="res://scenes/UI/clue_panel.tscn" id="2_clue_panel"]
 [ext_resource type="PackedScene" path="res://scenes/UI/suspicion_panel.tscn" id="3_suspicion_panel"]
+[ext_resource type="PackedScene" path="res://scenes/UI/pause_panel.tscn" id="4_pause_panel"]
 
 [node name="GameRoot" type="Node2D" unique_id=591011851]
 script = ExtResource("1_78s5d")
@@ -10,3 +11,5 @@ script = ExtResource("1_78s5d")
 [node name="CluePanel" parent="." instance=ExtResource("2_clue_panel")]
 
 [node name="SuspicionPanel" parent="." instance=ExtResource("3_suspicion_panel")]
+
+[node name="PausePanel" parent="." instance=ExtResource("4_pause_panel")]

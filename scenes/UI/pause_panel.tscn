@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dw0wq281l4ilm"]
+
+[ext_resource type="Script" path="res://scripts/UI/pause_ui.gd" id="1_pause_ui"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pause_panel"]
+bg_color = Color(0.08, 0.08, 0.08, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.86, 0.86, 0.86, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PausePanel" type="CanvasLayer"]
+script = ExtResource("1_pause_ui")
+
+[node name="Dimmer" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.45)
+
+[node name="PanelRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelFrame" type="PanelContainer" parent="PanelRoot/CenterContainer"]
+custom_minimum_size = Vector2(360, 260)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pause_panel")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelRoot/CenterContainer/PanelFrame"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ButtonVBox" type="VBoxContainer" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+layout_mode = 2
+text = "游戏暂停"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "继续游戏"
+
+[node name="QuitToTitleButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "退出至主标题"
+
+[node name="QuitGameButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "退出游戏"

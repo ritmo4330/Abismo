@@ -81,6 +81,10 @@ func end_dialogue_state() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not _is_pause_input(event):
 		return
+	if SceneManager != null and SceneManager.is_transitioning:
+		return
+	if _pause_tokens.has(SCENE_TRANSITION_PAUSE_TOKEN):
+		return
 	if current_state != GameState.IN_GAME and current_state != GameState.PAUSED:
 		return
 	get_viewport().set_input_as_handled()

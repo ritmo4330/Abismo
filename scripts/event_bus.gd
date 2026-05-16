@@ -15,6 +15,7 @@ signal flow_signal_requested(signal_name: String)
 
 # 流程/房间编排
 signal room_loaded(room: Node2D, room_id: String)
+signal room_presented(room: Node2D, room_id: String)
 
 # 线索系统
 # 线索交互详情请求：由 ClueItem 发出，供后续 ClueUI 交互详情模式消费

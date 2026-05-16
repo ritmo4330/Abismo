@@ -15,6 +15,9 @@
 [sub_resource type="Resource" id="Resource_o6cu4"]
 script = ExtResource("2_gwhhd")
 scene = ExtResource("1_ytt7c")
+overrides = {
+"global_font_size": "25.0"
+}
 
 [sub_resource type="Resource" id="Resource_xehld"]
 script = ExtResource("2_gwhhd")
@@ -31,6 +34,9 @@ scene = ExtResource("5_h0477")
 [sub_resource type="Resource" id="Resource_xpmtv"]
 script = ExtResource("2_gwhhd")
 scene = ExtResource("6_ytt7c")
+overrides = {
+"box_size": "Vector2(1000, 240)"
+}
 
 [sub_resource type="Resource" id="Resource_8icqd"]
 script = ExtResource("2_gwhhd")
@@ -39,6 +45,9 @@ scene = ExtResource("7_4tcp0")
 [sub_resource type="Resource" id="Resource_knxb7"]
 script = ExtResource("2_gwhhd")
 scene = ExtResource("8_wggms")
+overrides = {
+"boxes_v_separation": "15.0"
+}
 
 [sub_resource type="Resource" id="Resource_in4u8"]
 script = ExtResource("2_gwhhd")
@@ -63,4 +72,4 @@ layer_info = {
 "16": SubResource("Resource_in4u8"),
 "17": SubResource("Resource_nyhvi")
 }
-metadata/_latest_layer = "11"
+metadata/_latest_layer = "13"
