@@ -53,5 +53,9 @@ zhou_chong_an: 有什么事吗？
 	- 【放弃搜身】
 		zhou_chong_an: 感谢信任。
 		jump 可重复选项
+- 邀请私聊 | [if {Ch1.PrivateChat.Enabled} == true]
+	zhou_chong_an: 嗯，请便。
+	set {Ch1.PrivateChat.Target} = "zhou"
+	[signal arg="enter_private_chat"]
 - 暂时没有问题了 | [if {Ch1.NPCIntro.Zhou.Selected1} == true and {Ch1.NPCIntro.Zhou.Selected2} == true and {Ch1.NPCIntro.Zhou.Selected3} == true]
 	zhou_chong_an: 嗯，我还需要调查一下。

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_testimony_8_zhong"
+title = "钟歧关于灯塔木雕的描述"
+description = "钟歧：“这个木雕和林玖在初中毕业前送给我的那个很像。”"
+chapter_id = "1"
+room_id = "zhong"
+category_path = PackedStringArray("雪墅", "口供线索", "最初的私聊")
+tags = PackedStringArray("chapter_1", "snow_villa", "testimony", "zhong", "private_chat")
+clue_type = "testimony"
+is_conclusion = false
+highlight_visible = false
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

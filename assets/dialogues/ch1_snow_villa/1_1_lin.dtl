@@ -8,7 +8,7 @@ label 抉择7
 	lin_jiu: 嗯，好。
 	set {Affinity.Lin} += 5.0
 - 没错
-	lin_jiu: ……我应该说些什么？
+	lin_jiu: ……我应该说些什么吗？
 set {Ch1.NPCIntro.Lin.Introed} = true
 label 可重复选项
 lin_jiu: 你要问什么？
@@ -42,5 +42,9 @@ lin_jiu: 你要问什么？
 	- 【放弃搜身】
 		lin_jiu: 嗯……没事就好。
 		jump 可重复选项
+- 邀请私聊 | [if {Ch1.PrivateChat.Enabled} == true]
+	lin_jiu: 好，我会配合的。
+	set {Ch1.PrivateChat.Target} = "lin"
+	[signal arg="enter_private_chat"]
 - 暂时没有问题了 | [if {Ch1.NPCIntro.Lin.Selected1} == true and {Ch1.NPCIntro.Lin.Selected2} == true and {Ch1.NPCIntro.Lin.Selected3} == true]
 	lin_jiu: 好的。

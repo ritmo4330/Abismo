@@ -1,0 +1,56 @@
+[style name="default_visual_novel"]
+join butler left
+label 选择
+butler: 请问有何吩咐？
+- 关于死者
+	butler: 我有义务为主人保守秘密，但想必你可以通过其它渠道调查出来，恕我不能相告。
+	jump 选择
+- 与其他人的关系
+	butler: 我与各位素不相识。
+	jump 选择
+- 关于别墅的客房
+	butler: 客房的初始陈设是一样的，比如床头柜的抽屉里都有剪刀，衣柜里面都有衣架，窗边都挂着一盆吊兰之类的。
+	do DataManager.add_clue("1_testimony_9_butler", "dialogue", "1_testimony_9_butler")
+	jump 选择
+- 关于委托
+	label 关于委托
+	butler: 我想要知道各位恐惧至极的事物。你有答案了吗？
+	- 询问委托的原因
+		butler: 抱歉，无可奉告。
+		jump 关于委托
+	- 说出穆执的梦魇 | [if {Ch1.PrivateChat.Mu.NightmareSolved} == true]
+		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
+		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		jump 关于委托
+	- 说出周崇安的梦魇 | [if {Ch1.PrivateChat.Zhou.NightmareSolved} == true]
+		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
+		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		jump 关于委托
+	- 说出林玖的梦魇 | [if {Ch1.PrivateChat.Lin.NightmareSolved} == true]
+		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
+		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		jump 关于委托
+	- 说出钟歧的梦魇 | [if {Ch1.PrivateChat.Zhong.NightmareSolved} == true]
+		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
+		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		jump 关于委托
+	- 还没有
+		jump 选择
+- 关于帮助 | [if {Ch1.PrivateChat.Butler.HelpChance} >= 1.0]
+	label 关于帮助
+	butler: 你需要什么帮助？
+	- 关于遗漏的线索
+		butler: xxx线索
+		jump 关于帮助
+	- 关于忽略的疑点
+		butler: xxx疑点
+		jump 关于帮助
+	- 关于现有的问题
+		butler: 需要我帮你解决哪个问题？
+		jump 关于帮助
+	- 暂时没有问题了
+		jump 选择
+- 暂时没有问题了
+	butler: 了解了。
+	set {Ch1.PrivateChat.Butler.Finished} = true
+	[signal arg="exit_private_chat"]

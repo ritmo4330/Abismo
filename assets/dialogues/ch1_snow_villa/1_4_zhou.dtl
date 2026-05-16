@@ -1,0 +1,55 @@
+[style name="default_visual_novel"]
+join zhou_chong_an left
+label 选择
+zhou_chong_an: 有什么事吗？
+- 来到别墅的原因
+	zhou_chong_an: 我来到这座山上有一些事情要处理，下山的时候突然遇到暴风雪，幸好能找到这幢别墅让我避避风雪。
+	set {Ch1.PrivateChat.Zhou.Asked.Reason} = true
+	jump 选择
+- 与死者的关系 | [if {Affinity.Zhou} <= 70]
+	zhou_chong_an: 我认识他，但他不一定是我认识的那个人。
+	set {Ch1.PrivateChat.Zhou.Asked.Dead} = true
+	jump 选择
+- 与死者的关系 | [if {Affinity.Zhou} >= 71]
+	zhou_chong_an: 你可能不相信，但我认识的那个梅塔已经死了。至于这个梅塔，我不知道他是谁。
+	set {Ch1.PrivateChat.Zhou.Asked.Dead} = true
+	set {Ch1.PrivateChat.Zhou.Asked.DeadTrusted} = true
+	jump 选择
+- 与其他人的关系
+	label 与其他人的关系
+	zhou_chong_an: 你想问哪一位？
+	- 穆执
+		zhou_chong_an: 他是一个教徒，经常资助我管理的孤儿院。我与他的接触仅限于此。
+		set {Ch1.PrivateChat.Zhou.Asked.Mu} = true
+		jump 与其他人的关系
+	- 林玖
+		zhou_chong_an: 她是在孤儿院长大的一个孩子，现在在孤儿院担任学前教师。
+		set {Ch1.PrivateChat.Zhou.Asked.Lin} = true
+		jump 与其他人的关系
+	- 乌停湘
+		zhou_chong_an: 她……应该也是孤儿院的孩子吧，我年纪大了，可能记性有点不太好。
+		set {Ch1.PrivateChat.Zhou.Asked.Wu} = true
+		jump 与其他人的关系
+	- 钟歧
+		zhou_chong_an: 我对他不太了解。
+		set {Ch1.PrivateChat.Zhou.Asked.Zhong} = true
+		jump 与其他人的关系
+	- 还有其他问题
+		jump 选择
+- 关于背包里的工具 | [if {Ch1.PrivateChat.Zhou.Removed.Tools} != true]
+	zhou_chong_an: 只是一些普通的工具而已，不必在意，甚至在进来以后我都没打开过那个包。
+	set {Ch1.PrivateChat.Zhou.Removed.Tools} = true
+	jump 选择
+- 关于“认识”的梅塔 | [if {Ch1.PrivateChat.Zhou.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Zhou.Removed.KnownMeta} != true]
+	zhou_chong_an: 具体情况不方便透露，但请你相信我，我认识的那个梅塔已经死了，而这个和他长得一模一样的梅塔，我不清楚他的来历。因此我在猜想，我们会不会在梦中……梦里什么都有可能发生。
+	set {Ch1.PrivateChat.Zhou.Removed.KnownMeta} = true
+	jump 选择
+- 关于灯塔木雕 | [if {Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Zhou.Removed.Lighthouse} != true]
+	zhou_chong_an: 不……我从没见过这样的木雕。
+	set {Ch1.PrivateChat.Zhou.Asked.Lighthouse} = true
+	set {Ch1.PrivateChat.Zhou.Removed.Lighthouse} = true
+	jump 选择
+- 暂时没有问题了
+	zhou_chong_an: 嗯，我还需要调查一下。
+	set {Ch1.PrivateChat.Zhou.Finished} = true
+	[signal arg="exit_private_chat"]

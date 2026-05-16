@@ -35,9 +35,9 @@ zhong_qi: 问吧。
 	do DataManager.add_clue("1_zhong_0", "dialogue", "1_zhong_0")
 	jump 可重复选项
 - 再次搜身 | [if {Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Zhong.FirstDone} == true and {Ch1.BodySearch.Zhong.SecondDone} != true]
-	zhong_qi: 我开始怀疑你缺乏基本的判断力了。我给你机会不是让你得寸进尺的。
+	zhong_qi: 我给你机会不是让你得寸进尺的。
 	- 【坚持搜身】
-		zhong_qi: ……
+		zhong_qi: ……我开始怀疑你缺乏基本的判断力了。
 		set {Affinity.Zhong} -= 10
 		……你从他的身上没能再发现任何有价值的线索。
 		set {Ch1.BodySearch.Zhong.SecondDone} = true
@@ -45,5 +45,9 @@ zhong_qi: 问吧。
 	- 【放弃搜身】
 		zhong_qi: 这还差不多。
 		jump 可重复选项
+- 邀请私聊 | [if {Ch1.PrivateChat.Enabled} == true]
+	zhong_qi: 嗯。
+	set {Ch1.PrivateChat.Target} = "zhong"
+	[signal arg="enter_private_chat"]
 - 暂时没有问题了 | [if {Ch1.NPCIntro.Zhong.Selected1} == true and {Ch1.NPCIntro.Zhong.Selected2} == true and {Ch1.NPCIntro.Zhong.Selected3} == true]
 	zhong_qi: 嗯。

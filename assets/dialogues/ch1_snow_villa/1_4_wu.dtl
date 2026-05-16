@@ -1,0 +1,49 @@
+[style name="default_visual_novel"]
+join wu_ting_xiang left
+wu_ting_xiang: 我会尽可能如实回答的。
+label 选择
+- 来到别墅的原因
+	wu_ting_xiang: 是林姐姐带我跑出孤儿院的，她说异测会要来抓我，于是我们就跑了出来。
+	set {Ch1.PrivateChat.Wu.Asked.Reason} = true
+	jump 选择
+- 与死者的关系
+	wu_ting_xiang: 我不认识他。
+	set {Ch1.PrivateChat.Wu.Asked.Dead} = true
+	jump 选择
+- 与其他人的关系
+	label 与其他人的关系
+	wu_ting_xiang: 你想问哪一位？
+	- 穆执
+		wu_ting_xiang: 我只见过他几面，他是林姐姐的远房亲戚，和我讲过林姐姐小时候的一些事情。
+		set {Ch1.PrivateChat.Wu.Asked.Mu} = true
+		jump 与其他人的关系
+	- 周崇安
+		wu_ting_xiang: 他是孤儿院的院长，对大家非常和蔼。
+		set {Ch1.PrivateChat.Wu.Asked.Zhou} = true
+		jump 与其他人的关系
+	- 林玖
+		wu_ting_xiang: 林姐姐是我在孤儿院最好的朋友。
+		set {Ch1.PrivateChat.Wu.Asked.Lin} = true
+		jump 与其他人的关系
+	- 钟歧
+		wu_ting_xiang: 我不认识他，但是林姐姐好像和他认识的样子。
+		set {Ch1.PrivateChat.Wu.Asked.Zhong} = true
+		jump 与其他人的关系
+	- 还有其他问题
+		jump 选择
+- 关于异测会 | [if {Ch1.PrivateChat.Wu.Asked.Reason} == true and {Ch1.PrivateChat.Wu.Removed.AnomalySociety} != true]
+	wu_ting_xiang: 异测会是一个致力于为超自然现象寻求科学解释的组织，已经成为了一个权威机构，但是他们的研究也不一定全是对的，我们还是要有自己的判断力。
+	set {Ch1.PrivateChat.Wu.Removed.AnomalySociety} = true
+	jump 选择
+- 关于灯塔木雕 | [if {Ch1.PrivateChat.Lin.Asked.Lighthouse} == true and {Ch1.PrivateChat.Wu.Removed.Lighthouse} != true]
+	wu_ting_xiang: 那个灯塔木雕是林姐姐在初中时候亲手制作的，我猜她是要送给谁，但最终还是没有送出去。在那之后它就一直放在林姐姐的书桌上。
+	player: 你知道她为什么会做这个木雕吗？
+	wu_ting_xiang: 嗯……孤儿院曾经有段时间请来老师教过，不过我不太擅长这个啦，苏姐姐倒是挺喜欢的。那个时候，我感觉苏姐姐每天在学校并不开心，但是和我相处的时候又会把所有不开心藏起来，我也不好直接问她。直到她开始制作那个木雕的时候，她的心情似乎好了不少，可能事情发生了某种转变。我也问过她是不是要送给谁，她也没有正面回答过我。
+	set {Ch1.PrivateChat.Wu.Asked.Lighthouse} = true
+	set {Ch1.PrivateChat.Wu.Removed.Lighthouse} = true
+	do DataManager.add_clue("1_testimony_7_wu", "dialogue", "1_testimony_7_wu")
+	jump 选择
+- 暂时没有问题了
+	wu_ting_xiang: 好，有什么别的疑问要记得和我交流哦。
+	set {Ch1.PrivateChat.Wu.Finished} = true
+	[signal arg="exit_private_chat"]

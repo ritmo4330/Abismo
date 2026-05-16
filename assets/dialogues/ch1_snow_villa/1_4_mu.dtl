@@ -1,0 +1,57 @@
+[style name="default_visual_novel"]
+join mu_zhi left
+label 选择
+mu_zhi: 你想从我这里了解什么？
+- 来到别墅的原因
+	mu_zhi: 我是一名教徒，住处同样在这座山上。来到此地之前，我前往教堂参加礼拜，返回时突遇暴风雪，我只能就近找到这里，便请求管家收留了我。
+	set {Ch1.PrivateChat.Mu.Asked.Reason} = true
+	jump 选择
+- 与死者的关系
+	mu_zhi: 我说过了，我没有见过他，只是知道梅塔这个名字。是钟歧和我提起过，梅塔似乎对他做过很过分的事情。我对梅塔的了解并不多，你可以去问问钟歧。
+	set {Ch1.PrivateChat.Mu.Asked.Dead} = true
+	jump 选择
+- 与其他人的关系
+	label 与其他人的关系
+	mu_zhi: 你想问哪一位？
+	- 周崇安
+		mu_zhi: 我对他不是很了解，只知道他是一名孤儿院院长。
+		set {Ch1.PrivateChat.Mu.Asked.Zhou} = true
+		jump 与其他人的关系
+	- 林玖
+		mu_zhi: 我对她不是很了解，只知道她在孤儿院担任学前教师。也许你可以从周崇安那里了解到更多。
+		set {Ch1.PrivateChat.Mu.Asked.Lin} = true
+		jump 与其他人的关系
+	- 乌停湘
+		mu_zhi: 我不认识她，不过看起来她和林玖非常亲密。
+		set {Ch1.PrivateChat.Mu.Asked.Wu} = true
+		jump 与其他人的关系
+	- 钟歧
+		mu_zhi: 我收留了他。他曾被梅塔囚禁，逃出来以后找到了我，自那以后就隐藏在我在这座山上居住的小木屋里。
+		set {Ch1.PrivateChat.Mu.Asked.Zhong} = true
+		jump 与其他人的关系
+	- 还有其他问题
+		jump 选择
+- 关于信仰 | [if {Ch1.PrivateChat.Mu.Removed.Faith} != true and {Ch1.PrivateChat.Mu.Asked.Reason} == true]
+	mu_zhi: 我信仰上界教派，不知道你有没有听说过。
+	- 请详细说说
+		mu_zhi: 好的。我们的教义认为，这个世界由上界的神明创造。为联系世间万物，神明将命运之线贯穿于这世界中，自此，万物的运动便有了规律与关联，命运之线便是万物的统一与发展的根源。
+		mu_zhi: 为维系世间秩序，神明以因果之理规定可知论的边界，由此，万物的发展便有了既定的界限，不必触及神明之境。神明设下了规则，万物便遵循规则运动，而人类，是在这规则的甄选中脱颖而出的物种，便被赋予了探索规则的使命。
+		mu_zhi: 除了触及神明之境，神明不会对任何行为亲施惩戒。教会存在的意义，即是替神明放牧群羊，看管那通往神明之境的黑色门扉。如今，上界教派已成为世界四大宗教之一。
+		set {Ch1.PrivateChat.Mu.Removed.Faith} = true
+		jump 选择
+	- 有所耳闻
+		mu_zhi: 好，那我便不多赘述。
+		set {Ch1.PrivateChat.Mu.Removed.Faith} = true
+		jump 选择
+- 林玖说你是她的远房亲戚 | [if {Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Mu.Removed.LinRelative} != true]
+	mu_zhi: 竟有此事？可是我的确不认识她。
+	set {Ch1.PrivateChat.Mu.Removed.LinRelative} = true
+	jump 选择
+- 关于灯塔木雕 | [if {Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Mu.Removed.Lighthouse} != true]
+	mu_zhi: 这个木雕看起来非常精致，也许饱含着制作者的心意吧。如果你问我有没有见过，那自然是没有。
+	set {Ch1.PrivateChat.Mu.Removed.Lighthouse} = true
+	jump 选择
+- 暂时没有问题了
+	mu_zhi: 好的，如果有其他问题，欢迎再来和我沟通。
+	set {Ch1.PrivateChat.Mu.Finished} = true
+	[signal arg="exit_private_chat"]

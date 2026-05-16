@@ -38,17 +38,18 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "1_1_butler": "res://assets/dialogues/ch1_snow_villa/1_1_butler.dtl",
-"1_1_butler_a": "res://assets/dialogues/ch1_snow_villa/1_1_butler_a.dtl",
 "1_1_lin": "res://assets/dialogues/ch1_snow_villa/1_1_lin.dtl",
 "1_1_mu": "res://assets/dialogues/ch1_snow_villa/1_1_mu.dtl",
 "1_1_wu": "res://assets/dialogues/ch1_snow_villa/1_1_wu.dtl",
 "1_1_zhong": "res://assets/dialogues/ch1_snow_villa/1_1_zhong.dtl",
 "1_1_zhou": "res://assets/dialogues/ch1_snow_villa/1_1_zhou.dtl",
-"1_2_butler_a": "res://assets/dialogues/ch1_snow_villa/1_2_butler_a.dtl",
-"1_2_butler_b": "res://assets/dialogues/ch1_snow_villa/1_2_butler_b.dtl",
-"1_2_butler_c": "res://assets/dialogues/ch1_snow_villa/1_2_butler_c.dtl",
-"1_2_butler_d": "res://assets/dialogues/ch1_snow_villa/1_2_butler_d.dtl",
 "1_3_butler_lin_mu_wu_zhong_zhou": "res://assets/dialogues/ch1_snow_villa/1_3_butler_lin_mu_wu_zhong_zhou.dtl",
+"1_4_butler": "res://assets/dialogues/ch1_snow_villa/1_4_butler.dtl",
+"1_4_lin": "res://assets/dialogues/ch1_snow_villa/1_4_lin.dtl",
+"1_4_mu": "res://assets/dialogues/ch1_snow_villa/1_4_mu.dtl",
+"1_4_wu": "res://assets/dialogues/ch1_snow_villa/1_4_wu.dtl",
+"1_4_zhong": "res://assets/dialogues/ch1_snow_villa/1_4_zhong.dtl",
+"1_4_zhou": "res://assets/dialogues/ch1_snow_villa/1_4_zhou.dtl",
 "prologue1": "res://assets/dialogues/ch0_prologue/prologue1.dtl",
 "prologue2": "res://assets/dialogues/ch0_prologue/prologue2.dtl",
 "test": "res://assets/dialogues/test.dtl"
@@ -68,8 +69,38 @@ variables={
 "Zhou": 60
 },
 "Ch1": {
+"BodySearch": {
+"Enabled": false,
+"Lin": {
+"FirstDone": false,
+"SecondDone": false
+},
+"Mu": {
+"FirstDone": false,
+"SecondDone": false
+},
+"Wu": {
+"FirstDone": false,
+"SecondDone": false
+},
+"Zhong": {
+"FirstDone": false,
+"SecondDone": false
+},
+"Zhou": {
+"FirstDone": false,
+"SecondDone": false
+}
+},
+"InitialReasoning": {
+"SelectedAbility": false,
+"SelectedMotive": false,
+"SelectedTime": false
+},
 "InitialSearch": {
-"Finished": false
+"Enabled": false,
+"Finished": false,
+"ReadyForReasoning": false
 },
 "NPCIntro": {
 "Lin": {
@@ -103,9 +134,109 @@ variables={
 "Selected2": false,
 "Selected3": false
 }
+},
+"PrivateChat": {
+"Butler": {
+"Finished": false,
+"HelpChance": 0
+},
+"Enabled": false,
+"Lin": {
+"Asked": {
+"Dead": false,
+"DeadTrusted": false,
+"Lighthouse": false,
+"Mu": false,
+"Pentagram": false,
+"Reason": false,
+"Wu": false,
+"Zhong": false,
+"Zhou": false
+},
+"Finished": false,
+"NightmareSolved": false,
+"Removed": {
+"AnomalySociety": false,
+"Lighthouse": false,
+"MuNotKnow": false,
+"Pentagram": false
 }
 },
-"PlayerName": ""
+"Mu": {
+"Asked": {
+"Dead": false,
+"Lin": false,
+"Reason": false,
+"Wu": false,
+"Zhong": false,
+"Zhou": false
+},
+"Finished": false,
+"NightmareSolved": false,
+"Removed": {
+"Faith": false,
+"Lighthouse": false,
+"LinRelative": false
+}
+},
+"Target": "",
+"Wu": {
+"Asked": {
+"Dead": false,
+"Lighthouse": false,
+"Lin": false,
+"Mu": false,
+"Reason": false,
+"Zhong": false,
+"Zhou": false
+},
+"Finished": false,
+"NightmareSolved": false,
+"Removed": {
+"AnomalySociety": false,
+"Lighthouse": false
+}
+},
+"Zhong": {
+"Asked": {
+"Dead": false,
+"Lighthouse": false,
+"Lin": false,
+"Mu": false,
+"Reason": false,
+"WorldTheory": false,
+"Wu": false,
+"Zhou": false
+},
+"Finished": false,
+"NightmareSolved": false,
+"Removed": {
+"Lighthouse": false,
+"WorldTheory": false
+}
+},
+"Zhou": {
+"Asked": {
+"Dead": false,
+"DeadTrusted": false,
+"Lighthouse": false,
+"Lin": false,
+"Mu": false,
+"Reason": false,
+"Wu": false,
+"Zhong": false
+},
+"Finished": false,
+"NightmareSolved": false,
+"Removed": {
+"KnownMeta": false,
+"Lighthouse": false,
+"Tools": false
+}
+}
+}
+},
+"PlayerName": "testname"
 }
 layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres"]
 layout/default_style="res://assets/UI/default_visual_novel.tres"
@@ -123,7 +254,7 @@ animations/leave_default_wait=true
 animations/cross_fade_default_length=0.5
 choices/autofocus_first=false
 choices/delay=0.2
-choices/reveal_delay=0
+choices/reveal_delay=0.5
 choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
@@ -149,6 +280,7 @@ translation/file_mode=1
 translation/translation_folder=""
 translation/save_mode=0
 translation/add_separator=false
+text/input_action="dialogic_default_action"
 
 [display]
 
