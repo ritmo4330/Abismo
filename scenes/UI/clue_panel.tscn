@@ -118,3 +118,8 @@ layout_mode = 2
 [node name="DetailBody" type="RichTextLabel" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox" unique_id=1202689860]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="SelectClueButton" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox" unique_id=354797328]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "选择线索"

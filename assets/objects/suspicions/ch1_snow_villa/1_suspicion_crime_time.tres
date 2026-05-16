@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1_suspicion"]
+
+[resource]
+script = ExtResource("1_suspicion")
+id = "1_suspicion_crime_time"
+title = "作案时间"
+description = "梅塔最后一次被确认活着是在管家宣布休息时间前后。之后所有人都声称待在自己的房间里，时间线存在可疑空白。"
+chapter_id = "1"
+category_path = PackedStringArray("雪墅", "主线疑点", "三要素")
+tags = PackedStringArray("chapter_1", "snow_villa", "time", "main")
+required_clue_ids = PackedStringArray("1_testimony_3_all", "1_testimony_4_all", "1_testimony_6_lin")
+match_mode = "exact"
+conclusion_clue_id = "1_conclusion_crime_time"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1_suspicion"]
+
+[resource]
+script = ExtResource("1_suspicion")
+id = "1_suspicion_locked_room"
+title = "密室杀人"
+description = "林玖房间的门被锁上，钟歧撞门后才进入现场。密室如何形成，是判断作案方式的关键。"
+chapter_id = "1"
+category_path = PackedStringArray("雪墅", "主线疑点", "案发现场")
+tags = PackedStringArray("chapter_1", "snow_villa", "locked_room", "main")
+required_clue_ids = PackedStringArray("1_lin_5", "1_lin_5_2", "1_testimony_10_butler")
+match_mode = "exact"
+conclusion_clue_id = "1_conclusion_locked_room"

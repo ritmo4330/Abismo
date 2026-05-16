@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_conclusion_crime_time"
+title = "结论：休息时间后的行动最可疑"
+description = "梅塔在休息时间前仍被确认活着，而林玖和乌停湘在休息时间后不在林玖房间。案发时间的关键区间应锁定在休息时间之后。"
+chapter_id = "1"
+room_id = "hall"
+category_path = PackedStringArray("雪墅", "推理结论", "三要素")
+tags = PackedStringArray("chapter_1", "snow_villa", "conclusion", "time")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1_suspicion"]
+
+[resource]
+script = ExtResource("1_suspicion")
+id = "1_suspicion_motive"
+title = "作案动机"
+description = "嫌疑人们对梅塔的认识并不一致，其中有人明显隐瞒了与死者有关的经历。"
+chapter_id = "1"
+category_path = PackedStringArray("雪墅", "主线疑点", "三要素")
+tags = PackedStringArray("chapter_1", "snow_villa", "motive", "main")
+required_clue_ids = PackedStringArray("1_testimony_2_butler", "1_testimony_5_all", "1_testimony_8_zhong")
+match_mode = "exact"
+conclusion_clue_id = "1_conclusion_motive"

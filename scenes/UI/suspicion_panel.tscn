@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://cg468jjv5h36v"]
+
+[ext_resource type="Script" path="res://scripts/UI/suspicion_ui.gd" id="1_suspicion_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.09, 0.09, 0.09, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.86, 0.86, 0.86, 1)
+
+[node name="SuspicionPanel" type="CanvasLayer"]
+script = ExtResource("1_suspicion_script")
+
+[node name="Dimmer" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.32)
+
+[node name="PanelRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelFrame" type="PanelContainer" parent="PanelRoot"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 140.0
+offset_right = 1600.0
+offset_bottom = 940.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="FrameMargin" type="MarginContainer" parent="PanelRoot/PanelFrame"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="FrameVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin"]
+layout_mode = 2
+
+[node name="HeaderBar" type="HBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox"]
+layout_mode = 2
+
+[node name="HeaderTitle" type="Label" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/HeaderBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "推理手册"
+
+[node name="ModeLabel" type="Label" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/HeaderBar"]
+layout_mode = 2
+text = "模式：推理手册"
+
+[node name="CloseButton" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/HeaderBar"]
+custom_minimum_size = Vector2(48, 40)
+layout_mode = 2
+text = "X"
+
+[node name="HeaderSeparator" type="HSeparator" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox"]
+layout_mode = 2
+
+[node name="BodySplit" type="HSplitContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offsets = PackedInt32Array(320)
+split_offset = 320
+
+[node name="LeftPane" type="PanelContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="LeftVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane"]
+layout_mode = 2
+
+[node name="SearchRow" type="HBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox"]
+layout_mode = 2
+
+[node name="SearchLineEdit" type="LineEdit" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SearchRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.25
+placeholder_text = "搜索疑点标题、内容、标签"
+
+[node name="SortOptionButton" type="OptionButton" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SearchRow"]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="SuspicionTree" type="Tree" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RightPane" type="PanelContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit"]
+layout_mode = 2
+
+[node name="RightVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane"]
+layout_mode = 2
+
+[node name="DetailTop" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DetailTitle" type="Label" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailTop"]
+layout_mode = 2
+text = "疑点详情"
+
+[node name="DetailSeparator" type="HSeparator" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailTop"]
+layout_mode = 2
+
+[node name="DetailBody" type="RichTextLabel" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailTop"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReasoningPanel" type="PanelContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox"]
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="ReasoningVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel"]
+layout_mode = 2
+
+[node name="ReasoningTitle" type="Label" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox"]
+layout_mode = 2
+text = "推理操作"
+
+[node name="SlotRow" type="HBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SlotButton1" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "线索位 1：点击选择"
+
+[node name="SlotButton2" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "线索位 2：点击选择"
+
+[node name="SlotButton3" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "线索位 3：点击选择"
+
+[node name="ReasonButton" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "推理"

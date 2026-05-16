@@ -28,6 +28,9 @@ zhong_qi: 我应该是案发现场的第一发现人。当时那个管家要求�
 do DataManager.add_clue("1_testimony_3_all", "dialogue", "1_testimony_3_all")
 label 选择
 所有人的事已至此，再梳理一下疑点吧。众所周知，案件发生的三要素包括作案时间、作案动机、作案能力，只有三者均具备的嫌疑人才有可能作案。先从这三个话题开始讨论吧。
+do DataManager.add_suspicion("1_suspicion_crime_time", "dialogue", "1_3_butler_lin_mu_wu_zhong_zhou")
+do DataManager.add_suspicion("1_suspicion_motive", "dialogue", "1_3_butler_lin_mu_wu_zhong_zhou")
+do DataManager.add_suspicion("1_suspicion_ability", "dialogue", "1_3_butler_lin_mu_wu_zhong_zhou")
 - 作案时间
 	player: 请大家回忆一下，你们最后一次见到死者是什么时候？
 	zhong_qi: 休息时间之前，具体时间不清楚，当时应该所有人都在。梅塔从自己的卧室走出来，喊了一声管家。再之后，我看见穆执和他走进了餐厅，此后就再也没有见到他了。
@@ -72,8 +75,11 @@ label 选择
 	jump 讨论后
 label 讨论后
 wu_ting_xiang: 除了这几个问题之外，密室形成的原因也很重要吧？
+do DataManager.add_suspicion("1_suspicion_locked_room", "dialogue", "1_3_butler_lin_mu_wu_zhong_zhou")
 zhong_qi: 凶器也没有找到。
+do DataManager.add_suspicion("1_suspicion_missing_weapon", "dialogue", "1_3_butler_lin_mu_wu_zhong_zhou")
 mu_zhi: 还有一个问题，梅塔为什么会出现在林玖的房间里？
+do DataManager.add_suspicion("1_suspicion_meta_in_lin_room", "dialogue", "1_3_butler_lin_mu_wu_zhong_zhou")
 lin_jiu: 我不知道，我和乌停湘一直待在她的房间……准确来说，是管家宣布休息时间之后。
 do DataManager.add_clue("1_testimony_6_lin", "dialogue", "1_testimony_6_lin")
 wu_ting_xiang: 对。
@@ -113,6 +119,10 @@ label 抉择16
 	set {Affinity.Zhou} -= 5
 	set {Affinity.Zhong} -= 10
 butler: 打扰一下，我有一件事需要委托各位。我希望知道各位恐惧至极的事物，如果各位能提供任何有价值的答案，我将会提供一个力所能及的帮助。除此之外，我将不会偏袒任何人。
+do DataManager.add_suspicion("1_suspicion_butler_request_mu", "dialogue", "1_3_butler_lin_mu_wu_zhong_zhou")
+do DataManager.add_suspicion("1_suspicion_butler_request_zhou", "dialogue", "1_3_butler_lin_mu_wu_zhong_zhou")
+do DataManager.add_suspicion("1_suspicion_butler_request_lin", "dialogue", "1_3_butler_lin_mu_wu_zhong_zhou")
+do DataManager.add_suspicion("1_suspicion_butler_request_zhong", "dialogue", "1_3_butler_lin_mu_wu_zhong_zhou")
 player: 你为什么想知道这些？
 butler: 这是主人下达的指令。
 butler: 请继续吧，{PlayerName}，如果你想要和任何人私聊，直接向他们提出就好。如果你准备好去调查其它地方，和我说一声，我们就进行下一轮调查。

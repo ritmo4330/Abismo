@@ -8,7 +8,7 @@ size = Vector2(12, 16)
 
 [node name="NPC" type="Area2D" unique_id=315533828]
 script = ExtResource("1_idr7u")
-timeline_name = "test"
+timeline_name = "1_1_zhou"
 prompt_offset = Vector2(0, -10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=278144488]

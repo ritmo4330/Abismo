@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_conclusion_meta_in_lin_room"
+title = "结论：梅塔不是自然出现在林玖房间"
+description = "梅塔最后被确认活着的位置与林玖房间不一致，而林玖房间地毯存在拖曳状痕迹。死者进入该房间的过程很可能经过人为搬运或诱导。"
+chapter_id = "1"
+room_id = "hall"
+category_path = PackedStringArray("雪墅", "推理结论", "案发现场")
+tags = PackedStringArray("chapter_1", "snow_villa", "conclusion", "victim_location")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

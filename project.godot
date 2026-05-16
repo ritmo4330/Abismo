@@ -70,7 +70,7 @@ variables={
 },
 "Ch1": {
 "BodySearch": {
-"Enabled": false,
+"Enabled": true,
 "Lin": {
 "FirstDone": false,
 "SecondDone": false
@@ -140,7 +140,7 @@ variables={
 "Finished": false,
 "HelpChance": 0
 },
-"Enabled": false,
+"Enabled": true,
 "Lin": {
 "Asked": {
 "Dead": false,

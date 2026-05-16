@@ -10,7 +10,7 @@ butler: 请问有何吩咐？
 	jump 选择
 - 关于别墅的客房
 	butler: 客房的初始陈设是一样的，比如床头柜的抽屉里都有剪刀，衣柜里面都有衣架，窗边都挂着一盆吊兰之类的。
-	do DataManager.add_clue("1_testimony_9_butler", "dialogue", "1_testimony_9_butler")
+	do DataManager.add_clue("1_testimony_10_butler", "dialogue", "1_testimony_10_butler")
 	jump 选择
 - 关于委托
 	label 关于委托

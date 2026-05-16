@@ -4,15 +4,15 @@
 
 [resource]
 script = ExtResource("1_ufucf")
-id = "1_testimony_8_zhong"
-title = "钟歧关于灯塔木雕的描述"
-description = "钟歧：“这个木雕和林玖在初中毕业前送给我的那个很像。”"
+id = "1_conclusion_butler_request_zhou"
+title = "结论：周崇安的梦魇"
+description = "你整理出了周崇安最恐惧的事物，可以向管家提交这个答案。"
 chapter_id = "1"
 room_id = "hui_ke_ting"
-category_path = PackedStringArray("雪墅", "口供线索", "最初的私聊")
-tags = PackedStringArray("chapter_1", "snow_villa", "testimony", "zhong", "private_chat")
-clue_type = "testimony"
-is_conclusion = false
+category_path = PackedStringArray("雪墅", "推理结论", "管家的委托")
+tags = PackedStringArray("chapter_1", "snow_villa", "conclusion", "nightmare", "zhou")
+clue_type = "conclusion"
+is_conclusion = true
 highlight_visible = false
 parent_clue_id = ""
 child_clue_ids = PackedStringArray()

@@ -21,6 +21,7 @@
 [ext_resource type="Resource" path="res://assets/objects/clues/ch3_strange_villa/3_flower_sea_1_3.tres" id="17_fpywe"]
 [ext_resource type="Resource" uid="uid://dxy033gbbefb8" path="res://assets/objects/clues/ch3_strange_villa/3_abismo_2.tres" id="17_wbq2x"]
 [ext_resource type="Resource" uid="uid://pooid1es2o3u" path="res://assets/objects/clues/ch3_strange_villa/3_study_darkroom_4.tres" id="19_wbq2x"]
+[ext_resource type="PackedScene" uid="uid://cg468jjv5h36v" path="res://scenes/UI/suspicion_panel.tscn" id="22_0151x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5vxv"]
 texture = ExtResource("1_e46wm")
@@ -383,4 +384,7 @@ shape = SubResource("CircleShape2D_clue_single")
 position = Vector2(483, 209)
 
 [node name="CluePanel" parent="." unique_id=471501377 instance=ExtResource("13_clue_panel")]
+visible = false
+
+[node name="SuspicionPanel" parent="." unique_id=63358307 instance=ExtResource("22_0151x")]
 visible = false

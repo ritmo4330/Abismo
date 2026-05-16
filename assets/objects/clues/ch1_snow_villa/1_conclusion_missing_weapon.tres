@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_conclusion_missing_weapon"
+title = "结论：凶器可能来自客房或储物间"
+description = "伤口说明凶器是利器。储物间刀具和客房剪刀都需要纳入候选范围，凶器消失并不等于它已经离开别墅。"
+chapter_id = "1"
+room_id = "hall"
+category_path = PackedStringArray("雪墅", "推理结论", "案发现场")
+tags = PackedStringArray("chapter_1", "snow_villa", "conclusion", "weapon")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

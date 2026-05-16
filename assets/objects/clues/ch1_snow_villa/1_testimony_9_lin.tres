@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource("1_ufucf")
-id = "1_testimony_9_butler"
-title = "别墅客房的初始陈设"
-description = "管家：“客房的初始陈设是一样的，比如床头柜的抽屉里都有剪刀，衣柜里面都有衣架，窗边都挂着一盆吊兰之类的。”"
+id = "1_testimony_9_lin"
+title = "林玖关于灯塔木雕的描述"
+description = "林玖：“那是我做的木雕，如果你要问我为什么会带在身上的话，你就理解成一种心理安慰吧。”"
 chapter_id = "1"
-room_id = "butler"
+room_id = "hui_ke_ting"
 category_path = PackedStringArray("雪墅", "口供线索", "最初的私聊")
-tags = PackedStringArray("chapter_1", "snow_villa", "testimony", "butler", "private_chat")
+tags = PackedStringArray("chapter_1", "snow_villa", "testimony", "lin", "private_chat")
 clue_type = "testimony"
 is_conclusion = false
 highlight_visible = false

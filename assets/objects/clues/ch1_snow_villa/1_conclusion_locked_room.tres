@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_conclusion_locked_room"
+title = "结论：密室可由房内陈设制造"
+description = "林玖房间的门锁与锁闩状态需要和客房统一陈设一起判断。密室并不一定意味着凶手只能从门外上锁。"
+chapter_id = "1"
+room_id = "hall"
+category_path = PackedStringArray("雪墅", "推理结论", "案发现场")
+tags = PackedStringArray("chapter_1", "snow_villa", "conclusion", "locked_room")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

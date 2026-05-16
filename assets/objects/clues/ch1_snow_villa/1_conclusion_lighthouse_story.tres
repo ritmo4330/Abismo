@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_conclusion_lighthouse_story"
+title = "结论：木雕原本想送给钟歧"
+description = "林玖说木雕只是心理安慰，乌停湘说木雕像是要送给谁但最终没有送出，钟歧又说自己曾收到过相似的木雕。灯塔木雕指向林玖与钟歧之间未说出口的过往。"
+chapter_id = "1"
+room_id = "hui_ke_ting"
+category_path = PackedStringArray("雪墅", "推理结论", "私聊疑点")
+tags = PackedStringArray("chapter_1", "snow_villa", "conclusion", "lighthouse")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

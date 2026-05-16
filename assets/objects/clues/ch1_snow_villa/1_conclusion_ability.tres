@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_conclusion_ability"
+title = "结论：共同作案不能排除"
+description = "若只考虑单人作案，部分嫌疑人看似缺少能力。但林玖和乌停湘几乎一直同行，共同行动的可能性必须纳入判断。"
+chapter_id = "1"
+room_id = "hall"
+category_path = PackedStringArray("雪墅", "推理结论", "三要素")
+tags = PackedStringArray("chapter_1", "snow_villa", "conclusion", "ability")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

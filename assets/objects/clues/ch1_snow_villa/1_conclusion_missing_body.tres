@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" uid="uid://cbkmf2phn35d3" path="res://scripts/objects/interactable/clue_data.gd" id="1_ufucf"]
+
+[resource]
+script = ExtResource("1_ufucf")
+id = "1_conclusion_missing_body"
+title = "结论：尸体曾被二次移动"
+description = "尸体在最初目击时确实位于林玖房间衣柜中，之后又在你调查时消失。尸体消失不是认知错误，而是案发后又发生了移动。"
+chapter_id = "1"
+room_id = "hall"
+category_path = PackedStringArray("雪墅", "推理结论", "案发现场")
+tags = PackedStringArray("chapter_1", "snow_villa", "conclusion", "body")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+metadata/_custom_type_script = "uid://cbkmf2phn35d3"

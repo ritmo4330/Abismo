@@ -1,9 +1,11 @@
 extends CanvasLayer
 
 const PANEL_SIZE: Vector2 = Vector2(1280.0, 800.0)
+const PANEL_ID: String = "clue_panel"
 const PANEL_PAUSE_TOKEN: String = "clue_panel"
 const MODE_ARCHIVE: String = "archive"
 const MODE_INTERACTION: String = "interaction"
+const MODE_SELECTION: String = "selection"
 const ARCHIVE_SORT_DEFAULT: int = 0
 const ARCHIVE_SORT_DISCOVER: int = 1
 
@@ -63,10 +65,12 @@ const BODY_SEARCH_PERSON_ORDER: Dictionary = {
 @onready var catalog_tree: Tree = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/CatalogTree
 @onready var detail_title: Label = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailTitle
 @onready var detail_body: RichTextLabel = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailBody
+@onready var select_clue_button: Button = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/SelectClueButton
 
 var _is_open: bool = false
 var _mode: String = MODE_ARCHIVE
 var _interaction_payload: Dictionary = {}
+var _selection_context: Dictionary = {}
 var _suppress_tree_selected_callback: bool = false
 var _archive_refresh_queued: bool = false
 var _interaction_refresh_queued: bool = false
@@ -85,6 +89,7 @@ func _ready() -> void:
 	sort_option_button.add_item("默认")
 	sort_option_button.add_item("按发现时间")
 	sort_option_button.select(ARCHIVE_SORT_DEFAULT)
+	select_clue_button.hide()
 
 	if not close_button.pressed.is_connected(_on_close_button_pressed):
 		close_button.pressed.connect(_on_close_button_pressed)
@@ -94,6 +99,8 @@ func _ready() -> void:
 		sort_option_button.item_selected.connect(_on_sort_option_button_item_selected)
 	if not catalog_tree.item_selected.is_connected(_on_catalog_tree_item_selected):
 		catalog_tree.item_selected.connect(_on_catalog_tree_item_selected)
+	if not select_clue_button.pressed.is_connected(_on_select_clue_button_pressed):
+		select_clue_button.pressed.connect(_on_select_clue_button_pressed)
 
 	if get_viewport() != null and not get_viewport().size_changed.is_connected(_on_viewport_size_changed):
 		get_viewport().size_changed.connect(_on_viewport_size_changed)
@@ -102,6 +109,10 @@ func _ready() -> void:
 		DataManager.clue_updated.connect(_on_clue_updated)
 	if EventBus != null and not EventBus.clue_interaction_details_requested.is_connected(_on_clue_interaction_details_requested):
 		EventBus.clue_interaction_details_requested.connect(_on_clue_interaction_details_requested)
+	if EventBus != null and not EventBus.clue_selection_requested.is_connected(_on_clue_selection_requested):
+		EventBus.clue_selection_requested.connect(_on_clue_selection_requested)
+	if EventBus != null and not EventBus.ui_panel_focus_requested.is_connected(_on_ui_panel_focus_requested):
+		EventBus.ui_panel_focus_requested.connect(_on_ui_panel_focus_requested)
 
 	_on_viewport_size_changed()
 	_render_empty_state("暂无可显示的线索。")
@@ -129,14 +140,14 @@ func _on_close_button_pressed() -> void:
 
 
 func _on_search_text_changed(_new_text: String) -> void:
-	if _mode != MODE_ARCHIVE:
+	if not _is_archive_like_mode():
 		return
 	_refresh_archive_tree()
 
 
 func _on_sort_option_button_item_selected(index: int) -> void:
 	_archive_sort_mode = index
-	if _mode != MODE_ARCHIVE:
+	if not _is_archive_like_mode():
 		return
 	_refresh_archive_tree()
 
@@ -156,7 +167,7 @@ func _on_catalog_tree_item_selected() -> void:
 	var clue_id: String = String(clue_id_variant)
 	if clue_id.is_empty():
 		return
-	if _mode == MODE_ARCHIVE:
+	if _is_archive_like_mode():
 		_archive_selected_clue_id = clue_id
 
 	_show_clue_detail(clue_id, true)
@@ -166,7 +177,7 @@ func _on_clue_updated(_clue_id: String) -> void:
 	if not _is_open:
 		return
 
-	if _mode == MODE_ARCHIVE:
+	if _is_archive_like_mode():
 		_queue_archive_refresh()
 		return
 
@@ -185,8 +196,18 @@ func _deferred_refresh_archive_tree() -> void:
 	if not _is_open:
 		return
 	if _mode != MODE_ARCHIVE:
-		return
+		if _mode != MODE_SELECTION:
+			return
 	_refresh_archive_tree()
+
+
+func _on_select_clue_button_pressed() -> void:
+	if _mode != MODE_SELECTION:
+		return
+	if _archive_selected_clue_id.is_empty():
+		return
+	EventBus.clue_selected_for_reasoning.emit(_selection_context.duplicate(true), _archive_selected_clue_id)
+	_close_panel()
 
 
 func _queue_interaction_refresh() -> void:
@@ -211,6 +232,16 @@ func _on_clue_interaction_details_requested(payload: Dictionary) -> void:
 	_open_interaction_panel(payload)
 
 
+func _on_clue_selection_requested(context: Dictionary) -> void:
+	_open_selection_panel(context)
+
+
+func _on_ui_panel_focus_requested(panel_id: String) -> void:
+	if panel_id == PANEL_ID:
+		return
+	_close_panel()
+
+
 func _on_viewport_size_changed() -> void:
 	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
 	if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
@@ -232,6 +263,7 @@ func _open_archive_panel() -> void:
 
 	_mode = MODE_ARCHIVE
 	_interaction_payload = {}
+	_selection_context = {}
 	_open_panel()
 	_update_mode_widgets()
 	_refresh_archive_tree()
@@ -243,13 +275,27 @@ func _open_interaction_panel(payload: Dictionary) -> void:
 
 	_mode = MODE_INTERACTION
 	_interaction_payload = payload.duplicate(true)
+	_selection_context = {}
 	_open_panel()
 	_update_mode_widgets()
 	_refresh_interaction_tree()
 
 
+func _open_selection_panel(context: Dictionary) -> void:
+	if not _can_open_panel():
+		return
+
+	_mode = MODE_SELECTION
+	_interaction_payload = {}
+	_selection_context = context.duplicate(true)
+	_open_panel()
+	_update_mode_widgets()
+	_refresh_archive_tree()
+
+
 func _open_panel() -> void:
 	if not _is_open:
+		EventBus.ui_panel_focus_requested.emit(PANEL_ID)
 		_is_open = true
 		show()
 		if GameManager != null and GameManager.has_method("request_pause"):
@@ -281,12 +327,22 @@ func _update_mode_widgets() -> void:
 		mode_label.text = "模式：线索手册"
 		search_line_edit.editable = true
 		search_line_edit.placeholder_text = "搜索线索标题、内容、标签"
+		select_clue_button.hide()
+		return
+
+	if _mode == MODE_SELECTION:
+		mode_label.text = "模式：选择线索"
+		search_line_edit.editable = true
+		search_line_edit.placeholder_text = "搜索线索标题、内容、标签"
+		select_clue_button.show()
+		select_clue_button.disabled = true
 		return
 
 	mode_label.text = "模式：交互详情"
 	search_line_edit.editable = false
 	search_line_edit.text = ""
 	search_line_edit.placeholder_text = "交互详情模式下禁用搜索"
+	select_clue_button.hide()
 
 
 func _refresh_archive_tree() -> void:
@@ -521,13 +577,17 @@ func _show_clue_detail(clue_id: String, mark_read: bool = false) -> void:
 	else:
 		detail_body.text = "%s\n\n%s" % ["\n".join(section_lines), body]
 
-	if _mode == MODE_ARCHIVE and mark_read:
+	if _mode == MODE_SELECTION:
+		select_clue_button.disabled = false
+
+	if _is_archive_like_mode() and mark_read:
 		DataManager.mark_clue_read(clue_id)
 
 
 func _render_empty_state(message: String) -> void:
 	detail_title.text = "线索详情"
 	detail_body.text = message
+	select_clue_button.disabled = true
 
 
 func _build_clue_tree_title(clue_id: String, clue_def: ClueData) -> String:
@@ -703,6 +763,10 @@ func _get_clue_def(clue_id: String) -> ClueData:
 	if clue_def_variant is ClueData:
 		return clue_def_variant as ClueData
 	return null
+
+
+func _is_archive_like_mode() -> bool:
+	return _mode == MODE_ARCHIVE or _mode == MODE_SELECTION
 
 
 func _is_toggle_input(event: InputEvent) -> bool:
