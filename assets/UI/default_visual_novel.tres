@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="3_4qk6v"]
 [ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="4_soot0"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="5_h0477"]
-[ext_resource type="PackedScene" path="res://assets/UI/dialogues/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="6_ytt7c"]
+[ext_resource type="PackedScene" uid="uid://dvaj1akytach8" path="res://assets/UI/dialogues/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="6_ytt7c"]
 [ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="7_4tcp0"]
 [ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="8_wggms"]
 [ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="9_wiyx8"]
@@ -16,7 +16,7 @@
 script = ExtResource("2_gwhhd")
 scene = ExtResource("1_ytt7c")
 overrides = {
-"global_font_size": "25.0"
+"global_font_size": "36.0"
 }
 
 [sub_resource type="Resource" id="Resource_xehld"]
@@ -35,7 +35,8 @@ scene = ExtResource("5_h0477")
 script = ExtResource("2_gwhhd")
 scene = ExtResource("6_ytt7c")
 overrides = {
-"box_size": "Vector2(1000, 240)"
+"box_size": "Vector2(1000, 240)",
+"name_label_box_offset": "Vector2(0, -20)"
 }
 
 [sub_resource type="Resource" id="Resource_8icqd"]

@@ -588,27 +588,27 @@ target_spawn_point = "SpawnFromHall"
 position = Vector2(886, 335)
 shape = SubResource("RectangleShape2D_hcmxa")
 
-[node name="NPCSpawnPoints" type="Node2D" parent="."]
+[node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=500031973]
 
-[node name="Butler" type="Marker2D" parent="NPCSpawnPoints"]
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints" unique_id=287725412]
 position = Vector2(898, 585)
 
-[node name="Zhou" type="Marker2D" parent="NPCSpawnPoints"]
+[node name="Zhou" type="Marker2D" parent="NPCSpawnPoints" unique_id=88650378]
 position = Vector2(645, 642)
 
-[node name="Mu" type="Marker2D" parent="NPCSpawnPoints"]
+[node name="Mu" type="Marker2D" parent="NPCSpawnPoints" unique_id=47183290]
 position = Vector2(760, 690)
 
-[node name="Lin" type="Marker2D" parent="NPCSpawnPoints"]
+[node name="Lin" type="Marker2D" parent="NPCSpawnPoints" unique_id=1871742484]
 position = Vector2(1038, 690)
 
-[node name="Wu" type="Marker2D" parent="NPCSpawnPoints"]
+[node name="Wu" type="Marker2D" parent="NPCSpawnPoints" unique_id=1784711440]
 position = Vector2(1155, 642)
 
-[node name="Zhong" type="Marker2D" parent="NPCSpawnPoints"]
+[node name="Zhong" type="Marker2D" parent="NPCSpawnPoints" unique_id=193477044]
 position = Vector2(898, 792)
 
-[node name="DynamicActors" type="Node2D" parent="."]
+[node name="DynamicActors" type="Node2D" parent="." unique_id=1600612323]
 y_sort_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=327528480]

@@ -19,7 +19,7 @@
 &"portraits": {
 "Neutral": {
 "export_overrides": {
-"image": ""
+"image": "\"res://addons/dialogic/Example Assets/portraits/Antonio/pl5 blink.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

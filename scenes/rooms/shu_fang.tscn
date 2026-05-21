@@ -695,7 +695,6 @@ position = Vector2(0, -16)
 script = ExtResource("8_i03ai")
 target_scene_path = "uid://706wj0rmsrv7"
 target_spawn_point = "SpawnFromShuFang"
-flow_signal_name = "exit_second_search"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Door" unique_id=2057161362]
 position = Vector2(1087, 978)
@@ -725,10 +724,10 @@ texture = SubResource("GradientTexture2D_1pjmd")
 [node name="SpawnFromZouLang" type="Marker2D" parent="." unique_id=2030578906]
 position = Vector2(1084, 883)
 
-[node name="NPCSpawnPoints" type="Node2D" parent="."]
+[node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=985380528]
 
-[node name="Zhong" type="Marker2D" parent="NPCSpawnPoints"]
+[node name="Zhong" type="Marker2D" parent="NPCSpawnPoints" unique_id=2094612947]
 position = Vector2(990, 810)
 
-[node name="DynamicActors" type="Node2D" parent="."]
+[node name="DynamicActors" type="Node2D" parent="." unique_id=464224187]
 y_sort_enabled = true

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dw0wq281l4ilm"]
 
-[ext_resource type="Script" path="res://scripts/UI/pause_ui.gd" id="1_pause_ui"]
+[ext_resource type="Script" uid="uid://dw1u8lmuvc71x" path="res://scripts/UI/pause_ui.gd" id="1_pause_ui"]
+[ext_resource type="Theme" uid="uid://d0gg4nn1gnmsa" path="res://assets/UI/default_theme.tres" id="2_7pard"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pause_panel"]
 bg_color = Color(0.08, 0.08, 0.08, 0.94)
@@ -14,10 +15,10 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="PausePanel" type="CanvasLayer"]
+[node name="PausePanel" type="CanvasLayer" unique_id=1131412152]
 script = ExtResource("1_pause_ui")
 
-[node name="Dimmer" type="ColorRect" parent="."]
+[node name="Dimmer" type="ColorRect" parent="." unique_id=819482416]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,7 +27,7 @@ grow_vertical = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 0.45)
 
-[node name="PanelRoot" type="Control" parent="."]
+[node name="PanelRoot" type="Control" parent="." unique_id=980508898]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,8 +35,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("2_7pard")
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelRoot"]
+[node name="CenterContainer" type="CenterContainer" parent="PanelRoot" unique_id=1347821553]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,38 +45,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelFrame" type="PanelContainer" parent="PanelRoot/CenterContainer"]
+[node name="PanelFrame" type="PanelContainer" parent="PanelRoot/CenterContainer" unique_id=942182571]
 custom_minimum_size = Vector2(360, 260)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pause_panel")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelRoot/CenterContainer/PanelFrame"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelRoot/CenterContainer/PanelFrame" unique_id=77300157]
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="ButtonVBox" type="VBoxContainer" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer"]
+[node name="ButtonVBox" type="VBoxContainer" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer" unique_id=244230674]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="TitleLabel" type="Label" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+[node name="TitleLabel" type="Label" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox" unique_id=406814686]
 layout_mode = 2
 text = "游戏暂停"
 horizontal_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+[node name="ResumeButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox" unique_id=212801734]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "继续游戏"
 
-[node name="QuitToTitleButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+[node name="QuitToTitleButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox" unique_id=1344619446]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "退出至主标题"
 
-[node name="QuitGameButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+[node name="QuitGameButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox" unique_id=1466126461]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "退出游戏"
