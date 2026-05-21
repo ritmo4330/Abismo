@@ -2,6 +2,7 @@ extends CanvasLayer
 
 const PANEL_ID: String = "pause_panel"
 const MAIN_MENU_SCENE_PATH: String = "res://scenes/UI/main_menu.tscn"
+const PAUSE_CANVAS_LAYER: int = 200
 
 @onready var resume_button: Button = $PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox/ResumeButton
 @onready var quit_to_title_button: Button = $PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox/QuitToTitleButton
@@ -11,7 +12,9 @@ var _is_open: bool = false
 
 
 func _ready() -> void:
+	layer = PAUSE_CANVAS_LAYER
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	_set_process_mode_always_recursive(self)
 	set_process_input(true)
 	hide()
 
@@ -104,3 +107,9 @@ func _is_close_input(event: InputEvent) -> bool:
 	if key_event.echo:
 		return false
 	return key_event.keycode == KEY_ESCAPE or key_event.physical_keycode == KEY_ESCAPE
+
+
+func _set_process_mode_always_recursive(node: Node) -> void:
+	node.process_mode = Node.PROCESS_MODE_ALWAYS
+	for child: Node in node.get_children():
+		_set_process_mode_always_recursive(child)

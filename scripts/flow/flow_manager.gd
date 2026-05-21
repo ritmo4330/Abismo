@@ -1,6 +1,10 @@
 extends Node
 
+const CHAPTER_DEMO: String = "demo"
 const CHAPTER_CH1: String = "ch1_snow_villa"
+
+const STEP_DEMO_IDENTITY: String = "demo_0_1_identity"
+const STEP_DEMO_PROLOGUE_STORY: String = "demo_0_2_prologue_story"
 
 const STEP_CH1_INTRO_HALL: String = "ch1_1_intro_hall"
 const STEP_CH1_FIRST_SEARCH: String = "ch1_2_first_search"
@@ -15,6 +19,7 @@ const ROOM_FIRST_SEARCH: String = "room_wu_ting_xiang"
 const ROOM_SECOND_SEARCH: String = "shu_fang"
 
 const HALL_SCENE_PATH: String = "res://scenes/rooms/hall.tscn"
+const DEMO_BOOT_SCENE_PATH: String = "res://scenes/demo/demo_boot.tscn"
 const HUI_KE_TING_SCENE_PATH: String = "res://scenes/rooms/hui_ke_ting.tscn"
 const FIRST_SEARCH_ROOM1_PATH: String = "res://scenes/rooms/floor2.tscn"
 const FIRST_SEARCH_ROOM2_PATH: String = "res://scenes/rooms/room_wu_ting_xiang.tscn"
@@ -28,6 +33,10 @@ const ACTION_ENTER_PRIVATE_CHAT: String = "enter_private_chat"
 const ACTION_EXIT_PRIVATE_CHAT: String = "exit_private_chat"
 const ACTION_START_SECOND_SEARCH: String = "start_second_search"
 const ACTION_EXIT_SECOND_SEARCH: String = "exit_second_search"
+const ACTION_DEMO_IDENTITY_FINISHED: String = "demo_identity_finished"
+
+const TIMELINE_DEMO_IDENTITY: String = "demo_0_1_identity"
+const TIMELINE_DEMO_PROLOGUE: String = "demo_0_2_prologue"
 
 const FREE_INTERACTION_TIMELINES: Dictionary = {
 	CHAPTER_CH1: {
@@ -109,6 +118,35 @@ func _ready() -> void:
 		EventBus.room_presented.connect(_on_room_presented)
 	if not EventBus.dialogue_finished.is_connected(_on_dialogue_finished):
 		EventBus.dialogue_finished.connect(_on_dialogue_finished)
+
+
+func prepare_demo_start() -> void:
+	if DataManager != null and DataManager.has_method("reset_runtime_state"):
+		DataManager.reset_runtime_state()
+
+	current_chapter_id = CHAPTER_DEMO
+	current_step_id = STEP_DEMO_IDENTITY
+	current_room_id = ""
+	private_chat_target = ""
+	_pending_action_after_dialogue = ""
+	pending_auto_timeline = TIMELINE_DEMO_IDENTITY
+	_reset_npc_locations_for_step(current_step_id)
+	set_dialogic_var("PlayerName", "")
+	set_dialogic_var("PlayerGender", "")
+	set_dialogic_var("Demo.Started", true)
+
+
+func prepare_ch1_legacy_start() -> void:
+	if DataManager != null and DataManager.has_method("reset_runtime_state"):
+		DataManager.reset_runtime_state()
+
+	current_chapter_id = CHAPTER_CH1
+	current_step_id = STEP_CH1_INTRO_HALL
+	current_room_id = ""
+	private_chat_target = ""
+	_pending_action_after_dialogue = ""
+	pending_auto_timeline = ""
+	_reset_npc_locations_for_step(current_step_id)
 
 
 func set_step(step_id: String) -> void:
@@ -319,6 +357,8 @@ func _on_flow_signal_requested(signal_name: String) -> void:
 		ACTION_EXIT_SECOND_SEARCH:
 			_pending_action_after_dialogue = ACTION_EXIT_SECOND_SEARCH
 			EventBus.dialogue_requested.emit("1_5_exit")
+		ACTION_DEMO_IDENTITY_FINISHED:
+			_pending_action_after_dialogue = ACTION_DEMO_IDENTITY_FINISHED
 		_:
 			push_warning("FlowManager: unhandled flow signal '%s'." % signal_name)
 
@@ -369,6 +409,9 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 		ACTION_EXIT_SECOND_SEARCH:
 			if bool(get_dialogic_var("Ch1.SecondSearch.Zhong.Finished", false)):
 				request_scene_change(HALL_SCENE_PATH, "InitialSpawn")
+		ACTION_DEMO_IDENTITY_FINISHED:
+			set_step(STEP_DEMO_PROLOGUE_STORY)
+			request_scene_change(DEMO_BOOT_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_PROLOGUE)
 		_:
 			push_warning("FlowManager: unhandled pending action '%s'." % action)
 

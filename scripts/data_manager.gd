@@ -25,6 +25,15 @@ func _ready() -> void:
 	_register_all_suspicion_defs()
 
 
+func reset_runtime_state() -> void:
+	clue_states.clear()
+	suspicions.clear()
+	world_flags.clear()
+	affinity.clear()
+	_discover_counter = 0
+	_suspicion_discover_counter = 0
+
+
 func register_clue_def(clue_def: ClueData) -> void:
 	if clue_def == null:
 		return

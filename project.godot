@@ -58,6 +58,8 @@ directories/dtl_directory={
 "1_5_all": "res://assets/dialogues/ch1_snow_villa/1_5_all.dtl",
 "1_5_exit": "res://assets/dialogues/ch1_snow_villa/1_5_exit.dtl",
 "1_5_zhong": "res://assets/dialogues/ch1_snow_villa/1_5_zhong.dtl",
+"demo_0_1_identity": "res://assets/dialogues/demo/demo_0_1_identity.dtl",
+"demo_0_2_prologue": "res://assets/dialogues/demo/demo_0_2_prologue.dtl",
 "prologue1": "res://assets/dialogues/ch0_prologue/prologue1.dtl",
 "prologue2": "res://assets/dialogues/ch0_prologue/prologue2.dtl",
 "test": "res://assets/dialogues/test.dtl"
@@ -254,7 +256,11 @@ variables={
 }
 }
 },
-"PlayerName": "testname"
+"Demo": {
+"Started": false
+},
+"PlayerGender": "",
+"PlayerName": ""
 }
 layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres"]
 layout/default_style="res://assets/UI/default_visual_novel.tres"
