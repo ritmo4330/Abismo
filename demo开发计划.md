@@ -183,8 +183,9 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
   - 玩家靠近按 F，火堆复燃后再次熄灭。
   - 写入 `DataManager.world_flags["demo/find_warmth_started"] = true`。
 - 实现最小任务提示：
-  - MVP 使用 Dialogic 旁白或 UI Toast：`获得任务：寻找温暖`。
-  - 暂不做完整任务手册，除非后续明确需要。
+  - MVP 使用 UI Toast：`获得任务：寻找温暖`；当前尚未实现，需要新增 `scripts/UI/toast_manager.gd`。
+  - 任务显示在屏幕右侧偏上三分之一处，持续 3 秒后自动消失。
+  - 暂不做完整任务系统，除非后续明确需要。
 - 实现暴风雪触发：
   - 进入指定 Area2D 时播放风雪遮罩/屏幕抖动/音效。
   - 图 2 每移动一段距离触发一次。
@@ -198,6 +199,7 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
 - `scenes/demo/demo_snow_path.tscn`
 - `scenes/demo/demo_villa_gate.tscn`
 - `scripts/objects/interactable/demo_campfire.gd`
+- `scripts/UI/toast_manager.gd`
 - `scripts/demo/demo_blizzard_trigger.gd`
 - `assets/dialogues/demo/demo_0_2_snow_*.dtl`
 
