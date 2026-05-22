@@ -35,6 +35,7 @@ ToastManager="*res://scripts/UI/toast_manager.gd"
 directories/dch_directory={
 "butler": "res://assets/characters/npcs/butler.dch",
 "lin_jiu": "res://assets/characters/npcs/lin_jiu.dch",
+"meta": "res://assets/characters/npcs/meta.dch",
 "mu_zhi": "res://assets/characters/npcs/mu_zhi.dch",
 "player": "res://assets/characters/player.dch",
 "wu_ting_xiang": "res://assets/characters/npcs/wu_ting_xiang.dch",
@@ -61,11 +62,14 @@ directories/dtl_directory={
 "1_5_exit": "res://assets/dialogues/ch1_snow_villa/1_5_exit.dtl",
 "1_5_zhong": "res://assets/dialogues/ch1_snow_villa/1_5_zhong.dtl",
 "demo_0_1_identity": "res://assets/dialogues/demo/demo_0_1_identity.dtl",
+"demo_0_2_hall_arrival": "res://assets/dialogues/demo/demo_0_2_hall_arrival.dtl",
 "demo_0_2_hall_arrival_placeholder": "res://assets/dialogues/demo/demo_0_2_hall_arrival_placeholder.dtl",
+"demo_0_2_memory_meta": "res://assets/dialogues/demo/demo_0_2_memory_meta.dtl",
 "demo_0_2_prologue": "res://assets/dialogues/demo/demo_0_2_prologue.dtl",
 "demo_0_2_snow_camp_arrival": "res://assets/dialogues/demo/demo_0_2_snow_camp_arrival.dtl",
 "demo_0_2_snow_path_arrival": "res://assets/dialogues/demo/demo_0_2_snow_path_arrival.dtl",
 "demo_0_2_villa_gate_arrival": "res://assets/dialogues/demo/demo_0_2_villa_gate_arrival.dtl",
+"demo_1_1_study_wake": "res://assets/dialogues/demo/demo_1_1_study_wake.dtl",
 "prologue1": "res://assets/dialogues/ch0_prologue/prologue1.dtl",
 "prologue2": "res://assets/dialogues/ch0_prologue/prologue2.dtl",
 "test": "res://assets/dialogues/test.dtl"

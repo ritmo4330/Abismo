@@ -1,0 +1,7 @@
+[style name="default_visual_novel"]
+[signal arg="audio:play_bgm:winter_melody"]
+butler: 你醒了，客人。
+player: 你……这里是……我刚刚……
+butler: 客人，还请您放轻松，您刚刚敲响别墅的大门，我打开大门时你直接倒在门口了，便奉主人的命令好好照顾你。
+（Phase E 将从这里继续接入书房调查。）
+[end_timeline]

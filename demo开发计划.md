@@ -214,10 +214,18 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
 
 目标：完成进入大厅、梅塔初见、战争记忆、昏倒、Logo 的线性演出。
 
+当前实现：
+
+- 已将 `demo_villa_gate.tscn` 的大门交互接到正式 `demo_0_2_hall_arrival` 时间线。
+- 已新增梅塔 Dialogic 角色占位资源 `assets/characters/npcs/meta.dch`，正式立绘到位后只需替换 portrait。
+- 已新增大厅到达、梅塔记忆、书房醒来占位时间线，并注册到 `project.godot`。
+- 已新增 `scenes/demo/demo_logo.tscn`，大厅演出结束后显示“异数”Logo，并自动切到 `shu_fang.tscn` 的书房醒来时间线。
+- 已扩展 `FlowManager` 的 demo step/action，Phase D 流程不会进入旧大厅自由调查。
+
 任务：
 
 - 复用 `hall.tscn`，新增 demo 专用 step 下的 NPC 布置：
-  - 梅塔需要立绘/角色资源，如不存在需新增 Dialogic character。
+  - 梅塔需要角色资源，如不存在需新增 Dialogic character。
   - 管家可复用现有资源。
 - 新建 `demo_0_2_hall_arrival.dtl`：
   - 主角敲门。

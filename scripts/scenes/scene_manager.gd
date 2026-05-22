@@ -17,6 +17,10 @@ func _ready() -> void:
 		EventBus.scene_change_requested.connect(_on_scene_change_requested)
 
 
+func is_initialized() -> bool:
+	return _is_initialized
+
+
 func initialize(host_root: Node2D, first_level_path: String = DEFAULT_FIRST_LEVEL_PATH, first_spawn_point: String = "InitialSpawn") -> void:
 	if host_root == null:
 		push_error("SceneManager.initialize() host_root is null.")
@@ -129,8 +133,6 @@ func _load_room(path: String, spawn_point_name: String) -> Node2D:
 	if current_player == null:
 		return level_instance
 
-	level_instance.add_child(current_player)
-
 	var spawn_point: Node = null
 	if not spawn_point_name.is_empty():
 		spawn_point = level_instance.find_child(spawn_point_name, true, false)
@@ -138,6 +140,11 @@ func _load_room(path: String, spawn_point_name: String) -> Node2D:
 	if spawn_point == null and level_instance.get("default_spawn_point"):
 		var default_spawn_point: String = String(level_instance.default_spawn_point)
 		spawn_point = level_instance.find_child(default_spawn_point, true, false)
+
+	if spawn_point is Node2D:
+		current_player.position = (spawn_point as Node2D).global_position
+
+	level_instance.add_child(current_player)
 
 	if spawn_point is Node2D:
 		current_player.global_position = (spawn_point as Node2D).global_position

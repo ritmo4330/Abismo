@@ -19,7 +19,11 @@ func _ready():
 		_spawn_test_player()
 
 func _spawn_test_player():
-	var spawn_point = find_child(default_spawn_point, true, false)
+	var spawn_point_name: String = default_spawn_point
+	if FlowManager != null and FlowManager.has_method("consume_pending_standalone_spawn_point"):
+		spawn_point_name = FlowManager.consume_pending_standalone_spawn_point(default_spawn_point)
+
+	var spawn_point = find_child(spawn_point_name, true, false)
 	if not spawn_point: return
 	
 	var player_instance = player_scene.instantiate()
@@ -27,6 +31,12 @@ func _spawn_test_player():
 	player_instance.global_position = spawn_point.global_position
 	
 	setup_camera_limits(player_instance)
+	call_deferred("_play_pending_standalone_timeline")
+
+
+func _play_pending_standalone_timeline() -> void:
+	if FlowManager != null and FlowManager.has_method("play_pending_auto_timeline"):
+		FlowManager.play_pending_auto_timeline()
 
 
 func get_dynamic_actors_root() -> Node2D:

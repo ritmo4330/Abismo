@@ -24,6 +24,7 @@ func fade_out():
 	
 	# 创建一个 Tween 对象
 	var tween = create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	# 将 fade_rect 的 modulate:a 属性，用 fade_duration 秒的时间，过渡到 1.0 (完全不透明)
 	# 忽略暂停的影响，以便在 get_tree().paused = true 时能正常播放动画
 	tween.tween_property(fade_rect, "modulate:a", 1.0, fade_duration).set_delay(0).set_trans(Tween.TRANS_LINEAR)
@@ -34,6 +35,7 @@ func fade_out():
 # 淡入（屏幕变透明）
 func fade_in():
 	var tween = create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	# 将 fade_rect 的 modulate:a 属性，用 fade_duration 秒的时间，过渡到 0.0 (完全透明)
 	tween.tween_property(fade_rect, "modulate:a", 0.0, fade_duration).set_delay(0).set_trans(Tween.TRANS_LINEAR)
 	

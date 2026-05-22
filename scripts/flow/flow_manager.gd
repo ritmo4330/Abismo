@@ -6,6 +6,11 @@ const CHAPTER_CH1: String = "ch1_snow_villa"
 const STEP_DEMO_IDENTITY: String = "demo_0_1_identity"
 const STEP_DEMO_PROLOGUE_STORY: String = "demo_0_2_prologue_story"
 const STEP_DEMO_SNOW_CAMP: String = "demo_0_2_snow_camp"
+const STEP_DEMO_SNOW_PATH: String = "demo_0_2_snow_path"
+const STEP_DEMO_VILLA_GATE: String = "demo_0_2_villa_gate"
+const STEP_DEMO_HALL_ARRIVAL: String = "demo_0_2_hall_arrival"
+const STEP_DEMO_LOGO: String = "demo_0_2_logo"
+const STEP_DEMO_STUDY_WAKE: String = "demo_1_1_study_wake"
 
 const STEP_CH1_INTRO_HALL: String = "ch1_1_intro_hall"
 const STEP_CH1_FIRST_SEARCH: String = "ch1_2_first_search"
@@ -22,6 +27,7 @@ const ROOM_SECOND_SEARCH: String = "shu_fang"
 const HALL_SCENE_PATH: String = "res://scenes/rooms/hall.tscn"
 const DEMO_BOOT_SCENE_PATH: String = "res://scenes/demo/demo_boot.tscn"
 const DEMO_SNOW_CAMP_SCENE_PATH: String = "res://scenes/demo/demo_snow_camp.tscn"
+const DEMO_LOGO_SCENE_PATH: String = "res://scenes/demo/demo_logo.tscn"
 const HUI_KE_TING_SCENE_PATH: String = "res://scenes/rooms/hui_ke_ting.tscn"
 const FIRST_SEARCH_ROOM1_PATH: String = "res://scenes/rooms/floor2.tscn"
 const FIRST_SEARCH_ROOM2_PATH: String = "res://scenes/rooms/room_wu_ting_xiang.tscn"
@@ -37,10 +43,13 @@ const ACTION_START_SECOND_SEARCH: String = "start_second_search"
 const ACTION_EXIT_SECOND_SEARCH: String = "exit_second_search"
 const ACTION_DEMO_IDENTITY_FINISHED: String = "demo_identity_finished"
 const ACTION_DEMO_PROLOGUE_INTRO_FINISHED: String = "demo_prologue_intro_finished"
+const ACTION_DEMO_HALL_ARRIVAL_FINISHED: String = "demo_hall_arrival_finished"
 
 const TIMELINE_DEMO_IDENTITY: String = "demo_0_1_identity"
 const TIMELINE_DEMO_PROLOGUE: String = "demo_0_2_prologue"
 const TIMELINE_DEMO_SNOW_CAMP_ARRIVAL: String = "demo_0_2_snow_camp_arrival"
+const TIMELINE_DEMO_HALL_ARRIVAL: String = "demo_0_2_hall_arrival"
+const TIMELINE_DEMO_STUDY_WAKE: String = "demo_1_1_study_wake"
 
 const FREE_INTERACTION_TIMELINES: Dictionary = {
 	CHAPTER_CH1: {
@@ -103,6 +112,7 @@ var current_chapter_id: String = CHAPTER_CH1
 var current_step_id: String = STEP_CH1_INTRO_HALL
 var current_room_id: String = ""
 var pending_auto_timeline: String = ""
+var pending_standalone_spawn_point: String = ""
 var private_chat_target: String = ""
 
 var _pending_action_after_dialogue: String = ""
@@ -184,12 +194,41 @@ func set_npc_location(
 	_npc_locations[npc_id] = location
 
 
-func request_scene_change(target_scene_path: String, spawn_point: String, auto_timeline: String = "") -> void:
-	pending_auto_timeline = auto_timeline
+func request_scene_change(target_scene_path: String, spawn_point: String, auto_timeline: String = "") -> bool:
 	if target_scene_path.is_empty():
+		pending_auto_timeline = auto_timeline
 		play_pending_auto_timeline()
-		return
+		return true
+
+	var target_scene: PackedScene = load(target_scene_path) as PackedScene
+	if target_scene == null:
+		push_error("FlowManager: scene change target cannot be loaded: %s" % target_scene_path)
+		return false
+
+	if SceneManager != null and SceneManager.has_method("is_initialized") and not SceneManager.is_initialized():
+		pending_auto_timeline = auto_timeline
+		pending_standalone_spawn_point = spawn_point
+		var error: Error = get_tree().change_scene_to_file(target_scene_path)
+		if error != OK:
+			push_error("FlowManager: standalone scene change failed: %s" % target_scene_path)
+			return false
+		return true
+
+	if SceneManager != null and SceneManager.is_transitioning:
+		push_warning("FlowManager: scene change ignored because SceneManager is already transitioning: %s" % target_scene_path)
+		return false
+
+	pending_auto_timeline = auto_timeline
 	EventBus.scene_change_requested.emit(target_scene_path, spawn_point)
+	return true
+
+
+func consume_pending_standalone_spawn_point(default_spawn_point: String) -> String:
+	if pending_standalone_spawn_point.is_empty():
+		return default_spawn_point
+	var spawn_point: String = pending_standalone_spawn_point
+	pending_standalone_spawn_point = ""
+	return spawn_point
 
 
 func on_room_loaded(room: Node2D, room_id: String) -> void:
@@ -365,6 +404,8 @@ func _on_flow_signal_requested(signal_name: String) -> void:
 			_pending_action_after_dialogue = ACTION_DEMO_IDENTITY_FINISHED
 		ACTION_DEMO_PROLOGUE_INTRO_FINISHED:
 			_pending_action_after_dialogue = ACTION_DEMO_PROLOGUE_INTRO_FINISHED
+		ACTION_DEMO_HALL_ARRIVAL_FINISHED:
+			_pending_action_after_dialogue = ACTION_DEMO_HALL_ARRIVAL_FINISHED
 		_:
 			push_warning("FlowManager: unhandled flow signal '%s'." % signal_name)
 
@@ -421,6 +462,9 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 		ACTION_DEMO_PROLOGUE_INTRO_FINISHED:
 			set_step(STEP_DEMO_SNOW_CAMP)
 			request_scene_change(DEMO_SNOW_CAMP_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_SNOW_CAMP_ARRIVAL)
+		ACTION_DEMO_HALL_ARRIVAL_FINISHED:
+			set_step(STEP_DEMO_LOGO)
+			request_scene_change(DEMO_LOGO_SCENE_PATH, "InitialSpawn")
 		_:
 			push_warning("FlowManager: unhandled pending action '%s'." % action)
 

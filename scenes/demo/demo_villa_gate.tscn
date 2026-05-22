@@ -53,7 +53,7 @@ position = Vector2(1210, 650)
 script = ExtResource("2_door")
 target_scene_path = "res://scenes/rooms/hall.tscn"
 target_spawn_point = "SpawnFromGate"
-auto_timeline = "demo_0_2_hall_arrival_placeholder"
+auto_timeline = "demo_0_2_hall_arrival"
 next_step_id = "demo_0_2_hall_arrival"
 prompt_offset = Vector2(0, -20)
 

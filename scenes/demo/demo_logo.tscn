@@ -1,0 +1,52 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/demo/demo_logo.gd" id="1_logo"]
+
+[node name="DemoLogo" type="Node2D"]
+script = ExtResource("1_logo")
+
+[node name="InitialSpawn" type="Marker2D" parent="."]
+
+[node name="LogoLayer" type="CanvasLayer" parent="."]
+layer = 180
+
+[node name="Background" type="ColorRect" parent="LogoLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="Label" parent="LogoLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -84.0
+offset_right = 240.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "异数"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="LogoLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = 74.0
+offset_right = 280.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Demo"
+horizontal_alignment = 1
+vertical_alignment = 1
