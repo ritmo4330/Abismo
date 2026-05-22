@@ -118,6 +118,11 @@ func _on_dialogue_ended() -> void:
 
 
 func _on_dialogic_signal_event(argument: String) -> void:
+	if argument.begins_with("audio:"):
+		if AudioManager != null and AudioManager.has_method("handle_dialogic_audio_signal"):
+			AudioManager.handle_dialogic_audio_signal(argument.substr("audio:".length()))
+		return
+
 	var signal_name: String = _normalize_flow_signal(argument)
 	if signal_name.is_empty():
 		return

@@ -144,9 +144,9 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
   - 使用 Dialogic 选项记录 `PlayerGender`。
   - 使用 Dialogic `text_input` 记录 `PlayerName`。
   - 结束后发出 `flow:demo_start_prologue_story`。
-- 新建 `demo_0_2_story_a/b/c/d.dtl` 或一个分 label timeline：
+- 新建 `demo_0_2_story.dtl` ，是一个分 label timeline：
   - 黑屏显示灯塔水母寓言文本。
-  - 在指定节点发出信号切换到雪地场景。
+  - 在指定节点发出信号切换到序章场景，以及当切换场景或走到场景特定位置时触发播放相应 label 处的文本。
 - 建立黑屏演出场景或演出层：
   - 最小方案：使用一个纯黑 `Control`/`CanvasLayer` 背景，Dialogic 文本框显示旁白。
   - 后续可扩展为无文本框、居中文本的视觉小说演出层。
@@ -158,13 +158,14 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
 - `assets/dialogues/demo/demo_0_2_prologue.dtl`
 - `scenes/demo/demo_black_screen.tscn` 或 `scenes/demo/demo_cinematic.tscn`
 - `scripts/flow/flow_manager.gd`
-- 可选新增 `scripts/audio/audio_manager.gd`
+- 新增 `scripts/audio/audio_manager.gd`
 
 验收标准：
 
 - 玩家可选择性别、输入姓名。
 - 后续台词可显示 `{PlayerName}`。
 - 黑屏旁白能按点击推进，并在指定位置切入可操作雪地场景。
+- 开场 BGM 接口可用，能在后续场景切换时调用。
 
 ### Phase C：雪地序章三段可操作场景
 

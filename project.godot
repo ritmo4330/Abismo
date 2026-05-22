@@ -27,6 +27,7 @@ Dialogic="*uid://ds2q0uclmolvu"
 DialogueManager="*res://scripts/dialogue/dialogue_manager.gd"
 FlowManager="*res://scripts/flow/flow_manager.gd"
 CluePlacementManager="*res://scripts/clues/clue_placement_manager.gd"
+AudioManager="*res://scripts/audio/audio_manager.gd"
 
 [dialogic]
 
@@ -60,6 +61,7 @@ directories/dtl_directory={
 "1_5_zhong": "res://assets/dialogues/ch1_snow_villa/1_5_zhong.dtl",
 "demo_0_1_identity": "res://assets/dialogues/demo/demo_0_1_identity.dtl",
 "demo_0_2_prologue": "res://assets/dialogues/demo/demo_0_2_prologue.dtl",
+"demo_0_2_snow_camp_arrival": "res://assets/dialogues/demo/demo_0_2_snow_camp_arrival.dtl",
 "prologue1": "res://assets/dialogues/ch0_prologue/prologue1.dtl",
 "prologue2": "res://assets/dialogues/ch0_prologue/prologue2.dtl",
 "test": "res://assets/dialogues/test.dtl"
