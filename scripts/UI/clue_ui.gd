@@ -306,10 +306,18 @@ func _close_panel() -> void:
 	if not _is_open:
 		return
 
+	var followup_timeline: String = ""
+	if _mode == MODE_INTERACTION:
+		followup_timeline = String(_interaction_payload.get("followup_timeline", ""))
+
 	_is_open = false
 	hide()
 	if GameManager != null and GameManager.has_method("release_pause"):
 		GameManager.release_pause(PANEL_PAUSE_TOKEN)
+
+	if not followup_timeline.is_empty():
+		_interaction_payload = {}
+		call_deferred("_request_followup_timeline", followup_timeline)
 
 
 func _can_open_panel() -> bool:
@@ -588,6 +596,12 @@ func _render_empty_state(message: String) -> void:
 	detail_title.text = "线索详情"
 	detail_body.text = message
 	select_clue_button.disabled = true
+
+
+func _request_followup_timeline(timeline_name: String) -> void:
+	if timeline_name.is_empty():
+		return
+	EventBus.dialogue_requested.emit(timeline_name)
 
 
 func _build_clue_tree_title(clue_id: String, clue_def: ClueData) -> String:

@@ -311,6 +311,14 @@ func resolve_suspicion(suspicion_id: String) -> bool:
 	if not suspicion_def.conclusion_clue_id.is_empty():
 		add_clue(suspicion_def.conclusion_clue_id, "reasoning", suspicion_id)
 
+	for unlock_suspicion_id: String in suspicion_def.unlock_suspicion_ids:
+		if unlock_suspicion_id.is_empty():
+			continue
+		add_suspicion(unlock_suspicion_id, "reasoning", suspicion_id)
+
+	if not suspicion_def.resolved_world_flag.is_empty():
+		set_world_flag(suspicion_def.resolved_world_flag, true)
+
 	suspicion_updated.emit(suspicion_id)
 	return true
 

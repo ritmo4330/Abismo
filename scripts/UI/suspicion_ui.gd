@@ -5,7 +5,7 @@ const PANEL_ID: String = "suspicion_panel"
 const PANEL_PAUSE_TOKEN: String = "suspicion_panel"
 const ARCHIVE_SORT_DEFAULT: int = 0
 const ARCHIVE_SORT_DISCOVER: int = 1
-const SLOT_COUNT: int = 3
+const MIN_SLOT_COUNT: int = 1
 
 @onready var panel_frame: PanelContainer = $PanelRoot/PanelFrame
 @onready var close_button: Button = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/HeaderBar/CloseButton
@@ -14,6 +14,7 @@ const SLOT_COUNT: int = 3
 @onready var suspicion_tree: Tree = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SuspicionTree
 @onready var detail_title: Label = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailTop/DetailTitle
 @onready var detail_body: RichTextLabel = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailTop/DetailBody
+@onready var slot_row: HBoxContainer = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow
 @onready var slot_buttons: Array[Button] = [
 	$PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow/SlotButton1,
 	$PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow/SlotButton2,
@@ -167,7 +168,14 @@ func _on_reason_button_pressed() -> void:
 			"parent_clue_id": suspicion_def.conclusion_clue_id,
 			"clue_ids": [suspicion_def.conclusion_clue_id],
 		}
+		if not suspicion_def.resolution_timeline.is_empty():
+			payload["followup_timeline"] = suspicion_def.resolution_timeline
 		EventBus.clue_interaction_details_requested.emit(payload)
+		return
+
+	if not suspicion_def.resolution_timeline.is_empty():
+		_close_panel()
+		call_deferred("_request_resolution_timeline", suspicion_def.resolution_timeline)
 
 
 func _on_clue_selected_for_reasoning(context: Dictionary, clue_id: String) -> void:
@@ -180,7 +188,7 @@ func _on_clue_selected_for_reasoning(context: Dictionary, clue_id: String) -> vo
 	var slot_index: int = int(context.get("slot_index", -1))
 	if suspicion_id.is_empty():
 		return
-	if slot_index < 0 or slot_index >= SLOT_COUNT:
+	if slot_index < 0 or slot_index >= _get_required_slot_count(suspicion_id):
 		return
 
 	var selected_ids: Array[String] = _get_slot_ids(suspicion_id)
@@ -392,9 +400,15 @@ func _update_reasoning_panel() -> void:
 	if not disabled:
 		disabled = DataManager.is_suspicion_resolved(_selected_suspicion_id)
 
-	var selected_ids: Array[String] = _get_slot_ids(_selected_suspicion_id)
+	var slot_count: int = _get_required_slot_count(_selected_suspicion_id)
+	_ensure_slot_button_count(slot_count)
+
+	var selected_ids: Array[String] = _get_slot_ids(_selected_suspicion_id, slot_count)
 	for i: int in slot_buttons.size():
 		var slot_button: Button = slot_buttons[i]
+		slot_button.visible = i < slot_count
+		if not slot_button.visible:
+			continue
 		slot_button.disabled = disabled
 		var clue_id: String = selected_ids[i]
 		if clue_id.is_empty():
@@ -410,6 +424,34 @@ func _render_empty_state(message: String) -> void:
 	detail_title.text = "疑点详情"
 	detail_body.text = message
 	_update_reasoning_panel()
+
+
+func _ensure_slot_button_count(slot_count: int) -> void:
+	slot_count = max(MIN_SLOT_COUNT, slot_count)
+	while slot_buttons.size() < slot_count:
+		var slot_button: Button = Button.new()
+		slot_button.name = "SlotButton%d" % (slot_buttons.size() + 1)
+		slot_button.custom_minimum_size = Vector2(0.0, 120.0)
+		slot_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		slot_row.add_child(slot_button)
+		var slot_index: int = slot_buttons.size()
+		slot_button.pressed.connect(_on_slot_button_pressed.bind(slot_index))
+		slot_buttons.append(slot_button)
+
+
+func _get_required_slot_count(suspicion_id: String) -> int:
+	var suspicion_def: SuspicionData = _get_suspicion_def(suspicion_id)
+	if suspicion_def == null:
+		return MIN_SLOT_COUNT
+	if suspicion_def.required_clue_ids.is_empty():
+		return MIN_SLOT_COUNT
+	return max(MIN_SLOT_COUNT, suspicion_def.required_clue_ids.size())
+
+
+func _request_resolution_timeline(timeline_name: String) -> void:
+	if timeline_name.is_empty():
+		return
+	EventBus.dialogue_requested.emit(timeline_name)
 
 
 func _get_sorted_discovered_suspicion_ids() -> Array[String]:
@@ -521,8 +563,13 @@ func _get_clue_title(clue_id: String) -> String:
 	return clue_id
 
 
-func _get_slot_ids(suspicion_id: String) -> Array[String]:
-	var result: Array[String] = ["", "", ""]
+func _get_slot_ids(suspicion_id: String, slot_count: int = -1) -> Array[String]:
+	if slot_count < MIN_SLOT_COUNT:
+		slot_count = _get_required_slot_count(suspicion_id)
+
+	var result: Array[String] = []
+	for _i: int in slot_count:
+		result.append("")
 	if suspicion_id.is_empty():
 		return result
 	if not _slot_ids_by_suspicion.has(suspicion_id):
@@ -533,7 +580,7 @@ func _get_slot_ids(suspicion_id: String) -> Array[String]:
 		return result
 
 	var stored_ids: Array = stored_value
-	for i: int in min(stored_ids.size(), SLOT_COUNT):
+	for i: int in min(stored_ids.size(), slot_count):
 		result[i] = String(stored_ids[i])
 	return result
 
@@ -545,10 +592,10 @@ func _store_slot_ids(suspicion_id: String, selected_ids: Array[String]) -> void:
 
 
 func _are_all_slots_filled(selected_ids: Array[String]) -> bool:
-	if selected_ids.size() < SLOT_COUNT:
+	if selected_ids.is_empty():
 		return false
 	var seen_ids: Dictionary[String, bool] = {}
-	for i: int in SLOT_COUNT:
+	for i: int in selected_ids.size():
 		var selected_id: String = selected_ids[i]
 		if selected_id.is_empty():
 			return false

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1_clue"]
+
+[resource]
+script = ExtResource("1_clue")
+id = "demo_study_door"
+title = "普通木门"
+description = "书房房门是一扇普通的木门，与客房雕琢精美的木门截然不同。管家离开后，门外暂时没有动静。"
+chapter_id = "demo"
+room_id = "demo_study"
+category_path = PackedStringArray("Demo", "书房")
+tags = PackedStringArray("demo", "study", "scene")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+

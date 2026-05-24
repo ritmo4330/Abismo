@@ -21,7 +21,7 @@ func _start_logo_sequence() -> void:
 		return
 	FlowManager.set_step(FlowManager.STEP_DEMO_STUDY_WAKE)
 	FlowManager.request_scene_change(
-		FlowManager.SECOND_SEARCH_ROOM_PATH,
+		FlowManager.DEMO_STUDY_SCENE_PATH,
 		"SpawnFromZouLang",
 		FlowManager.TIMELINE_DEMO_STUDY_WAKE
 	)

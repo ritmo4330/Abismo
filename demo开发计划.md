@@ -256,6 +256,15 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
 
 目标：完成 `1.1 入局`。
 
+当前实现：
+
+- 已新增 `scenes/demo/demo_study.tscn`，从原书房继承并使用 demo 专用 `room_id`，不会污染旧第二轮搜证书房。
+- 已将 Logo 后续流程改为进入 demo 书房，并播放正式 `demo_1_1_study_wake`。
+- 已新增书房三处调查点与椅子交互；未完成书房必要调查时，椅子不会进入谜题。
+- 已新增谜题正文线索、挑战读者子线索、整理后的谜题线索、结论线索，以及 6 个 demo 疑点资源。
+- 已扩展推理手册，线索槽位数会根据当前疑点 `required_clue_ids` 动态生成，不再固定 3 个。
+- 已接入疑点解决后的结论线索、解锁新疑点、结论旁白 timeline；最终结论会触发命案请求时间线。
+
 任务：
 
 - 复用或复制 `shu_fang.tscn` 为 demo 书房场景：
@@ -265,36 +274,41 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
   - 询问姓名时直接使用 `{PlayerName}`，不重复输入。
   - 管家离开，开放书房调查。
 - 书房自由调查：
-  - 配置书架、名人名言、推理题合集、椅子等交互点。
+  - 配置各交互点，参考已有的书房线索文件。
   - 调查项用 `world_flags` 记录，达到条件后高亮/开放椅子。
-  - 可复用 `ClueItem` 记录书房线索；若仅用于 demo 节奏，也可用简单 Dialogic 交互文本。
 - 新建谜题展示：
-  - `demo_1_1_puzzle_story.dtl`：展示谜题正文。
-  - `demo_1_1_puzzle_challenge.dtl`：展示挑战读者。
-  - `demo_1_1_puzzle_reasoning.dtl`：展示推理过程并记录疑点。
+  - 将谜题创建为线索资源，并按照线索的方式展示谜题正文。
+  - 将挑战读者创建为线索资源，作为谜题的子线索。
+  - `demo_1_1_puzzle_reasoning.dtl`：利用对话展示推理过程并记录疑点和线索；记录疑点的信息不展示到对话中，而是作为右上角的toast弹出，格式为“已记录疑点【xxxxx】”；记录线索的信息同理
 - 新增 demo 疑点资源：
   - `demo_suspicion_impossible_crime`：不可能犯罪。
   - `demo_suspicion_x_disability`：X 的残疾。
-  - `demo_suspicion_two_discussions`：两段讨论。
+  - `demo_suspicion_crime_info`：案发现场的基本信息。
+  - `demo_suspicion_strange_description`：奇怪的描述。
   - `demo_suspicion_nonexistent_service`：不存在的服务。
+  - `demo_suspicion_hidden_chars`：被隐藏的人物。
 - 谜题解决方式：
-  - MVP 方案：展示“推理过程”后由玩家选择“继续”，视为完成谜题。
-  - 完整方案：制作独立 Puzzle UI 或使用 Dialogic 选项，让玩家选择关键矛盾后推进。
-  - 内容依赖：若需要完整解谜，需补齐谜题标准答案和错误反馈文本。
+  - 采用现有的疑点解决方式，玩家需要打开推理手册查看疑点详情，并选择相应的线索组合进行推理
+  - 疑点解决需要的线索数目不定，当前推理手册选择线索固定为3，需要修改成当前疑点解决需要的线索的数目
+  - 某疑点解决后可能会有结论，应当作为线索被添加到线索栏；也能能解决后得到新的疑点，则相应地添加到疑点栏。
+  - 某些疑点要解决可能需要前置疑点解决后的线索。
+  - 疑点解决请看demo流程文档中的image。疑点解决后会有旁白，请创建相应的`demo_1_1_conclusion_*.dtl`并按逻辑正常播放。
 
 涉及文件：
 
 - `scenes/demo/demo_study.tscn`
 - `assets/dialogues/demo/demo_1_1_study_wake.dtl`
 - `assets/dialogues/demo/demo_1_1_puzzle_*.dtl`
+- `assets/dialogues/demo/demo_1_1_conclusion_*.dtl`
 - `assets/objects/suspicions/demo/*.tres`
-- 可选新增 `scripts/objects/interactable/demo_dialogue_interactable.gd`
+- `scenes\UI\suspicion_panel.tscn` 等疑点推理系统相关文件（需要支持动态线索数目的推理选项）
 
 验收标准：
 
 - 管家离开后玩家能在书房移动并调查。
 - 未完成必要调查时不能直接进入谜题。
-- 谜题文本可完整阅读，不被普通对话框截断到不可用。
+- 谜题文本、线索文本、疑点文本可完整阅读。
+- 疑点可正常被解决并添加相应的结论线索或疑点。
 - 谜题结束后触发管家急促敲门和命案请求。
 
 ### Phase F：命案请求与抉择
@@ -308,9 +322,6 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
   - 说明主角无嫌疑，请求参与调查。
   - 展示“暴风雪山庄吗……”内心旁白。
   - 提供抉择 1。
-- 抉择处理：
-  - 无论选择同意/迟疑，最终进入案发现场；不同选项可只影响一句反馈。
-  - 若后续要保留好感度，可在此写入 Dialogic 变量，但 demo 不强依赖。
 
 涉及文件：
 
@@ -336,9 +347,7 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
   - 管家带主角进入案发现场。
   - 描述空气、血腥味、五名嫌疑人。
   - 依次展示周崇安、穆执、林玖、乌停湘、钟歧立绘。
-  - 每名角色触发一段黑屏记忆闪回。
-  - 乌停湘记忆目前为占位，需确认正式文本或保留占位。
-  - 钟歧拉住主角，主角看向衣柜。
+  - 除乌停湘外，每名角色触发一段黑屏记忆闪回。
 - 展示尸体 CG：
   - 新增 CG 图片资源或占位图。
   - 播放钟声音效。

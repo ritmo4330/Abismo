@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1_suspicion"]
+
+[resource]
+script = ExtResource("1_suspicion")
+id = "demo_suspicion_impossible_crime"
+title = "不可能犯罪"
+description = "X 应该如何在无法使用惯用手的情况下杀死女仆，又该如何在双腿残疾的情况下爬上五楼杀死管家？"
+chapter_id = "demo"
+category_path = PackedStringArray("Demo", "谜题")
+tags = PackedStringArray("demo", "puzzle", "main")
+required_clue_ids = PackedStringArray("demo_conclusion_disability_superposition", "demo_conclusion_dead_not_dead", "demo_conclusion_environment_paradox")
+match_mode = "exact"
+conclusion_clue_id = "demo_conclusion_parallel_worlds"
+unlock_suspicion_ids = PackedStringArray()
+resolved_world_flag = "demo/puzzle_solved"
+resolution_timeline = "demo_1_1_conclusion_parallel_worlds"
+

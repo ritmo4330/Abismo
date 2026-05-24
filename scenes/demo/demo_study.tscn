@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dsbcgakhs7m7p"]
+
+[ext_resource type="PackedScene" uid="uid://c7ov5beric742" path="res://scenes/rooms/shu_fang.tscn" id="1_study"]
+[ext_resource type="PackedScene" uid="uid://ct2cpkmfnsiy7" path="res://scenes/objects/clue_item.tscn" id="2_clue_item"]
+[ext_resource type="Script" uid="uid://bgt0bshcy2w8e" path="res://scripts/objects/interactable/demo_study_chair.gd" id="3_chair"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_chair"]
+radius = 58.0
+
+[node name="DemoStudy" unique_id=497425185 instance=ExtResource("1_study")]
+room_id = "demo_study"
+
+[node name="Door" parent="Scene" parent_id_path=PackedInt32Array(1644374723) index="1" unique_id=1834290077]
+monitoring = false
+monitorable = false
+
+[node name="Interactables" type="Node2D" parent="." index="6" unique_id=1442147238]
+y_sort_enabled = true
+
+[node name="ClueStudyDoor" parent="Interactables" index="0" unique_id=2111029850 instance=ExtResource("2_clue_item")]
+position = Vector2(1084, 936)
+clue_id = "demo_study_door"
+source_id = "demo_study/door"
+interact_id = "demo_study_door"
+prompt_offset = Vector2(0, -16)
+
+[node name="ClueStudyBookshelf" parent="Interactables" index="1" unique_id=1404011087 instance=ExtResource("2_clue_item")]
+position = Vector2(796, 565)
+clue_id = "demo_study_bookshelf"
+source_id = "demo_study/bookshelf"
+interact_id = "demo_study_bookshelf"
+prompt_offset = Vector2(0, -16)
+
+[node name="ClueStudyQuote" parent="Interactables" index="2" unique_id=1338757671 instance=ExtResource("2_clue_item")]
+position = Vector2(904, 405)
+clue_id = "demo_study_quote"
+source_id = "demo_study/quote"
+interact_id = "demo_study_quote"
+prompt_offset = Vector2(0, -16)
+
+[node name="StudyChair" type="Area2D" parent="Interactables" index="3" unique_id=927392712]
+position = Vector2(1300, 633)
+script = ExtResource("3_chair")
+required_clue_ids = PackedStringArray()
+interact_id = "demo_study_chair"
+prompt_offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/StudyChair" index="0" unique_id=618508943]
+shape = SubResource("CircleShape2D_chair")

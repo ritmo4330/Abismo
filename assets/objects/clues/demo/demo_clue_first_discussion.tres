@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1_clue"]
+
+[resource]
+script = ExtResource("1_clue")
+id = "demo_clue_first_discussion"
+title = "第一段讨论"
+description = "讨论中出现了女高中生、律师、壮汉、穿着工作制服的女人、眼镜男。众人发现和外界连接的唯一通路被破坏了，电话线也被切断。"
+chapter_id = "demo"
+room_id = "demo_study"
+category_path = PackedStringArray("Demo", "谜题", "整理线索")
+tags = PackedStringArray("demo", "puzzle", "discussion")
+clue_type = "testimony"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+

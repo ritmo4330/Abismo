@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1_clue"]
+
+[resource]
+script = ExtResource("1_clue")
+id = "demo_conclusion_disability_superposition"
+title = "缺陷与正常的叠加态"
+description = "X 无法使用惯用手，且双腿残疾；但挑战读者保证“故事的内容一定为客观事实”。也就是说 X 的确有两种残疾，但是这两种残疾不同时存在。"
+chapter_id = "demo"
+room_id = "demo_study"
+category_path = PackedStringArray("Demo", "谜题", "结论")
+tags = PackedStringArray("demo", "puzzle", "conclusion")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+

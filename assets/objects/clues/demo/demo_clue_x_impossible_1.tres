@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1_clue"]
+
+[resource]
+script = ExtResource("1_clue")
+id = "demo_clue_x_impossible_1"
+title = "X 的不可能犯罪其一"
+description = "X 品尝着刚递上来的糕点，糕点不慎掉落，他有些费力地用左手去捡。穿着工作制服的女人证明 X 无法使用惯用手，认定他嫌疑很低。"
+chapter_id = "demo"
+room_id = "demo_study"
+category_path = PackedStringArray("Demo", "谜题", "整理线索")
+tags = PackedStringArray("demo", "puzzle", "x")
+clue_type = "testimony"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+

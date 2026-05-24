@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1_suspicion"]
+
+[resource]
+script = ExtResource("1_suspicion")
+id = "demo_suspicion_hidden_chars"
+title = "被隐藏的人物"
+description = "故事第四段中，给 X 递上肉饼的人被隐藏了，有可能会是谁？"
+chapter_id = "demo"
+category_path = PackedStringArray("Demo", "谜题")
+tags = PackedStringArray("demo", "puzzle", "hidden")
+required_clue_ids = PackedStringArray("demo_conclusion_hidden_server", "demo_clue_cast")
+match_mode = "exact"
+conclusion_clue_id = "demo_conclusion_dead_not_dead"
+unlock_suspicion_ids = PackedStringArray()
+resolved_world_flag = "demo/reasoning/hidden_chars"
+resolution_timeline = "demo_1_1_conclusion_dead_not_dead"

@@ -11,6 +11,9 @@ const STEP_DEMO_VILLA_GATE: String = "demo_0_2_villa_gate"
 const STEP_DEMO_HALL_ARRIVAL: String = "demo_0_2_hall_arrival"
 const STEP_DEMO_LOGO: String = "demo_0_2_logo"
 const STEP_DEMO_STUDY_WAKE: String = "demo_1_1_study_wake"
+const STEP_DEMO_STUDY_FREE_INVESTIGATION: String = "demo_1_1_study_free_investigation"
+const STEP_DEMO_PUZZLE: String = "demo_1_1_puzzle"
+const STEP_DEMO_MURDER_REQUEST: String = "demo_1_1_murder_request"
 
 const STEP_CH1_INTRO_HALL: String = "ch1_1_intro_hall"
 const STEP_CH1_FIRST_SEARCH: String = "ch1_2_first_search"
@@ -28,6 +31,7 @@ const HALL_SCENE_PATH: String = "res://scenes/rooms/hall.tscn"
 const DEMO_BOOT_SCENE_PATH: String = "res://scenes/demo/demo_boot.tscn"
 const DEMO_SNOW_CAMP_SCENE_PATH: String = "res://scenes/demo/demo_snow_camp.tscn"
 const DEMO_LOGO_SCENE_PATH: String = "res://scenes/demo/demo_logo.tscn"
+const DEMO_STUDY_SCENE_PATH: String = "res://scenes/demo/demo_study.tscn"
 const HUI_KE_TING_SCENE_PATH: String = "res://scenes/rooms/hui_ke_ting.tscn"
 const FIRST_SEARCH_ROOM1_PATH: String = "res://scenes/rooms/floor2.tscn"
 const FIRST_SEARCH_ROOM2_PATH: String = "res://scenes/rooms/room_wu_ting_xiang.tscn"
@@ -44,12 +48,16 @@ const ACTION_EXIT_SECOND_SEARCH: String = "exit_second_search"
 const ACTION_DEMO_IDENTITY_FINISHED: String = "demo_identity_finished"
 const ACTION_DEMO_PROLOGUE_INTRO_FINISHED: String = "demo_prologue_intro_finished"
 const ACTION_DEMO_HALL_ARRIVAL_FINISHED: String = "demo_hall_arrival_finished"
+const ACTION_DEMO_STUDY_WAKE_FINISHED: String = "demo_study_wake_finished"
+const ACTION_DEMO_PUZZLE_SOLVED: String = "demo_puzzle_solved"
 
 const TIMELINE_DEMO_IDENTITY: String = "demo_0_1_identity"
 const TIMELINE_DEMO_PROLOGUE: String = "demo_0_2_prologue"
 const TIMELINE_DEMO_SNOW_CAMP_ARRIVAL: String = "demo_0_2_snow_camp_arrival"
 const TIMELINE_DEMO_HALL_ARRIVAL: String = "demo_0_2_hall_arrival"
 const TIMELINE_DEMO_STUDY_WAKE: String = "demo_1_1_study_wake"
+const TIMELINE_DEMO_PUZZLE_REASONING: String = "demo_1_1_puzzle_reasoning"
+const TIMELINE_DEMO_MURDER_REQUEST: String = "demo_1_1_murder_request"
 
 const FREE_INTERACTION_TIMELINES: Dictionary = {
 	CHAPTER_CH1: {
@@ -406,6 +414,10 @@ func _on_flow_signal_requested(signal_name: String) -> void:
 			_pending_action_after_dialogue = ACTION_DEMO_PROLOGUE_INTRO_FINISHED
 		ACTION_DEMO_HALL_ARRIVAL_FINISHED:
 			_pending_action_after_dialogue = ACTION_DEMO_HALL_ARRIVAL_FINISHED
+		ACTION_DEMO_STUDY_WAKE_FINISHED:
+			_pending_action_after_dialogue = ACTION_DEMO_STUDY_WAKE_FINISHED
+		ACTION_DEMO_PUZZLE_SOLVED:
+			_pending_action_after_dialogue = ACTION_DEMO_PUZZLE_SOLVED
 		_:
 			push_warning("FlowManager: unhandled flow signal '%s'." % signal_name)
 
@@ -465,6 +477,13 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 		ACTION_DEMO_HALL_ARRIVAL_FINISHED:
 			set_step(STEP_DEMO_LOGO)
 			request_scene_change(DEMO_LOGO_SCENE_PATH, "InitialSpawn")
+		ACTION_DEMO_STUDY_WAKE_FINISHED:
+			set_step(STEP_DEMO_STUDY_FREE_INVESTIGATION)
+			if ToastManager != null:
+				ToastManager.show_notice("调查书房", "task", 2.5)
+		ACTION_DEMO_PUZZLE_SOLVED:
+			set_step(STEP_DEMO_MURDER_REQUEST)
+			request_scene_change("", "", TIMELINE_DEMO_MURDER_REQUEST)
 		_:
 			push_warning("FlowManager: unhandled pending action '%s'." % action)
 

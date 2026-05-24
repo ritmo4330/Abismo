@@ -15,3 +15,6 @@ extends Resource
 var match_mode: String = "exact"
 
 @export var conclusion_clue_id: String = ""
+@export var unlock_suspicion_ids: PackedStringArray = PackedStringArray()
+@export var resolved_world_flag: String = ""
+@export var resolution_timeline: String = ""
