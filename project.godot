@@ -78,6 +78,7 @@ directories/dtl_directory={
 "demo_1_1_murder_request": "res://assets/dialogues/demo/demo_1_1_murder_request.dtl",
 "demo_1_1_puzzle_reasoning": "res://assets/dialogues/demo/demo_1_1_puzzle_reasoning.dtl",
 "demo_1_1_study_wake": "res://assets/dialogues/demo/demo_1_1_study_wake.dtl",
+"demo_1_2_crime_scene": "res://assets/dialogues/demo/demo_1_2_crime_scene.dtl",
 "prologue1": "res://assets/dialogues/ch0_prologue/prologue1.dtl",
 "prologue2": "res://assets/dialogues/ch0_prologue/prologue2.dtl",
 "test": "res://assets/dialogues/test.dtl"

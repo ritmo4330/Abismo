@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bshwmfgv8v1mn"]
+
+[ext_resource type="PackedScene" path="res://scenes/rooms/room_lin_jiu.tscn" id="1_lin_room"]
+
+[node name="DemoCrimeSceneLinRoom" instance=ExtResource("1_lin_room")]
+room_id = "demo_crime_scene_lin_room"
+default_spawn_point = "SpawnFromStudy"
+
+[node name="Door" parent="Scene"]
+monitoring = false
+monitorable = false
+
+[node name="SpawnFromStudy" type="Marker2D" parent="Scene"]
+position = Vector2(1047, 867)
+
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(980, 840)
+
+[node name="Zhou" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(860, 740)
+
+[node name="Mu" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(715, 740)
+
+[node name="Lin" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(650, 610)
+
+[node name="Wu" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(760, 610)
+
+[node name="Zhong" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(930, 610)

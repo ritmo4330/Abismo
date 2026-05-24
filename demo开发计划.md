@@ -315,6 +315,15 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
 
 目标：完成从谜题结束到前往案发现场的衔接。
 
+当前实现：
+
+- 已补全 `demo_1_1_murder_request.dtl` 的抉择 1：
+  - 选择“同意”后继续流程。
+  - 选择“不同意”后记录 `demo/murder_request_refused`，显示“有人记住了你的选择”，随后再次要求玩家同意。
+- 已新增 `flow:demo_murder_request_accepted`，由 `FlowManager` 切换到 demo 专用林玖房间案发现场。
+- 已新增 `scenes/demo/demo_crime_scene_lin_room.tscn`，继承原林玖房间并禁用旧门，使用 `demo_crime_scene_lin_room` 房间 ID，配置管家与五名嫌疑人站位。
+- 已新增 `demo_1_2_crime_scene.dtl` 的最小开场承接文本；完整案发现场演出留到 Phase G 扩写。
+
 任务：
 
 - 新建 `demo_1_1_murder_request.dtl`：

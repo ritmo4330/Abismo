@@ -7,6 +7,21 @@ butler: 我知道这可能一时半会有点难以接受，但我希望你能接
 暴风雪山庄吗......真是老套的设定。
 明明只想借住一晚度过这该死的暴风雪，没想到竟然摊上这等事。
 但……你能够解决的吧？就当是一个支线任务？
+label 抉择1
+- 同意
+	jump 接受委托
+- 不同意
+	player: ……
+	有人记住了你的选择。
+	do DataManager.set_world_flag("demo/murder_request_refused", true)
+	jump 再次抉择
+label 再次抉择
+- 同意
+	jump 接受委托
+- 同意
+	jump 接受委托
+label 接受委托
 player: ……我明白了。我会参与调查。
 butler: 感谢。事不宜迟，我先带你去看案发现场。
+[signal arg="flow:demo_murder_request_accepted"]
 [end_timeline]
