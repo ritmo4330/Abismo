@@ -42,7 +42,7 @@ func interact(_player: Player) -> void:
 		_show_notice("推理题已经解开了。", "info")
 		return
 
-	_show_notice("打开推理手册，继续解决疑点。", "info")
+	_show_notice("按下“V”键打开推理手册，继续解决疑点。", "info")
 
 
 func _has_required_clues() -> bool:

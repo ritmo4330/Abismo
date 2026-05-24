@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqpb3ie51rwl5" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_Default/default_layout_base.tscn" id="1_ytt7c"]
 [ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_gwhhd"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="3_4qk6v"]
-[ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="4_soot0"]
+[ext_resource type="PackedScene" uid="uid://c7se25gymneqf" path="res://assets/UI/dialogues/5Portraits/custom_5_portraits.tscn" id="4_ytt7c"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="5_h0477"]
 [ext_resource type="PackedScene" uid="uid://dvaj1akytach8" path="res://assets/UI/dialogues/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="6_ytt7c"]
 [ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="7_4tcp0"]
@@ -25,7 +25,7 @@ scene = ExtResource("3_4qk6v")
 
 [sub_resource type="Resource" id="Resource_qonog"]
 script = ExtResource("2_gwhhd")
-scene = ExtResource("4_soot0")
+scene = ExtResource("4_ytt7c")
 
 [sub_resource type="Resource" id="Resource_d7xjd"]
 script = ExtResource("2_gwhhd")
@@ -73,4 +73,4 @@ layer_info = {
 "16": SubResource("Resource_in4u8"),
 "17": SubResource("Resource_nyhvi")
 }
-metadata/_latest_layer = "13"
+metadata/_latest_layer = ""

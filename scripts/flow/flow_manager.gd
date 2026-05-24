@@ -15,6 +15,7 @@ const STEP_DEMO_STUDY_FREE_INVESTIGATION: String = "demo_1_1_study_free_investig
 const STEP_DEMO_PUZZLE: String = "demo_1_1_puzzle"
 const STEP_DEMO_MURDER_REQUEST: String = "demo_1_1_murder_request"
 const STEP_DEMO_CRIME_SCENE: String = "demo_1_2_crime_scene"
+const STEP_DEMO_END: String = "demo_end"
 
 const STEP_CH1_INTRO_HALL: String = "ch1_1_intro_hall"
 const STEP_CH1_FIRST_SEARCH: String = "ch1_2_first_search"
@@ -35,6 +36,7 @@ const DEMO_SNOW_CAMP_SCENE_PATH: String = "res://scenes/demo/demo_snow_camp.tscn
 const DEMO_LOGO_SCENE_PATH: String = "res://scenes/demo/demo_logo.tscn"
 const DEMO_STUDY_SCENE_PATH: String = "res://scenes/demo/demo_study.tscn"
 const DEMO_CRIME_SCENE_PATH: String = "res://scenes/demo/demo_crime_scene_lin_room.tscn"
+const DEMO_END_SCENE_PATH: String = "res://scenes/demo/demo_end.tscn"
 const HUI_KE_TING_SCENE_PATH: String = "res://scenes/rooms/hui_ke_ting.tscn"
 const FIRST_SEARCH_ROOM1_PATH: String = "res://scenes/rooms/floor2.tscn"
 const FIRST_SEARCH_ROOM2_PATH: String = "res://scenes/rooms/room_wu_ting_xiang.tscn"
@@ -54,6 +56,7 @@ const ACTION_DEMO_HALL_ARRIVAL_FINISHED: String = "demo_hall_arrival_finished"
 const ACTION_DEMO_STUDY_WAKE_FINISHED: String = "demo_study_wake_finished"
 const ACTION_DEMO_PUZZLE_SOLVED: String = "demo_puzzle_solved"
 const ACTION_DEMO_MURDER_REQUEST_ACCEPTED: String = "demo_murder_request_accepted"
+const ACTION_DEMO_CRIME_SCENE_FINISHED: String = "demo_crime_scene_finished"
 
 const TIMELINE_DEMO_IDENTITY: String = "demo_0_1_identity"
 const TIMELINE_DEMO_PROLOGUE: String = "demo_0_2_prologue"
@@ -433,6 +436,8 @@ func _on_flow_signal_requested(signal_name: String) -> void:
 			_pending_action_after_dialogue = ACTION_DEMO_PUZZLE_SOLVED
 		ACTION_DEMO_MURDER_REQUEST_ACCEPTED:
 			_pending_action_after_dialogue = ACTION_DEMO_MURDER_REQUEST_ACCEPTED
+		ACTION_DEMO_CRIME_SCENE_FINISHED:
+			_pending_action_after_dialogue = ACTION_DEMO_CRIME_SCENE_FINISHED
 		_:
 			push_warning("FlowManager: unhandled flow signal '%s'." % signal_name)
 
@@ -502,6 +507,9 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 		ACTION_DEMO_MURDER_REQUEST_ACCEPTED:
 			set_step(STEP_DEMO_CRIME_SCENE)
 			request_scene_change(DEMO_CRIME_SCENE_PATH, "SpawnFromStudy", TIMELINE_DEMO_CRIME_SCENE)
+		ACTION_DEMO_CRIME_SCENE_FINISHED:
+			set_step(STEP_DEMO_END)
+			request_scene_change(DEMO_END_SCENE_PATH, "InitialSpawn")
 		_:
 			push_warning("FlowManager: unhandled pending action '%s'." % action)
 

@@ -1,5 +1,6 @@
 [style name="default_visual_novel"]
 你向门口看去，管家将书房门打开，急忙走了进来。
+join butler left
 butler: 有一件不幸的事情需要告知你，就在刚刚，我的主人梅塔被人杀害，凶手就和我们在同一个屋檐下。
 player: ……！？
 butler: 直到案发之前，我一直守在书房门口，因此你是唯一没有作案嫌疑的人。

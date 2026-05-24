@@ -7,7 +7,7 @@
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "",
+"style": "default_visual_novel",
 "suffix": ""
 },
 &"default_portrait": "Neutral",
@@ -19,12 +19,12 @@
 &"portraits": {
 "Neutral": {
 "export_overrides": {
-"image": "\"res://addons/dialogic/Example Assets/portraits/Antonio/pl5 plot.png\""
+"image": "\"res://assets/characters/npcs/meta_neutral.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
-"scene": ""
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 }
 },
 &"scale": 1.0

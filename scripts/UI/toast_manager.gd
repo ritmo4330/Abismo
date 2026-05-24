@@ -91,8 +91,8 @@ func _position_panel() -> void:
 	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
 	_panel.size = PANEL_SIZE
 	_panel.position = Vector2(
-		max(24.0, viewport_size.x - PANEL_SIZE.x - 64.0),
-		max(24.0, viewport_size.y * 0.32)
+		max(24.0, viewport_size.x - PANEL_SIZE.x - 16.0),
+		max(24.0, viewport_size.y * 0.25)
 	)
 
 

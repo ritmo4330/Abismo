@@ -1,16 +1,22 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dw784kvbhln5j"]
 
-[ext_resource type="Script" path="res://scripts/demo/demo_logo.gd" id="1_logo"]
+[ext_resource type="Script" uid="uid://n8upgotyhksy" path="res://scripts/demo/demo_logo.gd" id="1_logo"]
 
-[node name="DemoLogo" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_6y2av"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_fp1wh"]
+font_size = 36
+
+[node name="DemoLogo" type="Node2D" unique_id=409642825]
 script = ExtResource("1_logo")
 
-[node name="InitialSpawn" type="Marker2D" parent="."]
+[node name="InitialSpawn" type="Marker2D" parent="." unique_id=1462692260]
 
-[node name="LogoLayer" type="CanvasLayer" parent="."]
+[node name="LogoLayer" type="CanvasLayer" parent="." unique_id=1831855605]
 layer = 180
 
-[node name="Background" type="ColorRect" parent="LogoLayer"]
+[node name="Background" type="ColorRect" parent="LogoLayer" unique_id=1622505138]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,7 +25,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Logo" type="Label" parent="LogoLayer"]
+[node name="Logo" type="Label" parent="LogoLayer" unique_id=1236088180]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -32,10 +38,11 @@ offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "异数"
+label_settings = SubResource("LabelSettings_6y2av")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Subtitle" type="Label" parent="LogoLayer"]
+[node name="Subtitle" type="Label" parent="LogoLayer" unique_id=581373941]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -48,5 +55,6 @@ offset_bottom = 118.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Demo"
+label_settings = SubResource("LabelSettings_fp1wh")
 horizontal_alignment = 1
 vertical_alignment = 1

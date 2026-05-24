@@ -346,6 +346,21 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
 
 目标：完成 `1.2 案发现场` 并在尸体 CG 后结束 demo。
 
+当前实现：
+
+- 已扩写 `demo_1_2_crime_scene.dtl`：
+  - 管家带主角进入案发现场。
+  - 依次展示周崇安、穆执、林玖、乌停湘、钟歧。
+  - 通过 Dialogic `[background]` 事件和 demo 专用透明色背景场景控制黑屏记忆。
+  - 主角被钟歧拉住后看到衣柜内尸体，并发出 `flow:demo_crime_scene_finished`。
+- 各角色记忆文本已内联在主时间线中，不再保留独立记忆 DTL 文件。
+- 已移除案发现场自定义黑屏 overlay，避免外部 `CanvasLayer` 遮挡 Dialogic 对话层。
+- 已新增 `scenes/demo/demo_end.tscn` 与 `scripts/demo/demo_end.gd`：
+  - 运行时读取 `assets/cg/demo_body_cg.png` 并创建贴图，避免未导入 PNG 导致场景解析失败。
+  - 调用 `AudioManager.play_sfx("clock_bell")`。
+  - 随后黑屏显示 `Demo End`。
+- 已扩展 `AudioManager` 的 `audio:play_sfx:*` 接口，钟声音效路径暂为空，待 Phase H 填资源。
+
 任务：
 
 - 复用或复制 `room_lin_jiu.tscn` 为 demo 案发现场：
@@ -358,16 +373,14 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
   - 依次展示周崇安、穆执、林玖、乌停湘、钟歧立绘。
   - 除乌停湘外，每名角色触发一段黑屏记忆闪回。
 - 展示尸体 CG：
-  - 新增 CG 图片资源或占位图。
-  - 播放钟声音效。
+  - CG 图片资源位于`assets\cg\demo_body_cg.png`，是一个3840*2160的图片。
   - 黑屏。
-  - 显示 `Demo End` 或直接停在黑屏。
+  - 显示 `Demo End`。
 
 涉及文件：
 
 - `scenes/demo/demo_crime_scene_lin_room.tscn`
 - `assets/dialogues/demo/demo_1_2_crime_scene.dtl`
-- `assets/dialogues/demo/demo_1_2_memory_*.dtl`
 - `assets/cg/demo_body_cg.png`
 - `assets/audio/sfx/clock_bell.*`
 

@@ -63,7 +63,6 @@ directories/dtl_directory={
 "1_5_zhong": "res://assets/dialogues/ch1_snow_villa/1_5_zhong.dtl",
 "demo_0_1_identity": "res://assets/dialogues/demo/demo_0_1_identity.dtl",
 "demo_0_2_hall_arrival": "res://assets/dialogues/demo/demo_0_2_hall_arrival.dtl",
-"demo_0_2_hall_arrival_placeholder": "res://assets/dialogues/demo/demo_0_2_hall_arrival_placeholder.dtl",
 "demo_0_2_memory_meta": "res://assets/dialogues/demo/demo_0_2_memory_meta.dtl",
 "demo_0_2_prologue": "res://assets/dialogues/demo/demo_0_2_prologue.dtl",
 "demo_0_2_snow_camp_arrival": "res://assets/dialogues/demo/demo_0_2_snow_camp_arrival.dtl",
@@ -324,6 +323,8 @@ translation/translation_folder=""
 translation/save_mode=0
 translation/add_separator=false
 text/input_action="dialogic_default_action"
+animations/join_default="Fade In Up"
+animations/cross_fade_default="Fade Cross"
 
 [display]
 
