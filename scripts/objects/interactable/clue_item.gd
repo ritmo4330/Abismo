@@ -5,6 +5,9 @@ extends Interactable
 @export var clue_def: ClueData
 @export var child_clue_defs: Array[ClueData] = []
 @export var source_id: String = ""
+@export var followup_timeline: String = ""
+@export var followup_required_clue_ids: PackedStringArray = PackedStringArray()
+@export var followup_once_flag: String = ""
 
 
 func _ready() -> void:
@@ -80,6 +83,7 @@ func _emit_single_detail(target_clue_id: String) -> void:
 		"parent_clue_id": target_clue_id,
 		"clue_ids": [target_clue_id],
 	}
+	_try_attach_followup_timeline(payload)
 	EventBus.clue_interaction_details_requested.emit(payload)
 
 
@@ -99,4 +103,25 @@ func _emit_hierarchical_detail(parent_clue_id: String, child_ids: PackedStringAr
 		"child_clue_ids": child_clue_ids_array.duplicate(),
 		"clue_ids": clue_ids,
 	}
+	_try_attach_followup_timeline(payload)
 	EventBus.clue_interaction_details_requested.emit(payload)
+
+
+func _try_attach_followup_timeline(payload: Dictionary) -> void:
+	if followup_timeline.is_empty():
+		return
+
+	var once_flag: String = followup_once_flag
+	if once_flag.is_empty():
+		once_flag = "clue_followup_seen/%s" % followup_timeline
+	if DataManager.get_world_flag(once_flag):
+		return
+
+	for required_clue_id: String in followup_required_clue_ids:
+		if required_clue_id.is_empty():
+			continue
+		if not DataManager.has_clue(required_clue_id):
+			return
+
+	DataManager.set_world_flag(once_flag, true)
+	payload["followup_timeline"] = followup_timeline

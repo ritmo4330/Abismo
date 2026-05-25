@@ -8,6 +8,8 @@ const GAME_ROOT_SCENE_PATH: String = "res://scenes/game_root.tscn"
 
 func _ready():
 	GameManager.enter_main_menu()
+	if AudioManager != null and AudioManager.has_method("play_bgm"):
+		AudioManager.play_bgm("cassandra_memory", 1.5)
 	if options_button:
 		options_button.text = "旧流程"
 

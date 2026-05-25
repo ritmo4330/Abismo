@@ -77,16 +77,17 @@ const TIMELINE_DEMO_MURDER_REQUEST: String = "demo_1_1_murder_request"
 const TIMELINE_DEMO_CRIME_SCENE: String = "demo_1_2_crime_scene"
 
 const STEP_BGM_CONFIGS: Dictionary = {
-	STEP_DEMO_PROLOGUE_STORY: {"track_id": "tuning", "fade_seconds": 1.5},
-	STEP_DEMO_SNOW_CAMP: {"track_id": "tuning", "fade_seconds": 1.5},
-	STEP_DEMO_SNOW_PATH: {"track_id": "tuning", "fade_seconds": 1.5},
-	STEP_DEMO_VILLA_GATE: {"track_id": "tuning", "fade_seconds": 1.5},
-	STEP_DEMO_HALL_ARRIVAL: {"track_id": "tuning", "fade_seconds": 1.5},
-	STEP_DEMO_STUDY_WAKE: {"track_id": "winter_melody", "fade_seconds": 2.0},
-	STEP_DEMO_STUDY_FREE_INVESTIGATION: {"track_id": "winter_melody", "fade_seconds": 1.5},
-	STEP_DEMO_PUZZLE: {"track_id": "winter_melody", "fade_seconds": 1.5},
-	STEP_DEMO_MURDER_REQUEST: {"track_id": "winter_melody", "fade_seconds": 1.5},
-	STEP_DEMO_CRIME_SCENE: {"track_id": "dark_fog_lie", "fade_seconds": 2.0},
+	STEP_DEMO_IDENTITY: {"track_id": "cassandra_memory", "fade_seconds": 2.0},
+	STEP_DEMO_PROLOGUE_STORY: {"track_id": "role_exit", "fade_seconds": 2.0},
+	STEP_DEMO_SNOW_CAMP: {"track_id": "role_exit", "fade_seconds": 2.0},
+	STEP_DEMO_SNOW_PATH: {"track_id": "role_exit", "fade_seconds": 2.0},
+	STEP_DEMO_VILLA_GATE: {"track_id": "role_exit", "fade_seconds": 2.0},
+	STEP_DEMO_HALL_ARRIVAL: {"track_id": "role_exit", "fade_seconds": 2.0},
+	STEP_DEMO_STUDY_WAKE: {"track_id": "plain_happiness", "fade_seconds": 2.0},
+	STEP_DEMO_STUDY_FREE_INVESTIGATION: {"track_id": "plain_happiness", "fade_seconds": 2.0},
+	STEP_DEMO_PUZZLE: {"track_id": "thinking_introspection_2", "fade_seconds": 2.0},
+	STEP_DEMO_MURDER_REQUEST: {"track_id": "truth", "fade_seconds": 2.0},
+	STEP_DEMO_CRIME_SCENE: {"track_id": "truth", "fade_seconds": 2.0},
 }
 
 const FREE_INTERACTION_TIMELINES: Dictionary = {
@@ -191,7 +192,7 @@ func prepare_demo_start() -> void:
 	_pending_action_after_dialogue = ""
 	pending_auto_timeline = TIMELINE_DEMO_IDENTITY
 	_reset_npc_locations_for_step(current_step_id)
-	_stop_bgm()
+	_sync_bgm_for_step(current_step_id)
 	set_dialogic_var("PlayerName", "")
 	set_dialogic_var("PlayerGender", "")
 	set_dialogic_var("Demo.Started", true)

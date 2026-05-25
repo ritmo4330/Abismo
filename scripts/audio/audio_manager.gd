@@ -13,6 +13,11 @@ const BGM_TRACKS: Dictionary[String, String] = {
 	"tuning": "res://assets/audio/陈达飞 - 调律.mp3",
 	"winter_melody": "res://assets/audio/冬之旋律 - 陈达飞.mp3",
 	"dark_fog_lie": "res://assets/audio/暗雾谎言 - 川井憲次.mp3",
+	"cassandra_memory": "res://assets/audio/11-卡森德拉-回忆-1.mp3",
+	"role_exit": "res://assets/audio/9-角色离场.wav",
+	"plain_happiness": "res://assets/audio/12-Plain Happiness.wav",
+	"thinking_introspection_2": "res://assets/audio/17-思考内省-2.wav",
+	"truth": "res://assets/audio/24-真相.wav",
 }
 
 const SFX_TRACKS: Dictionary[String, String] = {

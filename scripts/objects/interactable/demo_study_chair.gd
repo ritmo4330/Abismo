@@ -26,6 +26,13 @@ func interact(_player: Player) -> void:
 		_show_notice("再看看书房里的门、书架和名言。", "warning")
 		return
 
+	if DataManager.has_clue("demo_conclusion_parallel_worlds"):
+		_show_notice("推理题已经解开了。", "info")
+		return
+
+	if FlowManager != null:
+		FlowManager.set_step(FlowManager.STEP_DEMO_PUZZLE)
+
 	if not DataManager.get_world_flag(FLAG_PUZZLE_READ):
 		DataManager.set_world_flag(FLAG_PUZZLE_READ, true)
 		DataManager.add_clue(puzzle_clue_id, "scene", "demo_study_chair")
@@ -39,13 +46,7 @@ func interact(_player: Player) -> void:
 
 	if not DataManager.get_world_flag(FLAG_REASONING_STARTED):
 		DataManager.set_world_flag(FLAG_REASONING_STARTED, true)
-		if FlowManager != null:
-			FlowManager.set_step(FlowManager.STEP_DEMO_PUZZLE)
 		EventBus.dialogue_requested.emit(reasoning_timeline)
-		return
-
-	if DataManager.has_clue("demo_conclusion_parallel_worlds"):
-		_show_notice("推理题已经解开了。", "info")
 		return
 
 	_show_notice("按下“V”键打开推理手册，继续解决疑点。", "info")

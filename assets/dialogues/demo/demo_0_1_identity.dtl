@@ -1,5 +1,6 @@
 [style name="default_visual_novel"]
-你醒了？你已经是个女孩子了——开个玩笑，你还有自己选择的权利。
+你醒了？你已经是个女孩子了
+——开个玩笑，你还有自己选择的权利。
 - 女孩子
 	set {PlayerGender} = "female"
 - 男孩子

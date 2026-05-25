@@ -81,6 +81,7 @@ directories/dtl_directory={
 "demo_1_1_conclusion_strange_description": "res://assets/dialogues/demo/demo_1_1_conclusion_strange_description.dtl",
 "demo_1_1_murder_request": "res://assets/dialogues/demo/demo_1_1_murder_request.dtl",
 "demo_1_1_puzzle_reasoning": "res://assets/dialogues/demo/demo_1_1_puzzle_reasoning.dtl",
+"demo_1_1_study_clues_finished": "res://assets/dialogues/demo/demo_1_1_study_clues_finished.dtl",
 "demo_1_1_study_wake": "res://assets/dialogues/demo/demo_1_1_study_wake.dtl",
 "demo_1_2_crime_scene": "res://assets/dialogues/demo/demo_1_2_crime_scene.dtl",
 "prologue1": "res://assets/dialogues/ch0_prologue/prologue1.dtl",
@@ -90,7 +91,8 @@ directories/dtl_directory={
 layout/style_directory={
 "": "res://assets/UI/default_visual_novel.tres",
 "default_speaker_style": "res://assets/UI/default_speaker_style.tres",
-"default_visual_novel": "res://assets/UI/default_visual_novel.tres"
+"default_visual_novel": "res://assets/UI/default_visual_novel.tres",
+"plain_text": "res://assets/UI/dialogues/plain_text.tres"
 }
 glossary/default_case_sensitive=true
 variables={
@@ -285,7 +287,7 @@ variables={
 "PlayerGender": "",
 "PlayerName": ""
 }
-layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres"]
+layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres", "res://assets/UI/dialogues/plain_text.tres"]
 layout/default_style="res://assets/UI/default_visual_novel.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

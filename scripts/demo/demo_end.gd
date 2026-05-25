@@ -38,15 +38,9 @@ func _start_sequence() -> void:
 
 
 func _load_body_cg() -> void:
-	var file := FileAccess.open(body_cg_path, FileAccess.READ)
-	if file == null:
-		push_warning("Demo body CG file not found: %s" % body_cg_path)
+	var texture: Texture2D = load(body_cg_path) as Texture2D
+	if texture == null:
+		push_warning("Demo body CG texture not found: %s" % body_cg_path)
 		return
 
-	var image := Image.new()
-	var error := image.load_png_from_buffer(file.get_buffer(file.get_length()))
-	if error != OK:
-		push_warning("Failed to load demo body CG %s: %s" % [body_cg_path, error])
-		return
-
-	body_cg.texture = ImageTexture.create_from_image(image)
+	body_cg.texture = texture

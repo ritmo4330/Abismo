@@ -3,6 +3,11 @@ extends Node
 const DEFAULT_DURATION: float = 1.2
 const MAX_QUEUED_NOTICES: int = 3
 const TOAST_PANEL_SCENE_PATH: String = "res://scenes/UI/toast_panel.tscn"
+const TOAST_WIDTH: float = 520.0
+const TOAST_RIGHT_MARGIN: float = 16.0
+const TOAST_MIN_HEIGHT: float = 72.0
+const TOAST_MAX_HEIGHT: float = 180.0
+const TOAST_VERTICAL_PADDING: float = 24.0
 
 var _canvas_layer: CanvasLayer = null
 var _panel: PanelContainer = null
@@ -74,6 +79,7 @@ func _display(payload: Dictionary) -> void:
 		return
 
 	_label.text = String(payload.get("message", ""))
+	_resize_panel_to_message()
 	_panel.visible = true
 	_remaining_time = max(0.2, float(payload.get("duration", DEFAULT_DURATION)))
 	_is_showing_notice = true
@@ -107,3 +113,20 @@ func _play_toast_sfx() -> void:
 	if not AudioManager.has_method("play_sfx"):
 		return
 	AudioManager.play_sfx("toast")
+
+
+func _resize_panel_to_message() -> void:
+	if _panel == null or _label == null:
+		return
+
+	var text_height: float = _label.get_theme_font("font").get_multiline_string_size(
+		_label.text,
+		HORIZONTAL_ALIGNMENT_LEFT,
+		_label.custom_minimum_size.x,
+		_label.get_theme_font_size("font_size")
+	).y
+	var panel_height: float = clampf(text_height + TOAST_VERTICAL_PADDING, TOAST_MIN_HEIGHT, TOAST_MAX_HEIGHT)
+
+	_panel.offset_left = -TOAST_WIDTH - TOAST_RIGHT_MARGIN
+	_panel.offset_right = -TOAST_RIGHT_MARGIN
+	_panel.offset_bottom = panel_height

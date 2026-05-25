@@ -21,6 +21,9 @@ y_sort_enabled = true
 position = Vector2(1084, 936)
 clue_id = "demo_study_door"
 source_id = "demo_study/door"
+followup_timeline = "demo_1_1_study_clues_finished"
+followup_required_clue_ids = PackedStringArray("demo_study_door", "demo_study_bookshelf", "demo_study_quote")
+followup_once_flag = "demo/study/clues_finished_narration_seen"
 interact_id = "demo_study_door"
 prompt_offset = Vector2(0, -16)
 
@@ -28,6 +31,9 @@ prompt_offset = Vector2(0, -16)
 position = Vector2(796, 565)
 clue_id = "demo_study_bookshelf"
 source_id = "demo_study/bookshelf"
+followup_timeline = "demo_1_1_study_clues_finished"
+followup_required_clue_ids = PackedStringArray("demo_study_door", "demo_study_bookshelf", "demo_study_quote")
+followup_once_flag = "demo/study/clues_finished_narration_seen"
 interact_id = "demo_study_bookshelf"
 prompt_offset = Vector2(0, -16)
 
@@ -35,6 +41,9 @@ prompt_offset = Vector2(0, -16)
 position = Vector2(904, 405)
 clue_id = "demo_study_quote"
 source_id = "demo_study/quote"
+followup_timeline = "demo_1_1_study_clues_finished"
+followup_required_clue_ids = PackedStringArray("demo_study_door", "demo_study_bookshelf", "demo_study_quote")
+followup_once_flag = "demo/study/clues_finished_narration_seen"
 interact_id = "demo_study_quote"
 prompt_offset = Vector2(0, -16)
 
