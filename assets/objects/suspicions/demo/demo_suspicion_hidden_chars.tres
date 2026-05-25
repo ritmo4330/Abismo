@@ -6,7 +6,7 @@
 script = ExtResource("1_suspicion")
 id = "demo_suspicion_hidden_chars"
 title = "被隐藏的人物"
-description = "故事第四段中，给 X 递上肉饼的人被隐藏了，有可能会是谁？"
+description = "故事第四段中，给X递上肉饼的人被隐藏了，有可能会是谁？"
 chapter_id = "demo"
 category_path = PackedStringArray("Demo", "谜题")
 tags = PackedStringArray("demo", "puzzle", "hidden")

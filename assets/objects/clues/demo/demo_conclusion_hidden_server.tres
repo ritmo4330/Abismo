@@ -6,7 +6,7 @@
 script = ExtResource("1_clue")
 id = "demo_conclusion_hidden_server"
 title = "被隐藏的“添茶者”"
-description = "第二段讨论中，X 吃着刚递上的肉饼；但该段明面上出现的人物无人承担递肉饼的行为。这说明现场还有一个被叙述藏起来的人。"
+description = "第二段讨论中，X吃着刚递上的肉饼；但该段明面上出现的人物无人承担递肉饼的行为。这说明现场还有一个被叙述藏起来的人。"
 chapter_id = "demo"
 room_id = "demo_study"
 category_path = PackedStringArray("Demo", "谜题", "结论")

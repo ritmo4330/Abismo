@@ -137,40 +137,40 @@ variables={
 },
 "InitialSearch": {
 "Enabled": false,
-"Finished": true,
+"Finished": false,
 "ReadyForReasoning": false
 },
 "NPCIntro": {
 "Lin": {
 "Introed": false,
-"Selected1": true,
-"Selected2": true,
-"Selected3": true
+"Selected1": false,
+"Selected2": false,
+"Selected3": false
 },
 "Mu": {
 "Introed": false,
-"Selected1": true,
-"Selected2": true,
-"Selected3": true
+"Selected1": false,
+"Selected2": false,
+"Selected3": false
 },
 "ReadyForSearch": false,
 "Wu": {
 "Introed": false,
-"Selected1": true,
-"Selected2": true,
-"Selected3": true
+"Selected1": false,
+"Selected2": false,
+"Selected3": false
 },
 "Zhong": {
 "Introed": false,
-"Selected1": true,
-"Selected2": true,
-"Selected3": true
+"Selected1": false,
+"Selected2": false,
+"Selected3": false
 },
 "Zhou": {
 "Introed": false,
-"Selected1": true,
-"Selected2": true,
-"Selected3": true
+"Selected1": false,
+"Selected2": false,
+"Selected3": false
 }
 },
 "PrivateChat": {

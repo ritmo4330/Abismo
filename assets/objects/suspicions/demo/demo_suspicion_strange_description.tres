@@ -6,7 +6,7 @@
 script = ExtResource("1_suspicion")
 id = "demo_suspicion_strange_description"
 title = "奇怪的描述"
-description = "对 X 某些行为的描述细节上有一些奇怪的地方，相似的文段随着情节的变化可能会有不同的含义。"
+description = "对X某些行为的描述细节上有一些奇怪的地方，相似的文段随着情节的变化可能会有不同的含义。"
 chapter_id = "demo"
 category_path = PackedStringArray("Demo", "谜题")
 tags = PackedStringArray("demo", "puzzle", "description")

@@ -4,6 +4,7 @@ extends "res://assets/UI/dialogues/VisualNovelTextbox/vn_textbox_layer.gd"
 @export_group("Plain Text")
 @export var box_center_offset: Vector2 = Vector2.ZERO
 @export var text_content_width: float = 1000.0
+@export var paragraph_separation: int = 18
 
 
 func _apply_box_settings() -> void:
@@ -28,6 +29,7 @@ func _apply_text_settings() -> void:
 	dialog_text.fit_content = true
 	dialog_text.scroll_active = false
 	dialog_text.custom_minimum_size = Vector2(_get_text_width(), 0.0)
+	dialog_text.add_theme_constant_override(&"paragraph_separation", paragraph_separation)
 
 
 func _get_text_width() -> float:

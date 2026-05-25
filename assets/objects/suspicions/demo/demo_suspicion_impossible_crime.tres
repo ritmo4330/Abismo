@@ -6,7 +6,7 @@
 script = ExtResource("1_suspicion")
 id = "demo_suspicion_impossible_crime"
 title = "不可能犯罪"
-description = "X 应该如何在无法使用惯用手的情况下杀死女仆，又该如何在双腿残疾的情况下爬上五楼杀死管家？"
+description = "X应该如何在无法使用惯用手的情况下杀死女仆，又该如何在双腿残疾的情况下爬上五楼杀死管家？"
 chapter_id = "demo"
 category_path = PackedStringArray("Demo", "谜题")
 tags = PackedStringArray("demo", "puzzle", "main")

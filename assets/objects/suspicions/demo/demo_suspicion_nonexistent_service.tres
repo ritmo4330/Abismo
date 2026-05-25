@@ -6,7 +6,7 @@
 script = ExtResource("1_suspicion")
 id = "demo_suspicion_nonexistent_service"
 title = "不存在的服务"
-description = "如果管家与女仆都死了，第二段讨论中是谁给 X 递上了肉饼？"
+description = "如果管家与女仆都死了，第二段讨论中是谁给X递上了肉饼？"
 chapter_id = "demo"
 category_path = PackedStringArray("Demo", "谜题")
 tags = PackedStringArray("demo", "puzzle", "hidden")

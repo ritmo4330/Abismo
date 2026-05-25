@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_suspicion")
 id = "demo_suspicion_x_disability"
-title = "X 的残疾"
-description = "X 无法使用惯用手，并且双腿残疾，有线索能推翻吗？"
+title = "X的残疾"
+description = "X无法使用惯用手，并且双腿残疾，有线索能推翻吗？"
 chapter_id = "demo"
 category_path = PackedStringArray("Demo", "谜题")
 tags = PackedStringArray("demo", "puzzle", "x")
