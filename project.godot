@@ -352,7 +352,7 @@ player=""
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true
-theme/custom_font="uid://ci4bk5mlyok56"
+theme/custom_font="uid://u0an2cavsv8g"
 
 [input]
 

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const PANEL_SIZE: Vector2 = Vector2(1280.0, 800.0)
+const PANEL_SIZE: Vector2 = Vector2(1560.0, 900.0)
 const PANEL_ID: String = "suspicion_panel"
 const PANEL_PAUSE_TOKEN: String = "suspicion_panel"
 const ARCHIVE_SORT_DEFAULT: int = 0
@@ -76,9 +76,10 @@ func _input(event: InputEvent) -> void:
 	if _is_toggle_input(event):
 		if _is_open:
 			_close_panel()
+			get_viewport().set_input_as_handled()
 		else:
-			_open_archive_panel()
-		get_viewport().set_input_as_handled()
+			if _open_archive_panel():
+				get_viewport().set_input_as_handled()
 		return
 
 	if not _is_open:
@@ -157,10 +158,13 @@ func _on_reason_button_pressed() -> void:
 		return
 
 	if not ReasoningSystem.validate(suspicion_def, PackedStringArray(selected_ids)):
+		_show_reasoning_notice("还不对哦，再想想", "warning")
 		return
 
 	if not DataManager.resolve_suspicion(_selected_suspicion_id):
 		return
+
+	_show_reasoning_notice("推理成功！", "success")
 
 	if not suspicion_def.conclusion_clue_id.is_empty():
 		var payload: Dictionary = {
@@ -223,12 +227,13 @@ func _on_viewport_size_changed() -> void:
 	panel_frame.position = (viewport_size - scaled_size) * 0.5
 
 
-func _open_archive_panel() -> void:
+func _open_archive_panel() -> bool:
 	if not _can_open_panel():
-		return
+		return false
 
 	_open_panel()
 	_refresh_suspicion_tree()
+	return true
 
 
 func _open_panel() -> void:
@@ -454,6 +459,12 @@ func _request_resolution_timeline(timeline_name: String) -> void:
 	EventBus.dialogue_requested.emit(timeline_name)
 
 
+func _show_reasoning_notice(message: String, notice_type: String) -> void:
+	if ToastManager == null:
+		return
+	ToastManager.show_notice(message, notice_type)
+
+
 func _get_sorted_discovered_suspicion_ids() -> Array[String]:
 	var ids: Array[String] = []
 	for suspicion_id: String in DataManager.get_all_suspicions():
@@ -619,6 +630,10 @@ func _safe_to_int(value: String, fallback: int) -> int:
 func _is_toggle_input(event: InputEvent) -> bool:
 	if not (event is InputEventKey):
 		return false
+	if _is_text_input_focused():
+		return false
+	if GameManager != null and int(GameManager.current_state) == int(GameManager.GameState.DIALOGUE):
+		return false
 	var key_event: InputEventKey = event as InputEventKey
 	if not key_event.pressed:
 		return false
@@ -629,6 +644,11 @@ func _is_toggle_input(event: InputEvent) -> bool:
 	if key_event.alt_pressed or key_event.ctrl_pressed or key_event.meta_pressed:
 		return false
 	return true
+
+
+func _is_text_input_focused() -> bool:
+	var focused_control: Control = get_viewport().gui_get_focus_owner()
+	return focused_control is LineEdit or focused_control is TextEdit
 
 
 func _is_close_input(event: InputEvent) -> bool:

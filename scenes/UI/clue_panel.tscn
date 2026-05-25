@@ -35,10 +35,10 @@ theme = ExtResource("2_qsnb8")
 
 [node name="PanelFrame" type="PanelContainer" parent="PanelRoot" unique_id=647446284]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 140.0
-offset_right = 1600.0
-offset_bottom = 940.0
+offset_left = 180.0
+offset_top = 90.0
+offset_right = 1740.0
+offset_bottom = 990.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 

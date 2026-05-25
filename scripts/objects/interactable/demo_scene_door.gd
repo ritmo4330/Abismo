@@ -8,6 +8,7 @@ extends Interactable
 @export var interact_timeline: String = ""
 @export var required_flag: String = ""
 @export var blocked_notice: String = ""
+@export var open_sfx_id: String = "door_open"
 
 var _is_transitioning: bool = false
 
@@ -31,8 +32,19 @@ func interact(_player: Player) -> void:
 	if not accepted:
 		return
 
+	_play_open_sfx()
 	_is_transitioning = true
 	if ToastManager != null:
 		ToastManager.show_notice("大门打开了。", "info", 1.5)
 	if not next_step_id.is_empty():
 		FlowManager.set_step(next_step_id)
+
+
+func _play_open_sfx() -> void:
+	if open_sfx_id.is_empty():
+		return
+	if AudioManager == null:
+		return
+	if not AudioManager.has_method("play_sfx"):
+		return
+	AudioManager.play_sfx(open_sfx_id)

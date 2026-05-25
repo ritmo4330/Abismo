@@ -1,7 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://d0gg4nn1gnmsa"]
 
-[ext_resource type="FontFile" uid="uid://ci4bk5mlyok56" path="res://assets/UI/再见旧时光.ttf" id="1_1y6f5"]
+[ext_resource type="FontFile" uid="uid://u0an2cavsv8g" path="res://assets/UI/ShanHaiJiangNanLi45W-2.ttf" id="1_1y6f5"]
 
 [resource]
 default_font = ExtResource("1_1y6f5")
-default_font_size = 24
+default_font_size = 36

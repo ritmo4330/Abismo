@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2i1m2boks41y"
+path="res://.godot/imported/冬之旋律 - 陈达飞.mp3-56e8a07de767791b62fb00877d2cbae3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/冬之旋律 - 陈达飞.mp3"
+dest_files=["res://.godot/imported/冬之旋律 - 陈达飞.mp3-56e8a07de767791b62fb00877d2cbae3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

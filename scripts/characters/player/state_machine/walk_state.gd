@@ -4,7 +4,16 @@ extends NodeState
 @export var animated_sprite_2d : AnimatedSprite2D
 @export var speed : float = 200
 
+const FOOTSTEP_CHANNEL_ID: String = "player_footsteps"
+const FOOTSTEP_SFX_ID: String = "footsteps"
+
 var direction : Vector2
+
+
+func _ready() -> void:
+	if GameManager != null and not GameManager.game_pause_changed.is_connected(_on_game_pause_changed):
+		GameManager.game_pause_changed.connect(_on_game_pause_changed)
+
 
 func _on_process(_delta : float) -> void:
 	pass
@@ -24,6 +33,9 @@ func _on_physics_process(_delta : float) -> void:
 	
 	if direction != Vector2.ZERO:
 		player.player_direction = direction
+		_play_footsteps()
+	else:
+		_stop_footsteps()
 	
 	player.velocity = direction * speed
 	player.move_and_slide()
@@ -38,9 +50,34 @@ func _on_next_transitions() -> void:
 
 
 func _on_enter() -> void:
-	pass
+	_play_footsteps()
 
 
 func _on_exit() -> void:
 	animated_sprite_2d.stop()
-	pass
+	_stop_footsteps()
+
+
+func _exit_tree() -> void:
+	_stop_footsteps()
+
+
+func _on_game_pause_changed(is_paused: bool) -> void:
+	if is_paused:
+		_stop_footsteps()
+
+
+func _play_footsteps() -> void:
+	if AudioManager == null:
+		return
+	if not AudioManager.has_method("play_loop_sfx"):
+		return
+	AudioManager.play_loop_sfx(FOOTSTEP_SFX_ID, FOOTSTEP_CHANNEL_ID)
+
+
+func _stop_footsteps() -> void:
+	if AudioManager == null:
+		return
+	if not AudioManager.has_method("stop_loop_sfx"):
+		return
+	AudioManager.stop_loop_sfx(FOOTSTEP_CHANNEL_ID)

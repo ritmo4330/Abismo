@@ -1,5 +1,4 @@
 [style name="default_visual_novel"]
-[signal arg="audio:play_bgm:winter_melody"]
 join butler left
 butler: 你醒了，客人。
 player: 你……这里是……我刚刚……

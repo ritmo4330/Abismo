@@ -76,6 +76,19 @@ const TIMELINE_DEMO_PUZZLE_REASONING: String = "demo_1_1_puzzle_reasoning"
 const TIMELINE_DEMO_MURDER_REQUEST: String = "demo_1_1_murder_request"
 const TIMELINE_DEMO_CRIME_SCENE: String = "demo_1_2_crime_scene"
 
+const STEP_BGM_CONFIGS: Dictionary = {
+	STEP_DEMO_PROLOGUE_STORY: {"track_id": "tuning", "fade_seconds": 1.5},
+	STEP_DEMO_SNOW_CAMP: {"track_id": "tuning", "fade_seconds": 1.5},
+	STEP_DEMO_SNOW_PATH: {"track_id": "tuning", "fade_seconds": 1.5},
+	STEP_DEMO_VILLA_GATE: {"track_id": "tuning", "fade_seconds": 1.5},
+	STEP_DEMO_HALL_ARRIVAL: {"track_id": "tuning", "fade_seconds": 1.5},
+	STEP_DEMO_STUDY_WAKE: {"track_id": "winter_melody", "fade_seconds": 2.0},
+	STEP_DEMO_STUDY_FREE_INVESTIGATION: {"track_id": "winter_melody", "fade_seconds": 1.5},
+	STEP_DEMO_PUZZLE: {"track_id": "winter_melody", "fade_seconds": 1.5},
+	STEP_DEMO_MURDER_REQUEST: {"track_id": "winter_melody", "fade_seconds": 1.5},
+	STEP_DEMO_CRIME_SCENE: {"track_id": "dark_fog_lie", "fade_seconds": 2.0},
+}
+
 const FREE_INTERACTION_TIMELINES: Dictionary = {
 	CHAPTER_CH1: {
 		"butler": "1_1_butler",
@@ -178,6 +191,7 @@ func prepare_demo_start() -> void:
 	_pending_action_after_dialogue = ""
 	pending_auto_timeline = TIMELINE_DEMO_IDENTITY
 	_reset_npc_locations_for_step(current_step_id)
+	_stop_bgm()
 	set_dialogic_var("PlayerName", "")
 	set_dialogic_var("PlayerGender", "")
 	set_dialogic_var("Demo.Started", true)
@@ -194,6 +208,7 @@ func prepare_ch1_legacy_start() -> void:
 	_pending_action_after_dialogue = ""
 	pending_auto_timeline = ""
 	_reset_npc_locations_for_step(current_step_id)
+	_stop_bgm()
 
 
 func set_step(step_id: String) -> void:
@@ -201,6 +216,7 @@ func set_step(step_id: String) -> void:
 		return
 	current_step_id = step_id
 	_reset_npc_locations_for_step(step_id)
+	_sync_bgm_for_step(step_id)
 
 
 func set_npc_location(
@@ -331,6 +347,22 @@ func _reset_npc_locations_for_step(step_id: String) -> void:
 		if not (location_value is Dictionary):
 			continue
 		_npc_locations[String(npc_id)] = (location_value as Dictionary).duplicate(true)
+
+
+func _sync_bgm_for_step(step_id: String) -> void:
+	if not STEP_BGM_CONFIGS.has(step_id):
+		return
+	if AudioManager != null and AudioManager.has_method("play_bgm"):
+		var bgm_config: Dictionary = STEP_BGM_CONFIGS[step_id]
+		AudioManager.play_bgm(
+			String(bgm_config.get("track_id", "")),
+			float(bgm_config.get("fade_seconds", 1.5))
+		)
+
+
+func _stop_bgm() -> void:
+	if AudioManager != null and AudioManager.has_method("stop_bgm"):
+		AudioManager.stop_bgm()
 
 
 func _get_spawn_entries_for_room(room_id: String) -> Array:

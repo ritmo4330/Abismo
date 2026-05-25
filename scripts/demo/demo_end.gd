@@ -2,7 +2,7 @@ extends Node2D
 
 @export var room_id: String = "demo_end"
 @export var default_spawn_point: String = "InitialSpawn"
-@export var body_cg_duration: float = 2.6
+@export var body_cg_duration: float = 3.0
 @export_file("*.png") var body_cg_path: String = "res://assets/cg/demo_body_cg.png"
 
 @onready var body_cg: TextureRect = $EndLayer/BodyCg

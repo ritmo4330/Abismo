@@ -1,4 +1,4 @@
-[background scene="res://scenes/demo/dialogic_color_background.tscn" arg="#000000ff" fade="1"]
+[background scene="res://scenes/demo/dialogic_color_background.tscn" arg="#000000ff" fade="1.0" wait="true"]
 [style name="default_visual_novel"]
 再度起行，哪怕终点遥不可及，周而复始的生命，汇成聚沙成塔的权柄。
 依然会有灯笼鱼为她点亮光明，“我见过你吗？”“我想没有。”她继续着她的独行。

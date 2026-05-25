@@ -1,9 +1,8 @@
 extends Node
 
-const DEFAULT_DURATION: float = 1.5
+const DEFAULT_DURATION: float = 1.2
 const MAX_QUEUED_NOTICES: int = 3
-const CANVAS_LAYER: int = 150
-const PANEL_SIZE: Vector2 = Vector2(520.0, 72.0)
+const TOAST_PANEL_SCENE_PATH: String = "res://scenes/UI/toast_panel.tscn"
 
 var _canvas_layer: CanvasLayer = null
 var _panel: PanelContainer = null
@@ -51,66 +50,34 @@ func _on_data_notice_requested(message: String, notice_type: String) -> void:
 
 
 func _create_ui() -> void:
-	_canvas_layer = CanvasLayer.new()
-	_canvas_layer.name = "ToastCanvas"
-	_canvas_layer.layer = CANVAS_LAYER
-	_canvas_layer.process_mode = Node.PROCESS_MODE_ALWAYS
+	var toast_scene: PackedScene = load(TOAST_PANEL_SCENE_PATH) as PackedScene
+	if toast_scene == null:
+		push_error("ToastManager: cannot load toast panel scene: %s" % TOAST_PANEL_SCENE_PATH)
+		return
+
+	_canvas_layer = toast_scene.instantiate() as CanvasLayer
+	if _canvas_layer == null:
+		push_error("ToastManager: toast panel scene root must be CanvasLayer.")
+		return
+
 	add_child(_canvas_layer)
 
-	_panel = PanelContainer.new()
-	_panel.name = "ToastPanel"
-	_panel.process_mode = Node.PROCESS_MODE_ALWAYS
-	_panel.visible = false
-	_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_panel.custom_minimum_size = PANEL_SIZE
-	_canvas_layer.add_child(_panel)
-
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.05, 0.06, 0.08, 0.88)
-	style.border_color = Color(0.78, 0.84, 0.9, 0.95)
-	style.set_border_width_all(2)
-	style.set_corner_radius_all(6)
-	_panel.add_theme_stylebox_override("panel", style)
-
-	var margin: MarginContainer = MarginContainer.new()
-	margin.name = "Margin"
-	margin.add_theme_constant_override("margin_left", 18)
-	margin.add_theme_constant_override("margin_top", 12)
-	margin.add_theme_constant_override("margin_right", 18)
-	margin.add_theme_constant_override("margin_bottom", 12)
-	_panel.add_child(margin)
-
-	_label = Label.new()
-	_label.name = "Message"
-	_label.process_mode = Node.PROCESS_MODE_ALWAYS
-	_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_label.text = ""
-	margin.add_child(_label)
-
-	call_deferred("_position_panel")
-
-
-func _position_panel() -> void:
-	if _panel == null:
+	_panel = _canvas_layer.get_node_or_null("ToastRoot/ToastPanel") as PanelContainer
+	_label = _canvas_layer.get_node_or_null("ToastRoot/ToastPanel/Margin/Message") as Label
+	if _panel == null or _label == null:
+		push_error("ToastManager: toast panel scene is missing ToastPanel or Message node.")
 		return
-	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
-	_panel.size = PANEL_SIZE
-	_panel.position = Vector2(
-		max(24.0, viewport_size.x - PANEL_SIZE.x - 16.0),
-		max(24.0, viewport_size.y * 0.25)
-	)
 
 
 func _display(payload: Dictionary) -> void:
 	if _panel == null or _label == null:
 		return
 
-	_position_panel()
 	_label.text = String(payload.get("message", ""))
 	_panel.visible = true
 	_remaining_time = max(0.2, float(payload.get("duration", DEFAULT_DURATION)))
 	_is_showing_notice = true
+	_play_toast_sfx()
 
 
 func _hide_current() -> void:
@@ -132,3 +99,11 @@ func _show_next_queued() -> void:
 		return
 	var next_payload: Dictionary = _notice_queue.pop_front()
 	_display(next_payload)
+
+
+func _play_toast_sfx() -> void:
+	if AudioManager == null:
+		return
+	if not AudioManager.has_method("play_sfx"):
+		return
+	AudioManager.play_sfx("toast")
