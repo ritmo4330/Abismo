@@ -1,6 +1,12 @@
 class_name DemoStudyChair
 extends Interactable
 
+const DEFAULT_REQUIRED_CLUE_IDS: Array[String] = [
+	"demo_study_door",
+	"demo_study_bookshelf",
+	"demo_study_quote",
+]
+
 @export var required_clue_ids: PackedStringArray = PackedStringArray([
 	"demo_study_door",
 	"demo_study_bookshelf",
@@ -46,7 +52,17 @@ func interact(_player: Player) -> void:
 
 
 func _has_required_clues() -> bool:
+	if required_clue_ids.is_empty():
+		return _has_all_required_clues(DEFAULT_REQUIRED_CLUE_IDS)
+
+	var configured_required_clue_ids: Array[String] = []
 	for clue_id: String in required_clue_ids:
+		configured_required_clue_ids.append(clue_id)
+	return _has_all_required_clues(configured_required_clue_ids)
+
+
+func _has_all_required_clues(clue_ids: Array[String]) -> bool:
+	for clue_id: String in clue_ids:
 		if clue_id.is_empty():
 			continue
 		if not DataManager.has_clue(clue_id):

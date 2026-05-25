@@ -41,7 +41,7 @@ prompt_offset = Vector2(0, -16)
 [node name="StudyChair" type="Area2D" parent="Interactables" index="3" unique_id=927392712]
 position = Vector2(1300, 633)
 script = ExtResource("3_chair")
-required_clue_ids = PackedStringArray()
+required_clue_ids = PackedStringArray("demo_study_door", "demo_study_bookshelf", "demo_study_quote")
 interact_id = "demo_study_chair"
 prompt_offset = Vector2(0, -18)
 

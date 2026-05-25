@@ -5,12 +5,23 @@ extends Interactable
 @export var target_spawn_point: String = "InitialSpawn"
 @export var auto_timeline: String = ""
 @export var next_step_id: String = ""
+@export var interact_timeline: String = ""
+@export var required_flag: String = ""
+@export var blocked_notice: String = ""
 
 var _is_transitioning: bool = false
 
 
 func interact(_player: Player) -> void:
 	if _is_transitioning:
+		return
+	if not required_flag.is_empty() and not DataManager.get_world_flag(required_flag):
+		if not blocked_notice.is_empty() and ToastManager != null:
+			ToastManager.show_notice(blocked_notice, "warning")
+		return
+	if not interact_timeline.is_empty():
+		_is_transitioning = true
+		EventBus.dialogue_requested.emit(interact_timeline)
 		return
 	if target_scene_path.is_empty():
 		push_error("DemoSceneDoor target_scene_path is empty.")

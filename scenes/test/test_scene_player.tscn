@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://bth41hnjf6ja"]
 
-[ext_resource type="Texture2D" uid="uid://bfmvip45b3taf" path="res://素材库/Sprout Lands - Sprites - premium pack/Tilesets/Building parts/Wooden_House_Walls_Tilset.png" id="1_e46wm"]
+[ext_resource type="Texture2D" uid="uid://bfmvip45b3taf" path="res://素材库/Sprout Lands - Sprites - premium pack/Tilesets/Buiding parts/Wooden_House_Walls_Tilset.png" id="1_e46wm"]
 [ext_resource type="TileSet" uid="uid://ctxipbxd20b15" path="res://Tilesets/room_tile_set.tres" id="1_ocjif"]
-[ext_resource type="Texture2D" uid="uid://bwu67ufx071kh" path="res://素材库/Sprout Lands - Sprites - premium pack/Tilesets/Building parts/Basic_Furniture.png" id="2_np1fs"]
+[ext_resource type="Texture2D" uid="uid://bwu67ufx071kh" path="res://素材库/Sprout Lands - Sprites - premium pack/Tilesets/Buiding parts/Basic_Furniture.png" id="2_np1fs"]
 [ext_resource type="PackedScene" uid="uid://7q46owluqudi" path="res://scenes/characters/player/player.tscn" id="4_e46wm"]
 [ext_resource type="PackedScene" uid="uid://ccoalm2taxdwe" path="res://scenes/characters/npcs/npc.tscn" id="7_q8rd1"]
 [ext_resource type="Script" uid="uid://daw4qwopm7n4l" path="res://scripts/objects/interactable/clue_item.gd" id="8_clue_item"]

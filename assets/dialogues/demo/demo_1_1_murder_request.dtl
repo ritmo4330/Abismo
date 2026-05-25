@@ -12,7 +12,7 @@ label 抉择1
 - 同意
 	jump 接受委托
 - 不同意
-	player: ……
+	……
 	有人记住了你的选择。
 	do DataManager.set_world_flag("demo/murder_request_refused", true)
 	jump 再次抉择

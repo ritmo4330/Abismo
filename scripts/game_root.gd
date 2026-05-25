@@ -1,6 +1,6 @@
 extends Node2D
 
-const DEMO_FIRST_LEVEL_PATH: String = "res://scenes/demo/demo_boot.tscn"
+const DEMO_FIRST_LEVEL_PATH: String = "res://scenes/demo/demo_black_screen.tscn"
 const CH1_LEGACY_FIRST_LEVEL_PATH: String = "res://scenes/rooms/hall.tscn"
 const FIRST_SPAWN_POINT: String = "InitialSpawn"
 

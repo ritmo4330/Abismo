@@ -12,6 +12,8 @@ const BGM_TRACKS: Dictionary[String, String] = {
 
 const SFX_TRACKS: Dictionary[String, String] = {
 	"clock_bell": "",
+	"door_knock": "",
+	"door_open": "",
 }
 
 var _bgm_player: AudioStreamPlayer = null

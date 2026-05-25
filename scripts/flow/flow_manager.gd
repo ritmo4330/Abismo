@@ -31,8 +31,10 @@ const ROOM_SECOND_SEARCH: String = "shu_fang"
 const ROOM_DEMO_CRIME_SCENE: String = "demo_crime_scene_lin_room"
 
 const HALL_SCENE_PATH: String = "res://scenes/rooms/hall.tscn"
-const DEMO_BOOT_SCENE_PATH: String = "res://scenes/demo/demo_boot.tscn"
+const DEMO_BLACK_SCREEN_SCENE_PATH: String = "res://scenes/demo/demo_black_screen.tscn"
 const DEMO_SNOW_CAMP_SCENE_PATH: String = "res://scenes/demo/demo_snow_camp.tscn"
+const DEMO_SNOW_PATH_SCENE_PATH: String = "res://scenes/demo/demo_snow_path.tscn"
+const DEMO_VILLA_GATE_SCENE_PATH: String = "res://scenes/demo/demo_villa_gate.tscn"
 const DEMO_LOGO_SCENE_PATH: String = "res://scenes/demo/demo_logo.tscn"
 const DEMO_STUDY_SCENE_PATH: String = "res://scenes/demo/demo_study.tscn"
 const DEMO_CRIME_SCENE_PATH: String = "res://scenes/demo/demo_crime_scene_lin_room.tscn"
@@ -52,6 +54,10 @@ const ACTION_START_SECOND_SEARCH: String = "start_second_search"
 const ACTION_EXIT_SECOND_SEARCH: String = "exit_second_search"
 const ACTION_DEMO_IDENTITY_FINISHED: String = "demo_identity_finished"
 const ACTION_DEMO_PROLOGUE_INTRO_FINISHED: String = "demo_prologue_intro_finished"
+const ACTION_DEMO_SNOW_PATH_INTERLUDE_FINISHED: String = "demo_snow_path_interlude_finished"
+const ACTION_DEMO_VILLA_GATE_INTERLUDE_FINISHED: String = "demo_villa_gate_interlude_finished"
+const ACTION_DEMO_VILLA_DOOR_KNOCK_FINISHED: String = "demo_villa_door_knock_finished"
+const ACTION_DEMO_HALL_MEMORY_START: String = "demo_hall_memory_start"
 const ACTION_DEMO_HALL_ARRIVAL_FINISHED: String = "demo_hall_arrival_finished"
 const ACTION_DEMO_STUDY_WAKE_FINISHED: String = "demo_study_wake_finished"
 const ACTION_DEMO_PUZZLE_SOLVED: String = "demo_puzzle_solved"
@@ -61,7 +67,10 @@ const ACTION_DEMO_CRIME_SCENE_FINISHED: String = "demo_crime_scene_finished"
 const TIMELINE_DEMO_IDENTITY: String = "demo_0_1_identity"
 const TIMELINE_DEMO_PROLOGUE: String = "demo_0_2_prologue"
 const TIMELINE_DEMO_SNOW_CAMP_ARRIVAL: String = "demo_0_2_snow_camp_arrival"
+const TIMELINE_DEMO_SNOW_PATH_ARRIVAL: String = "demo_0_2_snow_path_arrival"
+const TIMELINE_DEMO_VILLA_GATE_ARRIVAL: String = "demo_0_2_villa_gate_arrival"
 const TIMELINE_DEMO_HALL_ARRIVAL: String = "demo_0_2_hall_arrival"
+const TIMELINE_DEMO_HALL_MEMORY: String = "demo_0_2_hall_memory"
 const TIMELINE_DEMO_STUDY_WAKE: String = "demo_1_1_study_wake"
 const TIMELINE_DEMO_PUZZLE_REASONING: String = "demo_1_1_puzzle_reasoning"
 const TIMELINE_DEMO_MURDER_REQUEST: String = "demo_1_1_murder_request"
@@ -428,6 +437,14 @@ func _on_flow_signal_requested(signal_name: String) -> void:
 			_pending_action_after_dialogue = ACTION_DEMO_IDENTITY_FINISHED
 		ACTION_DEMO_PROLOGUE_INTRO_FINISHED:
 			_pending_action_after_dialogue = ACTION_DEMO_PROLOGUE_INTRO_FINISHED
+		ACTION_DEMO_SNOW_PATH_INTERLUDE_FINISHED:
+			_pending_action_after_dialogue = ACTION_DEMO_SNOW_PATH_INTERLUDE_FINISHED
+		ACTION_DEMO_VILLA_GATE_INTERLUDE_FINISHED:
+			_pending_action_after_dialogue = ACTION_DEMO_VILLA_GATE_INTERLUDE_FINISHED
+		ACTION_DEMO_VILLA_DOOR_KNOCK_FINISHED:
+			_pending_action_after_dialogue = ACTION_DEMO_VILLA_DOOR_KNOCK_FINISHED
+		ACTION_DEMO_HALL_MEMORY_START:
+			_pending_action_after_dialogue = ACTION_DEMO_HALL_MEMORY_START
 		ACTION_DEMO_HALL_ARRIVAL_FINISHED:
 			_pending_action_after_dialogue = ACTION_DEMO_HALL_ARRIVAL_FINISHED
 		ACTION_DEMO_STUDY_WAKE_FINISHED:
@@ -490,13 +507,25 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 				request_scene_change(HALL_SCENE_PATH, "InitialSpawn")
 		ACTION_DEMO_IDENTITY_FINISHED:
 			set_step(STEP_DEMO_PROLOGUE_STORY)
-			request_scene_change(DEMO_BOOT_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_PROLOGUE)
+			request_scene_change(DEMO_BLACK_SCREEN_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_PROLOGUE)
 		ACTION_DEMO_PROLOGUE_INTRO_FINISHED:
 			set_step(STEP_DEMO_SNOW_CAMP)
 			request_scene_change(DEMO_SNOW_CAMP_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_SNOW_CAMP_ARRIVAL)
+		ACTION_DEMO_SNOW_PATH_INTERLUDE_FINISHED:
+			set_step(STEP_DEMO_SNOW_PATH)
+			request_scene_change(DEMO_SNOW_PATH_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_SNOW_PATH_ARRIVAL)
+		ACTION_DEMO_VILLA_GATE_INTERLUDE_FINISHED:
+			set_step(STEP_DEMO_VILLA_GATE)
+			request_scene_change(DEMO_VILLA_GATE_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_VILLA_GATE_ARRIVAL)
+		ACTION_DEMO_VILLA_DOOR_KNOCK_FINISHED:
+			set_step(STEP_DEMO_HALL_ARRIVAL)
+			request_scene_change(HALL_SCENE_PATH, "SpawnFromGate", TIMELINE_DEMO_HALL_ARRIVAL)
+		ACTION_DEMO_HALL_MEMORY_START:
+			set_step(STEP_DEMO_HALL_ARRIVAL)
+			request_scene_change(DEMO_BLACK_SCREEN_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_HALL_MEMORY)
 		ACTION_DEMO_HALL_ARRIVAL_FINISHED:
-			set_step(STEP_DEMO_LOGO)
-			request_scene_change(DEMO_LOGO_SCENE_PATH, "InitialSpawn")
+			set_step(STEP_DEMO_STUDY_WAKE)
+			request_scene_change(DEMO_STUDY_SCENE_PATH, "SpawnFromZouLang", TIMELINE_DEMO_STUDY_WAKE)
 		ACTION_DEMO_STUDY_WAKE_FINISHED:
 			set_step(STEP_DEMO_STUDY_FREE_INVESTIGATION)
 			if ToastManager != null:

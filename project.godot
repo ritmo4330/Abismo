@@ -63,11 +63,16 @@ directories/dtl_directory={
 "1_5_zhong": "res://assets/dialogues/ch1_snow_villa/1_5_zhong.dtl",
 "demo_0_1_identity": "res://assets/dialogues/demo/demo_0_1_identity.dtl",
 "demo_0_2_hall_arrival": "res://assets/dialogues/demo/demo_0_2_hall_arrival.dtl",
+"demo_0_2_hall_memory": "res://assets/dialogues/demo/demo_0_2_hall_memory.dtl",
 "demo_0_2_memory_meta": "res://assets/dialogues/demo/demo_0_2_memory_meta.dtl",
 "demo_0_2_prologue": "res://assets/dialogues/demo/demo_0_2_prologue.dtl",
 "demo_0_2_snow_camp_arrival": "res://assets/dialogues/demo/demo_0_2_snow_camp_arrival.dtl",
 "demo_0_2_snow_path_arrival": "res://assets/dialogues/demo/demo_0_2_snow_path_arrival.dtl",
+"demo_0_2_snow_path_interlude": "res://assets/dialogues/demo/demo_0_2_snow_path_interlude.dtl",
+"demo_0_2_villa_door_knock": "res://assets/dialogues/demo/demo_0_2_villa_door_knock.dtl",
 "demo_0_2_villa_gate_arrival": "res://assets/dialogues/demo/demo_0_2_villa_gate_arrival.dtl",
+"demo_0_2_villa_gate_interlude": "res://assets/dialogues/demo/demo_0_2_villa_gate_interlude.dtl",
+"demo_0_2_villa_gate_story": "res://assets/dialogues/demo/demo_0_2_villa_gate_story.dtl",
 "demo_1_1_conclusion_dead_not_dead": "res://assets/dialogues/demo/demo_1_1_conclusion_dead_not_dead.dtl",
 "demo_1_1_conclusion_disability_superposition": "res://assets/dialogues/demo/demo_1_1_conclusion_disability_superposition.dtl",
 "demo_1_1_conclusion_environment_paradox": "res://assets/dialogues/demo/demo_1_1_conclusion_environment_paradox.dtl",
@@ -347,7 +352,7 @@ player=""
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true
-theme/custom_font="uid://bnjqo3imypyjo"
+theme/custom_font="uid://ci4bk5mlyok56"
 
 [input]
 

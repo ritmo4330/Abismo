@@ -356,10 +356,11 @@ func _register_clue_defs_in_directory(directory_path: String) -> void:
 			entry_name = directory.get_next()
 			continue
 
-		var entry_path: String = directory_path.path_join(entry_name)
+		var resource_name: String = _normalize_exported_resource_name(entry_name)
+		var entry_path: String = directory_path.path_join(resource_name)
 		if directory.current_is_dir():
 			_register_clue_defs_in_directory(entry_path)
-		elif entry_name.get_extension().to_lower() == CLUE_RESOURCE_EXTENSION:
+		elif resource_name.get_extension().to_lower() == CLUE_RESOURCE_EXTENSION:
 			_try_register_clue_def_resource(entry_path)
 
 		entry_name = directory.get_next()
@@ -390,10 +391,11 @@ func _register_suspicion_defs_in_directory(directory_path: String) -> void:
 			entry_name = directory.get_next()
 			continue
 
-		var entry_path: String = directory_path.path_join(entry_name)
+		var resource_name: String = _normalize_exported_resource_name(entry_name)
+		var entry_path: String = directory_path.path_join(resource_name)
 		if directory.current_is_dir():
 			_register_suspicion_defs_in_directory(entry_path)
-		elif entry_name.get_extension().to_lower() == SUSPICION_RESOURCE_EXTENSION:
+		elif resource_name.get_extension().to_lower() == SUSPICION_RESOURCE_EXTENSION:
 			_try_register_suspicion_def_resource(entry_path)
 
 		entry_name = directory.get_next()
@@ -409,6 +411,12 @@ func _try_register_suspicion_def_resource(resource_path: String) -> void:
 		return
 
 	register_suspicion_def(resource as SuspicionData)
+
+
+func _normalize_exported_resource_name(entry_name: String) -> String:
+	if entry_name.ends_with(".remap"):
+		return entry_name.trim_suffix(".remap")
+	return entry_name
 
 
 func _create_default_clue_state(source_type: String, source_id: String) -> Dictionary:

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://d0gg4nn1gnmsa"]
 
-[ext_resource type="FontFile" uid="uid://bnjqo3imypyjo" path="res://assets/UI/ark-pixel-12px-proportional-zh_cn.otf" id="1_1y6f5"]
+[ext_resource type="FontFile" uid="uid://ci4bk5mlyok56" path="res://assets/UI/再见旧时光.ttf" id="1_1y6f5"]
 
 [resource]
 default_font = ExtResource("1_1y6f5")

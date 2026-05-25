@@ -75,10 +75,11 @@ func _register_placements_in_directory(directory_path: String) -> void:
 			entry_name = directory.get_next()
 			continue
 
-		var entry_path: String = directory_path.path_join(entry_name)
+		var resource_name: String = _normalize_exported_resource_name(entry_name)
+		var entry_path: String = directory_path.path_join(resource_name)
 		if directory.current_is_dir():
 			_register_placements_in_directory(entry_path)
-		elif entry_name.get_extension().to_lower() == PLACEMENT_RESOURCE_EXTENSION:
+		elif resource_name.get_extension().to_lower() == PLACEMENT_RESOURCE_EXTENSION:
 			_try_register_placement_resource(entry_path)
 
 		entry_name = directory.get_next()
@@ -94,6 +95,12 @@ func _try_register_placement_resource(resource_path: String) -> void:
 		return
 
 	register_placement(resource as CluePlacementData)
+
+
+func _normalize_exported_resource_name(entry_name: String) -> String:
+	if entry_name.ends_with(".remap"):
+		return entry_name.trim_suffix(".remap")
+	return entry_name
 
 
 func _is_placement_available(placement: CluePlacementData, room_id: String) -> bool:

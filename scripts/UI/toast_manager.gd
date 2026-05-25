@@ -1,6 +1,7 @@
 extends Node
 
-const DEFAULT_DURATION: float = 3.0
+const DEFAULT_DURATION: float = 1.5
+const MAX_QUEUED_NOTICES: int = 3
 const CANVAS_LAYER: int = 150
 const PANEL_SIZE: Vector2 = Vector2(520.0, 72.0)
 
@@ -8,6 +9,8 @@ var _canvas_layer: CanvasLayer = null
 var _panel: PanelContainer = null
 var _label: Label = null
 var _remaining_time: float = 0.0
+var _notice_queue: Array[Dictionary] = []
+var _is_showing_notice: bool = false
 
 
 func _ready() -> void:
@@ -37,6 +40,9 @@ func show_notice(message: String, notice_type: String = "info", duration: float 
 		"notice_type": notice_type,
 		"duration": duration,
 	}
+	if _is_showing_notice:
+		_enqueue(payload)
+		return
 	_display(payload)
 
 
@@ -104,9 +110,25 @@ func _display(payload: Dictionary) -> void:
 	_label.text = String(payload.get("message", ""))
 	_panel.visible = true
 	_remaining_time = max(0.2, float(payload.get("duration", DEFAULT_DURATION)))
+	_is_showing_notice = true
 
 
 func _hide_current() -> void:
 	_remaining_time = 0.0
+	_is_showing_notice = false
 	if _panel != null:
 		_panel.visible = false
+	_show_next_queued()
+
+
+func _enqueue(payload: Dictionary) -> void:
+	while _notice_queue.size() >= MAX_QUEUED_NOTICES:
+		_notice_queue.remove_at(0)
+	_notice_queue.append(payload)
+
+
+func _show_next_queued() -> void:
+	if _notice_queue.is_empty():
+		return
+	var next_payload: Dictionary = _notice_queue.pop_front()
+	_display(next_payload)

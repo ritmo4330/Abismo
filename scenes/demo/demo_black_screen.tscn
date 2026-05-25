@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/scenes/room.gd" id="1_room"]
 
-[node name="DemoBoot" type="Node2D"]
+[node name="DemoBlackScreen" type="Node2D"]
 script = ExtResource("1_room")
-room_id = "demo_boot"
+room_id = "demo_black_screen"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

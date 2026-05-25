@@ -78,8 +78,8 @@ shape = SubResource("RectangleShape2D_blizzard")
 [node name="ExitRight" type="Area2D" parent="."]
 position = Vector2(1880, 540)
 script = ExtResource("3_passage")
-target_scene_path = "res://scenes/demo/demo_snow_path.tscn"
-auto_timeline = "demo_0_2_snow_path_arrival"
+target_scene_path = "res://scenes/demo/demo_black_screen.tscn"
+auto_timeline = "demo_0_2_snow_path_interlude"
 required_flag = "demo/find_warmth_started"
 blocked_notice = "火堆已经熄灭。先看看能不能重新点燃它。"
 next_step_id = "demo_0_2_snow_path"

@@ -57,8 +57,8 @@ shape = SubResource("RectangleShape2D_blizzard")
 [node name="ExitRight" type="Area2D" parent="." unique_id=1283857561]
 position = Vector2(1788, 560)
 script = ExtResource("2_passage")
-target_scene_path = "res://scenes/demo/demo_villa_gate.tscn"
-auto_timeline = "demo_0_2_villa_gate_arrival"
+target_scene_path = "res://scenes/demo/demo_black_screen.tscn"
+auto_timeline = "demo_0_2_villa_gate_interlude"
 next_step_id = "demo_0_2_villa_gate"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitRight" unique_id=274253003]
