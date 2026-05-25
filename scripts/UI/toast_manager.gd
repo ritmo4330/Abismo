@@ -5,7 +5,7 @@ const MAX_QUEUED_NOTICES: int = 3
 const TOAST_PANEL_SCENE_PATH: String = "res://scenes/UI/toast_panel.tscn"
 const TOAST_WIDTH: float = 520.0
 const TOAST_RIGHT_MARGIN: float = 16.0
-const TOAST_MIN_HEIGHT: float = 72.0
+const TOAST_MIN_HEIGHT: float = 96.0
 const TOAST_MAX_HEIGHT: float = 180.0
 const TOAST_VERTICAL_PADDING: float = 24.0
 

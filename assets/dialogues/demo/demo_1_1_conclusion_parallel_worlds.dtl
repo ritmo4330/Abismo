@@ -10,5 +10,6 @@ X 完全可以在无法使用惯用手的情况下爬上五楼天台，用匕首
 如果真是无法使用惯用手而要举起五十斤重的凶器，或是双腿残疾却要爬上五楼行凶，是可谓“不可能做到”了。
 [signal arg="audio:play_sfx:door_knock_quick"]
 正当你回味着推理的过程时，一阵急促的敲门声将你拉回了现实。
+[signal arg="audio:stop_bgm"]
 [signal arg="flow:demo_puzzle_solved"]
 [end_timeline]

@@ -73,6 +73,7 @@ directories/dtl_directory={
 "demo_0_2_villa_gate_arrival": "res://assets/dialogues/demo/demo_0_2_villa_gate_arrival.dtl",
 "demo_0_2_villa_gate_interlude": "res://assets/dialogues/demo/demo_0_2_villa_gate_interlude.dtl",
 "demo_0_2_villa_gate_story": "res://assets/dialogues/demo/demo_0_2_villa_gate_story.dtl",
+"demo_1_1_challenge_rules": "res://assets/dialogues/demo/demo_1_1_challenge_rules.dtl",
 "demo_1_1_conclusion_dead_not_dead": "res://assets/dialogues/demo/demo_1_1_conclusion_dead_not_dead.dtl",
 "demo_1_1_conclusion_disability_superposition": "res://assets/dialogues/demo/demo_1_1_conclusion_disability_superposition.dtl",
 "demo_1_1_conclusion_environment_paradox": "res://assets/dialogues/demo/demo_1_1_conclusion_environment_paradox.dtl",
@@ -81,6 +82,7 @@ directories/dtl_directory={
 "demo_1_1_conclusion_strange_description": "res://assets/dialogues/demo/demo_1_1_conclusion_strange_description.dtl",
 "demo_1_1_murder_request": "res://assets/dialogues/demo/demo_1_1_murder_request.dtl",
 "demo_1_1_puzzle_reasoning": "res://assets/dialogues/demo/demo_1_1_puzzle_reasoning.dtl",
+"demo_1_1_puzzle_story": "res://assets/dialogues/demo/demo_1_1_puzzle_story.dtl",
 "demo_1_1_study_clues_finished": "res://assets/dialogues/demo/demo_1_1_study_clues_finished.dtl",
 "demo_1_1_study_wake": "res://assets/dialogues/demo/demo_1_1_study_wake.dtl",
 "demo_1_2_crime_scene": "res://assets/dialogues/demo/demo_1_2_crime_scene.dtl",
@@ -92,7 +94,8 @@ layout/style_directory={
 "": "res://assets/UI/default_visual_novel.tres",
 "default_speaker_style": "res://assets/UI/default_speaker_style.tres",
 "default_visual_novel": "res://assets/UI/default_visual_novel.tres",
-"plain_text": "res://assets/UI/dialogues/plain_text.tres"
+"plain_text": "res://assets/UI/dialogues/plain_text.tres",
+"plain_text_left": "res://assets/UI/dialogues/plain_text_left.tres"
 }
 glossary/default_case_sensitive=true
 variables={
@@ -287,7 +290,7 @@ variables={
 "PlayerGender": "",
 "PlayerName": ""
 }
-layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres", "res://assets/UI/dialogues/plain_text.tres"]
+layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres", "res://assets/UI/dialogues/plain_text.tres", "res://assets/UI/dialogues/plain_text_left.tres"]
 layout/default_style="res://assets/UI/default_visual_novel.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

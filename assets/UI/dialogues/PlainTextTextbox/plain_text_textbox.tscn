@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dvaj1akytach8"]
+[gd_scene format=3 uid="uid://c3j2qot5ll3x8"]
 
-[ext_resource type="Script" uid="uid://bl43m5qw8pso3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.gd" id="1_bpydr"]
+[ext_resource type="Script" path="res://assets/UI/dialogues/PlainTextTextbox/plain_textbox_layer.gd" id="1_bpydr"]
 [ext_resource type="Script" uid="uid://bfc03rn8slceu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/animations.gd" id="2_xy7a2"]
 [ext_resource type="Script" uid="uid://drhfq6rmdeuri" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_4634k"]
 [ext_resource type="StyleBox" uid="uid://dkv1pl1c1dq6" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_default_panel.tres" id="3_ssa84"]
@@ -224,38 +224,39 @@ script = ExtResource("2_xy7a2")
 
 [node name="Anchor" type="Control" parent="." unique_id=1227272446]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="AnimationParent" type="Control" parent="Anchor" unique_id=892457208]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="Sizer" type="Control" parent="Anchor/AnimationParent" unique_id=454359308]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -50.0
+offset_top = -25.0
 offset_right = 150.0
+offset_bottom = 25.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="DialogTextPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer" unique_id=139475304]
@@ -271,10 +272,17 @@ mouse_filter = 2
 theme_override_styles/panel = ExtResource("3_ssa84")
 metadata/_edit_layout_mode = 1
 
-[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=350249378 node_paths=PackedStringArray("textbox_root")]
+[node name="DialogTextCenter" type="CenterContainer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=1629830579]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/DialogTextCenter" unique_id=350249378 node_paths=PackedStringArray("textbox_root")]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 15
 theme_override_font_sizes/bold_font_size = 15
@@ -282,11 +290,13 @@ theme_override_font_sizes/bold_italics_font_size = 15
 theme_override_font_sizes/italics_font_size = 15
 bbcode_enabled = true
 text = "Some default text"
+fit_content = true
+scroll_active = false
 visible_characters_behavior = 1
 script = ExtResource("3_4634k")
-textbox_root = NodePath("..")
+textbox_root = NodePath("../..")
 
-[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/DialogicNode_DialogText" unique_id=249444507]
+[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/DialogTextCenter/DialogicNode_DialogText" unique_id=249444507]
 unique_name_in_owner = true
 script = ExtResource("4_ma5mw")
 play_every_character = 0

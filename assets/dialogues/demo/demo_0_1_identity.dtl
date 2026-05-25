@@ -10,5 +10,6 @@
 你还记得你是谁吗？
 [text_input text="" var="PlayerName"]
 很好，看来一切正常。接下来，来听故事吧。
+[signal arg="audio:stop_bgm"]
 [signal arg="flow:demo_identity_finished"]
 [end_timeline]
