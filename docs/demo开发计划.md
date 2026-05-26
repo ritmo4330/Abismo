@@ -167,16 +167,15 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
 - 黑屏旁白能按点击推进，并在指定位置切入可操作雪地场景。
 - 开场 BGM 接口可用，能在后续场景切换时调用。
 
-### Phase C：雪地序章三段可操作场景
+### Phase C：雪地序章整合可操作场景
 
 目标：完成图 1、图 2、图 3 的核心交互。
 
 任务：
 
-- 新建三个 demo 场景：
-  - `demo_snow_camp.tscn`：石头、火堆、出生点、右侧出口。
-  - `demo_snow_path.tscn`：线性雪路、暴风雪触发区、远处光亮。
-  - `demo_villa_gate.tscn`：别墅门口、大门交互、进入别墅入口。
+- 新建一个 demo 整合场景：
+  - `demo_snow_field.tscn`：从左到右依次包含石头火堆、线性雪路、暴风雪触发区、远处光亮、别墅门口和大门交互。
+  - 开头三段地图之间不再切换场景，只在进入别墅大厅时切换场景。
 - 新建火堆交互对象：
   - 初始燃烧或将熄状态。
   - 暴风雪吹过后熄灭。
@@ -195,19 +194,19 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
 
 涉及文件：
 
-- `scenes/demo/demo_snow_camp.tscn`
-- `scenes/demo/demo_snow_path.tscn`
-- `scenes/demo/demo_villa_gate.tscn`
+- `scenes/demo/demo_snow_field.tscn`
 - `scripts/objects/interactable/demo_campfire.gd`
 - `scripts/UI/toast_manager.gd`
 - `scripts/demo/demo_blizzard_trigger.gd`
+- `scripts/demo/demo_timeline_trigger.gd`
+- `scripts/demo/demo_flag_barrier.gd`
 - `assets/dialogues/demo/demo_0_2_snow_*.dtl`
 
 验收标准：
 
 - 玩家能在雪地移动、与火堆和大门交互。
 - 火堆交互后才能合理推进到“寻找温暖”。
-- 三段雪地场景之间能稳定切换。
+- 开头三段地图在同一张雪地图中连续推进，不出现切场景。
 - 走到别墅门口并交互后进入山庄。
 
 ### Phase D：山庄门口到昏倒演出
@@ -216,7 +215,7 @@ Demo 从新游戏开始，到林玖房间内展示尸体 CG 后黑屏结束，�
 
 当前实现：
 
-- 已将 `demo_villa_gate.tscn` 的大门交互接到正式 `demo_0_2_hall_arrival` 时间线。
+- 已将整合雪地图 `demo_snow_field.tscn` 的大门交互接到正式 `demo_0_2_hall_arrival` 时间线。
 - 已新增梅塔 Dialogic 角色占位资源 `assets/characters/npcs/meta.dch`，正式立绘到位后只需替换 portrait。
 - 已新增大厅到达、梅塔记忆、书房醒来占位时间线，并注册到 `project.godot`。
 - 已新增 `scenes/demo/demo_logo.tscn`，大厅演出结束后显示“异数”Logo，并自动切到 `shu_fang.tscn` 的书房醒来时间线。

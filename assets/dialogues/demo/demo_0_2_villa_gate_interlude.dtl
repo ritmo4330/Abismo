@@ -1,3 +1,4 @@
+[background scene="res://scenes/demo/dialogic_color_background.tscn" arg="#000000ff" fade="1.0" wait="true"]
 [style name="plain_text"]
 海洋瞬息万变，转眼暗流侵袭。\
 熔岩的热浪翻涌，沙床的震动不停。\

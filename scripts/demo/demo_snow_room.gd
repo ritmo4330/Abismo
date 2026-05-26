@@ -1,5 +1,7 @@
 extends "res://scripts/scenes/room.gd"
 
+@export var camera_bounds: Rect2 = Rect2()
+
 @onready var blizzard_flash: ColorRect = find_child("BlizzardFlash", true, false) as ColorRect
 
 
@@ -24,3 +26,18 @@ func play_blizzard_flash() -> void:
 		if blizzard_flash != null:
 			blizzard_flash.visible = false
 	)
+
+
+func setup_camera_limits(player: Node2D) -> void:
+	if camera_bounds.size.x <= 0.0 or camera_bounds.size.y <= 0.0:
+		super.setup_camera_limits(player)
+		return
+
+	var camera: Camera2D = player.get_node_or_null("Camera2D") as Camera2D
+	if camera == null:
+		return
+
+	camera.limit_left = int(round(camera_bounds.position.x))
+	camera.limit_top = int(round(camera_bounds.position.y))
+	camera.limit_right = int(round(camera_bounds.end.x))
+	camera.limit_bottom = int(round(camera_bounds.end.y))

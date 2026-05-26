@@ -1,3 +1,4 @@
+[background scene="res://scenes/demo/dialogic_color_background.tscn" arg="#000000ff" fade="1.0" wait="true"]
 [style name="plain_text"]
 灯塔水母游入阴影，灯笼鱼前来点亮光明。\
 “你要去往哪里？”\

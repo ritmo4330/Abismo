@@ -41,9 +41,7 @@ const ROOM_DEMO_CRIME_SCENE: String = "demo_crime_scene_lin_room"
 
 const HALL_SCENE_PATH: String = "res://scenes/rooms/hall.tscn"
 const DEMO_BLACK_SCREEN_SCENE_PATH: String = "res://scenes/demo/demo_black_screen.tscn"
-const DEMO_SNOW_CAMP_SCENE_PATH: String = "res://scenes/demo/demo_snow_camp.tscn"
-const DEMO_SNOW_PATH_SCENE_PATH: String = "res://scenes/demo/demo_snow_path.tscn"
-const DEMO_VILLA_GATE_SCENE_PATH: String = "res://scenes/demo/demo_villa_gate.tscn"
+const DEMO_SNOW_FIELD_SCENE_PATH: String = "res://scenes/demo/demo_snow_field.tscn"
 const DEMO_LOGO_SCENE_PATH: String = "res://scenes/demo/demo_logo.tscn"
 const DEMO_STUDY_SCENE_PATH: String = "res://scenes/demo/demo_study.tscn"
 const DEMO_CRIME_SCENE_PATH: String = "res://scenes/demo/demo_crime_scene_lin_room.tscn"
@@ -572,13 +570,13 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 			request_scene_change(DEMO_BLACK_SCREEN_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_PROLOGUE)
 		ACTION_DEMO_PROLOGUE_INTRO_FINISHED:
 			set_step(STEP_DEMO_SNOW_CAMP)
-			request_scene_change(DEMO_SNOW_CAMP_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_SNOW_CAMP_ARRIVAL)
+			request_scene_change(DEMO_SNOW_FIELD_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_SNOW_CAMP_ARRIVAL)
 		ACTION_DEMO_SNOW_PATH_INTERLUDE_FINISHED:
 			set_step(STEP_DEMO_SNOW_PATH)
-			request_scene_change(DEMO_SNOW_PATH_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_SNOW_PATH_ARRIVAL)
+			request_scene_change("", "", TIMELINE_DEMO_SNOW_PATH_ARRIVAL)
 		ACTION_DEMO_VILLA_GATE_INTERLUDE_FINISHED:
 			set_step(STEP_DEMO_VILLA_GATE)
-			request_scene_change(DEMO_VILLA_GATE_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_VILLA_GATE_ARRIVAL)
+			request_scene_change("", "", TIMELINE_DEMO_VILLA_GATE_ARRIVAL)
 		ACTION_DEMO_VILLA_DOOR_KNOCK_FINISHED:
 			set_step(STEP_DEMO_HALL_ARRIVAL)
 			request_scene_change(HALL_SCENE_PATH, "SpawnFromGate", TIMELINE_DEMO_HALL_ARRIVAL)
