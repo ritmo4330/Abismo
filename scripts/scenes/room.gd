@@ -5,6 +5,9 @@ extends Node2D
 # 编辑器配置：本场景的默认出生点名称
 @export var default_spawn_point: String = "InitialSpawn"
 @export var room_id: String = ""
+@export var camera_bounds: Rect2 = Rect2()
+@export var player_spawn_scale: Vector2 = Vector2.ONE
+@export var npc_spawn_scale: Vector2 = Vector2.ZERO
 
 func _ready():
 	# =====================
@@ -28,6 +31,7 @@ func _spawn_test_player():
 	
 	var player_instance = player_scene.instantiate()
 	add_child(player_instance)
+	apply_player_room_settings(player_instance)
 	player_instance.global_position = spawn_point.global_position
 	
 	setup_camera_limits(player_instance)
@@ -41,6 +45,16 @@ func _play_pending_standalone_timeline() -> void:
 
 func get_dynamic_actors_root() -> Node2D:
 	return find_child("DynamicActors", true, false) as Node2D
+
+
+func apply_player_room_settings(player: Node2D) -> void:
+	if player == null:
+		return
+	player.scale = Vector2.ONE
+	if player.has_method("apply_room_scale"):
+		player.apply_room_scale(player_spawn_scale)
+	else:
+		player.scale = player_spawn_scale
 
 
 func get_npc_spawn_point(spawn_point_name: String) -> Marker2D:
@@ -64,6 +78,11 @@ func get_clue_spawn_point(spawn_point_name: String) -> Marker2D:
 func setup_camera_limits(player: Node2D):
 	var camera = player.get_node_or_null("Camera2D")
 	if not camera:
+		return
+	camera.zoom = Vector2.ONE
+
+	if camera_bounds.size.x > 0.0 and camera_bounds.size.y > 0.0:
+		_apply_camera_limits(camera, Rect2(global_position + camera_bounds.position, camera_bounds.size))
 		return
 		
 	var map_pixel_rect = Rect2()
@@ -97,31 +116,34 @@ func setup_camera_limits(player: Node2D):
 			nodes_to_check.push_back(child)
 			
 	if found_any:
-		var limit_left = map_pixel_rect.position.x - 16
-		var limit_top = map_pixel_rect.position.y - 16
-		var limit_right = map_pixel_rect.end.x + 16
-		var limit_bottom = map_pixel_rect.end.y + 16
-		
-		# 获取相机的实际可视物理尺寸
-		var viewport_size = get_viewport_rect().size / camera.zoom
-		
-		var map_width = limit_right - limit_left
-		var map_height = limit_bottom - limit_top
-		
-		# 如果地图宽度小于相机可视宽度，将其居中
-		if map_width < viewport_size.x:
-			var diff = (viewport_size.x - map_width) / 2.0
-			limit_left -= diff
-			limit_right += diff
-			
-		# 如果地图高度小于相机可视高度，将其居中
-		if map_height < viewport_size.y:
-			var diff = (viewport_size.y - map_height) / 2.0
-			limit_top -= diff
-			limit_bottom += diff
-		
-		camera.limit_left = int(round(limit_left))
-		camera.limit_top = int(round(limit_top))
-		camera.limit_right = int(round(limit_right))
-		camera.limit_bottom = int(round(limit_bottom))
-		
+		_apply_camera_limits(camera, map_pixel_rect)
+
+
+func _apply_camera_limits(camera: Camera2D, map_pixel_rect: Rect2) -> void:
+	var limit_left = map_pixel_rect.position.x - 16
+	var limit_top = map_pixel_rect.position.y - 16
+	var limit_right = map_pixel_rect.end.x + 16
+	var limit_bottom = map_pixel_rect.end.y + 16
+
+	# 获取相机的实际可视物理尺寸
+	var viewport_size = get_viewport_rect().size / camera.zoom
+
+	var map_width = limit_right - limit_left
+	var map_height = limit_bottom - limit_top
+
+	# 如果地图宽度小于相机可视宽度，将其居中
+	if map_width < viewport_size.x:
+		var diff = (viewport_size.x - map_width) / 2.0
+		limit_left -= diff
+		limit_right += diff
+
+	# 如果地图高度小于相机可视高度，将其居中
+	if map_height < viewport_size.y:
+		var diff = (viewport_size.y - map_height) / 2.0
+		limit_top -= diff
+		limit_bottom += diff
+
+	camera.limit_left = int(round(limit_left))
+	camera.limit_top = int(round(limit_top))
+	camera.limit_right = int(round(limit_right))
+	camera.limit_bottom = int(round(limit_bottom))

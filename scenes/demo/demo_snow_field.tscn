@@ -8,6 +8,18 @@
 [ext_resource type="Script" uid="uid://b7fofmuqb4mgq" path="res://scripts/demo/demo_flag_barrier.gd" id="6_barrier"]
 [ext_resource type="Texture2D" uid="uid://d03vakxmj8oe0" path="res://assets/interior/snow_field.jpg" id="7_snow_field"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wlqo"]
+size = Vector2(3482, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_map_bounds_horizontal"]
+size = Vector2(3482, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_map_bounds_vertical"]
+size = Vector2(64, 495)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5d4i"]
+size = Vector2(115, 495)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_campfire"]
 radius = 27.0
 
@@ -16,9 +28,9 @@ offsets = PackedFloat32Array(0, 0.45, 1)
 colors = PackedColorArray(1, 0.56, 0.18, 0.9, 1, 0.34, 0.08, 0.42, 1, 0.18, 0.02, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_campfire_light"]
+gradient = SubResource("Gradient_campfire_light")
 width = 320
 height = 320
-gradient = SubResource("Gradient_campfire_light")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
@@ -39,18 +51,36 @@ size = Vector2(157, 138)
 size = Vector2(133, 348)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
-size = Vector2(109, 359.5)
+size = Vector2(109, 126.75)
 
 [node name="DemoSnowField" type="Node2D" unique_id=454290234]
 y_sort_enabled = true
 script = ExtResource("1_room")
-camera_bounds = Rect2(0, 0, 3482, 495)
 room_id = "demo_snow_field"
+camera_bounds = Rect2(0, 0, 3482, 495)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1627315353]
 z_index = -100
 texture = ExtResource("7_snow_field")
 centered = false
+
+[node name="MapBounds" type="StaticBody2D" parent="." unique_id=1757090614]
+
+[node name="Top" type="CollisionShape2D" parent="MapBounds" unique_id=1461226127]
+position = Vector2(1741, 136)
+shape = SubResource("RectangleShape2D_1wlqo")
+
+[node name="Bottom" type="CollisionShape2D" parent="MapBounds" unique_id=1699570713]
+position = Vector2(1741, 527)
+shape = SubResource("RectangleShape2D_map_bounds_horizontal")
+
+[node name="Left" type="CollisionShape2D" parent="MapBounds" unique_id=425051265]
+position = Vector2(-32, 247.5)
+shape = SubResource("RectangleShape2D_map_bounds_vertical")
+
+[node name="Right" type="CollisionShape2D" parent="MapBounds" unique_id=2073174885]
+position = Vector2(3488.5, 247.5)
+shape = SubResource("RectangleShape2D_x5d4i")
 
 [node name="Campfire" type="Area2D" parent="." unique_id=920820787]
 position = Vector2(402, 449)
@@ -63,10 +93,10 @@ highlight_color = Color(1, 0.46, 0.16, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Campfire" unique_id=1967001494]
 shape = SubResource("CircleShape2D_campfire")
 
-[node name="WarmLight" type="PointLight2D" parent="Campfire"]
-enabled = false
+[node name="WarmLight" type="PointLight2D" parent="Campfire" unique_id=274416525]
 position = Vector2(0, -8)
 scale = Vector2(1.35, 1.35)
+enabled = false
 color = Color(1, 0.47, 0.16, 1)
 energy = 0.0
 texture = SubResource("GradientTexture2D_campfire_light")
@@ -163,9 +193,9 @@ interact_timeline = "demo_0_2_villa_door_knock"
 required_flag = "demo/villa_gate_story_seen"
 blocked_notice = "先靠近大门看清前方。"
 prompt_offset = Vector2(0, -20)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VillaDoor" unique_id=1922799384]
+position = Vector2(0, 116.375)
 shape = SubResource("RectangleShape2D_door")
 
 [node name="Effects" type="CanvasLayer" parent="." unique_id=713046386]

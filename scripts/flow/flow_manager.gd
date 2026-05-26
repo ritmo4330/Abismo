@@ -506,6 +506,7 @@ func spawn_npc(spawn_data: Dictionary, room: Node2D) -> void:
 	npc.name = "NPC_%s" % npc_id
 	npc.npc_id = npc_id
 	npc.npc_name = String(NPC_NAMES.get(npc_id, npc_id))
+	_apply_room_npc_settings(npc, room)
 	var timeline_override: String = String(spawn_data.get("timeline", ""))
 	if timeline_override.is_empty():
 		apply_free_timeline(npc)
@@ -514,6 +515,14 @@ func spawn_npc(spawn_data: Dictionary, room: Node2D) -> void:
 
 	dynamic_root.add_child(npc)
 	npc.global_position = spawn_point.global_position
+
+
+func _apply_room_npc_settings(npc: NpcDialogue, room: Node2D) -> void:
+	if npc == null or room == null:
+		return
+	var room_npc_scale: Variant = room.get("npc_spawn_scale")
+	if room_npc_scale is Vector2 and not (room_npc_scale as Vector2).is_zero_approx():
+		npc.scale = room_npc_scale
 
 
 func apply_free_timeline(npc: NpcDialogue) -> void:

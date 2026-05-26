@@ -145,6 +145,10 @@ func _load_room(path: String, spawn_point_name: String) -> Node2D:
 		current_player.position = (spawn_point as Node2D).global_position
 
 	level_instance.add_child(current_player)
+	if level_instance.has_method("apply_player_room_settings"):
+		level_instance.apply_player_room_settings(current_player)
+	else:
+		current_player.scale = Vector2.ONE
 
 	if spawn_point is Node2D:
 		current_player.global_position = (spawn_point as Node2D).global_position

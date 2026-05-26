@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://daw4qwopm7n4l" path="res://scripts/objects/interactable/clue_item.gd" id="1_clue_item"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_interaction"]
-radius = 41.0
+radius = 80.00625
 
 [node name="ClueItem" type="Area2D" unique_id=1111662710]
 y_sort_enabled = true

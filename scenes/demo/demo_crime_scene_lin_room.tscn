@@ -6,6 +6,18 @@
 default_spawn_point = "SpawnFromStudy"
 room_id = "demo_crime_scene_lin_room"
 
+[node name="TemporaryBlackout" type="CanvasLayer" parent="." index="0"]
+layer = 0
+
+[node name="Black" type="ColorRect" parent="TemporaryBlackout" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Door" parent="Scene" parent_id_path=PackedInt32Array(72041566) index="1" unique_id=278754570]
 monitoring = false
 monitorable = false
