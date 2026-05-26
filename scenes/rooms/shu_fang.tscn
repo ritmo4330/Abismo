@@ -36,7 +36,7 @@ y_sort_enabled = true
 script = ExtResource("1_room")
 room_id = "shu_fang"
 camera_bounds = Rect2(0, 0, 1547, 1282)
-player_spawn_scale = Vector2(4.5, 4.5)
+player_spawn_scale = Vector2(2.25, 2.25)
 npc_spawn_scale = Vector2(4.5, 4.5)
 
 [node name="Scene" type="Node2D" parent="." unique_id=1644374723]

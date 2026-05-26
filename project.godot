@@ -14,7 +14,7 @@ config/name="Abismo"
 run/main_scene="uid://qyyt35714fu4"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="uid://bcwh7upcxi31p"
+config/icon="uid://bmxqm8cbbldj"
 
 [autoload]
 
@@ -296,7 +296,7 @@ variables={
 layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres", "res://assets/UI/dialogues/plain_text.tres", "res://assets/UI/dialogues/plain_text_left.tres"]
 layout/default_style="res://assets/UI/default_visual_novel.tres"
 extensions_folder="res://addons/dialogic_additions"
-text/letter_speed=0.01
+text/letter_speed=0.08
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
 text/advance_delay=0.1

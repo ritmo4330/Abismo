@@ -10,6 +10,9 @@ radius = 115.15642
 [node name="DemoStudy" unique_id=497425185 instance=ExtResource("1_study")]
 room_id = "demo_study"
 
+[node name="SpawnFromChair" type="Marker2D" parent="." index="0" unique_id=780371260]
+position = Vector2(930, 958)
+
 [node name="TopWall" parent="Scene/MapLayer/FloorCollisions" parent_id_path=PackedInt32Array(738541235) index="0" unique_id=312408881]
 position = Vector2(769, 254.5)
 
@@ -28,6 +31,9 @@ position = Vector2(162, -203.25)
 
 [node name="DeskChair" parent="DeskLayer/DeskCollisions" parent_id_path=PackedInt32Array(461981540) index="2" unique_id=1559393230]
 position = Vector2(810, -200.25)
+
+[node name="Butler" parent="NPCSpawnPoints" parent_id_path=PackedInt32Array(985380528) index="0" unique_id=2094612947]
+position = Vector2(929, 760)
 
 [node name="Interactables" type="Node2D" parent="." index="6" unique_id=1442147238]
 y_sort_enabled = true

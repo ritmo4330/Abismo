@@ -655,8 +655,8 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 			set_step(STEP_DEMO_HALL_ARRIVAL)
 			request_scene_change(DEMO_BLACK_SCREEN_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_HALL_MEMORY)
 		ACTION_DEMO_HALL_ARRIVAL_FINISHED:
-			set_step(STEP_DEMO_STUDY_WAKE)
-			request_scene_change(DEMO_STUDY_SCENE_PATH, "SpawnFromZouLang", TIMELINE_DEMO_STUDY_WAKE)
+			set_step(STEP_DEMO_LOGO)
+			request_scene_change(DEMO_LOGO_SCENE_PATH, "InitialSpawn")
 		ACTION_DEMO_STUDY_WAKE_FINISHED:
 			set_step(STEP_DEMO_STUDY_FREE_INVESTIGATION)
 			if ToastManager != null:

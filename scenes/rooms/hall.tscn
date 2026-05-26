@@ -491,7 +491,7 @@ y_sort_enabled = true
 script = ExtResource("1_hcmxa")
 room_id = "hall"
 camera_bounds = Rect2(0, 0, 2325.25, 2134.5)
-player_spawn_scale = Vector2(4.5, 4.5)
+player_spawn_scale = Vector2(2.25, 2.25)
 npc_spawn_scale = Vector2(4.5, 4.5)
 
 [node name="Scene" type="Node2D" parent="." unique_id=1817439032]
