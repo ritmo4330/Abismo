@@ -33,20 +33,29 @@ func _ready() -> void:
 	super._ready()
 	if not body_entered.is_connected(_on_body_entered):
 		body_entered.connect(_on_body_entered)
+	if DataManager != null:
+		if not DataManager.clue_updated.is_connected(_on_clue_updated):
+			DataManager.clue_updated.connect(_on_clue_updated)
+		if not DataManager.world_flag_changed.is_connected(_on_world_flag_changed):
+			DataManager.world_flag_changed.connect(_on_world_flag_changed)
 	if EventBus != null and not EventBus.dialogue_finished.is_connected(_on_dialogue_finished):
 		EventBus.dialogue_finished.connect(_on_dialogue_finished)
+	_refresh_highlight()
 
 
 func interact(_player: Player) -> void:
 	if not _has_required_clues():
 		_show_notice("再看看书房里的门、书架和名言。", "warning")
+		_refresh_highlight()
 		return
 
 	if DataManager.has_clue("demo_conclusion_parallel_worlds"):
 		_show_notice("推理题已经解开了。", "info")
+		_refresh_highlight()
 		return
 
 	if _try_request_clues_finished_narration():
+		_refresh_highlight()
 		return
 
 	if FlowManager != null:
@@ -55,27 +64,32 @@ func interact(_player: Player) -> void:
 	if not DataManager.get_world_flag(FLAG_PUZZLE_READ):
 		DataManager.set_world_flag(FLAG_PUZZLE_READ, true)
 		DataManager.add_clue(puzzle_clue_id, "scene", "demo_study_chair")
+		_refresh_highlight()
 		_request_timeline(puzzle_timeline)
 		return
 
 	if not DataManager.get_world_flag(FLAG_CHALLENGE_READ):
 		DataManager.set_world_flag(FLAG_CHALLENGE_READ, true)
 		DataManager.mark_deep_unlocked(puzzle_clue_id)
+		_refresh_highlight()
 		_request_timeline(challenge_timeline)
 		return
 
 	if not DataManager.get_world_flag(FLAG_REASONING_STARTED):
 		DataManager.set_world_flag(FLAG_REASONING_STARTED, true)
+		_refresh_highlight()
 		EventBus.dialogue_requested.emit(reasoning_timeline)
 		return
 
 	_show_notice("按下“V”键打开推理手册，继续解决疑点。", "info")
+	_refresh_highlight()
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if not (body is Player):
 		return
 	_try_request_clues_finished_narration()
+	_refresh_highlight()
 
 
 func _on_dialogue_finished(timeline_name: String) -> void:
@@ -116,6 +130,24 @@ func _has_all_required_clues(clue_ids: Array[String]) -> bool:
 		if not DataManager.has_clue(clue_id):
 			return false
 	return true
+
+
+func _refresh_highlight() -> void:
+	var should_highlight: bool = (
+		_has_required_clues()
+		and not DataManager.get_world_flag(FLAG_PUZZLE_READ)
+		and not DataManager.has_clue("demo_conclusion_parallel_worlds")
+	)
+	set_highlight_active(should_highlight)
+
+
+func _on_clue_updated(_clue_id: String) -> void:
+	_refresh_highlight()
+
+
+func _on_world_flag_changed(flag_id: String, _value: bool) -> void:
+	if flag_id == FLAG_PUZZLE_READ or flag_id == FLAG_REASONING_STARTED:
+		_refresh_highlight()
 
 
 func _show_notice(message: String, notice_type: String, duration: float = 1.2) -> void:

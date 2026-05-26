@@ -1,206 +1,177 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dinwwry8xlpur"]
 
-[ext_resource type="Script" path="res://scripts/demo/demo_snow_room.gd" id="1_room"]
-[ext_resource type="Script" path="res://scripts/objects/interactable/demo_campfire.gd" id="2_campfire"]
-[ext_resource type="Script" path="res://scripts/demo/demo_blizzard_trigger.gd" id="3_blizzard"]
-[ext_resource type="Script" path="res://scripts/demo/demo_timeline_trigger.gd" id="4_timeline_trigger"]
-[ext_resource type="Script" path="res://scripts/objects/interactable/demo_scene_door.gd" id="5_door"]
-[ext_resource type="Script" path="res://scripts/demo/demo_flag_barrier.gd" id="6_barrier"]
+[ext_resource type="Script" uid="uid://w1ie4wu7npty" path="res://scripts/demo/demo_snow_room.gd" id="1_room"]
+[ext_resource type="Script" uid="uid://u4j3s0cgugg2" path="res://scripts/objects/interactable/demo_campfire.gd" id="2_campfire"]
+[ext_resource type="Script" uid="uid://dsgf1gh6id1tx" path="res://scripts/demo/demo_blizzard_trigger.gd" id="3_blizzard"]
+[ext_resource type="Script" uid="uid://obndxpga4sli" path="res://scripts/demo/demo_timeline_trigger.gd" id="4_timeline_trigger"]
+[ext_resource type="Script" uid="uid://b6mvpakp40jed" path="res://scripts/objects/interactable/demo_scene_door.gd" id="5_door"]
+[ext_resource type="Script" uid="uid://b7fofmuqb4mgq" path="res://scripts/demo/demo_flag_barrier.gd" id="6_barrier"]
+[ext_resource type="Texture2D" uid="uid://d03vakxmj8oe0" path="res://assets/interior/snow_field.jpg" id="7_snow_field"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_campfire"]
-radius = 44.0
+radius = 27.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_blizzard_wide"]
-size = Vector2(420, 760)
+[sub_resource type="Gradient" id="Gradient_campfire_light"]
+offsets = PackedFloat32Array(0, 0.45, 1)
+colors = PackedColorArray(1, 0.56, 0.18, 0.9, 1, 0.34, 0.08, 0.42, 1, 0.18, 0.02, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_blizzard_narrow"]
-size = Vector2(220, 760)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_story_trigger"]
-size = Vector2(260, 300)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
-size = Vector2(180, 180)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_campfire_light"]
+width = 320
+height = 320
+gradient = SubResource("Gradient_campfire_light")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_barrier"]
-size = Vector2(42, 760)
+size = Vector2(25, 348)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_barrier_notice"]
-size = Vector2(180, 760)
+size = Vector2(109, 348)
 
-[node name="DemoSnowField" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blizzard_wide"]
+size = Vector2(254, 348)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_story_trigger"]
+size = Vector2(157, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blizzard_narrow"]
+size = Vector2(133, 348)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(109, 359.5)
+
+[node name="DemoSnowField" type="Node2D" unique_id=454290234]
 y_sort_enabled = true
 script = ExtResource("1_room")
+camera_bounds = Rect2(0, 0, 3482, 495)
 room_id = "demo_snow_field"
-camera_bounds = Rect2(0, 0, 5760, 1080)
 
-[node name="Background" type="Polygon2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1627315353]
 z_index = -100
-color = Color(0.09, 0.11, 0.16, 1)
-polygon = PackedVector2Array(-200, -200, 5960, -200, 5960, 1280, -200, 1280)
+texture = ExtResource("7_snow_field")
+centered = false
 
-[node name="SnowGround" type="Polygon2D" parent="."]
-z_index = -90
-color = Color(0.71, 0.77, 0.83, 1)
-polygon = PackedVector2Array(0, 390, 900, 340, 1920, 410, 3040, 340, 3840, 390, 5760, 380, 5760, 960, 3840, 900, 1920, 820, 0, 860)
-
-[node name="Stone" type="Polygon2D" parent="."]
-position = Vector2(360, 590)
-color = Color(0.2, 0.22, 0.24, 1)
-polygon = PackedVector2Array(-76, -34, -20, -62, 62, -44, 84, 14, 24, 54, -62, 38)
-
-[node name="Campfire" type="Area2D" parent="."]
-position = Vector2(560, 560)
+[node name="Campfire" type="Area2D" parent="." unique_id=920820787]
+position = Vector2(402, 449)
 script = ExtResource("2_campfire")
 prompt_offset = Vector2(0, -16)
+highlight_enabled = true
+highlight_scale = Vector2(0.75, 0.75)
+highlight_color = Color(1, 0.46, 0.16, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfire"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfire" unique_id=1967001494]
 shape = SubResource("CircleShape2D_campfire")
 
-[node name="Visual" type="Node2D" parent="Campfire"]
+[node name="WarmLight" type="PointLight2D" parent="Campfire"]
+enabled = false
+position = Vector2(0, -8)
+scale = Vector2(1.35, 1.35)
+color = Color(1, 0.47, 0.16, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_campfire_light")
 
-[node name="WoodA" type="Polygon2D" parent="Campfire/Visual"]
-position = Vector2(0, 20)
-rotation = 0.5235988
-color = Color(0.23, 0.12, 0.06, 1)
-polygon = PackedVector2Array(-48, -8, 48, -8, 48, 8, -48, 8)
-
-[node name="WoodB" type="Polygon2D" parent="Campfire/Visual"]
-position = Vector2(0, 20)
-rotation = -0.5235988
-color = Color(0.27, 0.14, 0.07, 1)
-polygon = PackedVector2Array(-48, -8, 48, -8, 48, 8, -48, 8)
-
-[node name="Embers" type="Polygon2D" parent="Campfire/Visual"]
-position = Vector2(0, 8)
-color = Color(0.18, 0.08, 0.05, 0.9)
-polygon = PackedVector2Array(-32, -12, 32, -12, 40, 12, -40, 12)
-
-[node name="Flame" type="Polygon2D" parent="Campfire/Visual"]
-visible = false
-position = Vector2(0, -10)
-color = Color(1, 0.5, 0.08, 0.95)
-polygon = PackedVector2Array(0, -54, 30, 18, 0, 42, -30, 18)
-
-[node name="WarmthBarrier" type="StaticBody2D" parent="."]
-position = Vector2(1720, 600)
+[node name="WarmthBarrier" type="StaticBody2D" parent="." unique_id=1933940321]
+position = Vector2(1015, 320)
 script = ExtResource("6_barrier")
 required_flag = "demo/find_warmth_started"
 blocked_notice = "火堆已经熄灭。先看看能不能重新点燃它。"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WarmthBarrier"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WarmthBarrier" unique_id=696931168]
 shape = SubResource("RectangleShape2D_barrier")
 
-[node name="NoticeArea" type="Area2D" parent="WarmthBarrier"]
-position = Vector2(-90, 0)
+[node name="NoticeArea" type="Area2D" parent="WarmthBarrier" unique_id=1885399918]
+position = Vector2(-54, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WarmthBarrier/NoticeArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WarmthBarrier/NoticeArea" unique_id=142312116]
 shape = SubResource("RectangleShape2D_barrier_notice")
 
-[node name="CampBlizzardTrigger" type="Area2D" parent="."]
-position = Vector2(965, 600)
+[node name="CampBlizzardTrigger" type="Area2D" parent="." unique_id=436126021]
+position = Vector2(584, 320)
 script = ExtResource("3_blizzard")
 notice_text = "暴风雪掠过，视野被雪雾吞没。"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CampBlizzardTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CampBlizzardTrigger" unique_id=1422307231]
 shape = SubResource("RectangleShape2D_blizzard_wide")
 
-[node name="SnowPathInterludeTrigger" type="Area2D" parent="."]
-position = Vector2(1900, 600)
+[node name="SnowPathInterludeTrigger" type="Area2D" parent="." unique_id=502175030]
+position = Vector2(1232, 422)
 script = ExtResource("4_timeline_trigger")
 timeline_name = "demo_0_2_snow_path_interlude"
 played_flag = "demo/snow_path_interlude_seen"
 required_flag = "demo/find_warmth_started"
 blocked_notice = "火堆已经熄灭。先看看能不能重新点燃它。"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SnowPathInterludeTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnowPathInterludeTrigger" unique_id=951640078]
 shape = SubResource("RectangleShape2D_story_trigger")
 
-[node name="PathBlizzardTrigger1" type="Area2D" parent="."]
-position = Vector2(2440, 580)
+[node name="PathBlizzardTrigger1" type="Area2D" parent="." unique_id=2040795169]
+position = Vector2(1475, 320)
 script = ExtResource("3_blizzard")
 notice_text = "风雪迎面压来，呼吸变得更加困难。"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger1" unique_id=1737793058]
 shape = SubResource("RectangleShape2D_blizzard_narrow")
 
-[node name="PathBlizzardTrigger2" type="Area2D" parent="."]
-position = Vector2(2920, 580)
+[node name="PathBlizzardTrigger2" type="Area2D" parent="." unique_id=1344951926]
+position = Vector2(1765, 320)
 script = ExtResource("3_blizzard")
 notice_text = "暴风雪越来越大了。"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger2" unique_id=603580899]
 shape = SubResource("RectangleShape2D_blizzard_narrow")
 
-[node name="PathBlizzardTrigger3" type="Area2D" parent="."]
-position = Vector2(3380, 580)
+[node name="PathBlizzardTrigger3" type="Area2D" parent="." unique_id=999517036]
+position = Vector2(2044, 320)
 script = ExtResource("3_blizzard")
 notice_text = "远处的光还在风雪里摇晃。"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger3" unique_id=1697240072]
 shape = SubResource("RectangleShape2D_blizzard_narrow")
 
-[node name="DistantLight" type="Polygon2D" parent="."]
-position = Vector2(3660, 520)
-color = Color(1, 0.88, 0.48, 0.9)
-polygon = PackedVector2Array(0, -36, 36, 0, 0, 36, -36, 0)
-
-[node name="VillaGateInterludeTrigger" type="Area2D" parent="."]
-position = Vector2(3820, 610)
+[node name="VillaGateInterludeTrigger" type="Area2D" parent="." unique_id=246841104]
+position = Vector2(2310, 420)
 script = ExtResource("4_timeline_trigger")
 timeline_name = "demo_0_2_villa_gate_interlude"
 played_flag = "demo/villa_gate_interlude_seen"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VillaGateInterludeTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VillaGateInterludeTrigger" unique_id=1438738259]
 shape = SubResource("RectangleShape2D_story_trigger")
 
-[node name="VillaSilhouette" type="Polygon2D" parent="."]
-position = Vector2(5050, 470)
-color = Color(0.16, 0.13, 0.13, 1)
-polygon = PackedVector2Array(-360, -220, 360, -220, 440, -80, 440, 260, -440, 260, -440, -80)
-
-[node name="DoorShape" type="Polygon2D" parent="."]
-position = Vector2(5050, 650)
-color = Color(0.1, 0.07, 0.05, 1)
-polygon = PackedVector2Array(-70, -100, 70, -100, 70, 100, -70, 100)
-
-[node name="WarmLight" type="Polygon2D" parent="."]
-position = Vector2(5050, 650)
-color = Color(1, 0.72, 0.28, 0.32)
-polygon = PackedVector2Array(0, -260, 260, 0, 0, 260, -260, 0)
-
-[node name="GateBlizzardTrigger" type="Area2D" parent="."]
-position = Vector2(4380, 610)
+[node name="GateBlizzardTrigger" type="Area2D" parent="." unique_id=732953573]
+position = Vector2(2648, 320)
 script = ExtResource("3_blizzard")
 notice_text = "风雪在身后翻涌，前方的门近在眼前。"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GateBlizzardTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GateBlizzardTrigger" unique_id=751654029]
 shape = SubResource("RectangleShape2D_blizzard_wide")
 
-[node name="GateStoryTrigger" type="Area2D" parent="."]
-position = Vector2(4870, 650)
+[node name="GateStoryTrigger" type="Area2D" parent="." unique_id=1525216513]
+position = Vector2(2944, 420)
 script = ExtResource("4_timeline_trigger")
 timeline_name = "demo_0_2_villa_gate_story"
 played_flag = "demo/villa_gate_story_seen"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GateStoryTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GateStoryTrigger" unique_id=586753125]
+position = Vector2(94, 1)
 shape = SubResource("RectangleShape2D_story_trigger")
 
-[node name="VillaDoor" type="Area2D" parent="."]
-position = Vector2(5050, 650)
+[node name="VillaDoor" type="Area2D" parent="." unique_id=735221982]
+position = Vector2(3416, 308)
 script = ExtResource("5_door")
 interact_timeline = "demo_0_2_villa_door_knock"
 required_flag = "demo/villa_gate_story_seen"
 blocked_notice = "先靠近大门看清前方。"
 prompt_offset = Vector2(0, -20)
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VillaDoor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VillaDoor" unique_id=1922799384]
 shape = SubResource("RectangleShape2D_door")
 
-[node name="Effects" type="CanvasLayer" parent="."]
+[node name="Effects" type="CanvasLayer" parent="." unique_id=713046386]
 layer = 20
 
-[node name="BlizzardFlash" type="ColorRect" parent="Effects"]
+[node name="BlizzardFlash" type="ColorRect" parent="Effects" unique_id=2048288543]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -210,5 +181,5 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.85, 0.93, 1, 0.75)
 
-[node name="InitialSpawn" type="Marker2D" parent="."]
-position = Vector2(240, 610)
+[node name="InitialSpawn" type="Marker2D" parent="." unique_id=314014604]
+position = Vector2(326, 407)

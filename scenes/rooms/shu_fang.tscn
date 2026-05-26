@@ -726,8 +726,8 @@ position = Vector2(1084, 883)
 
 [node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=985380528]
 
-[node name="Zhong" type="Marker2D" parent="NPCSpawnPoints" unique_id=2094612947]
-position = Vector2(990, 810)
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints" unique_id=2094612947]
+position = Vector2(1082, 809)
 
 [node name="DynamicActors" type="Node2D" parent="." unique_id=464224187]
 y_sort_enabled = true

@@ -37,6 +37,7 @@ const ROOM_FLOOR2: String = "floor2"
 const ROOM_HUI_KE_TING: String = "hui_ke_ting"
 const ROOM_FIRST_SEARCH: String = "room_wu_ting_xiang"
 const ROOM_SECOND_SEARCH: String = "shu_fang"
+const ROOM_DEMO_STUDY: String = "demo_study"
 const ROOM_DEMO_CRIME_SCENE: String = "demo_crime_scene_lin_room"
 
 const HALL_SCENE_PATH: String = "res://scenes/rooms/hall.tscn"
@@ -67,6 +68,8 @@ const ACTION_DEMO_VILLA_DOOR_KNOCK_FINISHED: String = "demo_villa_door_knock_fin
 const ACTION_DEMO_HALL_MEMORY_START: String = "demo_hall_memory_start"
 const ACTION_DEMO_HALL_ARRIVAL_FINISHED: String = "demo_hall_arrival_finished"
 const ACTION_DEMO_STUDY_WAKE_FINISHED: String = "demo_study_wake_finished"
+const ACTION_DEMO_STUDY_BUTLER_ENTER: String = "demo_study_butler_enter"
+const ACTION_DEMO_STUDY_BUTLER_LEAVE: String = "demo_study_butler_leave"
 const ACTION_DEMO_PUZZLE_SOLVED: String = "demo_puzzle_solved"
 const ACTION_DEMO_MURDER_REQUEST_ACCEPTED: String = "demo_murder_request_accepted"
 const ACTION_DEMO_CRIME_SCENE_FINISHED: String = "demo_crime_scene_finished"
@@ -110,6 +113,7 @@ const FREE_INTERACTION_TIMELINES: Dictionary = {
 
 const NPC_NAMES: Dictionary = {
 	"butler": "butler",
+	"meta": "meta",
 	"zhou": "zhou",
 	"mu": "mu",
 	"lin": "lin",
@@ -151,6 +155,12 @@ const BASE_NPC_LOCATIONS_BY_STEP: Dictionary = {
 		"zhong": {"room_id": ROOM_HALL, "spawn": "Zhong"},
 	},
 	STEP_CH1_SECOND_SEARCH: {
+	},
+	STEP_DEMO_HALL_ARRIVAL: {
+		"meta": {"room_id": ROOM_HALL, "spawn": "Meta"},
+	},
+	STEP_DEMO_STUDY_WAKE: {
+		"butler": {"room_id": ROOM_DEMO_STUDY, "spawn": "Butler"},
 	},
 	STEP_DEMO_CRIME_SCENE: {
 		"butler": {"room_id": ROOM_DEMO_CRIME_SCENE, "spawn": "Butler"},
@@ -227,6 +237,7 @@ func set_step(step_id: String) -> void:
 	current_step_id = step_id
 	_reset_npc_locations_for_step(step_id)
 	_sync_bgm_for_step(step_id)
+	_refresh_current_room_actors()
 
 
 func are_manual_panels_unlocked() -> bool:
@@ -246,6 +257,7 @@ func set_npc_location(
 		return
 	if room_id.is_empty() or spawn_name.is_empty():
 		_npc_locations.erase(npc_id)
+		_remove_spawned_npc(_resolve_npc_id(npc_id))
 		return
 
 	var location: Dictionary = {
@@ -257,6 +269,7 @@ func set_npc_location(
 	if not scene_path.is_empty():
 		location["scene"] = scene_path
 	_npc_locations[npc_id] = location
+	_refresh_spawned_npc(npc_id, location)
 
 
 func request_scene_change(target_scene_path: String, spawn_point: String, auto_timeline: String = "") -> bool:
@@ -422,6 +435,46 @@ func setup_room_actors(room: Node2D) -> void:
 		spawn_npc(spawn_data, room)
 
 
+func _refresh_current_room_actors() -> void:
+	if _current_room == null or current_room_id.is_empty():
+		return
+	setup_room_actors(_current_room)
+
+
+func _refresh_spawned_npc(npc_id: String, location: Dictionary) -> void:
+	if _current_room == null or current_room_id.is_empty():
+		return
+
+	var resolved_npc_id: String = _resolve_npc_id(npc_id)
+	if resolved_npc_id.is_empty():
+		return
+
+	_remove_spawned_npc(resolved_npc_id)
+	if String(location.get("room_id", "")) != current_room_id:
+		return
+
+	var spawn_data: Dictionary = location.duplicate(true)
+	spawn_data["npc_id"] = resolved_npc_id
+	spawn_npc(spawn_data, _current_room)
+
+
+func _remove_spawned_npc(npc_id: String) -> void:
+	if _current_room == null or npc_id.is_empty():
+		return
+
+	var dynamic_root: Node2D = _get_or_create_dynamic_actors_root(_current_room)
+	if dynamic_root == null:
+		return
+
+	var node_name: String = "NPC_%s" % npc_id
+	var npc_node: Node = dynamic_root.get_node_or_null(node_name)
+	if npc_node == null:
+		return
+
+	dynamic_root.remove_child(npc_node)
+	npc_node.queue_free()
+
+
 func spawn_npc(spawn_data: Dictionary, room: Node2D) -> void:
 	var npc_id: String = _resolve_npc_id(String(spawn_data.get("npc_id", "")))
 	if npc_id.is_empty():
@@ -433,6 +486,11 @@ func spawn_npc(spawn_data: Dictionary, room: Node2D) -> void:
 	if spawn_point == null or dynamic_root == null:
 		push_warning("FlowManager: missing NPC spawn '%s' in room '%s'." % [spawn_name, current_room_id])
 		return
+
+	var existing_npc: Node = dynamic_root.get_node_or_null("NPC_%s" % npc_id)
+	if existing_npc != null:
+		dynamic_root.remove_child(existing_npc)
+		existing_npc.queue_free()
 
 	var npc_scene_path: String = String(spawn_data.get("scene", NPC_SCENE_PATH))
 	var scene: PackedScene = load(npc_scene_path) as PackedScene
@@ -509,6 +567,10 @@ func _on_flow_signal_requested(signal_name: String) -> void:
 			_pending_action_after_dialogue = ACTION_DEMO_HALL_ARRIVAL_FINISHED
 		ACTION_DEMO_STUDY_WAKE_FINISHED:
 			_pending_action_after_dialogue = ACTION_DEMO_STUDY_WAKE_FINISHED
+		ACTION_DEMO_STUDY_BUTLER_ENTER:
+			set_npc_location("butler", ROOM_DEMO_STUDY, "Butler")
+		ACTION_DEMO_STUDY_BUTLER_LEAVE:
+			set_npc_location("butler", "", "")
 		ACTION_DEMO_PUZZLE_SOLVED:
 			_pending_action_after_dialogue = ACTION_DEMO_PUZZLE_SOLVED
 		ACTION_DEMO_MURDER_REQUEST_ACCEPTED:

@@ -1,24 +1,15 @@
 [gd_scene format=3 uid="uid://ct2cpkmfnsiy7"]
 
 [ext_resource type="Script" uid="uid://daw4qwopm7n4l" path="res://scripts/objects/interactable/clue_item.gd" id="1_clue_item"]
-[ext_resource type="Texture2D" uid="uid://ca5s3clu2ityc" path="res://scenes/objects/pixel-art (1).png" id="2_tiv6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_interaction"]
 radius = 41.0
 
-[sub_resource type="Gradient" id="Gradient_3lgly"]
-offsets = PackedFloat32Array(0.09049774, 0.17420815)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tiv6d"]
-gradient = SubResource("Gradient_3lgly")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0, 1)
-
 [node name="ClueItem" type="Area2D" unique_id=1111662710]
 y_sort_enabled = true
 script = ExtResource("1_clue_item")
+highlight_enabled = true
+highlight_scale = Vector2(0.65, 0.65)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1740502620]
 shape = SubResource("CircleShape2D_interaction")
@@ -26,7 +17,3 @@ shape = SubResource("CircleShape2D_interaction")
 [node name="ClueIcon" type="Sprite2D" parent="." unique_id=1806375413]
 position = Vector2(-0.9999962, 2.9999886)
 scale = Vector2(0.06213872, 0.062138725)
-texture = ExtResource("2_tiv6d")
-
-[node name="Highlight" type="PointLight2D" parent="." unique_id=441945592]
-texture = SubResource("GradientTexture2D_tiv6d")

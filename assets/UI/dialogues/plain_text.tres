@@ -35,7 +35,7 @@ scene = ExtResource("5_hrvmw")
 script = ExtResource("2_ha7td")
 scene = ExtResource("6_an7dj")
 overrides = {
-"bold_font": "res://assets/UI/ShanHaiJiangNanLi45W-2.ttf",
+"bold_font": "\"res://assets/UI/Nightgazer16B.ttf\"",
 "bold_italics_font": "res://assets/UI/ShanHaiJiangNanLi45W-2.ttf",
 "box_color_custom": "Color(0, 0, 0, 0)",
 "box_color_use_global": "false",
@@ -43,7 +43,7 @@ overrides = {
 "italics_font": "res://assets/UI/ShanHaiJiangNanLi45W-2.ttf",
 "name_label_box_offset": "Vector2(0, -20)",
 "next_indicator_enabled": "false",
-"normal_font": "res://assets/UI/ShanHaiJiangNanLi45W-2.ttf",
+"normal_font": "\"res://assets/UI/Nightgazer16.ttf\"",
 "paragraph_separation": "36.0",
 "text_alignment": "1",
 "text_content_width": "1280.0",

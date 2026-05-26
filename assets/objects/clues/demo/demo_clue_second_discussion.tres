@@ -6,7 +6,7 @@
 script = ExtResource("1_clue")
 id = "demo_clue_second_discussion"
 title = "第二段讨论"
-description = "讨论中出现了眼镜男、律师、女高中生、壮汉。众人发现暴风雪导致他们无法离开，电话线也被切断。"
+description = "（故事22-25段）讨论中出现了眼镜男（在角落颤抖）、律师（双手盖在额头上）、女高中生（坐在沙发上）、壮汉（靠在墙边）。众人发现暴风雪导致他们无法离开，电话线也被切断。"
 chapter_id = "demo"
 room_id = "demo_study"
 category_path = PackedStringArray("Demo", "谜题", "整理线索")

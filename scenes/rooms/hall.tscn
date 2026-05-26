@@ -593,6 +593,9 @@ shape = SubResource("RectangleShape2D_hcmxa")
 [node name="Butler" type="Marker2D" parent="NPCSpawnPoints" unique_id=287725412]
 position = Vector2(898, 585)
 
+[node name="Meta" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(898, 805)
+
 [node name="Zhou" type="Marker2D" parent="NPCSpawnPoints" unique_id=88650378]
 position = Vector2(645, 642)
 

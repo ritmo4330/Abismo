@@ -13,6 +13,9 @@ extends Interactable
 func _ready() -> void:
 	super._ready()
 	_register_clue_defs()
+	if DataManager != null and not DataManager.clue_updated.is_connected(_on_clue_updated):
+		DataManager.clue_updated.connect(_on_clue_updated)
+	_refresh_highlight()
 
 
 func interact(_player: Player) -> void:
@@ -27,6 +30,7 @@ func interact(_player: Player) -> void:
 		DataManager.set_world_flag(investigate_flag, true)
 
 	DataManager.add_clue(target_clue_id, "scene", _resolve_source_id(target_clue_id))
+	_refresh_highlight()
 
 	var child_ids: PackedStringArray = DataManager.get_child_clue_ids(target_clue_id)
 	if child_ids.is_empty():
@@ -74,6 +78,17 @@ func _resolve_source_id(target_clue_id: String) -> String:
 
 func _build_investigate_flag(target_clue_id: String) -> String:
 	return "clue_investigated/%s" % target_clue_id
+
+
+func _refresh_highlight() -> void:
+	var target_clue_id: String = _resolve_clue_id()
+	set_highlight_active(not target_clue_id.is_empty() and not DataManager.has_clue(target_clue_id))
+
+
+func _on_clue_updated(updated_clue_id: String) -> void:
+	var target_clue_id: String = _resolve_clue_id()
+	if updated_clue_id == target_clue_id:
+		_refresh_highlight()
 
 
 func _emit_single_detail(target_clue_id: String) -> void:

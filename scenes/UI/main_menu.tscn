@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://qyyt35714fu4"]
 
 [ext_resource type="Script" uid="uid://cwjajf0rkcmxg" path="res://scripts/UI/main_menu.gd" id="1_yonvy"]
-[ext_resource type="Texture2D" uid="uid://bcwh7upcxi31p" path="res://pixel-art (1).png" id="2_5jstl"]
-[ext_resource type="Texture2D" uid="uid://c513ss1cdr27t" path="res://assets/UI/textBox.png" id="3_tfcbk"]
+[ext_resource type="Texture2D" uid="uid://cxdlqm3eynvn4" path="res://assets/UI/开始界面.png" id="2_start_menu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_click_area"]
 
 [node name="MainMenu" type="Control" unique_id=972216570]
 layout_mode = 3
@@ -18,48 +19,77 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 93.0
-offset_top = 3.0
-offset_right = -969.0
-offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_5jstl")
+mouse_filter = 2
+texture = ExtResource("2_start_menu")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 0
 
 [node name="StartButton" type="Button" parent="." unique_id=1027788468]
-layout_mode = 0
-offset_left = 997.0
-offset_top = 53.0
-offset_right = 1867.0
-offset_bottom = 341.0
-theme_override_font_sizes/font_size = 128
-text = "开始游戏"
-icon = ExtResource("3_tfcbk")
-icon_alignment = 1
-expand_icon = true
+layout_mode = 1
+anchor_left = 0.605769
+anchor_top = 0.1
+anchor_right = 0.842949
+anchor_bottom = 0.238889
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_click_area")
+flat = true
 
-[node name="OptionsButton" type="Button" parent="." unique_id=802542024]
-layout_mode = 0
-offset_left = 1000.0
-offset_top = 356.0
-offset_right = 1870.0
-offset_bottom = 644.0
-theme_override_font_sizes/font_size = 128
-text = "选项"
-icon = ExtResource("3_tfcbk")
-icon_alignment = 1
-expand_icon = true
+[node name="LoadButton" type="Button" parent="." unique_id=802542024]
+layout_mode = 1
+anchor_left = 0.583333
+anchor_top = 0.286667
+anchor_right = 0.814103
+anchor_bottom = 0.427778
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_click_area")
+flat = true
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 1
+anchor_left = 0.189103
+anchor_top = 0.572222
+anchor_right = 0.416667
+anchor_bottom = 0.722222
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_click_area")
+flat = true
 
 [node name="QuitButton" type="Button" parent="." unique_id=1836269467]
-layout_mode = 0
-offset_left = 995.0
-offset_top = 687.0
-offset_right = 1865.0
-offset_bottom = 975.0
-theme_override_font_sizes/font_size = 128
-text = "退出游戏"
-icon = ExtResource("3_tfcbk")
-icon_alignment = 1
-expand_icon = true
+layout_mode = 1
+anchor_left = 0.153846
+anchor_top = 0.761111
+anchor_right = 0.384615
+anchor_bottom = 0.911111
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_click_area")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_click_area")
+flat = true

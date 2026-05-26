@@ -35,13 +35,13 @@ scene = ExtResource("5_513yl")
 script = ExtResource("2_femsk")
 scene = ExtResource("6_h285t")
 overrides = {
-"bold_font": "res://assets/UI/ShanHaiJiangNanLi45W-2.ttf",
+"bold_font": "\"res://assets/UI/Nightgazer16B.ttf\"",
 "bold_italics_font": "res://assets/UI/ShanHaiJiangNanLi45W-2.ttf",
 "box_size": "Vector2(1560, 700)",
 "italics_font": "res://assets/UI/ShanHaiJiangNanLi45W-2.ttf",
 "name_label_box_offset": "Vector2(0, -20)",
 "next_indicator_enabled": "false",
-"normal_font": "res://assets/UI/ShanHaiJiangNanLi45W-2.ttf",
+"normal_font": "\"res://assets/UI/Nightgazer16.ttf\"",
 "paragraph_separation": "24.0",
 "text_content_width": "1560.0",
 "text_size": "36.0",

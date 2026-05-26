@@ -4,6 +4,7 @@ signal clue_updated(clue_id: String)
 signal suspicion_updated(suspicion_id: String)
 signal affinity_changed(npc_id: String, new_value: int)
 signal ui_notice_requested(message: String, notice_type: String)
+signal world_flag_changed(flag_id: String, value: bool)
 
 const CLUE_RESOURCE_ROOT: String = "res://assets/objects/clues"
 const SUSPICION_RESOURCE_ROOT: String = "res://assets/objects/suspicions"
@@ -326,7 +327,10 @@ func resolve_suspicion(suspicion_id: String) -> bool:
 func set_world_flag(flag_id: String, value: bool = true) -> void:
 	if flag_id.is_empty():
 		return
+	var previous_value: bool = get_world_flag(flag_id)
 	world_flags[flag_id] = value
+	if previous_value != value:
+		world_flag_changed.emit(flag_id, value)
 
 
 func get_world_flag(flag_id: String) -> bool:

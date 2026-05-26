@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://dw784kvbhln5j"]
 
 [ext_resource type="Script" uid="uid://n8upgotyhksy" path="res://scripts/demo/demo_logo.gd" id="1_logo"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_6y2av"]
-font_size = 36
-
-[sub_resource type="LabelSettings" id="LabelSettings_fp1wh"]
-font_size = 36
+[ext_resource type="Texture2D" uid="uid://bbjmfj56tb7bu" path="res://assets/UI/纯logo透明底反色.PNG" id="2_fp1wh"]
 
 [node name="DemoLogo" type="Node2D" unique_id=409642825]
 script = ExtResource("1_logo")
@@ -25,36 +20,13 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Logo" type="Label" parent="LogoLayer" unique_id=1236088180]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -240.0
-offset_top = -84.0
-offset_right = 240.0
-offset_bottom = 84.0
+[node name="Logo" type="TextureRect" parent="LogoLayer" unique_id=1236088180]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "异数"
-label_settings = SubResource("LabelSettings_6y2av")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Subtitle" type="Label" parent="LogoLayer" unique_id=581373941]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -280.0
-offset_top = 74.0
-offset_right = 280.0
-offset_bottom = 118.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Demo"
-label_settings = SubResource("LabelSettings_fp1wh")
-horizontal_alignment = 1
-vertical_alignment = 1
+mouse_filter = 2
+texture = ExtResource("2_fp1wh")
+expand_mode = 1
+stretch_mode = 5

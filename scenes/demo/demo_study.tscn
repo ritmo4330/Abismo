@@ -44,6 +44,9 @@ script = ExtResource("3_chair")
 required_clue_ids = PackedStringArray("demo_study_door", "demo_study_bookshelf", "demo_study_quote")
 interact_id = "demo_study_chair"
 prompt_offset = Vector2(0, -18)
+highlight_enabled = true
+highlight_scale = Vector2(0.85, 0.85)
+highlight_color = Color(1, 0.86, 0.35, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/StudyChair" index="0" unique_id=618508943]
 shape = SubResource("CircleShape2D_chair")

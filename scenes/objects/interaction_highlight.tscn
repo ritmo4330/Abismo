@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cf1sfyw2wgsb8"]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/interaction_highlight.gd" id="1_highlight"]
+
+[sub_resource type="Gradient" id="Gradient_interaction_highlight"]
+offsets = PackedFloat32Array(0, 0.45, 1)
+colors = PackedColorArray(1, 0.86, 0.35, 0.75, 1, 0.72, 0.2, 0.28, 1, 0.72, 0.2, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_interaction_highlight"]
+width = 192
+height = 192
+gradient = SubResource("Gradient_interaction_highlight")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_interaction_highlight"]
+blend_mode = 1
+
+[node name="InteractionHighlight" type="Node2D"]
+visible = false
+z_index = 40
+script = ExtResource("1_highlight")
+
+[node name="Glow" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_interaction_highlight")
+texture = SubResource("GradientTexture2D_interaction_highlight")
