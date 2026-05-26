@@ -15,20 +15,26 @@ const DEFAULT_REQUIRED_CLUE_IDS: Array[String] = [
 @export var puzzle_clue_id: String = "demo_clue_puzzle_story"
 @export var challenge_clue_id: String = "demo_clue_challenge_rules"
 @export var puzzle_timeline: String = "demo_1_1_puzzle_story"
+@export var puzzle_followup_timeline: String = "demo_1_1_puzzle_followup"
 @export var challenge_timeline: String = "demo_1_1_challenge_rules"
 @export var reasoning_timeline: String = "demo_1_1_puzzle_reasoning"
 @export var clues_finished_timeline: String = "demo_1_1_study_clues_finished"
 
 const FLAG_CLUES_FINISHED_NARRATION_SEEN: String = "demo/study/clues_finished_narration_seen"
 const FLAG_PUZZLE_READ: String = "demo/study/puzzle_read"
+const FLAG_PUZZLE_FOLLOWUP_SEEN: String = "demo/study/puzzle_followup_seen"
 const FLAG_CHALLENGE_READ: String = "demo/study/challenge_read"
 const FLAG_REASONING_STARTED: String = "demo/study/reasoning_started"
+
+var _pending_puzzle_followup_notice: bool = false
 
 
 func _ready() -> void:
 	super._ready()
 	if not body_entered.is_connected(_on_body_entered):
 		body_entered.connect(_on_body_entered)
+	if EventBus != null and not EventBus.dialogue_finished.is_connected(_on_dialogue_finished):
+		EventBus.dialogue_finished.connect(_on_dialogue_finished)
 
 
 func interact(_player: Player) -> void:
@@ -72,6 +78,16 @@ func _on_body_entered(body: Node2D) -> void:
 	_try_request_clues_finished_narration()
 
 
+func _on_dialogue_finished(timeline_name: String) -> void:
+	if timeline_name == puzzle_timeline:
+		_request_puzzle_followup()
+		return
+
+	if timeline_name == puzzle_followup_timeline and _pending_puzzle_followup_notice:
+		_pending_puzzle_followup_notice = false
+		_show_notice("再次按下“F”以深入调查", "info", 2.2)
+
+
 func _try_request_clues_finished_narration() -> bool:
 	if DataManager.get_world_flag(FLAG_CLUES_FINISHED_NARRATION_SEEN):
 		return false
@@ -102,9 +118,18 @@ func _has_all_required_clues(clue_ids: Array[String]) -> bool:
 	return true
 
 
-func _show_notice(message: String, notice_type: String) -> void:
+func _show_notice(message: String, notice_type: String, duration: float = 1.2) -> void:
 	if ToastManager != null:
-		ToastManager.show_notice(message, notice_type)
+		ToastManager.show_notice(message, notice_type, duration)
+
+
+func _request_puzzle_followup() -> void:
+	if DataManager.get_world_flag(FLAG_PUZZLE_FOLLOWUP_SEEN):
+		return
+
+	DataManager.set_world_flag(FLAG_PUZZLE_FOLLOWUP_SEEN, true)
+	_pending_puzzle_followup_notice = true
+	_request_timeline(puzzle_followup_timeline)
 
 
 func _request_timeline(timeline_name: String) -> void:

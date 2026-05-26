@@ -81,6 +81,7 @@ directories/dtl_directory={
 "demo_1_1_conclusion_parallel_worlds": "res://assets/dialogues/demo/demo_1_1_conclusion_parallel_worlds.dtl",
 "demo_1_1_conclusion_strange_description": "res://assets/dialogues/demo/demo_1_1_conclusion_strange_description.dtl",
 "demo_1_1_murder_request": "res://assets/dialogues/demo/demo_1_1_murder_request.dtl",
+"demo_1_1_puzzle_followup": "res://assets/dialogues/demo/demo_1_1_puzzle_followup.dtl",
 "demo_1_1_puzzle_reasoning": "res://assets/dialogues/demo/demo_1_1_puzzle_reasoning.dtl",
 "demo_1_1_puzzle_story": "res://assets/dialogues/demo/demo_1_1_puzzle_story.dtl",
 "demo_1_1_study_clues_finished": "res://assets/dialogues/demo/demo_1_1_study_clues_finished.dtl",
@@ -106,6 +107,7 @@ variables={
 "Zhong": 45,
 "Zhou": 60
 },
+"ButlerName": "管家",
 "Ch1": {
 "BodySearch": {
 "Enabled": false,
@@ -287,8 +289,10 @@ variables={
 "Demo": {
 "Started": false
 },
+"MetaName": "梅塔",
 "PlayerGender": "",
-"PlayerName": ""
+"PlayerName": "",
+"ZhongQiName": "钟歧"
 }
 layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres", "res://assets/UI/dialogues/plain_text.tres", "res://assets/UI/dialogues/plain_text_left.tres"]
 layout/default_style="res://assets/UI/default_visual_novel.tres"

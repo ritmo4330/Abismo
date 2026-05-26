@@ -17,6 +17,15 @@ const STEP_DEMO_MURDER_REQUEST: String = "demo_1_1_murder_request"
 const STEP_DEMO_CRIME_SCENE: String = "demo_1_2_crime_scene"
 const STEP_DEMO_END: String = "demo_end"
 
+const DEMO_MANUAL_UNLOCKED_STEPS: Array[String] = [
+	STEP_DEMO_STUDY_WAKE,
+	STEP_DEMO_STUDY_FREE_INVESTIGATION,
+	STEP_DEMO_PUZZLE,
+	STEP_DEMO_MURDER_REQUEST,
+	STEP_DEMO_CRIME_SCENE,
+	STEP_DEMO_END,
+]
+
 const STEP_CH1_INTRO_HALL: String = "ch1_1_intro_hall"
 const STEP_CH1_FIRST_SEARCH: String = "ch1_2_first_search"
 const STEP_CH1_INITIAL_REASONING: String = "ch1_3_initial_reasoning"
@@ -193,6 +202,7 @@ func prepare_demo_start() -> void:
 	pending_auto_timeline = TIMELINE_DEMO_IDENTITY
 	_reset_npc_locations_for_step(current_step_id)
 	_sync_bgm_for_step(current_step_id)
+	_set_demo_character_names_unknown()
 	set_dialogic_var("PlayerName", "")
 	set_dialogic_var("PlayerGender", "")
 	set_dialogic_var("Demo.Started", true)
@@ -210,6 +220,7 @@ func prepare_ch1_legacy_start() -> void:
 	pending_auto_timeline = ""
 	_reset_npc_locations_for_step(current_step_id)
 	_stop_bgm()
+	_set_demo_character_names_revealed()
 
 
 func set_step(step_id: String) -> void:
@@ -218,6 +229,12 @@ func set_step(step_id: String) -> void:
 	current_step_id = step_id
 	_reset_npc_locations_for_step(step_id)
 	_sync_bgm_for_step(step_id)
+
+
+func are_manual_panels_unlocked() -> bool:
+	if current_chapter_id != CHAPTER_DEMO:
+		return true
+	return DEMO_MANUAL_UNLOCKED_STEPS.has(current_step_id)
 
 
 func set_npc_location(
@@ -337,6 +354,18 @@ func set_dialogic_var(path: String, value: Variant) -> void:
 	if path.is_empty() or Dialogic == null:
 		return
 	Dialogic.VAR.set(path, value)
+
+
+func _set_demo_character_names_unknown() -> void:
+	set_dialogic_var("ButlerName", "？？")
+	set_dialogic_var("MetaName", "？？")
+	set_dialogic_var("ZhongQiName", "？？")
+
+
+func _set_demo_character_names_revealed() -> void:
+	set_dialogic_var("ButlerName", "管家")
+	set_dialogic_var("MetaName", "梅塔")
+	set_dialogic_var("ZhongQiName", "钟歧")
 
 
 func _reset_npc_locations_for_step(step_id: String) -> void:

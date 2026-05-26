@@ -122,10 +122,9 @@ func _input(event: InputEvent) -> void:
 	if _is_toggle_input(event):
 		if _is_open:
 			_close_panel()
-			get_viewport().set_input_as_handled()
 		else:
-			if _open_archive_panel():
-				get_viewport().set_input_as_handled()
+			_open_archive_panel()
+		get_viewport().set_input_as_handled()
 		return
 
 	if not _is_open:
@@ -327,10 +326,13 @@ func _close_panel() -> void:
 func _can_open_panel() -> bool:
 	if SceneManager != null and SceneManager.is_transitioning:
 		return false
+	if GameManager != null and int(GameManager.current_state) == int(GameManager.GameState.DIALOGUE):
+		return false
+	if not _is_manual_access_unlocked():
+		_show_manual_locked_notice()
+		return false
 	if GameManager == null:
 		return true
-	if int(GameManager.current_state) == int(GameManager.GameState.DIALOGUE):
-		return false
 	return true
 
 
@@ -820,3 +822,17 @@ func _is_close_input(event: InputEvent) -> bool:
 	if key_event.echo:
 		return false
 	return key_event.keycode == KEY_ESCAPE or key_event.physical_keycode == KEY_ESCAPE
+
+
+func _is_manual_access_unlocked() -> bool:
+	if FlowManager == null:
+		return true
+	if not FlowManager.has_method("are_manual_panels_unlocked"):
+		return true
+	return FlowManager.are_manual_panels_unlocked()
+
+
+func _show_manual_locked_notice() -> void:
+	if ToastManager == null:
+		return
+	ToastManager.show_notice("进入书房后才能打开线索手册。", "warning", 1.8)

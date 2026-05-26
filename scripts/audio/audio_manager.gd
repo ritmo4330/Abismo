@@ -21,7 +21,7 @@ const BGM_TRACKS: Dictionary[String, String] = {
 }
 
 const SFX_TRACKS: Dictionary[String, String] = {
-	"clock_bell": "",
+	"clock_bell": "res://assets/audio/clock_bell.wav",
 	"door_knock": "res://assets/audio/door_knock_normal.mp3",
 	"door_knock_normal": "res://assets/audio/door_knock_normal.mp3",
 	"door_knock_quick": "res://assets/audio/door_knock_quick.mp3",

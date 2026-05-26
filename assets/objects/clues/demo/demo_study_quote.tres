@@ -6,7 +6,7 @@
 script = ExtResource("1_clue")
 id = "demo_study_quote"
 title = "箴言笔记"
-description = "书桌抽屉里有一本摊开的笔记本，被翻开的那一页只有一句话：“直面过往，创造未来；直面恐惧，重获新生。”其它页都没有任何内容。"
+description = "书架上有一本摊开的笔记本，被翻开的那一页只有一句话：“直面过往，创造未来；直面恐惧，重获新生。”其它页都没有任何内容。"
 chapter_id = "demo"
 room_id = "demo_study"
 category_path = PackedStringArray("Demo", "书房")

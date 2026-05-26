@@ -6,6 +6,8 @@ butler: 客人，还请您放轻松，您刚刚敲响别墅的大门，我打开
 player: 主人？是那个红头发的男人吗？
 倒下前的那段记忆又再次浮现在脑海里……
 butler: 是的，如你所见我是一名人工智能管家，梅塔是我的主人，也是这栋别墅的主人。
+set {ButlerName} = "管家"
+set {MetaName} = "梅塔"
 butler: 请问客人你的名字是？
 player: 我是{PlayerName}。
 butler: 那请问……您来到这里有何贵干？
@@ -17,9 +19,10 @@ butler: ……如果不愿意说也没有关系，哪怕只是在这借住一晚
 butler: 你的身体在暴风雪中冻了太久，尚未完全恢复。
 butler: 很抱歉，寒舍的客房已经被其他进来避雪的客人住满了，只能请你在书房好好休息，不要在外面走动。
 butler: 我过段时间再来看望你。
-leave butler 
+leave butler
 说完管家关上书房的门离开了。
 player: ……
 闲着也是闲着，不如四处看看？
+do ToastManager.show_notice("在互动区域按下“F”键调查", "info", 2.5)
 [signal arg="flow:demo_study_wake_finished"]
 [end_timeline]

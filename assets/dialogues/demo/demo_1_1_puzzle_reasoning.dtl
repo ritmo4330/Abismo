@@ -21,5 +21,5 @@ do DataManager.add_clue("demo_clue_x_impossible_2", "dialogue", "demo_1_1_puzzle
 do DataManager.add_clue("demo_clue_challenge_rules", "dialogue", "demo_1_1_puzzle_reasoning")
 do DataManager.add_clue("demo_clue_cast", "dialogue", "demo_1_1_puzzle_reasoning")
 疑点和线索都整理好了。接下来，打开推理手册，选择对应的线索组合来解决这些疑点。
+do ToastManager.show_notice("按下“C”键打开线索手册，按下“V”键打开推理手册", "info", 3.5)
 [end_timeline]
-
