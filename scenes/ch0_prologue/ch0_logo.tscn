@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dw784kvbhln5j"]
+
+[ext_resource type="Script" uid="uid://n8upgotyhksy" path="res://scripts/ch0_prologue/ch0_logo.gd" id="1_logo"]
+[ext_resource type="Texture2D" uid="uid://bbjmfj56tb7bu" path="res://assets/UI/纯logo透明底反色.PNG" id="2_fp1wh"]
+
+[node name="Ch0Logo" type="Node2D" unique_id=409642825]
+script = ExtResource("1_logo")
+
+[node name="InitialSpawn" type="Marker2D" parent="." unique_id=1462692260]
+
+[node name="LogoLayer" type="CanvasLayer" parent="." unique_id=1831855605]
+layer = 180
+
+[node name="Background" type="ColorRect" parent="LogoLayer" unique_id=1622505138]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="TextureRect" parent="LogoLayer" unique_id=1236088180]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_fp1wh")
+expand_mode = 1
+stretch_mode = 5

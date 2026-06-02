@@ -1,0 +1,56 @@
+[style name="default_visual_novel"]
+管家带你来到了案发现场——这似乎是一间客房。
+据管家说，此时的房间内聚集了别墅里的所有人。
+空气中弥漫着一股血腥味，压抑得让人喘不过气。
+你看向了在场的另外五个人——或者说，五名嫌疑人。
+但就和初次见到别墅主人一样，一段段不属于你的记忆窜入了你的脑海……
+
+join zhou_chong_an rightmost
+在右边，你看见一名眉头紧锁、心事重重的中年男人。
+
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="0.5"]
+[color=#00bfff]晚饭后，你一个人在后花园散心。[/color]
+[color=#00bfff]夕阳将落未落，染红了天边的云霞，如同熊熊的烈火燃烧着无边的寂寥。[/color]
+[color=#00bfff]宁静的花园小径旁，几棵松树半包围着一间凉亭，一个约莫八岁的小女孩独自一人趴在凉亭内的石桌上，用笔在纸上写着什么。[/color]
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#00000000" fade="0.5"]
+leave zhou_chong_an
+
+join mu_zhi right
+你看见一名气质不凡、面色沉重的年轻男子。
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="0.5"]
+[color=#00bfff]那天夜里电闪雷鸣，你心中的不安也随着天气的恶化而放大，以致于独自身躺在床上辗转难眠。[/color]
+[color=#00bfff]不知何时，你依稀闻到了一股烟味，走出房间竟发现走廊上方已聚满浓烟。[/color]
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#00000000" fade="0.5"]
+leave mu_zhi
+
+join lin_jiu left
+join wu_ting_xiang leftmost
+往左边看，你看见一名面色惨白的年轻女子，正紧紧牵着另一名少女的手。
+leave wu_ting_xiang
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="0.5"]
+[color=#00bfff]五处地点都如约燃起了火光，随后，五色光束依次升上天空，穹顶之上，赫然出现了一个巨大的纹样。[/color]
+[color=#00bfff]你双手紧紧相握，望着这绝美而壮阔的图景。[/color]
+[color=#00bfff]无声无息中，天空绽放出光亮。[/color]
+[color=#00bfff]漆黑的天幕迅速褪去，露出了万里无云的晴空。[/color]
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#00000000" fade="0.5"]
+
+join wu_ting_xiang leftmost
+那名少女稚气未脱，身体不安地微微发抖。
+她似乎注意到了你正在看她，不知所措地注视着你。
+leave lin_jiu
+leave wu_ting_xiang
+
+join zhong_qi center
+最后，衣柜前那个不修边幅的男人回过头，打量着你。
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="0.5"]
+[color=#00bfff]你摸索着找到了电灯开关，随着“咔”一声，空间内的灯亮了起来。[/color]
+[color=#00bfff]你发觉自己站在实验室的一角，而实验室的中央，是数个被浸泡在不明液体中，到处连接着电极的人类大脑！[/color]
+你的头感到一阵眩晕，不由得往前踉跄几步，好在有人拉住了你，这才没有摔倒。
+player: 谢谢……
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#00000000" fade="0.5"]
+视野恢复正常后，你发觉自己已经来到了衣柜前，拉住你的正是你最后看到的那个人。
+zhong_qi: 小心。
+血腥味愈发刺鼻，不祥的预感涌上你的心头，驱使你往衣柜里看去——
+leave --All--
+[signal arg="flow:ch1_crime_scene_finished"]
+[end_timeline]

@@ -10,7 +10,7 @@ scale = Vector2(1.2, 1.2)
 script = ExtResource("1_idr7u")
 npc_id = "zhou"
 npc_name = "zhou"
-timeline_name = "1_1_zhou"
+timeline_name = "1_3_zhou"
 prompt_offset = Vector2(0, -10)
 
 [node name="Visual" type="Sprite2D" parent="." unique_id=278144488]

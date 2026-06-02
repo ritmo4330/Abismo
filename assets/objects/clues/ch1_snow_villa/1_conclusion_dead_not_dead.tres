@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1_clue"]
+
+[resource]
+script = ExtResource("1_clue")
+id = "1_conclusion_dead_not_dead"
+title = "死者未死"
+description = "故事声明不存在没提到的人物，也不存在假死或虚构。被隐藏的人只能来自已经列出的出场人物，因此管家或女仆在第四段并没有死。"
+chapter_id = "1"
+room_id = "study"
+category_path = PackedStringArray("雪墅", "谜题", "结论")
+tags = PackedStringArray("chapter_1", "snow_villa", "puzzle", "conclusion")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+

@@ -1,0 +1,20 @@
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="1.0" wait="true"]
+[style name="plain_text"]
+灯塔水母游入阴影，灯笼鱼前来点亮光明。\
+“你要去往哪里？”\
+“去追寻那上方的无垠。”\
+灯笼鱼摇摇灯笼，\
+“这是无尽头的旅行，即使燃尽我的生命，目标仍是遥遥无期。”
+灯塔水母告别掌灯的伙伴，只身向着彼方独行。\
+章鱼拦住她的去路，\
+“卑微如你岂配如此野心？”\
+灯塔水母不卑不亢，\
+“这是我的决心，这是我的使命，从未轮到由你来定义。”
+灯塔水母诀别不善的讥讽，决然向着彼方前行。\
+一只水母好奇地绕着她转圈，\
+“你要去往哪里？”\
+“去追寻那上方的无垠。”她的信念不移。\
+“可允许我与你同行？”\
+她招招手以示欢迎。
+[signal arg="flow:ch0_snow_path_interlude_finished"]
+[end_timeline]

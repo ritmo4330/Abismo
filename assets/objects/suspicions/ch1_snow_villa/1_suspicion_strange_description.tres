@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1_suspicion"]
+
+[resource]
+script = ExtResource("1_suspicion")
+id = "1_suspicion_strange_description"
+title = "奇怪的描述"
+description = "对X某些行为的描述细节上有一些奇怪的地方，相似的文段随着情节的变化可能会有不同的含义。"
+chapter_id = "1"
+category_path = PackedStringArray("雪墅", "谜题")
+tags = PackedStringArray("chapter_1", "snow_villa", "puzzle", "description")
+required_clue_ids = PackedStringArray("1_puzzle_x_impossible_1", "1_puzzle_x_impossible_2")
+match_mode = "exact"
+conclusion_clue_id = ""
+unlock_suspicion_ids = PackedStringArray("1_suspicion_nonexistent_service")
+resolved_world_flag = "ch1/reasoning/strange_description"
+resolution_timeline = "1_1_conclusion_strange_description"
+

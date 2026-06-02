@@ -13,11 +13,11 @@ enum GameState {
 const USER_PAUSE_TOKEN: String = "user_pause"
 const DIALOGUE_PAUSE_TOKEN: String = "dialogue"
 const SCENE_TRANSITION_PAUSE_TOKEN: String = "scene_transition"
-const BOOT_MODE_DEMO: String = "demo"
+const BOOT_MODE_CH0_PROLOGUE: String = "ch0_prologue"
 const BOOT_MODE_CH1_LEGACY: String = "ch1_legacy"
 
 var current_state: GameState = GameState.MAIN_MENU
-var _next_boot_mode: String = BOOT_MODE_DEMO
+var _next_boot_mode: String = BOOT_MODE_CH0_PROLOGUE
 var _state_before_dialogue: GameState = GameState.IN_GAME
 var _pause_tokens: Dictionary[String, bool] = {}
 
@@ -41,14 +41,14 @@ func enter_gameplay() -> void:
 
 func set_next_boot_mode(boot_mode: String) -> void:
 	if boot_mode != BOOT_MODE_CH1_LEGACY:
-		_next_boot_mode = BOOT_MODE_DEMO
+		_next_boot_mode = BOOT_MODE_CH0_PROLOGUE
 		return
 	_next_boot_mode = boot_mode
 
 
 func consume_next_boot_mode() -> String:
 	var boot_mode: String = _next_boot_mode
-	_next_boot_mode = BOOT_MODE_DEMO
+	_next_boot_mode = BOOT_MODE_CH0_PROLOGUE
 	return boot_mode
 
 

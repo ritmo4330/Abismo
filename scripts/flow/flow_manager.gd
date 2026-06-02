@@ -1,52 +1,45 @@
 extends Node
 
-const CHAPTER_DEMO: String = "demo"
+const CHAPTER_CH0_PROLOGUE: String = "ch0_prologue"
 const CHAPTER_CH1: String = "ch1_snow_villa"
 
-const STEP_DEMO_IDENTITY: String = "demo_0_1_identity"
-const STEP_DEMO_PROLOGUE_STORY: String = "demo_0_2_prologue_story"
-const STEP_DEMO_SNOW_CAMP: String = "demo_0_2_snow_camp"
-const STEP_DEMO_SNOW_PATH: String = "demo_0_2_snow_path"
-const STEP_DEMO_VILLA_GATE: String = "demo_0_2_villa_gate"
-const STEP_DEMO_HALL_ARRIVAL: String = "demo_0_2_hall_arrival"
-const STEP_DEMO_LOGO: String = "demo_0_2_logo"
-const STEP_DEMO_STUDY_WAKE: String = "demo_1_1_study_wake"
-const STEP_DEMO_STUDY_FREE_INVESTIGATION: String = "demo_1_1_study_free_investigation"
-const STEP_DEMO_PUZZLE: String = "demo_1_1_puzzle"
-const STEP_DEMO_MURDER_REQUEST: String = "demo_1_1_murder_request"
-const STEP_DEMO_CRIME_SCENE: String = "demo_1_2_crime_scene"
-const STEP_DEMO_END: String = "demo_end"
+const STEP_CH0_IDENTITY: String = "ch0_0_1_identity"
+const STEP_CH0_PROLOGUE_STORY: String = "ch0_0_2_prologue_story"
+const STEP_CH0_SNOW_CAMP: String = "ch0_0_2_snow_camp"
+const STEP_CH0_SNOW_PATH: String = "ch0_0_2_snow_path"
+const STEP_CH0_VILLA_GATE: String = "ch0_0_2_villa_gate"
+const STEP_CH0_HALL_ARRIVAL: String = "ch0_0_2_hall_arrival"
+const STEP_CH0_LOGO: String = "ch0_0_2_logo"
 
-const DEMO_MANUAL_UNLOCKED_STEPS: Array[String] = [
-	STEP_DEMO_STUDY_WAKE,
-	STEP_DEMO_STUDY_FREE_INVESTIGATION,
-	STEP_DEMO_PUZZLE,
-	STEP_DEMO_MURDER_REQUEST,
-	STEP_DEMO_CRIME_SCENE,
-	STEP_DEMO_END,
-]
+const CH0_MANUAL_UNLOCKED_STEPS: Array[String] = []
 
-const STEP_CH1_INTRO_HALL: String = "ch1_1_intro_hall"
-const STEP_CH1_FIRST_SEARCH: String = "ch1_2_first_search"
-const STEP_CH1_INITIAL_REASONING: String = "ch1_3_initial_reasoning"
-const STEP_CH1_PRIVATE_CHAT: String = "ch1_4_private_chat"
-const STEP_CH1_SECOND_SEARCH: String = "ch1_5_second_search"
+const STEP_CH1_STUDY_WAKE: String = "ch1_1_study_wake"
+const STEP_CH1_STUDY_FREE_INVESTIGATION: String = "ch1_1_study_free_investigation"
+const STEP_CH1_PUZZLE: String = "ch1_1_puzzle"
+const STEP_CH1_MURDER_REQUEST: String = "ch1_1_murder_request"
+const STEP_CH1_CRIME_SCENE: String = "ch1_2_crime_scene"
+const STEP_CH1_BODY_CG: String = "ch1_2_body_cg"
+const STEP_CH1_INTRO_HALL: String = "ch1_3_intro_hall"
+const STEP_CH1_FIRST_SEARCH: String = "ch1_4_first_search"
+const STEP_CH1_INITIAL_REASONING: String = "ch1_5_initial_reasoning"
+const STEP_CH1_PRIVATE_CHAT: String = "ch1_6_private_chat"
+const STEP_CH1_SECOND_SEARCH: String = "ch1_7_second_search"
 
 const ROOM_HALL: String = "hall"
 const ROOM_FLOOR2: String = "floor2"
 const ROOM_HUI_KE_TING: String = "hui_ke_ting"
 const ROOM_FIRST_SEARCH: String = "room_wu_ting_xiang"
 const ROOM_SECOND_SEARCH: String = "shu_fang"
-const ROOM_DEMO_STUDY: String = "demo_study"
-const ROOM_DEMO_CRIME_SCENE: String = "demo_crime_scene_lin_room"
+const ROOM_CH1_STUDY: String = "ch1_study"
+const ROOM_CH1_CRIME_SCENE: String = "ch1_crime_scene_lin_room"
 
 const HALL_SCENE_PATH: String = "res://scenes/rooms/hall.tscn"
-const DEMO_BLACK_SCREEN_SCENE_PATH: String = "res://scenes/demo/demo_black_screen.tscn"
-const DEMO_SNOW_FIELD_SCENE_PATH: String = "res://scenes/demo/demo_snow_field.tscn"
-const DEMO_LOGO_SCENE_PATH: String = "res://scenes/demo/demo_logo.tscn"
-const DEMO_STUDY_SCENE_PATH: String = "res://scenes/demo/demo_study.tscn"
-const DEMO_CRIME_SCENE_PATH: String = "res://scenes/demo/demo_crime_scene_lin_room.tscn"
-const DEMO_END_SCENE_PATH: String = "res://scenes/demo/demo_end.tscn"
+const CH0_BLACK_SCREEN_SCENE_PATH: String = "res://scenes/ch0_prologue/ch0_black_screen.tscn"
+const CH0_SNOW_FIELD_SCENE_PATH: String = "res://scenes/ch0_prologue/ch0_snow_field.tscn"
+const CH0_LOGO_SCENE_PATH: String = "res://scenes/ch0_prologue/ch0_logo.tscn"
+const CH1_STUDY_SCENE_PATH: String = "res://scenes/ch1_snow_villa/ch1_study.tscn"
+const CH1_CRIME_SCENE_PATH: String = "res://scenes/ch1_snow_villa/ch1_crime_scene_lin_room.tscn"
+const CH1_BODY_CG_SCENE_PATH: String = "res://scenes/ch1_snow_villa/ch1_body_cg.tscn"
 const HUI_KE_TING_SCENE_PATH: String = "res://scenes/rooms/hui_ke_ting.tscn"
 const FIRST_SEARCH_ROOM1_PATH: String = "res://scenes/rooms/floor2.tscn"
 const FIRST_SEARCH_ROOM2_PATH: String = "res://scenes/rooms/room_wu_ting_xiang.tscn"
@@ -60,54 +53,54 @@ const ACTION_ENTER_PRIVATE_CHAT: String = "enter_private_chat"
 const ACTION_EXIT_PRIVATE_CHAT: String = "exit_private_chat"
 const ACTION_START_SECOND_SEARCH: String = "start_second_search"
 const ACTION_EXIT_SECOND_SEARCH: String = "exit_second_search"
-const ACTION_DEMO_IDENTITY_FINISHED: String = "demo_identity_finished"
-const ACTION_DEMO_PROLOGUE_INTRO_FINISHED: String = "demo_prologue_intro_finished"
-const ACTION_DEMO_SNOW_PATH_INTERLUDE_FINISHED: String = "demo_snow_path_interlude_finished"
-const ACTION_DEMO_VILLA_GATE_INTERLUDE_FINISHED: String = "demo_villa_gate_interlude_finished"
-const ACTION_DEMO_VILLA_DOOR_KNOCK_FINISHED: String = "demo_villa_door_knock_finished"
-const ACTION_DEMO_HALL_MEMORY_START: String = "demo_hall_memory_start"
-const ACTION_DEMO_HALL_ARRIVAL_FINISHED: String = "demo_hall_arrival_finished"
-const ACTION_DEMO_STUDY_WAKE_FINISHED: String = "demo_study_wake_finished"
-const ACTION_DEMO_STUDY_BUTLER_ENTER: String = "demo_study_butler_enter"
-const ACTION_DEMO_STUDY_BUTLER_LEAVE: String = "demo_study_butler_leave"
-const ACTION_DEMO_PUZZLE_SOLVED: String = "demo_puzzle_solved"
-const ACTION_DEMO_MURDER_REQUEST_ACCEPTED: String = "demo_murder_request_accepted"
-const ACTION_DEMO_CRIME_SCENE_FINISHED: String = "demo_crime_scene_finished"
+const ACTION_CH0_IDENTITY_FINISHED: String = "ch0_identity_finished"
+const ACTION_CH0_PROLOGUE_INTRO_FINISHED: String = "ch0_prologue_intro_finished"
+const ACTION_CH0_SNOW_PATH_INTERLUDE_FINISHED: String = "ch0_snow_path_interlude_finished"
+const ACTION_CH0_VILLA_GATE_INTERLUDE_FINISHED: String = "ch0_villa_gate_interlude_finished"
+const ACTION_CH0_VILLA_DOOR_KNOCK_FINISHED: String = "ch0_villa_door_knock_finished"
+const ACTION_CH0_HALL_MEMORY_START: String = "ch0_hall_memory_start"
+const ACTION_CH0_HALL_ARRIVAL_FINISHED: String = "ch0_hall_arrival_finished"
+const ACTION_CH1_STUDY_WAKE_FINISHED: String = "ch1_study_wake_finished"
+const ACTION_CH1_STUDY_BUTLER_ENTER: String = "ch1_study_butler_enter"
+const ACTION_CH1_STUDY_BUTLER_LEAVE: String = "ch1_study_butler_leave"
+const ACTION_CH1_PUZZLE_SOLVED: String = "ch1_puzzle_solved"
+const ACTION_CH1_MURDER_REQUEST_ACCEPTED: String = "ch1_murder_request_accepted"
+const ACTION_CH1_CRIME_SCENE_FINISHED: String = "ch1_crime_scene_finished"
 
-const TIMELINE_DEMO_IDENTITY: String = "demo_0_1_identity"
-const TIMELINE_DEMO_PROLOGUE: String = "demo_0_2_prologue"
-const TIMELINE_DEMO_SNOW_CAMP_ARRIVAL: String = "demo_0_2_snow_camp_arrival"
-const TIMELINE_DEMO_SNOW_PATH_ARRIVAL: String = "demo_0_2_snow_path_arrival"
-const TIMELINE_DEMO_VILLA_GATE_ARRIVAL: String = "demo_0_2_villa_gate_arrival"
-const TIMELINE_DEMO_HALL_ARRIVAL: String = "demo_0_2_hall_arrival"
-const TIMELINE_DEMO_HALL_MEMORY: String = "demo_0_2_hall_memory"
-const TIMELINE_DEMO_STUDY_WAKE: String = "demo_1_1_study_wake"
-const TIMELINE_DEMO_PUZZLE_REASONING: String = "demo_1_1_puzzle_reasoning"
-const TIMELINE_DEMO_MURDER_REQUEST: String = "demo_1_1_murder_request"
-const TIMELINE_DEMO_CRIME_SCENE: String = "demo_1_2_crime_scene"
+const TIMELINE_CH0_IDENTITY: String = "0_1_identity"
+const TIMELINE_CH0_PROLOGUE: String = "0_2_prologue"
+const TIMELINE_CH0_SNOW_CAMP_ARRIVAL: String = "0_2_snow_camp_arrival"
+const TIMELINE_CH0_SNOW_PATH_ARRIVAL: String = "0_2_snow_path_arrival"
+const TIMELINE_CH0_VILLA_GATE_ARRIVAL: String = "0_2_villa_gate_arrival"
+const TIMELINE_CH0_HALL_ARRIVAL: String = "0_2_hall_arrival"
+const TIMELINE_CH0_HALL_MEMORY: String = "0_2_hall_memory"
+const TIMELINE_CH1_STUDY_WAKE: String = "1_1_study_wake"
+const TIMELINE_CH1_PUZZLE_REASONING: String = "1_1_puzzle_reasoning"
+const TIMELINE_CH1_MURDER_REQUEST: String = "1_1_murder_request"
+const TIMELINE_CH1_CRIME_SCENE: String = "1_2_crime_scene"
 
 const STEP_BGM_CONFIGS: Dictionary = {
-	STEP_DEMO_IDENTITY: {"track_id": "cassandra_memory", "fade_seconds": 2.0},
-	STEP_DEMO_PROLOGUE_STORY: {"track_id": "role_exit", "fade_seconds": 2.0},
-	STEP_DEMO_SNOW_CAMP: {"track_id": "role_exit", "fade_seconds": 2.0},
-	STEP_DEMO_SNOW_PATH: {"track_id": "role_exit", "fade_seconds": 2.0},
-	STEP_DEMO_VILLA_GATE: {"track_id": "role_exit", "fade_seconds": 2.0},
-	STEP_DEMO_HALL_ARRIVAL: {"track_id": "role_exit", "fade_seconds": 2.0},
-	STEP_DEMO_STUDY_WAKE: {"track_id": "plain_happiness", "fade_seconds": 2.0},
-	STEP_DEMO_STUDY_FREE_INVESTIGATION: {"track_id": "plain_happiness", "fade_seconds": 2.0},
-	STEP_DEMO_PUZZLE: {"track_id": "thinking_introspection_2", "fade_seconds": 2.0},
-	STEP_DEMO_MURDER_REQUEST: {"track_id": "truth", "fade_seconds": 2.0},
-	STEP_DEMO_CRIME_SCENE: {"track_id": "truth", "fade_seconds": 2.0},
+	STEP_CH0_IDENTITY: {"track_id": "cassandra_memory", "fade_seconds": 2.0},
+	STEP_CH0_PROLOGUE_STORY: {"track_id": "role_exit", "fade_seconds": 2.0},
+	STEP_CH0_SNOW_CAMP: {"track_id": "role_exit", "fade_seconds": 2.0},
+	STEP_CH0_SNOW_PATH: {"track_id": "role_exit", "fade_seconds": 2.0},
+	STEP_CH0_VILLA_GATE: {"track_id": "role_exit", "fade_seconds": 2.0},
+	STEP_CH0_HALL_ARRIVAL: {"track_id": "role_exit", "fade_seconds": 2.0},
+	STEP_CH1_STUDY_WAKE: {"track_id": "plain_happiness", "fade_seconds": 2.0},
+	STEP_CH1_STUDY_FREE_INVESTIGATION: {"track_id": "plain_happiness", "fade_seconds": 2.0},
+	STEP_CH1_PUZZLE: {"track_id": "thinking_introspection_2", "fade_seconds": 2.0},
+	STEP_CH1_MURDER_REQUEST: {"track_id": "truth", "fade_seconds": 2.0},
+	STEP_CH1_CRIME_SCENE: {"track_id": "truth", "fade_seconds": 2.0},
 }
 
 const FREE_INTERACTION_TIMELINES: Dictionary = {
 	CHAPTER_CH1: {
-		"butler": "1_1_butler",
-		"zhou": "1_1_zhou",
-		"mu": "1_1_mu",
-		"lin": "1_1_lin",
-		"wu": "1_1_wu",
-		"zhong": "1_1_zhong",
+		"butler": "1_3_butler",
+		"zhou": "1_3_zhou",
+		"mu": "1_3_mu",
+		"lin": "1_3_lin",
+		"wu": "1_3_wu",
+		"zhong": "1_3_zhong",
 	},
 }
 
@@ -156,19 +149,19 @@ const BASE_NPC_LOCATIONS_BY_STEP: Dictionary = {
 	},
 	STEP_CH1_SECOND_SEARCH: {
 	},
-	STEP_DEMO_HALL_ARRIVAL: {
+	STEP_CH0_HALL_ARRIVAL: {
 		"meta": {"room_id": ROOM_HALL, "spawn": "Meta"},
 	},
-	STEP_DEMO_STUDY_WAKE: {
-		"butler": {"room_id": ROOM_DEMO_STUDY, "spawn": "Butler"},
+	STEP_CH1_STUDY_WAKE: {
+		"butler": {"room_id": ROOM_CH1_STUDY, "spawn": "Butler"},
 	},
-	STEP_DEMO_CRIME_SCENE: {
-		"butler": {"room_id": ROOM_DEMO_CRIME_SCENE, "spawn": "Butler"},
-		"zhou": {"room_id": ROOM_DEMO_CRIME_SCENE, "spawn": "Zhou"},
-		"mu": {"room_id": ROOM_DEMO_CRIME_SCENE, "spawn": "Mu"},
-		"lin": {"room_id": ROOM_DEMO_CRIME_SCENE, "spawn": "Lin"},
-		"wu": {"room_id": ROOM_DEMO_CRIME_SCENE, "spawn": "Wu"},
-		"zhong": {"room_id": ROOM_DEMO_CRIME_SCENE, "spawn": "Zhong"},
+	STEP_CH1_CRIME_SCENE: {
+		"butler": {"room_id": ROOM_CH1_CRIME_SCENE, "spawn": "Butler"},
+		"zhou": {"room_id": ROOM_CH1_CRIME_SCENE, "spawn": "Zhou"},
+		"mu": {"room_id": ROOM_CH1_CRIME_SCENE, "spawn": "Mu"},
+		"lin": {"room_id": ROOM_CH1_CRIME_SCENE, "spawn": "Lin"},
+		"wu": {"room_id": ROOM_CH1_CRIME_SCENE, "spawn": "Wu"},
+		"zhong": {"room_id": ROOM_CH1_CRIME_SCENE, "spawn": "Zhong"},
 	},
 }
 
@@ -198,22 +191,22 @@ func _ready() -> void:
 		EventBus.dialogue_finished.connect(_on_dialogue_finished)
 
 
-func prepare_demo_start() -> void:
+func prepare_ch0_prologue_start() -> void:
 	if DataManager != null and DataManager.has_method("reset_runtime_state"):
 		DataManager.reset_runtime_state()
 
-	current_chapter_id = CHAPTER_DEMO
-	current_step_id = STEP_DEMO_IDENTITY
+	current_chapter_id = CHAPTER_CH0_PROLOGUE
+	current_step_id = STEP_CH0_IDENTITY
 	current_room_id = ""
 	private_chat_target = ""
 	_pending_action_after_dialogue = ""
-	pending_auto_timeline = TIMELINE_DEMO_IDENTITY
+	pending_auto_timeline = TIMELINE_CH0_IDENTITY
 	_reset_npc_locations_for_step(current_step_id)
 	_sync_bgm_for_step(current_step_id)
-	_set_demo_character_names_unknown()
+	_set_ch0_character_names_unknown()
 	set_dialogic_var("PlayerName", "")
 	set_dialogic_var("PlayerGender", "")
-	set_dialogic_var("Demo.Started", true)
+	set_dialogic_var("Ch0.Started", true)
 
 
 func prepare_ch1_legacy_start() -> void:
@@ -228,7 +221,33 @@ func prepare_ch1_legacy_start() -> void:
 	pending_auto_timeline = ""
 	_reset_npc_locations_for_step(current_step_id)
 	_stop_bgm()
-	_set_demo_character_names_revealed()
+	_set_ch0_character_names_revealed()
+
+
+func start_ch1_study_from_prologue() -> void:
+	current_chapter_id = CHAPTER_CH1
+	current_step_id = STEP_CH1_STUDY_WAKE
+	current_room_id = ""
+	private_chat_target = ""
+	_pending_action_after_dialogue = ""
+	pending_auto_timeline = TIMELINE_CH1_STUDY_WAKE
+	_reset_npc_locations_for_step(current_step_id)
+	_sync_bgm_for_step(current_step_id)
+	_set_ch0_character_names_revealed()
+	request_scene_change(CH1_STUDY_SCENE_PATH, "SpawnFromChair", TIMELINE_CH1_STUDY_WAKE)
+
+
+func start_ch1_hall_intro_from_crime_scene() -> void:
+	current_chapter_id = CHAPTER_CH1
+	current_step_id = STEP_CH1_INTRO_HALL
+	current_room_id = ""
+	private_chat_target = ""
+	_pending_action_after_dialogue = ""
+	pending_auto_timeline = ""
+	_reset_npc_locations_for_step(current_step_id)
+	_stop_bgm()
+	_set_ch0_character_names_revealed()
+	request_scene_change(HALL_SCENE_PATH, "InitialSpawn")
 
 
 func set_step(step_id: String) -> void:
@@ -241,9 +260,9 @@ func set_step(step_id: String) -> void:
 
 
 func are_manual_panels_unlocked() -> bool:
-	if current_chapter_id != CHAPTER_DEMO:
+	if current_chapter_id != CHAPTER_CH0_PROLOGUE:
 		return true
-	return DEMO_MANUAL_UNLOCKED_STEPS.has(current_step_id)
+	return CH0_MANUAL_UNLOCKED_STEPS.has(current_step_id)
 
 
 func set_npc_location(
@@ -367,13 +386,13 @@ func set_dialogic_var(path: String, value: Variant) -> void:
 	Dialogic.VAR.set(path, value)
 
 
-func _set_demo_character_names_unknown() -> void:
+func _set_ch0_character_names_unknown() -> void:
 	set_dialogic_var("ButlerName", "？？")
 	set_dialogic_var("MetaName", "？？")
 	set_dialogic_var("ZhongQiName", "？？")
 
 
-func _set_demo_character_names_revealed() -> void:
+func _set_ch0_character_names_revealed() -> void:
 	set_dialogic_var("ButlerName", "管家")
 	set_dialogic_var("MetaName", "梅塔")
 	set_dialogic_var("ZhongQiName", "钟歧")
@@ -559,33 +578,33 @@ func _on_flow_signal_requested(signal_name: String) -> void:
 			_pending_action_after_dialogue = ACTION_START_SECOND_SEARCH
 		ACTION_EXIT_SECOND_SEARCH:
 			_pending_action_after_dialogue = ACTION_EXIT_SECOND_SEARCH
-			EventBus.dialogue_requested.emit("1_5_exit")
-		ACTION_DEMO_IDENTITY_FINISHED:
-			_pending_action_after_dialogue = ACTION_DEMO_IDENTITY_FINISHED
-		ACTION_DEMO_PROLOGUE_INTRO_FINISHED:
-			_pending_action_after_dialogue = ACTION_DEMO_PROLOGUE_INTRO_FINISHED
-		ACTION_DEMO_SNOW_PATH_INTERLUDE_FINISHED:
-			_pending_action_after_dialogue = ACTION_DEMO_SNOW_PATH_INTERLUDE_FINISHED
-		ACTION_DEMO_VILLA_GATE_INTERLUDE_FINISHED:
-			_pending_action_after_dialogue = ACTION_DEMO_VILLA_GATE_INTERLUDE_FINISHED
-		ACTION_DEMO_VILLA_DOOR_KNOCK_FINISHED:
-			_pending_action_after_dialogue = ACTION_DEMO_VILLA_DOOR_KNOCK_FINISHED
-		ACTION_DEMO_HALL_MEMORY_START:
-			_pending_action_after_dialogue = ACTION_DEMO_HALL_MEMORY_START
-		ACTION_DEMO_HALL_ARRIVAL_FINISHED:
-			_pending_action_after_dialogue = ACTION_DEMO_HALL_ARRIVAL_FINISHED
-		ACTION_DEMO_STUDY_WAKE_FINISHED:
-			_pending_action_after_dialogue = ACTION_DEMO_STUDY_WAKE_FINISHED
-		ACTION_DEMO_STUDY_BUTLER_ENTER:
-			set_npc_location("butler", ROOM_DEMO_STUDY, "Butler")
-		ACTION_DEMO_STUDY_BUTLER_LEAVE:
+			EventBus.dialogue_requested.emit("1_7_exit")
+		ACTION_CH0_IDENTITY_FINISHED:
+			_pending_action_after_dialogue = ACTION_CH0_IDENTITY_FINISHED
+		ACTION_CH0_PROLOGUE_INTRO_FINISHED:
+			_pending_action_after_dialogue = ACTION_CH0_PROLOGUE_INTRO_FINISHED
+		ACTION_CH0_SNOW_PATH_INTERLUDE_FINISHED:
+			_pending_action_after_dialogue = ACTION_CH0_SNOW_PATH_INTERLUDE_FINISHED
+		ACTION_CH0_VILLA_GATE_INTERLUDE_FINISHED:
+			_pending_action_after_dialogue = ACTION_CH0_VILLA_GATE_INTERLUDE_FINISHED
+		ACTION_CH0_VILLA_DOOR_KNOCK_FINISHED:
+			_pending_action_after_dialogue = ACTION_CH0_VILLA_DOOR_KNOCK_FINISHED
+		ACTION_CH0_HALL_MEMORY_START:
+			_pending_action_after_dialogue = ACTION_CH0_HALL_MEMORY_START
+		ACTION_CH0_HALL_ARRIVAL_FINISHED:
+			_pending_action_after_dialogue = ACTION_CH0_HALL_ARRIVAL_FINISHED
+		ACTION_CH1_STUDY_WAKE_FINISHED:
+			_pending_action_after_dialogue = ACTION_CH1_STUDY_WAKE_FINISHED
+		ACTION_CH1_STUDY_BUTLER_ENTER:
+			set_npc_location("butler", ROOM_CH1_STUDY, "Butler")
+		ACTION_CH1_STUDY_BUTLER_LEAVE:
 			set_npc_location("butler", "", "")
-		ACTION_DEMO_PUZZLE_SOLVED:
-			_pending_action_after_dialogue = ACTION_DEMO_PUZZLE_SOLVED
-		ACTION_DEMO_MURDER_REQUEST_ACCEPTED:
-			_pending_action_after_dialogue = ACTION_DEMO_MURDER_REQUEST_ACCEPTED
-		ACTION_DEMO_CRIME_SCENE_FINISHED:
-			_pending_action_after_dialogue = ACTION_DEMO_CRIME_SCENE_FINISHED
+		ACTION_CH1_PUZZLE_SOLVED:
+			_pending_action_after_dialogue = ACTION_CH1_PUZZLE_SOLVED
+		ACTION_CH1_MURDER_REQUEST_ACCEPTED:
+			_pending_action_after_dialogue = ACTION_CH1_MURDER_REQUEST_ACCEPTED
+		ACTION_CH1_CRIME_SCENE_FINISHED:
+			_pending_action_after_dialogue = ACTION_CH1_CRIME_SCENE_FINISHED
 		_:
 			push_warning("FlowManager: unhandled flow signal '%s'." % signal_name)
 
@@ -609,14 +628,14 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 		ACTION_START_INITIAL_SEARCH:
 			set_step(STEP_CH1_FIRST_SEARCH)
 			set_npc_location("butler", ROOM_FLOOR2, "Butler")
-			request_scene_change(FIRST_SEARCH_ROOM1_PATH, "SpawnFromHallLeft", "1_2_butler_a")
+			request_scene_change(FIRST_SEARCH_ROOM1_PATH, "SpawnFromHallLeft", "1_4_butler_a")
 		ACTION_ENTER_ROOM_LIN:
 			set_step(STEP_CH1_FIRST_SEARCH)
 			set_npc_location("butler", ROOM_FIRST_SEARCH, "Butler")
-			request_scene_change(FIRST_SEARCH_ROOM2_PATH, "SpawnFromF2", "1_2_butler_b")
+			request_scene_change(FIRST_SEARCH_ROOM2_PATH, "SpawnFromF2", "1_4_butler_b")
 		ACTION_START_INITIAL_REASONING:
 			set_step(STEP_CH1_INITIAL_REASONING)
-			request_scene_change(HALL_SCENE_PATH, "InitialSpawn", "1_3_butler_lin_mu_wu_zhong_zhou")
+			request_scene_change(HALL_SCENE_PATH, "InitialSpawn", "1_5_butler_lin_mu_wu_zhong_zhou")
 		ACTION_ENTER_PRIVATE_CHAT:
 			set_step(STEP_CH1_PRIVATE_CHAT)
 			if private_chat_target.is_empty():
@@ -624,52 +643,52 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 			if private_chat_target.is_empty():
 				push_warning("FlowManager: private chat target is empty.")
 				return
-			set_npc_location(private_chat_target, ROOM_HUI_KE_TING, "Guest", "1_4_%s" % private_chat_target)
-			request_scene_change(HUI_KE_TING_SCENE_PATH, "SpawnFromZouLang", "1_4_%s" % private_chat_target)
+			set_npc_location(private_chat_target, ROOM_HUI_KE_TING, "Guest", "1_6_%s" % private_chat_target)
+			request_scene_change(HUI_KE_TING_SCENE_PATH, "SpawnFromZouLang", "1_6_%s" % private_chat_target)
 		ACTION_EXIT_PRIVATE_CHAT:
 			set_step(STEP_CH1_PRIVATE_CHAT)
 			private_chat_target = ""
 			request_scene_change(HALL_SCENE_PATH, "InitialSpawn")
 		ACTION_START_SECOND_SEARCH:
 			set_step(STEP_CH1_SECOND_SEARCH)
-			request_scene_change(SECOND_SEARCH_ROOM_PATH, "SpawnFromZouLang", "1_5_all")
+			request_scene_change(SECOND_SEARCH_ROOM_PATH, "SpawnFromZouLang", "1_7_all")
 		ACTION_EXIT_SECOND_SEARCH:
 			if bool(get_dialogic_var("Ch1.SecondSearch.Zhong.Finished", false)):
 				request_scene_change(HALL_SCENE_PATH, "InitialSpawn")
-		ACTION_DEMO_IDENTITY_FINISHED:
-			set_step(STEP_DEMO_PROLOGUE_STORY)
-			request_scene_change(DEMO_BLACK_SCREEN_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_PROLOGUE)
-		ACTION_DEMO_PROLOGUE_INTRO_FINISHED:
-			set_step(STEP_DEMO_SNOW_CAMP)
-			request_scene_change(DEMO_SNOW_FIELD_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_SNOW_CAMP_ARRIVAL)
-		ACTION_DEMO_SNOW_PATH_INTERLUDE_FINISHED:
-			set_step(STEP_DEMO_SNOW_PATH)
-			request_scene_change("", "", TIMELINE_DEMO_SNOW_PATH_ARRIVAL)
-		ACTION_DEMO_VILLA_GATE_INTERLUDE_FINISHED:
-			set_step(STEP_DEMO_VILLA_GATE)
-			request_scene_change("", "", TIMELINE_DEMO_VILLA_GATE_ARRIVAL)
-		ACTION_DEMO_VILLA_DOOR_KNOCK_FINISHED:
-			set_step(STEP_DEMO_HALL_ARRIVAL)
-			request_scene_change(HALL_SCENE_PATH, "SpawnFromGate", TIMELINE_DEMO_HALL_ARRIVAL)
-		ACTION_DEMO_HALL_MEMORY_START:
-			set_step(STEP_DEMO_HALL_ARRIVAL)
-			request_scene_change(DEMO_BLACK_SCREEN_SCENE_PATH, "InitialSpawn", TIMELINE_DEMO_HALL_MEMORY)
-		ACTION_DEMO_HALL_ARRIVAL_FINISHED:
-			set_step(STEP_DEMO_LOGO)
-			request_scene_change(DEMO_LOGO_SCENE_PATH, "InitialSpawn")
-		ACTION_DEMO_STUDY_WAKE_FINISHED:
-			set_step(STEP_DEMO_STUDY_FREE_INVESTIGATION)
+		ACTION_CH0_IDENTITY_FINISHED:
+			set_step(STEP_CH0_PROLOGUE_STORY)
+			request_scene_change(CH0_BLACK_SCREEN_SCENE_PATH, "InitialSpawn", TIMELINE_CH0_PROLOGUE)
+		ACTION_CH0_PROLOGUE_INTRO_FINISHED:
+			set_step(STEP_CH0_SNOW_CAMP)
+			request_scene_change(CH0_SNOW_FIELD_SCENE_PATH, "InitialSpawn", TIMELINE_CH0_SNOW_CAMP_ARRIVAL)
+		ACTION_CH0_SNOW_PATH_INTERLUDE_FINISHED:
+			set_step(STEP_CH0_SNOW_PATH)
+			request_scene_change("", "", TIMELINE_CH0_SNOW_PATH_ARRIVAL)
+		ACTION_CH0_VILLA_GATE_INTERLUDE_FINISHED:
+			set_step(STEP_CH0_VILLA_GATE)
+			request_scene_change("", "", TIMELINE_CH0_VILLA_GATE_ARRIVAL)
+		ACTION_CH0_VILLA_DOOR_KNOCK_FINISHED:
+			set_step(STEP_CH0_HALL_ARRIVAL)
+			request_scene_change(HALL_SCENE_PATH, "SpawnFromGate", TIMELINE_CH0_HALL_ARRIVAL)
+		ACTION_CH0_HALL_MEMORY_START:
+			set_step(STEP_CH0_HALL_ARRIVAL)
+			request_scene_change(CH0_BLACK_SCREEN_SCENE_PATH, "InitialSpawn", TIMELINE_CH0_HALL_MEMORY)
+		ACTION_CH0_HALL_ARRIVAL_FINISHED:
+			set_step(STEP_CH0_LOGO)
+			request_scene_change(CH0_LOGO_SCENE_PATH, "InitialSpawn")
+		ACTION_CH1_STUDY_WAKE_FINISHED:
+			set_step(STEP_CH1_STUDY_FREE_INVESTIGATION)
 			if ToastManager != null:
 				ToastManager.show_notice("调查书房", "task", 2.5)
-		ACTION_DEMO_PUZZLE_SOLVED:
-			set_step(STEP_DEMO_MURDER_REQUEST)
-			request_scene_change("", "", TIMELINE_DEMO_MURDER_REQUEST)
-		ACTION_DEMO_MURDER_REQUEST_ACCEPTED:
-			set_step(STEP_DEMO_CRIME_SCENE)
-			request_scene_change(DEMO_CRIME_SCENE_PATH, "SpawnFromStudy", TIMELINE_DEMO_CRIME_SCENE)
-		ACTION_DEMO_CRIME_SCENE_FINISHED:
-			set_step(STEP_DEMO_END)
-			request_scene_change(DEMO_END_SCENE_PATH, "InitialSpawn")
+		ACTION_CH1_PUZZLE_SOLVED:
+			set_step(STEP_CH1_MURDER_REQUEST)
+			request_scene_change("", "", TIMELINE_CH1_MURDER_REQUEST)
+		ACTION_CH1_MURDER_REQUEST_ACCEPTED:
+			set_step(STEP_CH1_CRIME_SCENE)
+			request_scene_change(CH1_CRIME_SCENE_PATH, "SpawnFromStudy", TIMELINE_CH1_CRIME_SCENE)
+		ACTION_CH1_CRIME_SCENE_FINISHED:
+			set_step(STEP_CH1_BODY_CG)
+			request_scene_change(CH1_BODY_CG_SCENE_PATH, "InitialSpawn")
 		_:
 			push_warning("FlowManager: unhandled pending action '%s'." % action)
 

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1_clue"]
+
+[resource]
+script = ExtResource("1_clue")
+id = "1_puzzle_x_impossible_2"
+title = "X的不可能犯罪其二"
+description = "X举起手发言，一边吃着刚递上的肉饼一边说自己的身体有问题。律师证明X双腿残疾，认定他作案会有困难。"
+chapter_id = "1"
+room_id = "study"
+category_path = PackedStringArray("雪墅", "谜题", "整理线索")
+tags = PackedStringArray("chapter_1", "snow_villa", "puzzle", "x")
+clue_type = "testimony"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+

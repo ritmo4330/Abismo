@@ -1,0 +1,98 @@
+[style name="default_visual_novel"]
+if {Ch1.PrivateChat.Enabled} == true:
+	jump 私聊阶段
+if {Ch1.InitialSearch.Enabled} == true:
+	jump 第一次搜证
+if {Ch1.NPCIntro.ReadyForSearch} == true:
+	jump 调查管家
+暴风雪山庄吗......真是老套的设定。明明只想借住一晚度过这该死的暴风雪，没想到竟然摊上这等事。但……你能够解决的吧？就当是一个支线任务？
+join butler left
+butler: 我知道这可能一时半会有点难以接受，但我希望你能接受我的请求——猜疑链已然形成了，现在没有一个人能够主导这个场面，而你的出现是一个意外。我希望你能参与我们的调查。
+label 抉择1
+- 同意
+- 不同意
+	......
+	- 同意
+	- 同意
+butler: 感谢。接下来请允许我介绍方才发生的一切。
+butler: 如你所见，这五位也是一段时间之前来到寒舍避雪的客人。就在刚才，寒舍发生了一起命案，我的主人，梅塔，被发现死于一间客房的衣柜内。
+butler: 在场的只有这五位客人，因此凶手一定就在五人之中。你可以先和嫌疑人们聊一聊，待你了解完情况后，我会带着你在别墅内再调查一遍。
+leave --All--
+具体发生了什么？这些人又是谁？只能由你一一询问了。
+set {Ch1.NPCIntro.ReadyForSearch} = true
+[end_timeline]
+
+label 调查管家
+join butler left
+butler: 和嫌疑人都聊过了？准备好调查现场了吗？
+label 抉择13
+- 准备好了 | [if {Ch1.NPCIntro.Zhou.Selected1} == true and {Ch1.NPCIntro.Zhou.Selected2} == true and {Ch1.NPCIntro.Zhou.Selected3} == true and {Ch1.NPCIntro.Mu.Selected1} == true and {Ch1.NPCIntro.Mu.Selected2} == true and {Ch1.NPCIntro.Mu.Selected3} == true and {Ch1.NPCIntro.Lin.Selected1} == true and {Ch1.NPCIntro.Lin.Selected2} == true and {Ch1.NPCIntro.Lin.Selected3} == true and {Ch1.NPCIntro.Wu.Selected1} == true and {Ch1.NPCIntro.Wu.Selected2} == true and {Ch1.NPCIntro.Wu.Selected3} == true and {Ch1.NPCIntro.Zhong.Selected1} == true and {Ch1.NPCIntro.Zhong.Selected2} == true and {Ch1.NPCIntro.Zhong.Selected3} == true]
+	butler: 好的，请跟我来。
+	set {Ch1.InitialSearch.Enabled} = true
+	[signal arg="flow:start_initial_search"]
+- 稍等一下
+	butler: 好的，我会在这里等你。
+[end_timeline]
+
+
+label 第一次搜证
+if {Ch1.InitialSearch.ReadyForReasoning} == true:
+	jump 搜证结束
+join butler left
+butler: 忘记自我介绍了，我是别墅的管家，但我不是人类，我是一个人工智能。
+butler: 这幢别墅一共两层，二楼是卧室，从左到右分别是周崇安、钟歧、主人、穆执、林玖、乌停湘的房间，其中主人梅塔的主卧比其它客卧较大，所有客卧的大小与布置均相同。
+butler: 案发地点为林玖的房间，我们不妨先去调查一下尸体。
+[signal arg="flow:enter_room_lin"]
+[end_timeline]
+
+label 进入林玖房间
+[style name="default_visual_novel"]
+join butler left
+butler: 就是这里了，请尽量不要破坏现场。案发现场搜查完后，你也可以自由调查其它房间。
+butler: 另外如果有必要的话，你可以去对嫌疑人进行搜身。如果调查完毕，可以告知我，我们再回到大厅集中讨论。
+set {Ch1.BodySearch.Enabled} = true
+[signal arg="flow:start_search_tutorial"]
+[end_timeline]
+
+label 搜证教程后
+[style name="default_visual_novel"]
+join butler left
+butler: 尸体不见了？怎么可能？
+leave butler
+尸体怎么会不翼而飞呢？几乎所有人都能证明尸体在衣柜里，但如今却消失了。是诈死，还是人为？
+暂时先记下来吧，先去调查其它线索。
+do DataManager.add_suspicion("1_suspicion_missing_body", "dialogue", "1_3_butler")
+set {Ch1.InitialSearch.ReadyForReasoning} = true
+[end_timeline]
+
+label 搜证结束
+join butler left
+label 抉择14
+butler: 调查结束了吗？
+- 调查完了 | [if {Ch1.InitialSearch.Finished} == true]
+	butler: 明白了，我们回大厅吧。
+	[signal arg="flow:start_initial_reasoning"]
+- 调查完了 | [if {Ch1.InitialSearch.Finished} != true]
+	还有一些值得注意的地方，再看看吧。
+	jump 抉择14
+- 稍等一下
+	butler: 好的，我就在你的身边。
+[end_timeline]
+
+
+label 私聊阶段
+join butler left
+butler: 请问需要我做什么？
+- 邀请私聊
+	butler: 请吧。
+	set {Ch1.PrivateChat.Target} = "butler"
+	[signal arg="flow:enter_private_chat"]
+- 下一轮调查
+	butler: 已经交流完了吗？那么我们可以进行下一轮调查了。
+	- 确定
+		if {Ch1.PrivateChat.Zhong.Asked.Lighthouse} != true:
+			你难道不好奇那个灯塔木雕的故事吗？为免夜长梦多，还是先解决那个疑点吧。
+		else:
+			[signal arg="flow:start_second_search"]
+	- 再等等
+		butler: 当然，我们慢慢来。

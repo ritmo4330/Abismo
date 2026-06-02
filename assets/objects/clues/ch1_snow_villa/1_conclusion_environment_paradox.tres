@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1_clue"]
+
+[resource]
+script = ExtResource("1_clue")
+id = "1_conclusion_environment_paradox"
+title = "环境描述的悖论"
+description = "案件似乎发生在一座小岛上，随后又说“和外界连接的唯一通路被破坏了”。如果案发地真是一座离岸小岛，这种通路描述显得非常奇怪。案发现场所在的环境与人物的描述产生了悖论。"
+chapter_id = "1"
+room_id = "study"
+category_path = PackedStringArray("雪墅", "谜题", "结论")
+tags = PackedStringArray("chapter_1", "snow_villa", "puzzle", "conclusion")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+

@@ -17,7 +17,7 @@ func _ready():
 
 func _on_start_button_pressed():
 	GameManager.enter_gameplay()
-	GameManager.set_next_boot_mode(GameManager.BOOT_MODE_DEMO)
+	GameManager.set_next_boot_mode(GameManager.BOOT_MODE_CH0_PROLOGUE)
 	get_tree().change_scene_to_file(GAME_ROOT_SCENE_PATH)
 
 func _on_quit_button_pressed():

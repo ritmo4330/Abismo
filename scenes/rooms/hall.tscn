@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://4k1fp08quy17"]
 
-[ext_resource type="Texture2D" uid="uid://d0cmeq4swhrvk" path="res://assets/interior/demo/大厅整体.png" id="1_hall_full"]
+[ext_resource type="Texture2D" uid="uid://d0cmeq4swhrvk" path="res://assets/interior/ch0_prologue/大厅整体.png" id="1_hall_full"]
 [ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_hcmxa"]
 [ext_resource type="Texture2D" uid="uid://u5jdttqgwy6" path="res://assets/interior/大厅1.png" id="1_yj4g8"]
 [ext_resource type="Texture2D" uid="uid://bqmf3ucovghy3" path="res://assets/interior/大厅2.png" id="2_ni6iu"]

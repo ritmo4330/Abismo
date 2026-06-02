@@ -1,0 +1,65 @@
+[style name="default_visual_novel"]
+join lin_jiu left
+label 选择
+lin_jiu: 你要问什么？
+- 来到别墅的原因
+	lin_jiu: 我带乌停湘上山来找穆执，结果还没赶到他的小木屋就下起了暴风雪，我们只好找到最近的这座别墅避雪。
+	set {Ch1.PrivateChat.Lin.Asked.Reason} = true
+	jump 选择
+- 与死者的关系 | [if {Affinity.Lin} <= 70]
+	lin_jiu: 我不知道他是谁……
+	set {Ch1.PrivateChat.Lin.Asked.Dead} = true
+	jump 选择
+- 与死者的关系 | [if {Affinity.Lin} >= 71]
+	lin_jiu: 我只知道他是异测会的人。
+	set {Ch1.PrivateChat.Lin.Asked.Dead} = true
+	set {Ch1.PrivateChat.Lin.Asked.DeadTrusted} = true
+	jump 选择
+- 与其他人的关系
+	label 与其他人的关系
+	lin_jiu: 你想问哪一位？
+	- 穆执
+		lin_jiu: 他算是我的远房亲戚，在我小时候偶尔会来孤儿院看望我。
+		set {Ch1.PrivateChat.Lin.Asked.Mu} = true
+		jump 与其他人的关系
+	- 周崇安
+		lin_jiu: 他是我们孤儿院的院长，对大家都非常友善。
+		set {Ch1.PrivateChat.Lin.Asked.Zhou} = true
+		jump 与其他人的关系
+	- 乌停湘
+		lin_jiu: 她和我一样在孤儿院长大，是我最好的朋友。
+		set {Ch1.PrivateChat.Lin.Asked.Wu} = true
+		jump 与其他人的关系
+	- 钟歧
+		lin_jiu: 他是我的初中同学，不过初中毕业后我们就没有交集了。今天是我自初中毕业以来第一次见到他。
+		set {Ch1.PrivateChat.Lin.Asked.Zhong} = true
+		jump 与其他人的关系
+	- 还有其他问题
+		jump 选择
+- 关于异测会 | [if {Ch1.PrivateChat.Lin.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Lin.Removed.AnomalySociety} != true]
+	lin_jiu: 异测会是一个所谓的以探寻超自然现象为职责，力求为有记录的超自然现象寻求科学解释的组织……我只知道这么多。
+	set {Ch1.PrivateChat.Lin.Removed.AnomalySociety} = true
+	jump 选择
+- 穆执说他对你不是很了解 | [if {Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Lin.Removed.MuNotKnow} != true]
+	lin_jiu: 他是这么说的吗……为什么？
+	set {Ch1.PrivateChat.Lin.Removed.MuNotKnow} = true
+	jump 选择
+- 关于灯塔木雕 | [if {Ch1.PrivateChat.Lin.Removed.Lighthouse} != true]
+	lin_jiu: 那是我做的木雕，如果你要问我为什么会带在身上的话，你就理解成一种心理安慰吧。
+	do DataManager.add_clue("1_testimony_9_lin", "dialogue", "1_testimony_9_lin")
+	你还是有些在意，为什么她会随身携带这样的一个木雕。去找其他人问问吧，乌停湘和她关系那么好，应该知道些什么吧。（记录疑点【灯塔木雕的故事】）
+	do DataManager.add_suspicion("1_suspicion_lighthouse_story", "dialogue", "1_6_lin")
+	set {Ch1.PrivateChat.Lin.Asked.Lighthouse} = true
+	set {Ch1.PrivateChat.Lin.Removed.Lighthouse} = true
+	jump 选择
+- 关于五芒星图案 | [if {Ch1.PrivateChat.Lin.Removed.Pentagram} != true]
+	lin_jiu: ……那是我家乡的习俗，不是什么重要的东西。（记录疑点【林玖的习俗】）
+	do DataManager.add_clue("1_testimony_11_lin_custom", "dialogue", "1_testimony_11_lin_custom")
+	do DataManager.add_suspicion("1_suspicion_lin_custom", "dialogue", "1_6_lin")
+	set {Ch1.PrivateChat.Lin.Asked.Pentagram} = true
+	set {Ch1.PrivateChat.Lin.Removed.Pentagram} = true
+	jump 选择
+- 暂时没有问题了
+	lin_jiu: 好的，那我先回大厅了。
+	set {Ch1.PrivateChat.Lin.Finished} = true
+	[signal arg="flow:exit_private_chat"]

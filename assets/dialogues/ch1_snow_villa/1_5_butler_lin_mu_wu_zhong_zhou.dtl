@@ -1,0 +1,168 @@
+[style name="default_visual_novel"]
+[background arg="#000000ff" fade="0.5"]
+你向所有人分享了自己发现的线索，起初一切正常，但当你说出衣柜里的尸体不见了的时候，所有人都一脸惊异地看着你。
+很遗憾，事实就是如此。你和管家带着不可置信的众人一起回到案发现场，空荡荡的衣柜证明了你的说辞。
+[background arg="#00000000" fade="0.5"]
+回到大厅，所有人都陷入了沉思。看来得由你来打破沉默了。
+player: 发现尸体过后，你们还做了什么吗？
+join butler left
+butler: 实际上，在你来之前，我们已经进行过一次调查了。除了尸体消失不见，没有其他的区别。
+player: 你们调查是一起进行的吗？
+butler: 如果你的意思是，会不会有人在调查过程中动手脚，我认为应该没有。调查时为了避免案发现场或其它线索被破坏，都是由我带领大家一个一个地进行搜证，其他人则待在大厅彼此监督。
+do DataManager.add_clue("1_testimony_1_butler", "dialogue", "1_testimony_1_butler")
+所有人面色凝重地点了点头，肯定了管家的答复。
+butler: 虽然尸体不见了，但是我对尸体进行过简单的检查，可以将结果告知各位。
+butler: 尸体的左后胸有一处贯穿伤，是出血量最大的位置，此外没有别的伤口或痕迹，可以判断为致命伤，但是凶器已经被拔出，暂未找到。
+butler: 此外，死者的衣服一角有擦拭状的血迹。口袋里还有一把可以打开别墅内所有门的万能钥匙。
+do DataManager.add_clue("1_testimony_2_butler", "dialogue", "1_testimony_2_butler")
+player: 我需要了解一下大家在案发前后的见闻，请大家回忆一下。
+leave butler
+join mu_zhi leftmost
+mu_zhi: 案发之前，我一个人待在被分配给我的房间里——因为管家要求所有人待在自己房间。
+mu_zhi: 后来听到一声惊叫声，我还在犹豫是否要出门查看情况时，又听见房门外传来一个人一边呼喊“林玖”，一边敲门的声音，紧接着又变成撞门声。
+mu_zhi: 几声后门似乎被撞开了，我又听见有人打开房门跑了出来，这才下定决心走出了自己的房间。随后就和大家一起目击到了案发现场。
+join zhou_chong_an left
+zhou_chong_an: 案发之前，管家说过，当他宣布“休息时间到了”的时候，所有人都不能在房间外走动，于是在管家说休息时间到了之后，我就回到了自己的房间。
+zhou_chong_an: 不知道过了多久，我听见房间外传来一声惊叫，我不敢出门查看情况，于是贴在房门上听着外面的动静。
+zhou_chong_an: 我先是听见有人从我隔壁的房间冲了出去，跑向对面的房间，急促地敲着门，并喊着林玖的名字。很快敲门变成了撞门，两三下后，门似乎被撞开了。
+zhou_chong_an: 没过多久，对面的另一扇房门被打开了，又有人跑了出来。接下来，又是一声开门声，同时传来有人上楼的脚步声。
+zhou_chong_an: 我听见似乎所有人都出来并集中在了我斜对面的房间，这才决定出门，到达现场时其他人都已经到了，我也看见了衣柜里的尸体。
+join lin_jiu center
+lin_jiu: 案发之前，我和乌停湘一起待在她的房间里，她可以作证。因为管家说休息时间到了不能离开房间，所以我们一直待在房间里没出门。
+lin_jiu: 过了很久，我们听见隔壁房间传来了一声惊叫，吓了一跳，不知道如何是好，这时钟歧从他的房间冲出来，跑到隔壁房间一边敲门一边喊我的名字。
+lin_jiu: 哦对了，隔壁房间原本是安排给我的，可能他误以为我在里面吧。后来他撞开了房门，我和乌停湘意识到事情不对劲，于是一起跑出房间查看情况，我们先是在我房间看到了钟歧，然后就在衣柜里看到了一具尸体。
+join wu_ting_xiang right
+wu_ting_xiang: 案件发生前，我和林姐姐——噢，她叫林玖——我们待在一起。管家说休息时间不能在房间外走动，但是我们又不太安心，所以决定一起待在安排给我的房间。
+wu_ting_xiang: 不知道过了多久，从隔壁传来了一声惊叫，我和林姐姐没敢出门，但随即听见有人从对面的某个房间冲了出来，跑到隔壁房门前，一边用力敲门一边喊着林姐姐的名字。
+wu_ting_xiang: 应该是没有听到回应，所以那个人开始撞门，最后是撞开了。我跟林姐姐说还是出去看一下情况吧，我们这才从房间出来，然后在隔壁看见了钟歧，以及柜子里的尸体。按照目前的情况来看，这应该是间密室吧……
+join zhong_qi rightmost
+zhong_qi: 我应该是案发现场的第一发现人。当时那个管家要求所有人不能离开房间，于是我待在自己的房间里。突然听见从对面林玖房间的方向传来一声惊叫，我担心她是不是遇到了什么危险，于是直接冲出了房间。
+zhong_qi: 她的房门被上了锁，敲门也没有回应，我只能把门撞开。成功撞开后，门内空无一人，我注意到地毯上的拖曳状血迹指向衣柜，于是走到衣柜前打开门，发现梅塔的尸体就在里面。
+zhong_qi: 发现尸体后，乌停湘、林玖、穆执、管家和周崇安先后赶到现场，管家确认了梅塔的死亡，并声称凶手就在我们五人之中。情况就是这样，该你发挥了。
+do DataManager.add_clue("1_testimony_3_all", "dialogue", "1_testimony_3_all")
+label 选择
+所有人的事已至此，再梳理一下疑点吧。众所周知，案件发生的三要素包括作案时间、作案动机、作案能力，只有三者均具备的嫌疑人才有可能作案。先从这三个话题开始讨论吧。
+do DataManager.add_suspicion("1_suspicion_crime_time", "dialogue", "1_5_butler_lin_mu_wu_zhong_zhou")
+do DataManager.add_suspicion("1_suspicion_motive", "dialogue", "1_5_butler_lin_mu_wu_zhong_zhou")
+do DataManager.add_suspicion("1_suspicion_ability", "dialogue", "1_5_butler_lin_mu_wu_zhong_zhou")
+- 作案时间
+	label 作案时间
+	player: 请大家回忆一下，你们最后一次见到死者是什么时候？
+	- 钟歧
+		zhong_qi: 休息时间之前，具体时间不清楚，当时应该所有人都在。梅塔从自己的卧室走出来，喊了一声管家。再之后，我看见穆执和他走进了餐厅，此后就再也没有见到他了。
+		jump 作案时间
+	- 周崇安
+		zhou_chong_an: 他说的没错，梅塔喊管家的时候我们都看见了他。在那之后我就没有见过他了，只从管家口中听说过梅塔和穆执在餐厅用过餐。
+		jump 作案时间
+	- 林玖
+		lin_jiu: 我知道的和周院长一样，不过我倒是不知道梅塔和穆执有用过餐这件事。
+		jump 作案时间
+	- 乌停湘
+		wu_ting_xiang: 我和林姐姐基本上一直待在一起，也只在主卧门口见到过一次。
+		jump 作案时间
+	- 穆执
+		mu_zhi: 我的确和梅塔在餐厅用过餐，是他主动邀请我的。我想着承蒙关照，不太好拒绝主人的邀请。用餐后我们就分开了，各自回到自己的房间，再也没有见过。
+		leave zhou_chong_an
+		join butler left
+		butler: 我可以证明穆先生的说法属实。主人和穆先生从餐厅出来并回到房间后，我才宣布休息时间到，这个时候我可以确认主人还活着。
+		leave butler
+		join zhou_chong_an left
+		jump 作案时间
+	- 继续剧情
+		也就是说，死亡时间在管家宣布休息时间到之后，但是结合此前每名嫌疑人的口供，所有人都在自己的房间里，林玖和乌停湘待在一起，那为什么死者会死在本该没有人在的林玖房间呢？
+	do DataManager.add_clue("1_testimony_4_all", "dialogue", "1_testimony_4_all")
+	set {Ch1.InitialReasoning.SelectedTime} = true
+	jump 选择
+- 作案动机
+	label 作案动机
+	player: 你们认识死者吗？
+	- 穆执
+		mu_zhi: 我没有见过他，但是知道梅塔这个名字，直到管家确认了他的死讯，我才知道他就是梅塔。
+		jump 作案动机
+	- 钟歧
+		zhong_qi: 认识。
+		player: 他是什么人？
+		zhong_qi: 一个杀人凶手。
+		看来他似乎不想细说，还是先问问别人吧。
+		jump 作案动机
+	- 林玖
+		lin_jiu: 不认识。
+		jump 作案动机
+	- 乌停湘
+		wu_ting_xiang: 我也不认识。
+		jump 作案动机
+	- 周崇安
+		zhou_chong_an: 认识……但又好像不是我认识的那个人。
+		player: 这是什么意思？
+		zhou_chong_an: ……有些难以说明，等我调查清楚自会如实相告。
+		jump 作案动机
+	- 继续剧情
+		感觉这几个人都有故事，但好像不太愿意细说。如果能找到单独询问的机会再详细问问吧。
+	do DataManager.add_clue("1_testimony_5_all", "dialogue", "1_testimony_5_all")
+	set {Ch1.InitialReasoning.SelectedMotive} = true
+	jump 选择
+- 作案能力
+	player: 按照致命伤来看，死者似乎是被利器一击毙命，有人可以因此排除嫌疑吗？
+	zhong_qi: 死者可是一名体格正常的成年男子，两名女生应该很难做到吧。
+	真的吗？或许他忽略了什么条件。
+	林玖和乌停湘基本上一直待在一起，如果这个条件成立，两人合力还是存在有能力作案的可能性的。也就是说，如果两人之中有人作案，那么另一位很可能作为帮凶。
+	set {Ch1.InitialReasoning.SelectedAbility} = true
+	jump 选择
+- 暂时就这些 | [if {Ch1.InitialReasoning.SelectedTime} == true and {Ch1.InitialReasoning.SelectedMotive} == true and {Ch1.InitialReasoning.SelectedAbility} == true]
+	jump 讨论后
+label 讨论后
+wu_ting_xiang: 除了这几个问题之外，密室形成的原因也很重要吧？
+do DataManager.add_suspicion("1_suspicion_locked_room", "dialogue", "1_5_butler_lin_mu_wu_zhong_zhou")
+zhong_qi: 凶器也没有找到。
+do DataManager.add_suspicion("1_suspicion_missing_weapon", "dialogue", "1_5_butler_lin_mu_wu_zhong_zhou")
+mu_zhi: 还有一个问题，梅塔为什么会出现在林玖的房间里？
+do DataManager.add_suspicion("1_suspicion_meta_in_lin_room", "dialogue", "1_5_butler_lin_mu_wu_zhong_zhou")
+lin_jiu: 我不知道，我和乌停湘一直待在她的房间……准确来说，是管家宣布休息时间之后。
+do DataManager.add_clue("1_testimony_6_lin", "dialogue", "1_testimony_6_lin")
+wu_ting_xiang: 对。
+zhou_chong_an: ……管家，我们可以用万能钥匙打开储物间的暗门调查一下吗？
+leave mu_zhi
+join butler leftmost
+butler: 当然可以，不过等我们讨论完现在的情况再去调查也不迟。
+你明显能看出来大家都各有心事，但在公开讨论的环境中想必是不会谈论的。也许你可以和他们逐个私聊，但如果你不被信任的话，想必也问不出什么东西吧。所以想想如何拉近彼此间的距离，也是推理的一环哦。
+player: 大体情况已经讨论得差不多了，接下来我需要和各位私聊。
+butler: 当然，如果各位有私聊的需要，那么寒舍的会客厅将供各位使用。
+zhong_qi: 在此之前，侦探，我要问你一个问题。你是站在什么立场调查这件事的？换句话说，你的身份是什么？
+label 抉择16
+- 我只是一个路过的普通人
+	zhong_qi: 呵，那还真是巧合啊。
+	set {Affinity.Zhong} -= 5
+- 我只在意案件的真相
+	zhong_qi: 真相恐怕不只是表面。
+	set {Affinity.Lin} -= 5
+	set {Affinity.Wu} -= 5
+	set {Affinity.Zhong} += 5
+- 我要帮助管家找到凶手
+	zhong_qi: 哦？这么快就和管家站边了。
+	set {Affinity.Mu} += 5
+	set {Affinity.Lin} -= 5
+	set {Affinity.Wu} -= 5
+	set {Affinity.Zhong} -= 5
+- 好奇心驱使我查明一切
+	zhong_qi: 希望你能践行到底。
+	set {Affinity.Zhou} += 5
+	set {Affinity.Wu} += 5
+	set {Affinity.Zhong} += 5
+- 我不知道
+	zhong_qi: 那我也不知道该不该信任你。
+	set {Affinity.Zhong} -= 5
+- 这不需要你操心
+	zhong_qi: 那恐怕你不值得我信任。
+	set {Affinity.Zhou} -= 5
+	set {Affinity.Zhong} -= 10
+butler: 打扰一下，我有一件事需要委托各位。我希望知道各位恐惧至极的事物，如果各位能提供任何有价值的答案，我将会提供一个力所能及的帮助。除此之外，我将不会偏袒任何人。
+do DataManager.add_suspicion("1_suspicion_butler_request_mu", "dialogue", "1_5_butler_lin_mu_wu_zhong_zhou")
+do DataManager.add_suspicion("1_suspicion_butler_request_zhou", "dialogue", "1_5_butler_lin_mu_wu_zhong_zhou")
+do DataManager.add_suspicion("1_suspicion_butler_request_lin", "dialogue", "1_5_butler_lin_mu_wu_zhong_zhou")
+do DataManager.add_suspicion("1_suspicion_butler_request_zhong", "dialogue", "1_5_butler_lin_mu_wu_zhong_zhou")
+player: 你为什么想知道这些？
+butler: 这是主人下达的指令。
+butler: 请继续吧，{PlayerName}，如果你想要和任何人私聊，直接向他们提出就好。如果你准备好去调查其它地方，和我说一声，我们就进行下一轮调查。
+set {Ch1.PrivateChat.Enabled} = true
+[signal arg="flow:enable_private_chat"]
+leave --All--

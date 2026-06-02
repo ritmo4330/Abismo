@@ -1,7 +1,0 @@
-[style name="default_visual_novel"]
-join butler left
-butler: 您好，我是这里的管家，请问您是？
-[text_input text="" var="PlayerName"]
-player: 我叫{PlayerName}……我好像迷路了，顺着光亮来到这里希望能够借住一晚避避暴风雪。
-butler: 当然可以，主人考虑到如此强的暴风雪，允许收留需要帮助的人，请进。
-player: 谢谢。

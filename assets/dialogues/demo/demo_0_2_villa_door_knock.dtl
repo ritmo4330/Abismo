@@ -1,9 +1,0 @@
-[style name="default_visual_novel"]
-[signal arg="audio:play_sfx:door_knock"]
-player: 咳……有人吗……咳咳……拜托了……
-……但是没有人来。
-[signal arg="audio:play_sfx:door_knock"]
-你又敲了敲门。直到这时，大门才被打开。
-[signal arg="audio:play_sfx:door_open"]
-[signal arg="flow:demo_villa_door_knock_finished"]
-[end_timeline]

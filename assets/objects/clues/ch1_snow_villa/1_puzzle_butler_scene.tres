@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1_clue"]
+
+[resource]
+script = ExtResource("1_clue")
+id = "1_puzzle_butler_scene"
+title = "管家案件现场"
+description = "2006年12月20日，风雪交加，在五楼的天台上发现了管家的尸体，胸口插着一把匕首。"
+chapter_id = "1"
+room_id = "study"
+category_path = PackedStringArray("雪墅", "谜题", "整理线索")
+tags = PackedStringArray("chapter_1", "snow_villa", "puzzle", "case")
+clue_type = "testimony"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()
+

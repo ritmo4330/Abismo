@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://dinwwry8xlpur"]
+
+[ext_resource type="Script" uid="uid://w1ie4wu7npty" path="res://scripts/ch0_prologue/ch0_snow_room.gd" id="1_room"]
+[ext_resource type="Script" uid="uid://u4j3s0cgugg2" path="res://scripts/objects/interactable/ch0_campfire.gd" id="2_campfire"]
+[ext_resource type="Script" uid="uid://dsgf1gh6id1tx" path="res://scripts/ch0_prologue/ch0_blizzard_trigger.gd" id="3_blizzard"]
+[ext_resource type="Script" uid="uid://obndxpga4sli" path="res://scripts/ch0_prologue/ch0_timeline_trigger.gd" id="4_timeline_trigger"]
+[ext_resource type="Script" uid="uid://b6mvpakp40jed" path="res://scripts/objects/interactable/ch0_scene_door.gd" id="5_door"]
+[ext_resource type="Script" uid="uid://b7fofmuqb4mgq" path="res://scripts/ch0_prologue/ch0_flag_barrier.gd" id="6_barrier"]
+[ext_resource type="Texture2D" uid="uid://d03vakxmj8oe0" path="res://assets/interior/snow_field.jpg" id="7_snow_field"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wlqo"]
+size = Vector2(3482, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_map_bounds_horizontal"]
+size = Vector2(3482, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_map_bounds_vertical"]
+size = Vector2(64, 495)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5d4i"]
+size = Vector2(115, 495)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_campfire"]
+radius = 27.0
+
+[sub_resource type="Gradient" id="Gradient_campfire_light"]
+offsets = PackedFloat32Array(0, 0.45, 1)
+colors = PackedColorArray(1, 0.56, 0.18, 0.9, 1, 0.34, 0.08, 0.42, 1, 0.18, 0.02, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_campfire_light"]
+gradient = SubResource("Gradient_campfire_light")
+width = 320
+height = 320
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_barrier"]
+size = Vector2(25, 348)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_barrier_notice"]
+size = Vector2(109, 348)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blizzard_wide"]
+size = Vector2(254, 348)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_story_trigger"]
+size = Vector2(157, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blizzard_narrow"]
+size = Vector2(133, 348)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(109, 126.75)
+
+[node name="Ch0SnowField" type="Node2D" unique_id=454290234]
+y_sort_enabled = true
+script = ExtResource("1_room")
+room_id = "ch0_snow_field"
+camera_bounds = Rect2(0, 0, 3482, 495)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1627315353]
+z_index = -100
+texture = ExtResource("7_snow_field")
+centered = false
+
+[node name="MapBounds" type="StaticBody2D" parent="." unique_id=1757090614]
+
+[node name="Top" type="CollisionShape2D" parent="MapBounds" unique_id=1461226127]
+position = Vector2(1741, 136)
+shape = SubResource("RectangleShape2D_1wlqo")
+
+[node name="Bottom" type="CollisionShape2D" parent="MapBounds" unique_id=1699570713]
+position = Vector2(1741, 527)
+shape = SubResource("RectangleShape2D_map_bounds_horizontal")
+
+[node name="Left" type="CollisionShape2D" parent="MapBounds" unique_id=425051265]
+position = Vector2(-32, 247.5)
+shape = SubResource("RectangleShape2D_map_bounds_vertical")
+
+[node name="Right" type="CollisionShape2D" parent="MapBounds" unique_id=2073174885]
+position = Vector2(3488.5, 247.5)
+shape = SubResource("RectangleShape2D_x5d4i")
+
+[node name="Campfire" type="Area2D" parent="." unique_id=920820787]
+position = Vector2(402, 449)
+script = ExtResource("2_campfire")
+prompt_offset = Vector2(0, -16)
+highlight_enabled = true
+highlight_scale = Vector2(0.75, 0.75)
+highlight_color = Color(1, 0.46, 0.16, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Campfire" unique_id=1967001494]
+shape = SubResource("CircleShape2D_campfire")
+
+[node name="WarmLight" type="PointLight2D" parent="Campfire" unique_id=274416525]
+position = Vector2(0, -8)
+scale = Vector2(1.35, 1.35)
+enabled = false
+color = Color(1, 0.47, 0.16, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_campfire_light")
+
+[node name="WarmthBarrier" type="StaticBody2D" parent="." unique_id=1933940321]
+position = Vector2(1015, 320)
+script = ExtResource("6_barrier")
+required_flag = "ch0/find_warmth_started"
+blocked_notice = "火堆已经熄灭。先看看能不能重新点燃它。"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WarmthBarrier" unique_id=696931168]
+shape = SubResource("RectangleShape2D_barrier")
+
+[node name="NoticeArea" type="Area2D" parent="WarmthBarrier" unique_id=1885399918]
+position = Vector2(-54, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WarmthBarrier/NoticeArea" unique_id=142312116]
+shape = SubResource("RectangleShape2D_barrier_notice")
+
+[node name="CampBlizzardTrigger" type="Area2D" parent="." unique_id=436126021]
+position = Vector2(584, 320)
+script = ExtResource("3_blizzard")
+notice_text = "暴风雪掠过，视野被雪雾吞没。"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CampBlizzardTrigger" unique_id=1422307231]
+shape = SubResource("RectangleShape2D_blizzard_wide")
+
+[node name="SnowPathInterludeTrigger" type="Area2D" parent="." unique_id=502175030]
+position = Vector2(1232, 422)
+script = ExtResource("4_timeline_trigger")
+timeline_name = "0_2_snow_path_interlude"
+played_flag = "ch0/snow_path_interlude_seen"
+required_flag = "ch0/find_warmth_started"
+blocked_notice = "火堆已经熄灭。先看看能不能重新点燃它。"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnowPathInterludeTrigger" unique_id=951640078]
+shape = SubResource("RectangleShape2D_story_trigger")
+
+[node name="PathBlizzardTrigger1" type="Area2D" parent="." unique_id=2040795169]
+position = Vector2(1475, 320)
+script = ExtResource("3_blizzard")
+notice_text = "风雪迎面压来，呼吸变得更加困难。"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger1" unique_id=1737793058]
+shape = SubResource("RectangleShape2D_blizzard_narrow")
+
+[node name="PathBlizzardTrigger2" type="Area2D" parent="." unique_id=1344951926]
+position = Vector2(1765, 320)
+script = ExtResource("3_blizzard")
+notice_text = "暴风雪越来越大了。"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger2" unique_id=603580899]
+shape = SubResource("RectangleShape2D_blizzard_narrow")
+
+[node name="PathBlizzardTrigger3" type="Area2D" parent="." unique_id=999517036]
+position = Vector2(2044, 320)
+script = ExtResource("3_blizzard")
+notice_text = "远处的光还在风雪里摇晃。"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger3" unique_id=1697240072]
+shape = SubResource("RectangleShape2D_blizzard_narrow")
+
+[node name="VillaGateInterludeTrigger" type="Area2D" parent="." unique_id=246841104]
+position = Vector2(2310, 420)
+script = ExtResource("4_timeline_trigger")
+timeline_name = "0_2_villa_gate_interlude"
+played_flag = "ch0/villa_gate_interlude_seen"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VillaGateInterludeTrigger" unique_id=1438738259]
+shape = SubResource("RectangleShape2D_story_trigger")
+
+[node name="GateBlizzardTrigger" type="Area2D" parent="." unique_id=732953573]
+position = Vector2(2648, 320)
+script = ExtResource("3_blizzard")
+notice_text = "风雪在身后翻涌，前方的门近在眼前。"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GateBlizzardTrigger" unique_id=751654029]
+shape = SubResource("RectangleShape2D_blizzard_wide")
+
+[node name="GateStoryTrigger" type="Area2D" parent="." unique_id=1525216513]
+position = Vector2(2944, 420)
+script = ExtResource("4_timeline_trigger")
+timeline_name = "0_2_villa_gate_story"
+played_flag = "ch0/villa_gate_story_seen"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GateStoryTrigger" unique_id=586753125]
+position = Vector2(94, 1)
+shape = SubResource("RectangleShape2D_story_trigger")
+
+[node name="VillaDoor" type="Area2D" parent="." unique_id=735221982]
+position = Vector2(3416, 308)
+script = ExtResource("5_door")
+interact_timeline = "0_2_villa_door_knock"
+required_flag = "ch0/villa_gate_story_seen"
+blocked_notice = "先靠近大门看清前方。"
+prompt_offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VillaDoor" unique_id=1922799384]
+position = Vector2(0, 116.375)
+shape = SubResource("RectangleShape2D_door")
+
+[node name="Effects" type="CanvasLayer" parent="." unique_id=713046386]
+layer = 20
+
+[node name="BlizzardFlash" type="ColorRect" parent="Effects" unique_id=2048288543]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.85, 0.93, 1, 0.75)
+
+[node name="InitialSpawn" type="Marker2D" parent="." unique_id=314014604]
+position = Vector2(326, 407)

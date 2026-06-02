@@ -1,8 +1,0 @@
-[style name="default_visual_novel"]
-join meta left
-meta: ……
-
-就在你看到他的一瞬间，一阵不属于你的回忆涌入了你的脑海：
-leave meta
-[signal arg="flow:demo_hall_memory_start"]
-[end_timeline]

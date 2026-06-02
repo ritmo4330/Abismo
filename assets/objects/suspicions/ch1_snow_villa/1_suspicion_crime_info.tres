@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1_suspicion"]
+
+[resource]
+script = ExtResource("1_suspicion")
+id = "1_suspicion_crime_info"
+title = "案发现场的基本信息"
+description = "案发现场处在一个什么样的大背景下，众人的对话中好像有一些和这样的背景违和的地方？"
+chapter_id = "1"
+category_path = PackedStringArray("雪墅", "谜题")
+tags = PackedStringArray("chapter_1", "snow_villa", "puzzle", "scene")
+required_clue_ids = PackedStringArray("1_puzzle_maid_scene", "1_puzzle_first_discussion")
+match_mode = "exact"
+conclusion_clue_id = "1_conclusion_environment_paradox"
+unlock_suspicion_ids = PackedStringArray()
+resolved_world_flag = "ch1/reasoning/crime_info"
+resolution_timeline = "1_1_conclusion_environment_paradox"
+
