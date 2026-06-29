@@ -7,39 +7,125 @@
 [ext_resource type="Texture2D" uid="uid://wr30qyu4etyk" path="res://assets/interior/客卧家具.png" id="4_4h018"]
 [ext_resource type="Texture2D" uid="uid://dqprieoei0fyq" path="res://assets/interior/客卧阴影.png" id="5_qkv5t"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig2fb"]
+size = Vector2(1354, 515)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x60r"]
+size = Vector2(793, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4h018"]
+size = Vector2(281, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkv5t"]
+size = Vector2(74, 1191)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydm7s"]
+size = Vector2(48, 1192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ix1"]
+size = Vector2(481, 292)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkmqb"]
+size = Vector2(122.25, 213)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u68sc"]
+size = Vector2(74.75, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvjgk"]
+size = Vector2(46, 146.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gl1mn"]
+size = Vector2(332, 198.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byqoy"]
 size = Vector2(234, 84.5)
 
-[node name="RoomWuTingXiang" type="Node2D" unique_id=1315035317]
+[node name="RoomZhongQi" type="Node2D" unique_id=1315035317]
 y_sort_enabled = true
 script = ExtResource("1_ssvm5")
-room_id = "room_wu_ting_xiang"
+room_id = "room_zhong_qi"
+camera_bounds = Rect2(0, 0, 1465.5, 1354)
+player_spawn_scale = Vector2(2.25, 2.25)
 player_speed_scale = 1.5
+npc_spawn_scale = Vector2(4.5, 4.5)
 
 [node name="Scene" type="Node2D" parent="." unique_id=72041566]
 
-[node name="FloorLayer" type="Node2D" parent="Scene" unique_id=1462567022]
+[node name="FloorLayer" type="Node2D" parent="Scene" unique_id=1618121573]
 z_index = -100
 
-[node name="Floor" type="Sprite2D" parent="Scene/FloorLayer" unique_id=1170136372]
+[node name="Floor" type="Sprite2D" parent="Scene/FloorLayer" unique_id=696943357]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_ig2fb")
 centered = false
 
-[node name="CarpetLayer" type="Node2D" parent="Scene" unique_id=1780661175]
+[node name="FloorCollisions" type="StaticBody2D" parent="Scene/FloorLayer" unique_id=1851782622]
+
+[node name="TopWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=2058399677]
+y_sort_enabled = true
+position = Vector2(761, 308.5)
+shape = SubResource("RectangleShape2D_ig2fb")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=496215232]
+position = Vector2(1065.5, 1292)
+shape = SubResource("RectangleShape2D_0x60r")
+
+[node name="BottomWall2" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=498645258]
+position = Vector2(280, 1318)
+shape = SubResource("RectangleShape2D_4h018")
+
+[node name="BottomWall3" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=852174475]
+position = Vector2(543, 1327)
+shape = SubResource("RectangleShape2D_4h018")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=616418641]
+position = Vector2(105, 679.5)
+shape = SubResource("RectangleShape2D_qkv5t")
+
+[node name="RightWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=430503628]
+position = Vector2(1410, 680)
+shape = SubResource("RectangleShape2D_ydm7s")
+
+[node name="CarpetLayer" type="Node2D" parent="Scene" unique_id=1424394522]
 z_index = -50
 
-[node name="Carpet" type="Sprite2D" parent="Scene/CarpetLayer" unique_id=478956609]
+[node name="Carpet" type="Sprite2D" parent="Scene/CarpetLayer" unique_id=1998343213]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_0x60r")
 centered = false
 
-[node name="FurnitureLayer" type="Node2D" parent="Scene" unique_id=1152774289]
+[node name="FurnitureLayer" type="Node2D" parent="Scene" unique_id=1216671501]
 
-[node name="Furniture" type="Sprite2D" parent="Scene/FurnitureLayer" unique_id=1344078064]
+[node name="Furniture" type="Sprite2D" parent="Scene/FurnitureLayer" unique_id=755897985]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_4h018")
 centered = false
+
+[node name="FurnitureCollisions" type="StaticBody2D" parent="Scene/FurnitureLayer" unique_id=2130894747]
+
+[node name="Bed" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=187887096]
+position = Vector2(1109.5, 899)
+shape = SubResource("RectangleShape2D_a2ix1")
+
+[node name="BedDesk" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=54060086]
+position = Vector2(1292, 1137.5)
+shape = SubResource("RectangleShape2D_xkmqb")
+
+[node name="Desk" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=2146069620]
+position = Vector2(531.5, 614)
+shape = SubResource("RectangleShape2D_4h018")
+
+[node name="Chair" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=1968767346]
+position = Vector2(547.625, 667)
+shape = SubResource("RectangleShape2D_u68sc")
+
+[node name="Plant" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=678443782]
+position = Vector2(747, 548.5625)
+shape = SubResource("RectangleShape2D_qvjgk")
+
+[node name="Wardrobe" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=1550666341]
+position = Vector2(1101, 520)
+shape = SubResource("RectangleShape2D_gl1mn")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Scene" unique_id=696724116]
 color = Color(0.7441813, 0.74418133, 0.7441811, 1)
@@ -68,6 +154,9 @@ position = Vector2(560, 923)
 y_sort_enabled = true
 
 [node name="ClueSpawnPoints" type="Node2D" parent="." unique_id=419077449]
+
+[node name="SearchMarks" type="Marker2D" parent="ClueSpawnPoints" unique_id=682979593]
+position = Vector2(804, 767)
 
 [node name="DynamicClues" type="Node2D" parent="." unique_id=1971821773]
 y_sort_enabled = true

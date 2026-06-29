@@ -3,6 +3,7 @@ join zhong_qi left
 if {Ch1.NPCIntro.Zhong.Introed} == true:
 	jump 可重复选项
 zhong_qi: 我叫钟歧。我有话就直说了，那个AI管家安排你这个来历不明的陌生人调查我们让我很不满意，但只要你不做出什么出格的举动，或者如果你能够证明你的能力，我暂时会配合你。
+set {ZhongQiName} = "钟歧"
 label 抉择11
 - 我叫{PlayerName}，熟悉之前谁不是陌生人呢？
 	zhong_qi: 看来你很有自信，那就期待一下你的表现吧。
@@ -49,5 +50,6 @@ zhong_qi: 问吧。
 	zhong_qi: 嗯。
 	set {Ch1.PrivateChat.Target} = "zhong"
 	[signal arg="flow:enter_private_chat"]
+	[end_timeline]
 - 暂时没有问题了 | [if {Ch1.NPCIntro.Zhong.Selected1} == true and {Ch1.NPCIntro.Zhong.Selected2} == true and {Ch1.NPCIntro.Zhong.Selected3} == true]
 	zhong_qi: 嗯。

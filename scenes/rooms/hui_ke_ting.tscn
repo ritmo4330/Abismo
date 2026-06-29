@@ -7,6 +7,42 @@
 [ext_resource type="Texture2D" uid="uid://bvuy28qabjt1" path="res://assets/interior/会客厅阴影.png" id="6_1pjmd"]
 [ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="6_falpv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_falpv"]
+size = Vector2(1354, 548.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfxa5"]
+size = Vector2(1319.5, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pjmd"]
+size = Vector2(74, 1539.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5xdc"]
+size = Vector2(111, 863)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8gdj"]
+size = Vector2(101, 420.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmh66"]
+size = Vector2(48, 274)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx1mf"]
+size = Vector2(191.5, 801)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjclq"]
+size = Vector2(372.375, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fudpl"]
+size = Vector2(126, 181.71875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb04e"]
+size = Vector2(18, 277.71875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24xvq"]
+size = Vector2(401, 140.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl4sw"]
+size = Vector2(361, 86.625)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwq15"]
 size = Vector2(163.25, 255.75)
 
@@ -14,7 +50,10 @@ size = Vector2(163.25, 255.75)
 position = Vector2(1, 0)
 script = ExtResource("1_bfxa5")
 room_id = "hui_ke_ting"
+camera_bounds = Rect2(0, 0, 1477, 2168.5)
+player_spawn_scale = Vector2(2.25, 2.25)
 player_speed_scale = 1.5
+npc_spawn_scale = Vector2(4.5, 4.5)
 
 [node name="Scene" type="Node2D" parent="." unique_id=1644374723]
 
@@ -26,6 +65,33 @@ position = Vector2(0, 45)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_falpv")
 centered = false
+
+[node name="FloorCollisions" type="StaticBody2D" parent="Scene/FloorLayer" unique_id=1335380218]
+
+[node name="TopWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1775390296]
+y_sort_enabled = true
+position = Vector2(728, 464.75)
+shape = SubResource("RectangleShape2D_falpv")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=877525350]
+position = Vector2(716.25, 1871)
+shape = SubResource("RectangleShape2D_bfxa5")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=155671982]
+position = Vector2(41, 1092.25)
+shape = SubResource("RectangleShape2D_1pjmd")
+
+[node name="RightWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=2004544047]
+position = Vector2(1413.5, 773.5)
+shape = SubResource("RectangleShape2D_t5xdc")
+
+[node name="RightWall2" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1258885612]
+position = Vector2(1408.5, 1661.75)
+shape = SubResource("RectangleShape2D_a8gdj")
+
+[node name="RightWall3" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=970127679]
+position = Vector2(1471, 1312)
+shape = SubResource("RectangleShape2D_vmh66")
 
 [node name="CarpetLyaer" type="Node2D" parent="Scene" unique_id=1677927240]
 z_index = -50
@@ -42,6 +108,40 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_bfxa5")
 centered = false
 
+[node name="FurnitureCollisions" type="StaticBody2D" parent="Scene/FurnitureLayer" unique_id=251834164]
+
+[node name="Shelf" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=735908440]
+position = Vector2(89.25, 1247.5)
+shape = SubResource("RectangleShape2D_lx1mf")
+
+[node name="Stove" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=1112472613]
+position = Vector2(729.8125, 763)
+shape = SubResource("RectangleShape2D_rjclq")
+
+[node name="Plant" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=824046455]
+position = Vector2(1263, 679.1406)
+shape = SubResource("RectangleShape2D_fudpl")
+
+[node name="Plant2" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=1329583637]
+position = Vector2(432, 997.28125)
+shape = SubResource("RectangleShape2D_fudpl")
+
+[node name="Plant3" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=152241753]
+position = Vector2(431, 1191.1406)
+shape = SubResource("RectangleShape2D_nb04e")
+
+[node name="Sofa" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=574775905]
+position = Vector2(732.5, 1077.875)
+shape = SubResource("RectangleShape2D_24xvq")
+
+[node name="Sofa2" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=597480157]
+position = Vector2(734, 1520)
+shape = SubResource("RectangleShape2D_24xvq")
+
+[node name="Desk" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=824310578]
+position = Vector2(737.5, 1307.6875)
+shape = SubResource("RectangleShape2D_kl4sw")
+
 [node name="Door" type="Area2D" parent="Scene" unique_id=1834290077]
 script = ExtResource("6_falpv")
 target_scene_path = "uid://706wj0rmsrv7"
@@ -54,19 +154,22 @@ shape = SubResource("RectangleShape2D_gwq15")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1111723024]
 color = Color(0.627451, 0.627451, 0.627451, 1)
 
-[node name="SpawnFromZouLang" type="Marker2D" parent="." unique_id=2030578906]
-position = Vector2(1275, 1319)
-
-[node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=2013118464]
-
-[node name="Guest" type="Marker2D" parent="NPCSpawnPoints" unique_id=1779066553]
-position = Vector2(737, 1174)
-
-[node name="DynamicActors" type="Node2D" parent="." unique_id=2103411987]
-y_sort_enabled = true
-
 [node name="Shadow" type="PointLight2D" parent="." unique_id=1336701242]
 position = Vector2(739, 1107)
 energy = 0.6
 texture = ExtResource("6_1pjmd")
 texture_scale = 0.25
+
+[node name="SpawnFromZouLang" type="Marker2D" parent="." unique_id=2030578906]
+position = Vector2(1275, 1319)
+
+[node name="Detective" type="Marker2D" parent="." unique_id=654148990]
+position = Vector2(732, 1410)
+
+[node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=2013118464]
+
+[node name="Guest" type="Marker2D" parent="NPCSpawnPoints" unique_id=1779066553]
+position = Vector2(736, 1247)
+
+[node name="DynamicActors" type="Node2D" parent="." unique_id=2103411987]
+y_sort_enabled = true

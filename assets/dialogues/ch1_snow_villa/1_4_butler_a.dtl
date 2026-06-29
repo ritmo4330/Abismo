@@ -1,7 +1,6 @@
 [style name="default_visual_novel"]
 join butler left
-butler: 忘记自我介绍了，我是别墅的管家，但我不是人类，我是一个人工智能。
 butler: 这幢别墅一共两层，二楼是卧室，从左到右分别是周崇安、钟歧、主人、穆执、林玖、乌停湘的房间，其中主人梅塔的主卧比其它客卧较大，所有客卧的大小与布置均相同。
-butler: 案发地点为林玖的房间，我们不妨先去调查一下尸体。
+butler: 案发地点为林玖的房间，我们不妨先去调查一下案发现场。
 [signal arg="flow:enter_room_lin"]
 [end_timeline]

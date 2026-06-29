@@ -6,7 +6,7 @@
 script = ExtResource("1_ufucf")
 id = "1_testimony_1_butler"
 title = "单独调查"
-description = "管家：“如果你的意思是，会不会有人在调查过程中动手脚，我认为应该没有。调查时为了避免案发现场或其它线索被破坏，都是由我带领大家一个一个地进行搜证，其他人则待在大厅彼此监督。”"
+description = "管家：“一方面为避免遗漏线索，另一方面为避免线索被恶意破坏，我们采用轮流调查的方法，每次由我与你们中的一人同行调查，其他人则留在大厅彼此监督。直到所有人调查完毕，我会汇总所有的线索供大家分析。”"
 chapter_id = "1"
 room_id = "hall"
 category_path = PackedStringArray("雪墅", "口供线索", "管家")

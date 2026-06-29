@@ -12,4 +12,16 @@ func _on_body_entered(body: Node2D) -> void:
 		push_error("Passage target_scene_path is empty.")
 		return
 
+	if _request_standalone_scene_change():
+		return
 	EventBus.scene_change_requested.emit(target_scene_path, target_spawn_point)
+
+
+func _request_standalone_scene_change() -> bool:
+	if FlowManager == null or not FlowManager.has_method("request_scene_change"):
+		return false
+	if SceneManager == null or not SceneManager.has_method("is_initialized"):
+		return false
+	if SceneManager.is_initialized():
+		return false
+	return FlowManager.request_scene_change(target_scene_path, target_spawn_point)

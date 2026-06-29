@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://cn01ehhqar6a2"]
 
-[ext_resource type="Texture2D" uid="uid://dfheiyd16tomo" path="res://素材库/keyboard/Keyboard Letters and Symbols.png" id="1_vrs3t"]
+[ext_resource type="Texture2D" uid="uid://dfheiyd16tomo" path="res://assets/UI/Keyboard Letters and Symbols.png" id="1_vrs3t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5jf1"]
 atlas = ExtResource("1_vrs3t")

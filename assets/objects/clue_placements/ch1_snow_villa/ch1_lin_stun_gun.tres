@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CluePlacementData" format=3]
+
+[ext_resource type="Script" uid="uid://8aldbvivy7g1" path="res://scripts/clues/clue_placement_data.gd" id="1_placement"]
+
+[resource]
+script = ExtResource("1_placement")
+placement_id = "ch1_lin_stun_gun"
+clue_id = "1_lin_2"
+chapter_id = "1"
+room_id = "room_lin_jiu"
+spawn_name = "BedStunGun"
+available_steps = PackedStringArray("ch1_4_first_search")
+required_flags = PackedStringArray()
+blocked_flags = PackedStringArray()
+hide_after_discovered = false
+interact_id = "1_lin_2"
+source_id = "room_lin_jiu/bed_stun_gun"
+prompt_offset = Vector2(0, -16)

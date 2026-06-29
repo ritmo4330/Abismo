@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dqsp2afscxoqa" path="res://scripts/characters/npc/npc.gd" id="1_idr7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxdnj"]
-size = Vector2(14.333333, 61.666664)
+size = Vector2(14.333333, 43.333332)
 
 [node name="NPC" type="Area2D" unique_id=315533828]
 scale = Vector2(1.2, 1.2)
@@ -17,11 +17,11 @@ prompt_offset = Vector2(0, -10)
 position = Vector2(0, -40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1048617042]
-position = Vector2(0, -30.833332)
+position = Vector2(0, -21.666666)
 shape = SubResource("RectangleShape2D_xxdnj")
 
 [node name="ColliderBody" type="StaticBody2D" parent="." unique_id=1376400112]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColliderBody" unique_id=1866209514]
-position = Vector2(0, -30.833332)
+position = Vector2(0, -21.666666)
 shape = SubResource("RectangleShape2D_xxdnj")

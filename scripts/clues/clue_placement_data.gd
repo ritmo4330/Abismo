@@ -15,5 +15,6 @@ extends Resource
 @export var hide_after_discovered: bool = false
 @export var interact_id: String = ""
 @export var source_id: String = ""
+@export var prompt_offset: Vector2 = Vector2.ZERO
 
 @export var scene_path: String = "res://scenes/objects/clue_item.tscn"

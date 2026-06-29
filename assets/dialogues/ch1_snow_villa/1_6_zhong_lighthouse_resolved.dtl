@@ -1,0 +1,14 @@
+[style name="default_visual_novel"]
+join zhong_qi left
+解决疑点后，你将你的发现告知了钟歧。
+zhong_qi: 你的推理很有道理，手工制品不大可能一模一样，况且乌停湘明确认定木雕从来没被送出去。
+zhong_qi: 我有一个猜想，那是我爷爷正在做的研究，但是还没有证实——平行世界，你听说过吗？
+[signal arg="audio:play_sfx:door_knock_quick"]
+与此同时，一阵急促而又力度适中的敲门声突然响起。你们看见管家推开了会客厅的门。
+join butler right
+butler: 很抱歉打扰了，就在刚刚，周先生拿走了万能钥匙，往储物间去了。我没来得及劝阻他。
+zhong_qi: 先去看看吧，关于平行世界的猜想，我再和林玖确认一下。
+set {Affinity.Zhong} += 10
+set {Ch1.PrivateChat.Zhong.Finished} = true
+[signal arg="flow:start_second_search"]
+[end_timeline]

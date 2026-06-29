@@ -315,6 +315,7 @@ func _close_panel() -> void:
 
 	_is_open = false
 	hide()
+	EventBus.ui_panel_closed.emit(PANEL_ID)
 	if GameManager != null and GameManager.has_method("release_pause"):
 		GameManager.release_pause(PANEL_PAUSE_TOKEN)
 

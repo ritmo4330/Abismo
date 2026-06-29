@@ -47,13 +47,13 @@ lin_jiu: 你要问什么？
 - 关于灯塔木雕 | [if {Ch1.PrivateChat.Lin.Removed.Lighthouse} != true]
 	lin_jiu: 那是我做的木雕，如果你要问我为什么会带在身上的话，你就理解成一种心理安慰吧。
 	do DataManager.add_clue("1_testimony_9_lin", "dialogue", "1_testimony_9_lin")
-	你还是有些在意，为什么她会随身携带这样的一个木雕。去找其他人问问吧，乌停湘和她关系那么好，应该知道些什么吧。（记录疑点【灯塔木雕的故事】）
+	你还是有些在意，为什么她会随身携带这样的一个木雕。去找其他人问问吧，乌停湘和她关系那么好，应该知道些什么吧。
 	do DataManager.add_suspicion("1_suspicion_lighthouse_story", "dialogue", "1_6_lin")
 	set {Ch1.PrivateChat.Lin.Asked.Lighthouse} = true
 	set {Ch1.PrivateChat.Lin.Removed.Lighthouse} = true
 	jump 选择
 - 关于五芒星图案 | [if {Ch1.PrivateChat.Lin.Removed.Pentagram} != true]
-	lin_jiu: ……那是我家乡的习俗，不是什么重要的东西。（记录疑点【林玖的习俗】）
+	lin_jiu: ……那是我家乡的习俗，不是什么重要的东西。
 	do DataManager.add_clue("1_testimony_11_lin_custom", "dialogue", "1_testimony_11_lin_custom")
 	do DataManager.add_suspicion("1_suspicion_lin_custom", "dialogue", "1_6_lin")
 	set {Ch1.PrivateChat.Lin.Asked.Pentagram} = true
@@ -62,4 +62,5 @@ lin_jiu: 你要问什么？
 - 暂时没有问题了
 	lin_jiu: 好的，那我先回大厅了。
 	set {Ch1.PrivateChat.Lin.Finished} = true
-	[signal arg="flow:exit_private_chat"]
+[signal arg="flow:exit_private_chat"]
+[end_timeline]

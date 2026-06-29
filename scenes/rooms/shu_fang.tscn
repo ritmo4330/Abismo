@@ -128,3 +128,20 @@ position = Vector2(1104, 727)
 
 [node name="DynamicActors" type="Node2D" parent="." unique_id=464224187]
 y_sort_enabled = true
+
+[node name="ClueSpawnPoints" type="Node2D" parent="." unique_id=1215688022]
+
+[node name="DeskMarkedPage" type="Marker2D" parent="ClueSpawnPoints" unique_id=1508603271]
+position = Vector2(592, 1032)
+
+[node name="BookshelfQuote" type="Marker2D" parent="ClueSpawnPoints" unique_id=911362978]
+position = Vector2(592, 520)
+
+[node name="ShellBook" type="Marker2D" parent="ClueSpawnPoints" unique_id=1108771609]
+position = Vector2(1190, 520)
+
+[node name="LockedDoor" type="Marker2D" parent="ClueSpawnPoints" unique_id=926892592]
+position = Vector2(92, 632)
+
+[node name="DynamicClues" type="Node2D" parent="." unique_id=567529989]
+y_sort_enabled = true

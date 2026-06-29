@@ -48,5 +48,6 @@ wu_ting_xiang: 我会尽可能如实回答的。
 	wu_ting_xiang: 好，我们走吧。
 	set {Ch1.PrivateChat.Target} = "wu"
 	[signal arg="flow:enter_private_chat"]
+	[end_timeline]
 - 暂时没有问题了 | [if {Ch1.NPCIntro.Wu.Selected1} == true and {Ch1.NPCIntro.Wu.Selected2} == true and {Ch1.NPCIntro.Wu.Selected3} == true]
 	wu_ting_xiang: 好，有什么别的疑问要记得和我交流哦。

@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_ufucf")
 id = "1_conclusion_lighthouse_story"
-title = "结论：木雕原本想送给钟歧"
-description = "林玖说木雕只是心理安慰，乌停湘说木雕像是要送给谁但最终没有送出，钟歧又说自己曾收到过相似的木雕。灯塔木雕指向林玖与钟歧之间未说出口的过往。"
+title = "结论：不该存在的第二个木雕"
+description = "林玖与乌停湘口中“未被送出的木雕”与钟歧口中“被赠送的木雕”存在矛盾，假如两种说辞皆为真，那么背后一定还有超乎常理的解释。"
 chapter_id = "1"
 room_id = "hui_ke_ting"
 category_path = PackedStringArray("雪墅", "推理结论", "私聊疑点")

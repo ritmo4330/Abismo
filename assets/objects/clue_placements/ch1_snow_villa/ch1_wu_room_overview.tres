@@ -14,3 +14,4 @@ required_flags = PackedStringArray()
 blocked_flags = PackedStringArray()
 interact_id = "ch1_wu_room_overview"
 source_id = "ch1_wu_room_overview"
+prompt_offset = Vector2(0, -16)

@@ -13,7 +13,8 @@ lin_jiu: 啊？好……
 leave mu_zhi
 leave wu_ting_xiang
 leave lin_jiu
-你看见地毯已经被完全掀开，暗门也被打开了，一条通往地下的楼梯出现在眼前。楼梯非常狭窄，宽度仅能供一人行走。管家摊开右手指向暗门，对你说道。
+你看见地毯已经被完全掀开，暗门也被打开了，一条通往地下的楼梯出现在眼前。
+楼梯非常狭窄，宽度仅能供一人行走。管家摊开右手指向暗门，对你说道：
 butler: 请吧，我们就在你的身后。
 set {Ch1.SecondSearch.Enabled} = true
 leave --All--

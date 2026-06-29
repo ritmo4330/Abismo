@@ -41,7 +41,9 @@ zhou_chong_an: 有什么事吗？
 	set {Ch1.PrivateChat.Zhou.Removed.Tools} = true
 	jump 选择
 - 关于“认识”的梅塔 | [if {Ch1.PrivateChat.Zhou.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Zhou.Removed.KnownMeta} != true]
-	zhou_chong_an: 具体情况不方便透露，但请你相信我，我认识的那个梅塔已经死了，而这个和他长得一模一样的梅塔，我不清楚他的来历。因此我在猜想，我们会不会在梦中……梦里什么都有可能发生。
+	zhou_chong_an: 具体情况不方便透露，但请你相信我，我认识的那个梅塔已经死了。
+	zhou_chong_an: 而这个和他长得一模一样的梅塔，我不清楚他的来历。
+	zhou_chong_an: 因此我在猜想，我们会不会在梦中……梦里什么都有可能发生。
 	set {Ch1.PrivateChat.Zhou.Removed.KnownMeta} = true
 	jump 选择
 - 关于灯塔木雕 | [if {Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Zhou.Removed.Lighthouse} != true]
@@ -52,4 +54,5 @@ zhou_chong_an: 有什么事吗？
 - 暂时没有问题了
 	zhou_chong_an: 嗯，我还需要调查一下。
 	set {Ch1.PrivateChat.Zhou.Finished} = true
-	[signal arg="flow:exit_private_chat"]
+[signal arg="flow:exit_private_chat"]
+[end_timeline]

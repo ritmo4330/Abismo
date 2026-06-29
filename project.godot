@@ -82,6 +82,7 @@ directories/dtl_directory={
 "1_6_mu": "res://assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
 "1_6_wu": "res://assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
 "1_6_zhong": "res://assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+"1_6_zhong_lighthouse_resolved": "res://assets/dialogues/ch1_snow_villa/1_6_zhong_lighthouse_resolved.dtl",
 "1_6_zhou": "res://assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
 "1_7_all": "res://assets/dialogues/ch1_snow_villa/1_7_all.dtl",
 "1_7_exit": "res://assets/dialogues/ch1_snow_villa/1_7_exit.dtl",

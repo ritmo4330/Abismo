@@ -28,7 +28,7 @@ const STEP_CH1_SECOND_SEARCH: String = "ch1_7_second_search"
 const ROOM_HALL: String = "hall"
 const ROOM_FLOOR2: String = "floor2"
 const ROOM_HUI_KE_TING: String = "hui_ke_ting"
-const ROOM_FIRST_SEARCH: String = "room_wu_ting_xiang"
+const ROOM_FIRST_SEARCH: String = "room_lin_jiu"
 const ROOM_SECOND_SEARCH: String = "shu_fang"
 const ROOM_CH1_STUDY: String = "ch1_study"
 const ROOM_CH1_CRIME_SCENE: String = "ch1_crime_scene_lin_room"
@@ -42,7 +42,7 @@ const CH1_CRIME_SCENE_PATH: String = "res://scenes/ch1_snow_villa/ch1_crime_scen
 const CH1_BODY_CG_SCENE_PATH: String = "res://scenes/ch1_snow_villa/ch1_body_cg.tscn"
 const HUI_KE_TING_SCENE_PATH: String = "res://scenes/rooms/hui_ke_ting.tscn"
 const FIRST_SEARCH_ROOM1_PATH: String = "res://scenes/rooms/floor2.tscn"
-const FIRST_SEARCH_ROOM2_PATH: String = "res://scenes/rooms/room_wu_ting_xiang.tscn"
+const FIRST_SEARCH_ROOM2_PATH: String = "res://scenes/rooms/room_lin_jiu.tscn"
 const SECOND_SEARCH_ROOM_PATH: String = "res://scenes/rooms/shu_fang.tscn"
 const NPC_SCENE_PATH: String = "res://scenes/characters/npcs/npc.tscn"
 
@@ -53,6 +53,7 @@ const ACTION_ENTER_PRIVATE_CHAT: String = "enter_private_chat"
 const ACTION_EXIT_PRIVATE_CHAT: String = "exit_private_chat"
 const ACTION_START_SECOND_SEARCH: String = "start_second_search"
 const ACTION_EXIT_SECOND_SEARCH: String = "exit_second_search"
+const ACTION_START_LIGHTHOUSE_REASONING: String = "start_lighthouse_reasoning"
 const ACTION_CH0_IDENTITY_FINISHED: String = "ch0_identity_finished"
 const ACTION_CH0_PROLOGUE_INTRO_FINISHED: String = "ch0_prologue_intro_finished"
 const ACTION_CH0_CAMPFIRE_EXTINGUISHED: String = "ch0_campfire_extinguished"
@@ -79,6 +80,9 @@ const TIMELINE_CH1_STUDY_WAKE: String = "1_1_study_wake"
 const TIMELINE_CH1_PUZZLE_REASONING: String = "1_1_puzzle_reasoning"
 const TIMELINE_CH1_MURDER_REQUEST: String = "1_1_murder_request"
 const TIMELINE_CH1_CRIME_SCENE: String = "1_2_crime_scene"
+const TIMELINE_CH1_LIGHTHOUSE_REASONING_AFTER: String = "1_6_zhong_lighthouse_resolved"
+
+const SUSPICION_CH1_LIGHTHOUSE_STORY: String = "1_suspicion_lighthouse_story"
 
 const STEP_BGM_CONFIGS: Dictionary = {
 	STEP_CH0_IDENTITY: {"track_id": "cassandra_memory", "fade_seconds": 2.0},
@@ -92,6 +96,11 @@ const STEP_BGM_CONFIGS: Dictionary = {
 	STEP_CH1_PUZZLE: {"track_id": "thinking_introspection_2", "fade_seconds": 2.0},
 	STEP_CH1_MURDER_REQUEST: {"track_id": "truth", "fade_seconds": 2.0},
 	STEP_CH1_CRIME_SCENE: {"track_id": "truth", "fade_seconds": 2.0},
+	STEP_CH1_INTRO_HALL: {"track_id": "spooky_tension", "fade_seconds": 2.0},
+	STEP_CH1_FIRST_SEARCH: {"track_id": "what_is_truth", "fade_seconds": 2.0},
+	STEP_CH1_INITIAL_REASONING: {"track_id": "what_is_truth", "fade_seconds": 2.0},
+	STEP_CH1_PRIVATE_CHAT: {"track_id": "what_is_truth", "fade_seconds": 2.0},
+	STEP_CH1_SECOND_SEARCH: {"track_id": "what_is_truth", "fade_seconds": 2.0},
 }
 
 const FREE_INTERACTION_TIMELINES: Dictionary = {
@@ -104,6 +113,30 @@ const FREE_INTERACTION_TIMELINES: Dictionary = {
 		"zhong": "1_3_zhong",
 	},
 }
+
+const CH1_INITIAL_SEARCH_REQUIRED_CLUES: Array[String] = [
+	"1_lin_1",
+	"1_lin_2",
+	"1_lin_3",
+	"1_lin_4",
+	"1_lin_5",
+	"1_lin_6",
+	"1_lin_7",
+	"1_mei_1",
+	"1_mei_2",
+	"1_mu_1",
+	"1_wu_1",
+	"1_zhong_1",
+	"1_zhou_1",
+	"1_zhou_2",
+	"1_dining_1",
+	"1_dining_2",
+	"1_hall_1",
+	"1_study_3",
+	"1_study_4",
+	"1_study_5",
+	"1_study_6",
+]
 
 const NPC_NAMES: Dictionary = {
 	"butler": "butler",
@@ -176,6 +209,9 @@ var private_chat_target: String = ""
 var _pending_action_after_dialogue: String = ""
 var _current_room: Node2D = null
 var _npc_locations: Dictionary = {}
+var _is_standalone_debug_flow_active: bool = false
+var _is_standalone_scene_transitioning: bool = false
+var _last_initial_search_missing_signature: String = ""
 
 
 func _ready() -> void:
@@ -190,6 +226,8 @@ func _ready() -> void:
 		EventBus.room_presented.connect(_on_room_presented)
 	if not EventBus.dialogue_finished.is_connected(_on_dialogue_finished):
 		EventBus.dialogue_finished.connect(_on_dialogue_finished)
+	if DataManager != null and not DataManager.clue_updated.is_connected(_on_clue_updated):
+		DataManager.clue_updated.connect(_on_clue_updated)
 
 
 func prepare_ch0_prologue_start() -> void:
@@ -234,7 +272,7 @@ func start_ch1_study_from_prologue() -> void:
 	pending_auto_timeline = TIMELINE_CH1_STUDY_WAKE
 	_reset_npc_locations_for_step(current_step_id)
 	_sync_bgm_for_step(current_step_id)
-	_set_ch0_character_names_revealed()
+	_set_ch0_character_names_unknown()
 	request_scene_change(CH1_STUDY_SCENE_PATH, "SpawnFromChair", TIMELINE_CH1_STUDY_WAKE)
 
 
@@ -246,8 +284,8 @@ func start_ch1_hall_intro_from_crime_scene() -> void:
 	_pending_action_after_dialogue = ""
 	pending_auto_timeline = ""
 	_reset_npc_locations_for_step(current_step_id)
-	_stop_bgm()
-	_set_ch0_character_names_revealed()
+	_sync_bgm_for_step(current_step_id)
+	_set_ch1_known_character_names_after_crime_scene()
 	request_scene_change(HALL_SCENE_PATH, "InitialSpawn")
 
 
@@ -258,9 +296,46 @@ func set_step(step_id: String) -> void:
 	_reset_npc_locations_for_step(step_id)
 	_sync_bgm_for_step(step_id)
 	_refresh_current_room_actors()
+	_refresh_ch1_initial_search_finished()
+
+
+func is_standalone_debug_flow_active() -> bool:
+	return _is_standalone_debug_flow_active
+
+
+func prepare_debug_standalone_room(config: Dictionary) -> void:
+	if not OS.is_debug_build():
+		return
+	if DataManager != null and DataManager.has_method("reset_runtime_state"):
+		DataManager.reset_runtime_state()
+
+	current_chapter_id = String(config.get("chapter_id", CHAPTER_CH1))
+	if current_chapter_id.is_empty():
+		current_chapter_id = CHAPTER_CH1
+
+	current_step_id = String(config.get("step_id", ""))
+	if current_step_id.is_empty():
+		current_step_id = _resolve_debug_step_for_room(String(config.get("room_id", "")))
+
+	current_room_id = ""
+	private_chat_target = String(config.get("private_chat_target", ""))
+	_pending_action_after_dialogue = ""
+	pending_auto_timeline = String(config.get("auto_timeline", ""))
+	pending_standalone_spawn_point = String(config.get("spawn_point", ""))
+	_is_standalone_debug_flow_active = true
+
+	_reset_npc_locations_for_step(current_step_id)
+	_apply_debug_step_defaults(current_step_id)
+	_apply_debug_character_name_state(String(config.get("character_name_state", "auto")))
+	_apply_debug_private_chat_location()
+	_apply_debug_runtime_state(config)
+	_refresh_ch1_initial_search_finished()
+	_sync_bgm_for_step(current_step_id)
 
 
 func are_manual_panels_unlocked() -> bool:
+	if OS.is_debug_build() and _is_standalone_debug_flow_active:
+		return true
 	if current_chapter_id != CHAPTER_CH0_PROLOGUE:
 		return true
 	return CH0_MANUAL_UNLOCKED_STEPS.has(current_step_id)
@@ -304,12 +379,10 @@ func request_scene_change(target_scene_path: String, spawn_point: String, auto_t
 		return false
 
 	if SceneManager != null and SceneManager.has_method("is_initialized") and not SceneManager.is_initialized():
-		pending_auto_timeline = auto_timeline
-		pending_standalone_spawn_point = spawn_point
-		var error: Error = get_tree().change_scene_to_file(target_scene_path)
-		if error != OK:
-			push_error("FlowManager: standalone scene change failed: %s" % target_scene_path)
+		if _is_standalone_scene_transitioning:
+			push_warning("FlowManager: standalone scene change ignored because a transition is already running: %s" % target_scene_path)
 			return false
+		_start_standalone_scene_change(target_scene_path, spawn_point, auto_timeline)
 		return true
 
 	if SceneManager != null and SceneManager.is_transitioning:
@@ -321,6 +394,33 @@ func request_scene_change(target_scene_path: String, spawn_point: String, auto_t
 	return true
 
 
+func _start_standalone_scene_change(target_scene_path: String, spawn_point: String, auto_timeline: String) -> void:
+	_is_standalone_debug_flow_active = true
+	_is_standalone_scene_transitioning = true
+	pending_auto_timeline = auto_timeline
+	pending_standalone_spawn_point = spawn_point
+	call_deferred("_run_standalone_scene_change", target_scene_path)
+
+
+func _run_standalone_scene_change(target_scene_path: String) -> void:
+	if Transition != null and Transition.has_method("fade_out"):
+		await Transition.fade_out()
+
+	var error: Error = get_tree().change_scene_to_file(target_scene_path)
+	if error != OK:
+		push_error("FlowManager: standalone scene change failed: %s" % target_scene_path)
+		_is_standalone_scene_transitioning = false
+		return
+
+	await get_tree().process_frame
+	await get_tree().process_frame
+
+	if Transition != null and Transition.has_method("fade_in"):
+		await Transition.fade_in()
+
+	_is_standalone_scene_transitioning = false
+
+
 func consume_pending_standalone_spawn_point(default_spawn_point: String) -> String:
 	if pending_standalone_spawn_point.is_empty():
 		return default_spawn_point
@@ -329,10 +429,16 @@ func consume_pending_standalone_spawn_point(default_spawn_point: String) -> Stri
 	return spawn_point
 
 
+func _on_clue_updated(_clue_id: String) -> void:
+	_refresh_ch1_initial_search_finished()
+
+
 func on_room_loaded(room: Node2D, room_id: String) -> void:
 	_current_room = room
 	current_room_id = room_id
 	setup_room_actors(room)
+	_setup_current_room_clues()
+	_refresh_ch1_initial_search_finished()
 
 
 func on_room_presented(_room: Node2D, room_id: String) -> void:
@@ -361,6 +467,9 @@ func get_dialogic_var(path: String, default_value: Variant = null) -> Variant:
 	if path.is_empty() or Dialogic == null:
 		return default_value
 
+	if Dialogic.VAR != null and Dialogic.VAR.has_method("get_variable"):
+		return Dialogic.VAR.get_variable(path, default_value, true)
+
 	var direct_value: Variant = Dialogic.VAR.get(path)
 	if direct_value != null:
 		return direct_value
@@ -384,6 +493,9 @@ func get_dialogic_var(path: String, default_value: Variant = null) -> Variant:
 func set_dialogic_var(path: String, value: Variant) -> void:
 	if path.is_empty() or Dialogic == null:
 		return
+	if Dialogic.VAR != null and Dialogic.VAR.has_method("set_variable"):
+		if Dialogic.VAR.set_variable(path, value):
+			return
 	Dialogic.VAR.set(path, value)
 
 
@@ -397,6 +509,127 @@ func _set_ch0_character_names_revealed() -> void:
 	set_dialogic_var("ButlerName", "管家")
 	set_dialogic_var("MetaName", "梅塔")
 	set_dialogic_var("ZhongQiName", "钟歧")
+
+
+func _set_ch1_known_character_names_after_crime_scene() -> void:
+	set_dialogic_var("ButlerName", "管家")
+	set_dialogic_var("MetaName", "梅塔")
+	set_dialogic_var("ZhongQiName", "？？")
+
+
+func _resolve_debug_step_for_room(debug_room_id: String) -> String:
+	match debug_room_id:
+		ROOM_CH1_STUDY:
+			return STEP_CH1_STUDY_FREE_INVESTIGATION
+		ROOM_CH1_CRIME_SCENE:
+			return STEP_CH1_CRIME_SCENE
+		ROOM_HALL:
+			return STEP_CH1_INTRO_HALL
+		ROOM_FLOOR2, ROOM_FIRST_SEARCH, "room_lin_jiu", "room_mu_zhi", "room_zhong_qi", "room_zhou_chong_an":
+			return STEP_CH1_FIRST_SEARCH
+		ROOM_HUI_KE_TING:
+			return STEP_CH1_PRIVATE_CHAT
+		ROOM_SECOND_SEARCH:
+			return STEP_CH1_SECOND_SEARCH
+		_:
+			return STEP_CH1_INTRO_HALL
+
+
+func _apply_debug_character_name_state(name_state: String) -> void:
+	var resolved_name_state: String = name_state
+	if resolved_name_state.is_empty() or resolved_name_state == "auto":
+		resolved_name_state = _resolve_debug_character_name_state_for_step(current_step_id)
+
+	match resolved_name_state:
+		"all_unknown":
+			_set_ch0_character_names_unknown()
+		"butler_meta_known":
+			_set_ch1_known_character_names_after_crime_scene()
+		"all_revealed":
+			_set_ch0_character_names_revealed()
+		_:
+			_set_ch0_character_names_revealed()
+
+
+func _resolve_debug_character_name_state_for_step(step_id: String) -> String:
+	if current_chapter_id == CHAPTER_CH0_PROLOGUE:
+		return "all_unknown"
+
+	match step_id:
+		STEP_CH1_STUDY_WAKE:
+			return "all_unknown"
+		STEP_CH1_STUDY_FREE_INVESTIGATION, STEP_CH1_PUZZLE, STEP_CH1_MURDER_REQUEST, STEP_CH1_CRIME_SCENE, STEP_CH1_BODY_CG, STEP_CH1_INTRO_HALL:
+			return "butler_meta_known"
+		_:
+			return "all_revealed"
+
+
+func _apply_debug_step_defaults(step_id: String) -> void:
+	match step_id:
+		STEP_CH1_STUDY_FREE_INVESTIGATION:
+			set_dialogic_var("Ch1.StudyWake.Finished", true)
+		STEP_CH1_PUZZLE:
+			_add_debug_clues(PackedStringArray(["1_study_1", "1_study_7", "1_study_2"]))
+			DataManager.set_world_flag("ch1/study/clues_finished_narration_seen", true)
+		STEP_CH1_MURDER_REQUEST:
+			_add_debug_clues(PackedStringArray(["1_study_1", "1_study_7", "1_study_2", "1_puzzle_story", "1_conclusion_parallel_worlds"]))
+			DataManager.set_world_flag("ch1/study/clues_finished_narration_seen", true)
+			DataManager.set_world_flag("ch1/study/puzzle_read", true)
+			DataManager.set_world_flag("ch1/study/challenge_read", true)
+			DataManager.set_world_flag("ch1/study/reasoning_started", true)
+		STEP_CH1_INTRO_HALL:
+			set_dialogic_var("Ch1.NPCIntro.ReadyForSearch", true)
+		STEP_CH1_FIRST_SEARCH:
+			set_dialogic_var("Ch1.NPCIntro.ReadyForSearch", true)
+			set_dialogic_var("Ch1.InitialSearch.Enabled", true)
+			set_dialogic_var("Ch1.BodySearch.Enabled", true)
+		STEP_CH1_INITIAL_REASONING:
+			set_dialogic_var("Ch1.InitialSearch.Enabled", true)
+			set_dialogic_var("Ch1.BodySearch.Enabled", true)
+			set_dialogic_var("Ch1.InitialSearch.ReadyForReasoning", true)
+			set_dialogic_var("Ch1.InitialSearch.Finished", true)
+		STEP_CH1_PRIVATE_CHAT:
+			set_dialogic_var("Ch1.PrivateChat.Enabled", true)
+			set_dialogic_var("Ch1.InitialSearch.Enabled", true)
+			set_dialogic_var("Ch1.InitialSearch.Finished", true)
+		STEP_CH1_SECOND_SEARCH:
+			set_dialogic_var("Ch1.PrivateChat.Enabled", true)
+			set_dialogic_var("Ch1.SecondSearch.Enabled", true)
+
+
+func _apply_debug_private_chat_location() -> void:
+	if current_step_id != STEP_CH1_PRIVATE_CHAT:
+		return
+	if private_chat_target.is_empty():
+		return
+	set_npc_location(private_chat_target, ROOM_HUI_KE_TING, "Guest", "1_6_%s" % private_chat_target)
+	set_dialogic_var("Ch1.PrivateChat.Target", private_chat_target)
+
+
+func _apply_debug_runtime_state(config: Dictionary) -> void:
+	var player_name: String = String(config.get("player_name", ""))
+	if not player_name.is_empty():
+		set_dialogic_var("PlayerName", player_name)
+
+	var dialogic_vars: Dictionary = config.get("dialogic_vars", {})
+	for variable_path: Variant in dialogic_vars.keys():
+		set_dialogic_var(String(variable_path), dialogic_vars[variable_path])
+
+	var world_flags: Dictionary = config.get("world_flags", {})
+	for flag_id: Variant in world_flags.keys():
+		DataManager.set_world_flag(String(flag_id), bool(world_flags[flag_id]))
+
+	var clue_ids: PackedStringArray = config.get("discovered_clues", PackedStringArray())
+	_add_debug_clues(clue_ids)
+
+	var suspicion_ids: PackedStringArray = config.get("discovered_suspicions", PackedStringArray())
+	for suspicion_id: String in suspicion_ids:
+		DataManager.add_suspicion(suspicion_id, "debug", current_step_id)
+
+
+func _add_debug_clues(clue_ids: PackedStringArray) -> void:
+	for clue_id: String in clue_ids:
+		DataManager.add_clue(clue_id, "debug", current_step_id)
 
 
 func _reset_npc_locations_for_step(step_id: String) -> void:
@@ -459,6 +692,15 @@ func _refresh_current_room_actors() -> void:
 	if _current_room == null or current_room_id.is_empty():
 		return
 	setup_room_actors(_current_room)
+	_setup_current_room_clues()
+
+
+func _setup_current_room_clues() -> void:
+	if _current_room == null or current_room_id.is_empty():
+		return
+	if CluePlacementManager == null or not CluePlacementManager.has_method("setup_room_clues"):
+		return
+	CluePlacementManager.setup_room_clues(_current_room, current_room_id)
 
 
 func _refresh_spawned_npc(npc_id: String, location: Dictionary) -> void:
@@ -563,6 +805,44 @@ func set_current_ch0_campfire_lit(is_lit: bool) -> void:
 		room.set_campfire_lit(is_lit)
 
 
+func _refresh_ch1_initial_search_finished() -> void:
+	if current_step_id != STEP_CH1_FIRST_SEARCH:
+		return
+
+	var missing_clue_ids: Array[String] = _get_missing_required_clues(CH1_INITIAL_SEARCH_REQUIRED_CLUES)
+	var is_finished: bool = missing_clue_ids.is_empty()
+	if bool(get_dialogic_var("Ch1.InitialSearch.Finished", false)) == is_finished:
+		if not is_finished:
+			_log_initial_search_missing_clues(missing_clue_ids)
+		return
+
+	set_dialogic_var("Ch1.InitialSearch.Finished", is_finished)
+	if is_finished:
+		_last_initial_search_missing_signature = ""
+	else:
+		_log_initial_search_missing_clues(missing_clue_ids)
+
+
+func _get_missing_required_clues(required_clue_ids: Array[String]) -> Array[String]:
+	var missing_clue_ids: Array[String] = []
+	if DataManager == null:
+		return required_clue_ids.duplicate()
+	for clue_id: String in required_clue_ids:
+		if clue_id.is_empty():
+			continue
+		if not DataManager.has_clue(clue_id):
+			missing_clue_ids.append(clue_id)
+	return missing_clue_ids
+
+
+func _log_initial_search_missing_clues(missing_clue_ids: Array[String]) -> void:
+	var signature: String = ",".join(missing_clue_ids)
+	if signature == _last_initial_search_missing_signature:
+		return
+	_last_initial_search_missing_signature = signature
+	push_warning("Ch1 initial search is not finished. Missing clues: %s" % signature)
+
+
 func _on_flow_signal_requested(signal_name: String) -> void:
 	if signal_name.is_empty():
 		return
@@ -572,8 +852,6 @@ func _on_flow_signal_requested(signal_name: String) -> void:
 			_pending_action_after_dialogue = ACTION_START_INITIAL_SEARCH
 		ACTION_ENTER_ROOM_LIN:
 			_pending_action_after_dialogue = ACTION_ENTER_ROOM_LIN
-		"start_search_tutorial":
-			pass
 		ACTION_START_INITIAL_REASONING:
 			_pending_action_after_dialogue = ACTION_START_INITIAL_REASONING
 		"enable_private_chat":
@@ -588,6 +866,8 @@ func _on_flow_signal_requested(signal_name: String) -> void:
 		ACTION_EXIT_SECOND_SEARCH:
 			_pending_action_after_dialogue = ACTION_EXIT_SECOND_SEARCH
 			EventBus.dialogue_requested.emit("1_7_exit")
+		ACTION_START_LIGHTHOUSE_REASONING:
+			_pending_action_after_dialogue = ACTION_START_LIGHTHOUSE_REASONING
 		ACTION_CH0_IDENTITY_FINISHED:
 			_pending_action_after_dialogue = ACTION_CH0_IDENTITY_FINISHED
 		ACTION_CH0_PROLOGUE_INTRO_FINISHED:
@@ -643,6 +923,8 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 		ACTION_ENTER_ROOM_LIN:
 			set_step(STEP_CH1_FIRST_SEARCH)
 			set_npc_location("butler", ROOM_FIRST_SEARCH, "Butler")
+			set_dialogic_var("Ch1.InitialSearch.ReadyForReasoning", true)
+			_refresh_ch1_initial_search_finished()
 			request_scene_change(FIRST_SEARCH_ROOM2_PATH, "SpawnFromF2", "1_4_butler_b")
 		ACTION_START_INITIAL_REASONING:
 			set_step(STEP_CH1_INITIAL_REASONING)
@@ -655,7 +937,7 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 				push_warning("FlowManager: private chat target is empty.")
 				return
 			set_npc_location(private_chat_target, ROOM_HUI_KE_TING, "Guest", "1_6_%s" % private_chat_target)
-			request_scene_change(HUI_KE_TING_SCENE_PATH, "SpawnFromZouLang", "1_6_%s" % private_chat_target)
+			request_scene_change(HUI_KE_TING_SCENE_PATH, "Detective", "1_6_%s" % private_chat_target)
 		ACTION_EXIT_PRIVATE_CHAT:
 			set_step(STEP_CH1_PRIVATE_CHAT)
 			private_chat_target = ""
@@ -666,6 +948,8 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 		ACTION_EXIT_SECOND_SEARCH:
 			if bool(get_dialogic_var("Ch1.SecondSearch.Zhong.Finished", false)):
 				request_scene_change(HALL_SCENE_PATH, "InitialSpawn")
+		ACTION_START_LIGHTHOUSE_REASONING:
+			_start_ch1_lighthouse_reasoning()
 		ACTION_CH0_IDENTITY_FINISHED:
 			set_step(STEP_CH0_PROLOGUE_STORY)
 			request_scene_change(CH0_BLACK_SCREEN_SCENE_PATH, "InitialSpawn", TIMELINE_CH0_PROLOGUE)
@@ -702,6 +986,15 @@ func _on_dialogue_finished(_timeline_name: String) -> void:
 			request_scene_change(CH1_BODY_CG_SCENE_PATH, "InitialSpawn")
 		_:
 			push_warning("FlowManager: unhandled pending action '%s'." % action)
+
+
+func _start_ch1_lighthouse_reasoning() -> void:
+	if DataManager != null and not DataManager.has_suspicion(SUSPICION_CH1_LIGHTHOUSE_STORY):
+		DataManager.add_suspicion(SUSPICION_CH1_LIGHTHOUSE_STORY, "flow", "1_6_zhong")
+	EventBus.locked_suspicion_requested.emit(
+		SUSPICION_CH1_LIGHTHOUSE_STORY,
+		TIMELINE_CH1_LIGHTHOUSE_REASONING_AFTER
+	)
 
 
 func _resolve_npc_id(raw_npc_id: String) -> String:

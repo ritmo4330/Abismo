@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CluePlacementData" format=3]
+
+[ext_resource type="Script" uid="uid://8aldbvivy7g1" path="res://scripts/clues/clue_placement_data.gd" id="1_placement"]
+
+[resource]
+script = ExtResource("1_placement")
+placement_id = "ch1_meta_desk_machine"
+clue_id = "1_mei_2"
+chapter_id = "1"
+room_id = "room_meta"
+spawn_name = "DeskMachine"
+available_steps = PackedStringArray("ch1_4_first_search")
+required_flags = PackedStringArray()
+blocked_flags = PackedStringArray()
+hide_after_discovered = false
+interact_id = "1_mei_2"
+source_id = "room_meta/desk_machine"
+prompt_offset = Vector2(0, -16)

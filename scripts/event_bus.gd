@@ -26,6 +26,8 @@ signal clue_selected_for_reasoning(context: Dictionary, clue_id: String)
 
 # 系统 UI 面板互斥显示：同一时间只保留一个手册/弹出界面
 signal ui_panel_focus_requested(panel_id: String)
+signal ui_panel_closed(panel_id: String)
+signal locked_suspicion_requested(suspicion_id: String, conclusion_followup_timeline: String)
 
 # 你可以随着游戏开发，在这里不断追加新的信号，比如：
 # signal player_health_changed(new_health: int)

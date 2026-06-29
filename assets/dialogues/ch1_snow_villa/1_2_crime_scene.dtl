@@ -5,7 +5,7 @@
 你看向了在场的另外五个人——或者说，五名嫌疑人。
 但就和初次见到别墅主人一样，一段段不属于你的记忆窜入了你的脑海……
 
-join zhou_chong_an rightmost
+join zhou_chong_an right
 在右边，你看见一名眉头紧锁、心事重重的中年男人。
 
 [background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="0.5"]
@@ -15,7 +15,7 @@ join zhou_chong_an rightmost
 [background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#00000000" fade="0.5"]
 leave zhou_chong_an
 
-join mu_zhi right
+join mu_zhi center
 你看见一名气质不凡、面色沉重的年轻男子。
 [background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="0.5"]
 [color=#00bfff]那天夜里电闪雷鸣，你心中的不安也随着天气的恶化而放大，以致于独自身躺在床上辗转难眠。[/color]
@@ -40,7 +40,7 @@ join wu_ting_xiang leftmost
 leave lin_jiu
 leave wu_ting_xiang
 
-join zhong_qi center
+join zhong_qi rightmost
 最后，衣柜前那个不修边幅的男人回过头，打量着你。
 [background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="0.5"]
 [color=#00bfff]你摸索着找到了电灯开关，随着“咔”一声，空间内的灯亮了起来。[/color]

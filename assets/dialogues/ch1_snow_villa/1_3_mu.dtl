@@ -49,5 +49,6 @@ mu_zhi: 你想从我这里了解什么？
 	mu_zhi: 乐意效劳。
 	set {Ch1.PrivateChat.Target} = "mu"
 	[signal arg="flow:enter_private_chat"]
+	[end_timeline]
 - 暂时没有问题了 | [if {Ch1.NPCIntro.Mu.Selected1} == true and {Ch1.NPCIntro.Mu.Selected2} == true and {Ch1.NPCIntro.Mu.Selected3} == true]
 	mu_zhi: 好的，如果有其他问题，欢迎再来和我沟通。

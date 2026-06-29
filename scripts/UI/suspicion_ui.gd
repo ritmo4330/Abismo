@@ -28,6 +28,9 @@ var _refresh_queued: bool = false
 var _selected_suspicion_id: String = ""
 var _archive_sort_mode: int = ARCHIVE_SORT_DEFAULT
 var _slot_ids_by_suspicion: Dictionary = {}
+var _locked_suspicion_id: String = ""
+var _locked_conclusion_followup_timeline: String = ""
+var _locked_suspicion_resolved: bool = false
 
 
 func _ready() -> void:
@@ -67,6 +70,10 @@ func _ready() -> void:
 		EventBus.clue_selected_for_reasoning.connect(_on_clue_selected_for_reasoning)
 	if EventBus != null and not EventBus.ui_panel_focus_requested.is_connected(_on_ui_panel_focus_requested):
 		EventBus.ui_panel_focus_requested.connect(_on_ui_panel_focus_requested)
+	if EventBus != null and not EventBus.ui_panel_closed.is_connected(_on_ui_panel_closed):
+		EventBus.ui_panel_closed.connect(_on_ui_panel_closed)
+	if EventBus != null and not EventBus.locked_suspicion_requested.is_connected(_on_locked_suspicion_requested):
+		EventBus.locked_suspicion_requested.connect(_on_locked_suspicion_requested)
 
 	_on_viewport_size_changed()
 	_render_empty_state("暂无可显示的疑点。")
@@ -75,9 +82,16 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if _is_toggle_input(event):
 		if _is_open:
+			if _is_locked_and_unresolved():
+				_show_locked_notice()
+				get_viewport().set_input_as_handled()
+				return
 			_close_panel()
 		else:
-			_open_archive_panel()
+			if _is_locked_session_active():
+				_open_locked_panel()
+			else:
+				_open_archive_panel()
 		get_viewport().set_input_as_handled()
 		return
 
@@ -85,11 +99,18 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if _is_close_input(event):
+		if _is_locked_and_unresolved():
+			_show_locked_notice()
+			get_viewport().set_input_as_handled()
+			return
 		_close_panel()
 		get_viewport().set_input_as_handled()
 
 
 func _on_close_button_pressed() -> void:
+	if _is_locked_and_unresolved():
+		_show_locked_notice()
+		return
 	_close_panel()
 
 
@@ -116,6 +137,10 @@ func _on_suspicion_tree_item_selected() -> void:
 
 	var suspicion_id: String = String(suspicion_id_variant)
 	if suspicion_id.is_empty():
+		return
+	if _is_locked_and_unresolved() and suspicion_id != _locked_suspicion_id:
+		_select_suspicion_in_tree(_locked_suspicion_id)
+		_show_locked_notice()
 		return
 
 	_selected_suspicion_id = suspicion_id
@@ -164,6 +189,7 @@ func _on_reason_button_pressed() -> void:
 		return
 
 	_show_reasoning_notice("推理成功！", "success")
+	_handle_locked_suspicion_resolved(_selected_suspicion_id)
 
 	if not suspicion_def.conclusion_clue_id.is_empty():
 		var payload: Dictionary = {
@@ -171,14 +197,20 @@ func _on_reason_button_pressed() -> void:
 			"parent_clue_id": suspicion_def.conclusion_clue_id,
 			"clue_ids": [suspicion_def.conclusion_clue_id],
 		}
-		if not suspicion_def.resolution_timeline.is_empty():
-			payload["followup_timeline"] = suspicion_def.resolution_timeline
+		var followup_timeline: String = suspicion_def.resolution_timeline
+		if _selected_suspicion_id == _locked_suspicion_id and not _locked_conclusion_followup_timeline.is_empty():
+			followup_timeline = _locked_conclusion_followup_timeline
+		if not followup_timeline.is_empty():
+			payload["followup_timeline"] = followup_timeline
 		EventBus.clue_interaction_details_requested.emit(payload)
 		return
 
-	if not suspicion_def.resolution_timeline.is_empty():
+	var timeline_after_resolution: String = suspicion_def.resolution_timeline
+	if _selected_suspicion_id == _locked_suspicion_id and not _locked_conclusion_followup_timeline.is_empty():
+		timeline_after_resolution = _locked_conclusion_followup_timeline
+	if not timeline_after_resolution.is_empty():
 		_close_panel()
-		call_deferred("_request_resolution_timeline", suspicion_def.resolution_timeline)
+		call_deferred("_request_resolution_timeline", timeline_after_resolution)
 
 
 func _on_clue_selected_for_reasoning(context: Dictionary, clue_id: String) -> void:
@@ -202,13 +234,40 @@ func _on_clue_selected_for_reasoning(context: Dictionary, clue_id: String) -> vo
 	_store_slot_ids(suspicion_id, selected_ids)
 
 	_selected_suspicion_id = suspicion_id
-	_open_archive_panel()
+	if _is_locked_session_active():
+		_open_locked_panel()
+	else:
+		_open_archive_panel()
 
 
 func _on_ui_panel_focus_requested(panel_id: String) -> void:
 	if panel_id == PANEL_ID:
 		return
 	_close_panel()
+
+
+func _on_ui_panel_closed(panel_id: String) -> void:
+	if panel_id != "clue_panel":
+		return
+	if not _is_locked_and_unresolved():
+		return
+	if _is_open:
+		return
+	call_deferred("_open_locked_panel")
+
+
+func _on_locked_suspicion_requested(suspicion_id: String, conclusion_followup_timeline: String) -> void:
+	if suspicion_id.is_empty():
+		return
+	if DataManager == null:
+		return
+	if not DataManager.has_suspicion(suspicion_id):
+		DataManager.add_suspicion(suspicion_id, "flow", "locked_suspicion")
+	_locked_suspicion_id = suspicion_id
+	_locked_conclusion_followup_timeline = conclusion_followup_timeline
+	_locked_suspicion_resolved = DataManager.is_suspicion_resolved(suspicion_id)
+	_selected_suspicion_id = suspicion_id
+	_open_locked_panel()
 
 
 func _on_viewport_size_changed() -> void:
@@ -235,6 +294,20 @@ func _open_archive_panel() -> bool:
 	return true
 
 
+func _open_locked_panel() -> bool:
+	if _locked_suspicion_id.is_empty():
+		return false
+	if not _can_open_panel():
+		return false
+
+	_selected_suspicion_id = _locked_suspicion_id
+	search_line_edit.text = ""
+	_open_panel()
+	_update_lock_widgets()
+	_refresh_suspicion_tree()
+	return true
+
+
 func _open_panel() -> void:
 	if not _is_open:
 		EventBus.ui_panel_focus_requested.emit(PANEL_ID)
@@ -250,8 +323,11 @@ func _close_panel() -> void:
 
 	_is_open = false
 	hide()
+	EventBus.ui_panel_closed.emit(PANEL_ID)
 	if GameManager != null and GameManager.has_method("release_pause"):
 		GameManager.release_pause(PANEL_PAUSE_TOKEN)
+	if _is_locked_session_active() and not _is_locked_and_unresolved():
+		_clear_locked_suspicion()
 
 
 func _can_open_panel() -> bool:
@@ -297,6 +373,8 @@ func _refresh_suspicion_tree() -> void:
 	for suspicion_id: String in discovered_ids:
 		var suspicion_def: SuspicionData = _get_suspicion_def(suspicion_id)
 		if suspicion_def == null:
+			continue
+		if _is_locked_session_active() and suspicion_id != _locked_suspicion_id:
 			continue
 		if not _is_suspicion_matching_filter(suspicion_id, suspicion_def, filter_text):
 			continue
@@ -358,6 +436,13 @@ func _refresh_suspicion_tree() -> void:
 	suspicion_tree.set_selected(selected_item, 0)
 	_suppress_tree_selected_callback = false
 	_show_suspicion_detail(_selected_suspicion_id, false)
+
+
+func _select_suspicion_in_tree(suspicion_id: String) -> void:
+	if suspicion_id.is_empty():
+		return
+	_selected_suspicion_id = suspicion_id
+	_refresh_suspicion_tree()
 
 
 func _show_suspicion_detail(suspicion_id: String, mark_read: bool = false) -> void:
@@ -424,6 +509,52 @@ func _update_reasoning_panel() -> void:
 			slot_button.text = _get_clue_title(clue_id)
 
 	reason_button.disabled = disabled or not _are_all_slots_filled(selected_ids)
+
+
+func _handle_locked_suspicion_resolved(suspicion_id: String) -> void:
+	if suspicion_id.is_empty():
+		return
+	if suspicion_id != _locked_suspicion_id:
+		return
+	_locked_suspicion_resolved = true
+	_update_lock_widgets()
+
+
+func _update_lock_widgets() -> void:
+	var is_locked: bool = _is_locked_and_unresolved()
+	close_button.disabled = is_locked
+	search_line_edit.editable = not is_locked
+	sort_option_button.disabled = is_locked
+
+
+func _is_locked_session_active() -> bool:
+	return not _locked_suspicion_id.is_empty()
+
+
+func _is_locked_and_unresolved() -> bool:
+	if _locked_suspicion_id.is_empty():
+		return false
+	if _locked_suspicion_resolved:
+		return false
+	if DataManager != null and DataManager.is_suspicion_resolved(_locked_suspicion_id):
+		_locked_suspicion_resolved = true
+		return false
+	return true
+
+
+func _clear_locked_suspicion() -> void:
+	_locked_suspicion_id = ""
+	_locked_conclusion_followup_timeline = ""
+	_locked_suspicion_resolved = false
+	close_button.disabled = false
+	search_line_edit.editable = true
+	sort_option_button.disabled = false
+
+
+func _show_locked_notice() -> void:
+	if ToastManager == null:
+		return
+	ToastManager.show_notice("先解决当前疑点。", "warning", 1.8)
 
 
 func _render_empty_state(message: String) -> void:

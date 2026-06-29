@@ -17,7 +17,9 @@ const BGM_TRACKS: Dictionary[String, String] = {
 	"role_exit": "res://assets/audio/9-角色离场.wav",
 	"plain_happiness": "res://assets/audio/12-Plain Happiness.wav",
 	"thinking_introspection_2": "res://assets/audio/17-思考内省-2.wav",
+	"spooky_tension": "res://assets/audio/17-Spooky Tension.wav",
 	"truth": "res://assets/audio/24-真相.wav",
+	"what_is_truth": "res://assets/audio/What is Truth.wav",
 }
 
 const SFX_TRACKS: Dictionary[String, String] = {

@@ -3,5 +3,4 @@ join butler left
 butler: 就是这里了，请尽量不要破坏现场。案发现场搜查完后，你也可以自由调查其它房间。
 butler: 另外如果有必要的话，你可以去对嫌疑人进行搜身。如果调查完毕，可以告知我，我们再回到大厅集中讨论。
 set {Ch1.BodySearch.Enabled} = true
-set {Ch1.InitialSearch.ReadyForReasoning} = true
 [end_timeline]

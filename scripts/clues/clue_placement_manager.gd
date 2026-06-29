@@ -153,6 +153,7 @@ func _spawn_clue_item(placement: CluePlacementData, room: Node2D) -> void:
 	clue_item.clue_def = _get_clue_def(placement.clue_id)
 	clue_item.interact_id = _resolve_interact_id(placement)
 	clue_item.source_id = _resolve_source_id(placement)
+	clue_item.prompt_offset = placement.prompt_offset
 
 	dynamic_root.add_child(clue_item)
 	clue_item.global_position = spawn_point.global_position

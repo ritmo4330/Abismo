@@ -4,7 +4,6 @@ const FLOW_SIGNAL_PREFIX: String = "flow:"
 const LEGACY_FLOW_SIGNALS: Array[String] = [
 	"start_initial_search",
 	"enter_room_lin",
-	"start_search_tutorial",
 	"start_initial_reasoning",
 	"enable_private_chat",
 	"enter_private_chat",
@@ -90,8 +89,14 @@ func _start_dialogue(timeline_name: String) -> void:
 
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 	var layout: Node = Dialogic.start(timeline_name)
-	if layout != null:
-		layout.process_mode = Node.PROCESS_MODE_ALWAYS
+	if layout == null:
+		push_warning("DialogueManager: failed to start timeline '%s'." % timeline_name)
+		if GameManager != null and GameManager.has_method("end_dialogue_state"):
+			GameManager.end_dialogue_state()
+		else:
+			get_tree().paused = false
+		return
+	layout.process_mode = Node.PROCESS_MODE_ALWAYS
 
 	_current_timeline_name = timeline_name
 	_is_dialogue_active = true
@@ -104,10 +109,6 @@ func _on_dialogue_ended() -> void:
 	var ended_timeline_name: String = _current_timeline_name
 	_is_dialogue_active = false
 	_current_timeline_name = ""
-
-	if SceneManager != null and SceneManager.is_transitioning:
-		EventBus.dialogue_finished.emit(ended_timeline_name)
-		return
 
 	if GameManager != null and GameManager.has_method("end_dialogue_state"):
 		GameManager.end_dialogue_state()

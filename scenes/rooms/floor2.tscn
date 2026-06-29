@@ -7,6 +7,45 @@
 [ext_resource type="Texture2D" uid="uid://rnh6xxutw1mh" path="res://assets/interior/二楼走廊地毯.png" id="5_puykv"]
 [ext_resource type="Texture2D" uid="uid://c8jsjsj1h33fa" path="res://assets/interior/二楼走廊栏杆.png" id="6_xhfwe"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puykv"]
+size = Vector2(2155, 557.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfwe"]
+size = Vector2(339, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udll8"]
+size = Vector2(359.5, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivrpy"]
+size = Vector2(117.5, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dldj"]
+size = Vector2(849.75, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj2m"]
+size = Vector2(102.5, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e76l"]
+size = Vector2(1365.25, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yqv8"]
+size = Vector2(74, 379.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7rf4"]
+size = Vector2(48, 1240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5fea"]
+size = Vector2(62, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3nil"]
+size = Vector2(74, 675.6875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kta0u"]
+size = Vector2(74, 383.84375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g27mn"]
+size = Vector2(74, 1196.4609)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ia6ke"]
 size = Vector2(215.5, 55.8125)
 
@@ -16,20 +55,14 @@ size = Vector2(38, 273)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eu8ld"]
 size = Vector2(169, 293.57813)
 
-[sub_resource type="Gradient" id="Gradient_hcmxa"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qslkk"]
-gradient = SubResource("Gradient_hcmxa")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
-
 [node name="Floor2" type="Node2D" unique_id=790534765]
 y_sort_enabled = true
 script = ExtResource("1_ydu0m")
 room_id = "floor2"
+camera_bounds = Rect2(0, 0, 3036, 2039)
+player_spawn_scale = Vector2(2.25, 2.25)
 player_speed_scale = 1.5
+npc_spawn_scale = Vector2(4.5, 4.5)
 
 [node name="Scene" type="Node2D" parent="." unique_id=408395029]
 
@@ -40,6 +73,77 @@ z_index = -100
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_eu8ld")
 centered = false
+
+[node name="FloorCollisions" type="StaticBody2D" parent="Scene/FloorLayer" unique_id=952980895]
+
+[node name="TopWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=463134003]
+y_sort_enabled = true
+position = Vector2(1318.5, 93.25)
+shape = SubResource("RectangleShape2D_puykv")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=868688986]
+position = Vector2(404.5, 2001)
+shape = SubResource("RectangleShape2D_xhfwe")
+
+[node name="BottomWall2" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1699693089]
+position = Vector2(2212.25, 2038)
+shape = SubResource("RectangleShape2D_udll8")
+
+[node name="BottomWall3" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1141289377]
+position = Vector2(627.25, 740)
+shape = SubResource("RectangleShape2D_ivrpy")
+
+[node name="BottomWall4" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1524372434]
+position = Vector2(1324.125, 743)
+shape = SubResource("RectangleShape2D_4dldj")
+
+[node name="BottomWall5" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1784036624]
+position = Vector2(2026.25, 748)
+shape = SubResource("RectangleShape2D_jbj2m")
+
+[node name="BottomWall6" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=40947317]
+position = Vector2(1343.375, 794)
+shape = SubResource("RectangleShape2D_4e76l")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=295577526]
+position = Vector2(211, 521)
+shape = SubResource("RectangleShape2D_1yqv8")
+
+[node name="LeftWall2" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=736655128]
+position = Vector2(213, 1145.3125)
+shape = SubResource("RectangleShape2D_1yqv8")
+
+[node name="LeftWall3" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1477544972]
+position = Vector2(215, 1788)
+shape = SubResource("RectangleShape2D_1yqv8")
+
+[node name="LeftWall4" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=620575544]
+position = Vector2(585, 1372)
+shape = SubResource("RectangleShape2D_p7rf4")
+
+[node name="LeftWall5" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=672136649]
+position = Vector2(181, 1163)
+shape = SubResource("RectangleShape2D_f5fea")
+
+[node name="RightWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=146924186]
+position = Vector2(2053, 1374)
+shape = SubResource("RectangleShape2D_p7rf4")
+
+[node name="RightWall2" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1797470943]
+position = Vector2(2425, 359)
+shape = SubResource("RectangleShape2D_1yqv8")
+
+[node name="RightWall3" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1657054053]
+position = Vector2(2422, 1066.1563)
+shape = SubResource("RectangleShape2D_q3nil")
+
+[node name="RightWall4" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1687839196]
+position = Vector2(2425, 1789.0781)
+shape = SubResource("RectangleShape2D_kta0u")
+
+[node name="RightWall5" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=231197854]
+position = Vector2(2471, 1096.7695)
+shape = SubResource("RectangleShape2D_g27mn")
 
 [node name="CarpetLayer" type="Node2D" parent="Scene" unique_id=331822160]
 z_index = -50
@@ -99,7 +203,7 @@ shape = SubResource("RectangleShape2D_qslkk")
 [node name="RoomLin" type="Area2D" parent="Scene/Doors" unique_id=1043453957]
 position = Vector2(1, 5)
 script = ExtResource("4_eu8ld")
-target_scene_path = "uid://b74holno7ii6f"
+target_scene_path = "uid://bo5lkw5a0rafo"
 target_spawn_point = "SpawnFromF2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/RoomLin" unique_id=2091161006]
@@ -126,9 +230,15 @@ target_spawn_point = "SpawnFromF2"
 position = Vector2(1952, 263)
 shape = SubResource("RectangleShape2D_eu8ld")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2015139736]
-visible = false
-color = Color(0.52311194, 0.43217155, 0.38109663, 1)
+[node name="RoomMeta" type="Area2D" parent="Scene/Doors" unique_id=1439926350]
+position = Vector2(1, 5)
+script = ExtResource("4_eu8ld")
+target_scene_path = "uid://b74holno7ii6f"
+target_spawn_point = "SpawnFromF2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/RoomMeta" unique_id=1173143567]
+position = Vector2(1387, 261)
+shape = SubResource("RectangleShape2D_eu8ld")
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1327913692]
 
@@ -153,69 +263,13 @@ position = Vector2(2303, 646)
 [node name="SpawnFromMu" type="Marker2D" parent="SpawnPoints" unique_id=1328519229]
 position = Vector2(1961, 495)
 
-[node name="Lights" type="Node2D" parent="." unique_id=354626469]
-visible = false
-
-[node name="BiZhu1" type="PointLight2D" parent="Lights" unique_id=266747529]
-position = Vector2(564, 394.00003)
-scale = Vector2(3.4140625, 3.4140625)
-color = Color(0.49862182, 0.4747619, 0.48354977, 1)
-energy = 1.5
-texture = SubResource("GradientTexture2D_qslkk")
-
-[node name="BiZhu2" type="PointLight2D" parent="Lights" unique_id=1331077658]
-position = Vector2(747.99994, 313)
-scale = Vector2(3.80078, 3.80078)
-color = Color(0.49862182, 0.4747619, 0.48354977, 1)
-energy = 1.5
-texture = SubResource("GradientTexture2D_qslkk")
-
-[node name="BiZhu3" type="PointLight2D" parent="Lights" unique_id=1680412591]
-position = Vector2(1031, 316)
-scale = Vector2(3.785154, 3.785154)
-color = Color(0.49862182, 0.4747619, 0.48354977, 1)
-energy = 1.5
-texture = SubResource("GradientTexture2D_qslkk")
-
-[node name="BiZhu4" type="PointLight2D" parent="Lights" unique_id=1545336469]
-position = Vector2(1202, 391)
-scale = Vector2(3.4140625, 3.4140625)
-color = Color(0.49862182, 0.4747619, 0.48354977, 1)
-energy = 1.5
-texture = SubResource("GradientTexture2D_qslkk")
-
-[node name="BiZhu5" type="PointLight2D" parent="Lights" unique_id=1459586248]
-position = Vector2(1234, 572)
-scale = Vector2(3.4140625, 3.4140625)
-color = Color(0.49862182, 0.4747619, 0.48354977, 1)
-energy = 1.5
-texture = SubResource("GradientTexture2D_qslkk")
-
-[node name="BiZhu6" type="PointLight2D" parent="Lights" unique_id=1368656043]
-position = Vector2(544.0001, 574.00006)
-scale = Vector2(3.4140625, 3.4140625)
-color = Color(0.49862182, 0.4747619, 0.48354977, 1)
-energy = 1.5
-texture = SubResource("GradientTexture2D_qslkk")
-
-[node name="BiZhu7" type="PointLight2D" parent="Lights" unique_id=1276267022]
-position = Vector2(740, 635.00006)
-scale = Vector2(3.4140625, 3.4140625)
-color = Color(0.58665305, 0.4543379, 0.29612488, 1)
-energy = 1.5
-texture = SubResource("GradientTexture2D_qslkk")
-
-[node name="BiZhu8" type="PointLight2D" parent="Lights" unique_id=129333493]
-position = Vector2(1044, 635.00006)
-scale = Vector2(3.4140625, 3.4140625)
-color = Color(0.58665305, 0.4543379, 0.29612488, 1)
-energy = 1.5
-texture = SubResource("GradientTexture2D_qslkk")
+[node name="SpawnFromMeta" type="Marker2D" parent="SpawnPoints" unique_id=618004939]
+position = Vector2(1390, 489)
 
 [node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=790493581]
 
 [node name="Butler" type="Marker2D" parent="NPCSpawnPoints" unique_id=2018863964]
-position = Vector2(793, 464)
+position = Vector2(792, 524)
 
 [node name="DynamicActors" type="Node2D" parent="." unique_id=1789960558]
 y_sort_enabled = true

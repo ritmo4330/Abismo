@@ -7,7 +7,9 @@ label 选择
 	set {Ch1.PrivateChat.Zhong.Asked.Reason} = true
 	jump 选择
 - 与死者的关系
-	zhong_qi: 梅塔是一个疯子，他暗中抓捕有能力探索世界之理的人，以精神治疗为借口囚禁在他的“十七号精神卫生中心”，并最终将他们的大脑离体培养，成为为梅塔思考的机器。我比较幸运，是穆叔叔救我出来。
+	zhong_qi: 梅塔是一个疯子。
+	zhong_qi: 他暗中抓捕有能力探索世界之理的人，以精神治疗为借口囚禁在他的“十七号精神卫生中心”。
+	zhong_qi: 并最终将他们的大脑离体培养，成为为梅塔思考的机器。我比较幸运，是穆叔叔救我出来。
 	set {Ch1.PrivateChat.Zhong.Asked.Dead} = true
 	jump 选择
 - 与其他人的关系
@@ -36,20 +38,29 @@ label 选择
 	哦？可是乌停湘说过，林玖没有把木雕送出去。
 	player: 方便说说她为什么会送给你这样一个木雕吗？
 	if {Affinity.Zhong} >= 30.0:
-		zhong_qi: 初中的时候，她经常受到班上同学的欺负和刁难，或许我是为数不多对她比较友善的人吧。后来我才意识到，她需要一束光，而我恰好扮演了灯塔的角色。
-		青春期青涩的情感真是令人感慨。抛开二人的故事不谈，你应该发现问题所在了吧？还记得怎么推理吗？试着解决这个疑点吧。
+		zhong_qi: 初中的时候，她经常受到班上同学的欺负和刁难，或许我是为数不多对她比较友善的人吧。
+		zhong_qi: 后来我才意识到，她需要一束光，而我恰好扮演了灯塔的角色。
+		青春期青涩的情感真是令人感慨。抛开二人的故事不谈，你应该发现问题所在了吧？
+		还记得怎么推理吗？试着解决这个疑点吧。
 	else:
 		zhong_qi: 这和案件有关吗？管好你自己。
-		或许故事并不重要，重要的是木雕本身，你应该发现问题所在了吧？还记得怎么推理吗？试着解决这个疑点吧。
+		或许故事并不重要，重要的是木雕本身。
+		你应该发现问题所在了吧？还记得怎么推理吗？试着解决这个疑点吧。
 	set {Ch1.PrivateChat.Zhong.Asked.Lighthouse} = true	
 	set {Ch1.PrivateChat.Zhong.Removed.Lighthouse} = true
 	do DataManager.add_clue("1_testimony_8_zhong", "dialogue", "1_testimony_8_zhong")
-	jump 选择
+	[signal arg="flow:start_lighthouse_reasoning"]
+	[end_timeline]
 - 关于世界之理 | [if {Ch1.PrivateChat.Zhong.Asked.Dead} == true and {Ch1.PrivateChat.Zhong.Removed.WorldTheory} != true]
 	zhong_qi: 世界之理是这个世界的本质特征，你想知道吗？知道的人下场恐怕都不会好看哦。
 	- 想知道
-		zhong_qi: 勇气可嘉。你知道弦理论吗？弦的振动产生粒子，粒子的组合产生物质与能量，物质与能量的拼凑组成我们可见的世界，而除了一般的线性弦外，还有一种特殊的环状弦，它们不会被轻易扰动，而是作为一种触发器，在满足一定条件的情况下自然振动，并引发一系列的反应。
-		zhong_qi: 而这种反应叫做“修正”，修正的对象即那些世界之理的人，这类人被梅塔称为“异数”。你可以理解为，我们的身上也有弦，它们看不见摸不着，却能反映你的一举一动与一切思想，而反过来，操控弦也就能操控你的一举一动与一切思想。很好，现在你也是异数了，祝你好运。
+		zhong_qi: 勇气可嘉。你知道弦理论吗？
+		zhong_qi: 弦的振动产生粒子，粒子的组合产生物质与能量，物质与能量的拼凑组成我们可见的世界。
+		zhong_qi: 而除了一般的线性弦外，还有一种特殊的环状弦，它们不会被轻易扰动。
+		zhong_qi: 而是作为一种触发器，在满足一定条件的情况下自然振动，并引发一系列的反应。
+		zhong_qi: 而这种反应叫做“修正”，修正的对象即那些世界之理的人，这类人被梅塔称为“异数”。
+		zhong_qi: 你可以理解为，我们的身上也有弦，它们看不见摸不着，却能反映你的一举一动与一切思想。
+		zhong_qi: 而反过来，操控弦也就能操控你的一举一动与一切思想。很好，现在你也是异数了，祝你好运。
 		set {Affinity.Zhong} += 5
 		set {Ch1.PrivateChat.Zhong.Removed.WorldTheory} = true
 		jump 选择
@@ -60,4 +71,5 @@ label 选择
 - 暂时没有问题了
 	zhong_qi: 嗯。
 	set {Ch1.PrivateChat.Zhong.Finished} = true
-	[signal arg="flow:exit_private_chat"]
+[signal arg="flow:exit_private_chat"]
+[end_timeline]

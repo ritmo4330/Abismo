@@ -1,20 +1,54 @@
-[gd_scene format=3 uid="uid://b74holno7ii6f"]
+[gd_scene format=3 uid="uid://bo5lkw5a0rafo"]
 
-[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_6e3k6"]
-[ext_resource type="Texture2D" uid="uid://ckammo8mgferw" path="res://assets/interior/客卧地板.png" id="2_pu0q6"]
-[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="3_6qxjp"]
-[ext_resource type="Texture2D" uid="uid://dk7b8c1ymlkn1" path="res://assets/interior/客卧地毯.png" id="3_rb7yj"]
-[ext_resource type="Texture2D" uid="uid://wr30qyu4etyk" path="res://assets/interior/客卧家具.png" id="4_fbqbq"]
-[ext_resource type="Texture2D" uid="uid://dqprieoei0fyq" path="res://assets/interior/客卧阴影.png" id="5_emcfd"]
+[ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_4ftjg"]
+[ext_resource type="Texture2D" uid="uid://ckammo8mgferw" path="res://assets/interior/客卧地板.png" id="2_i5ew4"]
+[ext_resource type="Texture2D" uid="uid://dk7b8c1ymlkn1" path="res://assets/interior/客卧地毯.png" id="3_5rt0h"]
+[ext_resource type="Texture2D" uid="uid://wr30qyu4etyk" path="res://assets/interior/客卧家具.png" id="4_85tgl"]
+[ext_resource type="Texture2D" uid="uid://dqprieoei0fyq" path="res://assets/interior/客卧阴影.png" id="5_hg34x"]
+[ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="6_5nqrd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbqbq"]
+size = Vector2(1354, 539)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emcfd"]
+size = Vector2(793, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5bpm"]
+size = Vector2(281, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i72m6"]
+size = Vector2(74, 1191)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhe6j"]
+size = Vector2(48, 1192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o2hc"]
+size = Vector2(481, 292)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0vsv"]
+size = Vector2(122.25, 213)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4yr2"]
+size = Vector2(74.75, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6qi8"]
+size = Vector2(46, 146.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wb1f"]
+size = Vector2(332, 220.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byqoy"]
 size = Vector2(237, 84.5)
 
 [node name="RoomLinJiu" type="Node2D" unique_id=1315035317]
 y_sort_enabled = true
-script = ExtResource("1_6e3k6")
+script = ExtResource("1_4ftjg")
 room_id = "room_lin_jiu"
+camera_bounds = Rect2(0, 0, 1465.5, 1354)
+player_spawn_scale = Vector2(2.25, 2.25)
 player_speed_scale = 1.5
+npc_spawn_scale = Vector2(4.5, 4.5)
+debug_step_id = "ch1_4_first_search"
 
 [node name="Scene" type="Node2D" parent="." unique_id=72041566]
 
@@ -23,23 +57,76 @@ z_index = -100
 
 [node name="Floor" type="Sprite2D" parent="Scene/FloorLayer" unique_id=486436147]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_pu0q6")
+texture = ExtResource("2_i5ew4")
 centered = false
+
+[node name="FloorCollisions" type="StaticBody2D" parent="Scene/FloorLayer" unique_id=1683074534]
+
+[node name="TopWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=128802298]
+y_sort_enabled = true
+position = Vector2(761, 320.5)
+shape = SubResource("RectangleShape2D_fbqbq")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1243013364]
+position = Vector2(1065.5, 1292)
+shape = SubResource("RectangleShape2D_emcfd")
+
+[node name="BottomWall2" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1085969653]
+position = Vector2(294, 1318)
+shape = SubResource("RectangleShape2D_o5bpm")
+
+[node name="BottomWall3" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=2005056144]
+position = Vector2(554, 1357)
+shape = SubResource("RectangleShape2D_o5bpm")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1210457066]
+position = Vector2(105, 679.5)
+shape = SubResource("RectangleShape2D_i72m6")
+
+[node name="RightWall" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=962011979]
+position = Vector2(1410, 680)
+shape = SubResource("RectangleShape2D_jhe6j")
 
 [node name="CarpetLayer" type="Node2D" parent="Scene" unique_id=1576571823]
 z_index = -50
 
 [node name="Carpet" type="Sprite2D" parent="Scene/CarpetLayer" unique_id=1459346180]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_rb7yj")
+texture = ExtResource("3_5rt0h")
 centered = false
 
 [node name="FurnitureLayer" type="Node2D" parent="Scene" unique_id=9103052]
 
 [node name="Furniture" type="Sprite2D" parent="Scene/FurnitureLayer" unique_id=1564724524]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_fbqbq")
+texture = ExtResource("4_85tgl")
 centered = false
+
+[node name="FurnitureCollisions" type="StaticBody2D" parent="Scene/FurnitureLayer" unique_id=1823282919]
+
+[node name="Bed" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=1025715936]
+position = Vector2(1109.5, 899)
+shape = SubResource("RectangleShape2D_1o2hc")
+
+[node name="BedDesk" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=1679741426]
+position = Vector2(1292, 1137.5)
+shape = SubResource("RectangleShape2D_l0vsv")
+
+[node name="Desk" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=542848218]
+position = Vector2(531.5, 620.5)
+shape = SubResource("RectangleShape2D_o5bpm")
+
+[node name="Chair" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=1338325114]
+position = Vector2(547, 687)
+shape = SubResource("RectangleShape2D_b4yr2")
+
+[node name="Plant" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=2061354928]
+position = Vector2(747, 548.5625)
+shape = SubResource("RectangleShape2D_w6qi8")
+
+[node name="Wardrobe" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=107501280]
+position = Vector2(1101, 530.875)
+shape = SubResource("RectangleShape2D_8wb1f")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Scene" unique_id=300554480]
 color = Color(0.7441813, 0.74418133, 0.7441811, 1)
@@ -47,11 +134,11 @@ color = Color(0.7441813, 0.74418133, 0.7441811, 1)
 [node name="Shadow" type="PointLight2D" parent="Scene" unique_id=599119282]
 position = Vector2(733, 674)
 energy = 0.6
-texture = ExtResource("5_emcfd")
+texture = ExtResource("5_hg34x")
 texture_scale = 1.15
 
 [node name="Door" type="Area2D" parent="Scene" unique_id=278754570]
-script = ExtResource("3_6qxjp")
+script = ExtResource("6_5nqrd")
 target_scene_path = "uid://c4rbw46jkpav"
 target_spawn_point = "SpawnFromLin"
 
@@ -64,10 +151,34 @@ position = Vector2(555, 1222)
 
 [node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=1480416391]
 
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints" unique_id=1004671261]
+position = Vector2(740, 1030)
+
 [node name="DynamicActors" type="Node2D" parent="." unique_id=497154312]
 y_sort_enabled = true
 
 [node name="ClueSpawnPoints" type="Node2D" parent="." unique_id=419077449]
+
+[node name="DeskPentagramPaper" type="Marker2D" parent="ClueSpawnPoints" unique_id=1694926220]
+position = Vector2(408, 597)
+
+[node name="BedStunGun" type="Marker2D" parent="ClueSpawnPoints" unique_id=741436153]
+position = Vector2(956, 1078)
+
+[node name="BedDownJacket" type="Marker2D" parent="ClueSpawnPoints" unique_id=1441776812]
+position = Vector2(1098, 952)
+
+[node name="CarpetDragMarks" type="Marker2D" parent="ClueSpawnPoints" unique_id=473869418]
+position = Vector2(1009, 724)
+
+[node name="DoorLock" type="Marker2D" parent="ClueSpawnPoints" unique_id=2052656847]
+position = Vector2(389, 1167)
+
+[node name="WardrobeBlood" type="Marker2D" parent="ClueSpawnPoints" unique_id=195223671]
+position = Vector2(1163, 618)
+
+[node name="WindowKey" type="Marker2D" parent="ClueSpawnPoints" unique_id=1294333164]
+position = Vector2(662, 607)
 
 [node name="DynamicClues" type="Node2D" parent="." unique_id=1971821773]
 y_sort_enabled = true

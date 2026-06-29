@@ -1,5 +1,9 @@
 extends Node2D
 
+const CLUE_PANEL_SCENE: PackedScene = preload("res://scenes/UI/clue_panel.tscn")
+const SUSPICION_PANEL_SCENE: PackedScene = preload("res://scenes/UI/suspicion_panel.tscn")
+const PAUSE_PANEL_SCENE: PackedScene = preload("res://scenes/UI/pause_panel.tscn")
+
 # 编辑器配置：玩家预制体路径（仅用于独立测试当前场景时）
 @export var player_scene: PackedScene = preload("res://scenes/characters/player/player.tscn")
 # 编辑器配置：本场景的默认出生点名称
@@ -9,6 +13,19 @@ extends Node2D
 @export var player_spawn_scale: Vector2 = Vector2.ONE
 @export_range(0.1, 3.0, 0.05) var player_speed_scale: float = 1.0
 @export var npc_spawn_scale: Vector2 = Vector2.ZERO
+@export_group("Debug Standalone")
+@export var debug_standalone_enabled: bool = true
+@export var debug_chapter_id: String = "ch1_snow_villa"
+@export var debug_step_id: String = ""
+@export var debug_spawn_point: String = ""
+@export var debug_auto_timeline: String = ""
+@export_enum("auto", "all_unknown", "butler_meta_known", "all_revealed") var debug_character_name_state: String = "auto"
+@export var debug_player_name: String = "测试玩家"
+@export var debug_private_chat_target: String = ""
+@export var debug_dialogic_vars: Dictionary = {}
+@export var debug_world_flags: Dictionary = {}
+@export var debug_discovered_clues: PackedStringArray = PackedStringArray()
+@export var debug_discovered_suspicions: PackedStringArray = PackedStringArray()
 
 func _ready():
 	# =====================
@@ -18,8 +35,11 @@ func _ready():
 	# =====================
 	var is_managed_by_root = (get_tree().current_scene.name == "GameRoot")
 	
-	if not is_managed_by_root:
+	if not is_managed_by_root and OS.is_debug_build():
 		# 独立运行该场景测试时执行的逻辑：依然会自己生成假玩家方便测试
+		_prepare_standalone_debug_flow()
+		_ensure_standalone_debug_ui()
+		_emit_standalone_room_loaded()
 		_spawn_test_player()
 
 func _spawn_test_player():
@@ -27,7 +47,7 @@ func _spawn_test_player():
 	if FlowManager != null and FlowManager.has_method("consume_pending_standalone_spawn_point"):
 		spawn_point_name = FlowManager.consume_pending_standalone_spawn_point(default_spawn_point)
 
-	var spawn_point = find_child(spawn_point_name, true, false)
+	var spawn_point = _find_standalone_spawn_point(spawn_point_name)
 	if not spawn_point: return
 	
 	var player_instance = player_scene.instantiate()
@@ -36,12 +56,113 @@ func _spawn_test_player():
 	player_instance.global_position = spawn_point.global_position
 	
 	setup_camera_limits(player_instance)
-	call_deferred("_play_pending_standalone_timeline")
+	call_deferred("_emit_standalone_room_presented")
 
 
-func _play_pending_standalone_timeline() -> void:
-	if FlowManager != null and FlowManager.has_method("play_pending_auto_timeline"):
-		FlowManager.play_pending_auto_timeline()
+func _prepare_standalone_debug_flow() -> void:
+	if not debug_standalone_enabled:
+		return
+	if FlowManager == null or not FlowManager.has_method("prepare_debug_standalone_room"):
+		return
+	if FlowManager.has_method("is_standalone_debug_flow_active") and FlowManager.is_standalone_debug_flow_active():
+		return
+	FlowManager.prepare_debug_standalone_room(_get_debug_standalone_config())
+
+
+func _ensure_standalone_debug_ui() -> void:
+	_ensure_standalone_debug_ui_scene("CluePanel", CLUE_PANEL_SCENE)
+	_ensure_standalone_debug_ui_scene("SuspicionPanel", SUSPICION_PANEL_SCENE)
+	_ensure_standalone_debug_ui_scene("PausePanel", PAUSE_PANEL_SCENE)
+
+
+func _ensure_standalone_debug_ui_scene(node_name: String, scene: PackedScene) -> void:
+	if node_name.is_empty() or scene == null:
+		return
+	if get_node_or_null(node_name) != null:
+		return
+
+	var ui_node: Node = scene.instantiate()
+	if ui_node == null:
+		return
+	ui_node.name = node_name
+	add_child(ui_node)
+
+
+func _get_debug_standalone_config() -> Dictionary:
+	var configured_spawn_point: String = debug_spawn_point
+	if configured_spawn_point.is_empty():
+		configured_spawn_point = default_spawn_point
+
+	return {
+		"chapter_id": debug_chapter_id,
+		"step_id": debug_step_id,
+		"room_id": _resolve_room_id(),
+		"spawn_point": configured_spawn_point,
+		"auto_timeline": debug_auto_timeline,
+		"character_name_state": debug_character_name_state,
+		"player_name": debug_player_name,
+		"private_chat_target": debug_private_chat_target,
+		"dialogic_vars": debug_dialogic_vars,
+		"world_flags": debug_world_flags,
+		"discovered_clues": debug_discovered_clues,
+		"discovered_suspicions": debug_discovered_suspicions,
+	}
+
+
+func _emit_standalone_room_loaded() -> void:
+	if EventBus != null:
+		EventBus.room_loaded.emit(self, _resolve_room_id())
+
+
+func _emit_standalone_room_presented() -> void:
+	if EventBus != null:
+		EventBus.room_presented.emit(self, _resolve_room_id())
+	if GameManager != null and GameManager.has_method("enter_gameplay"):
+		GameManager.enter_gameplay()
+
+
+func _resolve_room_id() -> String:
+	if not room_id.is_empty():
+		return room_id
+	if not name.is_empty():
+		return String(name).to_snake_case()
+	return scene_file_path.get_file().get_basename()
+
+
+func _find_standalone_spawn_point(spawn_point_name: String) -> Node2D:
+	if not spawn_point_name.is_empty():
+		var configured_spawn: Node = find_child(spawn_point_name, true, false)
+		if configured_spawn is Node2D:
+			return configured_spawn as Node2D
+
+	var fallback_names: Array[String] = [
+		default_spawn_point,
+		"InitialSpawn",
+		"SpawnFromF2",
+		"SpawnFromZouLang",
+		"SpawnFromHall",
+		"SpawnFromChair",
+	]
+	for fallback_name: String in fallback_names:
+		if fallback_name.is_empty():
+			continue
+		var fallback_spawn: Node = find_child(fallback_name, true, false)
+		if fallback_spawn is Node2D:
+			return fallback_spawn as Node2D
+
+	return _find_first_marker(self)
+
+
+func _find_first_marker(root: Node) -> Marker2D:
+	if root == null:
+		return null
+	if root is Marker2D:
+		return root as Marker2D
+	for child: Node in root.get_children():
+		var marker: Marker2D = _find_first_marker(child)
+		if marker != null:
+			return marker
+	return null
 
 
 func get_dynamic_actors_root() -> Node2D:
