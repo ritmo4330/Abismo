@@ -78,7 +78,7 @@ shape = SubResource("RectangleShape2D_floor_right")
 position = Vector2(0, 1180)
 
 [node name="DeskVisual" type="Sprite2D" parent="Scene/DeskLayer" unique_id=1409644256]
-z_index = 100
+z_index = -1
 position = Vector2(0, -1180)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_study_desk")
@@ -115,6 +115,7 @@ color = Color(0.64705884, 0.64705884, 0.64705884, 1)
 z_index = 200
 position = Vector2(773.5, 641)
 energy = 0.6
+range_z_max = -1
 texture = ExtResource("3_study_shadow")
 texture_scale = 0.25
 

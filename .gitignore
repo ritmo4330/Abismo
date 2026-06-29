@@ -1,10 +1,10 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-素材库/
 .vscode/
 *.exe
 *.pck
 *.zip
 *.cfg
 export/
+assets/interior/大厅整体.png

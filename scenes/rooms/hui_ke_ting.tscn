@@ -26,7 +26,7 @@ size = Vector2(101, 420.5)
 size = Vector2(48, 274)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx1mf"]
-size = Vector2(191.5, 801)
+size = Vector2(191.5, 823)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjclq"]
 size = Vector2(372.375, 138)
@@ -38,7 +38,7 @@ size = Vector2(126, 181.71875)
 size = Vector2(18, 277.71875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24xvq"]
-size = Vector2(401, 140.25)
+size = Vector2(401, 156.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kl4sw"]
 size = Vector2(361, 86.625)
@@ -111,7 +111,7 @@ centered = false
 [node name="FurnitureCollisions" type="StaticBody2D" parent="Scene/FurnitureLayer" unique_id=251834164]
 
 [node name="Shelf" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=735908440]
-position = Vector2(89.25, 1247.5)
+position = Vector2(89.25, 1258.5)
 shape = SubResource("RectangleShape2D_lx1mf")
 
 [node name="Stove" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=1112472613]
@@ -131,11 +131,11 @@ position = Vector2(431, 1191.1406)
 shape = SubResource("RectangleShape2D_nb04e")
 
 [node name="Sofa" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=574775905]
-position = Vector2(732.5, 1077.875)
+position = Vector2(732.5, 1085.875)
 shape = SubResource("RectangleShape2D_24xvq")
 
 [node name="Sofa2" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=597480157]
-position = Vector2(734, 1520)
+position = Vector2(734, 1536)
 shape = SubResource("RectangleShape2D_24xvq")
 
 [node name="Desk" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=824310578]

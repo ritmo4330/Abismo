@@ -35,7 +35,7 @@ size = Vector2(74.75, 112)
 size = Vector2(46, 146.875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4h0cv"]
-size = Vector2(332, 198.5)
+size = Vector2(332, 229.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byqoy"]
 size = Vector2(230, 84.5)
@@ -95,6 +95,7 @@ texture = ExtResource("3_vaamx")
 centered = false
 
 [node name="FurnitureLayer" type="Node2D" parent="Scene" unique_id=459021133]
+z_index = -1
 
 [node name="Furniture" type="Sprite2D" parent="Scene/FurnitureLayer" unique_id=1910325418]
 scale = Vector2(0.25, 0.25)
@@ -124,7 +125,7 @@ position = Vector2(747, 548.5625)
 shape = SubResource("RectangleShape2D_db1yj")
 
 [node name="Wardrobe" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=1743396133]
-position = Vector2(1101, 520)
+position = Vector2(1101, 535.375)
 shape = SubResource("RectangleShape2D_4h0cv")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Scene" unique_id=865474785]
@@ -133,6 +134,7 @@ color = Color(0.7441813, 0.74418133, 0.7441811, 1)
 [node name="Shadow" type="PointLight2D" parent="Scene" unique_id=1874558672]
 position = Vector2(733, 674)
 energy = 0.6
+range_z_max = -1
 texture = ExtResource("5_rxkep")
 texture_scale = 1.15
 
