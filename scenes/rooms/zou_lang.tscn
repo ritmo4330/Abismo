@@ -169,6 +169,11 @@ position = Vector2(566, 632)
 [node name="SpawnFromShuFang" type="Marker2D" parent="SpawnPoints" unique_id=2099499709]
 position = Vector2(342, 637)
 
+[node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=1851494018]
+
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints" unique_id=493368399]
+position = Vector2(345, 1177)
+
 [node name="Shadow" type="PointLight2D" parent="." unique_id=1918060160]
 position = Vector2(452, 1120)
 energy = 0.5

@@ -199,6 +199,11 @@ position = Vector2(942, 1227)
 [node name="SpawnFromZouLang" type="Marker2D" parent="SpawnPoints" unique_id=994993786]
 position = Vector2(170, 1012)
 
+[node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=1229430408]
+
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints" unique_id=326313611]
+position = Vector2(766, 1119)
+
 [node name="Shadow" type="PointLight2D" parent="." unique_id=1156028113]
 position = Vector2(942, 692)
 blend_mode = 2

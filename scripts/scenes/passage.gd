@@ -8,6 +8,8 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player"):
 		return
+	if _should_block_room_exit():
+		return
 	if target_scene_path.is_empty():
 		push_error("Passage target_scene_path is empty.")
 		return
@@ -15,6 +17,14 @@ func _on_body_entered(body: Node2D) -> void:
 	if _request_standalone_scene_change():
 		return
 	EventBus.scene_change_requested.emit(target_scene_path, target_spawn_point)
+
+
+func _should_block_room_exit() -> bool:
+	if FlowManager == null:
+		return false
+	if not FlowManager.has_method("should_block_current_room_exit"):
+		return false
+	return FlowManager.should_block_current_room_exit()
 
 
 func _request_standalone_scene_change() -> bool:

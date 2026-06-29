@@ -149,8 +149,8 @@ shape = SubResource("RectangleShape2D_x1w88")
 
 [node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=1070418433]
 
-[node name="Zhou" type="Marker2D" parent="NPCSpawnPoints" unique_id=1379479946]
-position = Vector2(567, 905)
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints" unique_id=1079281493]
+position = Vector2(546, 917)
 
 [node name="DynamicActors" type="Node2D" parent="." unique_id=1040902378]
 y_sort_enabled = true

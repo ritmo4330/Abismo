@@ -27,8 +27,15 @@ const STEP_CH1_SECOND_SEARCH: String = "ch1_7_second_search"
 
 const ROOM_HALL: String = "hall"
 const ROOM_FLOOR2: String = "floor2"
+const ROOM_ZOU_LANG: String = "zou_lang"
+const ROOM_CAN_TING: String = "can_ting"
 const ROOM_HUI_KE_TING: String = "hui_ke_ting"
 const ROOM_FIRST_SEARCH: String = "room_lin_jiu"
+const ROOM_META: String = "room_meta"
+const ROOM_MU_ZHI: String = "room_mu_zhi"
+const ROOM_WU_TING_XIANG: String = "room_wu_ting_xiang"
+const ROOM_ZHONG_QI: String = "room_zhong_qi"
+const ROOM_ZHOU_CHONG_AN: String = "room_zhou_chong_an"
 const ROOM_SECOND_SEARCH: String = "shu_fang"
 const ROOM_CH1_STUDY: String = "ch1_study"
 const ROOM_CH1_CRIME_SCENE: String = "ch1_crime_scene_lin_room"
@@ -80,9 +87,25 @@ const TIMELINE_CH1_STUDY_WAKE: String = "1_1_study_wake"
 const TIMELINE_CH1_PUZZLE_REASONING: String = "1_1_puzzle_reasoning"
 const TIMELINE_CH1_MURDER_REQUEST: String = "1_1_murder_request"
 const TIMELINE_CH1_CRIME_SCENE: String = "1_2_crime_scene"
+const TIMELINE_CH1_BUTLER_BLOCK_LEAVE: String = "1_3_butler_block_leave"
 const TIMELINE_CH1_LIGHTHOUSE_REASONING_AFTER: String = "1_6_zhong_lighthouse_resolved"
 
 const SUSPICION_CH1_LIGHTHOUSE_STORY: String = "1_suspicion_lighthouse_story"
+
+const CH1_FIRST_SEARCH_BUTLER_FOLLOW_ROOMS: Array[String] = [
+	ROOM_HALL,
+	ROOM_FLOOR2,
+	ROOM_ZOU_LANG,
+	ROOM_CAN_TING,
+	ROOM_HUI_KE_TING,
+	ROOM_FIRST_SEARCH,
+	ROOM_META,
+	ROOM_MU_ZHI,
+	ROOM_WU_TING_XIANG,
+	ROOM_ZHONG_QI,
+	ROOM_ZHOU_CHONG_AN,
+	ROOM_SECOND_SEARCH,
+]
 
 const STEP_BGM_CONFIGS: Dictionary = {
 	STEP_CH0_IDENTITY: {"track_id": "cassandra_memory", "fade_seconds": 2.0},
@@ -394,6 +417,17 @@ func request_scene_change(target_scene_path: String, spawn_point: String, auto_t
 	return true
 
 
+func should_block_current_room_exit() -> bool:
+	if current_chapter_id != CHAPTER_CH1:
+		return false
+	if current_step_id != STEP_CH1_INTRO_HALL:
+		return false
+	if current_room_id != ROOM_HALL:
+		return false
+	EventBus.dialogue_requested.emit(TIMELINE_CH1_BUTLER_BLOCK_LEAVE)
+	return true
+
+
 func _start_standalone_scene_change(target_scene_path: String, spawn_point: String, auto_timeline: String) -> void:
 	_is_standalone_debug_flow_active = true
 	_is_standalone_scene_transitioning = true
@@ -661,6 +695,7 @@ func _stop_bgm() -> void:
 
 func _get_spawn_entries_for_room(room_id: String) -> Array:
 	var spawn_entries: Array = []
+	var has_butler_in_room: bool = false
 	for npc_id in _npc_locations.keys():
 		var location_value: Variant = _npc_locations[npc_id]
 		if not (location_value is Dictionary):
@@ -670,10 +705,26 @@ func _get_spawn_entries_for_room(room_id: String) -> Array:
 		if String(location.get("room_id", "")) != room_id:
 			continue
 
+		if String(npc_id) == "butler":
+			has_butler_in_room = true
 		var spawn_data: Dictionary = location.duplicate(true)
 		spawn_data["npc_id"] = String(npc_id)
 		spawn_entries.append(spawn_data)
+	if _should_spawn_following_butler(room_id) and not has_butler_in_room:
+		spawn_entries.append({
+			"npc_id": "butler",
+			"room_id": room_id,
+			"spawn": "Butler",
+		})
 	return spawn_entries
+
+
+func _should_spawn_following_butler(room_id: String) -> bool:
+	if current_chapter_id != CHAPTER_CH1:
+		return false
+	if current_step_id != STEP_CH1_FIRST_SEARCH:
+		return false
+	return CH1_FIRST_SEARCH_BUTLER_FOLLOW_ROOMS.has(room_id)
 
 
 func setup_room_actors(room: Node2D) -> void:

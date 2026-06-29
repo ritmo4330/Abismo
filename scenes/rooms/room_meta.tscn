@@ -214,6 +214,9 @@ position = Vector2(881, 1310)
 
 [node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=1480416391]
 
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(1040, 1180)
+
 [node name="DynamicActors" type="Node2D" parent="." unique_id=497154312]
 y_sort_enabled = true
 

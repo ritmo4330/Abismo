@@ -171,5 +171,8 @@ position = Vector2(732, 1410)
 [node name="Guest" type="Marker2D" parent="NPCSpawnPoints" unique_id=1779066553]
 position = Vector2(736, 1247)
 
+[node name="Butler" type="Marker2D" parent="NPCSpawnPoints"]
+position = Vector2(980, 1248)
+
 [node name="DynamicActors" type="Node2D" parent="." unique_id=2103411987]
 y_sort_enabled = true

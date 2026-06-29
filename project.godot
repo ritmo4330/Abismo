@@ -69,6 +69,7 @@ directories/dtl_directory={
 "1_1_study_wake": "res://assets/dialogues/ch1_snow_villa/1_1_study_wake.dtl",
 "1_2_crime_scene": "res://assets/dialogues/ch1_snow_villa/1_2_crime_scene.dtl",
 "1_3_butler": "res://assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+"1_3_butler_block_leave": "res://assets/dialogues/ch1_snow_villa/1_3_butler_block_leave.dtl",
 "1_3_lin": "res://assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
 "1_3_mu": "res://assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
 "1_3_wu": "res://assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
@@ -134,6 +135,13 @@ variables={
 }
 },
 "InitialReasoning": {
+"MotiveAsked": {
+"Lin": false,
+"Mu": false,
+"Wu": false,
+"Zhong": false,
+"Zhou": false
+},
 "SelectedAbility": false,
 "SelectedMotive": false,
 "SelectedTime": false

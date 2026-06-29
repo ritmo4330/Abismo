@@ -10,6 +10,9 @@ extends Interactable
 
 
 func interact(_player: Player) -> void:
+	if _should_block_room_exit():
+		return
+
 	if not required_flag.is_empty() and not DataManager.get_world_flag(required_flag):
 		if not blocked_notice.is_empty() and ToastManager != null:
 			ToastManager.show_notice(blocked_notice, "warning")
@@ -37,6 +40,14 @@ func _play_open_sfx() -> void:
 	if not AudioManager.has_method("play_sfx"):
 		return
 	AudioManager.play_sfx(open_sfx_id)
+
+
+func _should_block_room_exit() -> bool:
+	if FlowManager == null:
+		return false
+	if not FlowManager.has_method("should_block_current_room_exit"):
+		return false
+	return FlowManager.should_block_current_room_exit()
 
 
 func _request_standalone_scene_change() -> bool:

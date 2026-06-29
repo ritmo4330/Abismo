@@ -1,6 +1,5 @@
 [style name="default_visual_novel"]
 所有人搜证结束后，管家记录了大家发现的所有线索，与你的发现相差无几。
-player: 发现尸体过后，你们还做了什么吗？
 join butler left
 butler: 另外我将尸检的结果做了汇总。尸体的左后胸有一处贯穿伤，是出血量最大的位置，此外没有别的伤口或痕迹，可以判断为致命伤，但是凶器已经被拔出，暂未找到。
 butler: 此外，死者的衣服一角有擦拭状的血迹。口袋里还有一把可以打开别墅内所有门的万能钥匙。
@@ -25,8 +24,7 @@ lin_jiu: 过了很久，我们听见隔壁房间传来了一声惊叫，吓了�
 lin_jiu: 哦对了，隔壁房间原本是安排给我的，可能他误以为我在里面吧。
 lin_jiu: 后来他撞开了房门，我和乌停湘意识到事情不对劲，于是一起跑出房间查看情况，我们先是在我房间看到了钟歧，然后就在衣柜里看到了一具尸体。
 join wu_ting_xiang right
-wu_ting_xiang: 案件发生前，我和林姐姐——噢，她叫林玖——我们待在一起。
-wu_ting_xiang: 管家说休息时间不能在房间外走动，但是我们又不太安心，所以决定一起待在安排给我的房间。
+wu_ting_xiang: 案件发生前，我和林姐姐待在一起。管家说休息时间不能在房间外走动，但是我们又不太安心，所以决定一起待在安排给我的房间。
 wu_ting_xiang: 不知道过了多久，从隔壁传来了一声惊叫，我和林姐姐没敢出门，但随即听见有人从对面的某个房间冲了出来，跑到隔壁房门前，一边用力敲门一边喊着林姐姐的名字。
 wu_ting_xiang: 应该是没有听到回应，所以那个人开始撞门，最后是撞开了。
 wu_ting_xiang: 我跟林姐姐说还是出去看一下情况吧，我们这才从房间出来，然后在隔壁看见了钟歧，以及柜子里的尸体。
@@ -40,7 +38,7 @@ zhong_qi: 发现尸体后，乌停湘、林玖、穆执、管家和周崇安先�
 zhong_qi: 情况就是这样，该你发挥了。
 do DataManager.add_clue("1_testimony_3_all", "dialogue", "1_testimony_3_all")
 label 选择
-所有人的事已至此，再梳理一下疑点吧。
+事已至此，再梳理一下疑点吧。
 众所周知，案件发生的三要素包括作案时间、作案动机、作案能力，只有三者均具备的嫌疑人才有可能作案。
 先从这三个话题开始讨论吧。
 do DataManager.add_suspicion("1_suspicion_crime_time", "dialogue", "1_5_butler_lin_mu_wu_zhong_zhou")
@@ -49,34 +47,23 @@ do DataManager.add_suspicion("1_suspicion_ability", "dialogue", "1_5_butler_lin_
 - 作案时间
 	label 作案时间
 	player: 请大家回忆一下，你们最后一次见到死者是什么时候？
-	- 钟歧
-		zhong_qi: 休息时间之前，具体时间不清楚，当时应该所有人都在。梅塔从自己的卧室走出来，喊了一声管家。
-		zhong_qi: 再之后，我看见穆执和他走进了餐厅，此后就再也没有见到他了。
-		jump 作案时间
-	- 周崇安
-		zhou_chong_an: 他说的没错，梅塔喊管家的时候我们都看见了他。
-		zhou_chong_an: 在那之后我就没有见过他了，只从管家口中听说过梅塔和穆执在餐厅用过餐。
-		jump 作案时间
-	- 林玖
-		lin_jiu: 我知道的和周院长一样，不过我倒是不知道梅塔和穆执有用过餐这件事。
-		jump 作案时间
-	- 乌停湘
-		wu_ting_xiang: 我和林姐姐基本上一直待在一起，也只在主卧门口见到过一次。
-		jump 作案时间
-	- 穆执
-		mu_zhi: 我的确和梅塔在餐厅用过餐，是他主动邀请我的。我想着承蒙关照，不太好拒绝主人的邀请。
-		mu_zhi: 用餐后我们就分开了，各自回到自己的房间，再也没有见过。
-		leave zhou_chong_an
-		join butler left
-		butler: 我可以证明穆先生的说法属实。
-		butler: 主人和穆先生从餐厅出来并回到房间后，我才宣布休息时间到，这个时候我可以确认主人还活着。
-		leave butler
-		join zhou_chong_an left
-		jump 作案时间
-	- 继续剧情
-		也就是说，死亡时间在管家宣布休息时间到之后。
-		但是结合此前每名嫌疑人的口供，所有人都在自己的房间里，林玖和乌停湘待在一起。
-		那为什么死者会死在本该没有人在的林玖房间呢？
+	zhong_qi: 休息时间之前，具体时间不清楚，当时应该所有人都在。梅塔从自己的卧室走出来，喊了一声管家。
+	zhong_qi: 再之后，我看见穆执和他走进了餐厅，此后就再也没有见到他了。
+	zhou_chong_an: 他说的没错，梅塔喊管家的时候我们都看见了他。
+	zhou_chong_an: 在那之后我就没有见过他了，只从管家口中听说过梅塔和穆执在餐厅用过餐。
+	lin_jiu: 我知道的和周院长一样，不过我倒是不知道梅塔和穆执有用过餐这件事。
+	wu_ting_xiang: 我和林姐姐基本上一直待在一起，也只在主卧门口见到过一次。
+	mu_zhi: 我的确和梅塔在餐厅用过餐，是他主动邀请我的。我想着承蒙关照，不太好拒绝主人的邀请。
+	mu_zhi: 用餐后我们就分开了，各自回到自己的房间，再也没有见过。
+	leave zhou_chong_an
+	join butler left
+	butler: 我可以证明穆先生的说法属实。
+	butler: 主人和穆先生从餐厅出来并回到房间后，我才宣布休息时间到，这个时候我可以确认主人还活着。
+	leave butler
+	join zhou_chong_an left
+	也就是说，死亡时间在管家宣布休息时间到之后。
+	但是结合此前每名嫌疑人的口供，所有人都在自己的房间里，林玖和乌停湘待在一起。
+	那为什么死者会死在本该没有人在的林玖房间呢？
 	do DataManager.add_clue("1_testimony_4_all", "dialogue", "1_testimony_4_all")
 	set {Ch1.InitialReasoning.SelectedTime} = true
 	jump 选择
@@ -85,25 +72,30 @@ do DataManager.add_suspicion("1_suspicion_ability", "dialogue", "1_5_butler_lin_
 	player: 你们认识死者吗？
 	- 穆执
 		mu_zhi: 我没有见过他，但是知道梅塔这个名字，直到管家确认了他的死讯，我才知道他就是梅塔。
+		set {Ch1.InitialReasoning.MotiveAsked.Mu} = true
 		jump 作案动机
 	- 钟歧
 		zhong_qi: 认识。
 		player: 他是什么人？
 		zhong_qi: 一个杀人凶手。
 		看来他似乎不想细说，还是先问问别人吧。
+		set {Ch1.InitialReasoning.MotiveAsked.Zhong} = true
 		jump 作案动机
 	- 林玖
 		lin_jiu: 不认识。
+		set {Ch1.InitialReasoning.MotiveAsked.Lin} = true
 		jump 作案动机
 	- 乌停湘
 		wu_ting_xiang: 我也不认识。
+		set {Ch1.InitialReasoning.MotiveAsked.Wu} = true
 		jump 作案动机
 	- 周崇安
 		zhou_chong_an: 认识……但又好像不是我认识的那个人。
 		player: 这是什么意思？
 		zhou_chong_an: ……有些难以说明，等我调查清楚自会如实相告。
+		set {Ch1.InitialReasoning.MotiveAsked.Zhou} = true
 		jump 作案动机
-	- 继续剧情
+	- 继续剧情 | [if {Ch1.InitialReasoning.MotiveAsked.Mu} == true and {Ch1.InitialReasoning.MotiveAsked.Zhong} == true and {Ch1.InitialReasoning.MotiveAsked.Lin} == true and {Ch1.InitialReasoning.MotiveAsked.Wu} == true and {Ch1.InitialReasoning.MotiveAsked.Zhou} == true]
 		感觉这几个人都有故事，但好像不太愿意细说。如果能找到单独询问的机会再详细问问吧。
 	do DataManager.add_clue("1_testimony_5_all", "dialogue", "1_testimony_5_all")
 	set {Ch1.InitialReasoning.SelectedMotive} = true

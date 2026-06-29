@@ -17,13 +17,13 @@ size = Vector2(339, 56)
 size = Vector2(359.5, 125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivrpy"]
-size = Vector2(117.5, 56)
+size = Vector2(159.5, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dldj"]
-size = Vector2(849.75, 56)
+size = Vector2(849, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj2m"]
-size = Vector2(102.5, 56)
+size = Vector2(140.5, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e76l"]
 size = Vector2(1365.25, 56)
@@ -90,15 +90,15 @@ position = Vector2(2212.25, 2038)
 shape = SubResource("RectangleShape2D_udll8")
 
 [node name="BottomWall3" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1141289377]
-position = Vector2(627.25, 740)
+position = Vector2(648.25, 740)
 shape = SubResource("RectangleShape2D_ivrpy")
 
 [node name="BottomWall4" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1524372434]
-position = Vector2(1324.125, 743)
+position = Vector2(1332.5, 743)
 shape = SubResource("RectangleShape2D_4dldj")
 
 [node name="BottomWall5" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=1784036624]
-position = Vector2(2026.25, 748)
+position = Vector2(2007.25, 748)
 shape = SubResource("RectangleShape2D_jbj2m")
 
 [node name="BottomWall6" type="CollisionShape2D" parent="Scene/FloorLayer/FloorCollisions" unique_id=40947317]
@@ -169,7 +169,7 @@ target_scene_path = "uid://4k1fp08quy17"
 target_spawn_point = "SpawnFromFloor2Left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/HallLeft" unique_id=1760409944]
-position = Vector2(792.25, 737.90625)
+position = Vector2(820, 744)
 shape = SubResource("RectangleShape2D_ia6ke")
 
 [node name="HallRight" type="Area2D" parent="Scene/Doors" unique_id=2011165499]
@@ -178,7 +178,7 @@ target_scene_path = "uid://4k1fp08quy17"
 target_spawn_point = "SpawnFromFloor2Right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/HallRight" unique_id=1831483847]
-position = Vector2(1862, 748)
+position = Vector2(1842, 745)
 shape = SubResource("RectangleShape2D_ia6ke")
 
 [node name="RoomZhou" type="Area2D" parent="Scene/Doors" unique_id=1713368441]
