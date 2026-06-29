@@ -55,6 +55,7 @@ const ACTION_START_SECOND_SEARCH: String = "start_second_search"
 const ACTION_EXIT_SECOND_SEARCH: String = "exit_second_search"
 const ACTION_CH0_IDENTITY_FINISHED: String = "ch0_identity_finished"
 const ACTION_CH0_PROLOGUE_INTRO_FINISHED: String = "ch0_prologue_intro_finished"
+const ACTION_CH0_CAMPFIRE_EXTINGUISHED: String = "ch0_campfire_extinguished"
 const ACTION_CH0_SNOW_PATH_INTERLUDE_FINISHED: String = "ch0_snow_path_interlude_finished"
 const ACTION_CH0_VILLA_GATE_INTERLUDE_FINISHED: String = "ch0_villa_gate_interlude_finished"
 const ACTION_CH0_VILLA_DOOR_KNOCK_FINISHED: String = "ch0_villa_door_knock_finished"
@@ -554,6 +555,14 @@ func apply_free_timeline(npc: NpcDialogue) -> void:
 	npc.timeline_name = String(chapter_routes[npc.npc_id])
 
 
+func set_current_ch0_campfire_lit(is_lit: bool) -> void:
+	var room: Node = _current_room
+	if room == null and SceneManager != null:
+		room = SceneManager.current_room
+	if room != null and room.has_method("set_campfire_lit"):
+		room.set_campfire_lit(is_lit)
+
+
 func _on_flow_signal_requested(signal_name: String) -> void:
 	if signal_name.is_empty():
 		return
@@ -583,6 +592,8 @@ func _on_flow_signal_requested(signal_name: String) -> void:
 			_pending_action_after_dialogue = ACTION_CH0_IDENTITY_FINISHED
 		ACTION_CH0_PROLOGUE_INTRO_FINISHED:
 			_pending_action_after_dialogue = ACTION_CH0_PROLOGUE_INTRO_FINISHED
+		ACTION_CH0_CAMPFIRE_EXTINGUISHED:
+			set_current_ch0_campfire_lit(false)
 		ACTION_CH0_SNOW_PATH_INTERLUDE_FINISHED:
 			_pending_action_after_dialogue = ACTION_CH0_SNOW_PATH_INTERLUDE_FINISHED
 		ACTION_CH0_VILLA_GATE_INTERLUDE_FINISHED:

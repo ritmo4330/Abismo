@@ -1,5 +1,6 @@
 [style name="default_visual_novel"]
 player: 咳咳咳，咳咳……
 暴风雪刮过，火堆熄灭了。
+[signal arg="flow:ch0_campfire_extinguished"]
 do ToastManager.show_notice("按“WASD”键或上下左右键进行移动，按“F”键进行交互", "info", 3.5)
 [end_timeline]

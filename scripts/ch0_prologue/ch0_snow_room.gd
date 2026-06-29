@@ -1,13 +1,44 @@
 extends "res://scripts/scenes/room.gd"
 
+const FIND_WARMTH_FLAG: String = "ch0/find_warmth_started"
+
+@onready var lit_background: Sprite2D = find_child("LitBackground", true, false) as Sprite2D
+@onready var extinguished_background: Sprite2D = find_child("ExtinguishedBackground", true, false) as Sprite2D
 @onready var blizzard_flash: ColorRect = find_child("BlizzardFlash", true, false) as ColorRect
+@onready var campfire: Node = find_child("Campfire", true, false)
 
 
 func _ready() -> void:
 	super._ready()
+	_sync_campfire_visuals()
 	if blizzard_flash != null:
 		blizzard_flash.visible = false
 		blizzard_flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+func set_campfire_lit(is_lit: bool) -> void:
+	if campfire != null and campfire.has_method("set_lit"):
+		campfire.set_lit(is_lit)
+		return
+	set_campfire_visual_lit(is_lit)
+
+
+func set_campfire_visual_lit(is_lit: bool) -> void:
+	if lit_background != null:
+		lit_background.visible = is_lit
+	if extinguished_background != null:
+		extinguished_background.visible = not is_lit
+
+
+func _sync_campfire_visuals() -> void:
+	var should_start_lit: bool = true
+	if campfire != null:
+		var starts_lit_value: Variant = campfire.get("starts_lit")
+		if starts_lit_value != null:
+			should_start_lit = bool(starts_lit_value)
+	if DataManager != null and DataManager.get_world_flag(FIND_WARMTH_FLAG):
+		should_start_lit = false
+	set_campfire_visual_lit(should_start_lit)
 
 
 func play_blizzard_flash() -> void:

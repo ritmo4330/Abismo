@@ -1,18 +1,20 @@
-[gd_scene format=4 uid="uid://c4rbw46jkpav"]
+[gd_scene format=3 uid="uid://c4rbw46jkpav"]
 
 [ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_ydu0m"]
-[ext_resource type="TileSet" uid="uid://bbl3ftom8ktcx" path="res://Tilesets/floor2.tres" id="2_qslkk"]
+[ext_resource type="Texture2D" uid="uid://bwb3yceljgimf" path="res://assets/interior/二楼走廊地板墙面.png" id="2_eu8ld"]
 [ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="4_eu8ld"]
 [ext_resource type="Script" uid="uid://w4c4wuwddlye" path="res://scripts/scenes/passage.gd" id="5_m8j1w"]
+[ext_resource type="Texture2D" uid="uid://rnh6xxutw1mh" path="res://assets/interior/二楼走廊地毯.png" id="5_puykv"]
+[ext_resource type="Texture2D" uid="uid://c8jsjsj1h33fa" path="res://assets/interior/二楼走廊栏杆.png" id="6_xhfwe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ia6ke"]
-size = Vector2(139, 39.625)
+size = Vector2(215.5, 55.8125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qslkk"]
-size = Vector2(32, 172.3125)
+size = Vector2(38, 273)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eu8ld"]
-size = Vector2(169, 167.15625)
+size = Vector2(169, 293.57813)
 
 [sub_resource type="Gradient" id="Gradient_hcmxa"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -27,41 +29,33 @@ fill_to = Vector2(0.5, 0)
 y_sort_enabled = true
 script = ExtResource("1_ydu0m")
 room_id = "floor2"
+player_speed_scale = 1.5
 
 [node name="Scene" type="Node2D" parent="." unique_id=408395029]
 
-[node name="Floor&Wall" type="TileMapLayer" parent="Scene" unique_id=1017321713]
-position = Vector2(-1, 15)
-tile_map_data = PackedByteArray("AAADAAIAAwAAAAAAAAADAAMAAwAAAAEAAAADAAQAAwAAAAIAAAADAAUAAwAAAAMAAAADAAYAAwAAAAQAAAADAAcAAwAAAAUAAAADAAgAAwAAAAYAAAADAAkAAwAAAAcAAAADAAoAAwAAAAgAAAADAAsAAwAAAAkAAAADAAwAAwAAAAoAAAADAA0AAwAAAAsAAAADAA4AAwAAAAwAAAADAA8AAwAAAA0AAAADABAAAwAAAA4AAAADABEAAwAAAA8AAAAEAAIAAwABAAAAAAAEAAMAAwABAAEAAAAEAAQAAwABAAIAAAAEAAUAAwABAAMAAAAEAAYAAwABAAQAAAAEAAcAAwABAAUAAAAEAAgAAwABAAYAAAAEAAkAAwABAAcAAAAEAAoAAwABAAgAAAAEAAsAAwABAAkAAAAEAAwAAwABAAoAAAAEAA0AAwABAAsAAAAEAA4AAwABAAwAAAAEAA8AAwABAA0AAAAEABAAAwABAA4AAAAEABEAAwABAA8AAAAFAAIAAwACAAAAAAAFAAMAAwACAAEAAAAFAAQAAwACAAIAAAAFAAUAAwACAAMAAAAFAAYAAwACAAQAAAAFAAcAAwACAAUAAAAFAAgAAwACAAYAAAAFAAkAAwACAAcAAAAFAAoAAwACAAgAAAAFAAsAAwACAAkAAAAFAAwAAwACAAoAAAAFAA0AAwACAAsAAAAFAA4AAwACAAwAAAAFAA8AAwACAA0AAAAFABAAAwACAA4AAAAFABEAAwACAA8AAAAGAAIAAwADAAAAAAAGAAMAAwADAAEAAAAGAAQAAwADAAIAAAAGAAUAAwADAAMAAAAGAAYAAwADAAQAAAAGAAcAAwADAAUAAAAGAAgAAwADAAYAAAAGAAkAAwADAAcAAAAGAAwAAwADAAoAAAAGAA0AAwADAAsAAAAGAA4AAwADAAwAAAAGAA8AAwADAA0AAAAGABAAAwADAA4AAAAGABEAAwADAA8AAAAHAAIAAwAEAAAAAAAHAAMAAwAEAAEAAAAHAAQAAwAEAAIAAAAHAAUAAwAEAAMAAAAHAAYAAwAEAAQAAAAHAAcAAwAEAAUAAAAHAAgAAwAEAAYAAAAHAAkAAwAEAAcAAAAHAAwAAwAEAAoAAAAHAA0AAwAEAAsAAAAHAA4AAwAEAAwAAAAHAA8AAwAEAA0AAAAHABAAAwAEAA4AAAAHABEAAwAEAA8AAAAIAAIAAwAFAAAAAAAIAAMAAwAFAAEAAAAIAAQAAwAFAAIAAAAIAAUAAwAFAAMAAAAIAAYAAwAFAAQAAAAIAAcAAwAFAAUAAAAIAAgAAwAFAAYAAAAIAAkAAwAFAAcAAAAIAAwAAwAFAAoAAAAIAA0AAwAFAAsAAAAIAA4AAwAFAAwAAAAIAA8AAwAFAA0AAAAIABAAAwAFAA4AAAAIABEAAwAFAA8AAAAJAAIAAwAGAAAAAAAJAAMAAwAGAAEAAAAJAAQAAwAGAAIAAAAJAAUAAwAGAAMAAAAJAAYAAwAGAAQAAAAJAAcAAwAGAAUAAAAJAAgAAwAGAAYAAAAJAAkAAwAGAAcAAAAJAAwAAwAGAAoAAAAJAA0AAwAGAAsAAAAJAA4AAwAGAAwAAAAJAA8AAwAGAA0AAAAJABAAAwAGAA4AAAAJABEAAwAGAA8AAAAKAAIAAwAHAAAAAAAKAAMAAwAHAAEAAAAKAAQAAwAHAAIAAAAKAAUAAwAHAAMAAAAKAAYAAwAHAAQAAAAKAAcAAwAHAAUAAAAKAAgAAwAHAAYAAAAKAAkAAwAHAAcAAAAKAAoAAwAHAAgAAAAKAAsAAwAHAAkAAAAKAAwAAwAHAAoAAAAKAA0AAwAHAAsAAAAKAA4AAwAHAAwAAAAKAA8AAwAHAA0AAAAKABAAAwAHAA4AAAAKABEAAwAHAA8AAAALAAIAAwAIAAAAAAALAAMAAwAIAAEAAAALAAQAAwAIAAIAAAALAAUAAwAIAAMAAAALAAYAAwAIAAQAAAALAAcAAwAIAAUAAAALAAgAAwAIAAYAAAALAAkAAwAIAAcAAAALAAoAAwAIAAgAAAALAAsAAwAIAAkAAAALAAwAAwAIAAoAAAALAA0AAwAIAAsAAAALAA4AAwAIAAwAAAALAA8AAwAIAA0AAAALABAAAwAIAA4AAAALABEAAwAIAA8AAAA=")
-tile_set = ExtResource("2_qslkk")
+[node name="FloorLayer" type="Node2D" parent="Scene" unique_id=1805209209]
+z_index = -100
 
-[node name="LanGan" type="TileMapLayer" parent="Scene" unique_id=273065559]
-position = Vector2(-1, 15)
-tile_map_data = PackedByteArray("AAAEAAYABgABAAQAAAAEAAcABgABAAUAAAAEAAgABgABAAYAAAAFAAYABgACAAQAAAAFAAcABgACAAUAAAAFAAgABgACAAYAAAAGAAYABgADAAQAAAAGAAcABgADAAUAAAAGAAgABgADAAYAAAAHAAYABgAEAAQAAAAHAAcABgAEAAUAAAAHAAgABgAEAAYAAAAIAAYABgAFAAQAAAAIAAcABgAFAAUAAAAIAAgABgAFAAYAAAAKAAYABgAHAAQAAAAKAAcABgAHAAUAAAAKAAgABgAHAAYAAAA=")
-tile_set = ExtResource("2_qslkk")
+[node name="Floor" type="Sprite2D" parent="Scene/FloorLayer" unique_id=1838496284]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_eu8ld")
+centered = false
 
-[node name="SpawnPoints" type="Node2D" parent="Scene" unique_id=1327913692]
+[node name="CarpetLayer" type="Node2D" parent="Scene" unique_id=331822160]
+z_index = -50
 
-[node name="SpawnFromHallLeft" type="Marker2D" parent="Scene/SpawnPoints" unique_id=1911974858]
-position = Vector2(721, 489)
+[node name="Carpet" type="Sprite2D" parent="Scene/CarpetLayer" unique_id=755173708]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_puykv")
+centered = false
 
-[node name="SpawnFromHallRight" type="Marker2D" parent="Scene/SpawnPoints" unique_id=2055269365]
-position = Vector2(1209, 489)
+[node name="RailLayer" type="Node2D" parent="Scene" unique_id=2024810133]
+z_index = -20
 
-[node name="SpawnFromZhou" type="Marker2D" parent="Scene/SpawnPoints" unique_id=1385526887]
-position = Vector2(480, 981)
-
-[node name="SpawnFromWu" type="Marker2D" parent="Scene/SpawnPoints" unique_id=389426969]
-position = Vector2(1436, 969)
-
-[node name="SpawnFromZhong" type="Marker2D" parent="Scene/SpawnPoints" unique_id=31141947]
-position = Vector2(482, 583)
-
-[node name="SpawnFromLin" type="Marker2D" parent="Scene/SpawnPoints" unique_id=1498219061]
-position = Vector2(1434, 588)
-
-[node name="SpawnFromMu" type="Marker2D" parent="Scene/SpawnPoints" unique_id=1328519229]
-position = Vector2(1202, 449)
+[node name="Rail" type="Sprite2D" parent="Scene/RailLayer" unique_id=327261593]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_xhfwe")
+centered = false
 
 [node name="Doors" type="Node2D" parent="Scene" unique_id=1067666787]
 
@@ -71,7 +65,7 @@ target_scene_path = "uid://4k1fp08quy17"
 target_spawn_point = "SpawnFromFloor2Left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/HallLeft" unique_id=1760409944]
-position = Vector2(720, 559.1875)
+position = Vector2(792.25, 737.90625)
 shape = SubResource("RectangleShape2D_ia6ke")
 
 [node name="HallRight" type="Area2D" parent="Scene/Doors" unique_id=2011165499]
@@ -80,7 +74,7 @@ target_scene_path = "uid://4k1fp08quy17"
 target_spawn_point = "SpawnFromFloor2Right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/HallRight" unique_id=1831483847]
-position = Vector2(1213, 560)
+position = Vector2(1862, 748)
 shape = SubResource("RectangleShape2D_ia6ke")
 
 [node name="RoomZhou" type="Area2D" parent="Scene/Doors" unique_id=1713368441]
@@ -89,7 +83,7 @@ target_scene_path = "uid://c2w1luor4yt1f"
 target_spawn_point = "SpawnFromF2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/RoomZhou" unique_id=170077714]
-position = Vector2(420, 918)
+position = Vector2(227, 1467.5)
 shape = SubResource("RectangleShape2D_qslkk")
 
 [node name="RoomWu" type="Area2D" parent="Scene/Doors" unique_id=1978153615]
@@ -99,7 +93,7 @@ target_scene_path = "uid://bgug2736oj2pc"
 target_spawn_point = "SpawnFromF2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/RoomWu" unique_id=946260033]
-position = Vector2(1504, 934)
+position = Vector2(2415, 1491)
 shape = SubResource("RectangleShape2D_qslkk")
 
 [node name="RoomLin" type="Area2D" parent="Scene/Doors" unique_id=1043453957]
@@ -109,7 +103,7 @@ target_scene_path = "uid://b74holno7ii6f"
 target_spawn_point = "SpawnFromF2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/RoomLin" unique_id=2091161006]
-position = Vector2(1503, 570)
+position = Vector2(2411, 623)
 shape = SubResource("RectangleShape2D_qslkk")
 
 [node name="RoomZhong" type="Area2D" parent="Scene/Doors" unique_id=1191316066]
@@ -119,7 +113,7 @@ target_scene_path = "uid://815pkioyw10y"
 target_spawn_point = "SpawnFromF2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/RoomZhong" unique_id=1324248689]
-position = Vector2(422, 560)
+position = Vector2(222, 821)
 shape = SubResource("RectangleShape2D_qslkk")
 
 [node name="RoomMu" type="Area2D" parent="Scene/Doors" unique_id=449322234]
@@ -129,12 +123,35 @@ target_scene_path = "uid://ccl8eewn4sv0x"
 target_spawn_point = "SpawnFromF2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/RoomMu" unique_id=1970167006]
-position = Vector2(1202, 313)
+position = Vector2(1952, 263)
 shape = SubResource("RectangleShape2D_eu8ld")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2015139736]
 visible = false
 color = Color(0.52311194, 0.43217155, 0.38109663, 1)
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1327913692]
+
+[node name="SpawnFromHallLeft" type="Marker2D" parent="SpawnPoints" unique_id=1911974858]
+position = Vector2(790, 634)
+
+[node name="SpawnFromHallRight" type="Marker2D" parent="SpawnPoints" unique_id=2055269365]
+position = Vector2(1856, 642)
+
+[node name="SpawnFromZhou" type="Marker2D" parent="SpawnPoints" unique_id=1385526887]
+position = Vector2(347, 1476)
+
+[node name="SpawnFromWu" type="Marker2D" parent="SpawnPoints" unique_id=389426969]
+position = Vector2(2317, 1526)
+
+[node name="SpawnFromZhong" type="Marker2D" parent="SpawnPoints" unique_id=31141947]
+position = Vector2(307, 836)
+
+[node name="SpawnFromLin" type="Marker2D" parent="SpawnPoints" unique_id=1498219061]
+position = Vector2(2303, 646)
+
+[node name="SpawnFromMu" type="Marker2D" parent="SpawnPoints" unique_id=1328519229]
+position = Vector2(1961, 495)
 
 [node name="Lights" type="Node2D" parent="." unique_id=354626469]
 visible = false
@@ -198,7 +215,7 @@ texture = SubResource("GradientTexture2D_qslkk")
 [node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=790493581]
 
 [node name="Butler" type="Marker2D" parent="NPCSpawnPoints" unique_id=2018863964]
-position = Vector2(669, 441)
+position = Vector2(793, 464)
 
 [node name="DynamicActors" type="Node2D" parent="." unique_id=1789960558]
 y_sort_enabled = true

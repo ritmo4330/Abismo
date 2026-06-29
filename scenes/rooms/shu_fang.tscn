@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://c7ov5beric742"]
 
 [ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_room"]
-[ext_resource type="Texture2D" uid="uid://djj8h8fd4pvpx" path="res://assets/interior/ch0_prologue/书房整体.png" id="2_study_full"]
+[ext_resource type="Texture2D" uid="uid://dx8ed4jldy15i" path="res://assets/interior/书房地板.png" id="2_study_floor"]
+[ext_resource type="Texture2D" uid="uid://dv1i3vdwvnuyp" path="res://assets/interior/书房阴影.png" id="3_study_shadow"]
+[ext_resource type="Texture2D" uid="uid://d2gxdes1ndj5l" path="res://assets/interior/书房书桌.png" id="4_study_desk"]
 [ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="5_door"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_floor_top"]
@@ -19,9 +21,6 @@ size = Vector2(48, 1096)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_floor_right"]
 size = Vector2(48, 1096)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
-size = Vector2(88, 237.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_desk_body"]
 size = Vector2(776, 158)
 
@@ -31,12 +30,16 @@ size = Vector2(222, 463.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_desk_chair"]
 size = Vector2(100, 199.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(88, 237.5)
+
 [node name="ShuFang" type="Node2D" unique_id=1580290273]
 y_sort_enabled = true
 script = ExtResource("1_room")
 room_id = "shu_fang"
 camera_bounds = Rect2(0, 0, 1547, 1282)
 player_spawn_scale = Vector2(2.25, 2.25)
+player_speed_scale = 1.5
 npc_spawn_scale = Vector2(4.5, 4.5)
 
 [node name="Scene" type="Node2D" parent="." unique_id=1644374723]
@@ -46,17 +49,17 @@ z_index = -100
 
 [node name="Map" type="Sprite2D" parent="Scene/MapLayer" unique_id=524303586]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_study_full")
+texture = ExtResource("2_study_floor")
 centered = false
 
 [node name="FloorCollisions" type="StaticBody2D" parent="Scene/MapLayer" unique_id=738541235]
 
 [node name="TopWall" type="CollisionShape2D" parent="Scene/MapLayer/FloorCollisions" unique_id=312408881]
-position = Vector2(769, 273)
+position = Vector2(769, 254.5)
 shape = SubResource("RectangleShape2D_floor_top")
 
 [node name="TopBookShelf" type="CollisionShape2D" parent="Scene/MapLayer/FloorCollisions" unique_id=172198643]
-position = Vector2(851, 336.5)
+position = Vector2(870, 311.5)
 shape = SubResource("RectangleShape2D_1140g")
 
 [node name="BottomWall" type="CollisionShape2D" parent="Scene/MapLayer/FloorCollisions" unique_id=1452411739]
@@ -71,6 +74,30 @@ shape = SubResource("RectangleShape2D_floor_left")
 position = Vector2(1404, 632)
 shape = SubResource("RectangleShape2D_floor_right")
 
+[node name="DeskLayer" type="Node2D" parent="Scene" unique_id=1209684162]
+position = Vector2(0, 1180)
+
+[node name="DeskVisual" type="Sprite2D" parent="Scene/DeskLayer" unique_id=1409644256]
+z_index = 100
+position = Vector2(0, -1180)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_study_desk")
+centered = false
+
+[node name="DeskCollisions" type="StaticBody2D" parent="Scene/DeskLayer" unique_id=461981540]
+
+[node name="DeskBody" type="CollisionShape2D" parent="Scene/DeskLayer/DeskCollisions" unique_id=1146055309]
+position = Vector2(888, -76)
+shape = SubResource("RectangleShape2D_desk_body")
+
+[node name="DeskBody2" type="CollisionShape2D" parent="Scene/DeskLayer/DeskCollisions" unique_id=1631607583]
+position = Vector2(162, -203.25)
+shape = SubResource("RectangleShape2D_vpnfp")
+
+[node name="DeskChair" type="CollisionShape2D" parent="Scene/DeskLayer/DeskCollisions" unique_id=1559393230]
+position = Vector2(810, -200.25)
+shape = SubResource("RectangleShape2D_desk_chair")
+
 [node name="Door" type="Area2D" parent="Scene" unique_id=1834290077]
 position = Vector2(0, -16)
 script = ExtResource("5_door")
@@ -81,26 +108,15 @@ target_spawn_point = "SpawnFromShuFang"
 position = Vector2(1408, 742.75)
 shape = SubResource("RectangleShape2D_door")
 
-[node name="DeskLayer" type="Node2D" parent="." unique_id=1209684162]
-position = Vector2(0, 1180)
-
-[node name="DeskCollisions" type="StaticBody2D" parent="DeskLayer" unique_id=461981540]
-
-[node name="DeskBody" type="CollisionShape2D" parent="DeskLayer/DeskCollisions" unique_id=1146055309]
-position = Vector2(887, -75)
-shape = SubResource("RectangleShape2D_desk_body")
-
-[node name="DeskBody2" type="CollisionShape2D" parent="DeskLayer/DeskCollisions" unique_id=1631607583]
-position = Vector2(174, -215.5)
-shape = SubResource("RectangleShape2D_vpnfp")
-
-[node name="DeskChair" type="CollisionShape2D" parent="DeskLayer/DeskCollisions" unique_id=1559393230]
-position = Vector2(810, -216)
-shape = SubResource("RectangleShape2D_desk_chair")
-
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1111723024]
-visible = false
-color = Color(0.50980395, 0.40784314, 0.3254902, 1)
+color = Color(0.64705884, 0.64705884, 0.64705884, 1)
+
+[node name="StudyShadow" type="PointLight2D" parent="." unique_id=1919295598]
+z_index = 200
+position = Vector2(773.5, 641)
+energy = 0.6
+texture = ExtResource("3_study_shadow")
+texture_scale = 0.25
 
 [node name="SpawnFromZouLang" type="Marker2D" parent="." unique_id=2030578906]
 position = Vector2(1287, 727)

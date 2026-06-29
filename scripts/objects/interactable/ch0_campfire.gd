@@ -21,7 +21,10 @@ func _ready() -> void:
 	super._ready()
 	if DataManager != null and not DataManager.world_flag_changed.is_connected(_on_world_flag_changed):
 		DataManager.world_flag_changed.connect(_on_world_flag_changed)
-	set_lit(starts_lit)
+	var initial_lit: bool = starts_lit
+	if DataManager != null and DataManager.get_world_flag(FIND_WARMTH_FLAG):
+		initial_lit = false
+	set_lit(initial_lit)
 	_refresh_highlight()
 
 
@@ -39,6 +42,7 @@ func interact(_player: Player) -> void:
 
 func set_lit(is_lit: bool) -> void:
 	_is_lit = is_lit
+	_notify_room_fire_state()
 	if warm_light == null:
 		return
 
@@ -89,3 +93,12 @@ func _stop_light_flicker() -> void:
 func _on_world_flag_changed(flag_id: String, _value: bool) -> void:
 	if flag_id == FIND_WARMTH_FLAG:
 		_refresh_highlight()
+
+
+func _notify_room_fire_state() -> void:
+	var current: Node = self
+	while current != null:
+		if current.has_method("set_campfire_visual_lit"):
+			current.set_campfire_visual_lit(_is_lit)
+			return
+		current = current.get_parent()

@@ -7,6 +7,7 @@ extends Node2D
 @export var room_id: String = ""
 @export var camera_bounds: Rect2 = Rect2()
 @export var player_spawn_scale: Vector2 = Vector2.ONE
+@export_range(0.1, 3.0, 0.05) var player_speed_scale: float = 1.0
 @export var npc_spawn_scale: Vector2 = Vector2.ZERO
 
 func _ready():
@@ -55,6 +56,8 @@ func apply_player_room_settings(player: Node2D) -> void:
 		player.apply_room_scale(player_spawn_scale)
 	else:
 		player.scale = player_spawn_scale
+	if player.has_method("apply_room_speed_scale"):
+		player.apply_room_speed_scale(player_speed_scale)
 
 
 func get_npc_spawn_point(spawn_point_name: String) -> Marker2D:

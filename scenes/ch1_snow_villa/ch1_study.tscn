@@ -13,29 +13,14 @@ room_id = "ch1_study"
 [node name="SpawnFromChair" type="Marker2D" parent="." index="0" unique_id=780371260]
 position = Vector2(930, 958)
 
-[node name="TopWall" parent="Scene/MapLayer/FloorCollisions" parent_id_path=PackedInt32Array(738541235) index="0" unique_id=312408881]
-position = Vector2(769, 254.5)
-
-[node name="TopBookShelf" parent="Scene/MapLayer/FloorCollisions" parent_id_path=PackedInt32Array(738541235) index="1" unique_id=172198643]
-position = Vector2(870, 311.5)
-
 [node name="Door" parent="Scene" parent_id_path=PackedInt32Array(1644374723) index="1" unique_id=1834290077]
 monitoring = false
 monitorable = false
 
-[node name="DeskBody" parent="DeskLayer/DeskCollisions" parent_id_path=PackedInt32Array(461981540) index="0" unique_id=1146055309]
-position = Vector2(888, -76)
-
-[node name="DeskBody2" parent="DeskLayer/DeskCollisions" parent_id_path=PackedInt32Array(461981540) index="1" unique_id=1631607583]
-position = Vector2(162, -203.25)
-
-[node name="DeskChair" parent="DeskLayer/DeskCollisions" parent_id_path=PackedInt32Array(461981540) index="2" unique_id=1559393230]
-position = Vector2(810, -200.25)
-
 [node name="Butler" parent="NPCSpawnPoints" parent_id_path=PackedInt32Array(985380528) index="0" unique_id=2094612947]
 position = Vector2(929, 760)
 
-[node name="Interactables" type="Node2D" parent="." index="6" unique_id=1442147238]
+[node name="Interactables" type="Node2D" parent="." index="7" unique_id=1442147238]
 y_sort_enabled = true
 
 [node name="ClueStudyDoor" parent="Interactables" index="0" unique_id=2111029850 instance=ExtResource("2_clue_item")]

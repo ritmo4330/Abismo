@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://obndxpga4sli" path="res://scripts/ch0_prologue/ch0_timeline_trigger.gd" id="4_timeline_trigger"]
 [ext_resource type="Script" uid="uid://b6mvpakp40jed" path="res://scripts/objects/interactable/ch0_scene_door.gd" id="5_door"]
 [ext_resource type="Script" uid="uid://b7fofmuqb4mgq" path="res://scripts/ch0_prologue/ch0_flag_barrier.gd" id="6_barrier"]
-[ext_resource type="Texture2D" uid="uid://d03vakxmj8oe0" path="res://assets/interior/snow_field.jpg" id="7_snow_field"]
+[ext_resource type="Texture2D" uid="uid://c47l1y8lp1qv6" path="res://assets/interior/户外-未熄灭火堆.png" id="7_lit_map"]
+[ext_resource type="Texture2D" uid="uid://pctshxfwfry" path="res://assets/interior/户外-熄灭火堆.png" id="8_extinguished_map"]
+[ext_resource type="Texture2D" uid="uid://diati1feybrl8" path="res://assets/interior/户外-前景.png" id="9_foreground"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wlqo"]
 size = Vector2(3482, 400)
@@ -20,8 +22,11 @@ size = Vector2(64, 495)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5d4i"]
 size = Vector2(115, 495)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blmxu"]
+size = Vector2(186.75, 170)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_campfire"]
-radius = 27.0
+radius = 52.009613
 
 [sub_resource type="Gradient" id="Gradient_campfire_light"]
 offsets = PackedFloat32Array(0, 0.45, 1)
@@ -39,19 +44,19 @@ fill_to = Vector2(1, 0.5)
 size = Vector2(25, 348)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_barrier_notice"]
-size = Vector2(109, 348)
+size = Vector2(78.5, 348)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blizzard_wide"]
-size = Vector2(254, 348)
+size = Vector2(72, 348)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_story_trigger"]
-size = Vector2(157, 138)
+size = Vector2(38.25, 138)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blizzard_narrow"]
-size = Vector2(133, 348)
+size = Vector2(74.5, 348)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
-size = Vector2(109, 126.75)
+size = Vector2(113.5, 126.75)
 
 [node name="Ch0SnowField" type="Node2D" unique_id=454290234]
 y_sort_enabled = true
@@ -59,9 +64,15 @@ script = ExtResource("1_room")
 room_id = "ch0_snow_field"
 camera_bounds = Rect2(0, 0, 3482, 495)
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1627315353]
+[node name="LitBackground" type="Sprite2D" parent="." unique_id=1627315353]
 z_index = -100
-texture = ExtResource("7_snow_field")
+texture = ExtResource("7_lit_map")
+centered = false
+
+[node name="ExtinguishedBackground" type="Sprite2D" parent="." unique_id=387734085]
+visible = false
+z_index = -100
+texture = ExtResource("8_extinguished_map")
 centered = false
 
 [node name="MapBounds" type="StaticBody2D" parent="." unique_id=1757090614]
@@ -82,9 +93,14 @@ shape = SubResource("RectangleShape2D_map_bounds_vertical")
 position = Vector2(3488.5, 247.5)
 shape = SubResource("RectangleShape2D_x5d4i")
 
+[node name="Right2" type="CollisionShape2D" parent="MapBounds" unique_id=1728557823]
+position = Vector2(3285, 420)
+shape = SubResource("RectangleShape2D_blmxu")
+
 [node name="Campfire" type="Area2D" parent="." unique_id=920820787]
-position = Vector2(402, 449)
+position = Vector2(387, 442)
 script = ExtResource("2_campfire")
+starts_lit = true
 prompt_offset = Vector2(0, -16)
 highlight_enabled = true
 highlight_scale = Vector2(0.75, 0.75)
@@ -94,6 +110,7 @@ highlight_color = Color(1, 0.46, 0.16, 1)
 shape = SubResource("CircleShape2D_campfire")
 
 [node name="WarmLight" type="PointLight2D" parent="Campfire" unique_id=274416525]
+visible = false
 position = Vector2(0, -8)
 scale = Vector2(1.35, 1.35)
 enabled = false
@@ -108,12 +125,14 @@ required_flag = "ch0/find_warmth_started"
 blocked_notice = "火堆已经熄灭。先看看能不能重新点燃它。"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WarmthBarrier" unique_id=696931168]
+position = Vector2(-44, 0)
 shape = SubResource("RectangleShape2D_barrier")
 
 [node name="NoticeArea" type="Area2D" parent="WarmthBarrier" unique_id=1885399918]
 position = Vector2(-54, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WarmthBarrier/NoticeArea" unique_id=142312116]
+position = Vector2(-15.25, 0)
 shape = SubResource("RectangleShape2D_barrier_notice")
 
 [node name="CampBlizzardTrigger" type="Area2D" parent="." unique_id=436126021]
@@ -122,6 +141,7 @@ script = ExtResource("3_blizzard")
 notice_text = "暴风雪掠过，视野被雪雾吞没。"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CampBlizzardTrigger" unique_id=1422307231]
+position = Vector2(24, -1)
 shape = SubResource("RectangleShape2D_blizzard_wide")
 
 [node name="SnowPathInterludeTrigger" type="Area2D" parent="." unique_id=502175030]
@@ -133,6 +153,7 @@ required_flag = "ch0/find_warmth_started"
 blocked_notice = "火堆已经熄灭。先看看能不能重新点燃它。"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SnowPathInterludeTrigger" unique_id=951640078]
+position = Vector2(179, -2)
 shape = SubResource("RectangleShape2D_story_trigger")
 
 [node name="PathBlizzardTrigger1" type="Area2D" parent="." unique_id=2040795169]
@@ -141,6 +162,7 @@ script = ExtResource("3_blizzard")
 notice_text = "风雪迎面压来，呼吸变得更加困难。"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger1" unique_id=1737793058]
+position = Vector2(268, -2)
 shape = SubResource("RectangleShape2D_blizzard_narrow")
 
 [node name="PathBlizzardTrigger2" type="Area2D" parent="." unique_id=1344951926]
@@ -149,6 +171,7 @@ script = ExtResource("3_blizzard")
 notice_text = "暴风雪越来越大了。"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger2" unique_id=603580899]
+position = Vector2(499, -1)
 shape = SubResource("RectangleShape2D_blizzard_narrow")
 
 [node name="PathBlizzardTrigger3" type="Area2D" parent="." unique_id=999517036]
@@ -157,6 +180,7 @@ script = ExtResource("3_blizzard")
 notice_text = "远处的光还在风雪里摇晃。"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlizzardTrigger3" unique_id=1697240072]
+position = Vector2(646, -2)
 shape = SubResource("RectangleShape2D_blizzard_narrow")
 
 [node name="VillaGateInterludeTrigger" type="Area2D" parent="." unique_id=246841104]
@@ -166,6 +190,7 @@ timeline_name = "0_2_villa_gate_interlude"
 played_flag = "ch0/villa_gate_interlude_seen"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VillaGateInterludeTrigger" unique_id=1438738259]
+position = Vector2(554, 4)
 shape = SubResource("RectangleShape2D_story_trigger")
 
 [node name="GateBlizzardTrigger" type="Area2D" parent="." unique_id=732953573]
@@ -174,16 +199,17 @@ script = ExtResource("3_blizzard")
 notice_text = "风雪在身后翻涌，前方的门近在眼前。"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GateBlizzardTrigger" unique_id=751654029]
+position = Vector2(333, 1)
 shape = SubResource("RectangleShape2D_blizzard_wide")
 
 [node name="GateStoryTrigger" type="Area2D" parent="." unique_id=1525216513]
-position = Vector2(2944, 420)
+position = Vector2(2833, 422)
 script = ExtResource("4_timeline_trigger")
 timeline_name = "0_2_villa_gate_story"
 played_flag = "ch0/villa_gate_story_seen"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GateStoryTrigger" unique_id=586753125]
-position = Vector2(94, 1)
+position = Vector2(254, 4)
 shape = SubResource("RectangleShape2D_story_trigger")
 
 [node name="VillaDoor" type="Area2D" parent="." unique_id=735221982]
@@ -195,8 +221,13 @@ blocked_notice = "先靠近大门看清前方。"
 prompt_offset = Vector2(0, -20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VillaDoor" unique_id=1922799384]
-position = Vector2(0, 116.375)
+position = Vector2(-214.25, 117)
 shape = SubResource("RectangleShape2D_door")
+
+[node name="Foreground" type="Sprite2D" parent="." unique_id=780672063]
+z_index = 1000
+texture = ExtResource("9_foreground")
+centered = false
 
 [node name="Effects" type="CanvasLayer" parent="." unique_id=713046386]
 layer = 20
@@ -212,4 +243,4 @@ mouse_filter = 2
 color = Color(0.85, 0.93, 1, 0.75)
 
 [node name="InitialSpawn" type="Marker2D" parent="." unique_id=314014604]
-position = Vector2(326, 407)
+position = Vector2(176, 423)

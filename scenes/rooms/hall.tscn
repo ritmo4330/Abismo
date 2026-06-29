@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://4k1fp08quy17"]
 
-[ext_resource type="Texture2D" uid="uid://d0cmeq4swhrvk" path="res://assets/interior/ch0_prologue/大厅整体.png" id="1_hall_full"]
+[ext_resource type="Texture2D" uid="uid://d0cmeq4swhrvk" path="res://assets/interior/大厅整体.png" id="1_hall_full"]
 [ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_hcmxa"]
 [ext_resource type="Texture2D" uid="uid://u5jdttqgwy6" path="res://assets/interior/大厅1.png" id="1_yj4g8"]
 [ext_resource type="Texture2D" uid="uid://bqmf3ucovghy3" path="res://assets/interior/大厅2.png" id="2_ni6iu"]
@@ -469,13 +469,13 @@ sources/0 = SubResource("TileSetAtlasSource_3l5gp")
 sources/2 = SubResource("TileSetAtlasSource_xcb8g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uh015"]
-size = Vector2(672, 79.65625)
+size = Vector2(480, 79.65625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ni6iu"]
-size = Vector2(37, 116.703125)
+size = Vector2(108.5, 394.17578)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcmxa"]
-size = Vector2(165, 59)
+size = Vector2(493, 306)
 
 [sub_resource type="Gradient" id="Gradient_hcmxa"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -492,6 +492,7 @@ script = ExtResource("1_hcmxa")
 room_id = "hall"
 camera_bounds = Rect2(0, 0, 2325.25, 2134.5)
 player_spawn_scale = Vector2(2.25, 2.25)
+player_speed_scale = 1.5
 npc_spawn_scale = Vector2(4.5, 4.5)
 
 [node name="Scene" type="Node2D" parent="." unique_id=1817439032]
@@ -528,19 +529,19 @@ tile_set = ExtResource("3_yj4g8")
 [node name="SpawnPoints" type="Node2D" parent="Scene" unique_id=338679579]
 
 [node name="SpawnFromChuWuJian" type="Marker2D" parent="Scene/SpawnPoints" unique_id=469850135]
-position = Vector2(1518, 760)
+position = Vector2(2144, 1358)
 
 [node name="SpawnFromZouLang" type="Marker2D" parent="Scene/SpawnPoints" unique_id=1493466305]
-position = Vector2(356, 769)
+position = Vector2(117, 1367)
 
 [node name="SpawnFromCanTing" type="Marker2D" parent="Scene/SpawnPoints" unique_id=513183112]
-position = Vector2(885, 405)
+position = Vector2(1184, 515)
 
 [node name="SpawnFromFloor2Left" type="Marker2D" parent="Scene/SpawnPoints" unique_id=223670708]
-position = Vector2(387, 221)
+position = Vector2(343, 221)
 
 [node name="SpawnFromFloor2Right" type="Marker2D" parent="Scene/SpawnPoints" unique_id=1455921182]
-position = Vector2(1416, 204)
+position = Vector2(1996, 227)
 
 [node name="SpawnFromGate" type="Marker2D" parent="Scene/SpawnPoints" unique_id=2142941364]
 position = Vector2(1163, 1957)
@@ -562,7 +563,7 @@ target_scene_path = "uid://c4rbw46jkpav"
 target_spawn_point = "SpawnFromHallLeft"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/F2Left" unique_id=1982058357]
-position = Vector2(386, 131)
+position = Vector2(340, 92)
 shape = SubResource("RectangleShape2D_uh015")
 
 [node name="F2Right" type="Area2D" parent="Scene/Doors" unique_id=1727113968]
@@ -571,7 +572,7 @@ target_scene_path = "uid://c4rbw46jkpav"
 target_spawn_point = "SpawnFromHallRight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/F2Right" unique_id=1333039817]
-position = Vector2(1415, 131)
+position = Vector2(1974, 103)
 shape = SubResource("RectangleShape2D_uh015")
 
 [node name="ZouLang" type="Area2D" parent="Scene/Doors" unique_id=25102161]
@@ -580,7 +581,7 @@ target_scene_path = "uid://706wj0rmsrv7"
 target_spawn_point = "SpawnFromHall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/ZouLang" unique_id=164090933]
-position = Vector2(301, 765.35156)
+position = Vector2(34, 1351)
 shape = SubResource("RectangleShape2D_ni6iu")
 
 [node name="ChuWuJian" type="Area2D" parent="Scene/Doors" unique_id=945652711]
@@ -589,7 +590,7 @@ target_scene_path = "uid://4k1fp08quy17"
 target_spawn_point = "InitialSpawn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/ChuWuJian" unique_id=1285473222]
-position = Vector2(1494, 738)
+position = Vector2(2277, 1357)
 shape = SubResource("RectangleShape2D_ni6iu")
 
 [node name="CanTing" type="Area2D" parent="Scene/Doors" unique_id=584020586]
@@ -598,31 +599,31 @@ target_scene_path = "uid://dclv1n8nlho3v"
 target_spawn_point = "SpawnFromHall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/CanTing" unique_id=327607834]
-position = Vector2(886, 335)
+position = Vector2(1172, 303)
 shape = SubResource("RectangleShape2D_hcmxa")
 
 [node name="NPCSpawnPoints" type="Node2D" parent="." unique_id=500031973]
 
 [node name="Butler" type="Marker2D" parent="NPCSpawnPoints" unique_id=287725412]
-position = Vector2(898, 585)
+position = Vector2(1759, 986)
 
 [node name="Meta" type="Marker2D" parent="NPCSpawnPoints" unique_id=1832501278]
 position = Vector2(1166, 1666)
 
 [node name="Zhou" type="Marker2D" parent="NPCSpawnPoints" unique_id=88650378]
-position = Vector2(645, 642)
+position = Vector2(871, 1402)
 
 [node name="Mu" type="Marker2D" parent="NPCSpawnPoints" unique_id=47183290]
-position = Vector2(760, 690)
+position = Vector2(1170, 1538)
 
 [node name="Lin" type="Marker2D" parent="NPCSpawnPoints" unique_id=1871742484]
-position = Vector2(1038, 690)
+position = Vector2(1080, 1104)
 
 [node name="Wu" type="Marker2D" parent="NPCSpawnPoints" unique_id=1784711440]
-position = Vector2(1155, 642)
+position = Vector2(1317, 1109)
 
 [node name="Zhong" type="Marker2D" parent="NPCSpawnPoints" unique_id=193477044]
-position = Vector2(898, 792)
+position = Vector2(560, 1155)
 
 [node name="DynamicActors" type="Node2D" parent="." unique_id=1600612323]
 y_sort_enabled = true

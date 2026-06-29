@@ -12,16 +12,22 @@ var player_direction: Vector2 = Vector2.DOWN
 @onready var visual: AnimatedSprite2D = $AnimatedSprite2D
 @onready var body_collision: CollisionShape2D = $CollisionShape2D
 @onready var interaction_area: Area2D = $InteractionArea
+@onready var walk_state: Node = $StateMachine/Walk
 
 var _room_scale: Vector2 = Vector2.ONE
+var _room_speed_scale: float = 1.0
 var _body_collision_base_scale: Vector2 = Vector2.ONE
 var _interaction_area_base_scale: Vector2 = Vector2.ONE
+var _base_walk_speed: float = 0.0
 var _has_cached_base_scales: bool = false
+var _has_cached_walk_speed: bool = false
 
 
 func _ready() -> void:
 	_cache_base_scales()
+	_cache_base_walk_speed()
 	_apply_part_scales()
+	_apply_walk_speed()
 
 
 func apply_room_scale(room_scale: Vector2) -> void:
@@ -29,6 +35,12 @@ func apply_room_scale(room_scale: Vector2) -> void:
 	scale = Vector2.ONE
 	_cache_base_scales()
 	_apply_part_scales()
+
+
+func apply_room_speed_scale(room_speed_scale: float) -> void:
+	_room_speed_scale = maxf(room_speed_scale, 0.0)
+	_cache_base_walk_speed()
+	_apply_walk_speed()
 
 
 func _cache_base_scales() -> void:
@@ -44,6 +56,22 @@ func _cache_base_scales() -> void:
 		_interaction_area_base_scale = interaction_node.scale
 
 	_has_cached_base_scales = true
+
+
+func _cache_base_walk_speed() -> void:
+	if _has_cached_walk_speed:
+		return
+
+	var walk_node: Node = _get_walk_state()
+	if walk_node == null:
+		return
+
+	var speed_value: Variant = walk_node.get("speed")
+	if speed_value == null:
+		return
+
+	_base_walk_speed = float(speed_value)
+	_has_cached_walk_speed = true
 
 
 func _apply_part_scales() -> void:
@@ -66,6 +94,17 @@ func _apply_visual_scale(effective_scale: Vector2) -> void:
 		return
 
 	visual_node.scale = effective_scale
+
+
+func _apply_walk_speed() -> void:
+	if not _has_cached_walk_speed:
+		return
+
+	var walk_node: Node = _get_walk_state()
+	if walk_node == null:
+		return
+
+	walk_node.set("speed", _base_walk_speed * _room_speed_scale)
 
 
 func _get_visual_scale_factor() -> float:
@@ -100,6 +139,12 @@ func _get_interaction_area() -> Area2D:
 	if interaction_area == null:
 		interaction_area = get_node_or_null("InteractionArea") as Area2D
 	return interaction_area
+
+
+func _get_walk_state() -> Node:
+	if walk_state == null:
+		walk_state = get_node_or_null("StateMachine/Walk")
+	return walk_state
 
 
 func _get_visual_texture(visual_node: AnimatedSprite2D) -> Texture2D:
