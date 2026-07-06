@@ -16,7 +16,7 @@ var _is_transitioning: bool = false
 func interact(_player: Player) -> void:
 	if _is_transitioning:
 		return
-	if not required_flag.is_empty() and not DataManager.get_world_flag(required_flag):
+	if not required_flag.is_empty() and not DataManager.has_flag(required_flag):
 		if not blocked_notice.is_empty() and ToastManager != null:
 			ToastManager.show_notice(blocked_notice, "warning")
 		return

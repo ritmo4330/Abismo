@@ -63,22 +63,22 @@ func interact(_player: Player) -> void:
 	if FlowManager != null:
 		FlowManager.send_flow_event(FlowEvents.CH1_PUZZLE_STARTED)
 
-	if not DataManager.get_world_flag(FLAG_PUZZLE_READ):
-		DataManager.set_world_flag(FLAG_PUZZLE_READ, true)
-		DataManager.add_clue(puzzle_clue_id, "scene", "ch1_study_chair")
+	if not DataManager.has_flag(FLAG_PUZZLE_READ):
+		DataManager.set_flag(FLAG_PUZZLE_READ, true)
+		DataManager.discover_clue(puzzle_clue_id, "scene", "ch1_study_chair")
 		_refresh_highlight()
 		_request_timeline(puzzle_timeline)
 		return
 
-	if not DataManager.get_world_flag(FLAG_CHALLENGE_READ):
-		DataManager.set_world_flag(FLAG_CHALLENGE_READ, true)
-		DataManager.mark_deep_unlocked(puzzle_clue_id)
+	if not DataManager.has_flag(FLAG_CHALLENGE_READ):
+		DataManager.set_flag(FLAG_CHALLENGE_READ, true)
+		DataManager.unlock_deep_clues(puzzle_clue_id)
 		_refresh_highlight()
 		_request_timeline(challenge_timeline)
 		return
 
-	if not DataManager.get_world_flag(FLAG_REASONING_STARTED):
-		DataManager.set_world_flag(FLAG_REASONING_STARTED, true)
+	if not DataManager.has_flag(FLAG_REASONING_STARTED):
+		DataManager.set_flag(FLAG_REASONING_STARTED, true)
 		_refresh_highlight()
 		EventBus.dialogue_requested.emit(reasoning_timeline)
 		return
@@ -105,12 +105,12 @@ func _on_dialogue_finished(timeline_name: String) -> void:
 
 
 func _try_request_clues_finished_narration() -> bool:
-	if DataManager.get_world_flag(FLAG_CLUES_FINISHED_NARRATION_SEEN):
+	if DataManager.has_flag(FLAG_CLUES_FINISHED_NARRATION_SEEN):
 		return false
 	if not _has_required_clues():
 		return false
 
-	DataManager.set_world_flag(FLAG_CLUES_FINISHED_NARRATION_SEEN, true)
+	DataManager.set_flag(FLAG_CLUES_FINISHED_NARRATION_SEEN, true)
 	_request_timeline(clues_finished_timeline)
 	return true
 
@@ -137,7 +137,7 @@ func _has_all_required_clues(clue_ids: Array[String]) -> bool:
 func _refresh_highlight() -> void:
 	var should_highlight: bool = (
 		_has_required_clues()
-		and not DataManager.get_world_flag(FLAG_PUZZLE_READ)
+		and not DataManager.has_flag(FLAG_PUZZLE_READ)
 		and not DataManager.has_clue("1_conclusion_parallel_worlds")
 	)
 	set_highlight_active(should_highlight)
@@ -158,10 +158,10 @@ func _show_notice(message: String, notice_type: String, duration: float = 1.2) -
 
 
 func _request_puzzle_followup() -> void:
-	if DataManager.get_world_flag(FLAG_PUZZLE_FOLLOWUP_SEEN):
+	if DataManager.has_flag(FLAG_PUZZLE_FOLLOWUP_SEEN):
 		return
 
-	DataManager.set_world_flag(FLAG_PUZZLE_FOLLOWUP_SEEN, true)
+	DataManager.set_flag(FLAG_PUZZLE_FOLLOWUP_SEEN, true)
 	_pending_puzzle_followup_notice = true
 	_request_timeline(puzzle_followup_timeline)
 

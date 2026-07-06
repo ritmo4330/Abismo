@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if not required_flag.is_empty() and DataManager.get_world_flag(required_flag):
+	if not required_flag.is_empty() and DataManager.has_flag(required_flag):
 		queue_free()
 		return
 

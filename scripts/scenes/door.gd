@@ -13,7 +13,7 @@ func interact(_player: Player) -> void:
 	if _should_block_room_exit():
 		return
 
-	if not required_flag.is_empty() and not DataManager.get_world_flag(required_flag):
+	if not required_flag.is_empty() and not DataManager.has_flag(required_flag):
 		if not blocked_notice.is_empty() and ToastManager != null:
 			ToastManager.show_notice(blocked_notice, "warning")
 		return

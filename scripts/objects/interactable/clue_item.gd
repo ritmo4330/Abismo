@@ -25,11 +25,11 @@ func interact(_player: Player) -> void:
 		return
 
 	var investigate_flag: String = _build_investigate_flag(target_clue_id)
-	var has_investigated_once: bool = DataManager.get_world_flag(investigate_flag)
+	var has_investigated_once: bool = DataManager.has_flag(investigate_flag)
 	if not has_investigated_once:
-		DataManager.set_world_flag(investigate_flag, true)
+		DataManager.set_flag(investigate_flag, true)
 
-	DataManager.add_clue(target_clue_id, "scene", _resolve_source_id(target_clue_id))
+	DataManager.discover_clue(target_clue_id, "scene", _resolve_source_id(target_clue_id))
 	_refresh_highlight()
 
 	var child_ids: PackedStringArray = DataManager.get_child_clue_ids(target_clue_id)
@@ -42,7 +42,7 @@ func interact(_player: Player) -> void:
 		return
 
 	if not DataManager.is_deep_unlocked(target_clue_id):
-		DataManager.mark_deep_unlocked(target_clue_id)
+		DataManager.unlock_deep_clues(target_clue_id)
 
 	_emit_hierarchical_detail(target_clue_id, child_ids)
 
@@ -129,7 +129,7 @@ func _try_attach_followup_timeline(payload: Dictionary) -> void:
 	var once_flag: String = followup_once_flag
 	if once_flag.is_empty():
 		once_flag = "clue_followup_seen/%s" % followup_timeline
-	if DataManager.get_world_flag(once_flag):
+	if DataManager.has_flag(once_flag):
 		return
 
 	for required_clue_id: String in followup_required_clue_ids:
@@ -138,5 +138,5 @@ func _try_attach_followup_timeline(payload: Dictionary) -> void:
 		if not DataManager.has_clue(required_clue_id):
 			return
 
-	DataManager.set_world_flag(once_flag, true)
+	DataManager.set_flag(once_flag, true)
 	payload["followup_timeline"] = followup_timeline

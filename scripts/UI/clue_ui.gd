@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const ClueState = preload("res://scripts/data/clue_state.gd")
+
 const PANEL_SIZE: Vector2 = Vector2(1560.0, 900.0)
 const PANEL_ID: String = "clue_panel"
 const PANEL_PAUSE_TOKEN: String = "clue_panel"
@@ -616,8 +618,8 @@ func _build_clue_tree_title(clue_id: String, clue_def: ClueData) -> String:
 	if clue_def != null and not clue_def.title.is_empty():
 		title = clue_def.title
 
-	var state: Dictionary = DataManager.get_clue_state(clue_id)
-	if bool(state.get("read", false)):
+	var state: ClueState = DataManager.get_clue_state(clue_id)
+	if state != null and state.read:
 		return title
 	return "● %s" % title
 
@@ -641,7 +643,7 @@ func _get_archive_category_path(clue_def: ClueData) -> PackedStringArray:
 
 func _get_archive_sorted_discovered_ids() -> Array[String]:
 	var ids: Array[String] = []
-	for clue_id: String in DataManager.get_discovered_clues():
+	for clue_id: String in DataManager.get_discovered_clue_ids():
 		ids.append(clue_id)
 	return _sort_clue_ids_for_archive(ids)
 
@@ -747,8 +749,10 @@ func _is_body_search_parent_clue(clue_id: String) -> bool:
 
 
 func _get_discover_order(clue_id: String) -> int:
-	var state: Dictionary = DataManager.get_clue_state(clue_id)
-	return int(state.get("discover_order", 999999))
+	var state: ClueState = DataManager.get_clue_state(clue_id)
+	if state == null:
+		return 999999
+	return state.discover_order
 
 
 func _is_clue_matching_filter(clue_id: String, clue_def: ClueData, filter_text: String) -> bool:
@@ -777,13 +781,7 @@ func _get_clue_def(clue_id: String) -> ClueData:
 		return null
 	if DataManager == null:
 		return null
-	if not DataManager.clue_defs.has(clue_id):
-		return null
-
-	var clue_def_variant: Variant = DataManager.clue_defs.get(clue_id, null)
-	if clue_def_variant is ClueData:
-		return clue_def_variant as ClueData
-	return null
+	return DataManager.get_clue_def(clue_id)
 
 
 func _is_archive_like_mode() -> bool:

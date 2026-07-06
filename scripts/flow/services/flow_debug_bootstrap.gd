@@ -88,13 +88,13 @@ func _apply_debug_step_defaults(step_id: String, dialogic_bridge: RefCounted) ->
 			dialogic_bridge.set_var("Ch1.StudyWake.Finished", true)
 		FlowSteps.CH1_PUZZLE:
 			_add_debug_clues(PackedStringArray(["1_study_1", "1_study_7", "1_study_2"]), step_id)
-			DataManager.set_world_flag("ch1/study/clues_finished_narration_seen", true)
+			DataManager.set_flag("ch1/study/clues_finished_narration_seen", true)
 		FlowSteps.CH1_MURDER_REQUEST:
 			_add_debug_clues(PackedStringArray(["1_study_1", "1_study_7", "1_study_2", "1_puzzle_story", "1_conclusion_parallel_worlds"]), step_id)
-			DataManager.set_world_flag("ch1/study/clues_finished_narration_seen", true)
-			DataManager.set_world_flag("ch1/study/puzzle_read", true)
-			DataManager.set_world_flag("ch1/study/challenge_read", true)
-			DataManager.set_world_flag("ch1/study/reasoning_started", true)
+			DataManager.set_flag("ch1/study/clues_finished_narration_seen", true)
+			DataManager.set_flag("ch1/study/puzzle_read", true)
+			DataManager.set_flag("ch1/study/challenge_read", true)
+			DataManager.set_flag("ch1/study/reasoning_started", true)
 		FlowSteps.CH1_INTRO_HALL:
 			dialogic_bridge.set_var(FlowDialogicVars.CH1_NPC_INTRO_READY_FOR_SEARCH, true)
 		FlowSteps.CH1_FIRST_SEARCH:
@@ -140,18 +140,18 @@ func _apply_debug_runtime_state(config: Dictionary, step_id: String, dialogic_br
 
 	var world_flags: Dictionary = config.get("world_flags", {})
 	for flag_id: Variant in world_flags.keys():
-		DataManager.set_world_flag(String(flag_id), bool(world_flags[flag_id]))
+		DataManager.set_flag(String(flag_id), bool(world_flags[flag_id]))
 
 	var clue_ids: PackedStringArray = config.get("discovered_clues", PackedStringArray())
 	_add_debug_clues(clue_ids, step_id)
 
 	var suspicion_ids: PackedStringArray = config.get("discovered_suspicions", PackedStringArray())
 	for suspicion_id: String in suspicion_ids:
-		DataManager.add_suspicion(suspicion_id, "debug", step_id)
+		DataManager.discover_suspicion(suspicion_id, "debug", step_id)
 
 
 func _add_debug_clues(clue_ids: PackedStringArray, step_id: String) -> void:
 	if DataManager == null:
 		return
 	for clue_id: String in clue_ids:
-		DataManager.add_clue(clue_id, "debug", step_id)
+		DataManager.discover_clue(clue_id, "debug", step_id)

@@ -22,7 +22,7 @@ func _ready() -> void:
 	if DataManager != null and not DataManager.world_flag_changed.is_connected(_on_world_flag_changed):
 		DataManager.world_flag_changed.connect(_on_world_flag_changed)
 	var initial_lit: bool = starts_lit
-	if DataManager != null and DataManager.get_world_flag(FIND_WARMTH_FLAG):
+	if DataManager != null and DataManager.has_flag(FIND_WARMTH_FLAG):
 		initial_lit = false
 	set_lit(initial_lit)
 	_refresh_highlight()
@@ -31,7 +31,7 @@ func _ready() -> void:
 func interact(_player: Player) -> void:
 	if _is_interacting:
 		return
-	if DataManager.get_world_flag(FIND_WARMTH_FLAG):
+	if DataManager.has_flag(FIND_WARMTH_FLAG):
 		if ToastManager != null:
 			ToastManager.show_notice("火堆已经彻底熄灭，只剩下一点余温。", "info")
 		_refresh_highlight()
@@ -63,7 +63,7 @@ func _relight_and_extinguish() -> void:
 
 	await get_tree().create_timer(0.9).timeout
 	set_lit(false)
-	DataManager.set_world_flag(FIND_WARMTH_FLAG, true)
+	DataManager.set_flag(FIND_WARMTH_FLAG, true)
 	if ToastManager != null:
 		ToastManager.show_notice("获得任务：寻找温暖", "task", 3.0)
 	_is_interacting = false
@@ -71,7 +71,7 @@ func _relight_and_extinguish() -> void:
 
 
 func _refresh_highlight() -> void:
-	set_highlight_active(not _is_interacting and not DataManager.get_world_flag(FIND_WARMTH_FLAG))
+	set_highlight_active(not _is_interacting and not DataManager.has_flag(FIND_WARMTH_FLAG))
 
 
 func _start_light_flicker() -> void:

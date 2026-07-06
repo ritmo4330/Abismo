@@ -114,11 +114,11 @@ func _is_placement_available(placement: CluePlacementData, room_id: String) -> b
 			return false
 
 	for flag_id: String in placement.required_flags:
-		if not DataManager.get_world_flag(flag_id):
+		if not DataManager.has_flag(flag_id):
 			return false
 
 	for flag_id: String in placement.blocked_flags:
-		if DataManager.get_world_flag(flag_id):
+		if DataManager.has_flag(flag_id):
 			return false
 
 	if placement.hide_after_discovered and DataManager.has_clue(placement.clue_id):
@@ -162,9 +162,9 @@ func _spawn_clue_item(placement: CluePlacementData, room: Node2D) -> void:
 func _get_clue_def(clue_id: String) -> ClueData:
 	if clue_id.is_empty():
 		return null
-	var clue_def_variant: Variant = DataManager.clue_defs.get(clue_id, null)
-	if clue_def_variant is ClueData:
-		return clue_def_variant as ClueData
+	var clue_def: ClueData = DataManager.get_clue_def(clue_id)
+	if clue_def != null:
+		return clue_def
 	push_warning("CluePlacementManager: clue id '%s' has no registered ClueData." % clue_id)
 	return null
 

@@ -72,7 +72,7 @@ func execute(effect: RefCounted) -> void:
 			_owner.set_current_ch0_campfire_lit(effect.is_lit)
 		FlowEffect.Type.ADD_SUSPICION_IF_MISSING:
 			if DataManager != null and not DataManager.has_suspicion(effect.suspicion_id):
-				DataManager.add_suspicion(effect.suspicion_id, effect.source, effect.step_id)
+				DataManager.discover_suspicion(effect.suspicion_id, effect.source, effect.step_id)
 		FlowEffect.Type.REQUEST_LOCKED_SUSPICION:
 			EventBus.locked_suspicion_requested.emit(effect.suspicion_id, effect.after_timeline)
 		FlowEffect.Type.REFRESH_INITIAL_SEARCH:

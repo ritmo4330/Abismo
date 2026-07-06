@@ -36,7 +36,7 @@ func _sync_campfire_visuals() -> void:
 		var starts_lit_value: Variant = campfire.get("starts_lit")
 		if starts_lit_value != null:
 			should_start_lit = bool(starts_lit_value)
-	if DataManager != null and DataManager.get_world_flag(FIND_WARMTH_FLAG):
+	if DataManager != null and DataManager.has_flag(FIND_WARMTH_FLAG):
 		should_start_lit = false
 	set_campfire_visual_lit(should_start_lit)
 

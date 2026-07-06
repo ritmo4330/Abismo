@@ -15,7 +15,7 @@ var _interaction_highlight: Node2D = null
 
 
 func _ready() -> void:
-	if is_one_time and not interact_id.is_empty() and DataManager.get_world_flag(interact_id):
+	if is_one_time and not interact_id.is_empty() and DataManager.has_flag(interact_id):
 		queue_free()
 
 

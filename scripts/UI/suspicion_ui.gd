@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+const SuspicionState = preload("res://scripts/data/suspicion_state.gd")
+const ResolutionResult = preload("res://scripts/data/resolution_result.gd")
+
 const PANEL_SIZE: Vector2 = Vector2(1560.0, 900.0)
 const PANEL_ID: String = "suspicion_panel"
 const PANEL_PAUSE_TOKEN: String = "suspicion_panel"
@@ -185,7 +188,8 @@ func _on_reason_button_pressed() -> void:
 		_show_reasoning_notice("还不对哦，再想想", "warning")
 		return
 
-	if not DataManager.resolve_suspicion(_selected_suspicion_id):
+	var resolution_result: ResolutionResult = DataManager.resolve_suspicion(_selected_suspicion_id)
+	if resolution_result == null or not resolution_result.success:
 		return
 
 	_show_reasoning_notice("推理成功！", "success")
@@ -262,7 +266,7 @@ func _on_locked_suspicion_requested(suspicion_id: String, conclusion_followup_ti
 	if DataManager == null:
 		return
 	if not DataManager.has_suspicion(suspicion_id):
-		DataManager.add_suspicion(suspicion_id, "flow", "locked_suspicion")
+		DataManager.discover_suspicion(suspicion_id, "flow", "locked_suspicion")
 	_locked_suspicion_id = suspicion_id
 	_locked_conclusion_followup_timeline = conclusion_followup_timeline
 	_locked_suspicion_resolved = DataManager.is_suspicion_resolved(suspicion_id)
@@ -458,15 +462,17 @@ func _show_suspicion_detail(suspicion_id: String, mark_read: bool = false) -> vo
 		title = suspicion_id
 	detail_title.text = title
 
-	var state: Dictionary = DataManager.get_suspicion_state(suspicion_id)
+	var state: SuspicionState = DataManager.get_suspicion_state(suspicion_id)
 	var section_lines: PackedStringArray = PackedStringArray()
 	if not suspicion_def.chapter_id.is_empty():
 		section_lines.append("章节：%s" % suspicion_def.chapter_id)
 	if not suspicion_def.tags.is_empty():
 		section_lines.append("标签：%s" % ", ".join(suspicion_def.tags))
-	if bool(state.get("resolved", false)):
+	if state != null and state.resolved:
 		section_lines.append("状态：已解决")
-		var conclusion_clue_id: String = String(state.get("conclusion_clue_id", suspicion_def.conclusion_clue_id))
+		var conclusion_clue_id: String = state.conclusion_clue_id
+		if conclusion_clue_id.is_empty():
+			conclusion_clue_id = suspicion_def.conclusion_clue_id
 		if not conclusion_clue_id.is_empty():
 			section_lines.append("结论：%s" % _get_clue_title(conclusion_clue_id))
 	else:
@@ -600,7 +606,7 @@ func _show_reasoning_notice(message: String, notice_type: String) -> void:
 
 func _get_sorted_discovered_suspicion_ids() -> Array[String]:
 	var ids: Array[String] = []
-	for suspicion_id: String in DataManager.get_all_suspicions():
+	for suspicion_id: String in DataManager.get_discovered_suspicion_ids():
 		ids.append(suspicion_id)
 
 	if _archive_sort_mode == ARCHIVE_SORT_DISCOVER:
@@ -645,8 +651,8 @@ func _build_suspicion_tree_title(suspicion_id: String, suspicion_def: SuspicionD
 	if DataManager.is_suspicion_resolved(suspicion_id):
 		title = "%s（已解决）" % title
 
-	var state: Dictionary = DataManager.get_suspicion_state(suspicion_id)
-	if bool(state.get("read", false)):
+	var state: SuspicionState = DataManager.get_suspicion_state(suspicion_id)
+	if state != null and state.read:
 		return title
 	return "● %s" % title
 
@@ -685,25 +691,17 @@ func _get_suspicion_def(suspicion_id: String) -> SuspicionData:
 		return null
 	if DataManager == null:
 		return null
-	if not DataManager.suspicion_defs.has(suspicion_id):
-		return null
-
-	var suspicion_def_variant: Variant = DataManager.suspicion_defs.get(suspicion_id, null)
-	if suspicion_def_variant is SuspicionData:
-		return suspicion_def_variant as SuspicionData
-	return null
+	return DataManager.get_suspicion_def(suspicion_id)
 
 
 func _get_clue_title(clue_id: String) -> String:
 	if clue_id.is_empty():
 		return ""
-	if DataManager == null or not DataManager.clue_defs.has(clue_id):
+	if DataManager == null:
 		return clue_id
-	var clue_def_variant: Variant = DataManager.clue_defs.get(clue_id, null)
-	if clue_def_variant is ClueData:
-		var clue_def: ClueData = clue_def_variant as ClueData
-		if not clue_def.title.is_empty():
-			return clue_def.title
+	var clue_def: ClueData = DataManager.get_clue_def(clue_id)
+	if clue_def != null and not clue_def.title.is_empty():
+		return clue_def.title
 	return clue_id
 
 
@@ -750,8 +748,10 @@ func _are_all_slots_filled(selected_ids: Array[String]) -> bool:
 
 
 func _get_discover_order(suspicion_id: String) -> int:
-	var state: Dictionary = DataManager.get_suspicion_state(suspicion_id)
-	return int(state.get("discover_order", 999999))
+	var state: SuspicionState = DataManager.get_suspicion_state(suspicion_id)
+	if state == null:
+		return 999999
+	return state.discover_order
 
 
 func _safe_to_int(value: String, fallback: int) -> int:
