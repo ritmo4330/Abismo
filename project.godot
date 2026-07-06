@@ -70,6 +70,7 @@ directories/dtl_directory={
 "1_2_crime_scene": "res://assets/dialogues/ch1_snow_villa/1_2_crime_scene.dtl",
 "1_3_butler": "res://assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
 "1_3_butler_block_leave": "res://assets/dialogues/ch1_snow_villa/1_3_butler_block_leave.dtl",
+"1_3_butler_intro": "res://assets/dialogues/ch1_snow_villa/1_3_butler_intro.dtl",
 "1_3_lin": "res://assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
 "1_3_mu": "res://assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
 "1_3_wu": "res://assets/dialogues/ch1_snow_villa/1_3_wu.dtl",

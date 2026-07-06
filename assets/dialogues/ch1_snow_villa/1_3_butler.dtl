@@ -5,15 +5,7 @@ if {Ch1.InitialSearch.Enabled} == true:
 	jump 第一次搜证
 if {Ch1.NPCIntro.ReadyForSearch} == true:
 	jump 调查管家
-检查完尸体后，你们回到了大厅。
-join butler left
-butler: 如你所见，这五位也是一段时间之前来到寒舍避雪的客人。
-butler: 除了一直待在书房，一定具有不在场证明的你之外，别墅内只有这五位客人，因此凶手一定就在五人之中。
-butler: 你可以先和嫌疑人们聊一聊，待你了解完情况后，我们再进行调查。
-leave --All--
-具体发生了什么？这些人又是谁？只能由你一一询问了。
-set {Ch1.NPCIntro.ReadyForSearch} = true
-[end_timeline]
+jump 调查管家
 
 label 调查管家
 join butler left

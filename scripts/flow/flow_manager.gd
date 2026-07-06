@@ -88,6 +88,7 @@ const TIMELINE_CH1_PUZZLE_REASONING: String = "1_1_puzzle_reasoning"
 const TIMELINE_CH1_MURDER_REQUEST: String = "1_1_murder_request"
 const TIMELINE_CH1_CRIME_SCENE: String = "1_2_crime_scene"
 const TIMELINE_CH1_BUTLER_BLOCK_LEAVE: String = "1_3_butler_block_leave"
+const TIMELINE_CH1_BUTLER_INTRO: String = "1_3_butler_intro"
 const TIMELINE_CH1_LIGHTHOUSE_REASONING_AFTER: String = "1_6_zhong_lighthouse_resolved"
 
 const SUSPICION_CH1_LIGHTHOUSE_STORY: String = "1_suspicion_lighthouse_story"
@@ -309,7 +310,7 @@ func start_ch1_hall_intro_from_crime_scene() -> void:
 	_reset_npc_locations_for_step(current_step_id)
 	_sync_bgm_for_step(current_step_id)
 	_set_ch1_known_character_names_after_crime_scene()
-	request_scene_change(HALL_SCENE_PATH, "InitialSpawn")
+	request_scene_change(HALL_SCENE_PATH, "InitialSpawn", TIMELINE_CH1_BUTLER_INTRO)
 
 
 func set_step(step_id: String) -> void:
