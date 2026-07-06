@@ -798,9 +798,7 @@ func _is_close_input(event: InputEvent) -> bool:
 func _is_manual_access_unlocked() -> bool:
 	if FlowManager == null:
 		return true
-	if not FlowManager.has_method("are_manual_panels_unlocked"):
-		return true
-	return FlowManager.are_manual_panels_unlocked()
+	return FlowManager.can_open_manual_panels()
 
 
 func _show_manual_locked_notice() -> void:

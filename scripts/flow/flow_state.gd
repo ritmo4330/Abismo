@@ -1,16 +1,17 @@
 extends RefCounted
 
-const FlowIds = preload("res://scripts/flow/flow_ids.gd")
+const FlowChapters = preload("res://scripts/flow/flow_chapters.gd")
+const FlowSteps = preload("res://scripts/flow/flow_steps.gd")
 
-var chapter_id: String = FlowIds.CHAPTER_CH1
-var step_id: String = FlowIds.STEP_CH1_INTRO_HALL
+var chapter_id: String = FlowChapters.CH1
+var step_id: String = FlowSteps.CH1_INTRO_HALL
 var room_id: String = ""
 var private_chat_target: String = ""
 
 
 func _init(
-	initial_chapter_id: String = FlowIds.CHAPTER_CH1,
-	initial_step_id: String = FlowIds.STEP_CH1_INTRO_HALL,
+	initial_chapter_id: String = FlowChapters.CH1,
+	initial_step_id: String = FlowSteps.CH1_INTRO_HALL,
 	initial_room_id: String = "",
 	initial_private_chat_target: String = ""
 ) -> void:

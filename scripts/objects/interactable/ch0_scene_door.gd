@@ -28,7 +28,7 @@ func interact(_player: Player) -> void:
 		push_error("Ch0SceneDoor target_scene_path is empty.")
 		return
 
-	var accepted: bool = FlowManager.request_scene_change(target_scene_path, target_spawn_point, auto_timeline)
+	var accepted: bool = FlowManager.request_scene(target_scene_path, target_spawn_point, auto_timeline)
 	if not accepted:
 		return
 
@@ -37,7 +37,7 @@ func interact(_player: Player) -> void:
 	if ToastManager != null:
 		ToastManager.show_notice("大门打开了。", "info", 1.5)
 	if not next_step_id.is_empty():
-		FlowManager.set_step(next_step_id)
+		FlowManager.advance_to_step(next_step_id)
 
 
 func _play_open_sfx() -> void:

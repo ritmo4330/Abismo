@@ -1,0 +1,21 @@
+extends RefCounted
+
+const CH0_IDENTITY: String = "ch0_0_1_identity"
+const CH0_PROLOGUE_STORY: String = "ch0_0_2_prologue_story"
+const CH0_SNOW_CAMP: String = "ch0_0_2_snow_camp"
+const CH0_SNOW_PATH: String = "ch0_0_2_snow_path"
+const CH0_VILLA_GATE: String = "ch0_0_2_villa_gate"
+const CH0_HALL_ARRIVAL: String = "ch0_0_2_hall_arrival"
+const CH0_LOGO: String = "ch0_0_2_logo"
+
+const CH1_STUDY_WAKE: String = "ch1_1_study_wake"
+const CH1_STUDY_FREE_INVESTIGATION: String = "ch1_1_study_free_investigation"
+const CH1_PUZZLE: String = "ch1_1_puzzle"
+const CH1_MURDER_REQUEST: String = "ch1_1_murder_request"
+const CH1_CRIME_SCENE: String = "ch1_2_crime_scene"
+const CH1_BODY_CG: String = "ch1_2_body_cg"
+const CH1_INTRO_HALL: String = "ch1_3_intro_hall"
+const CH1_FIRST_SEARCH: String = "ch1_4_first_search"
+const CH1_INITIAL_REASONING: String = "ch1_5_initial_reasoning"
+const CH1_PRIVATE_CHAT: String = "ch1_6_private_chat"
+const CH1_SECOND_SEARCH: String = "ch1_7_second_search"

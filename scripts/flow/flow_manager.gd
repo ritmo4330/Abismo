@@ -1,126 +1,42 @@
 extends Node
 
-const FlowIds = preload("res://scripts/flow/flow_ids.gd")
-const Ch0FlowConfig = preload("res://scripts/flow/configs/ch0_flow_config.gd")
-const Ch1FlowConfig = preload("res://scripts/flow/configs/ch1_flow_config.gd")
+const FlowChapters = preload("res://scripts/flow/flow_chapters.gd")
+const FlowDialogicVars = preload("res://scripts/flow/flow_dialogic_vars.gd")
+const FlowEffectExecutor = preload("res://scripts/flow/flow_effect_executor.gd")
+const FlowEntries = preload("res://scripts/flow/flow_entries.gd")
+const FlowNpcs = preload("res://scripts/flow/flow_npcs.gd")
+const FlowRooms = preload("res://scripts/flow/flow_rooms.gd")
+const FlowScenes = preload("res://scripts/flow/flow_scenes.gd")
+const FlowState = preload("res://scripts/flow/flow_state.gd")
+const FlowSteps = preload("res://scripts/flow/flow_steps.gd")
+
 const FlowDebugBootstrap = preload("res://scripts/flow/services/flow_debug_bootstrap.gd")
 const FlowDialogicBridge = preload("res://scripts/flow/services/flow_dialogic_bridge.gd")
-const FlowNpcPlacement = preload("res://scripts/flow/services/flow_npc_placement.gd")
+const FlowNpcPlacementState = preload("res://scripts/flow/services/flow_npc_placement_state.gd")
 const FlowProgressRules = preload("res://scripts/flow/services/flow_progress_rules.gd")
-const FlowSceneNavigator = preload("res://scripts/flow/services/flow_scene_navigator.gd")
-const FlowCommandExecutor = preload("res://scripts/flow/flow_command_executor.gd")
 const FlowRegistry = preload("res://scripts/flow/flow_registry.gd")
-const FlowState = preload("res://scripts/flow/flow_state.gd")
+const FlowRoomActorSpawner = preload("res://scripts/flow/services/flow_room_actor_spawner.gd")
+const FlowSceneNavigator = preload("res://scripts/flow/services/flow_scene_navigator.gd")
 
-const CHAPTER_CH0_PROLOGUE: String = FlowIds.CHAPTER_CH0_PROLOGUE
-const CHAPTER_CH1: String = FlowIds.CHAPTER_CH1
-
-const STEP_CH0_IDENTITY: String = FlowIds.STEP_CH0_IDENTITY
-const STEP_CH0_PROLOGUE_STORY: String = FlowIds.STEP_CH0_PROLOGUE_STORY
-const STEP_CH0_SNOW_CAMP: String = FlowIds.STEP_CH0_SNOW_CAMP
-const STEP_CH0_SNOW_PATH: String = FlowIds.STEP_CH0_SNOW_PATH
-const STEP_CH0_VILLA_GATE: String = FlowIds.STEP_CH0_VILLA_GATE
-const STEP_CH0_HALL_ARRIVAL: String = FlowIds.STEP_CH0_HALL_ARRIVAL
-const STEP_CH0_LOGO: String = FlowIds.STEP_CH0_LOGO
-
-const STEP_CH1_STUDY_WAKE: String = FlowIds.STEP_CH1_STUDY_WAKE
-const STEP_CH1_STUDY_FREE_INVESTIGATION: String = FlowIds.STEP_CH1_STUDY_FREE_INVESTIGATION
-const STEP_CH1_PUZZLE: String = FlowIds.STEP_CH1_PUZZLE
-const STEP_CH1_MURDER_REQUEST: String = FlowIds.STEP_CH1_MURDER_REQUEST
-const STEP_CH1_CRIME_SCENE: String = FlowIds.STEP_CH1_CRIME_SCENE
-const STEP_CH1_BODY_CG: String = FlowIds.STEP_CH1_BODY_CG
-const STEP_CH1_INTRO_HALL: String = FlowIds.STEP_CH1_INTRO_HALL
-const STEP_CH1_FIRST_SEARCH: String = FlowIds.STEP_CH1_FIRST_SEARCH
-const STEP_CH1_INITIAL_REASONING: String = FlowIds.STEP_CH1_INITIAL_REASONING
-const STEP_CH1_PRIVATE_CHAT: String = FlowIds.STEP_CH1_PRIVATE_CHAT
-const STEP_CH1_SECOND_SEARCH: String = FlowIds.STEP_CH1_SECOND_SEARCH
-
-const ROOM_HALL: String = FlowIds.ROOM_HALL
-const ROOM_FLOOR2: String = FlowIds.ROOM_FLOOR2
-const ROOM_ZOU_LANG: String = FlowIds.ROOM_ZOU_LANG
-const ROOM_CAN_TING: String = FlowIds.ROOM_CAN_TING
-const ROOM_HUI_KE_TING: String = FlowIds.ROOM_HUI_KE_TING
-const ROOM_FIRST_SEARCH: String = FlowIds.ROOM_FIRST_SEARCH
-const ROOM_META: String = FlowIds.ROOM_META
-const ROOM_MU_ZHI: String = FlowIds.ROOM_MU_ZHI
-const ROOM_WU_TING_XIANG: String = FlowIds.ROOM_WU_TING_XIANG
-const ROOM_ZHONG_QI: String = FlowIds.ROOM_ZHONG_QI
-const ROOM_ZHOU_CHONG_AN: String = FlowIds.ROOM_ZHOU_CHONG_AN
-const ROOM_SECOND_SEARCH: String = FlowIds.ROOM_SECOND_SEARCH
-const ROOM_CH1_STUDY: String = FlowIds.ROOM_CH1_STUDY
-const ROOM_CH1_CRIME_SCENE: String = FlowIds.ROOM_CH1_CRIME_SCENE
-
-const HALL_SCENE_PATH: String = FlowIds.HALL_SCENE_PATH
-const CH0_BLACK_SCREEN_SCENE_PATH: String = FlowIds.CH0_BLACK_SCREEN_SCENE_PATH
-const CH0_SNOW_FIELD_SCENE_PATH: String = FlowIds.CH0_SNOW_FIELD_SCENE_PATH
-const CH0_LOGO_SCENE_PATH: String = FlowIds.CH0_LOGO_SCENE_PATH
-const CH1_STUDY_SCENE_PATH: String = FlowIds.CH1_STUDY_SCENE_PATH
-const CH1_CRIME_SCENE_PATH: String = FlowIds.CH1_CRIME_SCENE_PATH
-const CH1_BODY_CG_SCENE_PATH: String = FlowIds.CH1_BODY_CG_SCENE_PATH
-const HUI_KE_TING_SCENE_PATH: String = FlowIds.HUI_KE_TING_SCENE_PATH
-const FIRST_SEARCH_ROOM1_PATH: String = FlowIds.FIRST_SEARCH_ROOM1_PATH
-const FIRST_SEARCH_ROOM2_PATH: String = FlowIds.FIRST_SEARCH_ROOM2_PATH
-const SECOND_SEARCH_ROOM_PATH: String = FlowIds.SECOND_SEARCH_ROOM_PATH
-const NPC_SCENE_PATH: String = FlowIds.NPC_SCENE_PATH
-
-const ACTION_START_INITIAL_SEARCH: String = FlowIds.ACTION_START_INITIAL_SEARCH
-const ACTION_ENTER_ROOM_LIN: String = FlowIds.ACTION_ENTER_ROOM_LIN
-const ACTION_START_INITIAL_REASONING: String = FlowIds.ACTION_START_INITIAL_REASONING
-const ACTION_ENTER_PRIVATE_CHAT: String = FlowIds.ACTION_ENTER_PRIVATE_CHAT
-const ACTION_EXIT_PRIVATE_CHAT: String = FlowIds.ACTION_EXIT_PRIVATE_CHAT
-const ACTION_START_SECOND_SEARCH: String = FlowIds.ACTION_START_SECOND_SEARCH
-const ACTION_EXIT_SECOND_SEARCH: String = FlowIds.ACTION_EXIT_SECOND_SEARCH
-const ACTION_START_LIGHTHOUSE_REASONING: String = FlowIds.ACTION_START_LIGHTHOUSE_REASONING
-const ACTION_CH0_IDENTITY_FINISHED: String = FlowIds.ACTION_CH0_IDENTITY_FINISHED
-const ACTION_CH0_PROLOGUE_INTRO_FINISHED: String = FlowIds.ACTION_CH0_PROLOGUE_INTRO_FINISHED
-const ACTION_CH0_CAMPFIRE_EXTINGUISHED: String = FlowIds.ACTION_CH0_CAMPFIRE_EXTINGUISHED
-const ACTION_CH0_SNOW_PATH_INTERLUDE_FINISHED: String = FlowIds.ACTION_CH0_SNOW_PATH_INTERLUDE_FINISHED
-const ACTION_CH0_VILLA_GATE_INTERLUDE_FINISHED: String = FlowIds.ACTION_CH0_VILLA_GATE_INTERLUDE_FINISHED
-const ACTION_CH0_VILLA_DOOR_KNOCK_FINISHED: String = FlowIds.ACTION_CH0_VILLA_DOOR_KNOCK_FINISHED
-const ACTION_CH0_HALL_MEMORY_START: String = FlowIds.ACTION_CH0_HALL_MEMORY_START
-const ACTION_CH0_HALL_ARRIVAL_FINISHED: String = FlowIds.ACTION_CH0_HALL_ARRIVAL_FINISHED
-const ACTION_CH1_STUDY_WAKE_FINISHED: String = FlowIds.ACTION_CH1_STUDY_WAKE_FINISHED
-const ACTION_CH1_STUDY_BUTLER_ENTER: String = FlowIds.ACTION_CH1_STUDY_BUTLER_ENTER
-const ACTION_CH1_STUDY_BUTLER_LEAVE: String = FlowIds.ACTION_CH1_STUDY_BUTLER_LEAVE
-const ACTION_CH1_PUZZLE_SOLVED: String = FlowIds.ACTION_CH1_PUZZLE_SOLVED
-const ACTION_CH1_MURDER_REQUEST_ACCEPTED: String = FlowIds.ACTION_CH1_MURDER_REQUEST_ACCEPTED
-const ACTION_CH1_CRIME_SCENE_FINISHED: String = FlowIds.ACTION_CH1_CRIME_SCENE_FINISHED
-
-const TIMELINE_CH0_IDENTITY: String = FlowIds.TIMELINE_CH0_IDENTITY
-const TIMELINE_CH0_PROLOGUE: String = FlowIds.TIMELINE_CH0_PROLOGUE
-const TIMELINE_CH0_SNOW_CAMP_ARRIVAL: String = FlowIds.TIMELINE_CH0_SNOW_CAMP_ARRIVAL
-const TIMELINE_CH0_SNOW_PATH_ARRIVAL: String = FlowIds.TIMELINE_CH0_SNOW_PATH_ARRIVAL
-const TIMELINE_CH0_VILLA_GATE_ARRIVAL: String = FlowIds.TIMELINE_CH0_VILLA_GATE_ARRIVAL
-const TIMELINE_CH0_HALL_ARRIVAL: String = FlowIds.TIMELINE_CH0_HALL_ARRIVAL
-const TIMELINE_CH0_HALL_MEMORY: String = FlowIds.TIMELINE_CH0_HALL_MEMORY
-const TIMELINE_CH1_STUDY_WAKE: String = FlowIds.TIMELINE_CH1_STUDY_WAKE
-const TIMELINE_CH1_PUZZLE_REASONING: String = FlowIds.TIMELINE_CH1_PUZZLE_REASONING
-const TIMELINE_CH1_MURDER_REQUEST: String = FlowIds.TIMELINE_CH1_MURDER_REQUEST
-const TIMELINE_CH1_CRIME_SCENE: String = FlowIds.TIMELINE_CH1_CRIME_SCENE
-const TIMELINE_CH1_BUTLER_BLOCK_LEAVE: String = FlowIds.TIMELINE_CH1_BUTLER_BLOCK_LEAVE
-const TIMELINE_CH1_BUTLER_INTRO: String = FlowIds.TIMELINE_CH1_BUTLER_INTRO
-const TIMELINE_CH1_LIGHTHOUSE_REASONING_AFTER: String = FlowIds.TIMELINE_CH1_LIGHTHOUSE_REASONING_AFTER
-
-const SUSPICION_CH1_LIGHTHOUSE_STORY: String = FlowIds.SUSPICION_CH1_LIGHTHOUSE_STORY
-
-var _pending_after_dialogue_commands: Array = []
+var _pending_after_dialogue_effects: Array[RefCounted] = []
 var _current_room: Node2D = null
 
-var _state: RefCounted = FlowState.new(CHAPTER_CH1, STEP_CH1_INTRO_HALL)
-var _command_executor: RefCounted = FlowCommandExecutor.new()
+var _state: RefCounted = FlowState.new()
 var _debug_bootstrap: RefCounted = FlowDebugBootstrap.new()
 var _dialogic_bridge: RefCounted = FlowDialogicBridge.new()
-var _npc_placement: RefCounted = FlowNpcPlacement.new()
+var _effect_executor: RefCounted = FlowEffectExecutor.new()
+var _npc_state: RefCounted = FlowNpcPlacementState.new()
 var _progress_rules: RefCounted = FlowProgressRules.new()
 var _registry: RefCounted = FlowRegistry.new()
+var _room_actor_spawner: RefCounted = FlowRoomActorSpawner.new()
 var _scene_navigator: RefCounted = FlowSceneNavigator.new()
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	_command_executor.setup(self)
+	_effect_executor.setup(self)
 	_scene_navigator.setup(self)
-	_npc_placement.reset_npc_locations_for_step(get_current_step_id())
+	_reset_npc_locations_for_current_step()
 
 	if not EventBus.flow_signal_requested.is_connected(_on_flow_signal_requested):
 		EventBus.flow_signal_requested.connect(_on_flow_signal_requested)
@@ -134,13 +50,41 @@ func _ready() -> void:
 		DataManager.clue_updated.connect(_on_clue_updated)
 
 
-func _set_flow_state(
+func start_flow(chapter_id: String, entry_id: String) -> void:
+	if chapter_id.is_empty() or entry_id.is_empty():
+		return
+	_handle_flow_transition("entry:%s/%s" % [chapter_id, entry_id], _registry.get_entry_transition(chapter_id, entry_id))
+
+
+func send_flow_event(event_id: String) -> void:
+	if event_id.is_empty():
+		return
+	_handle_flow_transition(event_id, _registry.handle_event(event_id, _state))
+
+
+func apply_flow_state(
 	chapter_id: String,
 	step_id: String,
 	room_id: String = "",
-	next_private_chat_target: String = ""
+	private_chat_target: String = ""
 ) -> void:
-	_state.apply(chapter_id, step_id, room_id, next_private_chat_target)
+	if chapter_id.is_empty() or step_id.is_empty():
+		return
+	_state.apply(chapter_id, step_id, room_id, private_chat_target)
+	_reset_npc_locations_for_current_step()
+	_sync_bgm_for_step(step_id)
+	_refresh_current_room_actors()
+	_refresh_initial_search_finished()
+
+
+func advance_to_step(step_id: String) -> void:
+	if step_id.is_empty():
+		return
+	_state.step_id = step_id
+	_reset_npc_locations_for_current_step()
+	_sync_bgm_for_step(step_id)
+	_refresh_current_room_actors()
+	_refresh_initial_search_finished()
 
 
 func get_state() -> RefCounted:
@@ -163,69 +107,12 @@ func get_private_chat_target() -> String:
 	return _state.private_chat_target
 
 
-func prepare_ch0_prologue_start() -> void:
-	if DataManager != null and DataManager.has_method("reset_runtime_state"):
-		DataManager.reset_runtime_state()
-
-	_set_flow_state(CHAPTER_CH0_PROLOGUE, STEP_CH0_IDENTITY)
-	_pending_after_dialogue_commands.clear()
-	_scene_navigator.set_pending_auto_timeline(TIMELINE_CH0_IDENTITY)
-	_npc_placement.reset_npc_locations_for_step(get_current_step_id())
-	_sync_bgm_for_step(get_current_step_id())
-	_dialogic_bridge.set_ch0_character_names_unknown()
-	set_dialogic_var("PlayerName", "")
-	set_dialogic_var("PlayerGender", "")
-	set_dialogic_var("Ch0.Started", true)
-
-
-func prepare_ch1_legacy_start() -> void:
-	if DataManager != null and DataManager.has_method("reset_runtime_state"):
-		DataManager.reset_runtime_state()
-
-	_set_flow_state(CHAPTER_CH1, STEP_CH1_INTRO_HALL)
-	_pending_after_dialogue_commands.clear()
-	_scene_navigator.set_pending_auto_timeline("")
-	_npc_placement.reset_npc_locations_for_step(get_current_step_id())
-	_stop_bgm()
-	_dialogic_bridge.set_ch0_character_names_revealed()
-
-
-func start_ch1_study_from_prologue() -> void:
-	_set_flow_state(CHAPTER_CH1, STEP_CH1_STUDY_WAKE)
-	_pending_after_dialogue_commands.clear()
-	_scene_navigator.set_pending_auto_timeline(TIMELINE_CH1_STUDY_WAKE)
-	_npc_placement.reset_npc_locations_for_step(get_current_step_id())
-	_sync_bgm_for_step(get_current_step_id())
-	_dialogic_bridge.set_ch0_character_names_unknown()
-	request_scene_change(CH1_STUDY_SCENE_PATH, "SpawnFromChair", TIMELINE_CH1_STUDY_WAKE)
-
-
-func start_ch1_hall_intro_from_crime_scene() -> void:
-	_set_flow_state(CHAPTER_CH1, STEP_CH1_INTRO_HALL)
-	_pending_after_dialogue_commands.clear()
-	_scene_navigator.set_pending_auto_timeline("")
-	_npc_placement.reset_npc_locations_for_step(get_current_step_id())
-	_sync_bgm_for_step(get_current_step_id())
-	_dialogic_bridge.set_ch1_known_character_names_after_crime_scene()
-	request_scene_change(HALL_SCENE_PATH, "InitialSpawn", TIMELINE_CH1_BUTLER_INTRO)
-
-
-func set_step(step_id: String) -> void:
-	if step_id.is_empty():
-		return
-	_state.step_id = step_id
-	_npc_placement.reset_npc_locations_for_step(step_id)
-	_sync_bgm_for_step(step_id)
-	_refresh_current_room_actors()
-	_refresh_ch1_initial_search_finished()
-
-
-func is_standalone_debug_flow_active() -> bool:
+func is_debug_flow_active() -> bool:
 	return _scene_navigator.is_standalone_debug_flow_active()
 
 
-func prepare_debug_standalone_room(config: Dictionary) -> void:
-	var state: Dictionary = _debug_bootstrap.prepare_debug_standalone_room(config, _dialogic_bridge, _npc_placement)
+func start_debug_standalone_room(config: Dictionary) -> void:
+	var state: Dictionary = _debug_bootstrap.prepare_debug_standalone_room(config, _dialogic_bridge, _npc_state, _registry)
 	if state.is_empty():
 		return
 
@@ -234,19 +121,20 @@ func prepare_debug_standalone_room(config: Dictionary) -> void:
 		_state = next_state as RefCounted
 	else:
 		_state.apply_dictionary(state)
-	_pending_after_dialogue_commands.clear()
-	_scene_navigator.set_pending_auto_timeline(String(state.get("pending_auto_timeline", "")))
+	clear_pending_after_dialogue()
+	set_pending_auto_timeline(String(state.get("pending_auto_timeline", "")))
 	_scene_navigator.set_pending_standalone_spawn_point(String(state.get("pending_standalone_spawn_point", "")))
 	_scene_navigator.mark_standalone_debug_flow_active()
-	_refresh_ch1_initial_search_finished()
+	_refresh_initial_search_finished()
 	_sync_bgm_for_step(get_current_step_id())
 
 
-func are_manual_panels_unlocked() -> bool:
+func can_open_manual_panels() -> bool:
 	return _progress_rules.are_manual_panels_unlocked(
 		get_current_chapter_id(),
 		get_current_step_id(),
-		_scene_navigator.is_standalone_debug_flow_active()
+		_scene_navigator.is_standalone_debug_flow_active(),
+		_get_current_definition()
 	)
 
 
@@ -257,42 +145,87 @@ func set_npc_location(
 	timeline_name: String = "",
 	scene_path: String = ""
 ) -> void:
-	_npc_placement.set_npc_location(
-		npc_id,
-		room_id,
-		spawn_name,
-		timeline_name,
-		scene_path,
-		get_current_room_id(),
-		get_current_chapter_id(),
-		get_current_step_id(),
-		get_private_chat_target()
-	)
+	_npc_state.set_location(npc_id, room_id, spawn_name, timeline_name, scene_path)
+	_refresh_current_room_actors()
 
 
-func request_scene_change(target_scene_path: String, spawn_point: String, auto_timeline: String = "") -> bool:
+func request_scene(target_scene_path: String, spawn_point: String, auto_timeline: String = "") -> bool:
 	return _scene_navigator.request_scene_change(target_scene_path, spawn_point, auto_timeline)
 
 
-func should_block_current_room_exit() -> bool:
-	return _progress_rules.should_block_current_room_exit(get_current_chapter_id(), get_current_step_id(), get_current_room_id())
+func is_current_room_exit_blocked() -> bool:
+	var result: RefCounted = _progress_rules.evaluate_room_exit(
+		get_current_chapter_id(),
+		get_current_step_id(),
+		get_current_room_id()
+	)
+	if result.blocked and not result.dialogue_timeline.is_empty():
+		EventBus.dialogue_requested.emit(result.dialogue_timeline)
+	return result.blocked
 
 
-func consume_pending_standalone_spawn_point(default_spawn_point: String) -> String:
+func consume_debug_spawn_point(default_spawn_point: String) -> String:
 	return _scene_navigator.consume_pending_standalone_spawn_point(default_spawn_point)
 
 
-func _on_clue_updated(_clue_id: String) -> void:
-	_refresh_ch1_initial_search_finished()
+func clear_pending_after_dialogue() -> void:
+	_pending_after_dialogue_effects.clear()
+
+
+func set_pending_auto_timeline(timeline_name: String) -> void:
+	_scene_navigator.set_pending_auto_timeline(timeline_name)
+
+
+func stop_bgm() -> void:
+	if AudioManager != null and AudioManager.has_method("stop_bgm"):
+		AudioManager.stop_bgm()
+
+
+func apply_character_name_state(name_state: String) -> void:
+	_dialogic_bridge.apply_character_name_state(name_state)
+
+
+func get_dialogic_var(path: String, default_value: Variant = null) -> Variant:
+	return _dialogic_bridge.get_var(path, default_value)
+
+
+func set_dialogic_var(path: String, value: Variant) -> void:
+	_dialogic_bridge.set_var(path, value)
+
+
+func set_private_chat_target(value: String) -> void:
+	_state.private_chat_target = value
+
+
+func enter_private_chat() -> void:
+	if get_private_chat_target().is_empty():
+		set_private_chat_target(String(get_dialogic_var(FlowDialogicVars.CH1_PRIVATE_CHAT_TARGET, "")))
+	if get_private_chat_target().is_empty():
+		push_warning("FlowManager: private chat target is empty.")
+		return
+	set_npc_location(get_private_chat_target(), FlowRooms.HUI_KE_TING, "Guest", "1_6_%s" % get_private_chat_target())
+	request_scene(FlowScenes.HUI_KE_TING, "Detective", "1_6_%s" % get_private_chat_target())
+
+
+func set_current_ch0_campfire_lit(is_lit: bool) -> void:
+	var room: Node = _current_room
+	if room == null and SceneManager != null:
+		room = SceneManager.current_room
+	if room != null and room.has_method("set_campfire_lit"):
+		room.set_campfire_lit(is_lit)
+
+
+func refresh_initial_search_finished() -> void:
+	_refresh_initial_search_finished()
 
 
 func on_room_loaded(room: Node2D, room_id: String) -> void:
 	_current_room = room
-	_npc_placement.set_current_room(room)
+	_room_actor_spawner.set_current_room(room)
 	_state.room_id = room_id
 	setup_room_actors(room)
 	_setup_current_room_clues()
-	_refresh_ch1_initial_search_finished()
+	_refresh_initial_search_finished()
 
 
 func on_room_presented(_room: Node2D, room_id: String) -> void:
@@ -305,36 +238,50 @@ func play_pending_auto_timeline() -> void:
 	_scene_navigator.play_pending_auto_timeline()
 
 
-func handle_flow_signal(signal_name: String) -> void:
-	_on_flow_signal_requested(signal_name)
+func setup_room_actors(room: Node2D) -> void:
+	if room == null:
+		return
+
+	var definition: RefCounted = _get_current_definition()
+	var spawn_entries: Array = _npc_state.get_spawn_entries_for_room(
+		get_current_room_id(),
+		definition,
+		get_current_step_id(),
+		get_private_chat_target()
+	)
+	var free_interaction_timelines: Dictionary = {}
+	if definition != null:
+		free_interaction_timelines = definition.free_interaction_timelines
+
+	_room_actor_spawner.setup_room_actors(
+		room,
+		get_current_room_id(),
+		spawn_entries,
+		free_interaction_timelines
+	)
 
 
-func handle_dialogue_ended() -> void:
-	_on_dialogue_finished("")
+func _on_clue_updated(_clue_id: String) -> void:
+	_refresh_initial_search_finished()
 
 
-func get_dialogic_var(path: String, default_value: Variant = null) -> Variant:
-	return _dialogic_bridge.get_var(path, default_value)
+func _get_current_definition() -> RefCounted:
+	return _registry.get_definition(get_current_chapter_id())
 
 
-func set_dialogic_var(path: String, value: Variant) -> void:
-	_dialogic_bridge.set_var(path, value)
-
-
-func _get_bgm_config_for_step(step_id: String) -> Dictionary:
-	var config_tables: Array = [
-		Ch0FlowConfig.STEP_BGM_CONFIGS,
-		Ch1FlowConfig.STEP_BGM_CONFIGS,
-	]
-	for config_table: Dictionary in config_tables:
-		var bgm_config: Variant = config_table.get(step_id, null)
-		if bgm_config is Dictionary:
-			return bgm_config
-	return {}
+func _reset_npc_locations_for_current_step() -> void:
+	var definition: RefCounted = _get_current_definition()
+	if definition == null:
+		_npc_state.reset_for_step({})
+		return
+	_npc_state.reset_for_step(definition.get_base_npc_locations(get_current_step_id()))
 
 
 func _sync_bgm_for_step(step_id: String) -> void:
-	var bgm_config: Dictionary = _get_bgm_config_for_step(step_id)
+	var definition: RefCounted = _get_current_definition()
+	if definition == null:
+		return
+	var bgm_config: Dictionary = definition.get_bgm_config(step_id)
 	if bgm_config.is_empty():
 		return
 	if AudioManager != null and AudioManager.has_method("play_bgm"):
@@ -344,30 +291,10 @@ func _sync_bgm_for_step(step_id: String) -> void:
 		)
 
 
-func _stop_bgm() -> void:
-	if AudioManager != null and AudioManager.has_method("stop_bgm"):
-		AudioManager.stop_bgm()
-
-
-func setup_room_actors(room: Node2D) -> void:
-	_npc_placement.setup_room_actors(
-		room,
-		get_current_room_id(),
-		get_current_chapter_id(),
-		get_current_step_id(),
-		get_private_chat_target()
-	)
-
-
 func _refresh_current_room_actors() -> void:
 	if _current_room == null or get_current_room_id().is_empty():
 		return
-	_npc_placement.refresh_current_room_actors(
-		get_current_room_id(),
-		get_current_chapter_id(),
-		get_current_step_id(),
-		get_private_chat_target()
-	)
+	setup_room_actors(_current_room)
 	_setup_current_room_clues()
 
 
@@ -379,51 +306,44 @@ func _setup_current_room_clues() -> void:
 	CluePlacementManager.setup_room_clues(_current_room, get_current_room_id())
 
 
-func set_current_ch0_campfire_lit(is_lit: bool) -> void:
-	var room: Node = _current_room
-	if room == null and SceneManager != null:
-		room = SceneManager.current_room
-	if room != null and room.has_method("set_campfire_lit"):
-		room.set_campfire_lit(is_lit)
+func _refresh_initial_search_finished() -> void:
+	var definition: RefCounted = _get_current_definition()
+	if definition == null:
+		return
+	var result: Dictionary = _progress_rules.evaluate_initial_search_finished(
+		get_current_step_id(),
+		definition.initial_search_required_clues
+	)
+	if not bool(result.get("applies", false)):
+		return
+
+	var is_finished: bool = bool(result.get("finished", false))
+	var missing_clue_ids: Array[String] = []
+	for clue_id: Variant in result.get("missing_clue_ids", []):
+		missing_clue_ids.append(String(clue_id))
+	if bool(_dialogic_bridge.get_var(FlowDialogicVars.CH1_INITIAL_SEARCH_FINISHED, false)) == is_finished:
+		if not is_finished:
+			_progress_rules.log_initial_search_missing_clues(missing_clue_ids)
+		return
+
+	_dialogic_bridge.set_var(FlowDialogicVars.CH1_INITIAL_SEARCH_FINISHED, is_finished)
+	if is_finished:
+		_progress_rules.clear_initial_search_missing_log()
+	else:
+		_progress_rules.log_initial_search_missing_clues(missing_clue_ids)
 
 
-func _refresh_ch1_initial_search_finished() -> void:
-	_progress_rules.refresh_ch1_initial_search_finished(get_current_step_id(), _dialogic_bridge)
-
-
-func refresh_initial_search_finished() -> void:
-	_refresh_ch1_initial_search_finished()
-
-
-func _handle_flow_transition(signal_name: String, transition: RefCounted) -> void:
+func _handle_flow_transition(source_id: String, transition: RefCounted) -> void:
 	if transition == null or not transition.handled:
-		push_warning("FlowManager: unhandled flow signal '%s'." % signal_name)
+		push_warning("FlowManager: unhandled flow transition '%s'." % source_id)
 		return
 
-	_command_executor.execute_many(transition.immediate_commands)
-	_pending_after_dialogue_commands.append_array(transition.after_dialogue_commands)
+	_effect_executor.execute_many(transition.immediate_effects)
+	_pending_after_dialogue_effects.append_array(transition.after_dialogue_effects)
 
 
-func set_private_chat_target(value: String) -> void:
-	_state.private_chat_target = value
-
-
-func enter_private_chat() -> void:
-	if get_private_chat_target().is_empty():
-		set_private_chat_target(String(get_dialogic_var("Ch1.PrivateChat.Target", "")))
-	if get_private_chat_target().is_empty():
-		push_warning("FlowManager: private chat target is empty.")
-		return
-	set_npc_location(get_private_chat_target(), ROOM_HUI_KE_TING, "Guest", "1_6_%s" % get_private_chat_target())
-	request_scene_change(HUI_KE_TING_SCENE_PATH, "Detective", "1_6_%s" % get_private_chat_target())
-
-
-func _on_flow_signal_requested(signal_name: String) -> void:
-	if signal_name.is_empty():
-		return
-
-	var transition: RefCounted = _registry.handle_signal(signal_name, _state)
-	_handle_flow_transition(signal_name, transition)
+func _on_flow_signal_requested(event_id: String) -> void:
+	send_flow_event(event_id)
 
 
 func _on_room_loaded(room: Node2D, room_id: String) -> void:
@@ -435,9 +355,9 @@ func _on_room_presented(room: Node2D, room_id: String) -> void:
 
 
 func _on_dialogue_finished(_timeline_name: String) -> void:
-	if _pending_after_dialogue_commands.is_empty():
+	if _pending_after_dialogue_effects.is_empty():
 		return
 
-	var commands: Array = _pending_after_dialogue_commands.duplicate(true)
-	_pending_after_dialogue_commands.clear()
-	_command_executor.execute_many(commands)
+	var effects: Array = _pending_after_dialogue_effects.duplicate(true)
+	_pending_after_dialogue_effects.clear()
+	_effect_executor.execute_many(effects)

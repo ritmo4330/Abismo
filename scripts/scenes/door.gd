@@ -45,16 +45,14 @@ func _play_open_sfx() -> void:
 func _should_block_room_exit() -> bool:
 	if FlowManager == null:
 		return false
-	if not FlowManager.has_method("should_block_current_room_exit"):
-		return false
-	return FlowManager.should_block_current_room_exit()
+	return FlowManager.is_current_room_exit_blocked()
 
 
 func _request_standalone_scene_change() -> bool:
-	if FlowManager == null or not FlowManager.has_method("request_scene_change"):
+	if FlowManager == null:
 		return false
 	if SceneManager == null or not SceneManager.has_method("is_initialized"):
 		return false
 	if SceneManager.is_initialized():
 		return false
-	return FlowManager.request_scene_change(target_scene_path, target_spawn_point)
+	return FlowManager.request_scene(target_scene_path, target_spawn_point)

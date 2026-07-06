@@ -44,8 +44,8 @@ func _ready():
 
 func _spawn_test_player():
 	var spawn_point_name: String = default_spawn_point
-	if FlowManager != null and FlowManager.has_method("consume_pending_standalone_spawn_point"):
-		spawn_point_name = FlowManager.consume_pending_standalone_spawn_point(default_spawn_point)
+	if FlowManager != null:
+		spawn_point_name = FlowManager.consume_debug_spawn_point(default_spawn_point)
 
 	var spawn_point = _find_standalone_spawn_point(spawn_point_name)
 	if not spawn_point: return
@@ -62,11 +62,11 @@ func _spawn_test_player():
 func _prepare_standalone_debug_flow() -> void:
 	if not debug_standalone_enabled:
 		return
-	if FlowManager == null or not FlowManager.has_method("prepare_debug_standalone_room"):
+	if FlowManager == null:
 		return
-	if FlowManager.has_method("is_standalone_debug_flow_active") and FlowManager.is_standalone_debug_flow_active():
+	if FlowManager.is_debug_flow_active():
 		return
-	FlowManager.prepare_debug_standalone_room(_get_debug_standalone_config())
+	FlowManager.start_debug_standalone_room(_get_debug_standalone_config())
 
 
 func _ensure_standalone_debug_ui() -> void:

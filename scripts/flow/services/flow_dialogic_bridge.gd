@@ -1,5 +1,7 @@
 extends RefCounted
 
+const FlowDialogicVars = preload("res://scripts/flow/flow_dialogic_vars.gd")
+
 
 func get_var(path: String, default_value: Variant = null) -> Variant:
 	if path.is_empty() or Dialogic == null:
@@ -37,19 +39,19 @@ func set_var(path: String, value: Variant) -> void:
 	Dialogic.VAR.set(path, value)
 
 
-func set_ch0_character_names_unknown() -> void:
-	set_var("ButlerName", "？？")
-	set_var("MetaName", "？？")
-	set_var("ZhongQiName", "？？")
+func apply_character_name_state(name_state: String) -> void:
+	match name_state:
+		"all_unknown":
+			_set_character_names("？？", "？？", "？？")
+		"butler_meta_known":
+			_set_character_names("管家", "梅塔", "？？")
+		"all_revealed":
+			_set_character_names("管家", "梅塔", "钟歧")
+		_:
+			_set_character_names("管家", "梅塔", "钟歧")
 
 
-func set_ch0_character_names_revealed() -> void:
-	set_var("ButlerName", "管家")
-	set_var("MetaName", "梅塔")
-	set_var("ZhongQiName", "钟歧")
-
-
-func set_ch1_known_character_names_after_crime_scene() -> void:
-	set_var("ButlerName", "管家")
-	set_var("MetaName", "梅塔")
-	set_var("ZhongQiName", "？？")
+func _set_character_names(butler_name: String, meta_name: String, zhong_qi_name: String) -> void:
+	set_var(FlowDialogicVars.BUTLER_NAME, butler_name)
+	set_var(FlowDialogicVars.META_NAME, meta_name)
+	set_var(FlowDialogicVars.ZHONG_QI_NAME, zhong_qi_name)

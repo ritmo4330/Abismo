@@ -1,5 +1,8 @@
 extends Node2D
 
+const FlowChapters = preload("res://scripts/flow/flow_chapters.gd")
+const FlowEntries = preload("res://scripts/flow/flow_entries.gd")
+
 @export var room_id: String = "ch1_body_cg"
 @export var default_spawn_point: String = "InitialSpawn"
 @export var body_cg_start_seconds: float = 4.0
@@ -35,8 +38,8 @@ func _start_sequence() -> void:
 	_show_body_cg_end()
 
 	await get_tree().create_timer(max(0.0, continue_delay_seconds), true).timeout
-	if FlowManager != null and FlowManager.has_method("start_ch1_hall_intro_from_crime_scene"):
-		FlowManager.start_ch1_hall_intro_from_crime_scene()
+	if FlowManager != null:
+		FlowManager.start_flow(FlowChapters.CH1, FlowEntries.CH1_HALL_FROM_CRIME_SCENE)
 
 
 func _show_black_screen() -> void:

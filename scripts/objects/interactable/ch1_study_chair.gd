@@ -1,6 +1,8 @@
 class_name Ch1StudyChair
 extends Interactable
 
+const FlowEvents = preload("res://scripts/flow/flow_events.gd")
+
 const DEFAULT_REQUIRED_CLUE_IDS: Array[String] = [
 	"1_study_1",
 	"1_study_7",
@@ -59,7 +61,7 @@ func interact(_player: Player) -> void:
 		return
 
 	if FlowManager != null:
-		FlowManager.set_step(FlowManager.STEP_CH1_PUZZLE)
+		FlowManager.send_flow_event(FlowEvents.CH1_PUZZLE_STARTED)
 
 	if not DataManager.get_world_flag(FLAG_PUZZLE_READ):
 		DataManager.set_world_flag(FLAG_PUZZLE_READ, true)
@@ -81,7 +83,7 @@ func interact(_player: Player) -> void:
 		EventBus.dialogue_requested.emit(reasoning_timeline)
 		return
 
-	_show_notice("按下“V”键打开推理手册，继续解决疑点。", "info")
+	_show_notice("按下 V 键打开推理手册，继续解决疑点。", "info")
 	_refresh_highlight()
 
 
@@ -99,7 +101,7 @@ func _on_dialogue_finished(timeline_name: String) -> void:
 
 	if timeline_name == puzzle_followup_timeline and _pending_puzzle_followup_notice:
 		_pending_puzzle_followup_notice = false
-		_show_notice("再次按下“F”以深入调查", "info", 2.2)
+		_show_notice("再次按下 F 以深入调查。", "info", 2.2)
 
 
 func _try_request_clues_finished_narration() -> bool:

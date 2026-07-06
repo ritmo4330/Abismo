@@ -1,0 +1,28 @@
+extends RefCounted
+
+const START_INITIAL_SEARCH: String = "start_initial_search"
+const ENTER_ROOM_LIN: String = "enter_room_lin"
+const START_INITIAL_REASONING: String = "start_initial_reasoning"
+const ENABLE_PRIVATE_CHAT: String = "enable_private_chat"
+const ENTER_PRIVATE_CHAT: String = "enter_private_chat"
+const EXIT_PRIVATE_CHAT: String = "exit_private_chat"
+const START_SECOND_SEARCH: String = "start_second_search"
+const EXIT_SECOND_SEARCH: String = "exit_second_search"
+const START_LIGHTHOUSE_REASONING: String = "start_lighthouse_reasoning"
+const CH1_PUZZLE_STARTED: String = "ch1_puzzle_started"
+
+const CH0_IDENTITY_FINISHED: String = "ch0_identity_finished"
+const CH0_PROLOGUE_INTRO_FINISHED: String = "ch0_prologue_intro_finished"
+const CH0_CAMPFIRE_EXTINGUISHED: String = "ch0_campfire_extinguished"
+const CH0_SNOW_PATH_INTERLUDE_FINISHED: String = "ch0_snow_path_interlude_finished"
+const CH0_VILLA_GATE_INTERLUDE_FINISHED: String = "ch0_villa_gate_interlude_finished"
+const CH0_VILLA_DOOR_KNOCK_FINISHED: String = "ch0_villa_door_knock_finished"
+const CH0_HALL_MEMORY_START: String = "ch0_hall_memory_start"
+const CH0_HALL_ARRIVAL_FINISHED: String = "ch0_hall_arrival_finished"
+
+const CH1_STUDY_WAKE_FINISHED: String = "ch1_study_wake_finished"
+const CH1_STUDY_BUTLER_ENTER: String = "ch1_study_butler_enter"
+const CH1_STUDY_BUTLER_LEAVE: String = "ch1_study_butler_leave"
+const CH1_PUZZLE_SOLVED: String = "ch1_puzzle_solved"
+const CH1_MURDER_REQUEST_ACCEPTED: String = "ch1_murder_request_accepted"
+const CH1_CRIME_SCENE_FINISHED: String = "ch1_crime_scene_finished"

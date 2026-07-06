@@ -1,8 +1,8 @@
 extends RefCounted
 
 var handled: bool = false
-var immediate_commands: Array[RefCounted] = []
-var after_dialogue_commands: Array[RefCounted] = []
+var immediate_effects: Array[RefCounted] = []
+var after_dialogue_effects: Array[RefCounted] = []
 
 
 func _init(
@@ -11,8 +11,8 @@ func _init(
 	after_dialogue: Array[RefCounted] = []
 ) -> void:
 	handled = is_handled
-	immediate_commands = immediate
-	after_dialogue_commands = after_dialogue
+	immediate_effects = immediate
+	after_dialogue_effects = after_dialogue
 
 
 static func unhandled() -> RefCounted:
@@ -23,9 +23,9 @@ static func result(immediate: Array[RefCounted], after_dialogue: Array[RefCounte
 	return new(true, immediate, after_dialogue)
 
 
-static func immediate(commands: Array[RefCounted]) -> RefCounted:
-	return result(commands)
+static func immediate(effects: Array[RefCounted]) -> RefCounted:
+	return result(effects)
 
 
-static func after_dialogue(commands: Array[RefCounted]) -> RefCounted:
-	return result([], commands)
+static func after_dialogue(effects: Array[RefCounted]) -> RefCounted:
+	return result([], effects)

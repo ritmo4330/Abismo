@@ -1,0 +1,16 @@
+extends RefCounted
+
+const HALL: String = "hall"
+const FLOOR2: String = "floor2"
+const ZOU_LANG: String = "zou_lang"
+const CAN_TING: String = "can_ting"
+const HUI_KE_TING: String = "hui_ke_ting"
+const FIRST_SEARCH: String = "room_lin_jiu"
+const META: String = "room_meta"
+const MU_ZHI: String = "room_mu_zhi"
+const WU_TING_XIANG: String = "room_wu_ting_xiang"
+const ZHONG_QI: String = "room_zhong_qi"
+const ZHOU_CHONG_AN: String = "room_zhou_chong_an"
+const SECOND_SEARCH: String = "shu_fang"
+const CH1_STUDY: String = "ch1_study"
+const CH1_CRIME_SCENE: String = "ch1_crime_scene_lin_room"
