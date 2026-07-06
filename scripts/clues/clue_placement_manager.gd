@@ -110,7 +110,7 @@ func _is_placement_available(placement: CluePlacementData, room_id: String) -> b
 	if not placement.available_steps.is_empty():
 		if FlowManager == null:
 			return false
-		if not placement.available_steps.has(FlowManager.current_step_id):
+		if not placement.available_steps.has(FlowManager.get_current_step_id()):
 			return false
 
 	for flag_id: String in placement.required_flags:

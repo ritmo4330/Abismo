@@ -1,0 +1,102 @@
+extends RefCounted
+
+const CHAPTER_CH0_PROLOGUE: String = "ch0_prologue"
+const CHAPTER_CH1: String = "ch1_snow_villa"
+
+const STEP_CH0_IDENTITY: String = "ch0_0_1_identity"
+const STEP_CH0_PROLOGUE_STORY: String = "ch0_0_2_prologue_story"
+const STEP_CH0_SNOW_CAMP: String = "ch0_0_2_snow_camp"
+const STEP_CH0_SNOW_PATH: String = "ch0_0_2_snow_path"
+const STEP_CH0_VILLA_GATE: String = "ch0_0_2_villa_gate"
+const STEP_CH0_HALL_ARRIVAL: String = "ch0_0_2_hall_arrival"
+const STEP_CH0_LOGO: String = "ch0_0_2_logo"
+
+const STEP_CH1_STUDY_WAKE: String = "ch1_1_study_wake"
+const STEP_CH1_STUDY_FREE_INVESTIGATION: String = "ch1_1_study_free_investigation"
+const STEP_CH1_PUZZLE: String = "ch1_1_puzzle"
+const STEP_CH1_MURDER_REQUEST: String = "ch1_1_murder_request"
+const STEP_CH1_CRIME_SCENE: String = "ch1_2_crime_scene"
+const STEP_CH1_BODY_CG: String = "ch1_2_body_cg"
+const STEP_CH1_INTRO_HALL: String = "ch1_3_intro_hall"
+const STEP_CH1_FIRST_SEARCH: String = "ch1_4_first_search"
+const STEP_CH1_INITIAL_REASONING: String = "ch1_5_initial_reasoning"
+const STEP_CH1_PRIVATE_CHAT: String = "ch1_6_private_chat"
+const STEP_CH1_SECOND_SEARCH: String = "ch1_7_second_search"
+
+const ROOM_HALL: String = "hall"
+const ROOM_FLOOR2: String = "floor2"
+const ROOM_ZOU_LANG: String = "zou_lang"
+const ROOM_CAN_TING: String = "can_ting"
+const ROOM_HUI_KE_TING: String = "hui_ke_ting"
+const ROOM_FIRST_SEARCH: String = "room_lin_jiu"
+const ROOM_META: String = "room_meta"
+const ROOM_MU_ZHI: String = "room_mu_zhi"
+const ROOM_WU_TING_XIANG: String = "room_wu_ting_xiang"
+const ROOM_ZHONG_QI: String = "room_zhong_qi"
+const ROOM_ZHOU_CHONG_AN: String = "room_zhou_chong_an"
+const ROOM_SECOND_SEARCH: String = "shu_fang"
+const ROOM_CH1_STUDY: String = "ch1_study"
+const ROOM_CH1_CRIME_SCENE: String = "ch1_crime_scene_lin_room"
+
+const HALL_SCENE_PATH: String = "res://scenes/rooms/hall.tscn"
+const CH0_BLACK_SCREEN_SCENE_PATH: String = "res://scenes/ch0_prologue/ch0_black_screen.tscn"
+const CH0_SNOW_FIELD_SCENE_PATH: String = "res://scenes/ch0_prologue/ch0_snow_field.tscn"
+const CH0_LOGO_SCENE_PATH: String = "res://scenes/ch0_prologue/ch0_logo.tscn"
+const CH1_STUDY_SCENE_PATH: String = "res://scenes/ch1_snow_villa/ch1_study.tscn"
+const CH1_CRIME_SCENE_PATH: String = "res://scenes/ch1_snow_villa/ch1_crime_scene_lin_room.tscn"
+const CH1_BODY_CG_SCENE_PATH: String = "res://scenes/ch1_snow_villa/ch1_body_cg.tscn"
+const HUI_KE_TING_SCENE_PATH: String = "res://scenes/rooms/hui_ke_ting.tscn"
+const FIRST_SEARCH_ROOM1_PATH: String = "res://scenes/rooms/floor2.tscn"
+const FIRST_SEARCH_ROOM2_PATH: String = "res://scenes/rooms/room_lin_jiu.tscn"
+const SECOND_SEARCH_ROOM_PATH: String = "res://scenes/rooms/shu_fang.tscn"
+const NPC_SCENE_PATH: String = "res://scenes/characters/npcs/npc.tscn"
+
+const ACTION_START_INITIAL_SEARCH: String = "start_initial_search"
+const ACTION_ENTER_ROOM_LIN: String = "enter_room_lin"
+const ACTION_START_INITIAL_REASONING: String = "start_initial_reasoning"
+const ACTION_ENTER_PRIVATE_CHAT: String = "enter_private_chat"
+const ACTION_EXIT_PRIVATE_CHAT: String = "exit_private_chat"
+const ACTION_START_SECOND_SEARCH: String = "start_second_search"
+const ACTION_EXIT_SECOND_SEARCH: String = "exit_second_search"
+const ACTION_START_LIGHTHOUSE_REASONING: String = "start_lighthouse_reasoning"
+const ACTION_CH0_IDENTITY_FINISHED: String = "ch0_identity_finished"
+const ACTION_CH0_PROLOGUE_INTRO_FINISHED: String = "ch0_prologue_intro_finished"
+const ACTION_CH0_CAMPFIRE_EXTINGUISHED: String = "ch0_campfire_extinguished"
+const ACTION_CH0_SNOW_PATH_INTERLUDE_FINISHED: String = "ch0_snow_path_interlude_finished"
+const ACTION_CH0_VILLA_GATE_INTERLUDE_FINISHED: String = "ch0_villa_gate_interlude_finished"
+const ACTION_CH0_VILLA_DOOR_KNOCK_FINISHED: String = "ch0_villa_door_knock_finished"
+const ACTION_CH0_HALL_MEMORY_START: String = "ch0_hall_memory_start"
+const ACTION_CH0_HALL_ARRIVAL_FINISHED: String = "ch0_hall_arrival_finished"
+const ACTION_CH1_STUDY_WAKE_FINISHED: String = "ch1_study_wake_finished"
+const ACTION_CH1_STUDY_BUTLER_ENTER: String = "ch1_study_butler_enter"
+const ACTION_CH1_STUDY_BUTLER_LEAVE: String = "ch1_study_butler_leave"
+const ACTION_CH1_PUZZLE_SOLVED: String = "ch1_puzzle_solved"
+const ACTION_CH1_MURDER_REQUEST_ACCEPTED: String = "ch1_murder_request_accepted"
+const ACTION_CH1_CRIME_SCENE_FINISHED: String = "ch1_crime_scene_finished"
+
+const TIMELINE_CH0_IDENTITY: String = "0_1_identity"
+const TIMELINE_CH0_PROLOGUE: String = "0_2_prologue"
+const TIMELINE_CH0_SNOW_CAMP_ARRIVAL: String = "0_2_snow_camp_arrival"
+const TIMELINE_CH0_SNOW_PATH_ARRIVAL: String = "0_2_snow_path_arrival"
+const TIMELINE_CH0_VILLA_GATE_ARRIVAL: String = "0_2_villa_gate_arrival"
+const TIMELINE_CH0_HALL_ARRIVAL: String = "0_2_hall_arrival"
+const TIMELINE_CH0_HALL_MEMORY: String = "0_2_hall_memory"
+const TIMELINE_CH1_STUDY_WAKE: String = "1_1_study_wake"
+const TIMELINE_CH1_PUZZLE_REASONING: String = "1_1_puzzle_reasoning"
+const TIMELINE_CH1_MURDER_REQUEST: String = "1_1_murder_request"
+const TIMELINE_CH1_CRIME_SCENE: String = "1_2_crime_scene"
+const TIMELINE_CH1_BUTLER_BLOCK_LEAVE: String = "1_3_butler_block_leave"
+const TIMELINE_CH1_BUTLER_INTRO: String = "1_3_butler_intro"
+const TIMELINE_CH1_LIGHTHOUSE_REASONING_AFTER: String = "1_6_zhong_lighthouse_resolved"
+
+const SUSPICION_CH1_LIGHTHOUSE_STORY: String = "1_suspicion_lighthouse_story"
+
+const NPC_NAMES: Dictionary = {
+	"butler": "butler",
+	"meta": "meta",
+	"zhou": "zhou",
+	"mu": "mu",
+	"lin": "lin",
+	"wu": "wu",
+	"zhong": "zhong",
+}
