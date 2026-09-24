@@ -55,7 +55,7 @@ camera_bounds = Rect2(0, 0, 2325.25, 2134.5)
 player_spawn_scale = Vector2(2.25, 2.25)
 player_speed_scale = 1.5
 npc_spawn_scale = Vector2(4.5, 4.5)
-debug_step_id = "ch1_3_intro_hall"
+debug_step_id = "ch1_4_first_search"
 
 [node name="Scene" type="Node2D" parent="." unique_id=1817439032]
 y_sort_enabled = true
