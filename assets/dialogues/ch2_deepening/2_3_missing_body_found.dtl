@@ -1,0 +1,10 @@
+[style name="default_visual_novel"]
+join butler left
+if {Ch2.ThirdSearch.BodyKnownBeforeTurn} == true:
+	player: 衣柜中果然只剩下暗褐色的血迹，尸体已经不在这里了。
+	butler: 和林玖小姐看到的一样。请继续检查现场，看看是否还有别的变化。
+else:
+	player: 尸体不见了？！
+	butler: 怎么会这样？尸体不会凭空消失，一定是有人动了手脚。
+	新的谜团出现了。先记下来，等调查完后再告诉大家吧。
+[end_timeline]

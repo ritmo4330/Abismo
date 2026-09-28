@@ -10,6 +10,8 @@ var base_npc_locations_by_step: Dictionary = {}
 var free_interaction_timelines: Dictionary = {}
 var manual_unlocked_steps: Array = []
 var initial_search_required_clues: Array = []
+var second_search_required_clues: Array = []
+var third_search_required_clues: Array = []
 var follow_npc_rules_by_step: Dictionary = {}
 var debug_step_by_room: Dictionary = {}
 

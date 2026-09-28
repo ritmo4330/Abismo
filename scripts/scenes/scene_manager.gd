@@ -21,6 +21,24 @@ func is_initialized() -> bool:
 	return _is_initialized
 
 
+func get_current_room_scene_path() -> String:
+	if current_room == null or not is_instance_valid(current_room):
+		return ""
+	return current_room.scene_file_path
+
+
+func get_player_global_position() -> Vector2:
+	if current_player == null or not is_instance_valid(current_player):
+		return Vector2.ZERO
+	return current_player.global_position
+
+
+func restore_player_global_position(saved_position: Vector2) -> void:
+	if current_player == null or not is_instance_valid(current_player):
+		return
+	current_player.global_position = saved_position
+
+
 func initialize(host_root: Node2D, first_level_path: String = DEFAULT_FIRST_LEVEL_PATH, first_spawn_point: String = "InitialSpawn") -> void:
 	if host_root == null:
 		push_error("SceneManager.initialize() host_root is null.")
@@ -145,6 +163,9 @@ func _load_room(path: String, spawn_point_name: String) -> Node2D:
 		current_player.position = (spawn_point as Node2D).global_position
 
 	level_instance.add_child(current_player)
+	current_player.visible = true
+	current_player.set_process(true)
+	current_player.set_physics_process(true)
 	if level_instance.has_method("apply_player_room_settings"):
 		level_instance.apply_player_room_settings(current_player)
 	else:

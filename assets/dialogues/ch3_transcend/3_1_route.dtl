@@ -1,0 +1,123 @@
+[style name="default_visual_novel"]
+[signal arg="audio:play_bgm:truth:2.0"]
+join wu_ting_xiang left
+join butler right
+wu_ting_xiang: 全部想起来以后，我终于知道自己为什么会来到这里。老师，别再装成管家了。
+butler: ……欢迎回来，乌停湘。或者，我该称呼你为γ世界的管理者。
+set {Ch3.Route.Started} = true
+do DataManager.add_clue("3_abismo_1_28", "truth_review", "hall")
+do DataManager.add_clue("3_mei_2_18", "truth_review", "hall")
+do DataManager.add_clue("3_zhou_3_16", "truth_review", "hall")
+do DataManager.add_suspicion("3_suspicion_world_truth", "reasoning", "chapter3")
+do DataManager.resolve_suspicion("3_suspicion_world_truth")
+do ToastManager.show_notice("推理完成：箱庭世界的真相", "clue", 3.0)
+player: 异数档案、红色弦设备和反复重置的梦境都指向同一个结论：别墅由世界之外的人搭建。
+butler: 我的名字是梅塔。我负责修正跨越边界的异常。这个箱庭本来只是为了唤醒她的记忆。
+join mu_zhi left
+join zhou_chong_an right
+join lin_jiu left
+join zhong_qi right
+mu_zhi: 所以我们在现实中的恐惧，也被你拿来当成了剧本？
+butler: 它们是意识最牢固的锚。只有直面它们，你们才能从叠加的梦里醒来。
+
+# 四条梦魇线索在最终推理中正式触发，已解决过委托的角色会说出完整记忆。
+do DataManager.add_clue("3_study_darkroom_2", "truth_review", "nightmare_mu")
+do DataManager.add_clue("3_study_darkroom_2_23", "truth_review", "nightmare_mu")
+if {Ch1.PrivateChat.Mu.NightmareSolved} == true:
+	mu_zhi: 那场火和报纸上的“对不起”……我记得时今，也记得自己一直把幸存当成罪。
+	set {Ch3.NightmareRecall.Mu} = true
+else:
+	mu_zhi: 这张火灾报纸让我很不舒服，但我还无法面对它。
+do DataManager.add_clue("3_zhou_4", "truth_review", "nightmare_zhou")
+if {Ch1.PrivateChat.Zhou.NightmareSolved} == true:
+	zhou_chong_an: 提线木偶就是我害怕被操纵、也害怕操纵别人的证明。我愿意承认自己的研究和过错。
+	set {Ch3.NightmareRecall.Zhou} = true
+else:
+	zhou_chong_an: 别把那个木偶拿近。我暂时还说不清原因。
+do DataManager.add_clue("3_study_darkroom_1", "truth_review", "nightmare_lin")
+if {Ch1.PrivateChat.Lin.NightmareSolved} == true:
+	lin_jiu: 母亲和那枚千纸鹤吊坠……我不会再用社会的眼光否定她，也不会否定自己。
+	set {Ch3.NightmareRecall.Lin} = true
+else:
+	lin_jiu: 相框里的母女像我认识的人，可记忆依然模糊。
+do DataManager.add_clue("3_xiayue_3", "truth_review", "nightmare_zhong")
+if {Ch1.PrivateChat.Zhong.NightmareSolved} == true:
+	zhong_qi: 工作清单上写着“找到钟歧”。原来爷爷跨越世界寻找的人一直是我。
+	set {Ch3.NightmareRecall.Zhong} = true
+else:
+	zhong_qi: 这份工作清单和我的名字有关，但我还无法相信它。
+
+wu_ting_xiang: 老师，现在你想让我怎么做？
+butler: 跟我离开。我会修正所有异常，让这个世界恢复原状。
+if {Affinity.Wu} < 30:
+	[signal arg="audio:play_bgm:dust_rain:2.0"]
+	wu_ting_xiang: 对不起。也许服从修正，才不会再有人受伤。
+	set {Ch3.Route.Correction} = true
+	player: 她选择了老师，而不是箱庭中的人。
+	butler: 世界会回到应有的位置。代价是，所有越界的记忆都将被抹去。
+	[signal arg="flow:start_ending_dust"]
+	[end_timeline]
+if {Affinity.Wu} > 70 and {Ch3.KeyDialogue.Freedom} == true:
+	jump 超越路线
+
+label 抉择自由
+player: 书房留言写着：“自由不是在黑与白中做出选择，而是可以放弃这样被规定好的选择。”
+- 跟老师离开
+	[signal arg="audio:play_bgm:dust_rain:2.0"]
+	set {Ch3.Route.Correction} = true
+	wu_ting_xiang: 我会结束箱庭，把异常交还给上界。
+	[signal arg="flow:start_ending_dust"]
+	[end_timeline]
+- 留下来保护箱庭中的人
+	set {Ch3.Route.Resistance} = true
+	jump 抵抗路线
+- 拒绝这两种选择 | [if {Affinity.Wu} > 70]
+	set {Ch3.KeyDialogue.Freedom} = true
+	jump 超越路线
+
+label 抵抗路线
+[signal arg="audio:play_bgm:hero_journey:2.0"]
+wu_ting_xiang: 我不会让你把所有人的人生当成需要删除的错误。
+butler: 你选择了抵抗。那么箱庭会继续消耗上界的能量，直到两个世界一起崩溃。
+zhong_qi: 未必。钟岳研究所留下了一把能把梦境能量逆向送回去的枪。
+do DataManager.add_clue("3_mei_4", "truth_review", "weapon")
+do DataManager.add_suspicion("3_suspicion_god_weapon", "reasoning", "chapter3")
+do DataManager.resolve_suspicion("3_suspicion_god_weapon")
+do ToastManager.show_notice("推理完成：弑神的武器", "clue", 3.0)
+player: 钟歧，你准备怎么使用它？
+- 开枪切断上界控制
+	set {Ch3.Weapon.Fired} = true
+	zhong_qi: 如果神只把我们当成能被覆写的参数，那我愿意背负弑神的罪名。
+	[signal arg="audio:play_sfx:door_knock_quick"]
+	[style name="plain_text"]
+	枪声撕裂了梦境。维系异墅的红线逐根断开，连同上界投下的阴影一并燃烧。
+	[signal arg="flow:start_ending_godslayer"]
+	[end_timeline]
+- 放下武器
+	set {Ch3.Weapon.Fired} = false
+	zhong_qi: 我不接受神的安排，也不愿用另一次毁灭证明自由。
+	[style name="plain_text"]
+	众人留在摇摇欲坠的世界里，等待一场尚未到来的风暴。
+	[signal arg="flow:start_ending_calm"]
+	[end_timeline]
+
+label 超越路线
+[signal arg="audio:play_bgm:role_exit:2.0"]
+set {Ch3.Route.Transcend} = true
+wu_ting_xiang: 我不跟你离开，也不让两个世界互相毁灭。既然规则只能给出两个坏答案，那我们就改写规则。
+butler: 你要保全所有人，还要阻止能量交换？这并不在允许的方案中。
+player: 但所有人的梦魇已经被理解，箱庭真相也已解开。意识不再需要靠掠夺能量维持。
+if {Ch3.NightmareRecall.Mu} == true and {Ch3.NightmareRecall.Zhou} == true and {Ch3.NightmareRecall.Lin} == true and {Ch3.NightmareRecall.Zhong} == true:
+	mu_zhi: 我会说出α世界里时今死亡的真正原因，不再让误解延续。
+	zhou_chong_an: 我公开全部研究和罪责。
+	lin_jiu: 我会正视母亲，也正视这个不正常的社会。
+	zhong_qi: 我接受爷爷跨越世界寻找我的事实，但命运由我决定。
+	butler: ……好。我与你们订立契约：建立跨世界组织，禁止物质与能量交换，只保留观察与对话。
+	wu_ting_xiang: 谢谢你，老师。这一次，四个世界都能迎来自己的清晨。
+	[signal arg="flow:start_ending_clear_snow"]
+	[end_timeline]
+wu_ting_xiang: 还有人的梦魇没有被真正理解。我们没有足够稳固的锚来改写规则。
+butler: 尝试失败。世界将按修正程序归零。
+set {Ch3.Route.Correction} = true
+[signal arg="flow:start_ending_dust"]
+[end_timeline]

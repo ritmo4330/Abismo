@@ -1,7 +1,6 @@
 extends Node2D
 
-const FlowChapters = preload("res://scripts/flow/flow_chapters.gd")
-const FlowEntries = preload("res://scripts/flow/flow_entries.gd")
+const FlowEvents = preload("res://scripts/flow/flow_events.gd")
 
 @export var room_id: String = "ch0_logo"
 @export var default_spawn_point: String = "InitialSpawn"
@@ -20,6 +19,4 @@ func _start_logo_sequence() -> void:
 		return
 	_started = true
 	await get_tree().create_timer(max(0.1, logo_duration)).timeout
-	if FlowManager == null:
-		return
-	FlowManager.start_flow(FlowChapters.CH1, FlowEntries.CH1_STUDY_FROM_PROLOGUE)
+	EventBus.flow_signal_requested.emit(FlowEvents.CH0_LOGO_FINISHED)

@@ -1,0 +1,16 @@
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="1.5"]
+[style name="plain_text"]
+[signal arg="audio:play_bgm:role_exit:2.5"]
+—— 结局一：尘埃落定 ——
+
+不知何人宣告其开端，亦不知何人裁决其终结。
+纷纷的大雪骤降，掩盖未被窥探的一切。
+有的人遗忘其过往，有的人与此世诀别。
+希望之上的象牙塔坍塌，阴霾之下的花之海蒙尘。
+此刻，时针回复原速，世界仍在正轨。
+
+记忆碎片未能集齐，或改写规则的尝试失败。梅塔完成了修正，越界之人从彼此的生命中消失。
+set {Ending.Completed} = true
+set {Ending.Id} = "dust"
+[signal arg="flow:ending_finished"]
+[end_timeline]

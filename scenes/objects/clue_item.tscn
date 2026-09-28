@@ -9,7 +9,7 @@ radius = 80.00625
 y_sort_enabled = true
 script = ExtResource("1_clue_item")
 highlight_enabled = true
-highlight_scale = Vector2(0.65, 0.65)
+highlight_scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1740502620]
 shape = SubResource("CircleShape2D_interaction")

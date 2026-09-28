@@ -1,0 +1,10 @@
+[style name="default_visual_novel"]
+join lin_jiu left
+lin_jiu: 是要和我单独说话吗？
+- 邀请私聊
+	set {Ch1.PrivateChat.Target} = "lin"
+	[signal arg="flow:enter_private_chat"]
+	[end_timeline]
+- 暂时不用
+	lin_jiu: 好的。
+	[end_timeline]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "2_mu_burnt_church"
+title = "焦黑的圣袍"
+description = "床边出现了一角被火烧焦的圣袍，灰烬中夹着旧教堂火灾的剪报。它属于穆执不愿面对的过去。"
+chapter_id = "2"
+room_id = "room_mu_zhi"
+category_path = PackedStringArray("梦墅", "第三轮搜证")
+tags = PackedStringArray("chapter_2", "subconscious", "mu")
+clue_type = "scene_evidence"
+highlight_visible = true

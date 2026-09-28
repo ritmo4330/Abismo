@@ -34,6 +34,7 @@ func _on_next_transitions() -> void:
 
 
 func _on_enter() -> void:
+	animated_sprite_2d.speed_scale = 1.0
 	update_idle_animation()
 
 

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "3_conclusion_world_truth"
+title = "结论：箱庭世界的真相"
+description = "别墅并非普通梦境，而是多个平行世界意识叠加形成的箱庭；梅塔是来自上界的管理者。"
+chapter_id = "3"
+room_id = "hall"
+category_path = PackedStringArray("异墅", "推理结论")
+tags = PackedStringArray("chapter_3", "world", "truth", "conclusion")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false

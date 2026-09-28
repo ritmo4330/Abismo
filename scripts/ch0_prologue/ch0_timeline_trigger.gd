@@ -6,6 +6,7 @@ extends Area2D
 @export var required_flag: String = ""
 @export var blocked_notice: String = ""
 @export var one_shot: bool = true
+@export var post_dialogue_position_offset: Vector2 = Vector2.ZERO
 
 var _has_triggered: bool = false
 
@@ -39,4 +40,6 @@ func _on_body_entered(body: Node2D) -> void:
 	_has_triggered = true
 	if not played_flag.is_empty():
 		DataManager.set_flag(played_flag, true)
+	if post_dialogue_position_offset != Vector2.ZERO:
+		body.global_position += post_dialogue_position_offset
 	EventBus.dialogue_requested.emit(timeline_name)

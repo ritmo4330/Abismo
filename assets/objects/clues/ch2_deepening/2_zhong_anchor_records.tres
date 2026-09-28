@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "2_zhong_anchor_records"
+title = "坐标锚记录"
+description = "散落的研究页提到：强烈记忆可作为意识跨越平行世界时的坐标锚。"
+chapter_id = "2"
+room_id = "room_zhong_qi"
+category_path = PackedStringArray("梦墅", "第三轮搜证")
+tags = PackedStringArray("chapter_2", "subconscious", "zhong")
+clue_type = "scene_evidence"
+highlight_visible = true

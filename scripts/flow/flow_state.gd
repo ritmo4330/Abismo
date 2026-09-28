@@ -38,3 +38,12 @@ func apply_dictionary(state: Dictionary) -> void:
 	step_id = String(state.get("step_id", step_id))
 	room_id = String(state.get("room_id", room_id))
 	private_chat_target = String(state.get("private_chat_target", private_chat_target))
+
+
+func to_dict() -> Dictionary:
+	return {
+		"chapter_id": chapter_id,
+		"step_id": step_id,
+		"room_id": room_id,
+		"private_chat_target": private_chat_target,
+	}

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "2_meta_research_plan"
+title = "异常关联计划"
+description = "梅塔的研究计划把梦境、恐惧阈值与平行世界并列记录，目标栏只写着“完成汇聚”。"
+chapter_id = "2"
+room_id = "room_meta"
+category_path = PackedStringArray("梦墅", "第三轮搜证")
+tags = PackedStringArray("chapter_2", "subconscious", "meta")
+clue_type = "scene_evidence"
+highlight_visible = true

@@ -30,6 +30,10 @@ butler: 请问有何吩咐？
 		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
 		set {Ch1.PrivateChat.Butler.HelpChance} += 1
 		jump 关于委托
+	- 说出乌停湘的梦魇 | [if {Ch1.PrivateChat.Wu.NightmareSolved} == true]
+		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
+		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		jump 关于委托
 	- 说出钟歧的梦魇 | [if {Ch1.PrivateChat.Zhong.NightmareSolved} == true]
 		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
 		set {Ch1.PrivateChat.Butler.HelpChance} += 1

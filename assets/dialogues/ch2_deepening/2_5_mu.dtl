@@ -1,0 +1,33 @@
+[style name="default_visual_novel"]
+join mu_zhi left
+mu_zhi: 烧毁的教堂里还有很多事没有说清。你想从哪里问起？
+label 问题
+- 烧毁的教堂 | [if {Ch2.ThirdPrivate.Mu.Church} != true]
+	mu_zhi: 我在那里听见了孩子的哭声。那不是神谕，是我一直不愿承认的记忆。
+	player: 教堂为什么会被烧毁？
+	mu_zhi: 教会试图以仪式阻止一种无法理解的异常。我相信了他们，也亲手封住了出口。
+	set {Ch2.ThirdPrivate.Mu.Church} = true
+	jump 问题
+- 当年的选择 | [if {Ch2.ThirdPrivate.Mu.Choice} != true]
+	player: 你说自己曾以“拯救”为名做过无法挽回的选择。
+	mu_zhi: 我相信牺牲少数人能阻止更大的灾难，结果火焰夺走了一切。我最恐惧的，是再次把选择包装成信仰。
+	set {Affinity.Mu} += 5
+	set {Ch2.ThirdPrivate.Mu.Choice} = true
+	jump 问题
+- 关于钟歧 | [if {Ch2.ThirdPrivate.Mu.Zhong} != true]
+	mu_zhi: 我救出钟歧后让他住在山上的木屋，是因为梅塔的人仍在寻找他。
+	mu_zhi: 他知道的事比表现出来的更多，但那不代表他应该再次成为实验材料。
+	set {Ch2.ThirdPrivate.Mu.Zhong} = true
+	jump 问题
+- 结束私聊 | [if {Ch2.ThirdPrivate.Mu.Church} == true and {Ch2.ThirdPrivate.Mu.Choice} == true and {Ch2.ThirdPrivate.Mu.Zhong} == true]
+	mu_zhi: 好。如果你还想确认什么，随时回来。
+	set {Ch2.ThirdPrivate.Mu.Finished} = true
+	do ToastManager.show_notice("人物信息已更新：穆执", "profile", 2.5)
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]
+- 暂时离开 | [if {Ch2.ThirdPrivate.Mu.Church} != true or {Ch2.ThirdPrivate.Mu.Choice} != true or {Ch2.ThirdPrivate.Mu.Zhong} != true]
+	mu_zhi: 好。还有些细节尚未谈到，想继续时再来找我。
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]

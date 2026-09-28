@@ -1,0 +1,15 @@
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="1.5"]
+[style name="plain_text"]
+[signal arg="audio:play_bgm:role_exit:2.5"]
+—— 结局二：弑神的罪名 ——
+
+钟歧扣下扳机。银色子弹沿着红线逆行，贯穿了世界与世界之间不可见的壁垒。
+神明第一次感到了来自箱庭的疼痛，异墅也在枪声中失去支点。
+他们以自由之名切断操纵，却必须背负毁坏上界秩序的罪名。
+没有人知道枪声之后是否还有明天；但至少这一次，结局由他们亲手选择。
+
+梅塔的身影消失在白光里。乌停湘抱紧正在崩散的立方体，带众人奔向没有地图的出口。
+set {Ending.Completed} = true
+set {Ending.Id} = "godslayer"
+[signal arg="flow:ending_finished"]
+[end_timeline]

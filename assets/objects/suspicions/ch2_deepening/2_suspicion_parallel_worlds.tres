@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "2_suspicion_parallel_worlds"
+title = "平行世界"
+description = "众人关于共同经历的记忆彼此矛盾，至少指向四个平行世界。来自不同世界的人为何会同时出现在这个梦境？"
+chapter_id = "2"
+category_path = PackedStringArray("梦墅", "主线疑点")
+tags = PackedStringArray("chapter_2", "dream_villa", "main")
+required_clue_ids = PackedStringArray()
+match_mode = "exact"
+conclusion_clue_id = ""

@@ -1,0 +1,18 @@
+[style name="default_visual_novel"]
+join zhou_chong_an left
+zhou_chong_an: 我对梦境的了解并非来自书本，而是亲身经历。
+label 问题
+- 为什么熟悉规则 | [if {Ch2.SecondPrivate.Zhou.Rules} != true]
+	zhou_chong_an: 孤儿院曾参与一项睡眠研究。我负责照顾孩子，也负责记录他们醒来后的描述。梅塔与那项研究有联系。
+	set {Ch2.SecondPrivate.Zhou.Rules} = true
+	jump 问题
+- 你最害怕什么 | [if {Ch2.SecondPrivate.Zhou.Fear} != true]
+	zhou_chong_an: 害怕孩子们再次因为大人的决定受伤，也害怕自己为了“保护”他们而变成另一个施害者。
+	set {Ch2.SecondPrivate.Zhou.Fear} = true
+	set {Affinity.Zhou} += 5
+	jump 问题
+- 暂时没有问题了
+	set {Ch2.SecondPrivate.Zhou.Finished} = true
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]

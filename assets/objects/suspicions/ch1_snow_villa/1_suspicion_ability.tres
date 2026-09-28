@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_suspicion")
 id = "1_suspicion_ability"
-title = "作案能力"
+title = "以柔克刚？"
 description = "致命伤来自利器一击。单独行动和共同作案会导致完全不同的嫌疑范围。"
 chapter_id = "1"
 category_path = PackedStringArray("雪墅", "主线疑点", "三要素")

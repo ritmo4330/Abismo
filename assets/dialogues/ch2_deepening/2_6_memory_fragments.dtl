@@ -1,0 +1,86 @@
+[style name="default_visual_novel"]
+join wu_ting_xiang left
+join butler right
+set {Ch2.MemoryFragments.Started} = true
+butler: 第三轮私聊已经结束。现在，请给出你的指认。
+player: 在那之前，乌停湘还有被封住的记忆。它可能比“凶手是谁”更接近真相。
+if {Ch2.SceneRecreation.Accepted} != true:
+	wu_ting_xiang: 你先前拒绝了帮我复现场景。仅靠我自己，木门后的记忆还是一片空白。
+	player: 抱歉。现在已经没有足够时间重新构筑三个场景了。
+	butler: 那么，你只能依据现有证据作出指认。
+	- 指认穆执
+		set {Ch2.AccusedKiller} = "穆执"
+	- 指认周崇安
+		set {Ch2.AccusedKiller} = "周崇安"
+	- 指认林玖
+		set {Ch2.AccusedKiller} = "林玖"
+	- 指认钟歧
+		set {Ch2.AccusedKiller} = "钟歧"
+	butler: 原来如此。故事到这里就结束了。
+	[style name="plain_text"]
+	别墅的墙壁像被揉皱的纸一样向内坍缩。未能拼合的记忆随黑暗一同沉没。
+	一个陌生的声音: 接下来就交给我吧。
+	[signal arg="flow:ch2_memory_incomplete"]
+	[end_timeline]
+wu_ting_xiang: 我准备好了。请从那扇木门开始。
+do DataManager.add_suspicion("3_suspicion_memory_door", "scene_recreation", "door")
+[style name="plain_text"]
+紧闭的木门在大厅中央浮现。乌停湘伸手将它合上，门后传来一男一女压低的谈话。
+一个男人: 对不起，是我没有注意好她的情况。
+一个女人: 不用自责，末老师。是我们太忙，有很多基本的事情都没有告诉她。
+一个男人: 我有个叫零芝的朋友，她是心理医生。也许箱庭疗法可以帮助她。
+[style name="default_visual_novel"]
+wu_ting_xiang: 这不是监牢的门……是父母担心我的那一天。
+do DataManager.resolve_suspicion("3_suspicion_memory_door")
+set {Ch2.MemoryFragments.Door} = true
+do ToastManager.show_notice("记忆碎片：紧闭的木门", "clue", 3.0)
+player: 还要继续吗？
+- 继续复现花海
+	do DataManager.add_clue("3_flower_sea_2", "scene_recreation", "flower")
+	do DataManager.add_clue("3_study_darkroom_5", "scene_recreation", "flower")
+	do DataManager.add_suspicion("3_suspicion_memory_flower", "scene_recreation", "flower")
+	[style name="plain_text"]
+	白色连衣裙掠过花丛。女子牵着年幼的乌停湘走进春日花海。
+	零姐姐: 假如每一朵花都是一个世界，那么这片花海应该是什么样的？
+	[style name="default_visual_novel"]
+	wu_ting_xiang: 是零姐姐。她教我第一次想象世界之外的世界。
+	do DataManager.resolve_suspicion("3_suspicion_memory_flower")
+	set {Ch2.MemoryFragments.Flower} = true
+	do ToastManager.show_notice("记忆碎片：花海中的女子", "clue", 3.0)
+- 到此为止
+	jump 碎片不足
+player: 最后一段，是白色立方体。
+- 接过白色立方体
+	do DataManager.add_clue("2_wu_1", "scene_recreation", "cube")
+	do DataManager.add_clue("2_lin_3", "scene_recreation", "cube")
+	do DataManager.add_suspicion("3_suspicion_memory_cube", "scene_recreation", "cube")
+	[style name="plain_text"]
+	一名年轻人把两个装着白沙的箱庭合在一起，拼成纯白立方体，递到乌停湘手中。
+	末老师: 四个世界重叠在这里。γ世界由你来管理，也属于你。
+	[style name="default_visual_novel"]
+	wu_ting_xiang: 我想起来了。异墅不是自然形成的梦，我也不是普通的被困者。
+	do DataManager.resolve_suspicion("3_suspicion_memory_cube")
+	set {Ch2.MemoryFragments.Cube} = true
+	do ToastManager.show_notice("记忆碎片已集齐", "task", 3.5)
+- 放下立方体
+	jump 碎片不足
+butler: 三段记忆已经闭合。隐藏在书房后的门正在开启。
+[signal arg="flow:ch2_memory_complete"]
+[end_timeline]
+
+label 碎片不足
+wu_ting_xiang: 只复原一部分还不够。我无法确认自己究竟站在哪一边。
+butler: 那么，请给出你能给出的答案。
+- 指认穆执
+	set {Ch2.AccusedKiller} = "穆执"
+- 指认周崇安
+	set {Ch2.AccusedKiller} = "周崇安"
+- 指认林玖
+	set {Ch2.AccusedKiller} = "林玖"
+- 指认钟歧
+	set {Ch2.AccusedKiller} = "钟歧"
+[style name="plain_text"]
+未完成的箱庭开始崩塌。所有没有被说出口的过去都被黑暗吞没。
+一个陌生的声音: 接下来就交给我吧。
+[signal arg="flow:ch2_memory_incomplete"]
+[end_timeline]

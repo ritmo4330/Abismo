@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "3_conclusion_memory_door"
+title = "记忆碎片：紧闭的木门"
+description = "乌停湘回想起父母曾因忽略她而自责，并请末老师的朋友零芝用箱庭疗法帮助她。"
+chapter_id = "3"
+room_id = "hall"
+category_path = PackedStringArray("异墅", "记忆碎片")
+tags = PackedStringArray("chapter_3", "memory", "wu", "door")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false

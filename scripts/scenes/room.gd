@@ -4,6 +4,24 @@ const CLUE_PANEL_SCENE: PackedScene = preload("res://scenes/UI/clue_panel.tscn")
 const SUSPICION_PANEL_SCENE: PackedScene = preload("res://scenes/UI/suspicion_panel.tscn")
 const PAUSE_PANEL_SCENE: PackedScene = preload("res://scenes/UI/pause_panel.tscn")
 
+const ROOM_DISPLAY_NAMES: Dictionary = {
+	"ch0_snow_field": "雪原",
+	"ch1_study": "书房",
+	"shu_fang": "书房",
+	"hall": "大厅",
+	"floor2": "二楼走廊",
+	"zou_lang": "走廊",
+	"can_ting": "餐厅",
+	"hui_ke_ting": "会客厅",
+	"room_lin_jiu": "林玖房间",
+	"room_meta": "梅塔房间",
+	"room_mu_zhi": "穆执房间",
+	"room_wu_ting_xiang": "乌停湘房间",
+	"room_zhong_qi": "钟歧房间",
+	"room_zhou_chong_an": "周崇安房间",
+	"zhong_yue_lab": "钟岳研究所",
+}
+
 # 编辑器配置：玩家预制体路径（仅用于独立测试当前场景时）
 @export var player_scene: PackedScene = preload("res://scenes/characters/player/player.tscn")
 # 编辑器配置：本场景的默认出生点名称
@@ -28,6 +46,7 @@ const PAUSE_PANEL_SCENE: PackedScene = preload("res://scenes/UI/pause_panel.tscn
 @export var debug_discovered_suspicions: PackedStringArray = PackedStringArray()
 
 func _ready():
+	_ensure_room_name_overlay()
 	# =====================
 	# 重构：让 GameRoot 统一管理玩家生命周期。
 	# 我们在此处加入检查，如果当前根节点是 GameRoot，房间本身就不要再创建玩家了！
@@ -41,6 +60,34 @@ func _ready():
 		_ensure_standalone_debug_ui()
 		_emit_standalone_room_loaded()
 		_spawn_test_player()
+
+
+func _ensure_room_name_overlay() -> void:
+	var display_name: String = String(ROOM_DISPLAY_NAMES.get(_resolve_room_id(), ""))
+	if display_name.is_empty() or get_node_or_null("RoomNameOverlay") != null:
+		return
+	var overlay := CanvasLayer.new()
+	overlay.name = "RoomNameOverlay"
+	overlay.layer = 70
+	add_child(overlay)
+	var panel := PanelContainer.new()
+	panel.position = Vector2(28, 24)
+	var panel_style := StyleBoxFlat.new()
+	panel_style.bg_color = Color(0.035, 0.045, 0.055, 0.72)
+	panel_style.border_color = Color(0.78, 0.83, 0.87, 0.45)
+	panel_style.set_border_width_all(1)
+	panel_style.set_corner_radius_all(8)
+	panel_style.content_margin_left = 18.0
+	panel_style.content_margin_right = 18.0
+	panel_style.content_margin_top = 9.0
+	panel_style.content_margin_bottom = 9.0
+	panel.add_theme_stylebox_override("panel", panel_style)
+	overlay.add_child(panel)
+	var label := Label.new()
+	label.text = display_name
+	label.add_theme_font_size_override("font_size", 25)
+	label.add_theme_color_override("font_color", Color(0.94, 0.96, 0.98, 0.95))
+	panel.add_child(label)
 
 func _spawn_test_player():
 	var spawn_point_name: String = default_spawn_point

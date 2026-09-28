@@ -20,6 +20,11 @@ const BGM_TRACKS: Dictionary[String, String] = {
 	"spooky_tension": "res://assets/audio/17-Spooky Tension.wav",
 	"truth": "res://assets/audio/24-真相.wav",
 	"what_is_truth": "res://assets/audio/What is Truth.wav",
+	# 文档指定曲目《Fog in Brain》尚未随项目提供，先以同类悬疑曲占位。
+	"fog_in_brain": "res://assets/audio/17-Spooky Tension.wav",
+	# 文档指定曲目尚未随工程提供；保留正式曲目 ID，并以现有同气质音乐占位，便于之后无缝替换文件。
+	"dust_rain": "res://assets/audio/11-卡森德拉-回忆-1.mp3",
+	"hero_journey": "res://assets/audio/24-真相.wav",
 }
 
 const SFX_TRACKS: Dictionary[String, String] = {
@@ -30,6 +35,9 @@ const SFX_TRACKS: Dictionary[String, String] = {
 	"door_open": "res://assets/audio/door_open.mp3",
 	"footsteps": "res://assets/audio/footsteps.mp3",
 	"toast": "res://assets/audio/toast.wav",
+	"ui_interact": "res://assets/audio/ui/kenney_ui_audio/interact.ogg",
+	"ui_choice": "res://assets/audio/ui/kenney_ui_audio/choice_click.ogg",
+	"ui_panel": "res://assets/audio/ui/kenney_ui_audio/panel_toggle.ogg",
 }
 
 var _bgm_players: Array[AudioStreamPlayer] = []

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "3_conclusion_god_weapon"
+title = "结论：弑神的武器"
+description = "装填特殊银弹的手枪能够把维系梦境的能量逆向送回上界，是唯一能伤及管理者的武器。"
+chapter_id = "3"
+room_id = "hall"
+category_path = PackedStringArray("异墅", "推理结论")
+tags = PackedStringArray("chapter_3", "weapon", "god", "conclusion")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false

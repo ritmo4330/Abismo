@@ -5,14 +5,18 @@ const FlowEvents = preload("res://scripts/flow/flow_events.gd")
 
 const DEFAULT_REQUIRED_CLUE_IDS: Array[String] = [
 	"1_study_1",
-	"1_study_7",
 	"1_study_2",
+	"1_study_3",
+	"1_study_4",
+	"1_study_5",
 ]
 
 @export var required_clue_ids: PackedStringArray = PackedStringArray([
 	"1_study_1",
-	"1_study_7",
 	"1_study_2",
+	"1_study_3",
+	"1_study_4",
+	"1_study_5",
 ])
 @export var puzzle_clue_id: String = "1_puzzle_story"
 @export var challenge_clue_id: String = "1_puzzle_challenge_rules"
@@ -47,7 +51,7 @@ func _ready() -> void:
 
 func interact(_player: Player) -> void:
 	if not _has_required_clues():
-		_show_notice("再看看书房里的门、书架和名言。", "warning")
+		_show_notice("再看看书房里的门、书桌和书架。", "warning")
 		_refresh_highlight()
 		return
 

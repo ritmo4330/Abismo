@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "1_conclusion_butler_request_wu"
+title = "结论：乌停湘的梦魇"
+description = "你整理出了乌停湘最恐惧的事物，可以向管家提交这个答案。"
+chapter_id = "1"
+room_id = "hui_ke_ting"
+category_path = PackedStringArray("雪墅", "推理结论", "管家的委托")
+tags = PackedStringArray("chapter_1", "snow_villa", "conclusion", "nightmare", "wu")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false

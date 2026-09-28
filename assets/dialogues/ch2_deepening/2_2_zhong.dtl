@@ -1,0 +1,18 @@
+[style name="default_visual_novel"]
+join zhong_qi left
+zhong_qi: 那间研究所太完整了。梦境不可能凭空补出我都不知道的细节。
+label 问题
+- 钟岳的研究 | [if {Ch2.SecondPrivate.Zhong.Research} != true]
+	zhong_qi: 祖父研究平行世界之间的量子关联。他认为强烈记忆可以成为坐标，让意识跨越世界边界。
+	set {Ch2.SecondPrivate.Zhong.Research} = true
+	jump 问题
+- 你与梅塔 | [if {Ch2.SecondPrivate.Zhong.Meta} != true]
+	zhong_qi: 梅塔囚禁我，是为了逼我说出研究核心的位置。我逃出来后一直躲在穆执的木屋，这也是我不信任任何“管家”的原因。
+	set {Ch2.SecondPrivate.Zhong.Meta} = true
+	set {Affinity.Zhong} += 5
+	jump 问题
+- 暂时没有问题了
+	set {Ch2.SecondPrivate.Zhong.Finished} = true
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]

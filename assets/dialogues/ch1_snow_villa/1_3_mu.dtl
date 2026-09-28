@@ -15,7 +15,7 @@ label 抉择2
 set {Ch1.NPCIntro.Mu.Introed} = true
 label 可重复选项
 mu_zhi: 你想从我这里了解什么？
-- 自我介绍一下
+- 自我介绍
 	mu_zhi: 我是一名教徒，如果你对我的信仰感兴趣的话，晚些我可以和你交流。
 	set {Ch1.NPCIntro.Mu.Selected1} = true
 	jump 可重复选项

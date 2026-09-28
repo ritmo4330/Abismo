@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "3_suspicion_memory_flower"
+title = "花海中的女子"
+description = "白裙女子与乌停湘遗失的过去有何关系？"
+chapter_id = "3"
+category_path = PackedStringArray("异墅", "记忆碎片")
+tags = PackedStringArray("chapter_3", "memory", "wu")
+required_clue_ids = PackedStringArray("3_flower_sea_2", "3_study_darkroom_5")
+match_mode = "exact"
+conclusion_clue_id = "3_conclusion_memory_flower"

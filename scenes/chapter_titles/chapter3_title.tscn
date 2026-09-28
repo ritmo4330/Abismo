@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/scenes/chapter_title.gd" id="1"]
+
+[node name="Chapter3Title" type="Node2D"]
+script = ExtResource("1")
+chapter_label = "第三章"
+title_text = "超越：破解异墅的真理"
+finished_event = "chapter3_title_finished"
+
+[node name="InitialSpawn" type="Marker2D" parent="."]

@@ -31,14 +31,14 @@ join butler left
 label 抉择14
 butler: 调查结束了吗？
 - 调查完了 | [if {Ch1.InitialSearch.Finished} == true]
-	butler: 明白了，我们回大厅吧。
+	butler: 明白了，我们回到大厅吧。
 	[signal arg="flow:start_initial_reasoning"]
 	[end_timeline]
 - 调查完了 | [if {Ch1.InitialSearch.Finished} != true]
 	还有一些值得注意的地方，再看看吧。
 	jump 抉择14
 - 稍等一下
-	butler: 好的，我就在你的身边。
+	butler: 好的，我会在这里等你。
 [end_timeline]
 
 

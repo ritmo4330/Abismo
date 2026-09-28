@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "3_conclusion_memory_flower"
+title = "记忆碎片：花海中的女子"
+description = "身穿白裙的零姐姐曾问乌停湘：若每朵花都是一个世界，整片花海又会是什么？"
+chapter_id = "3"
+room_id = "hall"
+category_path = PackedStringArray("异墅", "记忆碎片")
+tags = PackedStringArray("chapter_3", "memory", "wu", "flower")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false

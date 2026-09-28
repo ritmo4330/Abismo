@@ -151,6 +151,7 @@ timeline_name = "0_2_snow_path_interlude"
 played_flag = "ch0/snow_path_interlude_seen"
 required_flag = "ch0/find_warmth_started"
 blocked_notice = "火堆已经熄灭。先看看能不能重新点燃它。"
+post_dialogue_position_offset = Vector2(190, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SnowPathInterludeTrigger" unique_id=951640078]
 position = Vector2(179, -2)

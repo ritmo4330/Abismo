@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://lx24i8fl6uo"]
+[gd_scene load_steps=5 format=3 uid="uid://lx24i8fl6uo"]
 
 [ext_resource type="Script" uid="uid://gv8mqbjor5nu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.gd" id="1_4mqm3"]
 [ext_resource type="PackedScene" uid="uid://cuoywrmvda1yg" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/example_history_item.tscn" id="2_x1xgk"]
+[ext_resource type="Texture2D" path="res://assets/UI/icons/hourglass_history.svg" id="3_hourglass"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hdvb"]
 content_margin_left = 10.0
@@ -62,17 +63,22 @@ size_flags_vertical = 3
 
 [node name="ShowHistory" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -73.0
-offset_top = 7.0
-offset_right = -9.0
-offset_bottom = 38.0
-grow_horizontal = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 402.0
+offset_top = -370.0
+offset_right = 450.0
+offset_bottom = -322.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "History"
+tooltip_text = "历史对话"
+icon = ExtResource("3_hourglass")
+flat = true
+icon_max_width = 30
 
 [node name="HideHistory" type="Button" parent="."]
 visible = false
@@ -80,14 +86,15 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -123.0
-offset_top = 58.0
-offset_right = -62.0
-offset_bottom = 89.0
+offset_left = -150.0
+offset_top = 42.0
+offset_right = -42.0
+offset_bottom = 98.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Return"
+theme_override_font_sizes/font_size = 26
+text = "← 返回"
 
 [connection signal="pressed" from="ShowHistory" to="." method="_on_show_history_pressed"]
 [connection signal="pressed" from="HideHistory" to="." method="_on_hide_history_pressed"]

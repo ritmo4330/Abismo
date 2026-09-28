@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "3_suspicion_world_truth"
+title = "谁创造了异墅"
+description = "红线、异常档案和箱庭规则共同指向一个来自世界之外的管理者。"
+chapter_id = "3"
+category_path = PackedStringArray("异墅", "主线疑点")
+tags = PackedStringArray("chapter_3", "world", "truth")
+required_clue_ids = PackedStringArray("3_abismo_1_28", "3_mei_2_18", "3_zhou_3_16")
+match_mode = "exact"
+conclusion_clue_id = "3_conclusion_world_truth"

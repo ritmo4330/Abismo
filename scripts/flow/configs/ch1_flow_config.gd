@@ -20,6 +20,7 @@ static func create_definition() -> RefCounted:
 	definition.step_bgm_configs = _create_step_bgm_configs()
 	definition.free_interaction_timelines = _create_free_interaction_timelines()
 	definition.initial_search_required_clues = _create_initial_search_required_clues()
+	definition.second_search_required_clues = _create_second_search_required_clues()
 	definition.base_npc_locations_by_step = _create_base_npc_locations_by_step()
 	definition.follow_npc_rules_by_step = _create_follow_npc_rules_by_step()
 	definition.debug_step_by_room = _create_debug_step_by_room()
@@ -60,7 +61,8 @@ static func _create_initial_search_required_clues() -> Array[String]:
 		"1_lin_2",
 		"1_lin_3",
 		"1_lin_5",
-		"1_lin_7",
+		"1_lin_6",
+		"1_lin_6_key",
 		"1_mei_1",
 		"1_mei_2",
 		"1_mu_1",
@@ -68,13 +70,14 @@ static func _create_initial_search_required_clues() -> Array[String]:
 		"1_zhong_1",
 		"1_zhou_1",
 		"1_zhou_2",
-		"1_dining_1",
-		"1_dining_2",
-		"1_hall_1",
-		"1_study_3",
-		"1_study_4",
-		"1_study_5",
-		"1_study_6",
+	]
+
+
+static func _create_second_search_required_clues() -> Array[String]:
+	return [
+		"1_zhongyue_1",
+		"1_zhongyue_2",
+		"1_zhongyue_3",
 	]
 
 
@@ -115,26 +118,20 @@ static func _hall_guest_locations(overrides: Dictionary = {}) -> Dictionary:
 
 static func _create_follow_npc_rules_by_step() -> Dictionary:
 	return {
-		FlowSteps.CH1_FIRST_SEARCH: [
-			{
-				"npc_id": FlowNpcs.BUTLER,
-				"spawn": "Butler",
-				"rooms": [
-					FlowRooms.HALL,
-					FlowRooms.FLOOR2,
-					FlowRooms.ZOU_LANG,
-					FlowRooms.CAN_TING,
-					FlowRooms.HUI_KE_TING,
-					FlowRooms.FIRST_SEARCH,
-					FlowRooms.META,
-					FlowRooms.MU_ZHI,
-					FlowRooms.WU_TING_XIANG,
-					FlowRooms.ZHONG_QI,
-					FlowRooms.ZHOU_CHONG_AN,
-					FlowRooms.SECOND_SEARCH,
-				],
-			},
-		],
+		FlowSteps.CH1_FIRST_SEARCH: [{
+			"npc_id": FlowNpcs.BUTLER,
+			"spawn": "Butler",
+			"rooms": [
+				FlowRooms.HALL,
+				FlowRooms.FLOOR2,
+				FlowRooms.FIRST_SEARCH,
+				FlowRooms.META,
+				FlowRooms.MU_ZHI,
+				FlowRooms.WU_TING_XIANG,
+				FlowRooms.ZHONG_QI,
+				FlowRooms.ZHOU_CHONG_AN,
+			],
+		}],
 	}
 
 
@@ -214,12 +211,17 @@ static func _create_event_transitions() -> Dictionary:
 		]),
 		FlowEvents.START_SECOND_SEARCH: FlowTransition.after_dialogue([
 			FlowEffect.set_step(FlowSteps.CH1_SECOND_SEARCH),
-			FlowEffect.request_scene(FlowScenes.SECOND_SEARCH_ROOM, "SpawnFromZouLang", "1_7_all"),
+			FlowEffect.request_dialogue("1_7_all"),
+		]),
+		FlowEvents.START_LAB_CORRIDOR: FlowTransition.after_dialogue([
+			FlowEffect.request_scene(FlowScenes.LAB_CORRIDOR_CUTSCENE, "InitialSpawn"),
 		]),
 		FlowEvents.EXIT_SECOND_SEARCH: FlowTransition.result(
-			[FlowEffect.request_dialogue("1_7_exit")],
-			[FlowEffect.request_scene_if_dialogic_bool(FlowDialogicVars.CH1_SECOND_SEARCH_ZHONG_FINISHED, true, FlowScenes.HALL, "InitialSpawn")]
+			[FlowEffect.request_dialogue("1_7_exit")]
 		),
+		FlowEvents.CONTINUE_SECOND_SEARCH_EXIT: FlowTransition.after_dialogue([
+			FlowEffect.request_dialogue("1_7_zhong"),
+		]),
 		FlowEvents.START_LIGHTHOUSE_REASONING: FlowTransition.after_dialogue([
 			FlowEffect.add_suspicion_if_missing(FlowSuspicions.CH1_LIGHTHOUSE_STORY, "flow", "1_6_zhong"),
 			FlowEffect.request_locked_suspicion(FlowSuspicions.CH1_LIGHTHOUSE_STORY, FlowTimelines.CH1_LIGHTHOUSE_REASONING_AFTER),
@@ -248,5 +250,16 @@ static func _create_event_transitions() -> Dictionary:
 		FlowEvents.CH1_CRIME_SCENE_FINISHED: FlowTransition.after_dialogue([
 			FlowEffect.set_step(FlowSteps.CH1_BODY_CG),
 			FlowEffect.request_scene(FlowScenes.CH1_BODY_CG, "InitialSpawn"),
+		]),
+		FlowEvents.CH1_SECOND_SEARCH_FINISHED: FlowTransition.after_dialogue([
+			FlowEffect.set_state(FlowChapters.CH2, FlowSteps.CH2_SECOND_REASONING),
+			FlowEffect.request_scene(FlowScenes.CHAPTER2_TITLE, "InitialSpawn"),
+		]),
+		FlowEvents.LAB_CORRIDOR_FINISHED: FlowTransition.immediate([
+			FlowEffect.request_scene(FlowScenes.LAB_CG, "InitialSpawn"),
+		]),
+		FlowEvents.LAB_CG_FINISHED: FlowTransition.immediate([
+			FlowEffect.set_state(FlowChapters.CH2, FlowSteps.CH1_SECOND_SEARCH),
+			FlowEffect.request_scene(FlowScenes.CHAPTER2_TITLE, "InitialSpawn"),
 		]),
 	}

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/scenes/chapter_title.gd" id="1"]
+
+[node name="Chapter1Title" type="Node2D"]
+script = ExtResource("1")
+chapter_label = "第一章"
+title_text = "幕启：初入雪墅的圜局"
+finished_event = "chapter1_title_finished"
+
+[node name="InitialSpawn" type="Marker2D" parent="."]

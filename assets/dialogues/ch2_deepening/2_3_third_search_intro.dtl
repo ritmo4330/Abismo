@@ -1,0 +1,54 @@
+[style name="default_visual_novel"]
+join butler left
+butler: 和之前一样，请各位自行决定调查顺序，其余人留在大厅互相监督。
+butler: {PlayerName}侦探，你准备第几个去呢？
+- 第一个
+	set {Ch2.ThirdSearch.Order} = 1
+	player: 我第一个去。
+	butler: 其他人默认了你的选择。调查顺序为：你、乌停湘、钟歧、周崇安、穆执、林玖。
+	butler: 请跟我来。
+- 第二个
+	set {Ch2.ThirdSearch.Order} = 2
+	player: 我第二个去。
+	butler: 其他人默认了你的选择。调查顺序为：乌停湘、你、钟歧、周崇安、穆执、林玖。
+	一段时间后，乌停湘结束了调查，轮到你了。
+- 第三个
+	set {Ch2.ThirdSearch.Order} = 3
+	player: 我第三个去。
+	butler: 其他人默认了你的选择。调查顺序为：乌停湘、钟歧、你、周崇安、穆执、林玖。
+	一段时间后，前两人的调查结束，轮到你了。
+- 第四个
+	set {Ch2.ThirdSearch.Order} = 4
+	player: 我第四个去。
+	butler: 其他人默认了你的选择。调查顺序为：乌停湘、钟歧、周崇安、你、穆执、林玖。
+	一段时间后，轮到你了。
+- 第五个
+	set {Ch2.ThirdSearch.Order} = 5
+	player: 我第五个去。
+	butler: 其他人默认了你的选择。调查顺序为：乌停湘、钟歧、周崇安、穆执、你、林玖。
+	一段时间后，轮到你了。
+- 第六个
+	set {Ch2.ThirdSearch.Order} = 6
+	set {Ch2.ThirdSearch.BodyKnownBeforeTurn} = true
+	player: 我最后一个去。
+	butler: 其他人默认了你的选择。调查顺序为：乌停湘、钟歧、周崇安、穆执、林玖、你。
+	一段时间后，就要轮到你了。林玖却面色惨白地跟着管家回到了大厅。
+	join lin_jiu right
+	lin_jiu: 尸体……尸体不见了……
+	join zhong_qi left
+	zhong_qi: 什么？梅塔的尸体吗？
+	join wu_ting_xiang right
+	wu_ting_xiang: 怎么会？他不在衣柜里吗？
+	lin_jiu: 我不知道……我去看了我那个房间，衣柜里的尸体消失了……
+	butler: 方才我和林玖小姐再次检查案发现场时，发现衣柜里主人的尸体消失了，只留下暗褐色的血迹。
+	butler: 尸体不可能凭空消失，我们猜测是有人动了手脚。
+	join mu_zhi left
+	mu_zhi: 但是我们完全没有动手脚的时机。除了待在大厅和会客厅能够彼此证明，我们调查时也一直和管家同行。
+	zhong_qi: 但我们不能排除管家和让尸体消失的人串通好了。
+	join zhou_chong_an right
+	zhou_chong_an: 梦境或许接近现实，但尸体的消失不能简单用梦境解释。至少，让尸体消失这个行为本身具有重要意义。
+	do DataManager.add_suspicion("1_suspicion_missing_body", "dialogue", "third_search_order_6")
+	do ToastManager.show_notice("记录疑点：消失的尸体", "suspicion", 3.0)
+do ToastManager.show_notice("获得任务：大显身手", "task", 3.0)
+[signal arg="flow:begin_third_search_turn"]
+[end_timeline]

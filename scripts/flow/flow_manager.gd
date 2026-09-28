@@ -4,6 +4,7 @@ const FlowChapters = preload("res://scripts/flow/flow_chapters.gd")
 const FlowDialogicVars = preload("res://scripts/flow/flow_dialogic_vars.gd")
 const FlowEffectExecutor = preload("res://scripts/flow/flow_effect_executor.gd")
 const FlowEntries = preload("res://scripts/flow/flow_entries.gd")
+const FlowEvents = preload("res://scripts/flow/flow_events.gd")
 const FlowNpcs = preload("res://scripts/flow/flow_npcs.gd")
 const FlowRooms = preload("res://scripts/flow/flow_rooms.gd")
 const FlowScenes = preload("res://scripts/flow/flow_scenes.gd")
@@ -48,6 +49,19 @@ func _ready() -> void:
 		EventBus.dialogue_finished.connect(_on_dialogue_finished)
 	if DataManager != null and not DataManager.clue_updated.is_connected(_on_clue_updated):
 		DataManager.clue_updated.connect(_on_clue_updated)
+	if DataManager != null and not DataManager.suspicion_updated.is_connected(_on_suspicion_updated):
+		DataManager.suspicion_updated.connect(_on_suspicion_updated)
+
+
+func reset_gameplay_runtime() -> void:
+	clear_pending_after_dialogue()
+	set_pending_auto_timeline("")
+	if DataManager != null and DataManager.has_method("reset_runtime_state"):
+		DataManager.reset_runtime_state()
+	if Dialogic != null and Dialogic.VAR != null:
+		Dialogic.VAR.reset()
+	if Dialogic != null and Dialogic.has_subsystem("History"):
+		Dialogic.History.reset_visited_history()
 
 
 func start_flow(chapter_id: String, entry_id: String) -> void:
@@ -71,24 +85,58 @@ func apply_flow_state(
 	if chapter_id.is_empty() or step_id.is_empty():
 		return
 	_state.apply(chapter_id, step_id, room_id, private_chat_target)
+	_sync_dialogic_stage_gates()
 	_reset_npc_locations_for_current_step()
 	_sync_bgm_for_step(step_id)
 	_refresh_current_room_actors()
 	_refresh_initial_search_finished()
+	_refresh_second_search_finished()
+	_refresh_third_search_finished()
 
 
 func advance_to_step(step_id: String) -> void:
 	if step_id.is_empty():
 		return
 	_state.step_id = step_id
+	_sync_dialogic_stage_gates()
 	_reset_npc_locations_for_current_step()
 	_sync_bgm_for_step(step_id)
 	_refresh_current_room_actors()
 	_refresh_initial_search_finished()
+	_refresh_second_search_finished()
+	_refresh_third_search_finished()
 
 
 func get_state() -> RefCounted:
 	return _state
+
+
+func save_runtime_state() -> Dictionary:
+	return {
+		"flow_state": _state.to_dict(),
+		"npc_locations": _npc_state.to_dict(),
+	}
+
+
+func load_runtime_state(data: Dictionary) -> void:
+	clear_pending_after_dialogue()
+	set_pending_auto_timeline("")
+	_current_room = null
+
+	var flow_state_value: Variant = data.get("flow_state", data)
+	if flow_state_value is Dictionary:
+		_state.apply_dictionary(flow_state_value as Dictionary)
+
+	var npc_locations_value: Variant = data.get("npc_locations", null)
+	if npc_locations_value is Dictionary:
+		_npc_state.from_dict(npc_locations_value as Dictionary)
+	else:
+		_reset_npc_locations_for_current_step()
+	_normalize_loaded_npc_locations()
+
+	_sync_bgm_for_step(get_current_step_id())
+	_sync_dialogic_stage_gates()
+	refresh_derived_progress()
 
 
 func get_current_chapter_id() -> String:
@@ -126,6 +174,8 @@ func start_debug_standalone_room(config: Dictionary) -> void:
 	_scene_navigator.set_pending_standalone_spawn_point(String(state.get("pending_standalone_spawn_point", "")))
 	_scene_navigator.mark_standalone_debug_flow_active()
 	_refresh_initial_search_finished()
+	_refresh_second_search_finished()
+	_refresh_third_search_finished()
 	_sync_bgm_for_step(get_current_step_id())
 
 
@@ -195,6 +245,10 @@ func set_dialogic_var(path: String, value: Variant) -> void:
 
 func set_private_chat_target(value: String) -> void:
 	_state.private_chat_target = value
+	if value.is_empty():
+		_refresh_current_content_completion()
+		_reset_npc_locations_for_current_step()
+		_refresh_current_room_actors()
 
 
 func enter_private_chat() -> void:
@@ -203,8 +257,14 @@ func enter_private_chat() -> void:
 	if get_private_chat_target().is_empty():
 		push_warning("FlowManager: private chat target is empty.")
 		return
-	set_npc_location(get_private_chat_target(), FlowRooms.HUI_KE_TING, "Guest", "1_6_%s" % get_private_chat_target())
-	request_scene(FlowScenes.HUI_KE_TING, "Detective", "1_6_%s" % get_private_chat_target())
+	var timeline_prefix: String = "1_6_"
+	if get_current_step_id() == FlowSteps.CH2_SECOND_PRIVATE_CHAT:
+		timeline_prefix = "2_2_"
+	elif get_current_step_id() == FlowSteps.CH2_THIRD_PRIVATE_CHAT:
+		timeline_prefix = "2_5_"
+	var timeline_name: String = "%s%s" % [timeline_prefix, get_private_chat_target()]
+	set_npc_location(get_private_chat_target(), FlowRooms.HUI_KE_TING, "Guest", timeline_name)
+	request_scene(FlowScenes.HUI_KE_TING, "Detective", timeline_name)
 
 
 func set_current_ch0_campfire_lit(is_lit: bool) -> void:
@@ -219,6 +279,46 @@ func refresh_initial_search_finished() -> void:
 	_refresh_initial_search_finished()
 
 
+func refresh_derived_progress() -> void:
+	_sync_dialogic_stage_gates()
+	_refresh_initial_search_finished()
+	_refresh_second_search_finished()
+	_refresh_third_search_finished()
+	_reconcile_milestone_suspicions()
+	_refresh_nightmare_resolution_flags()
+	_refresh_current_content_completion()
+
+
+func developer_skip_current_reasoning() -> bool:
+	match get_current_step_id():
+		FlowSteps.CH1_INITIAL_REASONING:
+			for clue_id: String in ["1_testimony_2_butler", "1_testimony_3_all", "1_testimony_4_all", "1_testimony_5_all", "1_testimony_6_lin"]:
+				DataManager.add_clue(clue_id, "developer_skip", FlowSteps.CH1_INITIAL_REASONING)
+			for suspicion_id: String in [
+				"1_suspicion_crime_time", "1_suspicion_motive", "1_suspicion_ability",
+				"1_suspicion_locked_room", "1_suspicion_missing_weapon", "1_suspicion_meta_in_lin_room",
+				"1_suspicion_butler_request",
+				"1_suspicion_butler_request_mu", "1_suspicion_butler_request_zhou",
+				"1_suspicion_butler_request_lin", "1_suspicion_butler_request_wu",
+				"1_suspicion_butler_request_zhong",
+			]:
+				DataManager.add_suspicion(suspicion_id, "developer_skip", FlowSteps.CH1_INITIAL_REASONING)
+			set_dialogic_var(FlowDialogicVars.CH1_PRIVATE_CHAT_ENABLED, true)
+			send_flow_event(FlowEvents.ENABLE_PRIVATE_CHAT)
+			return true
+		FlowSteps.CH2_SECOND_REASONING:
+			DataManager.add_suspicion("2_suspicion_dream_space", "developer_skip", FlowSteps.CH2_SECOND_REASONING)
+			DataManager.add_suspicion("2_suspicion_parallel_worlds", "developer_skip", FlowSteps.CH2_SECOND_REASONING)
+			set_dialogic_var("Ch2.SecondPrivate.Enabled", true)
+			send_flow_event(FlowEvents.ENABLE_SECOND_PRIVATE_CHAT)
+			return true
+		FlowSteps.CH2_THIRD_REASONING:
+			set_dialogic_var("Ch2.ThirdPrivate.Enabled", true)
+			send_flow_event(FlowEvents.ENABLE_THIRD_PRIVATE_CHAT)
+			return true
+	return false
+
+
 func on_room_loaded(room: Node2D, room_id: String) -> void:
 	_current_room = room
 	_room_actor_spawner.set_current_room(room)
@@ -226,6 +326,8 @@ func on_room_loaded(room: Node2D, room_id: String) -> void:
 	setup_room_actors(room)
 	_setup_current_room_clues()
 	_refresh_initial_search_finished()
+	_refresh_second_search_finished()
+	_refresh_third_search_finished()
 
 
 func on_room_presented(_room: Node2D, room_id: String) -> void:
@@ -261,12 +363,56 @@ func setup_room_actors(room: Node2D) -> void:
 	)
 
 
-func _on_clue_updated(_clue_id: String) -> void:
+func _on_clue_updated(clue_id: String) -> void:
 	_refresh_initial_search_finished()
+	_refresh_second_search_finished()
+	_refresh_third_search_finished()
+	if clue_id == "2_missing_body" and DataManager != null:
+		DataManager.add_suspicion("1_suspicion_missing_body", "clue", clue_id)
+
+
+func _on_suspicion_updated(_suspicion_id: String) -> void:
+	_refresh_nightmare_resolution_flags()
+
+
+func _reconcile_milestone_suspicions() -> void:
+	if DataManager == null:
+		return
+	# Save files created before the milestone hooks were added may already contain
+	# the clue/step. Restore only facts the player must have encountered to reach
+	# that state; optional conversation suspicions remain choice-dependent.
+	if DataManager.has_clue("2_missing_body"):
+		DataManager.add_suspicion("1_suspicion_missing_body", "save_reconcile", "2_missing_body")
+
+	if get_current_chapter_id() != FlowChapters.CH2:
+		return
+	if get_current_step_id() in [
+		FlowSteps.CH2_SECOND_PRIVATE_CHAT,
+		FlowSteps.CH2_THIRD_SEARCH,
+		FlowSteps.CH2_THIRD_REASONING,
+		FlowSteps.CH2_THIRD_PRIVATE_CHAT,
+		FlowSteps.CH2_MEMORY_FRAGMENTS,
+	]:
+		DataManager.add_suspicion("2_suspicion_dream_space", "save_reconcile", FlowSteps.CH2_SECOND_REASONING)
+		DataManager.add_suspicion("2_suspicion_parallel_worlds", "save_reconcile", FlowSteps.CH2_SECOND_REASONING)
 
 
 func _get_current_definition() -> RefCounted:
 	return _registry.get_definition(get_current_chapter_id())
+
+
+func _sync_dialogic_stage_gates() -> void:
+	if get_current_chapter_id() != FlowChapters.CH1:
+		return
+	match get_current_step_id():
+		FlowSteps.CH1_INTRO_HALL:
+			_dialogic_bridge.set_var(FlowDialogicVars.CH1_INITIAL_SEARCH_ENABLED, false)
+			_dialogic_bridge.set_var(FlowDialogicVars.CH1_PRIVATE_CHAT_ENABLED, false)
+		FlowSteps.CH1_FIRST_SEARCH, FlowSteps.CH1_INITIAL_REASONING:
+			_dialogic_bridge.set_var(FlowDialogicVars.CH1_INITIAL_SEARCH_ENABLED, true)
+			_dialogic_bridge.set_var(FlowDialogicVars.CH1_PRIVATE_CHAT_ENABLED, false)
+		FlowSteps.CH1_PRIVATE_CHAT, FlowSteps.CH1_SECOND_SEARCH:
+			_dialogic_bridge.set_var(FlowDialogicVars.CH1_PRIVATE_CHAT_ENABLED, true)
 
 
 func _reset_npc_locations_for_current_step() -> void:
@@ -329,8 +475,104 @@ func _refresh_initial_search_finished() -> void:
 	_dialogic_bridge.set_var(FlowDialogicVars.CH1_INITIAL_SEARCH_FINISHED, is_finished)
 	if is_finished:
 		_progress_rules.clear_initial_search_missing_log()
+		if ToastManager != null:
+			ToastManager.show_notice("二楼搜证完成：请与管家交谈", "task", 3.5)
 	else:
 		_progress_rules.log_initial_search_missing_clues(missing_clue_ids)
+
+
+func _normalize_loaded_npc_locations() -> void:
+	if get_current_chapter_id() != FlowChapters.CH1:
+		return
+	if get_current_step_id() != FlowSteps.CH1_FIRST_SEARCH:
+		return
+	_npc_state.set_location(FlowNpcs.BUTLER, FlowRooms.FLOOR2, "Butler")
+
+
+func _refresh_second_search_finished() -> void:
+	var definition: RefCounted = _get_current_definition()
+	if definition == null:
+		return
+	var result: Dictionary = _progress_rules.evaluate_second_search_finished(
+		get_current_step_id(),
+		definition.second_search_required_clues
+	)
+	if not bool(result.get("applies", false)):
+		return
+
+	var is_finished: bool = bool(result.get("finished", false))
+	var missing_clue_ids: Array[String] = []
+	for clue_id: Variant in result.get("missing_clue_ids", []):
+		missing_clue_ids.append(String(clue_id))
+	if bool(_dialogic_bridge.get_var(FlowDialogicVars.CH1_SECOND_SEARCH_FINISHED, false)) == is_finished:
+		if not is_finished:
+			_progress_rules.log_second_search_missing_clues(missing_clue_ids)
+		return
+
+	_dialogic_bridge.set_var(FlowDialogicVars.CH1_SECOND_SEARCH_FINISHED, is_finished)
+	if is_finished:
+		_progress_rules.clear_second_search_missing_log()
+		if ToastManager != null:
+			ToastManager.show_notice("钟岳研究所调查完成", "task", 2.5)
+	else:
+		_progress_rules.log_second_search_missing_clues(missing_clue_ids)
+
+
+func _refresh_third_search_finished() -> void:
+	var definition: RefCounted = _get_current_definition()
+	if definition == null:
+		return
+	var result: Dictionary = _progress_rules.evaluate_third_search_finished(
+		get_current_step_id(), definition.third_search_required_clues
+	)
+	if not bool(result.get("applies", false)):
+		return
+	var is_finished: bool = bool(result.get("finished", false))
+	var missing_clue_ids: Array[String] = []
+	for clue_id: Variant in result.get("missing_clue_ids", []):
+		missing_clue_ids.append(String(clue_id))
+	if bool(_dialogic_bridge.get_var(FlowDialogicVars.CH2_THIRD_SEARCH_FINISHED, false)) == is_finished:
+		if not is_finished:
+			_progress_rules.log_third_search_missing_clues(missing_clue_ids)
+		return
+	_dialogic_bridge.set_var(FlowDialogicVars.CH2_THIRD_SEARCH_FINISHED, is_finished)
+	if is_finished:
+		_progress_rules.clear_third_search_missing_log()
+		if ToastManager != null:
+			ToastManager.show_notice("发现关键变化：尸体消失了", "clue", 3.5)
+	else:
+		_progress_rules.log_third_search_missing_clues(missing_clue_ids)
+
+
+func _refresh_nightmare_resolution_flags() -> void:
+	if DataManager == null:
+		return
+	var mappings: Dictionary = {
+		"1_suspicion_butler_request_mu": "Ch1.PrivateChat.Mu.NightmareSolved",
+		"1_suspicion_butler_request_zhou": "Ch1.PrivateChat.Zhou.NightmareSolved",
+		"1_suspicion_butler_request_lin": "Ch1.PrivateChat.Lin.NightmareSolved",
+		"1_suspicion_butler_request_wu": "Ch1.PrivateChat.Wu.NightmareSolved",
+		"1_suspicion_butler_request_zhong": "Ch1.PrivateChat.Zhong.NightmareSolved",
+	}
+	for suspicion_id: String in mappings:
+		if DataManager.is_suspicion_resolved(suspicion_id):
+			_dialogic_bridge.set_var(String(mappings[suspicion_id]), true)
+
+
+func _refresh_current_content_completion() -> void:
+	if get_current_chapter_id() != FlowChapters.CH2:
+		return
+	if get_current_step_id() != FlowSteps.CH2_THIRD_PRIVATE_CHAT:
+		return
+	var all_finished: bool = true
+	for npc_id: String in ["Mu", "Zhou", "Lin", "Wu", "Zhong"]:
+		if not bool(_dialogic_bridge.get_var("Ch2.ThirdPrivate.%s.Finished" % npc_id, false)):
+			all_finished = false
+			break
+	_dialogic_bridge.set_var(
+		FlowDialogicVars.CH2_CURRENT_CONTENT_COMPLETE_READY,
+		all_finished
+	)
 
 
 func _handle_flow_transition(source_id: String, transition: RefCounted) -> void:

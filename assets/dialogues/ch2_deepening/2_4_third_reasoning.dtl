@@ -1,0 +1,47 @@
+[style name="default_visual_novel"]
+join butler left
+if {Ch2.ThirdSearch.BodyKnownBeforeTurn} != true:
+	player: 有个消息需要先告诉各位。刚才我们再次检查案发现场时，发现衣柜里梅塔的尸体消失了，只留下暗褐色的血迹。
+	join lin_jiu right
+	lin_jiu: 怎么会……
+	butler: 确有此事。尸体不可能凭空消失，我们猜测是有人动了手脚。
+	join mu_zhi left
+	mu_zhi: 但是我们完全没有动手脚的时机。除了待在大厅和会客厅能够彼此证明，我们调查时也一直和管家同行。
+	join zhong_qi right
+	zhong_qi: 但我们不能排除管家和让尸体消失的人串通好了。
+	join wu_ting_xiang left
+	wu_ting_xiang: 周院长，既然我们是在梦境中，尸体凭空消失属于正常现象吗？
+	join zhou_chong_an right
+	zhou_chong_an: 梦境或许接近现实，但尸体的消失不能简单用梦境解释。至少，让尸体消失这个行为本身具有重要意义。
+	set {Ch2.ThirdSearch.BodyKnownBeforeTurn} = true
+	do DataManager.add_suspicion("1_suspicion_missing_body", "dialogue", "third_search_player_report")
+	do ToastManager.show_notice("记录疑点：消失的尸体", "suspicion", 3.0)
+leave --All--
+join butler left
+butler: 所有人都到齐了。我已经整理了第三轮调查中出现的变化。
+join zhou_chong_an right
+zhou_chong_an: 尸体凭空消失绝不能只用“这是梦”搪塞。梦境里的变化也有动机，它一定在引导我们。
+join wu_ting_xiang left
+wu_ting_xiang: 我在梦境笔记里发现了被反复画线的句子：熟悉的场景可以由清晰的记忆重新构筑。
+wu_ting_xiang: {PlayerName}，你愿意帮我复现一个场景吗？
+label 抉择21
+- 可以
+	wu_ting_xiang: 谢谢。我记得一扇紧闭的木门，门后藏着我一直不敢面对的东西。等整件事结束，我会把来龙去脉告诉你。
+	set {Affinity.Wu} += 5
+	set {Ch2.SceneRecreation.Accepted} = true
+	do DataManager.add_suspicion("3_suspicion_memory_door", "dialogue", "choice_21")
+	do DataManager.add_suspicion("3_suspicion_memory_flower", "dialogue", "choice_21")
+	do DataManager.add_suspicion("3_suspicion_memory_cube", "dialogue", "choice_21")
+	do ToastManager.show_notice("获得任务：场景复现", "task", 3.0)
+	do ToastManager.show_notice("记录疑点：花海中的女子、白色立方体", "suspicion", 3.0)
+- 还有更重要的事
+	wu_ting_xiang: ……我明白。我会自己寻找办法。
+	set {Affinity.Wu} -= 10
+	set {Ch2.SceneRecreation.Accepted} = false
+wu_ting_xiang: 笔记角落还写着一组数字：0909。看起来像某种密码。
+player: 从现在开始，与其再按轮次分开行动，不如允许大家自由调查和交谈。线索正在改变，我们不能继续浪费时间。
+butler: 同意。如果你确认了凶手，随时可以提出指认。
+set {Ch2.ThirdPrivate.Enabled} = true
+do ToastManager.show_notice("获得任务：悄悄悄悄话", "task", 3.0)
+[signal arg="flow:enable_third_private_chat"]
+[end_timeline]

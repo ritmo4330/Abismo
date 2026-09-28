@@ -1,0 +1,11 @@
+[style name="default_visual_novel"]
+join butler left
+if {Ch2.ThirdSearch.BodyKnownBeforeTurn} == true:
+	butler: 最后，请{PlayerName}侦探跟我来吧。
+	现在，该轮到你出发调查了。尸体已经消失，但案发现场或许仍留下了别的痕迹。
+else:
+	butler: 请跟我来。
+	现在还没有人报告案发现场出现异常，你需要亲自确认每个房间的变化。
+既然已经知道这里是梦境，就像周崇安所说，你可以借此探查其他人的潜意识。
+通过各个房间的门，去到每个人在现实世界中的房间吧。
+[end_timeline]

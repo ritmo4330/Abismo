@@ -48,7 +48,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="PanelFrame" type="PanelContainer" parent="PanelRoot/CenterContainer" unique_id=942182571]
-custom_minimum_size = Vector2(360, 260)
+custom_minimum_size = Vector2(420, 560)
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_pause_panel")
@@ -75,6 +75,26 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "继续游戏"
+
+[node name="SaveButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "保存游戏"
+
+[node name="LoadButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "读取游戏"
+
+[node name="TextSpeedButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "文本速度：标准"
+
+[node name="StatusLabel" type="Label" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+horizontal_alignment = 1
 
 [node name="QuitToTitleButton" type="Button" parent="PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox" unique_id=1344619446]
 custom_minimum_size = Vector2(0, 48)

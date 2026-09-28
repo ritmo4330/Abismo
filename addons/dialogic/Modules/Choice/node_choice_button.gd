@@ -56,6 +56,9 @@ func _ready() -> void:
 
 ## Custom choice buttons can override this for specialized behavior when the choice button is pressed.
 func _pressed():
+	var feedback := get_node_or_null("/root/InteractionFeedback")
+	if feedback != null and feedback.has_method("show_choice_feedback"):
+		feedback.show_choice_feedback(self)
 	choice_selected.emit()
 
 
@@ -76,6 +79,8 @@ func _load_info(choice_info: Dictionary) -> void:
 	set_choice_text(choice_info.text)
 	visible = choice_info.visible
 	disabled = choice_info.disabled
+	# Keep previously selected choices visible, but dim them as a clear history cue.
+	modulate = Color(0.48, 0.48, 0.5, 0.78) if bool(choice_info.get("visited_before", false)) else Color.WHITE
 
 
 ## Called when the text changes.

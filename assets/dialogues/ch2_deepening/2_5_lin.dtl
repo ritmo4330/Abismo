@@ -1,0 +1,32 @@
+[style name="default_visual_novel"]
+join lin_jiu left
+lin_jiu: 我的房间、研究室，还有消失的尸体……它们像是在逼我想起同一件事。
+label 问题
+- 关于消失的尸体 | [if {Ch2.ThirdPrivate.Lin.Body} != true]
+	lin_jiu: 如果是我先去调查，我会亲眼看见空衣柜。那一瞬间我觉得消失的不是尸体，而是一段被人从记忆里剪掉的事实。
+	lin_jiu: 血迹还在，说明梦境只能藏起对象，无法抹去它造成的结果。
+	set {Ch2.ThirdPrivate.Lin.Body} = true
+	jump 问题
+- 异常关联研究室的记录 | [if {Ch2.ThirdPrivate.Lin.Records} != true]
+	lin_jiu: 里面有以我名字编号的观察记录，时间甚至早于我成为教师。
+	lin_jiu: 这说明某个世界里的我从小就被研究，而孤儿院也不只是收留孩子的地方。
+	set {Ch2.ThirdPrivate.Lin.Records} = true
+	jump 问题
+- 九岁前的记忆 | [if {Ch2.ThirdPrivate.Lin.Memory} != true]
+	player: 你害怕恢复记忆吗？
+	lin_jiu: 我害怕记起后，发现现在的自己只是被安排好的结果。但如果真相在那扇门后，我会和你一起打开它。
+	set {Affinity.Lin} += 5
+	set {Ch2.ThirdPrivate.Lin.Memory} = true
+	jump 问题
+- 结束私聊 | [if {Ch2.ThirdPrivate.Lin.Body} == true and {Ch2.ThirdPrivate.Lin.Records} == true and {Ch2.ThirdPrivate.Lin.Memory} == true]
+	lin_jiu: 好。如果又找到和孤儿院有关的东西，请先告诉我。
+	set {Ch2.ThirdPrivate.Lin.Finished} = true
+	do ToastManager.show_notice("人物信息已更新：林玖", "profile", 2.5)
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]
+- 暂时离开 | [if {Ch2.ThirdPrivate.Lin.Body} != true or {Ch2.ThirdPrivate.Lin.Records} != true or {Ch2.ThirdPrivate.Lin.Memory} != true]
+	lin_jiu: 好。等你想继续问的时候，我还在大厅。
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]

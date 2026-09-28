@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "1_suspicion_butler_request"
+title = "管家的委托"
+description = "管家除了委托你查明凶手，还要求调查众人恐惧至极的事物。这项与凶案看似无关的要求究竟为了什么？"
+chapter_id = "1"
+category_path = PackedStringArray("雪墅", "主线疑点")
+tags = PackedStringArray("chapter_1", "snow_villa", "main")
+required_clue_ids = PackedStringArray()
+match_mode = "exact"
+conclusion_clue_id = ""

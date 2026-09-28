@@ -2,10 +2,6 @@
 join wu_ting_xiang left
 wu_ting_xiang: 我会尽可能如实回答的。
 label 选择
-- 来到别墅的原因
-	wu_ting_xiang: 是林姐姐带我跑出孤儿院的，她说异测会要来抓我，于是我们就跑了出来。
-	set {Ch1.PrivateChat.Wu.Asked.Reason} = true
-	jump 选择
 - 与死者的关系
 	wu_ting_xiang: 我不认识他。
 	set {Ch1.PrivateChat.Wu.Asked.Dead} = true
@@ -31,7 +27,7 @@ label 选择
 		jump 与其他人的关系
 	- 还有其他问题
 		jump 选择
-- 关于异测会 | [if {Ch1.PrivateChat.Wu.Asked.Reason} == true and {Ch1.PrivateChat.Wu.Removed.AnomalySociety} != true]
+- 关于异测会 | [if {Ch1.NPCIntro.Wu.Selected2} == true and {Ch1.PrivateChat.Wu.Removed.AnomalySociety} != true]
 	wu_ting_xiang: 异测会是一个致力于为超自然现象寻求科学解释的组织，已经成为了一个权威机构。
 	wu_ting_xiang: 但是他们的研究也不一定全是对的，我们还是要有自己的判断力。
 	set {Ch1.PrivateChat.Wu.Removed.AnomalySociety} = true

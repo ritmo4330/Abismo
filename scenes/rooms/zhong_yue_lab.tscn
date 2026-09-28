@@ -1,0 +1,97 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/scenes/room.gd" id="1_room"]
+[ext_resource type="Script" path="res://scripts/scenes/zhong_yue_lab_visual.gd" id="2_visual"]
+[ext_resource type="Script" path="res://scripts/scenes/door.gd" id="3_door"]
+
+[sub_resource type="RectangleShape2D" id="WallHorizontal"]
+size = Vector2(1920, 54)
+
+[sub_resource type="RectangleShape2D" id="WallVertical"]
+size = Vector2(54, 1080)
+
+[sub_resource type="CircleShape2D" id="OrbCollision"]
+radius = 245.0
+
+[sub_resource type="RectangleShape2D" id="ExitCollision"]
+size = Vector2(300, 125)
+
+[node name="ZhongYueLab" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_room")
+default_spawn_point = "InitialSpawn"
+room_id = "zhong_yue_lab"
+camera_bounds = Rect2(0, 0, 1920, 1080)
+player_spawn_scale = Vector2(2.25, 2.25)
+player_speed_scale = 1.5
+debug_step_id = "ch1_7_second_search"
+
+[node name="Scene" type="Node2D" parent="."]
+
+[node name="MapLayer" type="Node2D" parent="Scene"]
+z_index = -100
+script = ExtResource("2_visual")
+
+[node name="FloorCollisions" type="StaticBody2D" parent="Scene"]
+
+[node name="TopWall" type="CollisionShape2D" parent="Scene/FloorCollisions"]
+position = Vector2(960, 40)
+shape = SubResource("WallHorizontal")
+
+[node name="BottomWallLeft" type="CollisionShape2D" parent="Scene/FloorCollisions"]
+position = Vector2(395, 1038)
+shape = SubResource("WallHorizontal")
+scale = Vector2(0.38, 1)
+
+[node name="BottomWallRight" type="CollisionShape2D" parent="Scene/FloorCollisions"]
+position = Vector2(1525, 1038)
+shape = SubResource("WallHorizontal")
+scale = Vector2(0.38, 1)
+
+[node name="LeftWall" type="CollisionShape2D" parent="Scene/FloorCollisions"]
+position = Vector2(42, 540)
+shape = SubResource("WallVertical")
+
+[node name="RightWall" type="CollisionShape2D" parent="Scene/FloorCollisions"]
+position = Vector2(1878, 540)
+shape = SubResource("WallVertical")
+
+[node name="Orb" type="CollisionShape2D" parent="Scene/FloorCollisions"]
+position = Vector2(960, 525)
+shape = SubResource("OrbCollision")
+
+[node name="Exit" type="Area2D" parent="Scene"]
+position = Vector2(960, 965)
+script = ExtResource("3_door")
+interact_id = "second_search_exit"
+prompt_offset = Vector2(0, -54)
+highlight_enabled = true
+highlight_offset = Vector2(0, -28)
+highlight_scale = Vector2(1.2, 1.2)
+flow_signal_name = "exit_second_search"
+open_sfx_id = ""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Exit"]
+shape = SubResource("ExitCollision")
+
+[node name="InitialSpawn" type="Marker2D" parent="."]
+position = Vector2(960, 880)
+
+[node name="NPCSpawnPoints" type="Node2D" parent="."]
+
+[node name="DynamicActors" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ClueSpawnPoints" type="Node2D" parent="."]
+
+[node name="GiantOrb" type="Marker2D" parent="ClueSpawnPoints"]
+position = Vector2(960, 790)
+
+[node name="ZhongYueNotebook" type="Marker2D" parent="ClueSpawnPoints"]
+position = Vector2(305, 410)
+
+[node name="WorkList" type="Marker2D" parent="ClueSpawnPoints"]
+position = Vector2(1615, 665)
+
+[node name="DynamicClues" type="Node2D" parent="."]
+y_sort_enabled = true

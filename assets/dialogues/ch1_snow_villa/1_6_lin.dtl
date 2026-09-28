@@ -2,10 +2,6 @@
 join lin_jiu left
 label 选择
 lin_jiu: 你要问什么？
-- 来到别墅的原因
-	lin_jiu: 我带乌停湘上山来找穆执，结果还没赶到他的小木屋就下起了暴风雪，我们只好找到最近的这座别墅避雪。
-	set {Ch1.PrivateChat.Lin.Asked.Reason} = true
-	jump 选择
 - 与死者的关系 | [if {Affinity.Lin} <= 70]
 	lin_jiu: 我不知道他是谁……
 	set {Ch1.PrivateChat.Lin.Asked.Dead} = true

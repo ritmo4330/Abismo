@@ -1,0 +1,18 @@
+[style name="default_visual_novel"]
+join wu_ting_xiang left
+wu_ting_xiang: 我的暗门后只有死路，但墙上有一扇我熟悉的木门轮廓。
+label 问题
+- 木门属于哪里 | [if {Ch2.SecondPrivate.Wu.Door} != true]
+	wu_ting_xiang: 孤儿院地下室。我和林姐姐小时候都被告诫不能靠近那里，可我总觉得门后有人在呼唤我。
+	set {Ch2.SecondPrivate.Wu.Door} = true
+	jump 问题
+- 梦境笔记 | [if {Ch2.SecondPrivate.Wu.Notebook} != true]
+	wu_ting_xiang: 它不是我的字，却记录了我做过的梦。反复出现的花海、白色立方体，还有一个看不清脸的女人。
+	set {Ch2.SecondPrivate.Wu.Notebook} = true
+	set {Affinity.Wu} += 5
+	jump 问题
+- 暂时没有问题了
+	set {Ch2.SecondPrivate.Wu.Finished} = true
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]

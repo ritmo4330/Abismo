@@ -1,0 +1,10 @@
+[style name="default_visual_novel"]
+join zhong_qi left
+zhong_qi: 正好，我也有些事需要确认。
+- 邀请私聊
+	set {Ch1.PrivateChat.Target} = "zhong"
+	[signal arg="flow:enter_private_chat"]
+	[end_timeline]
+- 暂时不用
+	zhong_qi: 别浪费太久。
+	[end_timeline]

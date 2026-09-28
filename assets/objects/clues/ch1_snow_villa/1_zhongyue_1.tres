@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1_clue"]
+
+[resource]
+script = ExtResource("1_clue")
+id = "1_zhongyue_1"
+title = "巨大的光球"
+description = "研究所中央有一个球形容器，其中悬浮着一个巨大的光球。容器旁的笔记记载，这是“量子力学终极秘密”的具象化产物，可以控制粒子的运动；若要发挥更大的作用，则必须拥有更高的权限。最高权限下，它甚至可以发挥世界级的作用，但无论如何仍遵循能量守恒。"
+chapter_id = "1"
+room_id = "zhong_yue_lab"
+category_path = PackedStringArray("梦墅", "钟岳研究所")
+tags = PackedStringArray("chapter_1", "second_search", "scene")
+clue_type = "lore"
+child_clue_ids = PackedStringArray()
+

@@ -87,10 +87,10 @@ func _apply_debug_step_defaults(step_id: String, dialogic_bridge: RefCounted) ->
 		FlowSteps.CH1_STUDY_FREE_INVESTIGATION:
 			dialogic_bridge.set_var("Ch1.StudyWake.Finished", true)
 		FlowSteps.CH1_PUZZLE:
-			_add_debug_clues(PackedStringArray(["1_study_1", "1_study_7", "1_study_2"]), step_id)
+			_add_debug_clues(PackedStringArray(["1_study_1", "1_study_2", "1_study_3", "1_study_4", "1_study_5"]), step_id)
 			DataManager.set_flag("ch1/study/clues_finished_narration_seen", true)
 		FlowSteps.CH1_MURDER_REQUEST:
-			_add_debug_clues(PackedStringArray(["1_study_1", "1_study_7", "1_study_2", "1_puzzle_story", "1_conclusion_parallel_worlds"]), step_id)
+			_add_debug_clues(PackedStringArray(["1_study_1", "1_study_2", "1_study_3", "1_study_4", "1_study_5", "1_puzzle_story", "1_conclusion_parallel_worlds"]), step_id)
 			DataManager.set_flag("ch1/study/clues_finished_narration_seen", true)
 			DataManager.set_flag("ch1/study/puzzle_read", true)
 			DataManager.set_flag("ch1/study/challenge_read", true)

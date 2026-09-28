@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_ufucf")
 id = "1_lin_7"
-title = "钥匙"
-description = "窗户的正下方有一把不明用途的钥匙。窗帘被拉开，窗外仍是不分昼夜的一片漆黑。"
+title = "拉开的窗帘"
+description = "窗帘被拉开，窗外仍是不分昼夜的一片漆黑。"
 chapter_id = "1"
 room_id = "lin"
 category_path = PackedStringArray("雪墅", "林玖房间")

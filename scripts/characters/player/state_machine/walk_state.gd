@@ -4,6 +4,8 @@ extends NodeState
 @export var animated_sprite_2d : AnimatedSprite2D
 @export var speed : float = 200
 
+const RUN_ANIMATION_SPEED_SCALE: float = 1.35
+
 const FOOTSTEP_CHANNEL_ID: String = "player_footsteps"
 const FOOTSTEP_SFX_ID: String = "footsteps"
 
@@ -21,6 +23,8 @@ func _on_process(_delta : float) -> void:
 
 func _on_physics_process(_delta : float) -> void:
 	direction = GameInputEvents.movement_input()
+	var is_running: bool = player.is_running()
+	animated_sprite_2d.speed_scale = RUN_ANIMATION_SPEED_SCALE if is_running else 1.0
 	
 	if direction == Vector2.UP:
 		animated_sprite_2d.play("walk_back")
@@ -37,7 +41,8 @@ func _on_physics_process(_delta : float) -> void:
 	else:
 		_stop_footsteps()
 	
-	player.velocity = direction * speed
+	var current_speed: float = speed * (player.run_speed_multiplier if is_running else 1.0)
+	player.velocity = direction * current_speed
 	player.move_and_slide()
 
 
@@ -55,6 +60,7 @@ func _on_enter() -> void:
 
 func _on_exit() -> void:
 	animated_sprite_2d.stop()
+	animated_sprite_2d.speed_scale = 1.0
 	_stop_footsteps()
 
 

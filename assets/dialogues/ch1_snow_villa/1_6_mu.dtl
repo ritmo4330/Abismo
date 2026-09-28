@@ -2,11 +2,6 @@
 join mu_zhi left
 label 选择
 mu_zhi: 你想从我这里了解什么？
-- 来到别墅的原因
-	mu_zhi: 我是一名教徒，住处同样在这座山上。
-	mu_zhi: 来到此地之前，我前往教堂参加礼拜，返回时突遇暴风雪，我只能就近找到这里，便请求管家收留了我。
-	set {Ch1.PrivateChat.Mu.Asked.Reason} = true
-	jump 选择
 - 与死者的关系
 	mu_zhi: 我说过了，我没有见过他，只是知道梅塔这个名字。
 	mu_zhi: 是钟歧和我提起过，梅塔似乎对他做过很过分的事情。我对梅塔的了解并不多，你可以去问问钟歧。
@@ -33,7 +28,7 @@ mu_zhi: 你想从我这里了解什么？
 		jump 与其他人的关系
 	- 还有其他问题
 		jump 选择
-- 关于信仰 | [if {Ch1.PrivateChat.Mu.Removed.Faith} != true and {Ch1.PrivateChat.Mu.Asked.Reason} == true]
+- 关于信仰 | [if {Ch1.PrivateChat.Mu.Removed.Faith} != true and {Ch1.NPCIntro.Mu.Selected2} == true]
 	mu_zhi: 我信仰上界教派，不知道你有没有听说过。
 	- 请详细说说
 		mu_zhi: 好的。我们的教义认为，这个世界由上界的神明创造。

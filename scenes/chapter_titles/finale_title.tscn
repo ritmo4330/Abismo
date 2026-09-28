@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/scenes/chapter_title.gd" id="1"]
+
+[node name="FinaleTitle" type="Node2D"]
+script = ExtResource("1")
+chapter_label = "终章"
+title_text = "世界内外的残响"
+finished_event = "finale_title_finished"
+
+[node name="InitialSpawn" type="Marker2D" parent="."]

@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_ufucf")
 id = "1_lin_6"
-title = "衣柜"
-description = "衣柜中除了衣架以外空无一物，只有暗褐色的血迹残留其中。"
+title = "衣柜中的尸体"
+description = "梅塔的尸体蜷缩在衣柜中，背部已被鲜血浸透，左后胸有贯穿伤。衣物上的血迹像被擦拭过，尸体仍有进一步检查的必要。"
 chapter_id = "1"
 room_id = "lin"
 category_path = PackedStringArray("雪墅", "林玖房间")
@@ -15,5 +15,5 @@ clue_type = "scene_evidence"
 is_conclusion = false
 highlight_visible = true
 parent_clue_id = ""
-child_clue_ids = PackedStringArray()
+child_clue_ids = PackedStringArray("1_lin_6_key")
 metadata/_custom_type_script = "uid://cbkmf2phn35d3"

@@ -1,0 +1,10 @@
+[style name="default_visual_novel"]
+join mu_zhi left
+mu_zhi: 需要单独谈谈吗？
+- 邀请私聊
+	set {Ch1.PrivateChat.Target} = "mu"
+	[signal arg="flow:enter_private_chat"]
+	[end_timeline]
+- 暂时不用
+	mu_zhi: 好。
+	[end_timeline]

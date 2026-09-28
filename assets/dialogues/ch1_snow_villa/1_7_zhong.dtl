@@ -21,8 +21,11 @@ label 抉择18
 	jump 抉择18
 - 继续 | [if {Ch1.SecondSearch.Zhong.AskedImpossible} == true and {Ch1.SecondSearch.Zhong.AskedOthers} == true and {Ch1.SecondSearch.Zhong.AskedGrandfather} == true]
 	player: 你还需要调查吗？
-	zhong_qi: 不必了，我刚刚转了一圈，这里的陈设和我记忆中一般无二。实在是太奇怪了，得回去找到其他人。
+	zhong_qi: 不必了，我刚刚转了一圈，这里的陈设和我记忆中一般无二。
+	zhong_qi: 实在是太奇怪了，得回去找到其他人。
 	player: 那就走吧。
 	set {Ch1.SecondSearch.Zhong.Finished} = true
+	do ToastManager.show_notice("任务完成：再展身手", "task", 3.0)
 	leave --All--
+	[signal arg="flow:ch1_second_search_finished"]
 	[end_timeline]

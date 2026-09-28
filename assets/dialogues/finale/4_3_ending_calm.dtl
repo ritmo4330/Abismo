@@ -1,0 +1,14 @@
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="1.5"]
+[style name="plain_text"]
+[signal arg="audio:play_bgm:role_exit:2.5"]
+—— 结局三：风云未起 ——
+
+钟歧最终放下了枪。
+他们拒绝被神明修正，也拒绝以另一次毁灭换取自由。
+维系异墅的能量仍在衰减，远处的风暴仍在酝酿；但在风云真正到来以前，众人获得了一段短暂而真实的清醒。
+
+没有胜利者，也没有被宣判的罪人。只有尚未完成的研究、尚未说尽的歉意，以及一扇被共同守住的门。
+set {Ending.Completed} = true
+set {Ending.Id} = "calm"
+[signal arg="flow:ending_finished"]
+[end_timeline]

@@ -1,0 +1,10 @@
+[style name="default_visual_novel"]
+join wu_ting_xiang left
+wu_ting_xiang: 有新的问题要问我吗？
+- 邀请私聊
+	set {Ch1.PrivateChat.Target} = "wu"
+	[signal arg="flow:enter_private_chat"]
+	[end_timeline]
+- 暂时不用
+	wu_ting_xiang: 那我继续整理笔记。
+	[end_timeline]

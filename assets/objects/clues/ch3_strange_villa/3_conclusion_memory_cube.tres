@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "3_conclusion_memory_cube"
+title = "记忆碎片：白色立方体"
+description = "两个箱庭拼成的白色立方体象征四个叠加世界，而γ世界属于乌停湘。"
+chapter_id = "3"
+room_id = "hall"
+category_path = PackedStringArray("异墅", "记忆碎片")
+tags = PackedStringArray("chapter_3", "memory", "wu", "cube")
+clue_type = "conclusion"
+is_conclusion = true
+highlight_visible = false

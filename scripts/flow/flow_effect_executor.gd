@@ -20,7 +20,9 @@ func execute(effect: RefCounted) -> void:
 
 	match effect.type:
 		FlowEffect.Type.RESET_RUNTIME_STATE:
-			if DataManager != null and DataManager.has_method("reset_runtime_state"):
+			if _owner.has_method("reset_gameplay_runtime"):
+				_owner.reset_gameplay_runtime()
+			elif DataManager != null and DataManager.has_method("reset_runtime_state"):
 				DataManager.reset_runtime_state()
 		FlowEffect.Type.CLEAR_PENDING_AFTER_DIALOGUE:
 			_owner.clear_pending_after_dialogue()

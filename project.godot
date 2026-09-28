@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Abismo"
-run/main_scene="uid://qyyt35714fu4"
+run/main_scene="res://scenes/UI/main_menu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="uid://bmxqm8cbbldj"
@@ -29,9 +29,16 @@ FlowManager="*res://scripts/flow/flow_manager.gd"
 CluePlacementManager="*res://scripts/clues/clue_placement_manager.gd"
 AudioManager="*res://scripts/audio/audio_manager.gd"
 ToastManager="*res://scripts/UI/toast_manager.gd"
+SaveManager="*res://scripts/save_manager.gd"
+TextSpeedManager="*res://scripts/text_speed_manager.gd"
+InteractionFeedback="*res://scripts/UI/interaction_feedback.gd"
 
 [dialogic]
 
+history/simple_history_enabled=true
+history/simple_history_save=true
+history/visited_event_history_enabled=true
+history/save_on_save=true
 directories/dch_directory={
 "butler": "res://assets/characters/npcs/butler.dch",
 "lin_jiu": "res://assets/characters/npcs/lin_jiu.dch",
@@ -88,7 +95,37 @@ directories/dtl_directory={
 "1_6_zhou": "res://assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
 "1_7_all": "res://assets/dialogues/ch1_snow_villa/1_7_all.dtl",
 "1_7_exit": "res://assets/dialogues/ch1_snow_villa/1_7_exit.dtl",
+"1_7_lab_arrival": "res://assets/dialogues/ch1_snow_villa/1_7_lab_arrival.dtl",
 "1_7_zhong": "res://assets/dialogues/ch1_snow_villa/1_7_zhong.dtl",
+"2_1_second_reasoning": "res://assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+"2_2_butler_hall": "res://assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+"2_2_lin": "res://assets/dialogues/ch2_deepening/2_2_lin.dtl",
+"2_2_lin_hall": "res://assets/dialogues/ch2_deepening/2_2_lin_hall.dtl",
+"2_2_mu": "res://assets/dialogues/ch2_deepening/2_2_mu.dtl",
+"2_2_mu_hall": "res://assets/dialogues/ch2_deepening/2_2_mu_hall.dtl",
+"2_2_wu": "res://assets/dialogues/ch2_deepening/2_2_wu.dtl",
+"2_2_wu_hall": "res://assets/dialogues/ch2_deepening/2_2_wu_hall.dtl",
+"2_2_zhong": "res://assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+"2_2_zhong_hall": "res://assets/dialogues/ch2_deepening/2_2_zhong_hall.dtl",
+"2_2_zhou": "res://assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+"2_2_zhou_hall": "res://assets/dialogues/ch2_deepening/2_2_zhou_hall.dtl",
+"2_3_missing_body_found": "res://assets/dialogues/ch2_deepening/2_3_missing_body_found.dtl",
+"2_3_third_search_intro": "res://assets/dialogues/ch2_deepening/2_3_third_search_intro.dtl",
+"2_3_third_search_turn": "res://assets/dialogues/ch2_deepening/2_3_third_search_turn.dtl",
+"2_4_third_reasoning": "res://assets/dialogues/ch2_deepening/2_4_third_reasoning.dtl",
+"2_5_lin": "res://assets/dialogues/ch2_deepening/2_5_lin.dtl",
+"2_5_mu": "res://assets/dialogues/ch2_deepening/2_5_mu.dtl",
+"2_5_wu": "res://assets/dialogues/ch2_deepening/2_5_wu.dtl",
+"2_5_zhong": "res://assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+"2_5_zhou": "res://assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+"2_6_memory_fragments": "res://assets/dialogues/ch2_deepening/2_6_memory_fragments.dtl",
+"2_current_content_complete": "res://assets/dialogues/ch2_deepening/2_current_content_complete.dtl",
+"3_1_route": "res://assets/dialogues/ch3_transcend/3_1_route.dtl",
+"4_1_ending_dust": "res://assets/dialogues/finale/4_1_ending_dust.dtl",
+"4_2_ending_godslayer": "res://assets/dialogues/finale/4_2_ending_godslayer.dtl",
+"4_3_ending_calm": "res://assets/dialogues/finale/4_3_ending_calm.dtl",
+"4_4_ending_clear_snow": "res://assets/dialogues/finale/4_4_ending_clear_snow.dtl",
+"4_5_easter_egg": "res://assets/dialogues/finale/4_5_easter_egg.dtl",
 "test": "res://assets/dialogues/test.dtl"
 }
 layout/style_directory={
@@ -296,6 +333,124 @@ variables={
 }
 }
 },
+"Ch2": {
+"AccusedKiller": "",
+"ContentComplete": {
+"Ready": false,
+"Shown": false
+},
+"MemoryFragments": {
+"Cube": false,
+"Door": false,
+"Flower": false,
+"Started": false
+},
+"SceneRecreation": {
+"Accepted": false
+},
+"SecondPrivate": {
+"Enabled": false,
+"Lin": {
+"Finished": false,
+"Lab": false,
+"Memory": false
+},
+"Mu": {
+"Finished": false,
+"Hidden": false,
+"Scene": false
+},
+"Wu": {
+"Door": false,
+"Finished": false,
+"Notebook": false
+},
+"Zhong": {
+"Finished": false,
+"Meta": false,
+"Research": false
+},
+"Zhou": {
+"Fear": false,
+"Finished": false,
+"Rules": false
+}
+},
+"ThirdPrivate": {
+"Enabled": false,
+"Lin": {
+"Body": false,
+"Finished": false,
+"Memory": false,
+"Records": false
+},
+"Mu": {
+"Choice": false,
+"Church": false,
+"Finished": false,
+"Zhong": false
+},
+"Wu": {
+"Finished": false,
+"Help": false,
+"Lock": false,
+"Notebook": false,
+"Scenes": false
+},
+"Zhong": {
+"Anchor": false,
+"Finished": false,
+"Grandfather": false,
+"Meta": false,
+"Villa": false
+},
+"Zhou": {
+"Experiment": false,
+"Finished": false,
+"Meaning": false,
+"Meta": false
+}
+},
+"ThirdSearch": {
+"BodyKnownBeforeTurn": false,
+"Enabled": false,
+"Finished": false,
+"Order": 0
+}
+},
+"Ch3": {
+"KeyDialogue": {
+"Freedom": false
+},
+"NightmareRecall": {
+"Lin": false,
+"Mu": false,
+"Zhong": false,
+"Zhou": false
+},
+"Route": {
+"Correction": false,
+"Resistance": false,
+"Started": false,
+"Transcend": false
+},
+"Weapon": {
+"Fired": false
+}
+},
+"Ending": {
+"Calm": false,
+"ClearSnow": false,
+"Completed": false,
+"Dust": false,
+"Godslayer": false,
+"Id": ""
+},
+"Epilogue": {
+"Completed": false,
+"NarratorGuess": "",
+"RealPlayerName": ""
+},
 "MetaName": "梅塔",
 "PlayerGender": "",
 "PlayerName": "",
@@ -351,6 +506,8 @@ animations/cross_fade_default="Fade Cross"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="viewport"
 
 [editor_plugins]

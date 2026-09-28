@@ -1,0 +1,18 @@
+[style name="default_visual_novel"]
+join mu_zhi left
+mu_zhi: 在梦境里，人的记忆会变成房间。你想知道我看见了什么？
+label 问题
+- 暗门后的景象 | [if {Ch2.SecondPrivate.Mu.Scene} != true]
+	mu_zhi: 一座烧毁的旧教堂。火焰早已熄灭，墙上的圣像却在注视我。那场火是我信仰发生改变的起点。
+	set {Ch2.SecondPrivate.Mu.Scene} = true
+	jump 问题
+- 你在隐瞒什么 | [if {Ch2.SecondPrivate.Mu.Hidden} != true]
+	mu_zhi: 我曾以“拯救”为名做过无法挽回的选择。若这里会把恐惧化为现实，你迟早会看见答案。
+	set {Ch2.SecondPrivate.Mu.Hidden} = true
+	set {Affinity.Mu} += 5
+	jump 问题
+- 暂时没有问题了
+	set {Ch2.SecondPrivate.Mu.Finished} = true
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]

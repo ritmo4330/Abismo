@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "2_zhou_sleep_roster"
+title = "睡眠实验名册"
+description = "孤儿院名册旁附有睡眠实验观察记录，其中一名儿童的状态被标注为“未苏醒”。"
+chapter_id = "2"
+room_id = "room_zhou_chong_an"
+category_path = PackedStringArray("梦墅", "第三轮搜证")
+tags = PackedStringArray("chapter_2", "subconscious", "zhou")
+clue_type = "scene_evidence"
+highlight_visible = true

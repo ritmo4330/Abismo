@@ -1,0 +1,16 @@
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="1.5"]
+[style name="plain_text"]
+[signal arg="audio:play_bgm:role_exit:2.5"]
+—— 结局四：风雪初霁 ——
+
+乌停湘没有选择服从，也没有选择毁灭。
+在所有人说出梦魇与真相以后，四个世界第一次以平等的方式彼此相望。
+梅塔撤去用于抽取能量的红线，与众人订立不交换物质与能量、只允许观察与交流的跨界契约。
+
+穆执放下错误的信仰，周崇安公开研究与罪责，林玖不再否定母亲与自己，钟歧也终于理解那场跨越世界的寻找。
+积雪从屋檐坠落。花海重新迎来晨光，停滞的时针越过零点。
+风雪初霁，世界并未因此完美，却终于拥有了不被规定的未来。
+set {Ending.Completed} = true
+set {Ending.Id} = "clear_snow"
+[signal arg="flow:ending_finished"]
+[end_timeline]

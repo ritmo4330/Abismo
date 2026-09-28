@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "3_suspicion_god_weapon"
+title = "弑神的武器"
+description = "研究所中的手枪与银弹能否反制来自上界的管理者？"
+chapter_id = "3"
+category_path = PackedStringArray("异墅", "主线疑点")
+tags = PackedStringArray("chapter_3", "weapon", "god")
+required_clue_ids = PackedStringArray("3_mei_4")
+match_mode = "exact"
+conclusion_clue_id = "3_conclusion_god_weapon"

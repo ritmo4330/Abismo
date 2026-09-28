@@ -1,0 +1,32 @@
+[style name="default_visual_novel"]
+join butler left
+if {Ch2.ThirdPrivate.Enabled} == true:
+	butler: 自由调查已经开放。你可以继续和众人交谈，或检查推理手册整理线索。
+	[end_timeline]
+if {Ch2.ThirdSearch.Enabled} == true:
+	jump 搜证结束
+butler: 第二轮单独交流结束后，我们就开始第三轮搜证。
+- 开始第三轮搜证 | [if {Ch2.SecondPrivate.Mu.Finished} == true and {Ch2.SecondPrivate.Zhou.Finished} == true and {Ch2.SecondPrivate.Lin.Finished} == true and {Ch2.SecondPrivate.Wu.Finished} == true and {Ch2.SecondPrivate.Zhong.Finished} == true]
+	butler: 明白。我会在二楼楼梯口等候，其他人留在大厅。
+	set {Ch2.ThirdSearch.Enabled} = true
+	[signal arg="flow:start_third_search"]
+	[end_timeline]
+- 私聊还没有全部完成 | [if {Ch2.SecondPrivate.Mu.Finished} != true or {Ch2.SecondPrivate.Zhou.Finished} != true or {Ch2.SecondPrivate.Lin.Finished} != true or {Ch2.SecondPrivate.Wu.Finished} != true or {Ch2.SecondPrivate.Zhong.Finished} != true]
+	butler: 请先和五位嫌疑人完成这一轮单独交流，再开始下一轮调查。
+	[end_timeline]
+- 再等等
+	butler: 好的。
+	[end_timeline]
+
+label 搜证结束
+butler: 调查结束了吗？
+- 调查完了 | [if {Ch2.ThirdSearch.Finished} == true]
+	butler: 明白了，我们回大厅吧。
+	[signal arg="flow:start_third_reasoning"]
+	[end_timeline]
+- 调查完了 | [if {Ch2.ThirdSearch.Finished} != true]
+	butler: 各个潜意识房间里还有值得核对的痕迹。再看看吧。
+	[end_timeline]
+- 稍等一下
+	butler: 我会在这里等你。
+	[end_timeline]

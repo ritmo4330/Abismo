@@ -16,5 +16,8 @@ extends Resource
 @export var interact_id: String = ""
 @export var source_id: String = ""
 @export var prompt_offset: Vector2 = Vector2.ZERO
+@export var followup_timeline: String = ""
+@export var followup_required_clue_ids: PackedStringArray = PackedStringArray()
+@export var followup_once_flag: String = ""
 
 @export var scene_path: String = "res://scenes/objects/clue_item.tscn"

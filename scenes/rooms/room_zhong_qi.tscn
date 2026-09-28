@@ -102,6 +102,21 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_4h018")
 centered = false
 
+[node name="OpenWardrobeInterior" type="Polygon2D" parent="Scene/FurnitureLayer"]
+z_index = 2
+polygon = PackedVector2Array(950, 421, 1253, 421, 1253, 640, 950, 640)
+color = Color(0.055, 0.045, 0.04, 0.96)
+
+[node name="OpenWardrobeDoorLeft" type="Polygon2D" parent="Scene/FurnitureLayer"]
+z_index = 3
+polygon = PackedVector2Array(950, 421, 1005, 450, 1005, 618, 950, 640)
+color = Color(0.24, 0.18, 0.13, 1)
+
+[node name="OpenWardrobeDoorRight" type="Polygon2D" parent="Scene/FurnitureLayer"]
+z_index = 3
+polygon = PackedVector2Array(1253, 421, 1197, 450, 1197, 618, 1253, 640)
+color = Color(0.24, 0.18, 0.13, 1)
+
 [node name="FurnitureCollisions" type="StaticBody2D" parent="Scene/FurnitureLayer" unique_id=2130894747]
 
 [node name="Bed" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=187887096]

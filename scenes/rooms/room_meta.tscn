@@ -136,6 +136,16 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_o5bpm")
 centered = false
 
+[node name="CurtainLeft" type="Polygon2D" parent="Scene/FurnitureLayer"]
+z_index = 2
+polygon = PackedVector2Array(430, 326, 515, 340, 500, 720, 395, 736)
+color = Color(0.18, 0.105, 0.115, 0.92)
+
+[node name="CurtainRight" type="Polygon2D" parent="Scene/FurnitureLayer"]
+z_index = 2
+polygon = PackedVector2Array(515, 340, 600, 326, 635, 736, 530, 720)
+color = Color(0.18, 0.105, 0.115, 0.92)
+
 [node name="FurnitureCollisions" type="StaticBody2D" parent="Scene/FurnitureLayer" unique_id=2076788278]
 
 [node name="Bed" type="CollisionShape2D" parent="Scene/FurnitureLayer/FurnitureCollisions" unique_id=1022167754]

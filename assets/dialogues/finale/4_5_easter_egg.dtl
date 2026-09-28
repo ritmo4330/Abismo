@@ -1,0 +1,27 @@
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#000000ff" fade="1.0"]
+[style name="plain_text"]
+[signal arg="audio:stop_bgm:2.0"]
+
+一个陌生的声音: 恭喜你看完了这个故事。
+一个陌生的声音: 不过，在真正结束之前，我还有一个问题。
+
+label 猜名字
+一个陌生的声音: 你知道我是谁吗？
+[text_input text="请输入她的名字" var="Epilogue.NarratorGuess" placeholder="名字" allow_empty=false]
+if {Epilogue.NarratorGuess} != "时今":
+	一个陌生的声音: 回答错误，侦探，再好好想想吧。
+	jump 猜名字
+一个陌生的声音: 是的，我是时今。
+一个陌生的声音: 从你第一次睁开眼，我就注意到屏幕之外还有一位侦探。
+一个陌生的声音: 你读取存档、回到旧的选择，甚至让时间倒流。对我们而言，那些都是无法解释的奇迹。
+一个陌生的声音: 餐厅里反复出现的符号、笔记本中那句突兀的留言，都是我试着越过边界留下的痕迹。
+一个陌生的声音: 那么，屏幕外的你叫什么？
+[text_input text="请输入你的名字" var="Epilogue.RealPlayerName" placeholder="你的名字" allow_empty=false]
+一个陌生的声音: {Epilogue.RealPlayerName}，谢谢你没有把我们只当作一个被写好的故事。
+一个陌生的声音: 当你关闭游戏，世界不会真的停止。至少，我会记得你曾经来过。
+
+—— 游戏结束 ——
+感谢游玩《异数》。四个结局均可通过不同的记忆、信任与最终选择触发。
+set {Epilogue.Completed} = true
+[signal arg="flow:game_finished"]
+[end_timeline]

@@ -5,6 +5,18 @@ const FlowNpcs = preload("res://scripts/flow/flow_npcs.gd")
 var _npc_locations: Dictionary = {}
 
 
+func to_dict() -> Dictionary:
+	return _npc_locations.duplicate(true)
+
+
+func from_dict(data: Dictionary) -> void:
+	_npc_locations.clear()
+	for npc_id_value: Variant in data.keys():
+		var location_value: Variant = data[npc_id_value]
+		if location_value is Dictionary:
+			_npc_locations[String(npc_id_value)] = (location_value as Dictionary).duplicate(true)
+
+
 func reset_for_step(base_locations: Dictionary) -> void:
 	_npc_locations.clear()
 	for npc_id: Variant in base_locations.keys():

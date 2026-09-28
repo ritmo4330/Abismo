@@ -3,7 +3,8 @@ extends Area2D
 
 @export var player: Player
 @export var prompt_sprite_frames: SpriteFrames = preload("res://assets/UI/key_F_frames.tres")
-@export var prompt_vertical_padding: float = 8.0
+@export_range(1.0, 6.0, 0.25) var prompt_scale: float = 2.5
+@export var prompt_vertical_padding: float = 14.0
 
 var _interactables: Array[Interactable] = []
 var _current_target: Interactable = null
@@ -35,6 +36,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if _current_target == null:
 		return
+	if InteractionFeedback != null:
+		InteractionFeedback.show_world_interaction(_current_target)
 	_current_target.interact(player)
 
 
@@ -98,7 +101,8 @@ func _ensure_prompt_ui() -> void:
 	_prompt_ui = AnimatedSprite2D.new()
 	_prompt_ui.name = "InteractionPrompt"
 	_prompt_ui.top_level = true
-	_prompt_ui.z_index = 100
+	_prompt_ui.z_index = 500
+	_prompt_ui.scale = Vector2.ONE * prompt_scale
 	_prompt_ui.visible = false
 
 	if prompt_sprite_frames != null:
@@ -125,16 +129,17 @@ func _get_prompt_global_position(interactable: Interactable) -> Vector2:
 
 	var anchor_x: float = collision_shape.global_position.x
 	var top_y: float = collision_shape.global_position.y
+	var shape_scale: Vector2 = collision_shape.global_scale.abs()
 
 	if collision_shape.shape is RectangleShape2D:
 		var rectangle_shape: RectangleShape2D = collision_shape.shape as RectangleShape2D
-		top_y -= rectangle_shape.size.y * 0.5
+		top_y -= rectangle_shape.size.y * 0.5 * shape_scale.y
 	elif collision_shape.shape is CircleShape2D:
 		var circle_shape: CircleShape2D = collision_shape.shape as CircleShape2D
-		top_y -= circle_shape.radius
+		top_y -= circle_shape.radius * shape_scale.y
 	elif collision_shape.shape is CapsuleShape2D:
 		var capsule_shape: CapsuleShape2D = collision_shape.shape as CapsuleShape2D
-		top_y -= capsule_shape.height * 0.5 + capsule_shape.radius
+		top_y -= capsule_shape.height * 0.5 * shape_scale.y
 
 	return Vector2(anchor_x, top_y - prompt_vertical_padding) + interactable.prompt_offset
 

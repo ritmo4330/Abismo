@@ -2,10 +2,6 @@
 join zhong_qi left
 zhong_qi: 问吧。
 label 选择
-- 来到别墅的原因
-	zhong_qi: 梅塔要来抓我，我打算躲在山深处避一避，没成想正好掉进了他的圈套。好在他死了，人不是我杀的，但我要感谢这个除害的凶手。
-	set {Ch1.PrivateChat.Zhong.Asked.Reason} = true
-	jump 选择
 - 与死者的关系
 	zhong_qi: 梅塔是一个疯子。
 	zhong_qi: 他暗中抓捕有能力探索世界之理的人，以精神治疗为借口囚禁在他的“十七号精神卫生中心”。

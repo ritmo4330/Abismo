@@ -1,0 +1,85 @@
+[style name="default_visual_novel"]
+你和钟歧走出储物间时，发现除了林玖之外，所有人都已经回到了大厅。
+等待一段时间后，林玖也从储物间走了出来。
+（所有人回到大厅）
+join lin_jiu left
+lin_jiu: 你们到哪里去了？为什么我没有见你们？
+你首先向所有人分享了自己在储物间暗门下的所见，大家的脸上露出了疑惑的神情。
+lin_jiu: 不对……我看到的是异测会的研究所。
+join wu_ting_xiang right
+wu_ting_xiang: 啊？那不是一条死路吗？我走到头什么都没有。
+join zhong_qi left
+zhong_qi: 你们在说什么？我和{PlayerName}是一起看到的，的确是我爷爷的研究所，但它不可能出现在这里。
+join zhou_chong_an right
+zhou_chong_an: 说得通了……各位请听我一言，我们现在在梦里。
+join mu_zhi left
+mu_zhi: 周先生，这是什么意思？你是指我们是你梦中的角色吗？
+zhou_chong_an: 不，我不怀疑你们的自主意识。
+zhou_chong_an: 无论你们是否相信，我们的意识被连通到了同一个梦境中，因为只有这才能解释我们在储物间暗门下看到的东西。
+zhou_chong_an: 我们看到的东西不一样，是因为梦境的场景必须以现实为蓝本。
+zhou_chong_an: 而我们经历的现实不一样，才能在同一处地点看到不同的场景。
+周崇安似乎对梦境很了解……先听听他说。
+zhou_chong_an: 但我没有想明白的是，为什么我们会被连通到这同一个梦境中，这想必并非偶然。
+zhou_chong_an: 恐怕有人计划了这一切……
+zhou_chong_an: 各位，我们在梦里，所以梅塔的死并不重要。
+zhou_chong_an: 我们现在要做的事情应该是找到是谁计划了这一切，找到离开梦境的方法。
+wu_ting_xiang: 梦……
+zhou_chong_an: 如果这个幕后黑手不肯自己站出来，就只能由我们把他揪出来了。
+zhou_chong_an: 既然意识到这里是梦境，我们就可以借此探查其他人的潜意识。
+zhou_chong_an: 正好每个人都有自己对应的房间。我们可以通过各个房间的门，去到每个人在现实世界中的房间。
+zhong_qi: ……居然对梦境这么了解吗。
+zhou_chong_an: 在场一定有不比我了解得少的人。为了让各位信任我，我会告诉各位我所知道的梦境七大规则。
+zhou_chong_an: 一、梦境中的场景必须以现实中的场景为蓝本，或是多个不同场景的融合。
+zhou_chong_an: 二、梦境中的场景能随梦中人心意的改变而改变，且无需过渡。
+zhou_chong_an: 三、在梦境中，无论多么荒诞不经的事情，都有可能发生。
+zhou_chong_an: 四、梦境中的物品能随梦中人心意的改变而出现，但出现的过程不可被观测。
+zhou_chong_an: 五、梦境中受到的伤害不会使梦中人死亡，但会使恐惧值不断累加。
+zhou_chong_an: 六、足够强的神经刺激可以让人醒来；恐惧达到阈值也会惊醒，但会造成难以逆转的精神损害，也就是“梦魇”。
+zhou_chong_an: 七、梦境中的时间远慢于现实。现实中的一单位时间，约等于梦境中的十二单位时间。
+lin_jiu: 一……十二……嗯，周院长，我相信你。
+wu_ting_xiang: 嗯，我跟林姐姐一样。
+zhong_qi: 如果是这样，我们的管家是不是应该解释一下——你知道这里是梦境吗？
+join butler right
+butler: 我并没有这方面的认知。我的任务只有两条：调查杀死主人的凶手，以及调查你们恐惧至极的事物。
+butler: 至于梦境也好，现实也罢，不是我需要考虑的事情。
+zhou_chong_an: ……总之，如果各位想调查出背后的真相，请把重点放在我们出现在这里的原因上。
+do DataManager.add_suspicion("2_suspicion_dream_space", "dialogue", "2_1_second_reasoning")
+butler: 那么，接下来有两个目标：继续追查凶手，同时找出每个人心底最深的恐惧。
+do ToastManager.show_notice("记录疑点：梦境空间", "suspicion", 3.0)
+zhong_qi: 还有一件事，是我和林玖交流后确认过的——我和她来自不同的平行世界。
+zhong_qi: 在我的世界里，林玖曾在初中时送给我一个灯塔形状的木雕。
+lin_jiu: 但我没有把那个木雕送给你，停湘也能证明这一点。
+zhong_qi: 我的爷爷正带领科研团队验证平行世界的假说。现在看来，平行世界的确存在。
+lin_jiu: 不同平行世界之间有差异，也有相似之处。同名甚至同貌的人，必然在某些经历上相似——但也仅仅是某些。
+wu_ting_xiang: 我和林姐姐应该是一个世界的，我们的记忆没有偏差，而且我们也是一起来的。
+zhou_chong_an: 如果是这样的话，那我是哪个世界的？
+zhong_qi: 你知道十七号精神卫生中心吗？
+zhou_chong_an: 不知道。
+wu_ting_xiang: 周院长，你知道黑门事件吗？
+zhou_chong_an: 不知道。
+wu_ting_xiang: 所以你也不是我们世界的周院长……还有第三个平行世界。
+mu_zhi: 这两个名词，是我应该知道的吗？
+wu_ting_xiang: 如果你不知道黑门事件，那你一定不是我们世界的人。
+zhong_qi: 穆执，你认识我，对吧？
+mu_zhi: 对。你从梅塔那里逃出来后，我收留了你。
+zhong_qi: 不对，是周叔叔把我暂时安顿在穆执家中。你也不是我这个世界的。
+zhou_chong_an: 穆执，你的信仰是什么？
+mu_zhi: 我信仰上界教派。
+zhou_chong_an: ……我那个世界的穆执是基督教徒。我从没听说过“上界教派”。已经有四个平行世界了。
+label 抉择19
+player: 那我们该如何验证？
+- 逐一比对共同记忆
+	zhong_qi: 正合我意。共同事件中的差异，就是世界分岔留下的接缝。
+	set {Affinity.Zhong} += 5
+- 先寻找梦境的出口
+	zhou_chong_an: 可以，但出口与凶案恐怕是同一个问题的两面。
+- 暂时保留判断
+	lin_jiu: 谨慎是好事。至少我们已经知道，眼前的“常识”不能全信。
+do DataManager.add_suspicion("2_suspicion_parallel_worlds", "dialogue", "2_1_second_reasoning")
+do ToastManager.show_notice("记录疑点：平行世界", "suspicion", 3.0)
+butler: 我会开放新一轮单独交流。准备好之后，再来找我开始下一轮调查。
+set {Ch2.SecondPrivate.Enabled} = true
+do ToastManager.show_notice("获得任务：暗流交汇", "task", 3.0)
+leave --All--
+[signal arg="flow:enable_second_private_chat"]
+[end_timeline]

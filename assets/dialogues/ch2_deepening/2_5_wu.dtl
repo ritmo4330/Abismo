@@ -1,0 +1,39 @@
+[style name="default_visual_novel"]
+join wu_ting_xiang left
+wu_ting_xiang: 密码本上的下划线不是随手画的。它们像是在告诉我，该从哪些场景开始找回记忆。
+label 问题
+- 关于密码0909 | [if {Ch2.ThirdPrivate.Wu.Notebook} != true]
+	wu_ting_xiang: 0909是我第一次见到林姐姐的日期。可我翻遍了孤儿院的记录，那一天本来不该有新孩子入住。
+	set {Ch2.ThirdPrivate.Wu.Notebook} = true
+	jump 问题
+- 花海与白色立方体 | [if {Ch2.ThirdPrivate.Wu.Scenes} != true]
+	wu_ting_xiang: 花海里有一个看不清脸的女人，白色立方体中则总有人叫我的名字。
+	wu_ting_xiang: 它们不是互不相干的梦，而是同一段记忆被拆开后的两端。
+	set {Ch2.ThirdPrivate.Wu.Scenes} = true
+	jump 问题
+- 那扇木门 | [if {Ch2.ThirdPrivate.Wu.Lock} != true]
+	wu_ting_xiang: 它看起来像孤儿院地下室的门，但我现在觉得，那也是我给自己记忆上的锁。
+	wu_ting_xiang: 门后的事与林姐姐有关，也与我为什么会忘记过去有关。
+	set {Ch2.ThirdPrivate.Wu.Lock} = true
+	jump 问题
+- 我会帮你复现场景 | [if {Ch2.SceneRecreation.Accepted} == true and {Ch2.ThirdPrivate.Wu.Help} != true]
+	wu_ting_xiang: 谢谢。无论门后是什么，这次我不想再让别人替我承担。
+	set {Affinity.Wu} += 5
+	set {Ch2.ThirdPrivate.Wu.Help} = true
+	jump 问题
+- 关于复现场景 | [if {Ch2.SceneRecreation.Accepted} != true and {Ch2.ThirdPrivate.Wu.Help} != true]
+	wu_ting_xiang: 我知道你有更重要的事。即使没有你的帮助，我也会试着把那些场景拼起来。
+	set {Ch2.ThirdPrivate.Wu.Help} = true
+	jump 问题
+- 结束私聊 | [if {Ch2.ThirdPrivate.Wu.Notebook} == true and {Ch2.ThirdPrivate.Wu.Scenes} == true and {Ch2.ThirdPrivate.Wu.Lock} == true and {Ch2.ThirdPrivate.Wu.Help} == true]
+	wu_ting_xiang: 好。我会继续整理笔记，有新的记忆就告诉你。
+	set {Ch2.ThirdPrivate.Wu.Finished} = true
+	do ToastManager.show_notice("人物信息已更新：乌停湘", "profile", 2.5)
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]
+- 暂时离开 | [if {Ch2.ThirdPrivate.Wu.Notebook} != true or {Ch2.ThirdPrivate.Wu.Scenes} != true or {Ch2.ThirdPrivate.Wu.Lock} != true or {Ch2.ThirdPrivate.Wu.Help} != true]
+	wu_ting_xiang: 好。密码本里还有没谈完的部分，之后再来找我吧。
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]

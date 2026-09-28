@@ -25,7 +25,7 @@ y_sort_enabled = true
 [node name="StudyChair" type="Area2D" parent="Interactables" index="0" unique_id=927392712]
 position = Vector2(811, 958)
 script = ExtResource("3_chair")
-required_clue_ids = PackedStringArray("1_study_1", "1_study_7", "1_study_2")
+required_clue_ids = PackedStringArray("1_study_1", "1_study_2", "1_study_3", "1_study_4", "1_study_5")
 interact_id = "ch1_study_chair"
 prompt_offset = Vector2(0, -18)
 highlight_enabled = true
@@ -41,4 +41,4 @@ position = Vector2(1376, 735)
 position = Vector2(426, 511)
 
 [node name="StudyQuote" type="Marker2D" parent="ClueSpawnPoints" parent_id_path=PackedInt32Array(1215688022) index="2" unique_id=1338757671]
-position = Vector2(908, 519)
+position = Vector2(715, 1034)

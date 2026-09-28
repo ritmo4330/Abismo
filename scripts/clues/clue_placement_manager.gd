@@ -154,6 +154,9 @@ func _spawn_clue_item(placement: CluePlacementData, room: Node2D) -> void:
 	clue_item.interact_id = _resolve_interact_id(placement)
 	clue_item.source_id = _resolve_source_id(placement)
 	clue_item.prompt_offset = placement.prompt_offset
+	clue_item.followup_timeline = placement.followup_timeline
+	clue_item.followup_required_clue_ids = placement.followup_required_clue_ids
+	clue_item.followup_once_flag = placement.followup_once_flag
 
 	dynamic_root.add_child(clue_item)
 	clue_item.global_position = spawn_point.global_position

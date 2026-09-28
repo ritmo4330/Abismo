@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "2_suspicion_dream_space"
+title = "梦境空间"
+description = "众人的意识被连通到同一个梦境，不同的人却能在同一入口后看见各自现实中的场景。是谁构建并操控了这里？"
+chapter_id = "2"
+category_path = PackedStringArray("梦墅", "主线疑点")
+tags = PackedStringArray("chapter_2", "dream_villa", "main")
+required_clue_ids = PackedStringArray()
+match_mode = "exact"
+conclusion_clue_id = ""

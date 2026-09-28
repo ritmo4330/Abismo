@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/scenes/chapter_title.gd" id="1"]
+
+[node name="GameComplete" type="Node2D"]
+script = ExtResource("1")
+chapter_label = "游戏结束"
+title_text = "感谢游玩《异数》"
+finished_event = ""
+display_seconds = 8.0
+next_scene_path = "res://scenes/UI/main_menu.tscn"
+
+[node name="InitialSpawn" type="Marker2D" parent="."]

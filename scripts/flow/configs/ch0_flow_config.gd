@@ -42,6 +42,9 @@ static func create_definition() -> RefCounted:
 		]),
 	}
 	definition.event_transitions = {
+		FlowEvents.PROLOGUE_TITLE_FINISHED: FlowTransition.immediate([
+			FlowEffect.request_scene(FlowScenes.CH0_BLACK_SCREEN, "InitialSpawn", FlowTimelines.CH0_IDENTITY),
+		]),
 		FlowEvents.CH0_IDENTITY_FINISHED: FlowTransition.after_dialogue([
 			FlowEffect.set_step(FlowSteps.CH0_PROLOGUE_STORY),
 			FlowEffect.request_scene(FlowScenes.CH0_BLACK_SCREEN, "InitialSpawn", FlowTimelines.CH0_PROLOGUE),
@@ -72,6 +75,14 @@ static func create_definition() -> RefCounted:
 		FlowEvents.CH0_HALL_ARRIVAL_FINISHED: FlowTransition.after_dialogue([
 			FlowEffect.set_step(FlowSteps.CH0_LOGO),
 			FlowEffect.request_scene(FlowScenes.CH0_LOGO, "InitialSpawn"),
+		]),
+		FlowEvents.CH0_LOGO_FINISHED: FlowTransition.immediate([
+			FlowEffect.request_scene(FlowScenes.CHAPTER1_TITLE, "InitialSpawn"),
+		]),
+		FlowEvents.CHAPTER1_TITLE_FINISHED: FlowTransition.immediate([
+			FlowEffect.set_state(FlowChapters.CH1, FlowSteps.CH1_STUDY_WAKE),
+			FlowEffect.set_character_name_state("all_unknown"),
+			FlowEffect.request_scene(FlowScenes.CH1_STUDY, "SpawnFromChair", FlowTimelines.CH1_STUDY_WAKE),
 		]),
 	}
 	return definition

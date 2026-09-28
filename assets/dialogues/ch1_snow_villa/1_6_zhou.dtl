@@ -2,10 +2,6 @@
 join zhou_chong_an left
 label 选择
 zhou_chong_an: 有什么事吗？
-- 来到别墅的原因
-	zhou_chong_an: 我来到这座山上有一些事情要处理，下山的时候突然遇到暴风雪，幸好能找到这幢别墅让我避避风雪。
-	set {Ch1.PrivateChat.Zhou.Asked.Reason} = true
-	jump 选择
 - 与死者的关系 | [if {Affinity.Zhou} <= 70]
 	zhou_chong_an: 我认识他，但他不一定是我认识的那个人。
 	set {Ch1.PrivateChat.Zhou.Asked.Dead} = true

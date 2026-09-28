@@ -49,6 +49,8 @@ func spawn_npc(
 		existing_npc.queue_free()
 
 	var npc_scene_path: String = String(spawn_data.get("scene", FlowScenes.NPC))
+	if npc_scene_path.is_empty():
+		npc_scene_path = FlowScenes.NPC
 	var scene: PackedScene = load(npc_scene_path) as PackedScene
 	if scene == null:
 		push_warning("Flow actor spawner: unable to load NPC scene '%s'." % npc_scene_path)

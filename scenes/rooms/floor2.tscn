@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bwb3yceljgimf" path="res://assets/interior/二楼走廊地板墙面.png" id="2_eu8ld"]
 [ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="4_eu8ld"]
 [ext_resource type="Script" uid="uid://w4c4wuwddlye" path="res://scripts/scenes/passage.gd" id="5_m8j1w"]
+[ext_resource type="PackedScene" path="res://scenes/objects/stairs_visual.tscn" id="9_stairs_visual"]
 [ext_resource type="Texture2D" uid="uid://rnh6xxutw1mh" path="res://assets/interior/二楼走廊地毯.png" id="5_puykv"]
 [ext_resource type="Texture2D" uid="uid://c8jsjsj1h33fa" path="res://assets/interior/二楼走廊栏杆.png" id="6_xhfwe"]
 
@@ -47,7 +48,7 @@ size = Vector2(74, 383.84375)
 size = Vector2(74, 1196.4609)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ia6ke"]
-size = Vector2(215.5, 55.8125)
+size = Vector2(260, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qslkk"]
 size = Vector2(38, 273)
@@ -163,13 +164,19 @@ centered = false
 
 [node name="Doors" type="Node2D" parent="Scene" unique_id=1067666787]
 
+[node name="StairsVisualLeft" parent="Scene" instance=ExtResource("9_stairs_visual")]
+position = Vector2(820, 646)
+
+[node name="StairsVisualRight" parent="Scene" instance=ExtResource("9_stairs_visual")]
+position = Vector2(1842, 646)
+
 [node name="HallLeft" type="Area2D" parent="Scene/Doors" unique_id=1171518174]
 script = ExtResource("5_m8j1w")
 target_scene_path = "uid://4k1fp08quy17"
 target_spawn_point = "SpawnFromFloor2Left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/HallLeft" unique_id=1760409944]
-position = Vector2(820, 744)
+position = Vector2(820, 704)
 shape = SubResource("RectangleShape2D_ia6ke")
 
 [node name="HallRight" type="Area2D" parent="Scene/Doors" unique_id=2011165499]
@@ -178,7 +185,7 @@ target_scene_path = "uid://4k1fp08quy17"
 target_spawn_point = "SpawnFromFloor2Right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/HallRight" unique_id=1831483847]
-position = Vector2(1842, 745)
+position = Vector2(1842, 704)
 shape = SubResource("RectangleShape2D_ia6ke")
 
 [node name="RoomZhou" type="Area2D" parent="Scene/Doors" unique_id=1713368441]

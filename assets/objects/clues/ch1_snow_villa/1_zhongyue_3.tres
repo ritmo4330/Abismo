@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1_clue"]
+
+[resource]
+script = ExtResource("1_clue")
+id = "1_zhongyue_3"
+title = "工作清单"
+description = "研究所墙上贴着用于验证平行世界理论的工作清单。一旁还有两行手写文字：“探索连接脑电波的方法，找到钟歧”——其中“找到”已经被打上对勾；以及“那些出现在他梦境中的红色线状物是什么？”"
+chapter_id = "1"
+room_id = "zhong_yue_lab"
+category_path = PackedStringArray("梦墅", "钟岳研究所")
+tags = PackedStringArray("chapter_1", "second_search", "scene")
+clue_type = "document"
+child_clue_ids = PackedStringArray()
+

@@ -3,7 +3,8 @@ label 调查出入口
 调查完毕，准备离开了？
 label 抉择17
 - 调查完了 | [if {Ch1.SecondSearch.Finished} == true]
-	jump 1_7_zhong
+	[signal arg="flow:continue_second_search_exit"]
+	[end_timeline]
 - 调查完了 | [if {Ch1.SecondSearch.Finished} != true]
 	好像还有值得注意的线索，再看看吧。
 	jump 抉择17

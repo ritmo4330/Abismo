@@ -1,0 +1,10 @@
+[style name="default_visual_novel"]
+join zhou_chong_an left
+zhou_chong_an: 想讨论梦境，还是想了解我？
+- 邀请私聊
+	set {Ch1.PrivateChat.Target} = "zhou"
+	[signal arg="flow:enter_private_chat"]
+	[end_timeline]
+- 暂时不用
+	zhou_chong_an: 随时都可以。
+	[end_timeline]

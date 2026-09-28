@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1_clue"]
+
+[resource]
+script = ExtResource("1_clue")
+id = "1_zhongyue_2"
+title = "钟岳笔记本"
+description = "在挂有“钟岳”铭牌的储物柜中找到一本笔记本。研究清单显示，钟岳等人正在研究平行世界，却始终难以突破瓶颈。他们猜测多个世界会因普朗克常数的差异而叠加存在，但即使掌握了量子力学的终极秘密，仍无法联通不同的平行世界，仿佛正被某种力量阻止。"
+chapter_id = "1"
+room_id = "zhong_yue_lab"
+category_path = PackedStringArray("梦墅", "钟岳研究所")
+tags = PackedStringArray("chapter_1", "second_search", "scene")
+clue_type = "document"
+child_clue_ids = PackedStringArray()
+

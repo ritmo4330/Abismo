@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "1_suspicion_butler_request_wu"
+title = "乌停湘的梦魇"
+description = "管家委托你找出各位恐惧至极的事物。乌停湘的答案仍待确认。"
+chapter_id = "1"
+category_path = PackedStringArray("雪墅", "管家的委托")
+tags = PackedStringArray("chapter_1", "snow_villa", "nightmare", "wu")
+required_clue_ids = PackedStringArray("1_wu_1", "1_testimony_7_wu", "1_testimony_5_all")
+match_mode = "exact"
+conclusion_clue_id = "1_conclusion_butler_request_wu"

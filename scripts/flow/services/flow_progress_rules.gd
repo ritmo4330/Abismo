@@ -7,6 +7,8 @@ const FlowSteps = preload("res://scripts/flow/flow_steps.gd")
 const FlowTimelines = preload("res://scripts/flow/flow_timelines.gd")
 
 var _last_initial_search_missing_signature: String = ""
+var _last_second_search_missing_signature: String = ""
+var _last_third_search_missing_signature: String = ""
 
 
 func are_manual_panels_unlocked(
@@ -50,6 +52,29 @@ func evaluate_initial_search_finished(current_step_id: String, required_clue_ids
 	}
 
 
+func evaluate_second_search_finished(current_step_id: String, required_clue_ids: Array) -> Dictionary:
+	if current_step_id != FlowSteps.CH1_SECOND_SEARCH:
+		return {"applies": false, "finished": false, "missing_clue_ids": []}
+
+	var missing_clue_ids: Array[String] = _get_missing_required_clues(required_clue_ids)
+	return {
+		"applies": true,
+		"finished": missing_clue_ids.is_empty(),
+		"missing_clue_ids": missing_clue_ids,
+	}
+
+
+func evaluate_third_search_finished(current_step_id: String, required_clue_ids: Array) -> Dictionary:
+	if current_step_id != FlowSteps.CH2_THIRD_SEARCH:
+		return {"applies": false, "finished": false, "missing_clue_ids": []}
+	var missing_clue_ids: Array[String] = _get_missing_required_clues(required_clue_ids)
+	return {
+		"applies": true,
+		"finished": missing_clue_ids.is_empty(),
+		"missing_clue_ids": missing_clue_ids,
+	}
+
+
 func log_initial_search_missing_clues(missing_clue_ids: Array[String]) -> void:
 	var signature: String = ",".join(missing_clue_ids)
 	if signature == _last_initial_search_missing_signature:
@@ -60,6 +85,30 @@ func log_initial_search_missing_clues(missing_clue_ids: Array[String]) -> void:
 
 func clear_initial_search_missing_log() -> void:
 	_last_initial_search_missing_signature = ""
+
+
+func log_second_search_missing_clues(missing_clue_ids: Array[String]) -> void:
+	var signature: String = ",".join(missing_clue_ids)
+	if signature == _last_second_search_missing_signature:
+		return
+	_last_second_search_missing_signature = signature
+	push_warning("Ch1 second search is not finished. Missing clues: %s" % signature)
+
+
+func clear_second_search_missing_log() -> void:
+	_last_second_search_missing_signature = ""
+
+
+func log_third_search_missing_clues(missing_clue_ids: Array[String]) -> void:
+	var signature: String = ",".join(missing_clue_ids)
+	if signature == _last_third_search_missing_signature:
+		return
+	_last_third_search_missing_signature = signature
+	push_warning("Ch2 third search is not finished. Missing clues: %s" % signature)
+
+
+func clear_third_search_missing_log() -> void:
+	_last_third_search_missing_signature = ""
 
 
 func _get_missing_required_clues(required_clue_ids: Array) -> Array[String]:

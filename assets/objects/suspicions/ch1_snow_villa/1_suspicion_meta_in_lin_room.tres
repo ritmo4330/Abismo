@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_suspicion")
 id = "1_suspicion_meta_in_lin_room"
-title = "梅塔为何在林玖房间"
+title = "无人的案发现场"
 description = "梅塔最后被确认在自己的行动线上，却死在本该没有人在的林玖房间里。"
 chapter_id = "1"
 category_path = PackedStringArray("雪墅", "主线疑点", "案发现场")

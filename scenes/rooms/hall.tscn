@@ -245,6 +245,18 @@ y_sort_enabled = true
 [node name="MainGate" type="Marker2D" parent="ClueSpawnPoints" unique_id=1648777185]
 position = Vector2(1163, 1910)
 
+[node name="KitchenTrace" type="Marker2D" parent="ClueSpawnPoints"]
+position = Vector2(210, 1360)
+
+[node name="PantryFood" type="Marker2D" parent="ClueSpawnPoints"]
+position = Vector2(2010, 680)
+
+[node name="StoreroomKnifeRack" type="Marker2D" parent="ClueSpawnPoints"]
+position = Vector2(2085, 1320)
+
+[node name="StoreroomTrapdoor" type="Marker2D" parent="ClueSpawnPoints"]
+position = Vector2(1910, 1540)
+
 [node name="DynamicClues" type="Node2D" parent="." unique_id=664436340]
 y_sort_enabled = true
 

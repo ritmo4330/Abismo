@@ -77,7 +77,7 @@ var _suppress_tree_selected_callback: bool = false
 var _archive_refresh_queued: bool = false
 var _interaction_refresh_queued: bool = false
 var _archive_selected_clue_id: String = ""
-var _archive_sort_mode: int = ARCHIVE_SORT_DEFAULT
+var _archive_sort_mode: int = ARCHIVE_SORT_DISCOVER
 
 
 func _ready() -> void:
@@ -90,7 +90,7 @@ func _ready() -> void:
 	sort_option_button.clear()
 	sort_option_button.add_item("默认")
 	sort_option_button.add_item("按发现时间")
-	sort_option_button.select(ARCHIVE_SORT_DEFAULT)
+	sort_option_button.select(ARCHIVE_SORT_DISCOVER)
 	select_clue_button.hide()
 
 	if not close_button.pressed.is_connected(_on_close_button_pressed):
@@ -135,6 +135,10 @@ func _input(event: InputEvent) -> void:
 	if _is_close_input(event):
 		_close_panel()
 		get_viewport().set_input_as_handled()
+
+
+func open_archive_panel() -> void:
+	_open_archive_panel()
 
 
 func _on_close_button_pressed() -> void:

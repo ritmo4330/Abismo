@@ -1,0 +1,9 @@
+[background scene="res://scenes/dialogic/dialogic_color_background.tscn" arg="#050608ff" fade="0.8"]
+[style name="plain_text"]
+—— 当前版本内容已完成 ——
+感谢参与本次测试。剧情现已推进至第三轮私聊结束。
+后续章节仍在制作中。你可以继续查看人物档案、推理手册与历史对话，也可以保存当前进度。
+set {Ch2.ContentComplete.Shown} = true
+set {Ch2.ContentComplete.Ready} = false
+do ToastManager.show_notice("当前版本内容已完成，感谢游玩", "task", 5.0)
+[end_timeline]

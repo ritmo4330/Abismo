@@ -176,5 +176,11 @@ position = Vector2(389, 1167)
 [node name="WindowKey" type="Marker2D" parent="ClueSpawnPoints" unique_id=1294333164]
 position = Vector2(662, 607)
 
+[node name="WardrobeBlood" type="Marker2D" parent="ClueSpawnPoints"]
+position = Vector2(1215, 715)
+
+[node name="MissingBody" type="Marker2D" parent="ClueSpawnPoints"]
+position = Vector2(1215, 715)
+
 [node name="DynamicClues" type="Node2D" parent="." unique_id=1971821773]
 y_sort_enabled = true

@@ -6,13 +6,13 @@
 script = ExtResource("1_placement")
 placement_id = "ch1_lin_window_key"
 clue_id = "1_lin_7"
-chapter_id = "1"
+chapter_id = "2"
 room_id = "room_lin_jiu"
 spawn_name = "WindowKey"
-available_steps = PackedStringArray("ch1_4_first_search")
+available_steps = PackedStringArray("ch2_3_third_search")
 required_flags = PackedStringArray()
 blocked_flags = PackedStringArray()
 hide_after_discovered = false
 interact_id = "1_lin_7"
-source_id = "room_lin_jiu/window_key"
+source_id = "room_lin_jiu/window"
 prompt_offset = Vector2(0, -16)

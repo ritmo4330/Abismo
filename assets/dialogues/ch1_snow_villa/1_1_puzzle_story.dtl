@@ -33,4 +33,21 @@
 “毕竟我的身体出了点问题嘛。”尽管如此，X依然无动于衷地吃着手中刚递上的肉饼。\
 “是啊，X如果作案的话，确实会比一般人困难呢。毕竟双腿残疾，根本无法独自进行复杂的行动。”律师放下交叉的手，微微点头。\
 “当然如此……毕竟，我不是凶手。”X露出了完美的微笑。
+最后再将故事的文本整理成线索……
+【女仆案件现场】故事第1—5段：2006年12月20日的暴风雪之夜，离岸小岛上的女仆被一柄重五十斤的巨斧杀害。
+do DataManager.add_clue("1_puzzle_maid_scene", "dialogue", "1_1_puzzle_story")
+【第一段讨论】故事第6—11段：女高中生、律师、壮汉、制服女人和眼镜男开始讨论；对外通路与电话均被破坏。
+do DataManager.add_clue("1_puzzle_first_discussion", "dialogue", "1_1_puzzle_story")
+【X的不可能犯罪其一】故事第12—14段：X品尝茶点，点心落地后费力地用左手拾取；右手无法使用，因此嫌疑很低。
+do DataManager.add_clue("1_puzzle_x_impossible_1", "dialogue", "1_1_puzzle_story")
+【管家案件现场】故事第15—21段：同日，管家的尸体出现在天台暴雪中，胸口插着一把匕首。
+do DataManager.add_clue("1_puzzle_butler_scene", "dialogue", "1_1_puzzle_story")
+【第二段讨论】故事第22—25段：眼镜男、律师、女高中生和壮汉继续讨论暴风雪与被切断的电话线。
+do DataManager.add_clue("1_puzzle_second_discussion", "dialogue", "1_1_puzzle_story")
+【X的不可能犯罪其二】故事第26—29段：X站出来说明身体问题，却仍在吃肉饼；律师确认X双腿残疾。
+do DataManager.add_clue("1_puzzle_x_impossible_2", "dialogue", "1_1_puzzle_story")
+【挑战读者规则】没有隐藏人物、没有机关；叙述为客观事实，且唯一真凶是X。
+do DataManager.add_clue("1_puzzle_challenge_rules", "dialogue", "1_1_puzzle_story")
+【出场人物】管家、女仆、女高中生、律师、壮汉、眼镜男、X。
+do DataManager.add_clue("1_puzzle_cast", "dialogue", "1_1_puzzle_story")
 [end_timeline]

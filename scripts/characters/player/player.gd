@@ -5,6 +5,7 @@ class_name Player
 #@export var move_speed: float = 400.0
 # 去Walk节点调整
 @export var visual_target_height: float = 80.0
+@export_range(1.0, 4.0, 0.05) var run_speed_multiplier: float = 1.8
 
 # 玩家物理与动作向的本地状态（因为玩家节点已常驻，不再需要依赖外部单例在切换地图时来回存取）
 var player_direction: Vector2 = Vector2.DOWN
@@ -41,6 +42,10 @@ func apply_room_speed_scale(room_speed_scale: float) -> void:
 	_room_speed_scale = maxf(room_speed_scale, 0.0)
 	_cache_base_walk_speed()
 	_apply_walk_speed()
+
+
+func is_running() -> bool:
+	return Input.is_key_pressed(KEY_SHIFT)
 
 
 func _cache_base_scales() -> void:

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "2_wu_dream_notebook"
+title = "梦境笔记"
+description = "笔记反复描绘花海、白色立方体和紧闭木门，页角写着密码“0909”。"
+chapter_id = "2"
+room_id = "room_wu_ting_xiang"
+category_path = PackedStringArray("梦墅", "第三轮搜证")
+tags = PackedStringArray("chapter_2", "subconscious", "wu")
+clue_type = "scene_evidence"
+highlight_visible = true

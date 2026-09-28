@@ -1,0 +1,32 @@
+[style name="default_visual_novel"]
+join zhou_chong_an left
+zhou_chong_an: 第三轮调查证明这里会主动改写场景。你想先确认哪件事？
+label 问题
+- 睡眠实验名单 | [if {Ch2.ThirdPrivate.Zhou.Experiment} != true]
+	zhou_chong_an: 名单上的孩子都来自孤儿院。实验要求我们记录梦境，还规定一旦恐惧超过阈值就必须唤醒他们。
+	zhou_chong_an: 有个孩子再也没有醒来，报告把事故归咎于设备，但我知道负责人忽略了警告。
+	set {Ch2.ThirdPrivate.Zhou.Experiment} = true
+	jump 问题
+- 负责人是梅塔吗 | [if {Ch2.ThirdPrivate.Zhou.Meta} != true]
+	zhou_chong_an: 至少在我的世界里是。那也是我说“认识的梅塔已经死了”的原因。
+	zhou_chong_an: 我保存那些规则，是因为不想让同样的事发生第二次。
+	set {Affinity.Zhou} += 5
+	set {Ch2.ThirdPrivate.Zhou.Meta} = true
+	jump 问题
+- 尸体消失的意义 | [if {Ch2.ThirdPrivate.Zhou.Meaning} != true]
+	zhou_chong_an: 梦境没有随意抹去尸体，而是在我们开始接近过去后才让它消失。
+	zhou_chong_an: 它可能在阻止我们确认死者的身份，也可能在迫使我们把注意力从“谁杀了他”转向“谁构造了这里”。
+	set {Ch2.ThirdPrivate.Zhou.Meaning} = true
+	jump 问题
+- 结束私聊 | [if {Ch2.ThirdPrivate.Zhou.Experiment} == true and {Ch2.ThirdPrivate.Zhou.Meta} == true and {Ch2.ThirdPrivate.Zhou.Meaning} == true]
+	zhou_chong_an: 好。别把梦里的规则当成借口，继续追问它为什么存在。
+	set {Ch2.ThirdPrivate.Zhou.Finished} = true
+	do ToastManager.show_notice("人物信息已更新：周崇安", "profile", 2.5)
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]
+- 暂时离开 | [if {Ch2.ThirdPrivate.Zhou.Experiment} != true or {Ch2.ThirdPrivate.Zhou.Meta} != true or {Ch2.ThirdPrivate.Zhou.Meaning} != true]
+	zhou_chong_an: 可以。剩下的问题等你整理好思路再问。
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]

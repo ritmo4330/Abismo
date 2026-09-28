@@ -1,0 +1,37 @@
+[style name="default_visual_novel"]
+join zhong_qi left
+zhong_qi: 研究所里的记录比我预想得完整。你想知道哪一部分？
+label 问题
+- 球形装置“坐标锚” | [if {Ch2.ThirdPrivate.Zhong.Anchor} != true]
+	zhong_qi: 坐标锚会利用强烈记忆锁定一个人，再让多个世界中同一个人的意识短暂重叠。
+	zhong_qi: 它不是传送装置，更像一把能撬开世界边界的钥匙。
+	set {Ch2.ThirdPrivate.Zhong.Anchor} = true
+	jump 问题
+- 钟岳的研究 | [if {Ch2.ThirdPrivate.Zhong.Grandfather} != true]
+	zhong_qi: 祖父认为平行世界并非彼此独立。相似的选择和记忆会形成关联，异常者则能察觉这种关联。
+	zhong_qi: 他失踪前一直在阻止研究被用于人为制造“异数”。
+	set {Ch2.ThirdPrivate.Zhong.Grandfather} = true
+	jump 问题
+- 梦墅究竟是什么 | [if {Ch2.ThirdPrivate.Zhong.Villa} != true]
+	player: 这座梦墅可能就是实验结果？
+	zhong_qi: 或者是失控后的残骸。它把我们的记忆当作材料，证明坐标锚至少曾经启动过。
+	set {Affinity.Zhong} += 5
+	set {Ch2.ThirdPrivate.Zhong.Villa} = true
+	jump 问题
+- 梅塔与管家的目的 | [if {Ch2.ThirdPrivate.Zhong.Meta} != true]
+	zhong_qi: 梅塔想找到研究核心，管家又逼我们调查恐惧。他们的目的恐怕从一开始就不是破案。
+	zhong_qi: 真正的问题是：谁需要我们恢复这些记忆，又准备在恢复后做什么？
+	set {Ch2.ThirdPrivate.Zhong.Meta} = true
+	jump 问题
+- 结束私聊 | [if {Ch2.ThirdPrivate.Zhong.Anchor} == true and {Ch2.ThirdPrivate.Zhong.Grandfather} == true and {Ch2.ThirdPrivate.Zhong.Villa} == true and {Ch2.ThirdPrivate.Zhong.Meta} == true]
+	zhong_qi: 嗯。别只盯着凶手，留意是谁在规定调查的流程。
+	set {Ch2.ThirdPrivate.Zhong.Finished} = true
+	do ToastManager.show_notice("人物信息已更新：钟歧", "profile", 2.5)
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]
+- 暂时离开 | [if {Ch2.ThirdPrivate.Zhong.Anchor} != true or {Ch2.ThirdPrivate.Zhong.Grandfather} != true or {Ch2.ThirdPrivate.Zhong.Villa} != true or {Ch2.ThirdPrivate.Zhong.Meta} != true]
+	zhong_qi: 可以。研究所的记录还没核对完，之后别忘了回来。
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]

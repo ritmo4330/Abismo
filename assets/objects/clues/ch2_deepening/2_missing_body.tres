@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "2_missing_body"
+title = "消失的尸体"
+description = "衣柜中除了衣架以外空无一物，只有暗褐色的血迹残留其中。此前被所有人确认过的梅塔尸体已经消失。"
+chapter_id = "2"
+room_id = "room_lin_jiu"
+category_path = PackedStringArray("梦墅", "第三轮搜证")
+tags = PackedStringArray("chapter_2", "dream_villa", "missing_body")
+clue_type = "scene_evidence"
+is_conclusion = false
+highlight_visible = true
+parent_clue_id = ""
+child_clue_ids = PackedStringArray()

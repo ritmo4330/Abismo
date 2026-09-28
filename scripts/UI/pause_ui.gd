@@ -5,6 +5,10 @@ const MAIN_MENU_SCENE_PATH: String = "res://scenes/UI/main_menu.tscn"
 const PAUSE_CANVAS_LAYER: int = 200
 
 @onready var resume_button: Button = $PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox/ResumeButton
+@onready var save_button: Button = $PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox/SaveButton
+@onready var load_button: Button = $PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox/LoadButton
+@onready var text_speed_button: Button = $PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox/TextSpeedButton
+@onready var status_label: Label = $PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox/StatusLabel
 @onready var quit_to_title_button: Button = $PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox/QuitToTitleButton
 @onready var quit_game_button: Button = $PanelRoot/CenterContainer/PanelFrame/MarginContainer/ButtonVBox/QuitGameButton
 
@@ -20,6 +24,12 @@ func _ready() -> void:
 
 	if not resume_button.pressed.is_connected(_on_resume_button_pressed):
 		resume_button.pressed.connect(_on_resume_button_pressed)
+	if not save_button.pressed.is_connected(_on_save_button_pressed):
+		save_button.pressed.connect(_on_save_button_pressed)
+	if not load_button.pressed.is_connected(_on_load_button_pressed):
+		load_button.pressed.connect(_on_load_button_pressed)
+	if not text_speed_button.pressed.is_connected(_on_text_speed_button_pressed):
+		text_speed_button.pressed.connect(_on_text_speed_button_pressed)
 	if not quit_to_title_button.pressed.is_connected(_on_quit_to_title_button_pressed):
 		quit_to_title_button.pressed.connect(_on_quit_to_title_button_pressed)
 	if not quit_game_button.pressed.is_connected(_on_quit_game_button_pressed):
@@ -29,6 +39,12 @@ func _ready() -> void:
 		GameManager.game_state_changed.connect(_on_game_state_changed)
 	if EventBus != null and not EventBus.ui_panel_focus_requested.is_connected(_on_ui_panel_focus_requested):
 		EventBus.ui_panel_focus_requested.connect(_on_ui_panel_focus_requested)
+	if SaveManager != null:
+		if not SaveManager.save_completed.is_connected(_on_save_completed):
+			SaveManager.save_completed.connect(_on_save_completed)
+		if not SaveManager.load_completed.is_connected(_on_load_completed):
+			SaveManager.load_completed.connect(_on_load_completed)
+	_refresh_controls()
 
 	if GameManager != null and int(GameManager.current_state) == int(GameManager.GameState.PAUSED):
 		_open_panel()
@@ -46,6 +62,38 @@ func _input(event: InputEvent) -> void:
 
 func _on_resume_button_pressed() -> void:
 	_resume_game()
+
+
+func _on_save_button_pressed() -> void:
+	status_label.text = "正在保存……"
+	SaveManager.save_game()
+	_refresh_controls()
+
+
+func _on_load_button_pressed() -> void:
+	if SaveManager == null or not SaveManager.request_load_game():
+		status_label.text = "没有可读取的本地存档"
+		return
+	GameManager.enter_main_menu()
+	GameManager.enter_gameplay()
+	get_tree().change_scene_to_file("res://scenes/game_root.tscn")
+
+
+func _on_text_speed_button_pressed() -> void:
+	if TextSpeedManager == null:
+		return
+	TextSpeedManager.cycle_speed_mode()
+	_refresh_controls()
+
+
+func _on_save_completed(success: bool, message: String) -> void:
+	status_label.text = message
+	if success:
+		load_button.disabled = false
+
+
+func _on_load_completed(_success: bool, message: String) -> void:
+	status_label.text = message
 
 
 func _on_quit_to_title_button_pressed() -> void:
@@ -82,6 +130,8 @@ func _open_panel() -> void:
 	if EventBus != null:
 		EventBus.ui_panel_focus_requested.emit(PANEL_ID)
 	_is_open = true
+	status_label.text = ""
+	_refresh_controls()
 	show()
 	resume_button.grab_focus()
 
@@ -113,3 +163,10 @@ func _set_process_mode_always_recursive(node: Node) -> void:
 	node.process_mode = Node.PROCESS_MODE_ALWAYS
 	for child: Node in node.get_children():
 		_set_process_mode_always_recursive(child)
+
+
+func _refresh_controls() -> void:
+	if load_button != null:
+		load_button.disabled = SaveManager == null or not SaveManager.has_save()
+	if text_speed_button != null and TextSpeedManager != null:
+		text_speed_button.text = TextSpeedManager.get_speed_button_text()

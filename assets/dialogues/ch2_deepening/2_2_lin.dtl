@@ -1,0 +1,18 @@
+[style name="default_visual_novel"]
+join lin_jiu left
+lin_jiu: 我看到的实验室叫“异常关联研究室”。这个名字让我很不舒服。
+label 问题
+- 你去过那里吗 | [if {Ch2.SecondPrivate.Lin.Lab} != true]
+	lin_jiu: 没有，但里面有孤儿院孩子的档案，还有我的教师证。像是某个世界里的我曾经参与过研究。
+	set {Ch2.SecondPrivate.Lin.Lab} = true
+	jump 问题
+- 关于失去的记忆 | [if {Ch2.SecondPrivate.Lin.Memory} != true]
+	lin_jiu: 我没有九岁以前的记忆。警方也找不到亲人，所以我一直住在孤儿院。也许梦境正试图把那段空白还给我。
+	set {Ch2.SecondPrivate.Lin.Memory} = true
+	set {Affinity.Lin} += 5
+	jump 问题
+- 暂时没有问题了
+	set {Ch2.SecondPrivate.Lin.Finished} = true
+	leave --All--
+	[signal arg="flow:exit_private_chat"]
+	[end_timeline]
