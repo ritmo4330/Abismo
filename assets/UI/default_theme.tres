@@ -1,7 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://d0gg4nn1gnmsa"]
 
-[ext_resource type="FontFile" uid="uid://d2atopy414xfo" path="res://assets/UI/Nightgazer16.ttf" id="1_1y6f5"]
+[ext_resource type="FontFile" uid="uid://d2atopy414xfo" path="res://assets/UI/Nightgazer16.ttf" id="1"]
 
 [resource]
-default_font = ExtResource("1_1y6f5")
+default_font = ExtResource("1")
 default_font_size = 36

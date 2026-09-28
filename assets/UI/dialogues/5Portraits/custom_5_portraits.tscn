@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c7se25gymneqf"]
 
-[ext_resource type="Script" uid="uid://cx1i44s2olq2d" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.gd" id="1_1i7em"]
-[ext_resource type="Script" uid="uid://d0ptqnbudhkyj" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="1_rxdcc"]
+[ext_resource type="Script" path="res://assets/UI/dialogues/5Portraits/vn_portrait_layer.gd" id="1"]
+[ext_resource type="Script" uid="uid://d0ptqnbudhkyj" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="2"]
 
-[node name="VN_PortraitLayer" type="Control" unique_id=1359205142]
+[node name="VN_PortraitLayer" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,9 +11,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_1i7em")
+script = ExtResource("1")
+portrait_size_mode = 3
 
-[node name="Portraits" type="Control" parent="." unique_id=1352767536]
+[node name="Portraits" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -23,62 +24,74 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="DialogicNode_PortraitContainer1" type="Control" parent="Portraits" unique_id=352136868]
+[node name="Leftmost" type="Control" parent="Portraits"]
 layout_mode = 1
-anchor_right = 0.2
-anchor_bottom = 1.0
-offset_right = -1.52588e-05
-grow_vertical = 2
-pivot_offset = Vector2(115.2, 648)
-mouse_filter = 2
-script = ExtResource("1_rxdcc")
-container_ids = PackedStringArray("leftmost", "0")
-metadata/_edit_use_anchors_ = true
-
-[node name="DialogicNode_PortraitContainer2" type="Control" parent="Portraits" unique_id=224504875]
-layout_mode = 1
-anchor_left = 0.2
-anchor_right = 0.4
+anchor_left = -0.1
+anchor_top = 0.04
+anchor_right = 0.3
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_rxdcc")
+script = ExtResource("2")
+container_ids = PackedStringArray("leftmost", "far_left", "0")
+size_mode = 3
+origin_anchor = 7
+
+[node name="Left" type="Control" parent="Portraits"]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.04
+anchor_right = 0.45
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2")
 container_ids = PackedStringArray("left", "1")
-metadata/_edit_use_anchors_ = true
+size_mode = 3
+origin_anchor = 7
 
-[node name="DialogicNode_PortraitContainer3" type="Control" parent="Portraits" unique_id=1384833780]
+[node name="Center" type="Control" parent="Portraits"]
 layout_mode = 1
-anchor_left = 0.4
-anchor_right = 0.6
+anchor_left = 0.3
+anchor_top = 0.04
+anchor_right = 0.7
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_rxdcc")
+script = ExtResource("2")
 container_ids = PackedStringArray("center", "middle", "2")
-metadata/_edit_use_anchors_ = true
+size_mode = 3
+origin_anchor = 7
 
-[node name="DialogicNode_PortraitContainer4" type="Control" parent="Portraits" unique_id=646713852]
+[node name="Right" type="Control" parent="Portraits"]
 layout_mode = 1
-anchor_left = 0.6
-anchor_right = 0.8
+anchor_left = 0.55
+anchor_top = 0.04
+anchor_right = 0.95
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_rxdcc")
-container_ids = PackedStringArray("right", "3")
-metadata/_edit_use_anchors_ = true
+script = ExtResource("2")
+container_ids = PackedStringArray("right", "center_right", "3")
+size_mode = 3
+mirrored = true
+origin_anchor = 7
 
-[node name="DialogicNode_PortraitContainer5" type="Control" parent="Portraits" unique_id=1553158321]
+[node name="Rightmost" type="Control" parent="Portraits"]
 layout_mode = 1
-anchor_left = 0.8
-anchor_right = 1.0
+anchor_left = 0.7
+anchor_top = 0.04
+anchor_right = 1.1
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_rxdcc")
-container_ids = PackedStringArray("rightmost", "4")
-metadata/_edit_use_anchors_ = true
+script = ExtResource("2")
+container_ids = PackedStringArray("rightmost", "far_right", "4", "5")
+size_mode = 3
+mirrored = true
+origin_anchor = 7

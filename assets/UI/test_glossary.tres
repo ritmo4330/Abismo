@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogicGlossary" format=3 uid="uid://d3srr1j48d7jw"]
 
-[ext_resource type="Script" uid="uid://80elcodyqohb" path="res://addons/dialogic/Modules/Glossary/glossary_resource.gd" id="1_4f8lc"]
+[ext_resource type="Script" uid="uid://80elcodyqohb" path="res://addons/dialogic/Modules/Glossary/glossary_resource.gd" id="1"]
 
 [resource]
-script = ExtResource("1_4f8lc")
+script = ExtResource("1")
 entries = {
 "New Entry 1": {
 "case_sensitive": true,

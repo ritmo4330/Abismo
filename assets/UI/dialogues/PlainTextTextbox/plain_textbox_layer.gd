@@ -7,7 +7,7 @@ extends "res://assets/UI/dialogues/VisualNovelTextbox/vn_textbox_layer.gd"
 @export var paragraph_separation: int = 18
 
 
-func _apply_box_settings() -> void:
+func _apply_box_settings() -> void :
 	var dialog_text_panel: PanelContainer = %DialogTextPanel
 	if ResourceLoader.exists(box_panel):
 		dialog_text_panel.add_theme_stylebox_override(&"panel", load(box_panel) as StyleBox)
@@ -22,7 +22,7 @@ func _apply_box_settings() -> void:
 	sizer.position = box_size * -0.5 + box_center_offset
 
 
-func _apply_text_settings() -> void:
+func _apply_text_settings() -> void :
 	super._apply_text_settings()
 
 	var dialog_text: RichTextLabel = %DialogicNode_DialogText
