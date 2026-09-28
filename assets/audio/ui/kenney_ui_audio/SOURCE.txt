@@ -1,0 +1,8 @@
+Kenney UI Audio
+Source: https://kenney.nl/assets/ui-audio
+License: Creative Commons Zero (CC0 1.0)
+
+Files used by Abismo:
+- choice_click.ogg (renamed from click2.ogg)
+- interact.ogg (renamed from switch3.ogg)
+- panel_toggle.ogg (renamed from switch11.ogg)
