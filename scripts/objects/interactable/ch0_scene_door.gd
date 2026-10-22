@@ -34,8 +34,6 @@ func interact(_player: Player) -> void:
 
 	_play_open_sfx()
 	_is_transitioning = true
-	if ToastManager != null:
-		ToastManager.show_notice("大门打开了。", "info", 1.5)
 	if not next_step_id.is_empty():
 		FlowManager.advance_to_step(next_step_id)
 

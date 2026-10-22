@@ -32,8 +32,6 @@ func interact(_player: Player) -> void:
 	if _is_interacting:
 		return
 	if DataManager.has_flag(FIND_WARMTH_FLAG):
-		if ToastManager != null:
-			ToastManager.show_notice("火堆已经彻底熄灭，只剩下一点余温。", "info")
 		_refresh_highlight()
 		return
 
@@ -58,8 +56,6 @@ func _relight_and_extinguish() -> void:
 	_is_interacting = true
 	_refresh_highlight()
 	set_lit(true)
-	if ToastManager != null:
-		ToastManager.show_notice("火堆短暂复燃，又被风雪压了下去。", "info", 2.2)
 
 	await get_tree().create_timer(0.9).timeout
 	set_lit(false)

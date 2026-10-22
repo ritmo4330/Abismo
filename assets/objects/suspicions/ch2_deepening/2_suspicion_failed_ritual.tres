@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SuspicionData" format=3]
+[ext_resource type="Script" path="res://scripts/logic/suspicion_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "2_suspicion_failed_ritual"
+title = "失效的通灵法阵"
+description = "为什么法阵会没有反应呢？"
+chapter_id = "2"
+category_path = PackedStringArray("梦墅", "林玖的调查")
+required_clue_ids = PackedStringArray("2_failed_ritual", "2_dream_rules", "2_lin_6")
+match_mode = "exact"
+conclusion_clue_id = "2_conclusion_time_extended"

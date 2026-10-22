@@ -6,6 +6,8 @@ var pending_standalone_spawn_point: String = ""
 var _owner: Node = null
 var _is_standalone_debug_flow_active: bool = false
 var _is_standalone_scene_transitioning: bool = false
+var _queued_scene_changes: Array[Dictionary] = []
+var _flushing_scene_changes: bool = false
 
 
 func setup(owner: Node) -> void:
@@ -34,8 +36,7 @@ func request_scene_change(target_scene_path: String, spawn_point: String, auto_t
 		play_pending_auto_timeline()
 		return true
 
-	var target_scene: PackedScene = load(target_scene_path) as PackedScene
-	if target_scene == null:
+	if not ResourceLoader.exists(target_scene_path, "PackedScene"):
 		push_error("FlowManager: scene change target cannot be loaded: %s" % target_scene_path)
 		return false
 
@@ -47,16 +48,45 @@ func request_scene_change(target_scene_path: String, spawn_point: String, auto_t
 		return true
 
 	if SceneManager != null and SceneManager.is_transitioning:
-		push_warning("FlowManager: scene change ignored because SceneManager is already transitioning: %s" % target_scene_path)
-		return false
+		var request := {"path": target_scene_path, "spawn": spawn_point, "timeline": auto_timeline}
+		if not _queued_scene_changes.has(request):
+			_queued_scene_changes.append(request)
+		if not _flushing_scene_changes:
+			call_deferred("_flush_scene_changes")
+		return true
 
 	pending_auto_timeline = auto_timeline
 	EventBus.scene_change_requested.emit(target_scene_path, spawn_point)
 	return true
 
 
+func clear_queued_scene_changes() -> void:
+	_queued_scene_changes.clear()
+
+
+func _flush_scene_changes() -> void:
+	if _flushing_scene_changes or _owner == null:
+		return
+	_flushing_scene_changes = true
+	while not _queued_scene_changes.is_empty() and is_instance_valid(_owner):
+		await _owner.get_tree().process_frame
+		if SceneManager.is_transitioning:
+			continue
+		if not SceneManager.is_initialized():
+			_queued_scene_changes.clear()
+			break
+		var request: Dictionary = _queued_scene_changes.pop_front()
+		request_scene_change(String(request.path), String(request.spawn), String(request.timeline))
+	_flushing_scene_changes = false
+
+
 func play_pending_auto_timeline() -> void:
 	if pending_auto_timeline.is_empty():
+		return
+	# A deferred callback from the previous room may run during the next fade.
+	# Keep the request until the new room is presented; DialogueManager rejects
+	# requests during transitions, so consuming it here would strand the story.
+	if SceneManager.is_transitioning or Dialogic.current_timeline != null:
 		return
 	var timeline_name: String = pending_auto_timeline
 	pending_auto_timeline = ""

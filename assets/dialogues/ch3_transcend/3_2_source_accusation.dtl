@@ -1,0 +1,64 @@
+[style name="default_visual_novel"]
+do SaveManager.autosave_before_endings()
+do FlowManager.prepare_source_endings()
+if {SourcePlot.PerfectReady} == true and {Ch3.Route.Transcend} == true:
+	[signal arg="flow:start_ending_clear_snow"]
+	[end_timeline]
+if {Ch3.Route.Resistance} == true and {Ch3.Weapon.Agreed} == true:
+	jump 答应
+if {Ch3.Route.Resistance} == true and {Ch3.Weapon.Offered} == true:
+	jump 未答应
+你和建构师回到了大厅。
+butler: 感谢各位的帮助，我们的侦探已经锁定了凶手——{Ch2.AccusedKiller}，就是你杀害了梅塔吧。
+if {Ch2.AccusedKiller} == "穆执":
+	join mu_zhi right
+	mu_zhi: ……如果这就是你认定的真相，我无话可说。
+elif {Ch2.AccusedKiller} == "周崇安":
+	join zhou_chong_an right
+	zhou_chong_an: 荒谬！这就是你调查这么久给出的答案？我一度如此信任过你……
+elif {Ch2.AccusedKiller} == "林玖":
+	join lin_jiu right
+	lin_jiu: ……不，不是我做的……不可能是我做的！
+elif {Ch2.AccusedKiller} == "乌停湘":
+	join wu_ting_xiang right
+	wu_ting_xiang: 我还以为，你真的能带领我们找到真相。是我看错你了……
+elif {Ch2.AccusedKiller} == "钟歧":
+	join zhong_qi right
+	zhong_qi: 呵，不演了？达成你的目的了？果然从一开始就不该相信你。
+butler: 我相信侦探得出这样的结论，一定有他/她的道理。感谢大家的出演，今天的故事到此结束。
+话音刚落，四周的图景开始崩落，别墅的墙壁、地板一块块剥离，向下坠去，直至一片虚无将你们包裹，视线与意识逐渐模糊。
+真的结束了吗？但明明有一种难以言明的阴云仍笼罩在一切之上。无论如何，但愿你已经尽力了。
+接下来就交给我吧。
+if {Ch3.Route.Resistance} == true:
+	[signal arg="flow:start_ending_calm"]
+else:
+	[signal arg="flow:start_ending_dust"]
+[end_timeline]
+label 答应
+set {Ch3.Weapon.Fired} = true
+你和建构师回到了大厅。
+butler: 感谢各位的帮助，我们的侦探已经锁定了凶手……
+还未等他说完，钟歧就以迅雷不及掩耳之势抬起手枪，随着一声巨大的枪响，建构师退后几步，背靠着墙倒在了地上。
+wu_ting_xiang: 老师……
+zhong_qi: 傲慢的神明高高在上，自然无法领会芸芸众生的悲喜。这一枪代表四个世界被你无情抹杀的生命，以及你欲盖弥彰的真理！
+butler: 呵，令人惊叹的选择。你们不会忘了吧？这可是在梦中啊，就算梅塔的武器能威胁到我，也不该是在这里吧。再见了，我会记住你们的。
+话音刚落，四周的图景开始崩落，别墅的墙壁、地板一块块剥离，向下坠去，直至一片虚无将你们包裹，视线与意识逐渐模糊。
+不错的尝试，虽然从一开始就没抱着能杀死他的想法。无论如何，相信你已经尽力了。
+接下来就交给我吧。
+[signal arg="flow:start_ending_godslayer"]
+[end_timeline]
+label 未答应
+set {Ch3.Weapon.Fired} = true
+你和建构师回到了大厅。
+butler: 感谢各位的帮助，我们的侦探已经锁定了凶手……
+还未等他说完，钟歧突然朝你扑了过来，夺过了你身上的手枪，解除保险、上膛、指向建构师、抵近射击，一声枪响，一气呵成。建构师退后几步，背靠着墙倒在了地上。
+wu_ting_xiang: 老师……
+zhong_qi: 傲慢的神明高高在上，自然无法领会芸芸众生的悲喜。这一枪代表四个世界被你无情抹杀的生命，以及你欲盖弥彰的真理！
+他转过头，一脸鄙夷地看向你
+zhong_qi: 不包括你。
+butler: 呵，令人惊叹的选择。你们不会忘了吧？这可是在梦中啊，就算梅塔的武器能威胁到我，也不该是在这里吧。再见了，我会记住你们的。
+话音刚落，四周的图景开始崩落，别墅的墙壁、地板一块块剥离，向下坠去，直至一片虚无将你们包裹，视线与意识逐渐模糊。
+不错的尝试，虽然从一开始就没抱着能杀死他的想法。无论如何，但愿你已经尽力了。
+接下来就交给我吧。
+[signal arg="flow:start_ending_godslayer"]
+[end_timeline]

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Abismo"
 run/main_scene="res://scenes/UI/main_menu.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="uid://bmxqm8cbbldj"
 
@@ -109,7 +109,14 @@ directories/dtl_directory={
 "2_2_zhong_hall": "res://assets/dialogues/ch2_deepening/2_2_zhong_hall.dtl",
 "2_2_zhou": "res://assets/dialogues/ch2_deepening/2_2_zhou.dtl",
 "2_2_zhou_hall": "res://assets/dialogues/ch2_deepening/2_2_zhou_hall.dtl",
+"2_3_enter_lin_jiu": "res://assets/dialogues/ch2_deepening/2_3_enter_lin_jiu.dtl",
+"2_3_enter_meta": "res://assets/dialogues/ch2_deepening/2_3_enter_meta.dtl",
+"2_3_enter_mu_zhi": "res://assets/dialogues/ch2_deepening/2_3_enter_mu_zhi.dtl",
+"2_3_enter_wu_ting_xiang": "res://assets/dialogues/ch2_deepening/2_3_enter_wu_ting_xiang.dtl",
+"2_3_enter_zhong_qi": "res://assets/dialogues/ch2_deepening/2_3_enter_zhong_qi.dtl",
+"2_3_enter_zhou_chong_an": "res://assets/dialogues/ch2_deepening/2_3_enter_zhou_chong_an.dtl",
 "2_3_missing_body_found": "res://assets/dialogues/ch2_deepening/2_3_missing_body_found.dtl",
+"2_3_notebook_password": "res://assets/dialogues/ch2_deepening/2_3_notebook_password.dtl",
 "2_3_third_search_intro": "res://assets/dialogues/ch2_deepening/2_3_third_search_intro.dtl",
 "2_3_third_search_turn": "res://assets/dialogues/ch2_deepening/2_3_third_search_turn.dtl",
 "2_4_third_reasoning": "res://assets/dialogues/ch2_deepening/2_4_third_reasoning.dtl",
@@ -118,14 +125,47 @@ directories/dtl_directory={
 "2_5_wu": "res://assets/dialogues/ch2_deepening/2_5_wu.dtl",
 "2_5_zhong": "res://assets/dialogues/ch2_deepening/2_5_zhong.dtl",
 "2_5_zhou": "res://assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+"2_6_accusation": "res://assets/dialogues/ch2_deepening/2_6_accusation.dtl",
 "2_6_memory_fragments": "res://assets/dialogues/ch2_deepening/2_6_memory_fragments.dtl",
 "2_current_content_complete": "res://assets/dialogues/ch2_deepening/2_current_content_complete.dtl",
 "3_1_route": "res://assets/dialogues/ch3_transcend/3_1_route.dtl",
+"3_2_source_accusation": "res://assets/dialogues/ch3_transcend/3_2_source_accusation.dtl",
+"3_source_butler": "res://assets/dialogues/ch3_transcend/3_source_butler.dtl",
+"3_source_lin": "res://assets/dialogues/ch3_transcend/3_source_lin.dtl",
+"3_source_mu": "res://assets/dialogues/ch3_transcend/3_source_mu.dtl",
+"3_source_wu": "res://assets/dialogues/ch3_transcend/3_source_wu.dtl",
+"3_source_zhong": "res://assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+"3_source_zhou": "res://assets/dialogues/ch3_transcend/3_source_zhou.dtl",
 "4_1_ending_dust": "res://assets/dialogues/finale/4_1_ending_dust.dtl",
 "4_2_ending_godslayer": "res://assets/dialogues/finale/4_2_ending_godslayer.dtl",
 "4_3_ending_calm": "res://assets/dialogues/finale/4_3_ending_calm.dtl",
 "4_4_ending_clear_snow": "res://assets/dialogues/finale/4_4_ending_clear_snow.dtl",
 "4_5_easter_egg": "res://assets/dialogues/finale/4_5_easter_egg.dtl",
+"source_character_endings": "res://assets/dialogues/finale/source_character_endings.dtl",
+"source_ending_lin_death": "res://assets/dialogues/finale/source/source_ending_lin_death.dtl",
+"source_ending_lin_forget": "res://assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+"source_ending_lin_perfect": "res://assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+"source_ending_mu_death": "res://assets/dialogues/finale/source/source_ending_mu_death.dtl",
+"source_ending_mu_forget": "res://assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+"source_ending_mu_perfect": "res://assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+"source_ending_player_audience": "res://assets/dialogues/finale/source/source_ending_player_audience.dtl",
+"source_ending_player_perfect": "res://assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+"source_ending_player_return": "res://assets/dialogues/finale/source/source_ending_player_return.dtl",
+"source_ending_wu_farewell": "res://assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+"source_ending_wu_perfect": "res://assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+"source_ending_wu_wake": "res://assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+"source_ending_zhong_death": "res://assets/dialogues/finale/source/source_ending_zhong_death.dtl",
+"source_ending_zhong_forget": "res://assets/dialogues/finale/source/source_ending_zhong_forget.dtl",
+"source_ending_zhong_perfect": "res://assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+"source_ending_zhou_death": "res://assets/dialogues/finale/source/source_ending_zhou_death.dtl",
+"source_ending_zhou_forget": "res://assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+"source_ending_zhou_perfect": "res://assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+"source_nightmare_lin": "res://assets/dialogues/source/source_nightmare_lin.dtl",
+"source_nightmare_mu": "res://assets/dialogues/source/source_nightmare_mu.dtl",
+"source_nightmare_zhong": "res://assets/dialogues/source/source_nightmare_zhong.dtl",
+"source_nightmare_zhou": "res://assets/dialogues/source/source_nightmare_zhou.dtl",
+"source_recreate_cube": "res://assets/dialogues/ch2_deepening/source_recreate_cube.dtl",
+"source_recreate_flower": "res://assets/dialogues/ch2_deepening/source_recreate_flower.dtl",
 "test": "res://assets/dialogues/test.dtl"
 }
 layout/style_directory={
@@ -133,7 +173,8 @@ layout/style_directory={
 "default_speaker_style": "res://assets/UI/default_speaker_style.tres",
 "default_visual_novel": "res://assets/UI/default_visual_novel.tres",
 "plain_text": "res://assets/UI/dialogues/plain_text.tres",
-"plain_text_left": "res://assets/UI/dialogues/plain_text_left.tres"
+"plain_text_left": "res://assets/UI/dialogues/plain_text_left.tres",
+"prologue_poem": "res://assets/UI/dialogues/prologue_poem.tres"
 }
 glossary/default_case_sensitive=true
 variables={
@@ -187,6 +228,8 @@ variables={
 "InitialSearch": {
 "Enabled": false,
 "Finished": false,
+"Order": "",
+"PlayerTurn": 0,
 "ReadyForReasoning": false
 },
 "NPCIntro": {
@@ -230,6 +273,7 @@ variables={
 "Enabled": false,
 "Lin": {
 "Asked": {
+"Arrival": false,
 "Dead": false,
 "DeadTrusted": false,
 "Lighthouse": false,
@@ -269,6 +313,7 @@ variables={
 "Target": "",
 "Wu": {
 "Asked": {
+"Arrival": false,
 "Dead": false,
 "Lighthouse": false,
 "Lin": false,
@@ -286,6 +331,7 @@ variables={
 },
 "Zhong": {
 "Asked": {
+"Arrival": false,
 "Dead": false,
 "Lighthouse": false,
 "Lin": false,
@@ -304,6 +350,7 @@ variables={
 },
 "Zhou": {
 "Asked": {
+"Arrival": false,
 "Dead": false,
 "DeadTrusted": false,
 "Lighthouse": false,
@@ -345,70 +392,141 @@ variables={
 "Flower": false,
 "Started": false
 },
+"Notebook": {
+"Password": ""
+},
 "SceneRecreation": {
 "Accepted": false
 },
 "SecondPrivate": {
 "Enabled": false,
 "Lin": {
+"Abismo0373": false,
+"Abismo0564": false,
+"BlackDoor": false,
+"Declaration": false,
 "Finished": false,
 "Lab": false,
-"Memory": false
+"Memory": false,
+"Meta": false,
+"RememberedQuote": false,
+"Sand": false,
+"SandFile": false
 },
 "Mu": {
 "Finished": false,
 "Hidden": false,
+"Meta": false,
 "Scene": false
 },
 "Wu": {
 "Door": false,
 "Finished": false,
-"Notebook": false
+"Meta": false,
+"Notebook": false,
+"Sand": false
 },
 "Zhong": {
 "Finished": false,
 "Meta": false,
-"Research": false
+"Notebook": false,
+"Orb": false,
+"RedString": false,
+"Research": false,
+"WorkList": false
 },
 "Zhou": {
+"Device": false,
+"DreamRules": false,
 "Fear": false,
 "Finished": false,
-"Rules": false
+"Meta": false,
+"Puppet": false,
+"Rules": false,
+"Scene": false,
+"Shijin": false,
+"Woman": false
 }
+},
+"SourceEvidence": {
+"C_2_lin_2": false,
+"C_2_lin_3": false,
+"C_2_lin_4": false,
+"C_2_lin_4_12": false,
+"C_2_missing_body": false,
+"C_2_mu_1_10": false,
+"C_2_mu_1_8": false,
+"C_2_mu_1_9": false,
+"C_2_mu_2": false,
+"C_2_mu_3": false,
+"C_2_wu_1": false,
+"C_2_wu_1_13": false,
+"C_2_wu_2": false,
+"C_2_zhong_1": false,
+"C_2_zhong_2": false,
+"C_2_zhong_2_14": false,
+"C_2_zhou_1": false,
+"C_2_zhou_2": false,
+"C_2_zhou_3_6": false,
+"Notebook": false,
+"WorkList": false
 },
 "ThirdPrivate": {
 "Enabled": false,
 "Lin": {
 "Body": false,
+"Book": false,
+"DoorReady": false,
+"DoorStarted": false,
 "Finished": false,
+"Home": false,
 "Memory": false,
-"Records": false
+"Mother": false,
+"Paper": false,
+"Records": false,
+"Sandbox": false,
+"Tools": false
 },
 "Mu": {
 "Choice": false,
 "Church": false,
 "Finished": false,
+"Fire": false,
+"Letter": false,
+"Prophet": false,
+"Revival": false,
+"Robe": false,
+"Sayings": false,
 "Zhong": false
 },
 "Wu": {
+"DreamNotes": false,
 "Finished": false,
 "Help": false,
 "Lock": false,
+"Newspaper": false,
 "Notebook": false,
+"Sandbox": false,
 "Scenes": false
 },
 "Zhong": {
 "Anchor": false,
+"Clothes": false,
 "Finished": false,
 "Grandfather": false,
 "Meta": false,
+"Pages": false,
+"Papers": false,
 "Villa": false
 },
 "Zhou": {
+"Card": false,
+"Donation": false,
 "Experiment": false,
 "Finished": false,
 "Meaning": false,
-"Meta": false
+"Meta": false,
+"MissingWu": false
 }
 },
 "ThirdSearch": {
@@ -435,7 +553,9 @@ variables={
 "Transcend": false
 },
 "Weapon": {
-"Fired": false
+"Agreed": false,
+"Fired": false,
+"Offered": false
 }
 },
 "Ending": {
@@ -454,9 +574,42 @@ variables={
 "MetaName": "梅塔",
 "PlayerGender": "",
 "PlayerName": "",
+"SourcePlot": {
+"EarlyNotebook": false,
+"EndingLin": "forget",
+"EndingMu": "forget",
+"EndingPlayer": "return",
+"EndingWu": "wake",
+"EndingZhong": "forget",
+"EndingZhou": "forget",
+"HasCycle": false,
+"HasFlowerPhoto": false,
+"HasLetter": false,
+"HasPaper": false,
+"HasPhoto": false,
+"LinArchitect": false,
+"MuArchitect": false,
+"PerfectReady": false,
+"ReportedLin": false,
+"ReportedMu": false,
+"ReportedZhong": false,
+"ReportedZhou": false,
+"WeaponReady": false,
+"WuButler": false,
+"WuDeconstruction": false,
+"WuFlower": false,
+"WuLetter": false,
+"WuNotebook": false,
+"WuPaper": false,
+"WuPhoto": false,
+"WuSandbox": false,
+"ZhongArchitect": false,
+"ZhongRefused": false,
+"ZhouArchitect": false
+},
 "ZhongQiName": "钟歧"
 }
-layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres", "res://assets/UI/dialogues/plain_text.tres", "res://assets/UI/dialogues/plain_text_left.tres"]
+layout/style_list=["res://assets/UI/default_visual_novel.tres", "res://assets/UI/default_speaker_style.tres", "res://assets/UI/dialogues/plain_text.tres", "res://assets/UI/dialogues/plain_text_left.tres", "res://assets/UI/dialogues/prologue_poem.tres"]
 layout/default_style="res://assets/UI/default_visual_novel.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.1
@@ -512,7 +665,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/godot_mcp/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [filesystem]
 

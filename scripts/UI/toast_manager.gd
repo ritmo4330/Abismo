@@ -25,6 +25,11 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if _canvas_layer != null:
+		var may_show: bool = not FlowManager.is_story_presentation_active()
+		_canvas_layer.visible = may_show
+		if not may_show:
+			return
 	if _remaining_time <= 0.0:
 		return
 
@@ -37,6 +42,8 @@ func _process(delta: float) -> void:
 
 func show_notice(message: String, notice_type: String = "info", duration: float = DEFAULT_DURATION) -> void:
 	if message.strip_edges().is_empty():
+		return
+	if FlowManager.get_current_chapter_id() == "ch0_prologue":
 		return
 
 	var payload: Dictionary = {
@@ -72,6 +79,21 @@ func _create_ui() -> void:
 	if _panel == null or _label == null:
 		push_error("ToastManager: toast panel scene is missing ToastPanel or Message node.")
 		return
+	var book: Script = load("res://scripts/UI/casebook_style.gd")
+	book.decorate(_panel)
+	_panel.add_theme_stylebox_override("panel", book.cut_style("name"))
+	_panel.anchor_top = 0.035
+	_panel.anchor_bottom = 0.035
+	_label.add_theme_color_override("font_color", book.INK)
+	var settings := LabelSettings.new()
+	settings.font = book.reading_font()
+	settings.font_size = 26
+	settings.font_color = book.INK
+	_label.label_settings = settings
+	get_viewport().size_changed.connect(_on_viewport_resized)
+
+func _on_viewport_resized() -> void:
+	if _is_showing_notice: _resize_panel_to_message()
 
 
 func _display(payload: Dictionary) -> void:
@@ -83,7 +105,9 @@ func _display(payload: Dictionary) -> void:
 	_panel.visible = true
 	_remaining_time = max(0.2, float(payload.get("duration", DEFAULT_DURATION)))
 	_is_showing_notice = true
-	_play_toast_sfx()
+	_canvas_layer.visible = not FlowManager.is_story_presentation_active()
+	if _canvas_layer.visible:
+		_play_toast_sfx()
 
 
 func _hide_current() -> void:
@@ -118,6 +142,12 @@ func _play_toast_sfx() -> void:
 func _resize_panel_to_message() -> void:
 	if _panel == null or _label == null:
 		return
+	var view_width := get_viewport().get_visible_rect().size.x
+	var width := clampf(view_width * 0.29, 340.0, TOAST_WIDTH)
+	_panel.custom_minimum_size.x = width
+	_label.custom_minimum_size.x = width - 96.0
+	if _label.label_settings != null:
+		_label.label_settings.font_size = 22 if view_width < 1500 else 26
 
 	var text_height: float = _label.get_theme_font("font").get_multiline_string_size(
 		_label.text,
@@ -127,6 +157,6 @@ func _resize_panel_to_message() -> void:
 	).y
 	var panel_height: float = clampf(text_height + TOAST_VERTICAL_PADDING, TOAST_MIN_HEIGHT, TOAST_MAX_HEIGHT)
 
-	_panel.offset_left = -TOAST_WIDTH - TOAST_RIGHT_MARGIN
+	_panel.offset_left = -width - TOAST_RIGHT_MARGIN
 	_panel.offset_right = -TOAST_RIGHT_MARGIN
 	_panel.offset_bottom = panel_height

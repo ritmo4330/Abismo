@@ -74,6 +74,7 @@ func spawn_npc(
 
 	dynamic_root.add_child(npc)
 	npc.global_position = spawn_point.global_position
+	SceneManager.configure_static_interactable(npc)
 
 
 func _get_or_create_dynamic_actors_root(room: Node2D) -> Node2D:

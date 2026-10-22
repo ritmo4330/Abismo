@@ -13,18 +13,16 @@ const BGM_TRACKS: Dictionary[String, String] = {
 	"tuning": "res://assets/audio/陈达飞 - 调律.mp3",
 	"winter_melody": "res://assets/audio/冬之旋律 - 陈达飞.mp3",
 	"dark_fog_lie": "res://assets/audio/暗雾谎言 - 川井憲次.mp3",
-	"cassandra_memory": "res://assets/audio/11-卡森德拉-回忆-1.mp3",
+	"cassandra_memory": "res://assets/audio/卡森德拉-回忆-1.wav",
 	"role_exit": "res://assets/audio/9-角色离场.wav",
 	"plain_happiness": "res://assets/audio/12-Plain Happiness.wav",
 	"thinking_introspection_2": "res://assets/audio/17-思考内省-2.wav",
 	"spooky_tension": "res://assets/audio/17-Spooky Tension.wav",
 	"truth": "res://assets/audio/24-真相.wav",
 	"what_is_truth": "res://assets/audio/What is Truth.wav",
-	# 文档指定曲目《Fog in Brain》尚未随项目提供，先以同类悬疑曲占位。
-	"fog_in_brain": "res://assets/audio/17-Spooky Tension.wav",
-	# 文档指定曲目尚未随工程提供；保留正式曲目 ID，并以现有同气质音乐占位，便于之后无缝替换文件。
-	"dust_rain": "res://assets/audio/11-卡森德拉-回忆-1.mp3",
-	"hero_journey": "res://assets/audio/24-真相.wav",
+	"fog_in_brain": "res://assets/audio/Fog in Brain.wav",
+	"dust_rain": "res://assets/audio/Dust Rain.wav",
+	"hero_journey": "res://assets/audio/Hero's Journey.wav",
 }
 
 const SFX_TRACKS: Dictionary[String, String] = {
@@ -297,8 +295,17 @@ func _configure_bgm_stream_loop(stream: AudioStream) -> void:
 func _configure_loop_stream(stream: AudioStream) -> void:
 	if stream == null:
 		return
-	stream.set("loop", true)
-	stream.set("loop_offset", 0)
+	# WAV uses sample-frame loop boundaries, not the MP3/Ogg `loop` property.
+	# Configure only the playback duplicate; preserve imported source resources.
+	if stream is AudioStreamWAV:
+		var wav := stream as AudioStreamWAV
+		var frame_count := int(round(wav.get_length() * wav.mix_rate))
+		wav.loop_begin = 0
+		wav.loop_end = frame_count
+		wav.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	elif stream is AudioStreamMP3 or stream is AudioStreamOggVorbis:
+		stream.set("loop", true)
+		stream.set("loop_offset", 0.0)
 
 
 func _apply_sfx_player_volume(player: AudioStreamPlayer) -> void:

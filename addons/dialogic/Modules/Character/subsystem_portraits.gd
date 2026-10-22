@@ -707,11 +707,23 @@ func change_speaker(speaker: DialogicCharacter = null, portrait := "") -> void:
 
 	var prev_speaker: DialogicCharacter = dialogic.Text.get_current_speaker()
 	if speaker != prev_speaker:
-		if is_character_joined(prev_speaker):
-			dialogic.current_state_info["portraits"][prev_speaker.get_identifier()].node.get_child(-1)._unhighlight()
+		_set_speaker_highlight(prev_speaker, false)
+		_set_speaker_highlight(speaker, true)
 
-		if is_character_joined(speaker):
-			dialogic.current_state_info["portraits"][speaker.get_identifier()].node.get_child(-1)._highlight()
+
+func _set_speaker_highlight(character: DialogicCharacter, highlighted: bool) -> void:
+	if not is_character_joined(character):
+		return
+	var info: Dictionary = dialogic.current_state_info.get("portraits", {}).get(character.get_identifier(), {})
+	var character_node: Node = info.get("node", null)
+	# Text-only styles intentionally have no portrait child. Style restoration
+	# can also replace the old container before speaker restoration finishes.
+	if not is_instance_valid(character_node) or character_node.is_queued_for_deletion() or character_node.get_child_count() == 0:
+		return
+	var portrait: Node = character_node.get_child(-1)
+	var method: StringName = &"_highlight" if highlighted else &"_unhighlight"
+	if is_instance_valid(portrait) and portrait.has_method(method):
+		portrait.call(method)
 
 #endregion
 

@@ -10,6 +10,7 @@ const FlowRooms = preload("res://scripts/flow/flow_rooms.gd")
 const FlowScenes = preload("res://scripts/flow/flow_scenes.gd")
 const FlowState = preload("res://scripts/flow/flow_state.gd")
 const FlowSteps = preload("res://scripts/flow/flow_steps.gd")
+const SourceText = preload("res://scripts/flow/services/source_text.gd")
 
 const FlowDebugBootstrap = preload("res://scripts/flow/services/flow_debug_bootstrap.gd")
 const FlowDialogicBridge = preload("res://scripts/flow/services/flow_dialogic_bridge.gd")
@@ -54,6 +55,7 @@ func _ready() -> void:
 
 
 func reset_gameplay_runtime() -> void:
+	_scene_navigator.clear_queued_scene_changes()
 	clear_pending_after_dialogue()
 	set_pending_auto_timeline("")
 	if DataManager != null and DataManager.has_method("reset_runtime_state"):
@@ -211,7 +213,42 @@ func is_current_room_exit_blocked() -> bool:
 	)
 	if result.blocked and not result.dialogue_timeline.is_empty():
 		EventBus.dialogue_requested.emit(result.dialogue_timeline)
+	elif result.blocked and ToastManager != null:
+		ToastManager.show_notice("请先完成小说谜题。", "task", 2.5)
 	return result.blocked
+
+
+func is_player_interface_available() -> bool:
+	if GameManager.current_state != GameManager.GameState.IN_GAME or get_tree().paused:
+		return false
+	return not is_story_presentation_active()
+
+
+func is_story_presentation_active() -> bool:
+	if not is_instance_valid(SceneManager.current_room):
+		return true
+	var room: Node = SceneManager.current_room
+	if room == null or not room.has_method("setup_camera_limits") or room.has_method("configure_presentation_camera"):
+		return true
+	if SceneManager.is_transitioning or Dialogic.current_timeline != null:
+		return true
+	if not _scene_navigator.pending_auto_timeline.is_empty() or not _pending_after_dialogue_effects.is_empty():
+		return true
+	return get_current_step_id() not in [
+		FlowSteps.CH1_STUDY_FREE_INVESTIGATION, FlowSteps.CH1_PUZZLE,
+		FlowSteps.CH1_INTRO_HALL, FlowSteps.CH1_FIRST_SEARCH, FlowSteps.CH1_INITIAL_REASONING,
+		FlowSteps.CH1_PRIVATE_CHAT, FlowSteps.CH1_SECOND_SEARCH,
+		FlowSteps.CH2_SECOND_REASONING, FlowSteps.CH2_SECOND_PRIVATE_CHAT,
+		FlowSteps.CH2_THIRD_SEARCH, FlowSteps.CH2_THIRD_REASONING, FlowSteps.CH2_THIRD_PRIVATE_CHAT,
+		FlowSteps.CH3_ROUTE,
+	]
+
+
+func is_free_investigation_active() -> bool:
+	return is_player_interface_available() and get_current_step_id() not in [
+		FlowSteps.CH1_PUZZLE, FlowSteps.CH1_INITIAL_REASONING,
+		FlowSteps.CH2_SECOND_REASONING, FlowSteps.CH2_THIRD_REASONING,
+	]
 
 
 func consume_debug_spawn_point(default_spawn_point: String) -> String:
@@ -231,6 +268,90 @@ func stop_bgm() -> void:
 		AudioManager.stop_bgm()
 
 
+func record_initial_search_order(player_turn: int) -> void:
+	if player_turn < 1 or player_turn > 3:
+		return
+	var order: Array[String] = ["钟歧", "周崇安", "林玖", "乌停湘", "穆执"]
+	order.insert(player_turn - 1, "你")
+	var description := "、".join(order)
+	set_dialogic_var("Ch1.InitialSearch.PlayerTurn", player_turn)
+	set_dialogic_var("Ch1.InitialSearch.Order", description)
+	# Static definitions survive a fresh process and save restoration.
+	DataManager.add_clue("1_initial_search_order_" + str(player_turn), "dialogue", "1_3_butler")
+
+
+func reveal_source_research(npc: String) -> void:
+	# Source flowchart 25: disclosure records the research-site evidence and
+	# unlocks this particular entrance; it never reveals another NPC's site.
+	var ids: Array = {
+		"mu": ["2_mu_meta_research_clue", "3_mei_1", "3_mei_2", "3_mei_2_18", "3_mei_3", "3_mei_4"],
+		"zhou": ["3_zhou_1", "3_zhou_2", "3_zhou_3", "3_zhou_3_16", "3_zhou_4", "3_zhou_5"],
+		"lin": ["3_abismo_1", "3_abismo_1_19", "3_abismo_1_20", "3_abismo_1_21", "3_abismo_1_28", "3_abismo_2"],
+	}.get(npc, [])
+	if ids.is_empty():
+		return
+	for id: String in ids:
+		DataManager.add_clue(id, "testimony", "source_research/" + npc)
+	DataManager.set_flag("source_research/" + npc, true)
+
+
+func inspect_source_clue(clue_id: String) -> void:
+	var scene := get_tree().current_scene
+	if scene == null or not DataManager.has_clue(clue_id): return
+	var panel := scene.get_node_or_null("CluePanel")
+	if panel == null: return
+	var previous_layer: int = panel.layer
+	panel.layer = 240
+	if not panel._open_interaction_panel({"display_type":"single", "clue_ids":[clue_id]}, true):
+		panel.layer = previous_layer
+		return
+	while panel._is_open:
+		await get_tree().process_frame
+	panel.layer = previous_layer
+
+
+func recall_source_nightmare(npc: String) -> void:
+	var id := "source_nightmare_" + npc
+	if DataManager.has_clue(id): return
+	DataManager.add_clue(id, "memory", npc)
+	var key: String = {"mu":"Mu", "zhou":"Zhou", "lin":"Lin", "zhong":"Zhong"}.get(npc, "")
+	if not key.is_empty(): set_dialogic_var("Ch3.NightmareRecall." + key, true)
+	await inspect_source_clue(id)
+
+
+func open_source_darkroom() -> void:
+	DataManager.set_flag("source_plot/darkroom_open", true)
+	set_dialogic_var("Ch3.Route.Started", true)
+	if bool(get_dialogic_var("Ch3.Route.Transcend", false)):
+		DataManager.add_suspicion("3_suspicion_world_truth", "dialogue", "transcend")
+
+
+func sync_source_plot() -> void:
+	set_dialogic_var("SourcePlot.EarlyNotebook", DataManager.has_flag("source_notebook/early_unlock"))
+	var fields := {"HasPhoto":"3_study_darkroom_1", "HasCycle":"3_study_darkroom_4", "HasPaper":"3_study_darkroom_2", "HasFlowerPhoto":"3_study_darkroom_5", "HasLetter":"3_study_darkroom_6"}
+	for key: String in fields:
+		set_dialogic_var("SourcePlot." + key, DataManager.has_clue(fields[key]))
+	set_dialogic_var("SourcePlot.WeaponReady", DataManager.is_suspicion_resolved("3_suspicion_god_weapon"))
+
+
+func prepare_source_endings() -> void:
+	# Full ending requirements are facts, not an automatic grant of evidence.
+	var ready := true
+	for key: String in ["Mu", "Zhou", "Lin", "Zhong"]:
+		ready = ready and bool(get_dialogic_var("Ch3.NightmareRecall." + key, false))
+	for fact: String in ["mu_correct_recognition", "world_truth_solved"]:
+		ready = ready and DataManager.has_flag("source_plot/" + fact)
+	# Asking about the architect is not the authored reconciliation event.
+	# Remains false until that missing source dialogue is supplied and connected.
+	ready = ready and DataManager.has_flag("source_plot/zhong_reconciled")
+	ready = ready and bool(get_dialogic_var("Ch2.SecondPrivate.Lin.RememberedQuote", false))
+	ready = ready and bool(get_dialogic_var("Ch2.SecondPrivate.Zhou.Shijin", false))
+	ready = ready and String(get_dialogic_var("Ch2.AccusedKiller", "")) == "穆执"
+	set_dialogic_var("SourcePlot.PerfectReady", ready)
+	for npc: String in ["mu", "zhou", "lin", "zhong", "wu", "player"]:
+		set_dialogic_var("SourcePlot.Ending" + npc.capitalize(), SourceText.character_ending(npc))
+
+
 func apply_character_name_state(name_state: String) -> void:
 	_dialogic_bridge.apply_character_name_state(name_state)
 
@@ -246,6 +367,8 @@ func set_dialogic_var(path: String, value: Variant) -> void:
 func set_private_chat_target(value: String) -> void:
 	_state.private_chat_target = value
 	if value.is_empty():
+		if bool(get_dialogic_var("Ch2.ThirdPrivate.Lin.DoorStarted", false)):
+			set_dialogic_var("Ch2.ThirdPrivate.Lin.DoorReady", true)
 		_refresh_current_content_completion()
 		_reset_npc_locations_for_current_step()
 		_refresh_current_room_actors()
@@ -257,11 +380,16 @@ func enter_private_chat() -> void:
 	if get_private_chat_target().is_empty():
 		push_warning("FlowManager: private chat target is empty.")
 		return
+	if get_private_chat_target() == "zhong" and bool(get_dialogic_var("SourcePlot.ZhongRefused", false)):
+		set_private_chat_target("")
+		return
 	var timeline_prefix: String = "1_6_"
 	if get_current_step_id() == FlowSteps.CH2_SECOND_PRIVATE_CHAT:
 		timeline_prefix = "2_2_"
-	elif get_current_step_id() == FlowSteps.CH2_THIRD_PRIVATE_CHAT:
+	elif get_current_step_id() in [FlowSteps.CH2_THIRD_PRIVATE_CHAT, FlowSteps.CH3_ROUTE]:
 		timeline_prefix = "2_5_"
+	if get_current_step_id() == FlowSteps.CH3_ROUTE:
+		timeline_prefix = "3_source_"
 	var timeline_name: String = "%s%s" % [timeline_prefix, get_private_chat_target()]
 	set_npc_location(get_private_chat_target(), FlowRooms.HUI_KE_TING, "Guest", timeline_name)
 	request_scene(FlowScenes.HUI_KE_TING, "Detective", timeline_name)
@@ -280,6 +408,8 @@ func refresh_initial_search_finished() -> void:
 
 
 func refresh_derived_progress() -> void:
+	_sync_source_evidence()
+	sync_source_plot()
 	_sync_dialogic_stage_gates()
 	_refresh_initial_search_finished()
 	_refresh_second_search_finished()
@@ -364,6 +494,7 @@ func setup_room_actors(room: Node2D) -> void:
 
 
 func _on_clue_updated(clue_id: String) -> void:
+	_sync_source_evidence()
 	_refresh_initial_search_finished()
 	_refresh_second_search_finished()
 	_refresh_third_search_finished()
@@ -371,8 +502,18 @@ func _on_clue_updated(clue_id: String) -> void:
 		DataManager.add_suspicion("1_suspicion_missing_body", "clue", clue_id)
 
 
+func _sync_source_evidence() -> void:
+	var defaults: Dictionary = ProjectSettings.get_setting("dialogic/variables", {}).get("Ch2", {}).get("SourceEvidence", {})
+	for key: String in defaults:
+		if key.begins_with("C_"):
+			set_dialogic_var("Ch2.SourceEvidence." + key, DataManager.has_clue(key.trim_prefix("C_")))
+	set_dialogic_var("Ch2.SourceEvidence.WorkList", DataManager.has_clue("1_zhongyue_3") or DataManager.has_clue("3_xiayue_3"))
+	set_dialogic_var("Ch2.SourceEvidence.Notebook", DataManager.has_clue("1_zhongyue_2") or DataManager.has_clue("3_xiayue_2"))
+
+
 func _on_suspicion_updated(_suspicion_id: String) -> void:
 	_refresh_nightmare_resolution_flags()
+	_refresh_current_content_completion()
 
 
 func _reconcile_milestone_suspicions() -> void:
@@ -538,8 +679,6 @@ func _refresh_third_search_finished() -> void:
 	_dialogic_bridge.set_var(FlowDialogicVars.CH2_THIRD_SEARCH_FINISHED, is_finished)
 	if is_finished:
 		_progress_rules.clear_third_search_missing_log()
-		if ToastManager != null:
-			ToastManager.show_notice("发现关键变化：尸体消失了", "clue", 3.5)
 	else:
 		_progress_rules.log_third_search_missing_clues(missing_clue_ids)
 
@@ -564,11 +703,7 @@ func _refresh_current_content_completion() -> void:
 		return
 	if get_current_step_id() != FlowSteps.CH2_THIRD_PRIVATE_CHAT:
 		return
-	var all_finished: bool = true
-	for npc_id: String in ["Mu", "Zhou", "Lin", "Wu", "Zhong"]:
-		if not bool(_dialogic_bridge.get_var("Ch2.ThirdPrivate.%s.Finished" % npc_id, false)):
-			all_finished = false
-			break
+	var all_finished := bool(get_dialogic_var("Ch2.SceneRecreation.Accepted", false)) and bool(get_dialogic_var("Ch2.MemoryFragments.Flower", false)) and bool(get_dialogic_var("Ch2.MemoryFragments.Cube", false))
 	_dialogic_bridge.set_var(
 		FlowDialogicVars.CH2_CURRENT_CONTENT_COMPLETE_READY,
 		all_finished
@@ -597,6 +732,7 @@ func _on_room_presented(room: Node2D, room_id: String) -> void:
 
 
 func _on_dialogue_finished(_timeline_name: String) -> void:
+	call_deferred("play_pending_auto_timeline")
 	if _pending_after_dialogue_effects.is_empty():
 		return
 

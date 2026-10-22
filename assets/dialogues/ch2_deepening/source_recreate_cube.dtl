@@ -1,0 +1,38 @@
+[style name="default_visual_novel"]
+将两个长宽相等、高为长宽的一半的盒子叠在一起，就能得到一个立方体，不愧是你。拿去给乌停湘看看吧。
+join wu_ting_xiang right
+wu_ting_xiang: 原来是这么做到的吗？好厉害。接下来应该还需要一个人把它交给我。
+这个人应该是谁呢？
+label 选择
+- 穆执
+	穆执捧起立方体，交给了乌停湘。她注视着白色的立方体，突然睁大了眼睛，似乎想起了什么。
+	jump 完成
+- 周崇安
+	周崇安捧起立方体，交给了乌停湘。她注视着白色的立方体，眨了眨眼睛，疑惑地歪着脑袋。
+	wu_ting_xiang: 我好像想起来了一点点，但是交给我立方体的人似乎要更年轻一些……
+	jump 选择
+- 林玖
+	林玖捧起立方体，交给了乌停湘。她注视着白色的立方体，眨了眨眼睛，疑惑地歪着脑袋。
+	wu_ting_xiang: 我好像想起来了一点点，但是交给我立方体的人似乎是一名男性……
+	jump 选择
+- 乌停湘
+	好奇怪啊，一个人怎么把东西交给自己呢？
+	jump 选择
+- 钟歧
+	钟歧捧起立方体，交给了乌停湘。她注视着白色的立方体，突然睁大了眼睛，似乎想起了什么。
+	jump 完成
+- 管家
+	管家捧起立方体，交给了乌停湘。她注视着白色的立方体，突然睁大了眼睛，似乎想起了什么。
+	jump 完成
+- 我自己
+	你捧起立方体，交给了乌停湘。她注视着白色的立方体，突然睁大了眼睛，似乎想起了什么。
+	if {PlayerGender} == "male":
+		jump 完成
+	wu_ting_xiang: 我好像想起来了一点点，但是交给我立方体的人似乎是一名男性……
+	jump 选择
+label 完成
+wu_ting_xiang: 我想起来了……不过再给我点时间，我要整理一下……谢谢……
+set {Ch2.MemoryFragments.Cube} = true
+do FlowManager.refresh_derived_progress()
+[signal arg="flow:source_memory_recreated"]
+[end_timeline]

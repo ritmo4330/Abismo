@@ -13,13 +13,23 @@ do DataManager.add_suspicion("1_suspicion_crime_info", "dialogue", "1_1_puzzle_r
 do DataManager.add_suspicion("1_suspicion_strange_description", "dialogue", "1_1_puzzle_reasoning")
 最后再将故事的文本整理成线索。
 do DataManager.add_clue("1_puzzle_maid_scene", "dialogue", "1_1_puzzle_reasoning")
+【女仆案件现场】（故事第1-5段）2006年12月20日，风雪交加，在一座离岸的小岛上发生了凶案，女仆被重五十斤的巨斧杀害。
 do DataManager.add_clue("1_puzzle_first_discussion", "dialogue", "1_1_puzzle_reasoning")
+【第一段讨论】（故事6-11段）讨论中出现了女高中生（低着头）、律师（手撑在桌上）、壮汉（捏紧了拳头）、穿着工作制服的女人（弯腰添水）、眼镜男（待在角落举手）。
+众人发现和外界连接的唯一通路被破坏了，电话线也被切断。
 do DataManager.add_clue("1_puzzle_x_impossible_1", "dialogue", "1_1_puzzle_reasoning")
+【X的不可能犯罪其一】（故事12-14段）X品尝着刚递上来的糕点，糕点不慎掉落，他有些费力地用左手去捡。
+穿着工作制服的女人证明X无法使用惯用手，认定他嫌疑很低。
 do DataManager.add_clue("1_puzzle_butler_scene", "dialogue", "1_1_puzzle_reasoning")
+【管家案件现场】（故事15-21段）2006年12月20日，风雪交加，在五楼的天台上发现了管家的尸体，胸口插着一把匕首。
 do DataManager.add_clue("1_puzzle_second_discussion", "dialogue", "1_1_puzzle_reasoning")
+【第二段讨论】（故事22-25段）讨论中出现了眼镜男（在角落颤抖）、律师（双手盖在额头上）、女高中生（坐在沙发上）、壮汉（靠在墙边）。
+众人发现暴风雪导致他们无法离开，电话线也被切断。
 do DataManager.add_clue("1_puzzle_x_impossible_2", "dialogue", "1_1_puzzle_reasoning")
+【X的不可能犯罪其二】（故事26-29段）X举起手发言，一边吃着刚递上的肉饼一边说自己的身体有问题。
+律师证明X双腿残疾，认定他作案会有困难。
 do DataManager.add_clue("1_puzzle_challenge_rules", "dialogue", "1_1_puzzle_reasoning")
+【挑战读者规则】故事中不存在对没有提到过的人物的隐藏；故事中不存在机关；故事记录的内容一定客观真实；故事有且仅有一个真凶即X。
 do DataManager.add_clue("1_puzzle_cast", "dialogue", "1_1_puzzle_reasoning")
-疑点和线索都整理好了。接下来，打开推理手册，选择对应的线索组合来解决这些疑点。
-do ToastManager.show_notice("按下“C”键打开线索手册，按下“V”键打开推理手册", "info", 3.5)
+【出场人物】管家、女仆、女高中生、律师、壮汉、眼镜男、X。
 [end_timeline]

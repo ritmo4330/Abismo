@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "2_dream_rules"
+title = "梦境规则"
+description = "一、梦境中的场景必须以现实中的场景为蓝本，或是多个不同场景的融合；\n二、梦境中的场景能随梦中人心意的改变而改变，且无需过渡；\n三、在梦境中，无论多么荒诞不经的事情，都有可能发生；\n四、梦境中的物品能随梦中人心意的改变而出现，但出现的过程不可被观测；\n五、梦境中受到的伤害不会使梦中人死亡，但会使恐惧值不断累加；\n六、脱离梦境的方法有两种：一种为接收到足以唤醒梦中人的神经兴奋，来源包括梦境内与梦境外；另一种为恐惧值达到一定阈值而被惊醒，这将造成难以逆转的精神损害，此类精神损害简称“梦魇”；\n七、梦境中的时间流速远慢于现实，现实中的一单位时间约为梦境中十二单位时间。"
+chapter_id = "2"
+room_id = "hall"
+category_path = PackedStringArray("梦墅", "规则")
+clue_type = "lore"

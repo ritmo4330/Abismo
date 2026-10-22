@@ -1,17 +1,19 @@
 [style name="default_visual_novel"]
-你们在大厅集合，管家把储物间暗门后的情况告诉了众人。
+do SceneManager.restore_static_art_view("storeroom")
+其余人已经先行前往储物间了，你和钟歧在管家的带领下在储物间会合。
 join butler leftmost
 join mu_zhi left
 join wu_ting_xiang center
 join lin_jiu right
 join zhong_qi rightmost
-butler: 储物间地毯下的暗门已经打开，门后是一条没有灯光的狭长通道。
-mu_zhi: 周先生似乎有一些急于调查的东西。他觉得没必要继续等待，已经独自进去了。
+mu_zhi: 周先生似乎有一些急于调查的东西，他觉得没必要等大家私聊完再调查，就先下去了。
 wu_ting_xiang: 周院长这么做，一定有他的道理。
 zhong_qi: 林玖，稍等一下，我还有些问题要问你。
 lin_jiu: 啊？好……
-butler: 为避免通道里发生意外，你先进去。我们会依次跟在后面。
-player: 明白。我先确认前方是否安全。
+你看见地毯已经被完全掀开，暗门也被打开了，一条通往地下的楼梯出现在眼前
+楼梯非常狭窄，宽度仅能供一人行走
+管家摊开右手指向暗门，对你说道
+butler: 请吧，我们就在你的身后。
 leave --All--
 set {Ch1.SecondSearch.Enabled} = true
 do ToastManager.show_notice("新任务：再展身手", "task", 3.0)

@@ -1,8 +1,9 @@
 extends CanvasLayer
 
 const ClueState = preload("res://scripts/data/clue_state.gd")
+const ArchivePresentation = preload("res://scripts/UI/archive_presentation.gd")
 
-const PANEL_SIZE: Vector2 = Vector2(1560.0, 900.0)
+const PANEL_SIZE: Vector2 = Vector2(1580.0, 900.0)
 const PANEL_ID: String = "clue_panel"
 const PANEL_PAUSE_TOKEN: String = "clue_panel"
 const MODE_ARCHIVE: String = "archive"
@@ -78,12 +79,14 @@ var _archive_refresh_queued: bool = false
 var _interaction_refresh_queued: bool = false
 var _archive_selected_clue_id: String = ""
 var _archive_sort_mode: int = ARCHIVE_SORT_DISCOVER
+var _question_workspace: RefCounted
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_process_input(true)
 	hide()
+	ArchivePresentation.apply(self, false)
 
 	catalog_tree.hide_root = true
 	catalog_tree.columns = 1
@@ -117,7 +120,13 @@ func _ready() -> void:
 		EventBus.ui_panel_focus_requested.connect(_on_ui_panel_focus_requested)
 
 	_on_viewport_size_changed()
+	_question_workspace = preload("res://scripts/UI/clue_question_workspace.gd").new()
+	_question_workspace.build(self)
+	DataManager.suspicion_updated.connect(_on_question_updated)
 	_render_empty_state("暂无可显示的线索。")
+
+func _on_question_updated(_id: String) -> void:
+	if _is_open and _question_workspace != null: _question_workspace.refresh()
 
 
 func _input(event: InputEvent) -> void:
@@ -239,6 +248,19 @@ func _on_clue_interaction_details_requested(payload: Dictionary) -> void:
 
 
 func _on_clue_selection_requested(context: Dictionary) -> void:
+	if String(context.get("source", "")) == "suspicion_ui":
+		var manual: Node = get_tree().current_scene.get_node_or_null("SuspicionPanel")
+		var question := String(context.get("suspicion_id", ""))
+		var slot := int(context.get("slot_index", -1))
+		if manual != null and manual._workspace != null:
+			if not DataManager.has_suspicion(question) or slot < 0 or slot >= manual._get_required_slot_count(question): return
+			if manual._is_locked_and_unresolved() and question != String(manual._locked_suspicion_id): return
+			if not manual._can_open_panel(): return
+			manual._selected_suspicion_id = question
+			if manual._is_locked_session_active(): manual._open_locked_panel()
+			else: manual._open_archive_panel()
+			manual._workspace.select_slot(slot)
+			return
 	_open_selection_panel(context)
 
 
@@ -253,7 +275,7 @@ func _on_viewport_size_changed() -> void:
 	if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
 		return
 
-	var scale_ratio: float = min(viewport_size.x / PANEL_SIZE.x, viewport_size.y / PANEL_SIZE.y)
+	var scale_ratio: float = min((viewport_size.x - 60) / PANEL_SIZE.x, (viewport_size.y - 60) / PANEL_SIZE.y)
 	scale_ratio = min(scale_ratio, 1.0)
 
 	panel_frame.size = PANEL_SIZE
@@ -276,8 +298,10 @@ func _open_archive_panel() -> bool:
 	return true
 
 
-func _open_interaction_panel(payload: Dictionary) -> bool:
-	if not _can_open_panel():
+func _open_interaction_panel(payload: Dictionary, scripted: bool = false) -> bool:
+	if not scripted and not _can_open_panel():
+		return false
+	if scripted and (SceneManager.is_transitioning or payload.get("clue_ids", []).is_empty()):
 		return false
 
 	_mode = MODE_INTERACTION
@@ -344,25 +368,28 @@ func _can_open_panel() -> bool:
 
 
 func _update_mode_widgets() -> void:
+	if _question_workspace != null: _question_workspace.refresh()
+	search_line_edit.get_parent().visible = _mode != MODE_INTERACTION
+	ArchivePresentation.set_tabs_enabled(self, _mode == MODE_ARCHIVE)
 	if _mode == MODE_ARCHIVE:
-		mode_label.text = "模式：线索手册"
+		mode_label.text = ""
 		search_line_edit.editable = true
-		search_line_edit.placeholder_text = "搜索线索标题、内容、标签"
+		search_line_edit.placeholder_text = "搜索"
 		select_clue_button.hide()
 		return
 
 	if _mode == MODE_SELECTION:
-		mode_label.text = "模式：选择线索"
+		mode_label.text = ""
 		search_line_edit.editable = true
-		search_line_edit.placeholder_text = "搜索线索标题、内容、标签"
+		search_line_edit.placeholder_text = "搜索"
 		select_clue_button.show()
 		select_clue_button.disabled = true
 		return
 
-	mode_label.text = "模式：交互详情"
+	mode_label.text = ""
 	search_line_edit.editable = false
 	search_line_edit.text = ""
-	search_line_edit.placeholder_text = "交互详情模式下禁用搜索"
+	search_line_edit.placeholder_text = ""
 	select_clue_button.hide()
 
 
@@ -570,6 +597,7 @@ func _extract_payload_clue_ids(payload: Dictionary) -> Array[String]:
 
 
 func _show_clue_detail(clue_id: String, mark_read: bool = false) -> void:
+	if _question_workspace != null: _question_workspace.show_clue(clue_id)
 	var clue_def: ClueData = _get_clue_def(clue_id)
 	if clue_def == null:
 		detail_title.text = clue_id
@@ -582,14 +610,13 @@ func _show_clue_detail(clue_id: String, mark_read: bool = false) -> void:
 	detail_title.text = title
 
 	var section_lines: PackedStringArray = PackedStringArray()
-	if not clue_def.chapter_id.is_empty() or not clue_def.room_id.is_empty():
-		section_lines.append("章节：%s    房间：%s" % [clue_def.chapter_id, clue_def.room_id])
-	if not clue_def.tags.is_empty():
-		section_lines.append("标签：%s" % ", ".join(clue_def.tags))
 	if clue_def.is_conclusion:
 		section_lines.append("类型：结论线索")
 
 	var body: String = clue_def.description
+	if clue_id == "2_wu_dream_notes":
+		detail_body.bbcode_enabled = true
+		body = preload("res://scripts/flow/services/source_text.gd").notebook_body()
 	if body.is_empty():
 		body = "（暂无线索描述）"
 

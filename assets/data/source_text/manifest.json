@@ -1,0 +1,102 @@
+{
+  "ending_player": {
+    "source": "结局·蕊期.docx",
+    "sha256": "5fa1846bfb2783e5abccb1328f9bc5fd76bb46c77d0d77d837eedc7c7083a979",
+    "paragraphs": 50
+  },
+  "ending_mu": {
+    "source": "结局·穆暌信.docx",
+    "sha256": "a7a1b717600974ffcf24657b72e2ad157256abf7ef56671e6dd851b71beaeec8",
+    "paragraphs": 39
+  },
+  "ending_zhou": {
+    "source": "结局·松林夕.docx",
+    "sha256": "30f586020190e23d041c8178883718e67fd601b39bd63aa8ecdbfbd98467aa7b",
+    "paragraphs": 32
+  },
+  "ending_lin": {
+    "source": "结局·苏溟玖.docx",
+    "sha256": "ecf965d212dcc524481358e7aefd817f289f66ccf80bd006fcc09702771e0903",
+    "paragraphs": 38
+  },
+  "ending_wu": {
+    "source": "结局·乌停湘.docx",
+    "sha256": "226f0a533b277e318ff4bcd8247572e4772523fa3e56d579ec049a4faacd48b2",
+    "paragraphs": 37
+  },
+  "ending_zhong": {
+    "source": "结局·夏中清.docx",
+    "sha256": "961c49bb87b5c6ae5d514561c8f2847bc443971d8069212de53e83f9459c9fa2",
+    "paragraphs": 35
+  },
+  "past_zhou": {
+    "source": "松林夕·往日.docx",
+    "sha256": "081063f702cf1984d30dcc85a8626e29bf9f6eed6a076a594f3584c00547006b",
+    "paragraphs": 223
+  },
+  "past_lin": {
+    "source": "苏溟玖·往日.docx",
+    "sha256": "96257a2fd5f40b8bf49cd11735498560c26540e2bc7425965cf0a7e683bcffc3",
+    "paragraphs": 249
+  },
+  "past_wu": {
+    "source": "乌停湘·往日.docx",
+    "sha256": "9d6c697ac5964df7b5abde22af2db2ef1e868c89cf01d56ccd2bff552d99f9eb",
+    "paragraphs": 183
+  },
+  "past_zhong": {
+    "source": "夏中清·往日.docx",
+    "sha256": "a877c2fe6be7d117eefb47ba38b5b5b1cc2005ba91d4776b48c448c339168ec3",
+    "paragraphs": 221
+  },
+  "nightmare_mu": {
+    "source": "穆执·梦魇.docx",
+    "sha256": "e3e484bab8f61ee30a3109ff4197253d8d126c91b426c07b6c02a8630af4b831",
+    "paragraphs": 7
+  },
+  "nightmare_zhou": {
+    "source": "周崇安·梦魇.docx",
+    "sha256": "d0882a8a68fafee7c9af81822dd3b14f593ec92570e7a609d3d04cc3d1626b47",
+    "paragraphs": 11
+  },
+  "nightmare_lin": {
+    "source": "林玖·梦魇.docx",
+    "sha256": "83fc5b881bae709fd16c07e8bd8161ccdfa2721104f2996eef36816bc61a3e9c",
+    "paragraphs": 3
+  },
+  "nightmare_zhong": {
+    "source": "钟歧·梦魇.docx",
+    "sha256": "9d4b84a14efbd863f39a4f87f6147adf71d63f073b68ae8491f8576c956c25c3",
+    "paragraphs": 2
+  },
+  "note_pages": {
+    "source": "笔记残页.docx",
+    "sha256": "01c9b8ba34801678129c4d5f9e21a5e47b0988c18c26d8cb76a9dfe68bbb9465",
+    "paragraphs": 7
+  },
+  "dream_notes": {
+    "source": "梦境笔记.docx",
+    "sha256": "b0e2933bae819fef45c07ab1a6498618a41e6d4f3792007d3a027fb7fe6ecc39",
+    "paragraphs": 14
+  },
+  "cycle_notes": {
+    "source": "轮回笔记.docx",
+    "sha256": "22e4d500af8bf0a71106ddcde306dca570a100af51f1048b475bba513f510e33",
+    "paragraphs": 74
+  },
+  "letter": {
+    "source": "林羽的回信.docx",
+    "sha256": "e8d67b7cfd83beb969070fdc59d884a9433ba83cdbe476636364dbe77bc3778e",
+    "paragraphs": 10
+  },
+  "rules_meta": {
+    "source": "梦境规则·梅塔研究所.docx",
+    "sha256": "113cd1de1cd2ab3c2edbc5b17efb3f261f7c59b3fbf9b10bb4a948dd24a89cec",
+    "paragraphs": 9
+  },
+  "rules_zhou": {
+    "source": "梦境规则·周崇安研究所.docx",
+    "sha256": "c56755f760166ef06fa2f5e99b3b3787c49ad080c9dd2e25e4ef918267454e36",
+    "paragraphs": 8
+  }
+}

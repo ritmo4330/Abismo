@@ -1,39 +1,84 @@
 [style name="default_visual_novel"]
 join wu_ting_xiang left
-wu_ting_xiang: 密码本上的下划线不是随手画的。它们像是在告诉我，该从哪些场景开始找回记忆。
-label 问题
-- 关于密码0909 | [if {Ch2.ThirdPrivate.Wu.Notebook} != true]
-	wu_ting_xiang: 0909是我第一次见到林姐姐的日期。可我翻遍了孤儿院的记录，那一天本来不该有新孩子入住。
-	set {Ch2.ThirdPrivate.Wu.Notebook} = true
-	jump 问题
-- 花海与白色立方体 | [if {Ch2.ThirdPrivate.Wu.Scenes} != true]
-	wu_ting_xiang: 花海里有一个看不清脸的女人，白色立方体中则总有人叫我的名字。
-	wu_ting_xiang: 它们不是互不相干的梦，而是同一段记忆被拆开后的两端。
-	set {Ch2.ThirdPrivate.Wu.Scenes} = true
-	jump 问题
-- 那扇木门 | [if {Ch2.ThirdPrivate.Wu.Lock} != true]
-	wu_ting_xiang: 它看起来像孤儿院地下室的门，但我现在觉得，那也是我给自己记忆上的锁。
-	wu_ting_xiang: 门后的事与林姐姐有关，也与我为什么会忘记过去有关。
-	set {Ch2.ThirdPrivate.Wu.Lock} = true
-	jump 问题
-- 我会帮你复现场景 | [if {Ch2.SceneRecreation.Accepted} == true and {Ch2.ThirdPrivate.Wu.Help} != true]
-	wu_ting_xiang: 谢谢。无论门后是什么，这次我不想再让别人替我承担。
-	set {Affinity.Wu} += 5
-	set {Ch2.ThirdPrivate.Wu.Help} = true
-	jump 问题
-- 关于复现场景 | [if {Ch2.SceneRecreation.Accepted} != true and {Ch2.ThirdPrivate.Wu.Help} != true]
-	wu_ting_xiang: 我知道你有更重要的事。即使没有你的帮助，我也会试着把那些场景拼起来。
-	set {Ch2.ThirdPrivate.Wu.Help} = true
-	jump 问题
-- 结束私聊 | [if {Ch2.ThirdPrivate.Wu.Notebook} == true and {Ch2.ThirdPrivate.Wu.Scenes} == true and {Ch2.ThirdPrivate.Wu.Lock} == true and {Ch2.ThirdPrivate.Wu.Help} == true]
-	wu_ting_xiang: 好。我会继续整理笔记，有新的记忆就告诉你。
+wu_ting_xiang: 我会尽可能如实回答的。
+label 选择
+- 来到别墅的原因
+	wu_ting_xiang: 是林姐姐带我跑出孤儿院的，她说异测会要来抓我，于是我们就跑了出来。
+	set {Ch1.PrivateChat.Wu.Asked.Arrival} = true
+	jump 选择
+- 与死者的关系
+	wu_ting_xiang: 我不认识他。
+	set {Ch1.PrivateChat.Wu.Asked.Dead} = true
+	jump 选择
+- 与其他人的关系
+	label 与其他人的关系
+	wu_ting_xiang: 你想问哪一位？
+	- 穆执
+		wu_ting_xiang: 我只见过他几面，他是林姐姐的远房亲戚，和我讲过林姐姐小时候的一些事情。
+		set {Ch1.PrivateChat.Wu.Asked.Mu} = true
+		jump 与其他人的关系
+	- 周崇安
+		wu_ting_xiang: 他是孤儿院的院长，对大家非常和蔼。
+		set {Ch1.PrivateChat.Wu.Asked.Zhou} = true
+		jump 与其他人的关系
+	- 林玖
+		wu_ting_xiang: 林姐姐是我在孤儿院最好的朋友。
+		set {Ch1.PrivateChat.Wu.Asked.Lin} = true
+		jump 与其他人的关系
+	- 钟歧
+		wu_ting_xiang: 我不认识他，但是林姐姐好像和他认识的样子。
+		set {Ch1.PrivateChat.Wu.Asked.Zhong} = true
+		jump 与其他人的关系
+	- 还有其他问题
+		jump 选择
+- 关于异测会 | [if {Ch1.PrivateChat.Wu.Asked.Arrival} == true and {Ch1.PrivateChat.Wu.Removed.AnomalySociety} != true]
+	wu_ting_xiang: 异测会是一个致力于为超自然现象寻求科学解释的组织，已经成为了一个权威机构。
+	wu_ting_xiang: 但是他们的研究也不一定全是对的，我们还是要有自己的判断力。
+	set {Ch1.PrivateChat.Wu.Removed.AnomalySociety} = true
+	jump 选择
+- 关于灯塔木雕 | [if {Ch1.PrivateChat.Lin.Asked.Lighthouse} == true and {Ch1.PrivateChat.Wu.Removed.Lighthouse} != true]
+	wu_ting_xiang: 那个灯塔木雕是林姐姐在初中时候亲手制作的。
+	wu_ting_xiang: 我猜她是要送给谁，但最终还是没有送出去。在那之后它就一直放在林姐姐的书桌上。
+	player: 你知道她为什么会做这个木雕吗？
+	wu_ting_xiang: 嗯……孤儿院曾经有段时间请来老师教过，不过我不太擅长这个啦，林姐姐倒是挺喜欢的。
+	wu_ting_xiang: 那个时候，我感觉林姐姐每天在学校并不开心，但是和我相处的时候又会把所有不开心藏起来，我也不好直接问她。
+	wu_ting_xiang: 直到她开始制作那个木雕的时候，她的心情似乎好了不少，可能事情发生了某种转变。
+	wu_ting_xiang: 我也问过她是不是要送给谁，她也没有正面回答过我。
+	set {Ch1.PrivateChat.Wu.Asked.Lighthouse} = true
+	set {Ch1.PrivateChat.Wu.Removed.Lighthouse} = true
+	do DataManager.add_clue("1_testimony_7_wu", "dialogue", "1_testimony_7_wu")
+	jump 选择
+- 储物间暗门下的东西 | [if {Ch2.SecondPrivate.Wu.Door} != true]
+	wu_ting_xiang: 我没有骗你，我真的什么都没有看到。我走下去以后不一会就到了头，没有什么可以调查的。
+	set {Ch2.SecondPrivate.Wu.Door} = true
+	jump 选择
+- 关于梅塔 | [if {Ch2.SecondPrivate.Wu.Meta} != true]
+	wu_ting_xiang: 我对梅塔的了解全部都来自林姐姐，来到别墅后也是，如果不是林姐姐认出来，我也不会知道这里的主人就是梅塔
+	wu_ting_xiang: ——哦，虽然不一定是我们世界的梅塔。
+	set {Ch2.SecondPrivate.Wu.Meta} = true
+	jump 选择
+- 关于沙化事件 | [if {Ch2.SecondPrivate.Lin.Sand} == true and {Ch2.SecondPrivate.Wu.Sand} != true]
+	wu_ting_xiang: 对，我其实在抽空调查这件事，但也只发现确有此事，不是谣言。
+	if {Affinity.Wu} > 70:
+		wu_ting_xiang: 我跟周院长聊起这件事后，他说了这么一句话：
+		wu_ting_xiang: 科学到底是自然界的产物，还是神明的规则呢？
+		wu_ting_xiang: 我不知道，发生了这么多事，我越来越想不明白了……
+	set {Ch2.SecondPrivate.Wu.Sand} = true
+	jump 选择
+- 关于白色的盒子 | [if {Ch2.SourceEvidence.C_2_wu_1} == true and {Ch2.ThirdPrivate.Wu.Sandbox} != true]
+	wu_ting_xiang: 这是我的沙盘，是周院长给我买的。我闲来无事时就会拿出来玩，堆出各种各样的东西。
+	set {Ch2.ThirdPrivate.Wu.Sandbox} = true
+	jump 选择
+- 关于沙盘底的报纸 | [if {Ch2.ThirdPrivate.Wu.Sandbox} == true and {Ch2.SourceEvidence.C_2_wu_1_13} == true and {Ch2.ThirdPrivate.Wu.Newspaper} != true]
+	wu_ting_xiang: 这应该是我好久以前看到的报纸了，大概是黑门事件的时候。当时有传言说黑门事件的始作俑者是1999年抓捕的那群邪教分子，所以我找来报纸了解了一下。不过我觉得这也太奇怪了。
+	set {Ch2.ThirdPrivate.Wu.Newspaper} = true
+	jump 选择
+- 关于梦境笔记本 | [if {Ch2.ThirdPrivate.Wu.DreamNotes} != true]
+	wu_ting_xiang: 我应该和你说过我失忆的事情，为了找回我的记忆，我的心理医生林医生建议我记录下自己的梦境，通过情景复现的方式尝试唤起那些被压抑进潜意识的记忆。
+	set {Ch2.ThirdPrivate.Wu.DreamNotes} = true
+	jump 选择
+- 暂时没有问题了
+	wu_ting_xiang: 好，有什么别的疑问要记得和我交流哦。
 	set {Ch2.ThirdPrivate.Wu.Finished} = true
-	do ToastManager.show_notice("人物信息已更新：乌停湘", "profile", 2.5)
-	leave --All--
-	[signal arg="flow:exit_private_chat"]
-	[end_timeline]
-- 暂时离开 | [if {Ch2.ThirdPrivate.Wu.Notebook} != true or {Ch2.ThirdPrivate.Wu.Scenes} != true or {Ch2.ThirdPrivate.Wu.Lock} != true or {Ch2.ThirdPrivate.Wu.Help} != true]
-	wu_ting_xiang: 好。密码本里还有没谈完的部分，之后再来找我吧。
-	leave --All--
-	[signal arg="flow:exit_private_chat"]
-	[end_timeline]
+[signal arg="flow:exit_private_chat"]
+[end_timeline]

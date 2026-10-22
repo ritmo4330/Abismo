@@ -18,7 +18,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept") or event.is_action_pressed("interact"):
+	if event.is_action_pressed("ui_accept") or (event is InputEventKey and event.pressed and (event.keycode == KEY_F or event.physical_keycode == KEY_F)):
 		_finish()
 
 
@@ -41,15 +41,17 @@ func _build_title() -> void:
 	var chapter := Label.new()
 	chapter.text = chapter_label
 	chapter.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	chapter.add_theme_font_size_override("font_size", 34)
+	chapter.add_theme_font_size_override("font_size", 72 if title_text.is_empty() else 34)
 	chapter.modulate = Color(1, 1, 1, 0)
 	center.add_child(chapter)
 	var divider := HSeparator.new()
 	divider.custom_minimum_size = Vector2(620, 18)
 	divider.modulate = Color(1, 1, 1, 0)
+	divider.visible = not title_text.is_empty()
 	center.add_child(divider)
 	var title := Label.new()
 	title.text = title_text
+	title.visible = not title_text.is_empty()
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 54)
 	title.modulate = Color(1, 1, 1, 0)

@@ -1,123 +1,98 @@
 [style name="default_visual_novel"]
-[signal arg="audio:play_bgm:truth:2.0"]
-join wu_ting_xiang left
-join butler right
-wu_ting_xiang: 全部想起来以后，我终于知道自己为什么会来到这里。老师，别再装成管家了。
-butler: ……欢迎回来，乌停湘。或者，我该称呼你为γ世界的管理者。
-set {Ch3.Route.Started} = true
-do DataManager.add_clue("3_abismo_1_28", "truth_review", "hall")
-do DataManager.add_clue("3_mei_2_18", "truth_review", "hall")
-do DataManager.add_clue("3_zhou_3_16", "truth_review", "hall")
-do DataManager.add_suspicion("3_suspicion_world_truth", "reasoning", "chapter3")
-do DataManager.resolve_suspicion("3_suspicion_world_truth")
-do ToastManager.show_notice("推理完成：箱庭世界的真相", "clue", 3.0)
-player: 异数档案、红色弦设备和反复重置的梦境都指向同一个结论：别墅由世界之外的人搭建。
-butler: 我的名字是梅塔。我负责修正跨越边界的异常。这个箱庭本来只是为了唤醒她的记忆。
-join mu_zhi left
-join zhou_chong_an right
-join lin_jiu left
-join zhong_qi right
-mu_zhi: 所以我们在现实中的恐惧，也被你拿来当成了剧本？
-butler: 它们是意识最牢固的锚。只有直面它们，你们才能从叠加的梦里醒来。
-
-# 四条梦魇线索在最终推理中正式触发，已解决过委托的角色会说出完整记忆。
-do DataManager.add_clue("3_study_darkroom_2", "truth_review", "nightmare_mu")
-do DataManager.add_clue("3_study_darkroom_2_23", "truth_review", "nightmare_mu")
-if {Ch1.PrivateChat.Mu.NightmareSolved} == true:
-	mu_zhi: 那场火和报纸上的“对不起”……我记得时今，也记得自己一直把幸存当成罪。
-	set {Ch3.NightmareRecall.Mu} = true
-else:
-	mu_zhi: 这张火灾报纸让我很不舒服，但我还无法面对它。
-do DataManager.add_clue("3_zhou_4", "truth_review", "nightmare_zhou")
-if {Ch1.PrivateChat.Zhou.NightmareSolved} == true:
-	zhou_chong_an: 提线木偶就是我害怕被操纵、也害怕操纵别人的证明。我愿意承认自己的研究和过错。
-	set {Ch3.NightmareRecall.Zhou} = true
-else:
-	zhou_chong_an: 别把那个木偶拿近。我暂时还说不清原因。
-do DataManager.add_clue("3_study_darkroom_1", "truth_review", "nightmare_lin")
-if {Ch1.PrivateChat.Lin.NightmareSolved} == true:
-	lin_jiu: 母亲和那枚千纸鹤吊坠……我不会再用社会的眼光否定她，也不会否定自己。
-	set {Ch3.NightmareRecall.Lin} = true
-else:
-	lin_jiu: 相框里的母女像我认识的人，可记忆依然模糊。
-do DataManager.add_clue("3_xiayue_3", "truth_review", "nightmare_zhong")
-if {Ch1.PrivateChat.Zhong.NightmareSolved} == true:
-	zhong_qi: 工作清单上写着“找到钟歧”。原来爷爷跨越世界寻找的人一直是我。
-	set {Ch3.NightmareRecall.Zhong} = true
-else:
-	zhong_qi: 这份工作清单和我的名字有关，但我还无法相信它。
-
-wu_ting_xiang: 老师，现在你想让我怎么做？
-butler: 跟我离开。我会修正所有异常，让这个世界恢复原状。
+do SaveManager.autosave_before_endings()
 if {Affinity.Wu} < 30:
-	[signal arg="audio:play_bgm:dust_rain:2.0"]
-	wu_ting_xiang: 对不起。也许服从修正，才不会再有人受伤。
-	set {Ch3.Route.Correction} = true
-	player: 她选择了老师，而不是箱庭中的人。
-	butler: 世界会回到应有的位置。代价是，所有越界的记忆都将被抹去。
-	[signal arg="flow:start_ending_dust"]
-	[end_timeline]
+	jump 修正
 if {Affinity.Wu} > 70 and {Ch3.KeyDialogue.Freedom} == true:
-	jump 超越路线
+	jump 超越
+jump 抗争
 
-label 抉择自由
-player: 书房留言写着：“自由不是在黑与白中做出选择，而是可以放弃这样被规定好的选择。”
-- 跟老师离开
-	[signal arg="audio:play_bgm:dust_rain:2.0"]
-	set {Ch3.Route.Correction} = true
-	wu_ting_xiang: 我会结束箱庭，把异常交还给上界。
-	[signal arg="flow:start_ending_dust"]
-	[end_timeline]
-- 留下来保护箱庭中的人
-	set {Ch3.Route.Resistance} = true
-	jump 抵抗路线
-- 拒绝这两种选择 | [if {Affinity.Wu} > 70]
-	set {Ch3.KeyDialogue.Freedom} = true
-	jump 超越路线
+label 修正
+[signal arg="audio:play_bgm:dust_rain:2.0"]
+set {Ch3.Route.Correction} = true
+当你回到大厅时，看见乌停湘从会客厅的方向回来，一副心事重重的模样。
+player: 你们聊了什么？
+wu_ting_xiang: 没……没什么重要的，不用在意。我们接着找凶手吧。
+她头也不回地走开了，你依稀听见她口中说出了“对不起”三个字。
+do FlowManager.open_source_darkroom()
+[end_timeline]
 
-label 抵抗路线
+label 抗争
 [signal arg="audio:play_bgm:hero_journey:2.0"]
-wu_ting_xiang: 我不会让你把所有人的人生当成需要删除的错误。
-butler: 你选择了抵抗。那么箱庭会继续消耗上界的能量，直到两个世界一起崩溃。
-zhong_qi: 未必。钟岳研究所留下了一把能把梦境能量逆向送回去的枪。
-do DataManager.add_clue("3_mei_4", "truth_review", "weapon")
-do DataManager.add_suspicion("3_suspicion_god_weapon", "reasoning", "chapter3")
-do DataManager.resolve_suspicion("3_suspicion_god_weapon")
-do ToastManager.show_notice("推理完成：弑神的武器", "clue", 3.0)
-player: 钟歧，你准备怎么使用它？
-- 开枪切断上界控制
-	set {Ch3.Weapon.Fired} = true
-	zhong_qi: 如果神只把我们当成能被覆写的参数，那我愿意背负弑神的罪名。
-	[signal arg="audio:play_sfx:door_knock_quick"]
-	[style name="plain_text"]
-	枪声撕裂了梦境。维系异墅的红线逐根断开，连同上界投下的阴影一并燃烧。
-	[signal arg="flow:start_ending_godslayer"]
-	[end_timeline]
-- 放下武器
-	set {Ch3.Weapon.Fired} = false
-	zhong_qi: 我不接受神的安排，也不愿用另一次毁灭证明自由。
-	[style name="plain_text"]
-	众人留在摇摇欲坠的世界里，等待一场尚未到来的风暴。
-	[signal arg="flow:start_ending_calm"]
-	[end_timeline]
+set {Ch3.Route.Resistance} = true
+当你回到大厅时，看见乌停湘从会客厅的方向回来，一副坚决的模样。
+player: 你们聊了什么？
+wu_ting_xiang: 我有话要和大家一起说。
+于是在乌停湘的召集下，所有人聚在了一起，除了管家。
+wu_ting_xiang: 刚刚我想起来了一切，我想我有必要告诉你们。
+lin_jiu: 是什么事？我还从来没见过你这么严肃的样子。
+zhong_qi: 和我们也有关系吗？
+wu_ting_xiang: 嗯。我其实是来自上层世界的人。
+mu_zhi: 上层世界……
+wu_ting_xiang: 用你的话来说，叫做神明之境——但我们并非是神。上层世界的人创造了箱庭，同时开创了箱庭计划，旨在通过建构箱庭满足社会学等学科实验的需要。箱庭计划中不止存在你们所在的这一个箱庭，你们所在的这个箱庭由我的老师建构，而我曾经管理过伽马世界线，也就是林姐姐你所在的那个平行世界。
+lin_jiu: 所以……时空裂缝事件是……
+wu_ting_xiang: 刚刚我才知道，我在管理伽马世界线的时候，由于过度介入，引发了能量不守恒的漏洞，时空裂缝就是因此产生的。在那之后，我不断将世界在终结之前回溯，希望找到解决办法。但当时的我没有选择求助老师，而是一遍又一遍回溯，以为这样终究可以找到出路……
+zhong_qi: 但是一个能量守恒体系内的能量缺失，是不可能通过体系内部的因素解决的。
+wu_ting_xiang: 没错，所以一切都是徒劳无功。直到将近一年后，老师发现了我的异常，不再让我接触箱庭。那时的我有了严重的心理障碍，于是老师和零姐姐一起制定了箱庭疗法的计划，把我的意识送入伽马世界线中，并用催眠的方式压抑住我在上层世界的记忆，让我在这段人生阅历中有所成长。
+wu_ting_xiang: 同时送入的还有时空裂缝的修补措施，也就是林姐姐你那天捡到的白色立方体。
+lin_jiu: 原来如此……好多事情都说通了。
+zhou_chong_an: 你跟我们说这些，应该不只是为了坦白自己的身份吧？
+wu_ting_xiang: 没错，我还有一件事要说……
+butler: 各位，不好意思打扰一下——
+管家突然出现在了大厅，打断了乌停湘的话。
+butler: 刚刚我发现书房里上锁的那扇门被打开了，不过我从来没有在别墅里见过这样的房间。
+wu_ting_xiang: ……管家就是我的老师。
+众人无不惊讶地看向管家，只见他仍然是那副从容不迫的模样。
+butler: 好吧，乌停湘，你果然还是这么做了。重新自我介绍一下，我叫末雨，是一名建构师。用你们的话来说，我来自上层世界，也就是穆执认知中的神明之境。
+钟歧冲到末雨面前，猛地向他的面门挥出一拳，却被他抬手挡下。
+zhong_qi: 你到底有什么目的？
+butler: 我来这里的目的有两个：其一，带走乌停湘；其二，修正异数，也就是你们。你们的存在威胁到了箱庭的稳定，而正巧有这么一个机会让你们聚集在这里，我便决定利用一下。
+注意到了他说的话吗？“正巧有这么一个机会”
+player: 你的意思是梦境不是你构建的？
+butler: 当然不是。不过为了保留一些悬念，我还是不把梦境的构建者说出来吧。接下来我们的推理游戏正常继续，你们依然可以向我指认凶手，在那之后我们就可以宣告结束了。
+wu_ting_xiang: ……我不想这样，我不想让他们被修正……
+butler: ……对不起，乌停湘，不能由你这么任性。
+说完后，建构师离开了大厅，往左边的走廊走去。林玖抱住了陷入痛苦的乌停湘，钟歧朝走廊的方向瞪了一眼，然后朝你走来
+zhong_qi: 还有反制他的办法对吧？我记得梅塔潜意识房间里的笔记本提到过，他有能终结‘神’的武器！
+到头来还要用到梅塔的计划，这倒是有些吊诡，不过如果能找到的话，不如试试看？
+do DataManager.add_suspicion("3_suspicion_god_weapon", "dialogue", "resistance")
+do FlowManager.open_source_darkroom()
+do FlowManager.set_dialogic_var("ButlerName", "末雨")
+[end_timeline]
 
-label 超越路线
+label 超越
 [signal arg="audio:play_bgm:role_exit:2.0"]
 set {Ch3.Route.Transcend} = true
-wu_ting_xiang: 我不跟你离开，也不让两个世界互相毁灭。既然规则只能给出两个坏答案，那我们就改写规则。
-butler: 你要保全所有人，还要阻止能量交换？这并不在允许的方案中。
-player: 但所有人的梦魇已经被理解，箱庭真相也已解开。意识不再需要靠掠夺能量维持。
-if {Ch3.NightmareRecall.Mu} == true and {Ch3.NightmareRecall.Zhou} == true and {Ch3.NightmareRecall.Lin} == true and {Ch3.NightmareRecall.Zhong} == true:
-	mu_zhi: 我会说出α世界里时今死亡的真正原因，不再让误解延续。
-	zhou_chong_an: 我公开全部研究和罪责。
-	lin_jiu: 我会正视母亲，也正视这个不正常的社会。
-	zhong_qi: 我接受爷爷跨越世界寻找我的事实，但命运由我决定。
-	butler: ……好。我与你们订立契约：建立跨世界组织，禁止物质与能量交换，只保留观察与对话。
-	wu_ting_xiang: 谢谢你，老师。这一次，四个世界都能迎来自己的清晨。
-	[signal arg="flow:start_ending_clear_snow"]
-	[end_timeline]
-wu_ting_xiang: 还有人的梦魇没有被真正理解。我们没有足够稳固的锚来改写规则。
-butler: 尝试失败。世界将按修正程序归零。
-set {Ch3.Route.Correction} = true
-[signal arg="flow:start_ending_dust"]
+当你回到大厅时，看见乌停湘和管家一起从走廊的方向回来
+player: 你们聊了什么？
+wu_ting_xiang: 和大家一起说吧。
+于是在乌停湘的召集下，所有人聚在了一起。
+管家站在一旁，默默地注视着这一切
+wu_ting_xiang: 刚刚我想起来了一切，我想我有必要告诉你们。
+lin_jiu: 是什么事？我还从来没见过你这么严肃的样子。
+zhong_qi: 和我们也有关系吗？
+wu_ting_xiang: 嗯。我其实是来自上层世界的人。
+mu_zhi: 上层世界……
+wu_ting_xiang: 用你的话来说，叫做神明之境——但我们并非是神。上层世界的人创造了箱庭，同时开创了箱庭计划，旨在通过建构箱庭满足社会学等学科实验的需要。箱庭计划中不止存在你们所在的这一个箱庭，你们所在的这个箱庭由我的老师建构，而我曾经管理过伽马世界线，也就是林姐姐你所在的那个平行世界。
+lin_jiu: 所以……时空裂缝事件是……
+wu_ting_xiang: 刚刚我才知道，我在管理伽马世界线的时候，由于过度介入，引发了能量不守恒的漏洞，时空裂缝就是因此产生的。在那之后，我不断将世界在终结之前回溯，希望找到解决办法。但当时的我没有选择求助老师，而是一遍又一遍回溯，以为这样终究可以找到出路……
+zhong_qi: 但是一个能量守恒体系内的能量缺失，是不可能通过体系内部的因素解决的。
+wu_ting_xiang: 没错，所以一切都是徒劳无功。直到将近一年后，老师发现了我的异常，不再让我接触箱庭。那时的我有了严重的心理障碍，于是老师和零姐姐一起制定了箱庭疗法的计划，把我的意识送入伽马世界线中，并用催眠的方式压抑住我在上层世界的记忆，让我在这段人生阅历中有所成长。
+wu_ting_xiang: 同时送入的还有时空裂缝的修补措施，也就是林姐姐你那天捡到的白色立方体。
+lin_jiu: 原来如此……好多事情都说通了。
+zhou_chong_an: 你跟我们说这些，应该不只是为了坦白自己的身份吧？
+wu_ting_xiang: 没错，我还有一件事要说……管家，就是我的老师。
+众人无不惊讶地看向管家，只见他仍然是那副从容不迫的模样。
+butler: 各位，重新自我介绍一下，我叫末雨，是一名建构师。用你们的话来说，我来自上层世界，也就是穆执认知中的神明之境。
+钟歧冲到末雨面前，似乎想要给他一拳，却被乌停湘拦了下来。
+wu_ting_xiang: 请不要这样，有话好好说……
+zhong_qi: 你到底有什么目的？
+butler: 我来这里的目的有两个：其一，带走乌停湘；其二，修正异数，也就是你们。你们的存在威胁到了箱庭的稳定，而正巧有这么一个机会让你们聚集在这里，我便决定利用一下。
+注意到了他说的话吗？“正巧有这么一个机会”
+player: 你的意思是梦境不是你构建的？
+butler: 当然不是。不过为了保留一些悬念，我还是不把梦境的构建者说出来吧。接下来我们的推理游戏正常继续，你们依然可以向我指认凶手，在那之后我们就可以宣告结束了。
+wu_ting_xiang: ……我不想这样，我不想让你们被修正……老师给了我两个选择，要么帮助他修正异数，要么就是帮助你们对抗他。但我想为什么不能存在第三种选择，我想要让所有人幸福的结局！
+lin_jiu: 乌停湘……
+butler: 一直以来你都是这样，秉持着构建让所有人幸福的世界的理念。但既然对你来说过了这么久，你依然没有放弃这样的理念，那么我愿意为你尝试一次，用以证明这样的世界是否可能存在。
+do FlowManager.open_source_darkroom()
+do FlowManager.set_dialogic_var("ButlerName", "末雨")
 [end_timeline]

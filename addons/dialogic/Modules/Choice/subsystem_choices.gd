@@ -45,6 +45,13 @@ var _choice_blocker := Timer.new()
 
 func clear_game_state(_clear_flag:=DialogicGameHandler.ClearFlags.FULL_CLEAR) -> void:
 	hide_all_choices()
+	# A delayed reveal from the old timeline must not run after a save is loaded.
+	_choice_blocker.stop()
+	if _choice_blocker.timeout.is_connected(show_current_question):
+		_choice_blocker.timeout.disconnect(show_current_question)
+	if dialogic.Inputs.dialogic_action.is_connected(show_current_question):
+		dialogic.Inputs.dialogic_action.disconnect(show_current_question)
+	last_question_info.clear()
 
 
 func _ready() -> void:
@@ -140,6 +147,9 @@ func get_current_question_info() -> Dictionary:
 
 ## Lists all current choices and shows buttons.
 func show_current_question(instant:=true) -> void:
+	# Ignore stale reveal callbacks when a load/scene switch has replaced the event.
+	if dialogic.current_timeline == null or dialogic.current_event_idx < 0 or get_current_choice_indexes().is_empty():
+		return
 	hide_all_choices()
 	_choice_blocker.stop()
 	last_question_info = get_current_question_info()

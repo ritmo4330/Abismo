@@ -6,7 +6,7 @@
 script = ExtResource("1_ufucf")
 id = "2_lin_2"
 title = "贴有封条的密码门"
-description = "一扇被锁上的门，似乎要输入四位数的密码。门上贴有封条，每张封条上均写有一行字，分别为：“不可回首”“不堪回首”“不配回首”“不准回首”。"
+description = "一扇被锁上的门，不清楚打开的方式。门上贴有封条，每张封条上均写有一行字，分别为：“不可回首”“不堪回首”“不配回首”“不准回首”。"
 chapter_id = "2"
 room_id = "lin"
 category_path = PackedStringArray("梦墅", "林玖房间")

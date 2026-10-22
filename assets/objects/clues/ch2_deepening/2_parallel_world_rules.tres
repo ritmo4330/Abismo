@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "2_parallel_world_rules"
+title = "平行世界规律"
+description = "不同平行世界之间有差异，也有相似之处。同一个名字，甚至同一个相貌的人必然在某些经历上相似——但也仅仅是“某些”。"
+chapter_id = "2"
+room_id = "hall"
+category_path = PackedStringArray("梦墅", "人物口供")
+tags = PackedStringArray("chapter_2", "testimony")
+clue_type = "testimony"
+highlight_visible = false

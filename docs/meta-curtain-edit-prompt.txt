@@ -1,0 +1,7 @@
+Built-in image_gen edit, 2026-10-21.
+Input: assets/art/static_scenes/meta_room-v1.png
+Output: assets/art/static_scenes/meta_room_curtains-v1.png
+The original asset is preserved. No API/CLI fallback was used.
+
+Prompt:
+Use case: precise-object-edit. Edit target: the provided existing 16:9 background of Meta's bedroom for the Chinese mystery AVG Abismo. Make one minimal scenery correction only: add a heavy dark grey fabric curtain assembly on the large empty rear wall above the left side of the writing desk, to the left of the existing desk lamp. The two hanging curtain panels are parted enough to reveal ordinary uninterrupted patterned plaster wall BEHIND them, NOT a window: this is a deliberate mystery clue, curtains hiding a solid wall with no window. Retain the EXACT hand-painted restrained ink-line visual novel style, muted charcoal/sepia palette, quiet ominous lighting, perspective, camera crop, landscape 16:9 aspect ratio. Preserve the existing bed, bedside table, desk, chair, desk lamp, tape recorder, closed wardrobe, floor, right doorway and their positions and sizes. Do not put curtains over existing objects, no new room, no people, no text, no UI, no visible window, no glass, no outdoor view, no extra props. Only this curtain addition and its natural small shadow may differ from the edit target.

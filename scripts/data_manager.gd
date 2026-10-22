@@ -40,6 +40,7 @@ func _ready() -> void:
 	var registry_errors: Array[String] = _registry.load_all()
 	for error: String in registry_errors:
 		push_error(error)
+	preload("res://scripts/flow/services/source_text.gd").configure_clues()
 
 
 func reset_runtime_state() -> void:

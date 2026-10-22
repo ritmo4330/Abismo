@@ -5,10 +5,20 @@ if {Ch1.NPCIntro.Mu.Introed} == true:
 mu_zhi: 你好，我叫穆执。请问该怎么称呼你？
 label 抉择2
 - 我叫{PlayerName}
-	mu_zhi: 好的，{PlayerName}先生。
+	if {PlayerGender} == "female":
+		mu_zhi: 好的，{PlayerName}女士。
+	elif {PlayerGender} == "male":
+		mu_zhi: 好的，{PlayerName}先生。
+	else:
+		mu_zhi: 好的，{PlayerName}。
 	set {Affinity.Mu} += 5
 - 叫我侦探就行
-	mu_zhi: 好的，侦探先生。
+	if {PlayerGender} == "female":
+		mu_zhi: 好的，侦探女士。
+	elif {PlayerGender} == "male":
+		mu_zhi: 好的，侦探先生。
+	else:
+		mu_zhi: 好的，侦探。
 - 闲话少说
 	mu_zhi: 原来您是重视效率的类型，恕我冒犯了。
 	set {Affinity.Mu} -= 5

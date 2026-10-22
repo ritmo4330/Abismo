@@ -11,3 +11,4 @@ tags = PackedStringArray("chapter_3", "memory", "wu")
 required_clue_ids = PackedStringArray("2_wu_1", "2_lin_3")
 match_mode = "exact"
 conclusion_clue_id = "3_conclusion_memory_cube"
+resolution_timeline = "source_recreate_cube"

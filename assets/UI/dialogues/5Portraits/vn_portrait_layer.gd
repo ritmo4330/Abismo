@@ -119,8 +119,13 @@ func _queue_layout_refresh() -> void:
 
 
 func _refresh_portrait_layout() -> void:
+	if not is_inside_tree():
+		_layout_refresh_queued = false
+		return
 	await get_tree().process_frame
 	_layout_refresh_queued = false
+	if not is_inside_tree() or is_queued_for_deletion():
+		return
 	for child: DialogicNode_PortraitContainer in %Portraits.get_children():
 		child.size_mode = portrait_size_mode
 		child.update_portrait_transforms()

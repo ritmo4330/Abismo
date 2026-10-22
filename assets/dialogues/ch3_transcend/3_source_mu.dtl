@@ -1,0 +1,133 @@
+[style name="default_visual_novel"]
+join mu_zhi left
+label 选择
+mu_zhi: 你想从我这里了解什么？
+- 来到别墅的原因
+	mu_zhi: 我是一名教徒，住处同样在这座山上。
+	mu_zhi: 来到此地之前，我前往教堂参加礼拜，返回时突遇暴风雪。
+	mu_zhi: 我只能就近找到这里，便请求管家收留了我。
+	set {Ch1.NPCIntro.Mu.Selected2} = true
+	jump 选择
+- 与死者的关系
+	mu_zhi: 我说过了，我没有见过他，只是知道梅塔这个名字。
+	mu_zhi: 是钟歧和我提起过，梅塔似乎对他做过很过分的事情。我对梅塔的了解并不多，你可以去问问钟歧。
+	set {Ch1.PrivateChat.Mu.Asked.Dead} = true
+	jump 选择
+- 与其他人的关系
+	label 与其他人的关系
+	mu_zhi: 你想问哪一位？
+	- 周崇安
+		mu_zhi: 我对他不是很了解，只知道他是一名孤儿院院长。
+		set {Ch1.PrivateChat.Mu.Asked.Zhou} = true
+		jump 与其他人的关系
+	- 林玖
+		mu_zhi: 我对她不是很了解，只知道她在孤儿院担任学前教师。也许你可以从周崇安那里了解到更多。
+		set {Ch1.PrivateChat.Mu.Asked.Lin} = true
+		jump 与其他人的关系
+	- 乌停湘
+		mu_zhi: 我不认识她，不过看起来她和林玖非常亲密。
+		set {Ch1.PrivateChat.Mu.Asked.Wu} = true
+		jump 与其他人的关系
+	- 钟歧
+		mu_zhi: 我收留了他。他曾被梅塔囚禁，逃出来以后找到了我，自那以后就隐藏在我在这座山上居住的小木屋里。
+		set {Ch1.PrivateChat.Mu.Asked.Zhong} = true
+		jump 与其他人的关系
+	- 还有其他问题
+		jump 选择
+- 关于信仰 | [if {Ch1.PrivateChat.Mu.Removed.Faith} != true and {Ch1.NPCIntro.Mu.Selected2} == true]
+	mu_zhi: 我信仰上界教派，不知道你有没有听说过。
+	- 请详细说说
+		mu_zhi: 好的。上界教派是世界四大宗教之一。我们的教义认为，这个世界由上界的神明创造。
+		mu_zhi: 为联系世间万物，神明将命运之线贯穿于这世界中。
+		mu_zhi: 自此，万物的运动便有了规律与关联，命运之线便是万物的统一与发展的根源。
+		mu_zhi: 为维系世间秩序，神明以因果之理规定可知论的边界，由此，万物的发展便有了既定的界限，不必触及神明之境。
+		mu_zhi: 神明设下了规则，万物便遵循规则运动，而人类，是在这规则的甄选中脱颖而出的物种，便被赋予了探索规则的使命。
+		mu_zhi: 除了触及神明之境，神明不会对任何行为亲施惩戒。
+		mu_zhi: 教会存在的意义，即是替神明放牧群羊，看管那通往神明之境的黑色门扉。
+		set {Ch1.PrivateChat.Mu.Removed.Faith} = true
+		jump 选择
+	- 有所耳闻
+		mu_zhi: 好，那我便不多赘述。
+		set {Ch1.PrivateChat.Mu.Removed.Faith} = true
+		jump 选择
+- 林玖说你是她的远房亲戚 | [if {Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Mu.Removed.LinRelative} != true]
+	mu_zhi: 竟有此事？可是我的确不认识她。
+	set {Ch1.PrivateChat.Mu.Removed.LinRelative} = true
+	jump 选择
+- 关于灯塔木雕 | [if {Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Mu.Removed.Lighthouse} != true]
+	mu_zhi: 这个木雕看起来非常精致，也许饱含着制作者的心意吧。如果你问我有没有见过，那自然是没有。
+	set {Ch1.PrivateChat.Mu.Removed.Lighthouse} = true
+	jump 选择
+- 储物间暗门下的东西 | [if {Ch2.SecondPrivate.Mu.Scene} != true]
+	if {Affinity.Mu} > 70:
+		mu_zhi: 我看到的是一个研究所，虽然我并不知道它的来历，但是我在研究所里看到了挂有梅塔名字的铭牌的研究服，我猜想那是梅塔的研究所。
+		mu_zhi: 我会把我调查到的线索都告诉你。
+		do FlowManager.reveal_source_research("mu")
+		set {Ch2.SecondPrivate.Mu.Scene} = true
+	else:
+		mu_zhi: 抱歉，我还不确定是否应该告诉你。
+	jump 选择
+- 关于梅塔 | [if {Ch2.SecondPrivate.Mu.Meta} != true]
+	mu_zhi: 我在过去没见过梅塔的样子，只知道梅塔曾经囚禁过钟歧。
+	set {Ch2.SecondPrivate.Mu.Meta} = true
+	jump 选择
+- 关于衣柜中的长袍 | [if {Ch2.SourceEvidence.C_2_mu_2} == true and {Ch2.ThirdPrivate.Mu.Robe} != true]
+	mu_zhi: 其实我是上界教会的枢机，这长袍正是枢机的圣袍。
+	set {Ch2.ThirdPrivate.Mu.Robe} = true
+	jump 选择
+- 关于教义复古运动 | [if {Ch2.SourceEvidence.C_2_mu_1_8} == true and {Ch2.ThirdPrivate.Mu.Revival} != true]
+	mu_zhi: 教义复古运动，顾名思义，就是主张重新搜寻先知的真迹，以求更加完美地理解神明的指示的浪潮。
+	mu_zhi: 先知伊斯的《箴言录》在几个世纪的流转中经过多次改写和发展，并在一代代更迭中传承至今，形成了如今的教义内容。
+	mu_zhi: 但在更迭的过程中难免出现纰漏，而准确理解神明的指示是我们的使命与义务，因此便有了一次又一次的教义复古运动。
+	set {Affinity.Mu} += 5
+	set {Ch2.ThirdPrivate.Mu.Revival} = true
+	jump 选择
+- 关于先知伊斯 | [if {Ch2.SourceEvidence.C_2_mu_1_8} == true and {Ch2.ThirdPrivate.Mu.Prophet} != true]
+	mu_zhi: 先知伊斯是上界教派的开创者。他生在文艺复兴时期，曾是基督教的一名信徒。
+	mu_zhi: 其时正是基督教由盛转衰的转折点，人类对人性的呼唤使得基督教对神性的崇信思想受到冲击。
+	mu_zhi: 与此同时，先知伊斯感知到了唯一真神的启示，领悟到人性的自由发展正是神明所希望的，并将其与神明的其它启示编写成《箴言录》，与身边的同伴一起创立了上界教派。
+	mu_zhi: 然而先知伊斯具有强烈的好奇心，正是这样的好奇心让他感知到神明的启示，也正是这样的好奇心让他不顾神明的警告，试图触及神明之境。
+	mu_zhi: 最终，神明的惩戒降临在他的身上，他死在睡梦中。
+	mu_zhi: 教会的历史评价伊斯为“蒙启的先知与神的逆子”。
+	set {Affinity.Mu} += 5
+	set {Ch2.ThirdPrivate.Mu.Prophet} = true
+	jump 选择
+- 关于笔记本的内容 | [if {Ch2.SourceEvidence.C_2_mu_1_9} == true and {Ch2.ThirdPrivate.Mu.Sayings} != true]
+	mu_zhi: 这些正是《箴言录》原稿中的内容，我将它翻译后誊抄了下来。
+	mu_zhi: 《箴言录》一经问世，便受到那个时代的人们的广泛推崇。
+	mu_zhi: 它让世人更加清楚地看到世界的本质和真相，更加明确地意识到人与世间万物的联系，更加明确地领悟到神明赋予被规则甄选而出的人类的使命。
+	mu_zhi: 很快，上界教派取代了基督教的地位，并进一步激励人们探索规则、发展科学。
+	set {Affinity.Mu} += 5
+	set {Ch2.ThirdPrivate.Mu.Sayings} = true
+	jump 选择
+- 关于林羽的信 | [if {Ch2.SourceEvidence.C_2_mu_3} == true and {Ch2.ThirdPrivate.Mu.Letter} != true]
+	mu_zhi: 林羽是我认识的一名心理医生兼脑科学家，我前段时间询问她关于人脑遗忘机制的问题，她当时忙于研究没有及时回复。
+	mu_zhi: 就在昨天，我收到了这封信。
+	player: 为什么要问这个问题？
+	mu_zhi: 因为……我有一些想要遗忘的事情。
+	set {Ch2.ThirdPrivate.Mu.Letter} = true
+	jump 选择
+- 关于报纸头条的事故 | [if {Ch2.ThirdPrivate.Mu.Robe} == true and {Ch2.SourceEvidence.C_2_mu_1_10} == true and {Ch2.ThirdPrivate.Mu.Fire} != true]
+	mu_zhi: ……没错，报纸上提到的枢机卿就是我，那是一段于我而言不堪回首的经历。
+	mu_zhi: 在我刚成为枢机，四处游历的过程中，我与随行人员因躲避暴雨暂留在附近的一处别墅。
+	mu_zhi: 在那里，我见到了一个女孩，她自称时今，认出了我的身份，并请求我带她离开，声称她的叔父时田害死了她的父母，将她软禁，独占了所有财产。
+	mu_zhi: 但我当时无法下定论，只能答应她日后调查此事，但就在这时，时田发现并带走了她。
+	mu_zhi: 据时田所说，时今因为父母的离世患有被害妄想。二人各执一词，我无法准确判断。
+	mu_zhi: 当晚暴雨仍没有停，我在客房休息时突然闻到一股烟味，出门查看情况发现走廊上方已经聚满浓烟，显然是发生了火灾。
+	mu_zhi: 我与随行人员逃出主馆后，发现时田和时今都没有出来，我尝试过回去寻找他们，却一无所获。
+	mu_zhi: 我们在别馆度过暴雨，也等来了消防员。
+	mu_zhi: 而在别馆的一间房间里，我找到了时田囚禁甚至虐待时今的证据……
+	mu_zhi: 可惜一切已经来不及了，消防员最终只找到了时田的尸体，他生前被困在一个房间内，房门从门外被燃烧的房梁死死堵住。
+	mu_zhi: 而时今从此消失了，活不见人，死不见尸。
+	set {Ch2.ThirdPrivate.Mu.Fire} = true
+	do FlowManager.recall_source_nightmare("mu")
+	jump 选择
+- 关于建构师 | [if {SourcePlot.MuArchitect} != true and {Ch3.Route.Correction} != true]
+	mu_zhi: 祂就是我们教会所信奉的神明，但我感觉……见到祂时我并没有预想中那么激动。我的虔诚对祂而言似乎不值一提，祂甚至没有因此多看我一眼。我……我还需要想想……
+	set {SourcePlot.MuArchitect} = true
+	jump 选择
+- 暂时没有问题了
+	mu_zhi: 好的，如果有其他问题，欢迎再来和我沟通。
+	set {Ch2.ThirdPrivate.Mu.Finished} = true
+[signal arg="flow:exit_private_chat"]
+[end_timeline]

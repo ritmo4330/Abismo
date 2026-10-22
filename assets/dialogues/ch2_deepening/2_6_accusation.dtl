@@ -1,0 +1,25 @@
+[style name="default_visual_novel"]
+do SaveManager.autosave_before_endings()
+join butler left
+butler: 感谢各位的帮助，我们的侦探已经锁定了凶手——{Ch2.AccusedKiller}，就是你杀害了梅塔吧。
+if {Ch2.AccusedKiller} == "穆执":
+	join mu_zhi right
+	mu_zhi: ……如果这就是你认定的真相，我无话可说。
+elif {Ch2.AccusedKiller} == "周崇安":
+	join zhou_chong_an right
+	zhou_chong_an: 荒谬！这就是你调查这么久给出的答案？我一度如此信任过你……
+elif {Ch2.AccusedKiller} == "林玖":
+	join lin_jiu right
+	lin_jiu: ……不，不是我做的……不可能是我做的！
+elif {Ch2.AccusedKiller} == "乌停湘":
+	join wu_ting_xiang right
+	wu_ting_xiang: 我还以为，你真的能带领我们找到真相。是我看错你了……
+elif {Ch2.AccusedKiller} == "钟歧":
+	join zhong_qi right
+	zhong_qi: 呵，不演了？达成你的目的了？果然从一开始就不该相信你。
+butler: 我相信侦探得出这样的结论，一定有他/她的道理。感谢大家的出演，今天的故事到此结束。
+还未等任何人明白管家这句话的含义，四周的图景开始崩落，别墅的墙壁、地板一块块剥离，向下坠去，直至一片虚无将你们包裹，视线与意识逐渐模糊。
+真的结束了吗？但明明有一种难以言明的阴云仍笼罩在一切之上。无论如何，相信你已经尽力了。
+接下来就交给我吧。
+[signal arg="flow:ch2_memory_incomplete"]
+[end_timeline]

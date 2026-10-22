@@ -8,6 +8,7 @@ const SLOT_NAME: String = "local_save"
 const GAME_STATE_FILE: String = "abismo_game_state.txt"
 
 var _pending_load: bool = false
+var _pending_slot: String = ""
 
 
 func _ready() -> void:
@@ -15,10 +16,29 @@ func _ready() -> void:
 
 
 func has_save() -> bool:
-	return Dialogic != null and Dialogic.has_subsystem("Save") and Dialogic.Save.has_slot(SLOT_NAME)
+	return Dialogic != null and Dialogic.has_subsystem("Save") and Dialogic.Save.has_slot(_get_slot_name())
 
 
-func save_game() -> Error:
+func _get_autosave_slot_name() -> String:
+	return _get_slot_name() + "_before_endings"
+
+
+func has_autosave() -> bool:
+	return Dialogic != null and Dialogic.has_subsystem("Save") and Dialogic.Save.has_slot(_get_autosave_slot_name())
+
+
+func autosave_before_endings() -> Error:
+	# A separate slot protects the player's manual save and remains replayable.
+	return save_game(_get_autosave_slot_name())
+
+
+func _get_slot_name() -> String:
+	return SLOT_NAME
+
+
+func save_game(slot: String = "") -> Error:
+	if slot.is_empty():
+		slot = _get_slot_name()
 	if SceneManager == null or SceneManager.current_room == null:
 		var no_scene_error := ERR_UNCONFIGURED
 		save_completed.emit(false, "当前没有可保存的游戏场景")
@@ -34,11 +54,12 @@ func save_game() -> Error:
 		"saved_at": Time.get_datetime_string_from_system(false, true),
 		"room_scene_path": room_scene_path,
 		"player_position": SceneManager.get_player_global_position(),
+		"static_art_view": SceneManager.get_static_art_view(),
 		"data_manager": DataManager.save_runtime_state(),
 		"flow_manager": FlowManager.save_runtime_state(),
 	}
 
-	var custom_error: Error = Dialogic.Save.save_file(SLOT_NAME, GAME_STATE_FILE, state)
+	var custom_error: Error = Dialogic.Save.save_file(slot, GAME_STATE_FILE, state)
 	if custom_error != OK:
 		save_completed.emit(false, "本地存档写入失败")
 		return custom_error
@@ -48,26 +69,30 @@ func save_game() -> Error:
 		"chapter_id": FlowManager.get_current_chapter_id(),
 		"step_id": FlowManager.get_current_step_id(),
 	}
-	var dialogic_error: Error = Dialogic.Save.save(SLOT_NAME, false, Dialogic.Save.ThumbnailMode.NONE, slot_info)
+	var dialogic_error: Error = Dialogic.Save.save(slot, false, Dialogic.Save.ThumbnailMode.NONE, slot_info)
 	var success: bool = dialogic_error == OK
 	save_completed.emit(success, "存档完成" if success else "对话状态保存失败")
 	return dialogic_error
 
 
-func request_load_game() -> bool:
-	if not has_save():
+func request_load_game(slot: String = "") -> bool:
+	if slot.is_empty():
+		slot = _get_slot_name()
+	if not Dialogic.Save.has_slot(slot):
 		load_completed.emit(false, "没有可读取的本地存档")
 		return false
-	var state_value: Variant = Dialogic.Save.load_file(SLOT_NAME, GAME_STATE_FILE, {})
+	var state_value: Variant = Dialogic.Save.load_file(slot, GAME_STATE_FILE, {})
 	if not (state_value is Dictionary) or (state_value as Dictionary).is_empty():
 		load_completed.emit(false, "本地存档内容无效")
 		return false
 	_pending_load = true
+	_pending_slot = slot
 	return true
 
 
 func cancel_pending_load() -> void:
 	_pending_load = false
+	_pending_slot = ""
 
 
 func has_pending_load() -> bool:
@@ -78,8 +103,10 @@ func restore_pending_game(host_root: Node2D) -> bool:
 	if not _pending_load:
 		return false
 	_pending_load = false
+	var slot: String = _pending_slot if not _pending_slot.is_empty() else _get_slot_name()
+	_pending_slot = ""
 
-	var state_value: Variant = Dialogic.Save.load_file(SLOT_NAME, GAME_STATE_FILE, {})
+	var state_value: Variant = Dialogic.Save.load_file(slot, GAME_STATE_FILE, {})
 	if not (state_value is Dictionary):
 		load_completed.emit(false, "本地存档内容无效")
 		return false
@@ -102,11 +129,12 @@ func restore_pending_game(host_root: Node2D) -> bool:
 
 	GameManager.enter_gameplay()
 	SceneManager.initialize(host_root, room_scene_path, "")
+	SceneManager.restore_static_art_view(String(state.get("static_art_view", "")))
 	var saved_position: Variant = state.get("player_position", Vector2.ZERO)
 	if saved_position is Vector2:
 		SceneManager.restore_player_global_position(saved_position)
 
-	var dialogic_error: Error = Dialogic.Save.load(SLOT_NAME)
+	var dialogic_error: Error = Dialogic.Save.load(slot)
 	if Dialogic.has_subsystem("History"):
 		Dialogic.History.load_visited_history()
 	# Dialogic variables are restored after the world state, so derived progress

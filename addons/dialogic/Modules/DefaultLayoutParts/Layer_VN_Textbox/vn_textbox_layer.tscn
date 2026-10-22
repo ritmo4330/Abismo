@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.svg" id="6_uch03"]
 [ext_resource type="Script" uid="uid://bak74s0kcr0ao" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="7_bi7sh"]
 [ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_name_label_panel.tres" id="9_yg8ig"]
+[ext_resource type="Script" path="res://scripts/UI/dialogue_history_button.gd" id="history_script"]
+[ext_resource type="Texture2D" path="res://assets/UI/icons/hourglass_history.svg" id="history_icon"]
 
 [sub_resource type="Animation" id="Animation_au0a2"]
 length = 0.001
@@ -333,6 +335,18 @@ theme_override_styles/panel = ExtResource("9_yg8ig")
 metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 metadata/_edit_group_ = true
+
+[node name="TextboxHistoryButton" type="Button" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+mouse_default_cursor_shape = 2
+focus_mode = 0
+tooltip_text = "历史对话"
+icon = ExtResource("history_icon")
+theme_override_constants/icon_max_width = 26
+flat = true
+script = ExtResource("history_script")
 
 [node name="DialogicNode_NameLabel" type="Label" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder/NameLabelPanel" node_paths=PackedStringArray("name_label_root")]
 unique_name_in_owner = true

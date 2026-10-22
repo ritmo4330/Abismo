@@ -33,8 +33,16 @@ var scroll_to_bottom_flag: bool = false
 @export var HistoryItem: PackedScene = null
 
 var history_item_theme: Theme = null
+var _textbox_history_button: Button = null
 
 func get_show_history_button() -> Button:
+	if is_instance_valid(_textbox_history_button):
+		return _textbox_history_button
+	if not Engine.is_editor_hint() and is_inside_tree():
+		_textbox_history_button = get_parent().find_child("TextboxHistoryButton", true, false) as Button
+		if _textbox_history_button != null:
+			_textbox_history_button.pressed.connect(_on_show_history_pressed)
+			return _textbox_history_button
 	return $ShowHistory
 
 
@@ -60,7 +68,7 @@ func _ready() -> void:
 func _apply_export_overrides() -> void:
 	var history_subsystem: Node = DialogicUtil.autoload().get(&'History')
 	if history_subsystem != null:
-		get_show_history_button().visible = show_open_button and history_subsystem.get(&'simple_history_enabled')
+		get_show_history_button().visible = _should_show_open_button()
 	else:
 		set(&'visible', false)
 
@@ -86,12 +94,10 @@ func _apply_export_overrides() -> void:
 func _process(_delta : float) -> void:
 	if Engine.is_editor_hint():
 		return
-	# The hourglass belongs to the dialogue box: it follows the box lifecycle,
-	# never survives a finished timeline, and remains disabled in full-text styles.
+	# The real button is a descendant of the animated dialogue panel.
+	$ShowHistory.hide()
 	if not get_history_box().visible:
 		get_show_history_button().visible = _should_show_open_button()
-		if get_show_history_button().visible:
-			_sync_open_button_layout()
 	if scroll_to_bottom_flag and get_history_box().visible and get_history_log().get_child_count():
 		await get_tree().process_frame
 		get_history_box().ensure_control_visible(get_history_log().get_children()[-1] as Control)
@@ -106,24 +112,16 @@ func _should_show_open_button() -> bool:
 		return false
 	if DialogicUtil.autoload().current_timeline == null:
 		return false
-	var textbox_layer: CanvasItem = get_tree().root.find_child("VN_TextboxLayer", true, false) as CanvasItem
-	return textbox_layer != null and textbox_layer.is_visible_in_tree()
-
-
-func _sync_open_button_layout() -> void:
-	var name_panel: Control = get_tree().root.find_child("NameLabelPanel", true, false) as Control
-	var dialogue_panel: Control = get_tree().root.find_child("DialogTextPanel", true, false) as Control
-	if name_panel == null or dialogue_panel == null or not name_panel.is_visible_in_tree():
-		return
-	var name_rect: Rect2 = name_panel.get_global_rect()
-	var dialogue_rect: Rect2 = dialogue_panel.get_global_rect()
-	var button_side: float = maxf(name_rect.size.y, 36.0)
 	var button: Button = get_show_history_button()
-	button.size = Vector2(button_side, button_side)
-	button.global_position = Vector2(dialogue_rect.end.x - button_side, name_rect.position.y)
+	if button == $ShowHistory:
+		return false
+	var dialogue_panel: CanvasItem = button.get_parent().get_parent() as CanvasItem
+	return dialogue_panel != null and dialogue_panel.is_visible_in_tree()
 
 
 func _on_show_history_pressed() -> void:
+	if not _should_show_open_button():
+		return
 	DialogicUtil.autoload().paused = true
 	show_history()
 

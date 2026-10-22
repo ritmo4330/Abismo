@@ -33,6 +33,10 @@ func evaluate_room_exit(
 ) -> RefCounted:
 	if current_chapter_id != FlowChapters.CH1:
 		return FlowRoomExitResult.allow()
+	if current_room_id in ["ch1_study", "shu_fang"] and current_step_id in [
+		FlowSteps.CH1_STUDY_WAKE, FlowSteps.CH1_STUDY_FREE_INVESTIGATION, FlowSteps.CH1_PUZZLE,
+	]:
+		return FlowRoomExitResult.block_with_dialogue("")
 	if current_step_id != FlowSteps.CH1_INTRO_HALL:
 		return FlowRoomExitResult.allow()
 	if current_room_id != FlowRooms.HALL:

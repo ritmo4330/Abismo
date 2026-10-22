@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ClueData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "1_initial_search_order_1"
+title = "搜证顺序"
+description = "你、钟歧、周崇安、林玖、乌停湘、穆执"
+chapter_id = "1"
+category_path = PackedStringArray("雪墅", "口供")
+clue_type = "testimony"

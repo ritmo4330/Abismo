@@ -20,9 +20,9 @@ static func create_definition() -> RefCounted:
 		FlowSteps.CH2_SECOND_REASONING: {"track_id": "fog_in_brain", "fade_seconds": 2.5},
 		FlowSteps.CH2_SECOND_PRIVATE_CHAT: {"track_id": "fog_in_brain", "fade_seconds": 2.0},
 		FlowSteps.CH2_THIRD_SEARCH: {"track_id": "fog_in_brain", "fade_seconds": 2.0},
-		FlowSteps.CH2_THIRD_REASONING: {"track_id": "thinking_introspection_2", "fade_seconds": 2.0},
+		FlowSteps.CH2_THIRD_REASONING: {"track_id": "fog_in_brain", "fade_seconds": 2.0},
 		FlowSteps.CH2_THIRD_PRIVATE_CHAT: {"track_id": "fog_in_brain", "fade_seconds": 2.0},
-		FlowSteps.CH2_MEMORY_FRAGMENTS: {"track_id": "cassandra_memory", "fade_seconds": 2.0},
+		FlowSteps.CH2_MEMORY_FRAGMENTS: {"track_id": "fog_in_brain", "fade_seconds": 2.0},
 	}
 	definition.free_interaction_timelines = {
 		FlowNpcs.BUTLER: "2_2_butler_hall",
@@ -35,10 +35,9 @@ static func create_definition() -> RefCounted:
 	definition.second_search_required_clues = [
 		"1_zhongyue_1", "1_zhongyue_2", "1_zhongyue_3",
 	]
-	definition.third_search_required_clues = [
-		"2_missing_body", "1_lin_7", "2_mu_burnt_church", "2_wu_dream_notebook",
-		"2_zhong_anchor_records", "2_zhou_sleep_roster", "2_meta_research_plan",
-	]
+	# Choice 20 has no all-clues gate (unlike choices 14 and 17). Remaining
+	# evidence stays available during third private chat / free investigation.
+	definition.third_search_required_clues = []
 	definition.base_npc_locations_by_step = {
 		FlowSteps.CH1_SECOND_SEARCH: {},
 		FlowSteps.CH2_SECOND_REASONING: _hall_guest_locations(),
@@ -56,6 +55,12 @@ static func create_definition() -> RefCounted:
 		FlowRooms.HUI_KE_TING: FlowSteps.CH2_SECOND_PRIVATE_CHAT,
 	}
 	definition.event_transitions = {
+		"source_memory_recreated": FlowTransition.after_dialogue([
+			FlowEffect.request_scene_if_dialogic_bool(FlowDialogicVars.CH2_CURRENT_CONTENT_COMPLETE_READY, true, FlowScenes.HALL, "InitialSpawn", FlowTimelines.CH2_MEMORY_FRAGMENTS),
+			FlowEffect.request_scene_if_dialogic_bool(FlowDialogicVars.CH2_CURRENT_CONTENT_COMPLETE_READY, false, FlowScenes.HALL, "InitialSpawn")]),
+		"source_accusation": FlowTransition.after_dialogue([
+			FlowEffect.request_dialogue("2_6_accusation"),
+		]),
 		FlowEvents.CHAPTER2_TITLE_FINISHED: FlowTransition.immediate([
 			FlowEffect.request_scene(FlowScenes.SECOND_SEARCH_ROOM, "InitialSpawn", "1_7_lab_arrival"),
 		]),

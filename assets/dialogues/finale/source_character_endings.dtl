@@ -1,0 +1,41 @@
+[style name="plain_text"]
+leave --All--
+do FlowManager.prepare_source_endings()
+if {SourcePlot.EndingMu} == "death":
+	jump source_ending_mu_death/
+elif {SourcePlot.EndingMu} == "forget":
+	jump source_ending_mu_forget/
+elif {SourcePlot.EndingMu} == "perfect":
+	jump source_ending_mu_perfect/
+if {SourcePlot.EndingZhou} == "death":
+	jump source_ending_zhou_death/
+elif {SourcePlot.EndingZhou} == "forget":
+	jump source_ending_zhou_forget/
+elif {SourcePlot.EndingZhou} == "perfect":
+	jump source_ending_zhou_perfect/
+if {SourcePlot.EndingLin} == "death":
+	jump source_ending_lin_death/
+elif {SourcePlot.EndingLin} == "forget":
+	jump source_ending_lin_forget/
+elif {SourcePlot.EndingLin} == "perfect":
+	jump source_ending_lin_perfect/
+if {SourcePlot.EndingZhong} == "death":
+	jump source_ending_zhong_death/
+elif {SourcePlot.EndingZhong} == "forget":
+	jump source_ending_zhong_forget/
+elif {SourcePlot.EndingZhong} == "perfect":
+	jump source_ending_zhong_perfect/
+if {SourcePlot.EndingWu} == "wake":
+	jump source_ending_wu_wake/
+elif {SourcePlot.EndingWu} == "farewell":
+	jump source_ending_wu_farewell/
+elif {SourcePlot.EndingWu} == "perfect":
+	jump source_ending_wu_perfect/
+if {SourcePlot.EndingPlayer} == "return":
+	jump source_ending_player_return/
+elif {SourcePlot.EndingPlayer} == "audience":
+	jump source_ending_player_audience/
+elif {SourcePlot.EndingPlayer} == "perfect":
+	jump source_ending_player_perfect/
+[signal arg="flow:ending_finished"]
+[end_timeline]

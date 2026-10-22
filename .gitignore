@@ -9,3 +9,7 @@
 export/
 release/
 .packaging/
+# Local audit artifacts, backups, and Python bytecode.
+/tmp/
+__pycache__/
+*.py[cod]

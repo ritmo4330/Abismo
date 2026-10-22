@@ -1,0 +1,155 @@
+[style name="default_visual_novel"]
+join zhong_qi left
+zhong_qi: 问吧。
+do FlowManager.sync_source_plot()
+label 选择
+- 来到别墅的原因
+	zhong_qi: 梅塔要来抓我，我打算躲在山深处避一避，没成想正好掉进了他的圈套。
+	zhong_qi: 好在他死了，人不是我杀的，但我要感谢这个除害的凶手。
+	set {Ch1.PrivateChat.Zhong.Asked.Arrival} = true
+	jump 选择
+- 与死者的关系
+	zhong_qi: 梅塔是一个疯子。
+	zhong_qi: 他暗中抓捕有能力探索世界之理的人，以精神治疗为借口囚禁在他的“十七号精神卫生中心”。
+	zhong_qi: 并最终将他们的大脑离体培养，成为为梅塔思考的机器。我比较幸运，是穆叔叔救我出来。
+	set {Ch1.PrivateChat.Zhong.Asked.Dead} = true
+	jump 选择
+- 与其他人的关系
+	label 与其他人的关系
+	zhong_qi: 你想问哪一位？
+	- 穆执
+		zhong_qi: 他是一个教徒，我从梅塔手里被救出来以后，是穆叔叔安排我暂住在他在山上的小木屋。
+		set {Ch1.PrivateChat.Zhong.Asked.Mu} = true
+		jump 与其他人的关系
+	- 周崇安
+		zhong_qi: 周叔叔是和爷爷一起做研究的研究员之一，我们以前经常有学术上的探讨。
+		set {Ch1.PrivateChat.Zhong.Asked.Zhou} = true
+		jump 与其他人的关系
+	- 林玖
+		zhong_qi: 她是我的初中同学，性格比较温顺，不知道现在怎么样。初中毕业以后我们就没有联系了。
+		set {Ch1.PrivateChat.Zhong.Asked.Lin} = true
+		jump 与其他人的关系
+	- 乌停湘
+		zhong_qi: 我不认识她。
+		set {Ch1.PrivateChat.Zhong.Asked.Wu} = true
+		jump 与其他人的关系
+	- 还有其他问题
+		jump 选择
+- 关于灯塔木雕 | [if {Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Zhong.Removed.Lighthouse} != true]
+	zhong_qi: ……这个木雕和林玖在初中毕业前送给我的那个很像。
+	哦？可是乌停湘说过，林玖没有把木雕送出去。
+	player: 方便说说她为什么会送给你这样一个木雕吗？
+	if {Affinity.Zhong} >= 30.0:
+		zhong_qi: 初中的时候，她经常受到班上同学的欺负和刁难，或许我是为数不多对她比较友善的人吧。
+		zhong_qi: 后来我才意识到，她需要一束光，而我恰好扮演了灯塔的角色。
+		青春期青涩的情感真是令人感慨。抛开二人的故事不谈，你应该发现问题所在了吧？
+		还记得怎么推理吗？试着解决这个疑点吧。
+	else:
+		zhong_qi: 这和案件有关吗？管好你自己。
+		或许故事并不重要，重要的是木雕本身。
+		你应该发现问题所在了吧？还记得怎么推理吗？试着解决这个疑点吧。
+	set {Ch1.PrivateChat.Zhong.Asked.Lighthouse} = true	
+	set {Ch1.PrivateChat.Zhong.Removed.Lighthouse} = true
+	do DataManager.add_clue("1_testimony_8_zhong", "dialogue", "1_testimony_8_zhong")
+	[signal arg="flow:start_lighthouse_reasoning"]
+	[end_timeline]
+- 关于世界之理 | [if {Ch1.PrivateChat.Zhong.Asked.Dead} == true and {Ch1.PrivateChat.Zhong.Removed.WorldTheory} != true]
+	zhong_qi: 世界之理是这个世界的本质特征，你想知道吗？知道的人下场恐怕都不会好看哦。
+	- 想知道
+		zhong_qi: 勇气可嘉。你知道弦理论吗？
+		zhong_qi: 弦的振动产生粒子，粒子的组合产生物质与能量，物质与能量的拼凑组成我们可见的世界。
+		zhong_qi: 而除了一般的线性弦外，还有一种特殊的环状弦，它们不会被轻易扰动。
+		zhong_qi: 而是作为一种触发器，在满足一定条件的情况下自然振动，并引发一系列的反应。
+		zhong_qi: 而这种反应叫做“修正”，修正的对象即那些世界之理的人，这类人被梅塔称为“异数”。
+		zhong_qi: 你可以理解为，我们的身上也有弦，它们看不见摸不着，却能反映你的一举一动与一切思想。
+		zhong_qi: 而反过来，操控弦也就能操控你的一举一动与一切思想。很好，现在你也是异数了，祝你好运。
+		set {Affinity.Zhong} += 5
+		set {Ch1.PrivateChat.Zhong.Removed.WorldTheory} = true
+		jump 选择
+	- 算了
+		zhong_qi: 嗯，明智的选择。不要问，也别去探索这些事。
+		set {Ch1.PrivateChat.Zhong.Removed.WorldTheory} = true
+		jump 选择
+- 储物间暗门下的东西 | [if {Ch2.SecondPrivate.Zhong.Research} != true]
+	zhong_qi: 你看到的和我看到的是一样的，难道还需要我过多说明吗？
+	set {Ch2.SecondPrivate.Zhong.Research} = true
+	jump 选择
+- 关于梅塔 | [if {Ch2.SecondPrivate.Zhong.Meta} != true]
+	zhong_qi: 后来我又想了想，在已知存在平行世界的情况下，我猜想这个死掉的梅塔不是我那个世界的梅塔，因为他的目标似乎并不是我。
+	zhong_qi: 他怎么会去到林玖的房间，背后的原因我就不清楚了。
+	set {Ch2.SecondPrivate.Zhong.Meta} = true
+	jump 选择
+- 关于研究所内的线索
+	label 研究所线索
+	- 关于巨大的光球
+		zhong_qi: 那是爷爷他们最核心的研究成果——量子力学终极秘密——的具象化产物，你可以把光球本身当作炫技，厉害的是它背后的技术。
+		set {Ch2.SecondPrivate.Zhong.Orb} = true
+		jump 研究所线索
+	- 关于工作清单 | [if {Ch2.SourceEvidence.WorkList} == true and {Ch2.SecondPrivate.Zhong.WorkList} != true]
+		zhong_qi: ……看到这个的时候，我想起来了一些事。
+		zhong_qi: 我的确有过一个噩梦，在我被梅塔囚禁的时候，我多次梦见爷爷向我伸出手。
+		zhong_qi: 但是一面由无数根红线组成的墙突然阻隔了我们，红线向我扑来，似乎要把我吞噬……
+		zhong_qi: 然后梦就醒了。
+		set {Ch2.SecondPrivate.Zhong.WorkList} = true
+		do FlowManager.recall_source_nightmare("zhong")
+		jump 研究所线索
+	- 关于钟岳的笔记本 | [if {Ch2.SourceEvidence.Notebook} == true and {Ch2.SecondPrivate.Zhong.Notebook} != true]
+		zhong_qi: 平行世界是爷爷他们主要的研究方向，我倒是对这个没那么感兴趣，我把精力放在了弦理论上。
+		zhong_qi: 不过结果嘛……某种意义上来说不太好就是了。
+		set {Ch2.SecondPrivate.Zhong.Notebook} = true
+		jump 研究所线索
+	- 还有其他问题
+		jump 选择
+- 关于红色的线 | [if {Ch2.SecondPrivate.Zhong.Orb} == true and {Ch2.SecondPrivate.Zhong.RedString} != true]
+	zhong_qi: 那是弦，我能看见弦。
+	zhong_qi: 事情发生在我破解了弦理论之后，我意识到我已被世界判处了死刑——我知道得太多了。
+	zhong_qi: 为了逃避这样的命运，我用终极秘密电击了自己的大脑，试图用这种方式让我精神失常。
+	zhong_qi: 在那之后，我便能看见弦，也因为一场意外被梅塔逮到，关进了十七号精神卫生中心。
+	zhong_qi: 不过奇怪的是，自从来到这幢别墅之后，我就没有再看见过弦。
+	set {Ch2.SecondPrivate.Zhong.RedString} = true
+	jump 选择
+- 关于床底下的纸团 | [if {Ch2.SourceEvidence.C_2_zhong_1} == true and {Ch2.ThirdPrivate.Zhong.Papers} != true]
+	zhong_qi: 呵，精神状态不太稳定时候的随笔罢了，不必在意。
+	set {Ch2.ThirdPrivate.Zhong.Papers} = true
+	jump 选择
+- 关于病号服 | [if {Ch2.SourceEvidence.C_2_zhong_2} == true and {Ch2.ThirdPrivate.Zhong.Clothes} != true]
+	zhong_qi: 十七号精神卫生中心的病号服，当初穆叔叔把我从那里救出来以后就直接到了穆执的小木屋，正常穿的衣服也是后来买的。
+	set {Ch2.ThirdPrivate.Zhong.Clothes} = true
+	jump 选择
+- 关于病号服口袋里的纸 | [if {Ch2.SourceEvidence.C_2_zhong_2_14} == true and {Ch2.ThirdPrivate.Zhong.Pages} != true]
+	zhong_qi: 哦对，这个是从梅塔——我那个世界的梅塔——的笔记本里撕下来的，非常直观地记录了他的计划。我可能是唯一一个逃出来并得知这一切的人。
+	set {Ch2.ThirdPrivate.Zhong.Pages} = true
+	jump 选择
+- 关于建构师 | [if {SourcePlot.ZhongArchitect} != true and {Ch3.Route.Correction} != true]
+	zhong_qi: 他就是我们世界的建构者，也是他设下了环状弦，将所有探索世界之理的人无情抹除。如果有任何机会做出反抗，我一定不会无动于衷。如果你不打算帮我，我会自己去找。
+	set {SourcePlot.ZhongArchitect} = true
+	jump 选择
+- 我找到武器了 | [if {SourcePlot.WeaponReady} == true and {Ch3.Weapon.Offered} != true and {Ch3.Route.Correction} != true]
+	zhong_qi: 好！事不宜迟，我们要在他警觉之前动手。
+	set {Ch3.Weapon.Offered} = true
+	- 答应
+		jump 交枪
+	- 拒绝
+		zhong_qi: 为什么？明明只是最后一步。
+		- 答应
+			他松了一口气。
+			jump 交枪
+		- 我不想这么做
+			zhong_qi: 呵，好啊，一味地退缩、妥协，后果自负！
+			set {Affinity.Zhong} -= 100
+			set {SourcePlot.ZhongRefused} = true
+			他站起身，离开了会客厅。
+			[signal arg="flow:exit_private_chat"]
+			[end_timeline]
+- 暂时没有问题了
+	zhong_qi: 嗯。
+	set {Ch2.ThirdPrivate.Zhong.Finished} = true
+[signal arg="flow:exit_private_chat"]
+[end_timeline]
+
+label 交枪
+zhong_qi: 枪交给我吧，你去找他指认凶手，这样他一定会放下戒心，等他回到大厅宣布结果的时候，我就趁机动手。
+set {Ch3.Weapon.Agreed} = true
+你同意了他的计划，把手枪交给了他。接下来，去找那个建构师，让他理解一下箱庭中人的抗争。
+[signal arg="flow:exit_private_chat"]
+[end_timeline]

@@ -46,17 +46,17 @@ func _ready() -> void:
 			DataManager.world_flag_changed.connect(_on_world_flag_changed)
 	if EventBus != null and not EventBus.dialogue_finished.is_connected(_on_dialogue_finished):
 		EventBus.dialogue_finished.connect(_on_dialogue_finished)
+	EventBus.ui_panel_closed.connect(_on_panel_closed)
+	GameManager.game_state_changed.connect(_on_game_state_changed)
 	_refresh_highlight()
 
 
 func interact(_player: Player) -> void:
 	if not _has_required_clues():
-		_show_notice("再看看书房里的门、书桌和书架。", "warning")
 		_refresh_highlight()
 		return
 
 	if DataManager.has_clue("1_conclusion_parallel_worlds"):
-		_show_notice("推理题已经解开了。", "info")
 		_refresh_highlight()
 		return
 
@@ -87,7 +87,6 @@ func interact(_player: Player) -> void:
 		EventBus.dialogue_requested.emit(reasoning_timeline)
 		return
 
-	_show_notice("按下 V 键打开推理手册，继续解决疑点。", "info")
 	_refresh_highlight()
 
 
@@ -105,7 +104,31 @@ func _on_dialogue_finished(timeline_name: String) -> void:
 
 	if timeline_name == puzzle_followup_timeline and _pending_puzzle_followup_notice:
 		_pending_puzzle_followup_notice = false
-		_show_notice("再次按下 F 以深入调查。", "info", 2.2)
+	if SceneManager.is_static_presentation_mode() and timeline_name in [clues_finished_timeline, puzzle_followup_timeline, challenge_timeline]:
+		call_deferred("_continue_study_presentation")
+
+
+func _continue_study_presentation() -> void:
+	if GameManager.current_state != GameManager.GameState.IN_GAME or SceneManager.is_transitioning or Dialogic.current_timeline != null:
+		return
+	interact(SceneManager.current_player as Player)
+
+
+func _on_panel_closed(_panel_id: String) -> void:
+	call_deferred("_try_auto_clues_finished")
+
+
+func _on_game_state_changed(_previous: int, current: int) -> void:
+	if current == GameManager.GameState.IN_GAME:
+		call_deferred("_try_auto_clues_finished")
+
+
+func _try_auto_clues_finished() -> void:
+	if not SceneManager.is_static_presentation_mode():
+		return
+	if GameManager.current_state != GameManager.GameState.IN_GAME or get_tree().paused or SceneManager.is_transitioning or Dialogic.current_timeline != null:
+		return
+	_try_request_clues_finished_narration()
 
 
 func _try_request_clues_finished_narration() -> bool:
@@ -141,7 +164,7 @@ func _has_all_required_clues(clue_ids: Array[String]) -> bool:
 func _refresh_highlight() -> void:
 	var should_highlight: bool = (
 		_has_required_clues()
-		and not DataManager.has_flag(FLAG_PUZZLE_READ)
+		and not DataManager.has_flag(FLAG_REASONING_STARTED)
 		and not DataManager.has_clue("1_conclusion_parallel_worlds")
 	)
 	set_highlight_active(should_highlight)
@@ -149,6 +172,7 @@ func _refresh_highlight() -> void:
 
 func _on_clue_updated(_clue_id: String) -> void:
 	_refresh_highlight()
+	call_deferred("_try_auto_clues_finished")
 
 
 func _on_world_flag_changed(flag_id: String, _value: bool) -> void:

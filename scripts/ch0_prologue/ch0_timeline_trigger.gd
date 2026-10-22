@@ -1,5 +1,5 @@
 class_name Ch0TimelineTrigger
-extends Area2D
+extends Interactable
 
 @export var timeline_name: String = ""
 @export var played_flag: String = ""
@@ -12,6 +12,7 @@ var _has_triggered: bool = false
 
 
 func _ready() -> void:
+	super._ready()
 	monitoring = true
 	collision_mask = 0xFFFFFFFF
 	if not body_entered.is_connected(_on_body_entered):
@@ -19,9 +20,17 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	_trigger(body as Player)
+
+
+func interact(player: Player) -> void:
+	_trigger(player)
+
+
+func _trigger(body: Player) -> void:
 	if one_shot and _has_triggered:
 		return
-	if body == null or not body.is_in_group("player"):
+	if body == null:
 		return
 	if not required_flag.is_empty() and not DataManager.has_flag(required_flag):
 		if not blocked_notice.is_empty() and ToastManager != null:

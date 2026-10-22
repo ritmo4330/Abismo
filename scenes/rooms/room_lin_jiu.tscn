@@ -170,6 +170,9 @@ position = Vector2(956, 1078)
 [node name="BedDownJacket" type="Marker2D" parent="ClueSpawnPoints" unique_id=1441776812]
 position = Vector2(1098, 952)
 
+[node name="CarpetDragMarks" type="Marker2D" parent="ClueSpawnPoints"]
+position = Vector2(1010, 1040)
+
 [node name="DoorLock" type="Marker2D" parent="ClueSpawnPoints" unique_id=2052656847]
 position = Vector2(389, 1167)
 

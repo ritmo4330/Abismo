@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 const FlowSteps = preload("res://scripts/flow/flow_steps.gd")
+const BOOK = preload("res://scripts/UI/casebook_style.gd")
 
 const PANEL_ID := "system_panel"
 const PAUSE_TOKEN := "system_panel"
@@ -8,16 +9,16 @@ const DIALOG_BOX_STYLE := "res://assets/UI/dialogues/VisualNovelTextbox/dialogue
 const NAME_BOX_STYLE := "res://assets/UI/dialogues/VisualNovelTextbox/name_label_panel.tres"
 
 const CHARACTERS := [
-	{"id": "Mu", "name": "穆执", "portrait": "res://assets/characters/npcs/mu_zhi_neutral.png", "role": "教徒", "reason": "礼拜归途中遭遇暴风雪，来到别墅避雪。", "plan": "希望协助找出凶手，解除众人的戒备。", "past": "信仰上界教派；曾收留从梅塔处逃出的钟歧。"},
-	{"id": "Zhou", "name": "周崇安", "portrait": "res://assets/characters/npcs/zhou_chong_an_neutral.png", "role": "孤儿院院长", "reason": "上山处理事务，返程时遭遇暴风雪。", "plan": "会配合调查，同时也有自己的事情需要确认。", "past": "随身背包中带有工具；对梅塔的说法仍有值得核对之处。"},
-	{"id": "Lin", "name": "林玖", "portrait": "res://assets/characters/npcs/lin_jiu_nerutral.png", "role": "孤儿院学前教师", "reason": "与乌停湘上山寻找穆执的小木屋，因暴雪来到别墅。", "plan": "担忧凶手就在众人之中，希望尽快厘清真相。", "past": "与孤儿院及异测会有关；她对穆执的说法存在可供交叉验证之处。"},
-	{"id": "Wu", "name": "乌停湘", "portrait": "res://assets/characters/npcs/wu_ting_xiang_neutral.png", "role": "高中生", "reason": "应林玖邀请一同上山，暴雪中来到别墅。", "plan": "愿意交换信息，但仍会谨慎判断谁值得信任。", "past": "在孤儿院长大，对九岁以前没有记忆；非常在意灯塔木雕。"},
-	{"id": "Zhong", "name": "钟歧", "portrait": "res://assets/characters/npcs/zhong_qi_neutral.png", "role": "物理学研究助理", "reason": "受梅塔邀请来到这里，返程时遭遇暴风雪。", "plan": "想调查梅塔死亡背后的真相，并会衡量主角的能力。", "past": "曾遭梅塔囚禁，逃出后被穆执收留；对灯塔和“世界之理”有所了解。"},
+	{"id": "Mu", "name": "穆执", "portrait": "res://assets/characters/npcs/mu_zhi_neutral.png", "role": "我是一名教徒，如果你对我的信仰感兴趣的话，有机会我可以和你交流。", "reason": "实不相瞒，我的住处同样在这座山上。来到此地之前，我前往教堂参加礼拜，返回时突遇暴风雪，我只能就近找到这里，便请求管家收留了我。", "plan": "我对逝者的遭遇深感不幸，希望你能帮助我们找到凶手。否则就这样待在同一个屋檐下，难免会有些芥蒂。", "past": "我信仰上界教派，不知道你有没有听说过。"},
+	{"id": "Zhou", "name": "周崇安", "portrait": "res://assets/characters/npcs/zhou_chong_an_neutral.png", "role": "我是一名孤儿院院长，管理着本市的孤儿院。", "reason": "我来到这座山上有一些事情要处理，下山的时候突然遇到暴风雪，幸好能找到这幢别墅让我避避风雪。", "plan": "我还有些自己的事情想要调查，不过我也会尽力配合你的调查。", "past": "他是一个教徒，经常资助我管理的孤儿院。我与他的接触仅限于此。"},
+	{"id": "Lin", "name": "林玖", "portrait": "res://assets/characters/npcs/lin_jiu_nerutral.png", "role": "我是一名学前教师，在周院长管理的孤儿院任职。周院长就是那边那位最年长的人，他对大家都很好。", "reason": "我带乌停湘上山来找穆执，结果还没赶到他的小木屋就下起了暴风雪，我们只好找到最近的这座别墅避雪。", "plan": "凶手……就在我们之中，对吧？我很担心……", "past": "异测会是一个所谓的以探寻超自然现象为职责，力求为有记录的超自然现象寻求科学解释的组织……我只知道这么多。"},
+	{"id": "Wu", "name": "乌停湘", "portrait": "res://assets/characters/npcs/wu_ting_xiang_neutral.png", "role": "我是一名高中生，和林姐姐——噢，她叫林玖——我们居住在孤儿院。", "reason": "是林姐姐带我跑出孤儿院的，她说异测会要来抓我，于是我们就跑了出来。", "plan": "被卷入了这么一场案件，也只能在雪停之前尽可能找到真相了吧。", "past": "异测会是一个致力于为超自然现象寻求科学解释的组织，已经成为了一个权威机构，但是他们的研究也不一定全是对的，我们还是要有自己的判断力。"},
+	{"id": "Zhong", "name": "钟歧", "portrait": "res://assets/characters/npcs/zhong_qi_neutral.png", "role": "我是一名物理学研究助理，参与我爷爷的研究团队的研究。", "reason": "梅塔要来抓我，我打算躲在山深处避一避，没成想正好掉进了他的圈套。好在他死了，人不是我杀的，但我要感谢这个除害的凶手。", "plan": "梅塔不是什么好人，我好奇的是案件背后的真相。", "past": "梅塔是一个疯子。他暗中抓捕有能力探索世界之理的人，以精神治疗为借口囚禁在他的“十七号精神卫生中心”。并最终将他们的大脑离体培养，成为为梅塔思考的机器。我比较幸运，是穆叔叔救我出来。"},
 ]
 
 const FIRST_SEARCH_CLUES := ["1_lin_1", "1_lin_2", "1_lin_3", "1_lin_5", "1_lin_6", "1_lin_6_key", "1_mei_1", "1_mei_2", "1_mu_1", "1_wu_1", "1_zhong_1", "1_zhou_1", "1_zhou_2"]
 const SECOND_SEARCH_CLUES := ["1_zhongyue_1", "1_zhongyue_2", "1_zhongyue_3"]
-const THIRD_SEARCH_CLUES := ["2_missing_body", "1_lin_7", "2_mu_burnt_church", "2_wu_dream_notebook", "2_zhong_anchor_records", "2_zhou_sleep_roster", "2_meta_research_plan"]
+const THIRD_SEARCH_CLUES := preload("res://scripts/UI/investigation_tasks.gd").THIRD
 
 var _is_open := false
 var _selected_index := 0
@@ -71,6 +72,7 @@ func _input(event: InputEvent) -> void:
 
 func _build_interface() -> void:
 	var host := get_node("ThemeRoot") as Control
+	host.theme = BOOK.theme()
 
 	var dimmer := ColorRect.new()
 	dimmer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -90,7 +92,7 @@ func _build_interface() -> void:
 	sidebar.anchor_left = 0.72
 	sidebar.anchor_right = 1.0
 	sidebar.anchor_bottom = 1.0
-	sidebar.add_theme_stylebox_override("panel", _flat_style(Color(0.42, 0.43, 0.44, 0.78), Color.TRANSPARENT, 0, 0))
+	BOOK.decorate(sidebar)
 	host.add_child(sidebar)
 	_build_sidebar(sidebar)
 	_build_history_overlay(host)
@@ -185,7 +187,7 @@ func _build_portrait_area(parent: Control) -> void:
 	_name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_name_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	_name_label.add_theme_font_size_override("font_size", 34)
-	_name_label.add_theme_color_override("font_color", Color(0.93, 0.93, 0.9))
+	_name_label.add_theme_color_override("font_color", BOOK.INK)
 	name_panel.add_child(_name_label)
 
 	var affinity_box := VBoxContainer.new()
@@ -195,7 +197,7 @@ func _build_portrait_area(parent: Control) -> void:
 	_affinity_label = Label.new()
 	_affinity_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_affinity_label.add_theme_font_size_override("font_size", 27)
-	_affinity_label.add_theme_color_override("font_color", Color(0.94, 0.82, 0.54))
+	_affinity_label.add_theme_color_override("font_color", BOOK.RED)
 	affinity_box.add_child(_affinity_label)
 	_affinity_bar = ProgressBar.new()
 	_affinity_bar.min_value = 0
@@ -392,6 +394,8 @@ func _add_action_button(parent: Control, label_text: String, callback: Callable)
 func _open_panel() -> void:
 	if _is_open:
 		return
+	if not FlowManager.is_player_interface_available():
+		return
 	if EventBus != null:
 		EventBus.ui_panel_focus_requested.emit(PANEL_ID)
 	_is_open = true
@@ -474,79 +478,13 @@ func _refresh_character() -> void:
 			lines.append("[b]私聊记录[/b]　%s" % String(character["past"]))
 		else:
 			lines.append("[b]私聊记录[/b]　未解锁")
-		if _var_bool("Ch2.SecondPrivate.%s.Finished" % character_id):
-			lines.append("[b]梦境记忆[/b]　%s" % _get_second_private_summary(character_id))
-		if _var_bool("Ch2.ThirdPrivate.%s.Finished" % character_id):
-			lines.append("[b]深层记忆[/b]　%s" % _get_third_private_summary(character_id))
 	_detail_body.text = "\n".join(lines)
 
 
 func _refresh_task() -> void:
-	var step := FlowManager.get_current_step_id() if FlowManager != null else ""
-	var task_name := "当前目标"
-	var guidance := "继续推进剧情。"
-	match step:
-		FlowSteps.CH1_STUDY_WAKE, FlowSteps.CH1_STUDY_FREE_INVESTIGATION:
-			task_name = "【午夜凶铃】"
-			guidance = "调查书房内的高亮位置。"
-		FlowSteps.CH1_PUZZLE, FlowSteps.CH1_INITIAL_REASONING:
-			task_name = "【推理】"
-			guidance = "完成推理。"
-		FlowSteps.CH1_MURDER_REQUEST, FlowSteps.CH1_CRIME_SCENE, FlowSteps.CH1_BODY_CG:
-			task_name = "【午夜凶铃】"
-			guidance = "确认现场情况。"
-		FlowSteps.CH1_INTRO_HALL:
-			task_name = "【初来乍到】"
-			var finished := _count_completed_introductions()
-			guidance = "调查所有人（%d/5）" % finished
-			if finished >= 5:
-				guidance = "与管家交谈。"
-		FlowSteps.CH1_FIRST_SEARCH:
-			task_name = "【初显身手】"
-			var found := _count_found_clues(FIRST_SEARCH_CLUES)
-			guidance = "调查二楼线索（%d/%d）" % [found, FIRST_SEARCH_CLUES.size()]
-			if found >= FIRST_SEARCH_CLUES.size():
-				guidance = "与二楼的管家交谈。"
-		FlowSteps.CH1_PRIVATE_CHAT:
-			task_name = "【悄悄话】"
-			guidance = "与嫌疑人私聊（%d/5）" % _count_finished_private_chats()
-			if _var_bool("Ch1.PrivateChat.Zhong.Asked.Lighthouse"):
-				guidance = "与管家交谈。"
-		FlowSteps.CH1_SECOND_SEARCH:
-			task_name = "【再展身手】"
-			var second_found := _count_found_clues(SECOND_SEARCH_CLUES)
-			guidance = "再次调查案件（%d/%d）" % [second_found, SECOND_SEARCH_CLUES.size()]
-			if second_found >= SECOND_SEARCH_CLUES.size():
-				guidance = "离开调查现场。"
-		FlowSteps.CH2_SECOND_REASONING, FlowSteps.CH2_THIRD_REASONING:
-			task_name = "【推理】"
-			guidance = "完成推理。"
-		FlowSteps.CH2_SECOND_PRIVATE_CHAT:
-			task_name = "【暗流交汇】"
-			guidance = "与众人私下交谈；准备好后与管家交谈。"
-		FlowSteps.CH2_THIRD_SEARCH:
-			task_name = "【大显身手】"
-			var third_found := _count_found_clues(THIRD_SEARCH_CLUES)
-			guidance = "检查案发房间的变化（%d/%d）" % [third_found, THIRD_SEARCH_CLUES.size()]
-			if third_found >= THIRD_SEARCH_CLUES.size():
-				guidance = "与二楼的管家交谈。"
-		FlowSteps.CH2_THIRD_PRIVATE_CHAT:
-			task_name = "【悄悄悄悄话】"
-			guidance = "自由调查，并继续了解众人的深层记忆。"
-		FlowSteps.CH2_MEMORY_FRAGMENTS:
-			task_name = "【场景复现】"
-			guidance = "帮助乌停湘复现记忆碎片。"
-		FlowSteps.CH3_ROUTE:
-			task_name = "【超越】"
-			guidance = "完成最终推理。"
-		FlowSteps.FINALE_ENDING, FlowSteps.FINALE_EPILOGUE:
-			task_name = "【世界内外的残响】"
-			guidance = "见证故事的结局。"
-		FlowSteps.GAME_COMPLETE:
-			task_name = "【游戏结束】"
-			guidance = "故事已经结束，感谢游玩。"
-	_task_title.text = "当前任务　%s" % task_name
-	_task_body.text = guidance
+	var task: Dictionary = load("res://scripts/UI/investigation_tasks.gd").current()
+	_task_title.text = "当前任务　%s" % task.title
+	_task_body.text = String(task.body) + ("（%d/%d）" % [task.found, task.total] if int(task.total) > 0 else "")
 
 
 func _refresh_history() -> void:
@@ -648,26 +586,6 @@ func _are_group_portraits_revealed() -> bool:
 	]
 
 
-func _get_second_private_summary(character_id: String) -> String:
-	match character_id:
-		"Mu": return "梦中看见烧毁的旧教堂，并承认曾以拯救为名作出无法挽回的选择。"
-		"Zhou": return "曾参与孤儿院睡眠研究，熟悉梦境规则与恐惧阈值。"
-		"Lin": return "异常关联研究室中出现了她的观察档案；九岁前记忆存在空白。"
-		"Wu": return "梦境笔记反复记录花海、白色立方体与紧闭木门。"
-		"Zhong": return "钟岳研究以强烈记忆作为平行世界之间的坐标。"
-	return "新的梦境记忆已经解锁。"
-
-
-func _get_third_private_summary(character_id: String) -> String:
-	match character_id:
-		"Mu": return "最深恐惧是再次用信仰包装错误的选择。"
-		"Zhou": return "睡眠实验曾导致孩子无法醒来，梅塔与事故有关。"
-		"Lin": return "怀疑童年记忆被人为封锁，愿意直面研究室中的真相。"
-		"Wu": return "0909是与林玖初见的日期；木门可能是她为记忆设置的锁。"
-		"Zhong": return "球形装置是意识坐标锚，梦墅可能与失控实验有关。"
-	return "更深层的个人经历已经解锁。"
-
-
 func _count_completed_introductions() -> int:
 	var count := 0
 	for character: Dictionary in CHARACTERS:
@@ -694,18 +612,15 @@ func _count_found_clues(clue_ids: Array) -> int:
 
 
 func _dialog_style() -> StyleBox:
-	return (load(DIALOG_BOX_STYLE) as StyleBox).duplicate() as StyleBox
+	return BOOK.paper_style()
 
 
 func _bold_font() -> Font:
-	var variation := FontVariation.new()
-	variation.base_font = load("res://assets/UI/Nightgazer16.ttf") as Font
-	variation.variation_embolden = 0.65
-	return variation
+	return BOOK.display_font()
 
 
 func _name_style() -> StyleBox:
-	return (load(NAME_BOX_STYLE) as StyleBox).duplicate() as StyleBox
+	return BOOK.cut_style("name")
 
 
 func _button_style(tint: Color = Color.WHITE) -> StyleBox:

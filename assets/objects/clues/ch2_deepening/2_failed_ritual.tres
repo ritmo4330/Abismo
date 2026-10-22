@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "2_failed_ritual"
+title = "失效的通灵法阵"
+description = "当时我看见梅塔的时候，很害怕，于是在房间里布下通灵法阵，想要寻求神明的帮助。但是明明时间已经足够十分钟了，法阵都没有任何反应。"
+chapter_id = "2"
+room_id = "lin"
+category_path = PackedStringArray("梦墅", "林玖口供")
+clue_type = "testimony"

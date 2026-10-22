@@ -1,0 +1,135 @@
+[style name="default_visual_novel"]
+join wu_ting_xiang right
+do FlowManager.sync_source_plot()
+label 选择
+wu_ting_xiang: 我会尽可能如实回答的。
+- 来到别墅的原因
+	wu_ting_xiang: 是林姐姐带我跑出孤儿院的，她说异测会要来抓我，于是我们就跑了出来。
+	set {Ch1.PrivateChat.Wu.Asked.Arrival} = true
+	jump 选择
+- 与死者的关系
+	wu_ting_xiang: 我不认识他。
+	set {Ch1.PrivateChat.Wu.Asked.Dead} = true
+	jump 选择
+- 与其他人的关系
+	label 与其他人的关系
+	wu_ting_xiang: 你想问哪一位？
+	- 穆执
+		wu_ting_xiang: 我只见过他几面，他是林姐姐的远房亲戚，和我讲过林姐姐小时候的一些事情。
+		set {Ch1.PrivateChat.Wu.Asked.Mu} = true
+		jump 与其他人的关系
+	- 周崇安
+		wu_ting_xiang: 他是孤儿院的院长，对大家非常和蔼。
+		set {Ch1.PrivateChat.Wu.Asked.Zhou} = true
+		jump 与其他人的关系
+	- 林玖
+		wu_ting_xiang: 林姐姐是我在孤儿院最好的朋友。
+		set {Ch1.PrivateChat.Wu.Asked.Lin} = true
+		jump 与其他人的关系
+	- 钟歧
+		wu_ting_xiang: 我不认识他，但是林姐姐好像和他认识的样子。
+		set {Ch1.PrivateChat.Wu.Asked.Zhong} = true
+		jump 与其他人的关系
+	- 还有其他问题
+		jump 选择
+- 关于异测会 | [if {Ch1.PrivateChat.Wu.Asked.Arrival} == true and {Ch1.PrivateChat.Wu.Removed.AnomalySociety} != true]
+	wu_ting_xiang: 异测会是一个致力于为超自然现象寻求科学解释的组织，已经成为了一个权威机构。
+	wu_ting_xiang: 但是他们的研究也不一定全是对的，我们还是要有自己的判断力。
+	set {Ch1.PrivateChat.Wu.Removed.AnomalySociety} = true
+	jump 选择
+- 关于灯塔木雕 | [if {Ch1.PrivateChat.Lin.Asked.Lighthouse} == true and {Ch1.PrivateChat.Wu.Removed.Lighthouse} != true]
+	wu_ting_xiang: 那个灯塔木雕是林姐姐在初中时候亲手制作的。
+	wu_ting_xiang: 我猜她是要送给谁，但最终还是没有送出去。在那之后它就一直放在林姐姐的书桌上。
+	player: 你知道她为什么会做这个木雕吗？
+	wu_ting_xiang: 嗯……孤儿院曾经有段时间请来老师教过，不过我不太擅长这个啦，林姐姐倒是挺喜欢的。
+	wu_ting_xiang: 那个时候，我感觉林姐姐每天在学校并不开心，但是和我相处的时候又会把所有不开心藏起来，我也不好直接问她。
+	wu_ting_xiang: 直到她开始制作那个木雕的时候，她的心情似乎好了不少，可能事情发生了某种转变。
+	wu_ting_xiang: 我也问过她是不是要送给谁，她也没有正面回答过我。
+	set {Ch1.PrivateChat.Wu.Asked.Lighthouse} = true
+	set {Ch1.PrivateChat.Wu.Removed.Lighthouse} = true
+	do DataManager.add_clue("1_testimony_7_wu", "dialogue", "1_testimony_7_wu")
+	jump 选择
+- 储物间暗门下的东西 | [if {Ch2.SecondPrivate.Wu.Door} != true]
+	wu_ting_xiang: 我没有骗你，我真的什么都没有看到。我走下去以后不一会就到了头，没有什么可以调查的。
+	set {Ch2.SecondPrivate.Wu.Door} = true
+	jump 选择
+- 关于梅塔 | [if {Ch2.SecondPrivate.Wu.Meta} != true]
+	wu_ting_xiang: 我对梅塔的了解全部都来自林姐姐，来到别墅后也是，如果不是林姐姐认出来，我也不会知道这里的主人就是梅塔
+	wu_ting_xiang: ——哦，虽然不一定是我们世界的梅塔。
+	set {Ch2.SecondPrivate.Wu.Meta} = true
+	jump 选择
+- 关于沙化事件 | [if {Ch2.SecondPrivate.Lin.Sand} == true and {Ch2.SecondPrivate.Wu.Sand} != true]
+	wu_ting_xiang: 对，我其实在抽空调查这件事，但也只发现确有此事，不是谣言。
+	if {Affinity.Wu} > 70:
+		wu_ting_xiang: 我跟周院长聊起这件事后，他说了这么一句话：
+		wu_ting_xiang: 科学到底是自然界的产物，还是神明的规则呢？
+		wu_ting_xiang: 我不知道，发生了这么多事，我越来越想不明白了……
+	set {Ch2.SecondPrivate.Wu.Sand} = true
+	jump 选择
+- 关于白色的盒子 | [if {Ch2.SourceEvidence.C_2_wu_1} == true and {Ch2.ThirdPrivate.Wu.Sandbox} != true]
+	wu_ting_xiang: 这是我的沙盘，是周院长给我买的。我闲来无事时就会拿出来玩，堆出各种各样的东西。
+	set {Ch2.ThirdPrivate.Wu.Sandbox} = true
+	jump 选择
+- 关于沙盘底的报纸 | [if {Ch2.ThirdPrivate.Wu.Sandbox} == true and {Ch2.SourceEvidence.C_2_wu_1_13} == true and {Ch2.ThirdPrivate.Wu.Newspaper} != true]
+	wu_ting_xiang: 这应该是我好久以前看到的报纸了，大概是黑门事件的时候。当时有传言说黑门事件的始作俑者是1999年抓捕的那群邪教分子，所以我找来报纸了解了一下。不过我觉得这也太奇怪了。
+	set {Ch2.ThirdPrivate.Wu.Newspaper} = true
+	jump 选择
+- 关于梦境笔记本 | [if {Ch2.ThirdPrivate.Wu.DreamNotes} != true]
+	wu_ting_xiang: 我应该和你说过我失忆的事情，为了找回我的记忆，我的心理医生林医生建议我记录下自己的梦境，通过情景复现的方式尝试唤起那些被压抑进潜意识的记忆。
+	set {Ch2.ThirdPrivate.Wu.DreamNotes} = true
+	jump 选择
+- 关于全家福 | [if {SourcePlot.HasPhoto} == true and {SourcePlot.WuPhoto} != true]
+	wu_ting_xiang: ……没错，那是我的全家福。那个房间也是我的房间。
+	set {SourcePlot.WuPhoto} = true
+	jump 选择
+- 关于笔记本 | [if {Ch3.Route.Correction} == true and {SourcePlot.WuPhoto} == true and {SourcePlot.HasCycle} == true and {SourcePlot.WuNotebook} != true]
+	wu_ting_xiang: 你看到了啊，那我也没什么好隐瞒的了。我都想起来了，我不来自任何一个平行世界，用你们的话来说，我来自上层世界。我曾经负责管理伽马世界线，也就是这里的林玖所在的那个世界线。
+	wu_ting_xiang: 但由于黑门事件的发生，我一遍又一遍地试图找到解决的办法，却徒劳无功。老师最终还是发现了我的情况，不再让我接触箱庭，为了治疗我的心理障碍采用了箱庭疗法，将我的意识投放到伽马世界线，让我在这一段人生阅历中有所成长。
+	set {SourcePlot.WuNotebook} = true
+	jump 选择
+- 关于房间内的其它线索 | [if ({Ch3.Route.Correction} == true and {SourcePlot.WuNotebook} == true) or ({Ch3.Route.Correction} != true and {SourcePlot.WuPhoto} == true)]
+	label 房间线索
+	if ({SourcePlot.HasPaper} != true or {SourcePlot.WuPaper} == true) and ({SourcePlot.HasFlowerPhoto} != true or {SourcePlot.WuFlower} == true) and ({SourcePlot.HasLetter} != true or {SourcePlot.WuLetter} == true) and ({Ch3.Route.Correction} == true or {SourcePlot.HasCycle} != true or {SourcePlot.WuNotebook} == true):
+		似乎没有可以询问的线索
+		jump 选择
+	- 关于报纸 | [if {SourcePlot.HasPaper} == true and {SourcePlot.WuPaper} != true]
+		wu_ting_xiang: 乌叙是我的爸爸，他是一名解构学专家。
+		label 报纸后续
+		if {SourcePlot.WuSandbox} == true and {SourcePlot.WuDeconstruction} == true:
+			set {SourcePlot.WuPaper} = true
+			jump 房间线索
+		- 箱庭计划是什么？ | [if {SourcePlot.WuSandbox} != true]
+			wu_ting_xiang: 箱庭计划是上层世界旨在通过建构箱庭来开展社会学等学科研究的计划，上层世界的人利用前沿科技创造了箱庭世界，并将弦理论作为箱庭世界的底层逻辑。你们所在的这个箱庭世界只是众多箱庭世界中的一个。
+			set {SourcePlot.WuSandbox} = true
+			jump 报纸后续
+		- 解构学是什么？ | [if {SourcePlot.WuDeconstruction} != true]
+			wu_ting_xiang: 解构学是和建构学相对照的一门学科。后者是构造箱庭的学科，前者则是解构世界的学科——上层世界的人们创造了箱庭世界后，逐渐产生在我们的世界之外，是否还存在更上层的世界的疑问。于是解构学的研究内容就是解构我们正可能生活在其中的箱庭。
+			set {SourcePlot.WuDeconstruction} = true
+			jump 报纸后续
+	- 关于花海合照 | [if {SourcePlot.HasFlowerPhoto} == true and {SourcePlot.WuFlower} != true]
+		wu_ting_xiang: 那是我和零姐姐的合照。她叫做零芝，是一名心理医生兼建构学家，也是她开创了箱庭疗法，主导着对我的治疗。她对我说过，“假如每一朵花都是一个世界，那么这片花海应该是什么样的”，这也成了我对多重时空的第一印象。
+		set {SourcePlot.WuFlower} = true
+		jump 房间线索
+	- 关于留言纸 | [if {SourcePlot.HasLetter} == true and {SourcePlot.WuLetter} != true]
+		wu_ting_xiang: 我的爸爸妈妈都是解构学的专家，他们平常工作很忙，只能把我托给爷爷奶奶照顾。小时候的我不理解他们的工作，于是他们把我送到了末老师家里照看一段时间，学习和箱庭计划以及建构学有关的知识。
+		wu_ting_xiang: 末老师名叫末雨，和爸爸妈妈师出同门，是一名建构师。末老师教会了我很多知识，我也因为他认识了零姐姐。
+		set {SourcePlot.WuLetter} = true
+		jump 房间线索
+	- 关于笔记本 | [if {Ch3.Route.Correction} != true and {SourcePlot.HasCycle} == true and {SourcePlot.WuNotebook} != true]
+		wu_ting_xiang: 这就是我说过的那段经历。我曾经负责管理伽马世界线，也就是这里的林玖所在的那个世界线。但由于黑门事件的发生，我一遍又一遍地试图找到解决的办法，却徒劳无功。老师最终还是发现了我的情况，不再让我接触箱庭，为了治疗我的心理障碍采用了箱庭疗法，将我的意识投放到伽马世界线，让我在这一段人生阅历中有所成长。
+		set {SourcePlot.WuNotebook} = true
+		jump 房间线索
+	- 还有其他问题
+		jump 选择
+- 关于管家 | [if {Ch3.Route.Correction} == true and {SourcePlot.WuButler} != true]
+	wu_ting_xiang: 管家没有什么奇怪的地方，他只是给我看了一封信，至于信是哪里来的，他也不知道，估计只是这个梦境中的工具人吧。信的内容让我回想起了我的记忆，不过上面写着阅后即焚，我在读完后就烧掉了。
+	set {SourcePlot.WuButler} = true
+	jump 选择
+- 关于建构师 | [if {Ch3.Route.Correction} != true and {SourcePlot.WuButler} != true]
+	wu_ting_xiang: 刚刚老师和我私聊的时候，帮我回想起了所有的记忆，但我不想让大家被修正，明明大家都有自己的人生，都有未竟的心愿，为什么一定要做到这样的地步？但我也不知道应该如何阻止老师。
+	set {SourcePlot.WuButler} = true
+	jump 选择
+- 暂时没有问题了
+	wu_ting_xiang: 好，有什么别的疑问要记得和我交流哦。
+[signal arg="flow:exit_private_chat"]
+[end_timeline]

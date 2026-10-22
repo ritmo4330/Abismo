@@ -103,6 +103,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if current_state != GameState.IN_GAME and current_state != GameState.PAUSED:
 		return
+	if current_state == GameState.IN_GAME and FlowManager.is_story_presentation_active():
+		return
 	get_viewport().set_input_as_handled()
 	toggle_user_pause()
 

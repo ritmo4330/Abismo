@@ -4,7 +4,7 @@
 script = ExtResource("1")
 id = "3_conclusion_world_truth"
 title = "结论：箱庭世界的真相"
-description = "别墅并非普通梦境，而是多个平行世界意识叠加形成的箱庭；梅塔是来自上界的管理者。"
+description = "上层世界的人创造了箱庭，并以弦作为箱庭世界的底层逻辑。线性弦推动物质、能量与意识的变化；环状弦用于修正接近世界之理的人。末雨是这个箱庭的建构师。梦境并非末雨构建，他利用了众人在梦境中聚集的机会。"
 chapter_id = "3"
 room_id = "hall"
 category_path = PackedStringArray("异墅", "推理结论")

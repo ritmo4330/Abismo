@@ -21,3 +21,6 @@ extends Resource
 @export var followup_once_flag: String = ""
 
 @export var scene_path: String = "res://scenes/objects/clue_item.tscn"
+
+@export var space: String = "villa"
+@export var static_hotspot: Rect2 = Rect2()

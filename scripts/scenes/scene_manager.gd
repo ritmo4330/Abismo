@@ -2,6 +2,8 @@ extends Node
 
 const DEFAULT_FIRST_LEVEL_PATH: String = "res://scenes/rooms/hall.tscn"
 const DEFAULT_PLAYER_SCENE_PATH: String = "res://scenes/characters/player/player.tscn"
+const STATIC_PRESENTATION_MODE: bool = true
+const StaticRoomArt = preload("res://scripts/scenes/static_room_art.gd")
 
 var level_container: Node2D = null
 var current_player: Node2D = null
@@ -19,6 +21,10 @@ func _ready() -> void:
 
 func is_initialized() -> bool:
 	return _is_initialized
+
+
+func is_static_presentation_mode() -> bool:
+	return STATIC_PRESENTATION_MODE
 
 
 func get_current_room_scene_path() -> String:
@@ -176,10 +182,116 @@ func _load_room(path: String, spawn_point_name: String) -> Node2D:
 	else:
 		push_warning("未能在地图中找到出生点：" + spawn_point_name)
 
-	if level_instance.has_method("setup_camera_limits"):
+	if STATIC_PRESENTATION_MODE:
+		_configure_static_presentation(level_instance)
+	elif level_instance.has_method("setup_camera_limits"):
 		level_instance.setup_camera_limits(current_player)
 
 	return level_instance
+
+
+func refresh_static_camera() -> void:
+	if not STATIC_PRESENTATION_MODE:
+		return
+	if current_room == null or not is_instance_valid(current_room):
+		return
+	_configure_static_presentation(current_room)
+
+
+func configure_static_interactable(item: Interactable) -> void:
+	if not STATIC_PRESENTATION_MODE or current_room == null:
+		return
+	var art: Node = current_room.get_node_or_null("StaticRoomArt")
+	if art != null:
+		art.call("configure_interactable", item)
+
+
+func get_static_art_view() -> String:
+	if current_room == null:
+		return ""
+	var art: Node = current_room.get_node_or_null("StaticRoomArt")
+	return String(art.get("current_view")) if art != null else ""
+
+
+func restore_static_art_view(view_id: String) -> void:
+	if current_room == null or view_id.is_empty():
+		return
+	var art: Node = current_room.get_node_or_null("StaticRoomArt")
+	if art != null:
+		art.call("set_view", view_id)
+
+
+func _configure_static_presentation(level_instance: Node2D) -> void:
+	if level_instance.get_node_or_null("StaticRoomArt") == null:
+		var room_id: String = _resolve_room_id(level_instance, level_instance.scene_file_path)
+		if not StaticRoomArt.get_config(room_id).is_empty():
+			var art := StaticRoomArt.new()
+			art.name = "StaticRoomArt"
+			level_instance.add_child(art)
+			if not art.setup(level_instance, room_id):
+				level_instance.remove_child(art)
+				art.queue_free()
+	if current_player != null and is_instance_valid(current_player):
+		current_player.visible = false
+		current_player.process_mode = Node.PROCESS_MODE_DISABLED
+		current_player.set_process(false)
+		current_player.set_physics_process(false)
+		var player_body: CollisionObject2D = current_player as CollisionObject2D
+		if player_body != null:
+			player_body.collision_layer = 0
+			player_body.collision_mask = 0
+		var interaction_area: Area2D = current_player.get_node_or_null("InteractionArea") as Area2D
+		if interaction_area != null:
+			interaction_area.monitoring = false
+			interaction_area.monitorable = false
+		var player_camera: Camera2D = current_player.get_node_or_null("Camera2D") as Camera2D
+		if player_camera != null:
+			player_camera.enabled = false
+
+	var camera: Camera2D = level_instance.get_node_or_null("StaticPresentationCamera") as Camera2D
+	if camera == null:
+		camera = Camera2D.new()
+		camera.name = "StaticPresentationCamera"
+		camera.position_smoothing_enabled = false
+		level_instance.add_child(camera)
+
+	var bounds: Rect2 = _resolve_static_bounds(level_instance)
+	camera.global_position = level_instance.global_position + bounds.get_center()
+	var viewport_size: Vector2 = level_instance.get_viewport_rect().size
+	if bounds.size.x > 0.0 and bounds.size.y > 0.0 and viewport_size.x > 0.0 and viewport_size.y > 0.0:
+		var fit_zoom: float = minf(viewport_size.x / bounds.size.x, viewport_size.y / bounds.size.y)
+		camera.zoom = Vector2.ONE * maxf(fit_zoom, 0.01)
+	camera.enabled = true
+	camera.make_current()
+	if level_instance.has_method("configure_presentation_camera"):
+		level_instance.configure_presentation_camera(camera)
+
+
+func _resolve_static_bounds(level_instance: Node2D) -> Rect2:
+	if level_instance.get_node_or_null("StaticRoomArt") != null:
+		return Rect2(Vector2.ZERO, StaticRoomArt.CANVAS)
+	var configured_bounds: Variant = level_instance.get("camera_bounds")
+	if configured_bounds is Rect2:
+		var room_bounds: Rect2 = configured_bounds as Rect2
+		if room_bounds.size.x > 0.0 and room_bounds.size.y > 0.0:
+			return room_bounds
+
+	var combined: Rect2 = Rect2()
+	var found_visual: bool = false
+	for node: Node in level_instance.find_children("*", "Sprite2D", true, false):
+		var sprite: Sprite2D = node as Sprite2D
+		if sprite == null or sprite.texture == null or not sprite.visible:
+			continue
+		var texture_size: Vector2 = sprite.texture.get_size() * sprite.global_scale.abs()
+		var top_left: Vector2 = sprite.global_position
+		if sprite.centered:
+			top_left -= texture_size * 0.5
+		var sprite_rect := Rect2(top_left - level_instance.global_position, texture_size)
+		combined = sprite_rect if not found_visual else combined.merge(sprite_rect)
+		found_visual = true
+	if found_visual:
+		return combined
+	return Rect2(Vector2.ZERO, level_instance.get_viewport_rect().size)
 
 
 func _emit_room_loaded(room: Node2D, room_id: String) -> void:

@@ -10,11 +10,24 @@ extends Node2D
 
 var base_scale: Vector2 = Vector2.ONE
 var _pulse_tween: Tween = null
+var _requested_active: bool = false
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	base_scale = scale
 	set_active(visible)
+
+
+func _process(_delta: float) -> void:
+	var should_show: bool = _requested_active and FlowManager.is_free_investigation_active()
+	if visible == should_show:
+		return
+	visible = should_show
+	if visible:
+		_start_pulse()
+	else:
+		_stop_pulse()
 
 
 func set_base_scale(value: Vector2) -> void:
@@ -29,8 +42,9 @@ func set_tint(color: Color) -> void:
 
 
 func set_active(is_active: bool) -> void:
-	visible = is_active
-	if is_active:
+	_requested_active = is_active
+	visible = is_active and FlowManager.is_free_investigation_active()
+	if visible:
 		_start_pulse()
 	else:
 		_stop_pulse()

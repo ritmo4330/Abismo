@@ -1,47 +1,89 @@
 [style name="default_visual_novel"]
-join butler left
 if {Ch2.ThirdSearch.BodyKnownBeforeTurn} != true:
-	player: 有个消息需要先告诉各位。刚才我们再次检查案发现场时，发现衣柜里梅塔的尸体消失了，只留下暗褐色的血迹。
-	join lin_jiu right
-	lin_jiu: 怎么会……
-	butler: 确有此事。尸体不可能凭空消失，我们猜测是有人动了手脚。
-	join mu_zhi left
-	mu_zhi: 但是我们完全没有动手脚的时机。除了待在大厅和会客厅能够彼此证明，我们调查时也一直和管家同行。
-	join zhong_qi right
+	if {Ch2.SourceEvidence.C_2_missing_body} == true:
+		join player left
+		player: 有个消息需要先告诉各位，刚才我们再次检查案发现场的时候，发现衣柜里梅塔的尸体消失了，只留下了暗褐色的血迹。
+		join lin_jiu right
+		lin_jiu: 怎么会……
+		join butler left
+		butler: 确有此事，尸体不可能凭空消失，我们猜测是有人动了手脚。
+	else:
+		一段时间后，随着林玖与管家回到大厅，所有人都已调查完毕，但你注意到跟在管家身后的林玖面色惨白
+		join lin_jiu right
+		lin_jiu: 尸体……尸体不见了……
+		join zhong_qi left
+		zhong_qi: 什么？梅塔的尸体吗？
+		join wu_ting_xiang right
+		wu_ting_xiang: 怎么会？他不在衣柜里吗？
+		lin_jiu: 我不知道……我去看了我那个房间，衣柜里的尸体消失了……
+		join butler left
+		butler: 由我来说明吧。
+		butler: 方才我和林玖小姐再次检查案发现场的时候，发现衣柜里主人的尸体消失了，只留下了暗褐色的血迹。
+		butler: 尸体不可能凭空消失，我们猜测是有人动了手脚。
+	join mu_zhi right
+	mu_zhi: 但是我们完全没有动手脚的时机啊？
+	mu_zhi: 除了待在大厅和会客厅能够彼此证明，我们在调查过程中都是和管家一起行动的。
+	butler: 的确如此。
+	join zhong_qi left
 	zhong_qi: 但我们不能排除管家和让尸体消失的人串通好了。
-	join wu_ting_xiang left
-	wu_ting_xiang: 周院长，既然我们是在梦境中，尸体凭空消失属于正常现象吗？
-	join zhou_chong_an right
-	zhou_chong_an: 梦境或许接近现实，但尸体的消失不能简单用梦境解释。至少，让尸体消失这个行为本身具有重要意义。
+	join wu_ting_xiang right
+	wu_ting_xiang: 周院长，既然我们是在梦境中，那尸体凭空消失属于正常现象吗？
+	join zhou_chong_an left
+	zhou_chong_an: 我也在想这个问题……
+	zhou_chong_an: 经过此前的观察，构建这个梦境的人似乎想让这个梦境无限接近现实，直到我们发现了地下室，才能意识到这里是梦境。
+	zhou_chong_an: 那么这个梦境很可能在规则上也无限接近现实，所以我认为尸体的消失不能简单地用梦境解释。
+	zhou_chong_an: 或者至少，让尸体消失这个行为本身具有重要的意义。
+	很有意思的见解，“让尸体消失这个行为本身具有重要的意义”。
+	意义是什么呢？尸体是怎么消失的？又去了哪里？
+	do DataManager.add_suspicion("1_suspicion_missing_body", "dialogue", "third_search_report")
 	set {Ch2.ThirdSearch.BodyKnownBeforeTurn} = true
-	do DataManager.add_suspicion("1_suspicion_missing_body", "dialogue", "third_search_player_report")
-	do ToastManager.show_notice("记录疑点：消失的尸体", "suspicion", 3.0)
 leave --All--
-join butler left
-butler: 所有人都到齐了。我已经整理了第三轮调查中出现的变化。
-join zhou_chong_an right
-zhou_chong_an: 尸体凭空消失绝不能只用“这是梦”搪塞。梦境里的变化也有动机，它一定在引导我们。
-join wu_ting_xiang left
-wu_ting_xiang: 我在梦境笔记里发现了被反复画线的句子：熟悉的场景可以由清晰的记忆重新构筑。
-wu_ting_xiang: {PlayerName}，你愿意帮我复现一个场景吗？
-label 抉择21
+管家整理好了所有的线索。
+或许是自己潜意识中的房间被搜查的原因，所有人都一言不发。
+if {Ch2.SourceEvidence.C_2_wu_2} == true:
+	你注意到乌停湘正拿着她的潜意识房间中的那本笔记本，打开了密码锁。
+else:
+	你注意到乌停湘正拿着一本不知从何而来的密码本，打开了密码锁。
+join lin_jiu left
+lin_jiu: 这是你用来记录你的梦境的笔记本吧？
+join wu_ting_xiang right
+wu_ting_xiang: 对……我想用这种方式找回我的记忆。
+wu_ting_xiang: ……咦？这些线条是什么时候画上去的？
+player: 可以让我看一下吗？
+wu_ting_xiang: 可以。
+你接过密码本，正如乌停湘所说的，上面记录了她的七个梦境，而其中部分文字下被画上了下划线。
+do DataManager.set_flag("source_notebook/unlocked", true)
+do DataManager.set_flag("source_notebook/underlined", true)
+do DataManager.add_clue("2_wu_dream_notes", "dialogue", "third_reasoning")
+do FlowManager.inspect_source_clue("2_wu_dream_notes")
+wu_ting_xiang: 我的心理医生说过，可以通过情景复现的方式让遗忘的记忆浮现出来。
+wu_ting_xiang: 虽然不知道是什么时候画的线，但我隐约感觉这几个场景很是熟悉……
+wu_ting_xiang: 你可以帮我将这几个场景复现出来吗？
 - 可以
-	wu_ting_xiang: 谢谢。我记得一扇紧闭的木门，门后藏着我一直不敢面对的东西。等整件事结束，我会把来龙去脉告诉你。
+	wu_ting_xiang: 谢谢。
 	set {Affinity.Wu} += 5
+	wu_ting_xiang: 事实上，我已经复现过紧闭着的木门的场景了，梦中的木门和这里书房的木门很像，我也的确回想起了一些事情……
+	wu_ting_xiang: 等我了解了事情的全貌后再和大家说吧。
 	set {Ch2.SceneRecreation.Accepted} = true
-	do DataManager.add_suspicion("3_suspicion_memory_door", "dialogue", "choice_21")
+	set {Ch2.MemoryFragments.Door} = true
 	do DataManager.add_suspicion("3_suspicion_memory_flower", "dialogue", "choice_21")
 	do DataManager.add_suspicion("3_suspicion_memory_cube", "dialogue", "choice_21")
-	do ToastManager.show_notice("获得任务：场景复现", "task", 3.0)
-	do ToastManager.show_notice("记录疑点：花海中的女子、白色立方体", "suspicion", 3.0)
 - 还有更重要的事
-	wu_ting_xiang: ……我明白。我会自己寻找办法。
+	wu_ting_xiang: 好吧，那我自己想想办法。
 	set {Affinity.Wu} -= 10
 	set {Ch2.SceneRecreation.Accepted} = false
-wu_ting_xiang: 笔记角落还写着一组数字：0909。看起来像某种密码。
-player: 从现在开始，与其再按轮次分开行动，不如允许大家自由调查和交谈。线索正在改变，我们不能继续浪费时间。
-butler: 同意。如果你确认了凶手，随时可以提出指认。
+关上密码本的时候，你注意到密码锁上的数字为“0909”。
+也许是没有其他话想说了，所有人都看着你
+似乎已经习惯了这样调查、讨论、私聊的过程，也习惯了你对调查的主导，这是好事
+不过不知道你有没有感觉，这样的节奏有些拖沓了
+不如向管家提议，不要在意私聊和调查的界限了
+这也是为了更快地找到真相，不是吗？
+player: 管家，我们可不可以不再区分所谓的讨论和调查的环节，自由调查更有利于更快找到真相。
+join butler left
+butler: 如果你不担心有人单独行动破坏线索的话，当然可以。
+butler: 当然，我也会帮忙记录，尽量避免这种情况发生。就按你说的做吧。
+butler: 如果你找到凶手了，就请找我指认吧。
+这样一来，就可以在别墅内自由行动了，想搜证就搜证，想私聊就私聊吧
 set {Ch2.ThirdPrivate.Enabled} = true
-do ToastManager.show_notice("获得任务：悄悄悄悄话", "task", 3.0)
 [signal arg="flow:enable_third_private_chat"]
 [end_timeline]

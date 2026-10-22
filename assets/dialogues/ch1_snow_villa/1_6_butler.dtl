@@ -18,41 +18,31 @@ butler: 请问有何吩咐？
 	- 询问委托的原因
 		butler: 抱歉，无可奉告。
 		jump 关于委托
-	- 说出穆执的梦魇 | [if {Ch1.PrivateChat.Mu.NightmareSolved} == true]
+	- 说出穆执的梦魇 | [if {Ch1.PrivateChat.Mu.NightmareSolved} == true and {SourcePlot.ReportedMu} != true]
 		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
 		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		set {SourcePlot.ReportedMu} = true
+		do DataManager.set_flag("source_plot/reported_mu", true)
 		jump 关于委托
-	- 说出周崇安的梦魇 | [if {Ch1.PrivateChat.Zhou.NightmareSolved} == true]
+	- 说出周崇安的梦魇 | [if {Ch1.PrivateChat.Zhou.NightmareSolved} == true and {SourcePlot.ReportedZhou} != true]
 		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
 		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		set {SourcePlot.ReportedZhou} = true
+		do DataManager.set_flag("source_plot/reported_zhou", true)
 		jump 关于委托
-	- 说出林玖的梦魇 | [if {Ch1.PrivateChat.Lin.NightmareSolved} == true]
+	- 说出林玖的梦魇 | [if {Ch1.PrivateChat.Lin.NightmareSolved} == true and {SourcePlot.ReportedLin} != true]
 		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
 		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		set {SourcePlot.ReportedLin} = true
+		do DataManager.set_flag("source_plot/reported_lin", true)
 		jump 关于委托
-	- 说出乌停湘的梦魇 | [if {Ch1.PrivateChat.Wu.NightmareSolved} == true]
+	- 说出钟歧的梦魇 | [if {Ch1.PrivateChat.Zhong.NightmareSolved} == true and {SourcePlot.ReportedZhong} != true]
 		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
 		set {Ch1.PrivateChat.Butler.HelpChance} += 1
-		jump 关于委托
-	- 说出钟歧的梦魇 | [if {Ch1.PrivateChat.Zhong.NightmareSolved} == true]
-		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
-		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		set {SourcePlot.ReportedZhong} = true
+		do DataManager.set_flag("source_plot/reported_zhong", true)
 		jump 关于委托
 	- 还没有
-		jump 选择
-- 关于帮助 | [if {Ch1.PrivateChat.Butler.HelpChance} >= 1.0]
-	label 关于帮助
-	butler: 你需要什么帮助？
-	- 关于遗漏的线索
-		butler: xxx线索
-		jump 关于帮助
-	- 关于忽略的疑点
-		butler: xxx疑点
-		jump 关于帮助
-	- 关于现有的问题
-		butler: 需要我帮你解决哪个问题？
-		jump 关于帮助
-	- 暂时没有问题了
 		jump 选择
 - 暂时没有问题了
 	butler: 了解了。

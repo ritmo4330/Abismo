@@ -16,7 +16,48 @@ label 抉择13
 	butler: 一方面为避免遗漏线索，另一方面为避免线索被恶意破坏，我们采用轮流调查的方法。
 	butler: 每次由我与你们中的一人同行调查，其他人则留在大厅彼此监督。
 	butler: 直到所有人调查完毕，我会汇总所有的线索供大家分析。
-	butler: 现在请{PlayerName}跟我来。
+	butler: 现在请大家自由决定搜证顺序。
+	林玖和乌停湘面露难色地对视了一眼，似乎都不太想第一个去
+	mu_zhi: 你们先请吧，我对这方面没有经验。
+	穆执似乎也注意到了她们的窘迫，对着几名男性这边说道
+	钟歧和周崇安的眼神在彼此之间和你身上扫了一两遍，坐姿前倾，似乎有点跃跃欲试
+	- 我先去吧
+		zhong_qi: 那我第二个。
+		zhou_chong_an: 我第三个去吧。
+		最终经过所有人的表态，搜证顺序被确定为：你、钟歧、周崇安、林玖、乌停湘、穆执
+		do FlowManager.record_initial_search_order(1)
+		if {PlayerGender} == "female":
+			butler: 好的，{PlayerName}女士，请跟我来。其他人请在此稍候。
+		elif {PlayerGender} == "male":
+			butler: 好的，{PlayerName}先生，请跟我来。其他人请在此稍候。
+		else:
+			butler: 好的，{PlayerName}，请跟我来。其他人请在此稍候。
+	- 我第二个
+		zhong_qi: 那我先去吧。
+		zhou_chong_an: 行，我第三个。
+		最终经过所有人的表态，搜证顺序被确定为：钟歧、你、周崇安、林玖、乌停湘、穆执
+		do FlowManager.record_initial_search_order(2)
+		butler: 好的，钟歧先生，请跟我来。其他人请在此稍候。
+		一段时间后，轮到你搜证了
+		if {PlayerGender} == "female":
+			butler: {PlayerName}女士，请跟我来。
+		elif {PlayerGender} == "male":
+			butler: {PlayerName}先生，请跟我来。
+		else:
+			butler: {PlayerName}，请跟我来。
+	- 我第三个
+		zhong_qi: 那我先去吧。
+		zhou_chong_an: 行，我第二个。
+		最终经过所有人的表态，搜证顺序被确定为：钟歧、周崇安、你、林玖、乌停湘、穆执
+		do FlowManager.record_initial_search_order(3)
+		butler: 好的，周崇安先生，请跟我来。其他人请在此稍候。
+		一段时间后，轮到你搜证了
+		if {PlayerGender} == "female":
+			butler: {PlayerName}女士，请跟我来。
+		elif {PlayerGender} == "male":
+			butler: {PlayerName}先生，请跟我来。
+		else:
+			butler: {PlayerName}，请跟我来。
 	do DataManager.add_clue("1_testimony_1_butler", "dialogue", "1_testimony_1_butler")
 	set {Ch1.InitialSearch.Enabled} = true
 	[signal arg="flow:start_initial_search"]
@@ -31,14 +72,14 @@ join butler left
 label 抉择14
 butler: 调查结束了吗？
 - 调查完了 | [if {Ch1.InitialSearch.Finished} == true]
-	butler: 明白了，我们回到大厅吧。
+	butler: 明白了，我们回大厅吧。
 	[signal arg="flow:start_initial_reasoning"]
 	[end_timeline]
 - 调查完了 | [if {Ch1.InitialSearch.Finished} != true]
 	还有一些值得注意的地方，再看看吧。
 	jump 抉择14
 - 稍等一下
-	butler: 好的，我会在这里等你。
+	butler: 好的，我就在你的身边。
 [end_timeline]
 
 

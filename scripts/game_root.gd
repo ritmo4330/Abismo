@@ -38,7 +38,7 @@ func _start_private_chat_complete_test() -> void:
 	FlowManager.reset_gameplay_runtime()
 	FlowManager.apply_flow_state(FlowChapters.CH1, FlowSteps.CH1_PRIVATE_CHAT)
 	FlowManager.apply_character_name_state("all_revealed")
-	FlowManager.set_dialogic_var(FlowDialogicVars.PLAYER_NAME, "测试玩家")
+	FlowManager.set_dialogic_var(FlowDialogicVars.PLAYER_NAME, "侦探")
 	FlowManager.set_dialogic_var(FlowDialogicVars.CH1_INITIAL_SEARCH_ENABLED, true)
 	FlowManager.set_dialogic_var(FlowDialogicVars.CH1_INITIAL_SEARCH_FINISHED, true)
 	FlowManager.set_dialogic_var(FlowDialogicVars.CH1_PRIVATE_CHAT_ENABLED, true)

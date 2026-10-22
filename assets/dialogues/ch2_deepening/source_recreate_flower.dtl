@@ -1,0 +1,37 @@
+[style name="default_visual_novel"]
+没想到这里真的能找到符合描述的连衣裙，拿去给乌停湘看看吧。
+join wu_ting_xiang right
+wu_ting_xiang: 这条连衣裙和我梦里的那条很像……不过还需要更加准确地把画面复现出来。
+也就是说，需要有一个合适的人穿上它，站在花海里，这个人应该是谁呢？
+label 选择
+- 穆执
+	jump 男性
+- 周崇安
+	jump 男性
+- 林玖
+	这或许是最显而易见的选择了，你不会有其它想法吧？
+	林玖换上了那条白色的连衣裙，站在花海中间，乌停湘与她远远相望。乌停湘口中喃喃自语着，似乎是想起了什么。
+	jump 完成
+- 乌停湘
+	乌停湘怎么看见穿着白色连衣裙的自己？再想想吧。
+	jump 选择
+- 钟歧
+	jump 男性
+- 管家
+	jump 男性
+- 我自己
+	if {PlayerGender} == "female":
+		合理的想法，试试看吧。
+		你换上了那条白色的连衣裙，站在花海中间，乌停湘与你远远相望。你注意到乌停湘口中喃喃自语，似乎是想起了什么。于是你回到了她的身边。
+		jump 完成
+	后悔当初选性别的时候没有选女性了吗？倒也不是说不让你穿，但乌停湘的梦境笔记明确记录着“身着白色连衣裙的女子”哦。再想想吧。
+	jump 选择
+label 男性
+原来你有看男性穿裙子的癖好吗？且不管你的兴趣，无论如何对方肯定不会同意的吧。
+jump 选择
+label 完成
+wu_ting_xiang: “假如每一朵花都是一个世界，那么……”，我想起来了，不过还要花点时间理解一下。非常感谢。
+set {Ch2.MemoryFragments.Flower} = true
+do FlowManager.refresh_derived_progress()
+[signal arg="flow:source_memory_recreated"]
+[end_timeline]

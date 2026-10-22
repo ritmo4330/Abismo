@@ -60,6 +60,8 @@ func _on_room_loaded(room: Node2D, room_id: String) -> void:
 func _register_all_placements() -> void:
 	placements_by_room_id.clear()
 	_register_placements_in_directory(PLACEMENT_RESOURCE_ROOT)
+	for placement: CluePlacementData in preload("res://scripts/clues/source_investigation.gd").placements():
+		register_placement(placement)
 
 
 func _register_placements_in_directory(directory_path: String) -> void:
@@ -104,6 +106,8 @@ func _normalize_exported_resource_name(entry_name: String) -> String:
 
 
 func _is_placement_available(placement: CluePlacementData, room_id: String) -> bool:
+	if placement.clue_id in preload("res://scripts/clues/source_investigation.gd").RETIRED_CLUES:
+		return false
 	if placement.room_id != room_id:
 		return false
 
@@ -111,7 +115,8 @@ func _is_placement_available(placement: CluePlacementData, room_id: String) -> b
 		if FlowManager == null:
 			return false
 		if not placement.available_steps.has(FlowManager.get_current_step_id()):
-			return false
+			var unchanged_villa_clue := preload("res://scripts/clues/source_investigation.gd").available() and placement.available_steps.has("ch1_4_first_search") and placement.clue_id not in ["1_lin_1", "1_lin_6"]
+			if not unchanged_villa_clue: return false
 
 	for flag_id: String in placement.required_flags:
 		if not DataManager.has_flag(flag_id):
@@ -130,7 +135,7 @@ func _is_placement_available(placement: CluePlacementData, room_id: String) -> b
 func _spawn_clue_item(placement: CluePlacementData, room: Node2D) -> void:
 	var spawn_point: Marker2D = _get_clue_spawn_point(room, placement.spawn_name)
 	var dynamic_root: Node2D = _get_or_create_dynamic_clues_root(room)
-	if spawn_point == null or dynamic_root == null:
+	if (spawn_point == null and not placement.static_hotspot.has_area()) or dynamic_root == null:
 		push_warning("CluePlacementManager: missing clue spawn '%s' in room '%s'." % [placement.spawn_name, placement.room_id])
 		return
 
@@ -157,9 +162,13 @@ func _spawn_clue_item(placement: CluePlacementData, room: Node2D) -> void:
 	clue_item.followup_timeline = placement.followup_timeline
 	clue_item.followup_required_clue_ids = placement.followup_required_clue_ids
 	clue_item.followup_once_flag = placement.followup_once_flag
+	clue_item.set_meta("source_space", placement.space)
+	if placement.static_hotspot.has_area():
+		clue_item.set_meta("source_hotspot", placement.static_hotspot)
 
 	dynamic_root.add_child(clue_item)
-	clue_item.global_position = spawn_point.global_position
+	clue_item.global_position = spawn_point.global_position if spawn_point != null else room.global_position
+	SceneManager.configure_static_interactable(clue_item)
 
 
 func _get_clue_def(clue_id: String) -> ClueData:

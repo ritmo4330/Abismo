@@ -16,6 +16,8 @@ static func create_definition() -> RefCounted:
 		FlowSteps.FINALE_EPILOGUE: {"track_id": "cassandra_memory", "fade_seconds": 2.0},
 	}
 	definition.event_transitions = {
+		"source_character_endings": FlowTransition.after_dialogue([
+			FlowEffect.request_dialogue("source_character_endings")]),
 		FlowEvents.FINALE_TITLE_FINISHED: FlowTransition.immediate([
 			FlowEffect.request_scene_if_dialogic_bool("Ending.Dust", true, FlowScenes.HALL, "InitialSpawn", FlowTimelines.FINALE_DUST),
 			FlowEffect.request_scene_if_dialogic_bool("Ending.Godslayer", true, FlowScenes.HALL, "InitialSpawn", FlowTimelines.FINALE_GODSLAYER),

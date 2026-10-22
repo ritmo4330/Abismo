@@ -99,6 +99,8 @@ func _emit_single_detail(target_clue_id: String) -> void:
 		"clue_ids": [target_clue_id],
 	}
 	_try_attach_followup_timeline(payload)
+	if target_clue_id == "2_wu_2" and not DataManager.has_flag("source_notebook/unlocked"):
+		payload["followup_timeline"] = "2_3_notebook_password"
 	EventBus.clue_interaction_details_requested.emit(payload)
 
 

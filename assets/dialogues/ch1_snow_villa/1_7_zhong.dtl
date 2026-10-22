@@ -11,7 +11,8 @@ label 抉择18
 	set {Ch1.SecondSearch.Zhong.AskedImpossible} = true
 	jump 抉择18
 - 其他人呢？ | [if {Ch1.SecondSearch.Zhong.AskedOthers} != true]
-	zhong_qi: 我不知道，周崇安先进了暗门，我跟林玖和乌停湘聊了一会才下来，她们估计在后面。你没有看到周崇安和穆执吗？
+	zhong_qi: 我不知道，周崇安先进了暗门，我跟林玖和乌停湘聊了一会才下来，她们估计在后面。
+	zhong_qi: 你没有看到另外两个人吗？
 	player: 没有，我也觉得很奇怪。
 	set {Ch1.SecondSearch.Zhong.AskedOthers} = true
 	jump 抉择18

@@ -1,0 +1,213 @@
+[style name="default_visual_novel"]
+join lin_jiu left
+label 选择
+lin_jiu: 你要问什么？
+- 来到别墅的原因
+	lin_jiu: 我带乌停湘上山来找穆执，结果还没赶到他的小木屋就下起了暴风雪，我们只好找到最近的这座别墅避雪。
+	set {Ch1.PrivateChat.Lin.Asked.Arrival} = true
+	jump 选择
+- 与死者的关系 | [if {Affinity.Lin} <= 70]
+	lin_jiu: 我不知道他是谁……
+	set {Ch1.PrivateChat.Lin.Asked.Dead} = true
+	jump 选择
+- 与死者的关系 | [if {Affinity.Lin} >= 71]
+	lin_jiu: 我只知道他是异测会的人。
+	set {Ch1.PrivateChat.Lin.Asked.Dead} = true
+	set {Ch1.PrivateChat.Lin.Asked.DeadTrusted} = true
+	jump 选择
+- 与其他人的关系
+	label 与其他人的关系
+	lin_jiu: 你想问哪一位？
+	- 穆执
+		lin_jiu: 他算是我的远房亲戚，在我小时候偶尔会来孤儿院看望我。
+		set {Ch1.PrivateChat.Lin.Asked.Mu} = true
+		jump 与其他人的关系
+	- 周崇安
+		lin_jiu: 他是我们孤儿院的院长，对大家都非常友善。
+		set {Ch1.PrivateChat.Lin.Asked.Zhou} = true
+		jump 与其他人的关系
+	- 乌停湘
+		lin_jiu: 她和我一样在孤儿院长大，是我最好的朋友。
+		set {Ch1.PrivateChat.Lin.Asked.Wu} = true
+		jump 与其他人的关系
+	- 钟歧
+		lin_jiu: 他是我的初中同学，不过初中毕业后我们就没有交集了。今天是我自初中毕业以来第一次见到他。
+		set {Ch1.PrivateChat.Lin.Asked.Zhong} = true
+		jump 与其他人的关系
+	- 还有其他问题
+		jump 选择
+- 关于异测会 | [if {Ch1.PrivateChat.Lin.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Lin.Removed.AnomalySociety} != true]
+	lin_jiu: 异测会是一个所谓的以探寻超自然现象为职责，力求为有记录的超自然现象寻求科学解释的组织……我只知道这么多。
+	set {Ch1.PrivateChat.Lin.Removed.AnomalySociety} = true
+	jump 选择
+- 穆执说他对你不是很了解 | [if {Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Lin.Removed.MuNotKnow} != true]
+	lin_jiu: 他是这么说的吗……为什么？
+	set {Ch1.PrivateChat.Lin.Removed.MuNotKnow} = true
+	jump 选择
+- 关于灯塔木雕 | [if {Ch1.PrivateChat.Lin.Removed.Lighthouse} != true]
+	lin_jiu: 那是我做的木雕，如果你要问我为什么会带在身上的话，你就理解成一种心理安慰吧。
+	do DataManager.add_clue("1_testimony_9_lin", "dialogue", "1_testimony_9_lin")
+	你还是有些在意，为什么她会随身携带这样的一个木雕。去找其他人问问吧，乌停湘和她关系那么好，应该知道些什么吧。
+	do DataManager.add_suspicion("1_suspicion_lighthouse_story", "dialogue", "1_6_lin")
+	set {Ch1.PrivateChat.Lin.Asked.Lighthouse} = true
+	set {Ch1.PrivateChat.Lin.Removed.Lighthouse} = true
+	jump 选择
+- 关于五芒星图案 | [if {Ch1.PrivateChat.Lin.Removed.Pentagram} != true]
+	lin_jiu: ……那是我家乡的习俗，不是什么重要的东西。
+	do DataManager.add_clue("1_testimony_11_lin_custom", "dialogue", "1_testimony_11_lin_custom")
+	do DataManager.add_suspicion("1_suspicion_lin_custom", "dialogue", "1_6_lin")
+	set {Ch1.PrivateChat.Lin.Asked.Pentagram} = true
+	set {Ch1.PrivateChat.Lin.Removed.Pentagram} = true
+	jump 选择
+- 储物间暗门下的东西 | [if {Ch2.SecondPrivate.Lin.Lab} != true]
+	lin_jiu: 我看到了异测会的研究所，墙上还挂着异测会的宣言，应该不会有错……我把我调查到的东西都告诉你吧。
+	do FlowManager.reveal_source_research("lin")
+	set {Ch2.SecondPrivate.Lin.Lab} = true
+	jump 选择
+- 关于梅塔 | [if {Ch2.SecondPrivate.Lin.Meta} != true]
+	lin_jiu: 我在不久前见过梅塔和周院长对话，得知梅塔是异测会的一员，他怀疑乌停湘是沙化事件的始作俑者。
+	lin_jiu: 而我带着乌停湘跑出孤儿院，也是因为梅塔要趁夜来抓她。
+	lin_jiu: 除此之外，我对梅塔没有什么了解。我也不能确定这个梅塔是不是我们世界的梅塔。
+	set {Ch2.SecondPrivate.Lin.Meta} = true
+	jump 选择
+- 关于沙化事件 | [if {Ch2.SecondPrivate.Lin.Meta} == true and {Ch2.SecondPrivate.Lin.Sand} != true]
+	lin_jiu: 沙化事件是近时间开始发生在我们世界的一场灾难。
+	lin_jiu: 各种事物正在因为不明原因化成沙子，不只包括无生命的物体，还包括活人。
+	set {Ch2.SecondPrivate.Lin.Sand} = true
+	jump 选择
+- 关于研究所内的线索 | [if {Ch2.SecondPrivate.Lin.Lab} == true]
+	label 研究所线索
+	- 关于文件袋
+		label 文件袋
+		- 关于黑门事件 | [if {Ch2.SecondPrivate.Lin.BlackDoor} != true]
+			lin_jiu: 我记得很清楚，2012年，我的妈妈就是在那场灾难中离世的……
+			set {Ch2.SecondPrivate.Lin.BlackDoor} = true
+			jump 文件袋
+		- 关于异数0373 | [if {Ch2.SecondPrivate.Lin.Abismo0373} != true]
+			lin_jiu: ……你问我这个，我也什么都不知道啊。
+			set {Ch2.SecondPrivate.Lin.Abismo0373} = true
+			jump 文件袋
+		- 关于沙化事件 | [if {Ch2.SecondPrivate.Lin.SandFile} != true]
+			lin_jiu: 这是在我们那个世界近段时间发生的事，梅塔也是因为这件事要来抓乌停湘。
+			lin_jiu: 按照这个档案里写的，梅塔拒绝使用弦理论加以研究，但是弦理论是什么？
+			set {Ch2.SecondPrivate.Lin.SandFile} = true
+			jump 文件袋
+		- 关于异数0564 | [if {Ch2.SecondPrivate.Lin.Abismo0564} != true]
+			lin_jiu: 梅塔父母的死状……光是想想就很诡异。
+			lin_jiu: 这也解释了梅塔为什么拒绝发展弦理论。
+			lin_jiu: 但为什么光是对世界之理的研究就会让人突发事故或疾病死亡？知识也是一种诅咒吗？
+			set {Ch2.SecondPrivate.Lin.Abismo0564} = true
+			jump 文件袋
+		- 还有其他问题
+			jump 研究所线索
+	- 关于协会宣言 | [if {Ch2.SecondPrivate.Lin.Declaration} != true]
+		lin_jiu: ……我不知道如何评价。
+		label 名言
+		- 告诉她书房里的名言
+			- 读书不是为了雄辩和驳斥，也不是为了轻信和盲从，而是为了思考和权衡。
+				lin_jiu: 不明白你的意思。
+				jump 名言
+			- 自由不是在黑与白中做出选择，而是可以放弃这样被规定好的选择。
+				lin_jiu: 不明白你的意思。
+				jump 名言
+			- 真正可怕的，并不是那种人人都难以避免的一念之差，而是那种深入习俗、盘踞于人心深处的谬误与偏见。
+				lin_jiu: ……让我再想想。
+				set {Affinity.Lin} += 5
+				set {Ch2.SecondPrivate.Lin.RememberedQuote} = true
+				set {Ch2.SecondPrivate.Lin.Declaration} = true
+				jump 研究所线索
+		- 保持沉默
+			set {Ch2.SecondPrivate.Lin.Declaration} = true
+			jump 研究所线索
+	- 还有其他问题
+		jump 选择
+- 关于贴有封条的门 | [if {Ch2.SourceEvidence.C_2_lin_2} == true and {Ch2.ThirdPrivate.Lin.DoorStarted} != true]
+	lin_jiu: 其实在看到这扇门的时候我就意识到了，它不是孤儿院房间里会有的门，它是通往我的过去的门。
+	if {Affinity.Lin} <= 70:
+		lin_jiu: 但……我还没准备好……
+		jump 选择
+	lin_jiu: 你觉得，我该迈出那一步吗？
+	- 当然
+		还记得书房的那句话吗？
+		player: 直面过往，创造未来；直面恐惧，重获新生。
+		lin_jiu: 嗯，我明白了，谢谢你。
+		lin_jiu: 我会去面对的，等我回来后我会把里面的信息告诉你。
+		set {Affinity.Lin} += 5
+		set {Ch2.ThirdPrivate.Lin.DoorStarted} = true
+		jump 选择
+	- 这取决于你
+		lin_jiu: 嗯，我明白了，谢谢你。
+		lin_jiu: 我会去面对的，等我回来后我会把里面的信息告诉你。
+		set {Ch2.ThirdPrivate.Lin.DoorStarted} = true
+		jump 选择
+	- 逃避并不可耻
+		lin_jiu: 嗯……果然我还是没法迈出那一步。谢谢你。
+		jump 选择
+- 关于调查结果 | [if {Ch2.ThirdPrivate.Lin.DoorReady} == true and {Ch2.ThirdPrivate.Lin.Home} != true]
+	lin_jiu: 那里面……果然是我小时候的家，我感觉释然了许多，谢谢你。
+	lin_jiu: 我会把重要的线索告诉你，并给你讲一段……关于我的过去的故事。
+	do DataManager.add_clue("2_lin_5", "testimony", "lin_childhood_home")
+	do DataManager.add_clue("2_lin_5_11", "testimony", "lin_childhood_home")
+	do DataManager.add_clue("2_lin_6", "testimony", "lin_childhood_home")
+	do DataManager.add_clue("2_lin_6_26", "testimony", "lin_childhood_home")
+	set {Ch2.ThirdPrivate.Lin.Home} = true
+	jump 选择
+- 关于故居内的线索 | [if {Ch2.ThirdPrivate.Lin.Home} == true]
+	label 故居线索
+	- 关于母女的合照 | [if {Ch2.ThirdPrivate.Lin.Mother} != true]
+		lin_jiu: 那是小时候的我和我的妈妈。在我很小的时候，父母离异，我跟着妈妈生活。
+		lin_jiu: 在我稍微懂事一点后，妈妈给我讲了一个关于神明的故事。
+		lin_jiu: 在很久很久以前，大概是地球上第一次出现生命的时候，便诞生了一种存在，我们称之为‘神明’。确切来说，祂不是任何一种生物，而是一种力量。祂附着在一个生物体内，使其拥有至高无上的能力，由此维护世界生态的秩序，并引导生物进化。
+		lin_jiu: 神明每百年更替一代，可以由上一代神明制定传授，也可交由自然选择。每代神明不一定是同一种生物，但无一例外的是，每代神明都有一群追随者，他们是‘守灵族’和‘通灵族’。这两个族群联系紧密，守灵族的职责是在新一代神明诞生后找到祂，并引导其觉醒；通灵族的职责是通过一类既定的暗号与神明沟通，并借助神明的力量完成一些事件。
+		lin_jiu: 而我的妈妈，正是通灵族的一员。我出生的那段时间，是通灵族人集会并询问神明关于下一代神明的事情的时候。因为临近预产期，妈妈缺席了，却也因此躲过了警方的抓捕。那一次集会被无关人士目击并报警，在场的族人全部以‘邪教集会’为名被逮捕。
+		lin_jiu: 那时我才知道，爸爸和妈妈离异的原因也是妈妈的身份。
+		lin_jiu: 讲完这段故事后，妈妈在桌上摆好通灵法阵，向神明祈求关于我未来的预言，于是就有了夹在相框中的那张纸——
+		lin_jiu: 只身赴往明日，却生踟蹰迷茫。哀鸣兮于幽谷，沉默兮于汪洋。黑白无须颠倒，善恶终将还偿。若使临渊待旦，必见朗朗天光。
+		lin_jiu: 还有一个玻璃制的千纸鹤吊坠，作为我的护身符。
+		lin_jiu: 我和妈妈约定好，传承通灵族的使命，用创造和给予回馈这个世界。
+		lin_jiu: 2012年的时空裂缝事件——用异测会的话来说叫黑门事件——我的妈妈为了借助神明的力量挽救危在旦夕的世界，试图布下覆盖整座城市的通灵法阵，却在过程中遇难……
+		lin_jiu: 我在神明的帮助下找到了妈妈的遗体，接过了她的遗愿，继续完成了所有法阵的布置。
+		lin_jiu: 在那之后，时空裂缝消失了，但在舆论认为我们是那教分子的情况下，我为了保全自己，不得不撇清我与妈妈的关系……
+		lin_jiu: 我不能说我知道她通灵族的身份，我不能说我布置了通灵法阵，我不能说我们借助神明的力量挽救了世界，我……我讨厌那样的自己……是我……是我背叛了妈妈……
+		set {Ch2.ThirdPrivate.Lin.Mother} = true
+		do FlowManager.recall_source_nightmare("lin")
+		jump 故居线索
+	- 关于古旧的书 | [if {Ch2.ThirdPrivate.Lin.Book} != true]
+		lin_jiu: 那是记载了通灵法阵的使用方法的书，由通灵族代代相传。常规的通灵法阵由五行祭品和中央祭品组成，先在纸上画下一个五芒星，再把五行物品按照金、水、木、火、土的五行相生顺序，顺时针放在五芒星的五角，最后在五芒星中央放上中央祭品。
+		lin_jiu: 其中央祭品需要遵循‘求什么，就要献什么’的原则，献上与求祈价值相当的祭品。最后等待十分钟，火焰将在法阵上方燃起，这个时候向神明默祷，祈求就能得到回应。
+		player: 你在别墅的房间里也布置了一个通灵法阵吧？能解释一下吗？
+		lin_jiu: 好……当时我看见梅塔的时候，很害怕，于是在房间里布下通灵法阵，想要寻求神明的帮助。但是明明时间已经足够十分钟了，法阵都没有任何反应。
+		为什么法阵会没有反应呢？
+		do DataManager.add_clue("2_failed_ritual", "testimony", "lin_ritual")
+		do DataManager.add_suspicion("2_suspicion_failed_ritual", "dialogue", "lin_ritual")
+		set {Ch2.ThirdPrivate.Lin.Book} = true
+		jump 故居线索
+	- 还有其他问题
+		jump 选择
+- 关于白色的盒子 | [if {Ch2.SourceEvidence.C_2_lin_3} == true and {Ch2.ThirdPrivate.Lin.Sandbox} != true]
+	lin_jiu: 那是乌停湘的沙盘。有段时间孤儿院组织大家去沙滩公园玩，乌停湘喜欢上了堆沙雕的游戏，于是请求周院长给她买了一个沙盘。
+	lin_jiu: 她很擅长这个，不过感觉她常常过分苛求自己，每次都觉得不够好，然后推散重来。
+	set {Ch2.ThirdPrivate.Lin.Sandbox} = true
+	jump 选择
+- 关于木雕工具箱 | [if {Ch2.SourceEvidence.C_2_lin_4} == true and {Ch2.ThirdPrivate.Lin.Tools} != true]
+	lin_jiu: 那是我用来做木雕的工具箱，自从做了那个灯塔木雕后，我也时不时会做一些其他形状的木雕。事实证明，我还算挺有兴趣的。
+	lin_jiu: 我还在考虑，要不要以后出去租一个工作室，做些木雕的生意。
+	set {Ch2.ThirdPrivate.Lin.Tools} = true
+	jump 选择
+- 关于箱底的纸 | [if {Ch2.SourceEvidence.C_2_lin_4_12} == true and {Ch2.ThirdPrivate.Lin.Tools} == true and {Ch2.ThirdPrivate.Lin.Paper} != true]
+	lin_jiu: 这……它本不该出现在这里的……
+	player: 但既然出现在这里，说明它在你的潜意识中非常重要吧。
+	lin_jiu: 没错，它是……我家乡的习俗……
+	她显然还没有完全坦白，或许将一些信息组合在一起，才能了解到所谓习俗背后的东西吧？
+	do DataManager.add_suspicion("1_suspicion_lin_custom", "dialogue", "2_5_lin")
+	set {Ch2.ThirdPrivate.Lin.Paper} = true
+	jump 选择
+- 关于建构师 | [if {SourcePlot.LinArchitect} != true and {Ch3.Route.Correction} != true]
+	lin_jiu: 我只知道，我不想死……乌停湘愿意帮助我们，才选择告诉我们真相。但是，我们要怎么样才能阻止祂？
+	set {SourcePlot.LinArchitect} = true
+	jump 选择
+- 暂时没有问题了
+	lin_jiu: 好的，那我先回大厅了。
+	set {Ch2.ThirdPrivate.Lin.Finished} = true
+[signal arg="flow:exit_private_chat"]
+[end_timeline]

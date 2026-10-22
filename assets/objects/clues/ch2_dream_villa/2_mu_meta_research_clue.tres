@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "2_mu_meta_research_clue"
+title = "梅塔研究所线索"
+description = "我看到的是一个研究所，虽然我并不知道它的来历，但是我在研究所里看到了挂有梅塔名字的铭牌的研究服，我猜想那是梅塔的研究所。我会把我调查到的线索都告诉你。"
+chapter_id = "2"
+room_id = "hui_ke_ting"
+category_path = PackedStringArray("梦墅", "口供")
+tags = PackedStringArray("chapter_2", "testimony", "mu")
+clue_type = "testimony"
+highlight_visible = true

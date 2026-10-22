@@ -38,7 +38,7 @@ const ROOM_DISPLAY_NAMES: Dictionary = {
 @export var debug_spawn_point: String = ""
 @export var debug_auto_timeline: String = ""
 @export_enum("auto", "all_unknown", "butler_meta_known", "all_revealed") var debug_character_name_state: String = "auto"
-@export var debug_player_name: String = "测试玩家"
+@export var debug_player_name: String = "侦探"
 @export var debug_private_chat_target: String = ""
 @export var debug_dialogic_vars: Dictionary = {}
 @export var debug_world_flags: Dictionary = {}
@@ -46,7 +46,8 @@ const ROOM_DISPLAY_NAMES: Dictionary = {
 @export var debug_discovered_suspicions: PackedStringArray = PackedStringArray()
 
 func _ready():
-	_ensure_room_name_overlay()
+	if SceneManager == null or not SceneManager.has_method("is_static_presentation_mode") or not SceneManager.is_static_presentation_mode():
+		_ensure_room_name_overlay()
 	# =====================
 	# 重构：让 GameRoot 统一管理玩家生命周期。
 	# 我们在此处加入检查，如果当前根节点是 GameRoot，房间本身就不要再创建玩家了！

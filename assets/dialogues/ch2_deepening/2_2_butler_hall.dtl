@@ -1,32 +1,108 @@
 [style name="default_visual_novel"]
 join butler left
+if {Ch3.Route.Started} == true:
+	jump 自由调查
 if {Ch2.ThirdPrivate.Enabled} == true:
-	butler: 自由调查已经开放。你可以继续和众人交谈，或检查推理手册整理线索。
-	[end_timeline]
+	jump 自由调查
 if {Ch2.ThirdSearch.Enabled} == true:
 	jump 搜证结束
-butler: 第二轮单独交流结束后，我们就开始第三轮搜证。
-- 开始第三轮搜证 | [if {Ch2.SecondPrivate.Mu.Finished} == true and {Ch2.SecondPrivate.Zhou.Finished} == true and {Ch2.SecondPrivate.Lin.Finished} == true and {Ch2.SecondPrivate.Wu.Finished} == true and {Ch2.SecondPrivate.Zhong.Finished} == true]
-	butler: 明白。我会在二楼楼梯口等候，其他人留在大厅。
+butler: 请问有何吩咐？
+- 下一轮调查
 	set {Ch2.ThirdSearch.Enabled} = true
 	[signal arg="flow:start_third_search"]
 	[end_timeline]
-- 私聊还没有全部完成 | [if {Ch2.SecondPrivate.Mu.Finished} != true or {Ch2.SecondPrivate.Zhou.Finished} != true or {Ch2.SecondPrivate.Lin.Finished} != true or {Ch2.SecondPrivate.Wu.Finished} != true or {Ch2.SecondPrivate.Zhong.Finished} != true]
-	butler: 请先和五位嫌疑人完成这一轮单独交流，再开始下一轮调查。
-	[end_timeline]
-- 再等等
-	butler: 好的。
+- 暂时没有问题了
+	butler: 了解了。
 	[end_timeline]
 
 label 搜证结束
 butler: 调查结束了吗？
-- 调查完了 | [if {Ch2.ThirdSearch.Finished} == true]
+- 调查完了
 	butler: 明白了，我们回大厅吧。
 	[signal arg="flow:start_third_reasoning"]
 	[end_timeline]
-- 调查完了 | [if {Ch2.ThirdSearch.Finished} != true]
-	butler: 各个潜意识房间里还有值得核对的痕迹。再看看吧。
-	[end_timeline]
 - 稍等一下
-	butler: 我会在这里等你。
+	butler: 好的，我就在这里等你。
+	[end_timeline]
+
+label 自由调查
+butler: 请问有何吩咐？
+- 关于死者
+	butler: 我有义务为主人保守秘密，但想必你可以通过其它渠道调查出来，恕我不能相告。
+	jump 自由调查
+- 与其他人的关系
+	butler: 我与各位素不相识。
+	jump 自由调查
+- 关于别墅的客房
+	butler: 客房的初始陈设是一样的，比如床头柜的抽屉里都有剪刀，衣柜里面都有衣架，窗边都挂着一盆吊兰之类的。
+	do DataManager.add_clue("1_testimony_10_butler", "dialogue", "butler")
+	jump 自由调查
+- 关于委托
+	label 关于委托
+	butler: 我想要知道各位恐惧至极的事物。你有答案了吗？
+	- 询问委托的原因
+		butler: 抱歉，无可奉告。
+		jump 关于委托
+	- 说出穆执的梦魇 | [if {Ch1.PrivateChat.Mu.NightmareSolved} == true and {SourcePlot.ReportedMu} != true]
+		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
+		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		set {SourcePlot.ReportedMu} = true
+		do DataManager.set_flag("source_plot/reported_mu", true)
+		jump 关于委托
+	- 说出周崇安的梦魇 | [if {Ch1.PrivateChat.Zhou.NightmareSolved} == true and {SourcePlot.ReportedZhou} != true]
+		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
+		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		set {SourcePlot.ReportedZhou} = true
+		do DataManager.set_flag("source_plot/reported_zhou", true)
+		jump 关于委托
+	- 说出林玖的梦魇 | [if {Ch1.PrivateChat.Lin.NightmareSolved} == true and {SourcePlot.ReportedLin} != true]
+		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
+		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		set {SourcePlot.ReportedLin} = true
+		do DataManager.set_flag("source_plot/reported_lin", true)
+		jump 关于委托
+	- 说出钟歧的梦魇 | [if {Ch1.PrivateChat.Zhong.NightmareSolved} == true and {SourcePlot.ReportedZhong} != true]
+		butler: 了解了，感谢你提供的线索。按照承诺，我会为你提供一个力所能及的帮助。
+		set {Ch1.PrivateChat.Butler.HelpChance} += 1
+		set {SourcePlot.ReportedZhong} = true
+		do DataManager.set_flag("source_plot/reported_zhong", true)
+		jump 关于委托
+	- 还没有
+		jump 自由调查
+- 指认凶手
+	你确定吗？
+	- 是的
+		butler: 你知道杀死主人的凶手是谁了吗？
+		- 穆执
+			set {Ch2.AccusedKiller} = "穆执"
+			jump 确认指认
+		- 周崇安
+			set {Ch2.AccusedKiller} = "周崇安"
+			jump 确认指认
+		- 林玖
+			set {Ch2.AccusedKiller} = "林玖"
+			jump 确认指认
+		- 乌停湘
+			set {Ch2.AccusedKiller} = "乌停湘"
+			jump 确认指认
+		- 钟歧
+			set {Ch2.AccusedKiller} = "钟歧"
+			jump 确认指认
+		- 我再想想
+			butler: 没关系，等你考虑好后再来找我。
+			[end_timeline]
+	- 还是算了
+		[end_timeline]
+- 暂时没有问题了
+	butler: 了解了。
+	[end_timeline]
+
+label 确认指认
+butler: 你确定吗？
+- 确定
+	butler: 好的，我明白了。
+	[signal arg="flow:source_accusation"]
+	[end_timeline]
+- 我再想想
+	butler: 没关系，等你考虑好后再来找我。
 	[end_timeline]

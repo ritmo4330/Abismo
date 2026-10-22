@@ -5,7 +5,7 @@
 [node name="PrologueTitle" type="Node2D"]
 script = ExtResource("1")
 chapter_label = "序章"
-title_text = "悬念：神秘意向的闪回"
+title_text = ""
 finished_event = "prologue_title_finished"
 
 [node name="InitialSpawn" type="Marker2D" parent="."]
