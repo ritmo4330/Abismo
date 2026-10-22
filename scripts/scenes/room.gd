@@ -12,6 +12,7 @@ const ROOM_DISPLAY_NAMES: Dictionary = {
 	"floor2": "二楼走廊",
 	"zou_lang": "走廊",
 	"can_ting": "餐厅",
+	"flower_sea": "花海",
 	"hui_ke_ting": "会客厅",
 	"room_lin_jiu": "林玖房间",
 	"room_meta": "梅塔房间",

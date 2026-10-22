@@ -23,6 +23,13 @@ func interact(_player: Player) -> void:
 	if target_clue_id.is_empty():
 		push_warning("ClueItem has no clue id configured.")
 		return
+	# This evidence and the physical door share one painted hotspot. Route the
+	# higher-priority clue click through the same lock as the navigation button.
+	if target_clue_id == "1_dining_2" and is_instance_valid(SceneManager.current_room):
+		var backdoor := SceneManager.current_room.find_child("DiningBackdoor", true, false)
+		if backdoor != null:
+			backdoor.interact(_player)
+			return
 
 	var investigate_flag: String = _build_investigate_flag(target_clue_id)
 	var has_investigated_once: bool = DataManager.has_flag(investigate_flag)

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dclv1n8nlho3v"]
 
+[ext_resource type="Script" path="res://scripts/scenes/dining_backdoor.gd" id="7_backdoor"]
+
 [ext_resource type="Script" uid="uid://b8non8apkpaee" path="res://scripts/scenes/room.gd" id="1_room"]
 [ext_resource type="Texture2D" uid="uid://chogdvfvricq4" path="res://assets/interior/餐厅底图.png" id="2_1rht5"]
 [ext_resource type="Script" uid="uid://d4mphys77t4uc" path="res://scripts/scenes/door.gd" id="2_iu7b7"]
@@ -192,6 +194,19 @@ position = Vector2(43, 1016)
 shape = SubResource("RectangleShape2D_q5omt")
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=25313588]
+
+[node name="DiningBackdoor" type="Area2D" parent="Scene/Doors"]
+script = ExtResource("7_backdoor")
+target_scene_path = "res://scenes/rooms/flower_sea.tscn"
+target_spawn_point = "SpawnFromDining"
+required_flag = "source_plot/dining_backdoor_open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Doors/DiningBackdoor"]
+position = Vector2(1785, 432)
+shape = SubResource("RectangleShape2D_y1sxp")
+
+[node name="SpawnFromFlowerSea" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1610, 820)
 
 [node name="SpawnFromHall" type="Marker2D" parent="SpawnPoints" unique_id=2124989056]
 position = Vector2(942, 1227)

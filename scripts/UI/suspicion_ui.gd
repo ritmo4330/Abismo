@@ -674,6 +674,9 @@ func _get_required_slot_count(suspicion_id: String) -> int:
 func _request_resolution_timeline(timeline_name: String) -> void:
 	if timeline_name.is_empty():
 		return
+	if timeline_name == "source_recreate_flower" and preload("res://scripts/clues/dining_backdoor_rules.gd").can_enter() and FlowManager.get_current_room_id() != "flower_sea":
+		FlowManager.request_scene("res://scenes/rooms/flower_sea.tscn", "SpawnFromDining", timeline_name)
+		return
 	EventBus.dialogue_requested.emit(timeline_name)
 
 

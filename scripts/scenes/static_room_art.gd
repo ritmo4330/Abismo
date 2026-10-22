@@ -33,7 +33,9 @@ func setup(target_room: Node2D, room_id: String) -> bool:
 	if config.is_empty():
 		return false
 	var texture: Texture2D = _load_texture(_resolve_asset())
-	if texture == null:
+	var fallback_path := String(config.get("fallback_script", ""))
+	var fallback: Script = load(fallback_path) if texture == null and not fallback_path.is_empty() else null
+	if texture == null and fallback == null:
 		return false
 	var old_map: CanvasItem = room.find_child("MapLayer", true, false) as CanvasItem
 	if old_map != null:
@@ -60,7 +62,12 @@ func setup(target_room: Node2D, room_id: String) -> bool:
 	background.material = _dream_material
 	_sync_dream_filter()
 	add_child(background)
-	_apply_texture(texture)
+	if texture != null:
+		_apply_texture(texture)
+	else:
+		# Explicitly authorized temporary native scene art. A later imported
+		# flower_sea-v1.png takes precedence without changing gates or hotspots.
+		background.add_child(fallback.new())
 	current_view = "villa" if not SOURCE.views(room_id, String(config.get("asset", ""))).is_empty() else (room_id if config.has("views") else "")
 	EventBus.room_loaded.connect(_on_room_loaded)
 	DataManager.clue_updated.connect(_on_clue_state_changed)

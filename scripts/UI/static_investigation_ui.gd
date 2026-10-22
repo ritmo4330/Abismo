@@ -10,6 +10,7 @@ const ROOM_DISPLAY_NAMES: Dictionary = {
 	"floor2": "二楼走廊",
 	"zou_lang": "走廊",
 	"can_ting": "餐厅",
+	"flower_sea": "花海",
 	"hui_ke_ting": "会客厅",
 	"room_lin_jiu": "林玖房间",
 	"ch1_crime_scene_lin_room": "林玖房间",
@@ -310,6 +311,7 @@ func _add_navigation_button(action: Node) -> void:
 
 
 func _get_action_label(action: Node) -> String:
+	if action.name == "DiningBackdoor": return "餐厅后门"
 	if action is Door and action.flow_signal_name == "exit_second_search":
 		return "调查完成"
 	if action is Ch0TimelineTrigger:

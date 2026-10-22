@@ -57,6 +57,22 @@ static func placements() -> Array:
 	letter.space = "villa"
 	letter.static_hotspot = Rect2(0.37, 0.41, 0.1, 0.09)
 	result.append(letter)
+	var scene_manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/art/static_scenes/manifest.json"))
+	var flower_hotspots: Dictionary = scene_manifest.rooms.flower_sea.hotspots
+	for id: String in ["3_flower_sea_1", "3_flower_sea_2"]:
+		var flower := CluePlacementData.new()
+		flower.placement_id = "source_" + id
+		flower.clue_id = id
+		flower.chapter_id = "3"
+		flower.room_id = "flower_sea"
+		flower.spawn_name = "SourceHotspot"
+		flower.available_steps = PackedStringArray(LATER_STEPS)
+		flower.required_flags = PackedStringArray(["source_plot/dining_backdoor_open"])
+		# Coordinates come from the scene manifest, so the painting and clicks
+		# share one source of truth. A static rectangle permits marker-free spawn.
+		var rect: Array = flower_hotspots[id]
+		flower.static_hotspot = Rect2(rect[0], rect[1], rect[2], rect[3])
+		result.append(flower)
 	for room_id: String in ["shu_fang", "ch1_study"]:
 		for index: int in DARKROOM_CLUES.size():
 			var placement := CluePlacementData.new()

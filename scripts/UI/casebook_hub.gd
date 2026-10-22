@@ -259,7 +259,7 @@ func _layout() -> void:
 
 func room_loaded() -> void:
 	close_map()
-	mode = "explore" if _travel_to_explore or FlowManager.get_current_room_id() in ["ch1_study", "shu_fang"] else "home"
+	mode = "explore" if _travel_to_explore or FlowManager.get_current_room_id() in ["ch1_study", "shu_fang", "flower_sea"] else "home"
 	_travel_to_explore = false
 	_preview_id = ""
 	_portrait_context = ""

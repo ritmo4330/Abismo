@@ -301,12 +301,27 @@
           0.4
         ]
       },
+      "doors": {
+        "flower_sea": [0.93, 0.4, 0.09, 0.4]
+      },
       "exit": [
         0.08,
         0.43,
         0.1,
         0.5
       ]
+    },
+    "flower_sea": {
+      "asset": "flower_sea",
+      "fallback_script": "res://scripts/scenes/flower_sea_background.gd",
+      "hotspots": {
+        "3_flower_sea_1": [0.18, 0.43, 0.24, 0.30],
+        "3_flower_sea_2": [0.73, 0.73, 0.18, 0.17]
+      },
+      "doors": {
+        "can_ting": [0.84, 0.36, 0.12, 0.36]
+      },
+      "exit": [0.84, 0.36, 0.12, 0.36]
     },
     "hui_ke_ting": {
       "asset": "lounge",

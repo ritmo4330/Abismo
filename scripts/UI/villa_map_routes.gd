@@ -2,7 +2,7 @@ extends RefCounted
 
 # Build the atlas from actual scene exits. Plot-signal doors are deliberately
 # excluded: the map must never bypass a butler conversation or a chapter gate.
-const ROOM_IDS := ["hall", "floor2", "zou_lang", "can_ting", "hui_ke_ting", "shu_fang", "room_lin_jiu", "room_mu_zhi", "room_zhou_chong_an", "room_wu_ting_xiang", "room_zhong_qi", "room_meta"]
+const ROOM_IDS := ["hall", "floor2", "zou_lang", "can_ting", "flower_sea", "hui_ke_ting", "shu_fang", "room_lin_jiu", "room_mu_zhi", "room_zhou_chong_an", "room_wu_ting_xiang", "room_zhong_qi", "room_meta"]
 static var _graph: Dictionary = {}
 
 static func canonical(id: String) -> String:
@@ -40,6 +40,7 @@ static func reachable(origin: String) -> Dictionary:
 	while not queue.is_empty():
 		var id: String = queue.pop_front()
 		for edge: Dictionary in graph().get(id, []):
+			if edge.id == "flower_sea" and not preload("res://scripts/clues/dining_backdoor_rules.gd").can_enter(): continue
 			if not edge.flag.is_empty() and not DataManager.has_flag(edge.flag): continue
 			if visited.has(edge.id): continue
 			var route: Array = visited[id].duplicate()

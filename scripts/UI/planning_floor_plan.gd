@@ -9,6 +9,7 @@ const ROOMS := {
 	"hui_ke_ting": ["会客厅", 1, Rect2(0, 0.725, 0.13, 0.275)],
 	"zou_lang": ["走廊", 1, Rect2(0.13, 0.145, 0.082, 0.855)],
 	"can_ting": ["餐厅", 1, Rect2(0.212, 0.145, 0.45, 0.305)],
+	"flower_sea": ["后院 · 花海", 1, Rect2(0.212, 0, 0.45, 0.145)],
 	"hall": ["大厅", 1, Rect2(0.33, 0.45, 0.455, 0.55)],
 	"view:kitchen": ["厨房", 1, Rect2(0.662, 0.145, 0.338, 0.2)],
 	"view:pantry": ["食品储藏室", 1, Rect2(0.785, 0.345, 0.215, 0.24)],
@@ -115,7 +116,6 @@ func _draw() -> void:
 		_wall(Vector2(.662,.345),Vector2(1,.345))
 		_wall(Vector2(.785,.345),Vector2(.785,1))
 		_wall(Vector2(.785,.585),Vector2(1,.585))
-		draw_string(STYLE.reading_font(), _p(.33,.09), "后院", HORIZONTAL_ALIGNMENT_CENTER, plan.size.x*.34, 25, STYLE.MUTED)
 		draw_string(STYLE.reading_font(), _p(.005,.60), "卫生间", HORIZONTAL_ALIGNMENT_CENTER, plan.size.x*.12, 21, STYLE.MUTED)
 		_stair(Rect2(.212,.345,.118,.24), true)
 		_stair(Rect2(.662,.345,.123,.24), true)

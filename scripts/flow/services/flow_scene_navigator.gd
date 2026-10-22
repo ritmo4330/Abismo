@@ -31,6 +31,8 @@ func set_pending_standalone_spawn_point(spawn_point: String) -> void:
 
 
 func request_scene_change(target_scene_path: String, spawn_point: String, auto_timeline: String = "") -> bool:
+	if target_scene_path == "res://scenes/rooms/flower_sea.tscn" and not preload("res://scripts/clues/dining_backdoor_rules.gd").can_enter():
+		return false
 	if target_scene_path.is_empty():
 		pending_auto_timeline = auto_timeline
 		play_pending_auto_timeline()
