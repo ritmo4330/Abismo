@@ -1,0 +1,7560 @@
+[
+  {
+    "paragraph": 8,
+    "file": "assets/dialogues/ch0_prologue/0_1_identity.dtl",
+    "line": 4,
+    "original": "女孩子",
+    "parts": [
+      "女孩子"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 9,
+    "file": "assets/dialogues/ch0_prologue/0_1_identity.dtl",
+    "line": 6,
+    "original": "男孩子",
+    "parts": [
+      "男孩子"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 10,
+    "file": "assets/dialogues/ch0_prologue/0_1_identity.dtl",
+    "line": 8,
+    "original": "暂时不重要",
+    "parts": [
+      "暂时不重要"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 182,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_murder_request.dtl",
+    "line": 13,
+    "original": "同意",
+    "parts": [
+      "同意"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 184,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_murder_request.dtl",
+    "line": 15,
+    "original": "不同意",
+    "parts": [
+      "不同意"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 188,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_murder_request.dtl",
+    "line": 20,
+    "original": "同意",
+    "parts": [
+      "同意"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 190,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_murder_request.dtl",
+    "line": 22,
+    "original": "同意",
+    "parts": [
+      "同意"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 236,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 7,
+    "original": "我叫{PlayerName}",
+    "parts": [
+      "我叫{PlayerName}"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 244,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 15,
+    "original": "叫我侦探就行",
+    "parts": [
+      "叫我侦探就行"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 251,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 22,
+    "original": "闲话少说",
+    "parts": [
+      "闲话少说"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 255,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 28,
+    "original": "自我介绍",
+    "parts": [
+      "自我介绍"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 258,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 32,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 261,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 36,
+    "original": "接下来的打算",
+    "parts": [
+      "接下来的打算"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 264,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 40,
+    "original": "搜身",
+    "parts": [
+      "搜身"
+    ],
+    "condition": "{Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Mu.FirstDone} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 270,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 46,
+    "original": "再次搜身",
+    "parts": [
+      "再次搜身"
+    ],
+    "condition": "{Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Mu.FirstDone} == true and {Ch1.BodySearch.Mu.SecondDone} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 273,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 48,
+    "original": "【坚持搜身】",
+    "parts": [
+      "【坚持搜身】"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 279,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 55,
+    "original": "【放弃搜身】",
+    "parts": [
+      "【放弃搜身】"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 282,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 58,
+    "original": "邀请私聊",
+    "parts": [
+      "邀请私聊"
+    ],
+    "condition": "{Ch1.PrivateChat.Enabled} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 286,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_mu.dtl",
+    "line": 63,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "{Ch1.NPCIntro.Mu.Selected1} == true and {Ch1.NPCIntro.Mu.Selected2} == true and {Ch1.NPCIntro.Mu.Selected3} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 294,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 7,
+    "original": "我叫{PlayerName}",
+    "parts": [
+      "我叫{PlayerName}"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 297,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 10,
+    "original": "叫我侦探就行",
+    "parts": [
+      "叫我侦探就行"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 299,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 12,
+    "original": "关于案发前后的事情",
+    "parts": [
+      "关于案发前后的事情"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 303,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 16,
+    "original": "或许是的",
+    "parts": [
+      "或许是的"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 306,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 19,
+    "original": "我不知道",
+    "parts": [
+      "我不知道"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 308,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 21,
+    "original": "应该没有",
+    "parts": [
+      "应该没有"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 312,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 27,
+    "original": "自我介绍",
+    "parts": [
+      "自我介绍"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 315,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 31,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 318,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 35,
+    "original": "接下来的打算",
+    "parts": [
+      "接下来的打算"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 321,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 39,
+    "original": "搜身",
+    "parts": [
+      "搜身"
+    ],
+    "condition": "{Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Zhou.FirstDone} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 327,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 45,
+    "original": "再次搜身",
+    "parts": [
+      "再次搜身"
+    ],
+    "condition": "{Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Zhou.FirstDone} == true and {Ch1.BodySearch.Zhou.SecondDone} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 330,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 47,
+    "original": "【坚持搜身】",
+    "parts": [
+      "【坚持搜身】"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 335,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 53,
+    "original": "【放弃搜身】",
+    "parts": [
+      "【放弃搜身】"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 338,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 56,
+    "original": "邀请私聊",
+    "parts": [
+      "邀请私聊"
+    ],
+    "condition": "{Ch1.PrivateChat.Enabled} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 342,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhou.dtl",
+    "line": 61,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "{Ch1.NPCIntro.Zhou.Selected1} == true and {Ch1.NPCIntro.Zhou.Selected2} == true and {Ch1.NPCIntro.Zhou.Selected3} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 350,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
+    "line": 7,
+    "original": "放轻松，你可以叫我{PlayerName}",
+    "parts": [
+      "放轻松，你可以叫我{PlayerName}"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 353,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
+    "line": 10,
+    "original": "没错",
+    "parts": [
+      "没错"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 356,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
+    "line": 15,
+    "original": "自我介绍",
+    "parts": [
+      "自我介绍"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 359,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
+    "line": 19,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 362,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
+    "line": 23,
+    "original": "接下来的打算",
+    "parts": [
+      "接下来的打算"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 365,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
+    "line": 27,
+    "original": "搜身",
+    "parts": [
+      "搜身"
+    ],
+    "condition": "{Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Lin.FirstDone} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 371,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
+    "line": 33,
+    "original": "再次搜身",
+    "parts": [
+      "再次搜身"
+    ],
+    "condition": "{Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Lin.FirstDone} == true and {Ch1.BodySearch.Lin.SecondDone} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 374,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
+    "line": 35,
+    "original": "【坚持搜身】",
+    "parts": [
+      "【坚持搜身】"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 380,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
+    "line": 42,
+    "original": "【放弃搜身】",
+    "parts": [
+      "【放弃搜身】"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 383,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
+    "line": 45,
+    "original": "邀请私聊",
+    "parts": [
+      "邀请私聊"
+    ],
+    "condition": "{Ch1.PrivateChat.Enabled} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 387,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_lin.dtl",
+    "line": 50,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "{Ch1.NPCIntro.Lin.Selected1} == true and {Ch1.NPCIntro.Lin.Selected2} == true and {Ch1.NPCIntro.Lin.Selected3} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 395,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 7,
+    "original": "当然，我叫{PlayerName}",
+    "parts": [
+      "当然，我叫{PlayerName}"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 398,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 10,
+    "original": "我会尽力而为",
+    "parts": [
+      "我会尽力而为"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 400,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 12,
+    "original": "需要取得信任的人是你们才对",
+    "parts": [
+      "需要取得信任的人是你们才对"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 404,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 18,
+    "original": "自我介绍",
+    "parts": [
+      "自我介绍"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 408,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 23,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 411,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 27,
+    "original": "接下来的打算",
+    "parts": [
+      "接下来的打算"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 414,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 31,
+    "original": "搜身",
+    "parts": [
+      "搜身"
+    ],
+    "condition": "{Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Wu.FirstDone} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 420,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 37,
+    "original": "再次搜身",
+    "parts": [
+      "再次搜身"
+    ],
+    "condition": "{Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Wu.FirstDone} == true and {Ch1.BodySearch.Wu.SecondDone} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 423,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 39,
+    "original": "【坚持搜身】",
+    "parts": [
+      "【坚持搜身】"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 428,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 45,
+    "original": "【放弃搜身】",
+    "parts": [
+      "【放弃搜身】"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 431,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 48,
+    "original": "邀请私聊",
+    "parts": [
+      "邀请私聊"
+    ],
+    "condition": "{Ch1.PrivateChat.Enabled} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 435,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_wu.dtl",
+    "line": 53,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "{Ch1.NPCIntro.Wu.Selected1} == true and {Ch1.NPCIntro.Wu.Selected2} == true and {Ch1.NPCIntro.Wu.Selected3} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 444,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 9,
+    "original": "我叫{PlayerName}，熟悉之前谁不是陌生人呢？",
+    "parts": [
+      "我叫{PlayerName}，熟悉之前谁不是陌生人呢？"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 447,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 12,
+    "original": "我会尽力打消你的顾虑",
+    "parts": [
+      "我会尽力打消你的顾虑"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 449,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 14,
+    "original": "我可以理解为你在抗拒调查吗？",
+    "parts": [
+      "我可以理解为你在抗拒调查吗？"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 453,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 20,
+    "original": "自我介绍",
+    "parts": [
+      "自我介绍"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 456,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 24,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 459,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 28,
+    "original": "接下来的打算",
+    "parts": [
+      "接下来的打算"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 462,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 32,
+    "original": "搜身",
+    "parts": [
+      "搜身"
+    ],
+    "condition": "{Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Zhong.FirstDone} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 469,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 39,
+    "original": "再次搜身",
+    "parts": [
+      "再次搜身"
+    ],
+    "condition": "{Ch1.BodySearch.Enabled} == true and {Ch1.BodySearch.Zhong.FirstDone} == true and {Ch1.BodySearch.Zhong.SecondDone} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 472,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 41,
+    "original": "【坚持搜身】",
+    "parts": [
+      "【坚持搜身】"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 477,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 47,
+    "original": "【放弃搜身】",
+    "parts": [
+      "【放弃搜身】"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 480,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 50,
+    "original": "邀请私聊",
+    "parts": [
+      "邀请私聊"
+    ],
+    "condition": "{Ch1.PrivateChat.Enabled} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 484,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_zhong.dtl",
+    "line": 55,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "{Ch1.NPCIntro.Zhong.Selected1} == true and {Ch1.NPCIntro.Zhong.Selected2} == true and {Ch1.NPCIntro.Zhong.Selected3} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 499,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 14,
+    "original": "准备好了",
+    "parts": [
+      "准备好了"
+    ],
+    "condition": "{Ch1.NPCIntro.Zhou.Selected1} == true and {Ch1.NPCIntro.Zhou.Selected2} == true and {Ch1.NPCIntro.Zhou.Selected3} == true and {Ch1.NPCIntro.Mu.Selected1} == true and {Ch1.NPCIntro.Mu.Selected2} == true and {Ch1.NPCIntro.Mu.Selected3} == true and {Ch1.NPCIntro.Lin.Selected1} == true and {Ch1.NPCIntro.Lin.Selected2} == true and {Ch1.NPCIntro.Lin.Selected3} == true and {Ch1.NPCIntro.Wu.Selected1} == true and {Ch1.NPCIntro.Wu.Selected2} == true and {Ch1.NPCIntro.Wu.Selected3} == true and {Ch1.NPCIntro.Zhong.Selected1} == true and {Ch1.NPCIntro.Zhong.Selected2} == true and {Ch1.NPCIntro.Zhong.Selected3} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 510,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 24,
+    "original": "我先去吧",
+    "parts": [
+      "我先去吧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 520,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 35,
+    "original": "我第二个",
+    "parts": [
+      "我第二个"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 532,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 48,
+    "original": "我第三个",
+    "parts": [
+      "我第三个"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 546,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 65,
+    "original": "稍等一下",
+    "parts": [
+      "稍等一下"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 557,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 74,
+    "original": "调查完了",
+    "parts": [
+      "调查完了"
+    ],
+    "condition": "{Ch1.InitialSearch.Finished} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 561,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 78,
+    "original": "调查完了",
+    "parts": [
+      "调查完了"
+    ],
+    "condition": "{Ch1.InitialSearch.Finished} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 565,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 81,
+    "original": "稍等一下",
+    "parts": [
+      "稍等一下"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 606,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 48,
+    "original": "作案时间",
+    "parts": [
+      "作案时间"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 624,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 71,
+    "original": "作案动机",
+    "parts": [
+      "作案动机"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 627,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 74,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 630,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 78,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 636,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 85,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 639,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 89,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 642,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 93,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 647,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 99,
+    "original": "继续剧情",
+    "parts": [
+      "继续剧情"
+    ],
+    "condition": "{Ch1.InitialReasoning.MotiveAsked.Mu} == true and {Ch1.InitialReasoning.MotiveAsked.Zhong} == true and {Ch1.InitialReasoning.MotiveAsked.Lin} == true and {Ch1.InitialReasoning.MotiveAsked.Wu} == true and {Ch1.InitialReasoning.MotiveAsked.Zhou} == true",
+    "depth": 1
+  },
+  {
+    "paragraph": 652,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 104,
+    "original": "作案能力",
+    "parts": [
+      "作案能力"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 659,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 112,
+    "original": "暂时就这些",
+    "parts": [
+      "暂时就这些"
+    ],
+    "condition": "{Ch1.InitialReasoning.SelectedTime} == true and {Ch1.InitialReasoning.SelectedMotive} == true and {Ch1.InitialReasoning.SelectedAbility} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 681,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 135,
+    "original": "我只是一个路过的普通人",
+    "parts": [
+      "我只是一个路过的普通人"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 684,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 138,
+    "original": "我只在意案件的真相",
+    "parts": [
+      "我只在意案件的真相"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 689,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 143,
+    "original": "我要帮助管家找到凶手",
+    "parts": [
+      "我要帮助管家找到凶手"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 695,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 149,
+    "original": "好奇心驱使我查明一切",
+    "parts": [
+      "好奇心驱使我查明一切"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 700,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 154,
+    "original": "我不知道",
+    "parts": [
+      "我不知道"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 703,
+    "file": "assets/dialogues/ch1_snow_villa/1_5_butler_lin_mu_wu_zhong_zhou.dtl",
+    "line": 157,
+    "original": "这不需要你操心",
+    "parts": [
+      "这不需要你操心"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 724,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 89,
+    "original": "邀请私聊",
+    "parts": [
+      "邀请私聊"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 727,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 94,
+    "original": "下一轮调查",
+    "parts": [
+      "下一轮调查"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 729,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 96,
+    "original": "确定",
+    "parts": [
+      "确定"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 734,
+    "file": "assets/dialogues/ch1_snow_villa/1_3_butler.dtl",
+    "line": 102,
+    "original": "再等等",
+    "parts": [
+      "再等等"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 738,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 743,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 11,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 747,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 16,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 750,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 19,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 753,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 23,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 756,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 27,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 759,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 31,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 762,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 35,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 764,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 37,
+    "original": "关于信仰",
+    "parts": [
+      "关于信仰"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Removed.Faith} != true and {Ch1.NPCIntro.Mu.Selected2} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 767,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 39,
+    "original": "请详细说说",
+    "parts": [
+      "请详细说说"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 777,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 49,
+    "original": "有所耳闻",
+    "parts": [
+      "有所耳闻"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 781,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 53,
+    "original": "林玖说你是她的远房亲戚",
+    "parts": [
+      "林玖说你是她的远房亲戚"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Mu.Removed.LinRelative} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 786,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 57,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Mu.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 791,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_mu.dtl",
+    "line": 61,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 796,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 799,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 9,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Zhou} <= 70",
+    "depth": 0
+  },
+  {
+    "paragraph": 803,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 13,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Zhou} >= 71",
+    "depth": 0
+  },
+  {
+    "paragraph": 807,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 18,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 810,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 21,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 813,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 25,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 816,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 29,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 819,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 33,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 822,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 37,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 824,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 39,
+    "original": "关于背包里的工具",
+    "parts": [
+      "关于背包里的工具"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhou.Removed.Tools} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 829,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 43,
+    "original": "关于“认识”的梅塔",
+    "parts": [
+      "关于“认识”的梅塔"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhou.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Zhou.Removed.KnownMeta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 836,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 49,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Zhou.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 841,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhou.dtl",
+    "line": 54,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 846,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 849,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 9,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Lin} <= 70",
+    "depth": 0
+  },
+  {
+    "paragraph": 853,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 13,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Lin} >= 71",
+    "depth": 0
+  },
+  {
+    "paragraph": 857,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 18,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 860,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 21,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 863,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 25,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 866,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 29,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 869,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 33,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 872,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 37,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 874,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 39,
+    "original": "关于异测会",
+    "parts": [
+      "关于异测会"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Lin.Removed.AnomalySociety} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 879,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 43,
+    "original": "穆执说他对你不是很了解",
+    "parts": [
+      "穆执说他对你不是很了解"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Lin.Removed.MuNotKnow} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 884,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 47,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 892,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 55,
+    "original": "关于五芒星图案",
+    "parts": [
+      "关于五芒星图案"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Removed.Pentagram} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 899,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_lin.dtl",
+    "line": 62,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 904,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 907,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
+    "line": 9,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 910,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
+    "line": 13,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 913,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
+    "line": 16,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 916,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
+    "line": 20,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 919,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
+    "line": 24,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 922,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
+    "line": 28,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 925,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
+    "line": 32,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 927,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
+    "line": 34,
+    "original": "关于异测会",
+    "parts": [
+      "关于异测会"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Arrival} == true and {Ch1.PrivateChat.Wu.Removed.AnomalySociety} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 933,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
+    "line": 39,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Asked.Lighthouse} == true and {Ch1.PrivateChat.Wu.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 945,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_wu.dtl",
+    "line": 51,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 950,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 954,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 10,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 959,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 16,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 962,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 19,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 965,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 23,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 968,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 27,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 971,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 31,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 974,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 35,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 976,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 37,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Zhong.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 993,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 55,
+    "original": "关于世界之理",
+    "parts": [
+      "关于世界之理"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhong.Asked.Dead} == true and {Ch1.PrivateChat.Zhong.Removed.WorldTheory} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 996,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 57,
+    "original": "想知道",
+    "parts": [
+      "想知道"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1007,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 68,
+    "original": "算了",
+    "parts": [
+      "算了"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1011,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_zhong.dtl",
+    "line": 72,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1016,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_butler.dtl",
+    "line": 5,
+    "original": "关于死者",
+    "parts": [
+      "关于死者"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1019,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_butler.dtl",
+    "line": 8,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1022,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_butler.dtl",
+    "line": 11,
+    "original": "关于别墅的客房",
+    "parts": [
+      "关于别墅的客房"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1026,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_butler.dtl",
+    "line": 15,
+    "original": "关于委托",
+    "parts": [
+      "关于委托"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1029,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_butler.dtl",
+    "line": 18,
+    "original": "询问委托的原因",
+    "parts": [
+      "询问委托的原因"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1032,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_butler.dtl",
+    "line": 21,
+    "original": "说出穆执的梦魇",
+    "parts": [
+      "说出穆执的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.NightmareSolved} == true and {SourcePlot.ReportedMu} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1036,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_butler.dtl",
+    "line": 27,
+    "original": "说出周崇安的梦魇",
+    "parts": [
+      "说出周崇安的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhou.NightmareSolved} == true and {SourcePlot.ReportedZhou} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1040,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_butler.dtl",
+    "line": 33,
+    "original": "说出林玖的梦魇",
+    "parts": [
+      "说出林玖的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.NightmareSolved} == true and {SourcePlot.ReportedLin} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1044,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_butler.dtl",
+    "line": 39,
+    "original": "说出钟歧的梦魇",
+    "parts": [
+      "说出钟歧的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhong.NightmareSolved} == true and {SourcePlot.ReportedZhong} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1048,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_butler.dtl",
+    "line": 45,
+    "original": "还没有",
+    "parts": [
+      "还没有"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1050,
+    "file": "assets/dialogues/ch1_snow_villa/1_6_butler.dtl",
+    "line": 47,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1082,
+    "file": "assets/dialogues/ch1_snow_villa/1_7_zhong.dtl",
+    "line": 9,
+    "original": "为什么不可能？",
+    "parts": [
+      "为什么不可能？"
+    ],
+    "condition": "{Ch1.SecondSearch.Zhong.AskedImpossible} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1086,
+    "file": "assets/dialogues/ch1_snow_villa/1_7_zhong.dtl",
+    "line": 13,
+    "original": "其他人呢？",
+    "parts": [
+      "其他人呢？"
+    ],
+    "condition": "{Ch1.SecondSearch.Zhong.AskedOthers} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1092,
+    "file": "assets/dialogues/ch1_snow_villa/1_7_zhong.dtl",
+    "line": 19,
+    "original": "你的爷爷是谁？",
+    "parts": [
+      "你的爷爷是谁？"
+    ],
+    "condition": "{Ch1.SecondSearch.Zhong.AskedGrandfather} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1096,
+    "file": "assets/dialogues/ch1_snow_villa/1_7_zhong.dtl",
+    "line": 23,
+    "original": "继续",
+    "parts": [
+      "继续"
+    ],
+    "condition": "{Ch1.SecondSearch.Zhong.AskedImpossible} == true and {Ch1.SecondSearch.Zhong.AskedOthers} == true and {Ch1.SecondSearch.Zhong.AskedGrandfather} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1106,
+    "file": "assets/dialogues/ch1_snow_villa/1_7_exit.dtl",
+    "line": 5,
+    "original": "调查完了",
+    "parts": [
+      "调查完了"
+    ],
+    "condition": "{Ch1.SecondSearch.Finished} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1109,
+    "file": "assets/dialogues/ch1_snow_villa/1_7_exit.dtl",
+    "line": 8,
+    "original": "调查完了",
+    "parts": [
+      "调查完了"
+    ],
+    "condition": "{Ch1.SecondSearch.Finished} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1113,
+    "file": "assets/dialogues/ch1_snow_villa/1_7_exit.dtl",
+    "line": 11,
+    "original": "稍等一下",
+    "parts": [
+      "稍等一下"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1188,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 80,
+    "original": "穆执的世界",
+    "parts": [
+      "穆执的世界"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1190,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 82,
+    "original": "确定",
+    "parts": [
+      "确定"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1193,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 85,
+    "original": "不确定",
+    "parts": [
+      "不确定"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1195,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 87,
+    "original": "周崇安的世界",
+    "parts": [
+      "周崇安的世界"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1197,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 89,
+    "original": "确定",
+    "parts": [
+      "确定"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1200,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 92,
+    "original": "不确定",
+    "parts": [
+      "不确定"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1202,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 94,
+    "original": "林玖和乌停湘的世界",
+    "parts": [
+      "林玖和乌停湘的世界"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1204,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 96,
+    "original": "确定",
+    "parts": [
+      "确定"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1208,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 100,
+    "original": "不确定",
+    "parts": [
+      "不确定"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1210,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 102,
+    "original": "钟歧的世界",
+    "parts": [
+      "钟歧的世界"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1215,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 107,
+    "original": "我什么都不知道",
+    "parts": [
+      "我什么都不知道"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1217,
+    "file": "assets/dialogues/ch2_deepening/2_1_second_reasoning.dtl",
+    "line": 109,
+    "original": "无可奉告",
+    "parts": [
+      "无可奉告"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1234,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu_hall.dtl",
+    "line": 3,
+    "original": "邀请私聊",
+    "parts": [
+      "邀请私聊"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1237,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu_hall.dtl",
+    "line": 8,
+    "original": "暂时不用",
+    "parts": [
+      "暂时不用"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1239,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou_hall.dtl",
+    "line": 3,
+    "original": "邀请私聊",
+    "parts": [
+      "邀请私聊"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1242,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou_hall.dtl",
+    "line": 8,
+    "original": "暂时不用",
+    "parts": [
+      "暂时不用"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1244,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin_hall.dtl",
+    "line": 3,
+    "original": "邀请私聊",
+    "parts": [
+      "邀请私聊"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1247,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin_hall.dtl",
+    "line": 8,
+    "original": "暂时不用",
+    "parts": [
+      "暂时不用"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1249,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu_hall.dtl",
+    "line": 3,
+    "original": "邀请私聊",
+    "parts": [
+      "邀请私聊"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1252,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu_hall.dtl",
+    "line": 8,
+    "original": "暂时不用",
+    "parts": [
+      "暂时不用"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1254,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong_hall.dtl",
+    "line": 3,
+    "original": "邀请私聊",
+    "parts": [
+      "邀请私聊"
+    ],
+    "condition": "{SourcePlot.ZhongRefused} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1258,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong_hall.dtl",
+    "line": 8,
+    "original": "暂时不用",
+    "parts": [
+      "暂时不用"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1267,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 10,
+    "original": "下一轮调查",
+    "parts": [
+      "下一轮调查"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1269,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 14,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1273,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 20,
+    "original": "调查完了",
+    "parts": [
+      "调查完了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1276,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 24,
+    "original": "稍等一下",
+    "parts": [
+      "稍等一下"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1279,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 30,
+    "original": "关于死者",
+    "parts": [
+      "关于死者"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1282,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 33,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1285,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 36,
+    "original": "关于别墅的客房",
+    "parts": [
+      "关于别墅的客房"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1289,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 40,
+    "original": "关于委托",
+    "parts": [
+      "关于委托"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1292,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 43,
+    "original": "询问委托的原因",
+    "parts": [
+      "询问委托的原因"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1295,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 46,
+    "original": "说出穆执的梦魇",
+    "parts": [
+      "说出穆执的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.NightmareSolved} == true and {SourcePlot.ReportedMu} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1299,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 52,
+    "original": "说出周崇安的梦魇",
+    "parts": [
+      "说出周崇安的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhou.NightmareSolved} == true and {SourcePlot.ReportedZhou} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1303,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 58,
+    "original": "说出林玖的梦魇",
+    "parts": [
+      "说出林玖的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.NightmareSolved} == true and {SourcePlot.ReportedLin} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1307,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 64,
+    "original": "说出钟歧的梦魇",
+    "parts": [
+      "说出钟歧的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhong.NightmareSolved} == true and {SourcePlot.ReportedZhong} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1311,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 70,
+    "original": "还没有",
+    "parts": [
+      "还没有"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1313,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 72,
+    "original": "指认凶手",
+    "parts": [
+      "指认凶手"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1315,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 74,
+    "original": "是的",
+    "parts": [
+      "是的"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1317,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 76,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 1319,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 79,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 1321,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 82,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 1323,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 85,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 1325,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 88,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 1327,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 91,
+    "original": "我再想想",
+    "parts": [
+      "我再想想"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 1329,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 94,
+    "original": "还是算了",
+    "parts": [
+      "还是算了"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1330,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 96,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1334,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 102,
+    "original": "确定",
+    "parts": [
+      "确定"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1337,
+    "file": "assets/dialogues/ch2_deepening/2_2_butler_hall.dtl",
+    "line": 106,
+    "original": "我再想想",
+    "parts": [
+      "我再想想"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1341,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1346,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 11,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1350,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 16,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1353,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 19,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1356,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 23,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1359,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 27,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1362,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 31,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1365,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 35,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1367,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 37,
+    "original": "关于信仰",
+    "parts": [
+      "关于信仰"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Removed.Faith} != true and {Ch1.NPCIntro.Mu.Selected2} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1370,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 39,
+    "original": "请详细说说",
+    "parts": [
+      "请详细说说"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1380,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 49,
+    "original": "有所耳闻",
+    "parts": [
+      "有所耳闻"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1384,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 53,
+    "original": "林玖说你是她的远房亲戚",
+    "parts": [
+      "林玖说你是她的远房亲戚"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Mu.Removed.LinRelative} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1389,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 57,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Mu.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1394,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 61,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Mu.Scene} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1402,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 70,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Mu.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1406,
+    "file": "assets/dialogues/ch2_deepening/2_2_mu.dtl",
+    "line": 74,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1411,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1414,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 8,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Zhou} <= 70",
+    "depth": 0
+  },
+  {
+    "paragraph": 1418,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 12,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Zhou} >= 71",
+    "depth": 0
+  },
+  {
+    "paragraph": 1422,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 17,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1425,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 20,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1428,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 24,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1431,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 28,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1434,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 32,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1437,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 36,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1439,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 38,
+    "original": "关于背包里的工具",
+    "parts": [
+      "关于背包里的工具"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhou.Removed.Tools} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1444,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 42,
+    "original": "关于“认识”的梅塔",
+    "parts": [
+      "关于“认识”的梅塔"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhou.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Zhou.Removed.KnownMeta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1451,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 48,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Zhou.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1456,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 53,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Scene} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1460,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 58,
+    "original": "对梦境的了解",
+    "parts": [
+      "对梦境的了解"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Scene} == true and {Ch2.SecondPrivate.Zhou.Rules} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1466,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 64,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1472,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 70,
+    "original": "关于研究所内的线索",
+    "parts": [
+      "关于研究所内的线索"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Scene} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1475,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 72,
+    "original": "关于实验床上的女子",
+    "parts": [
+      "关于实验床上的女子"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Woman} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1481,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 78,
+    "original": "关于梦境规则",
+    "parts": [
+      "关于梦境规则"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.DreamRules} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1488,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 85,
+    "original": "关于时今的死",
+    "parts": [
+      "关于时今的死"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Woman} == true and {Ch2.SecondPrivate.Zhou.DreamRules} == true and {Ch2.SecondPrivate.Zhou.Shijin} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1508,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 105,
+    "original": "关于提线木偶",
+    "parts": [
+      "关于提线木偶"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Puppet} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1514,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 112,
+    "original": "关于研究所储物间的装置",
+    "parts": [
+      "关于研究所储物间的装置"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Shijin} == true and {Ch2.SecondPrivate.Zhou.Device} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1519,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 117,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1521,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhou.dtl",
+    "line": 119,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1526,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1529,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 9,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Lin} <= 70",
+    "depth": 0
+  },
+  {
+    "paragraph": 1533,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 13,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Lin} >= 71",
+    "depth": 0
+  },
+  {
+    "paragraph": 1537,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 18,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1540,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 21,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1543,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 25,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1546,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 29,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1549,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 33,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1552,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 37,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1554,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 39,
+    "original": "关于异测会",
+    "parts": [
+      "关于异测会"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Lin.Removed.AnomalySociety} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1559,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 43,
+    "original": "穆执说他对你不是很了解",
+    "parts": [
+      "穆执说他对你不是很了解"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Lin.Removed.MuNotKnow} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1564,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 47,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1572,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 55,
+    "original": "关于五芒星图案",
+    "parts": [
+      "关于五芒星图案"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Removed.Pentagram} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1579,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 62,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Lab} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1583,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 67,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1589,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 73,
+    "original": "关于沙化事件",
+    "parts": [
+      "关于沙化事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Meta} == true and {Ch2.SecondPrivate.Lin.Sand} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1594,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 78,
+    "original": "关于研究所内的线索",
+    "parts": [
+      "关于研究所内的线索"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Lab} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1597,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 80,
+    "original": "关于文件袋",
+    "parts": [
+      "关于文件袋"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1599,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 82,
+    "original": "关于黑门事件",
+    "parts": [
+      "关于黑门事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.BlackDoor} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 1603,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 86,
+    "original": "关于异数0373",
+    "parts": [
+      "关于异数0373"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Abismo0373} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 1607,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 90,
+    "original": "关于沙化事件",
+    "parts": [
+      "关于沙化事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.SandFile} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 1612,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 95,
+    "original": "关于异数0564",
+    "parts": [
+      "关于异数0564"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Abismo0564} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 1618,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 101,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 1620,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 103,
+    "original": "关于协会宣言",
+    "parts": [
+      "关于协会宣言"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Declaration} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1624,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 106,
+    "original": "告诉她书房里的名言",
+    "parts": [
+      "告诉她书房里的名言"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 1625,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 107,
+    "original": "读书不是为了雄辩和驳斥，也不是为了轻信和盲从，而是为了思考和权衡。",
+    "parts": [
+      "读书不是为了雄辩和驳斥，也不是为了轻信和盲从，",
+      "而是为了思考和权衡。"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 1628,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 110,
+    "original": "自由不是在黑与白中做出选择，而是可以放弃这样被规定好的选择。",
+    "parts": [
+      "自由不是在黑与白中做出选择，",
+      "而是可以放弃这样被规定好的选择。"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 1631,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 113,
+    "original": "真正可怕的，并不是那种人人都难以避免的一念之差，而是那种深入习俗、盘踞于人心深处的谬误与偏见。",
+    "parts": [
+      "真正可怕的，并不是那种人人都难以避免的一念之差，",
+      "而是那种深入习俗、盘踞于人心深处的谬误与偏见。"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 1635,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 119,
+    "original": "保持沉默",
+    "parts": [
+      "保持沉默"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 1637,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 122,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1639,
+    "file": "assets/dialogues/ch2_deepening/2_2_lin.dtl",
+    "line": 124,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1644,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1647,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 9,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1650,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 13,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1653,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 16,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1656,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 20,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1659,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 24,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1662,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 28,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1665,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 32,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1667,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 34,
+    "original": "关于异测会",
+    "parts": [
+      "关于异测会"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Arrival} == true and {Ch1.PrivateChat.Wu.Removed.AnomalySociety} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1673,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 39,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Asked.Lighthouse} == true and {Ch1.PrivateChat.Wu.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1685,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 51,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Wu.Door} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1689,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 55,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Wu.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1694,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 60,
+    "original": "关于沙化事件",
+    "parts": [
+      "关于沙化事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Sand} == true and {Ch2.SecondPrivate.Wu.Sand} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1702,
+    "file": "assets/dialogues/ch2_deepening/2_2_wu.dtl",
+    "line": 68,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1707,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1711,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 10,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1716,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 16,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1719,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 19,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1722,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 23,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1725,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 27,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1728,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 31,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1731,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 35,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1733,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 37,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Zhong.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1750,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 55,
+    "original": "关于世界之理",
+    "parts": [
+      "关于世界之理"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhong.Asked.Dead} == true and {Ch1.PrivateChat.Zhong.Removed.WorldTheory} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1753,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 57,
+    "original": "想知道",
+    "parts": [
+      "想知道"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1764,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 68,
+    "original": "算了",
+    "parts": [
+      "算了"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1768,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 72,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhong.Research} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1772,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 76,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhong.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1777,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 81,
+    "original": "关于研究所内的线索",
+    "parts": [
+      "关于研究所内的线索"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1779,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 83,
+    "original": "关于巨大的光球",
+    "parts": [
+      "关于巨大的光球"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1782,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 87,
+    "original": "关于工作清单",
+    "parts": [
+      "关于工作清单"
+    ],
+    "condition": "{Ch2.SourceEvidence.WorkList} == true and {Ch2.SecondPrivate.Zhong.WorkList} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1789,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 95,
+    "original": "关于钟岳的笔记本",
+    "parts": [
+      "关于钟岳的笔记本"
+    ],
+    "condition": "{Ch2.SourceEvidence.Notebook} == true and {Ch2.SecondPrivate.Zhong.Notebook} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 1794,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 100,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1796,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 102,
+    "original": "关于红色的线",
+    "parts": [
+      "关于红色的线"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhong.Orb} == true and {Ch2.SecondPrivate.Zhong.RedString} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1804,
+    "file": "assets/dialogues/ch2_deepening/2_2_zhong.dtl",
+    "line": 110,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1810,
+    "file": "assets/dialogues/ch2_deepening/2_3_third_search_intro.dtl",
+    "line": 5,
+    "original": "第一个",
+    "parts": [
+      "第一个"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1813,
+    "file": "assets/dialogues/ch2_deepening/2_3_third_search_intro.dtl",
+    "line": 9,
+    "original": "第二个",
+    "parts": [
+      "第二个"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1816,
+    "file": "assets/dialogues/ch2_deepening/2_3_third_search_intro.dtl",
+    "line": 13,
+    "original": "第三个",
+    "parts": [
+      "第三个"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1819,
+    "file": "assets/dialogues/ch2_deepening/2_3_third_search_intro.dtl",
+    "line": 17,
+    "original": "第四个",
+    "parts": [
+      "第四个"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1822,
+    "file": "assets/dialogues/ch2_deepening/2_3_third_search_intro.dtl",
+    "line": 21,
+    "original": "第五个",
+    "parts": [
+      "第五个"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1825,
+    "file": "assets/dialogues/ch2_deepening/2_3_third_search_intro.dtl",
+    "line": 25,
+    "original": "第六个",
+    "parts": [
+      "第六个"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1914,
+    "file": "assets/dialogues/ch2_deepening/2_4_third_reasoning.dtl",
+    "line": 62,
+    "original": "可以",
+    "parts": [
+      "可以"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1921,
+    "file": "assets/dialogues/ch2_deepening/2_4_third_reasoning.dtl",
+    "line": 71,
+    "original": "还有更重要的事",
+    "parts": [
+      "还有更重要的事"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1939,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1944,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 11,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1948,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 16,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 1951,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 19,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1954,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 23,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1957,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 27,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1960,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 31,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1963,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 35,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1965,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 37,
+    "original": "关于信仰",
+    "parts": [
+      "关于信仰"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Removed.Faith} != true and {Ch1.NPCIntro.Mu.Selected2} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1968,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 39,
+    "original": "请详细说说",
+    "parts": [
+      "请详细说说"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1978,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 49,
+    "original": "有所耳闻",
+    "parts": [
+      "有所耳闻"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 1982,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 53,
+    "original": "林玖说你是她的远房亲戚",
+    "parts": [
+      "林玖说你是她的远房亲戚"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Mu.Removed.LinRelative} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1987,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 57,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Mu.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 1992,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 61,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Mu.Scene} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2000,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 70,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Mu.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2004,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 74,
+    "original": "关于衣柜中的长袍",
+    "parts": [
+      "关于衣柜中的长袍"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_mu_2} == true and {Ch2.ThirdPrivate.Mu.Robe} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2008,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 78,
+    "original": "关于教义复古运动",
+    "parts": [
+      "关于教义复古运动"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_mu_1_8} == true and {Ch2.ThirdPrivate.Mu.Revival} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2015,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 85,
+    "original": "关于先知伊斯",
+    "parts": [
+      "关于先知伊斯"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_mu_1_8} == true and {Ch2.ThirdPrivate.Mu.Prophet} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2025,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 95,
+    "original": "关于笔记本的内容",
+    "parts": [
+      "关于笔记本的内容"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_mu_1_9} == true and {Ch2.ThirdPrivate.Mu.Sayings} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2033,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 103,
+    "original": "关于林羽的信",
+    "parts": [
+      "关于林羽的信"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_mu_3} == true and {Ch2.ThirdPrivate.Mu.Letter} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2040,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 110,
+    "original": "关于报纸头条的事故",
+    "parts": [
+      "关于报纸头条的事故"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Mu.Robe} == true and {Ch2.SourceEvidence.C_2_mu_1_10} == true and {Ch2.ThirdPrivate.Mu.Fire} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2054,
+    "file": "assets/dialogues/ch2_deepening/2_5_mu.dtl",
+    "line": 125,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2059,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2062,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 8,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Zhou} <= 70",
+    "depth": 0
+  },
+  {
+    "paragraph": 2066,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 12,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Zhou} >= 71",
+    "depth": 0
+  },
+  {
+    "paragraph": 2070,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 17,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2073,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 20,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2076,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 24,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2079,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 28,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2082,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 32,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2085,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 36,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2087,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 38,
+    "original": "关于背包里的工具",
+    "parts": [
+      "关于背包里的工具"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhou.Removed.Tools} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2092,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 42,
+    "original": "关于“认识”的梅塔",
+    "parts": [
+      "关于“认识”的梅塔"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhou.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Zhou.Removed.KnownMeta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2099,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 48,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Zhou.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2104,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 53,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Scene} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2108,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 58,
+    "original": "对梦境的了解",
+    "parts": [
+      "对梦境的了解"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Scene} == true and {Ch2.SecondPrivate.Zhou.Rules} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2114,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 64,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2120,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 70,
+    "original": "关于研究所内的线索",
+    "parts": [
+      "关于研究所内的线索"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Scene} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2123,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 72,
+    "original": "关于实验床上的女子",
+    "parts": [
+      "关于实验床上的女子"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Woman} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 2129,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 78,
+    "original": "关于梦境规则",
+    "parts": [
+      "关于梦境规则"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.DreamRules} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 2136,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 85,
+    "original": "关于时今的死",
+    "parts": [
+      "关于时今的死"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Woman} == true and {Ch2.SecondPrivate.Zhou.DreamRules} == true and {Ch2.SecondPrivate.Zhou.Shijin} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 2156,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 105,
+    "original": "关于提线木偶",
+    "parts": [
+      "关于提线木偶"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Puppet} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 2162,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 112,
+    "original": "关于研究所储物间的装置",
+    "parts": [
+      "关于研究所储物间的装置"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Shijin} == true and {Ch2.SecondPrivate.Zhou.Device} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 2167,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 117,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2169,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 119,
+    "original": "关于捐赠记录",
+    "parts": [
+      "关于捐赠记录"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhou_1} == true and {Ch2.ThirdPrivate.Zhou.Donation} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2174,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 124,
+    "original": "关于林羽的名片",
+    "parts": [
+      "关于林羽的名片"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhou_2} == true and {Ch2.ThirdPrivate.Zhou.Card} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2178,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 128,
+    "original": "关于花名册",
+    "parts": [
+      "关于花名册"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhou_3_6} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2182,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 131,
+    "original": "少了什么",
+    "parts": [
+      "少了什么"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2183,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 132,
+    "original": "少了人",
+    "parts": [
+      "少了人"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 2185,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 134,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 2189,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 138,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 2192,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 141,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 2195,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 144,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Zhou.MissingWu} != true",
+    "depth": 3
+  },
+  {
+    "paragraph": 2204,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 153,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 2208,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 157,
+    "original": "少了日期",
+    "parts": [
+      "少了日期"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 2212,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 161,
+    "original": "没问题",
+    "parts": [
+      "没问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2214,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhou.dtl",
+    "line": 163,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2219,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2222,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 9,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Lin} <= 70",
+    "depth": 0
+  },
+  {
+    "paragraph": 2226,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 13,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Lin} >= 71",
+    "depth": 0
+  },
+  {
+    "paragraph": 2230,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 18,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2233,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 21,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2236,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 25,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2239,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 29,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2242,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 33,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2245,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 37,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2247,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 39,
+    "original": "关于异测会",
+    "parts": [
+      "关于异测会"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Lin.Removed.AnomalySociety} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2252,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 43,
+    "original": "穆执说他对你不是很了解",
+    "parts": [
+      "穆执说他对你不是很了解"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Lin.Removed.MuNotKnow} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2257,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 47,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2265,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 55,
+    "original": "关于五芒星图案",
+    "parts": [
+      "关于五芒星图案"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Removed.Pentagram} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2272,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 62,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Lab} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2276,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 67,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2282,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 73,
+    "original": "关于沙化事件",
+    "parts": [
+      "关于沙化事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Meta} == true and {Ch2.SecondPrivate.Lin.Sand} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2287,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 78,
+    "original": "关于研究所内的线索",
+    "parts": [
+      "关于研究所内的线索"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Lab} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2290,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 80,
+    "original": "关于文件袋",
+    "parts": [
+      "关于文件袋"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2292,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 82,
+    "original": "关于黑门事件",
+    "parts": [
+      "关于黑门事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.BlackDoor} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 2296,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 86,
+    "original": "关于异数0373",
+    "parts": [
+      "关于异数0373"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Abismo0373} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 2300,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 90,
+    "original": "关于沙化事件",
+    "parts": [
+      "关于沙化事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.SandFile} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 2305,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 95,
+    "original": "关于异数0564",
+    "parts": [
+      "关于异数0564"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Abismo0564} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 2311,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 101,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 2313,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 103,
+    "original": "关于协会宣言",
+    "parts": [
+      "关于协会宣言"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Declaration} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 2317,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 106,
+    "original": "告诉她书房里的名言",
+    "parts": [
+      "告诉她书房里的名言"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 2318,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 107,
+    "original": "读书不是为了雄辩和驳斥，也不是为了轻信和盲从，而是为了思考和权衡。",
+    "parts": [
+      "读书不是为了雄辩和驳斥，也不是为了轻信和盲从，",
+      "而是为了思考和权衡。"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 2321,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 110,
+    "original": "自由不是在黑与白中做出选择，而是可以放弃这样被规定好的选择。",
+    "parts": [
+      "自由不是在黑与白中做出选择，",
+      "而是可以放弃这样被规定好的选择。"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 2324,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 113,
+    "original": "真正可怕的，并不是那种人人都难以避免的一念之差，而是那种深入习俗、盘踞于人心深处的谬误与偏见。",
+    "parts": [
+      "真正可怕的，并不是那种人人都难以避免的一念之差，",
+      "而是那种深入习俗、盘踞于人心深处的谬误与偏见。"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 2328,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 119,
+    "original": "保持沉默",
+    "parts": [
+      "保持沉默"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 2330,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 122,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2332,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 124,
+    "original": "关于贴有封条的门",
+    "parts": [
+      "关于贴有封条的门"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_lin_2} == true and {Ch2.ThirdPrivate.Lin.DoorStarted} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2339,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 130,
+    "original": "当然",
+    "parts": [
+      "当然"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2346,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 138,
+    "original": "这取决于你",
+    "parts": [
+      "这取决于你"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2350,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 143,
+    "original": "逃避并不可耻",
+    "parts": [
+      "逃避并不可耻"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2353,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 146,
+    "original": "关于调查结果",
+    "parts": [
+      "关于调查结果"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Lin.DoorReady} == true and {Ch2.ThirdPrivate.Lin.Home} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2362,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 155,
+    "original": "关于故居内的线索",
+    "parts": [
+      "关于故居内的线索"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Lin.Home} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2365,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 157,
+    "original": "关于母女的合照",
+    "parts": [
+      "关于母女的合照"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Lin.Mother} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 2390,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 175,
+    "original": "关于古旧的书",
+    "parts": [
+      "关于古旧的书"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Lin.Book} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 2402,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 185,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2404,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 187,
+    "original": "关于白色的盒子",
+    "parts": [
+      "关于白色的盒子"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_lin_3} == true and {Ch2.ThirdPrivate.Lin.Sandbox} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2409,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 192,
+    "original": "关于木雕工具箱",
+    "parts": [
+      "关于木雕工具箱"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_lin_4} == true and {Ch2.ThirdPrivate.Lin.Tools} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2414,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 197,
+    "original": "关于箱底的纸",
+    "parts": [
+      "关于箱底的纸"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_lin_4_12} == true and {Ch2.ThirdPrivate.Lin.Tools} == true and {Ch2.ThirdPrivate.Lin.Paper} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2422,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 205,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2427,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2430,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 9,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2433,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 13,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2436,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 16,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2439,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 20,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2442,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 24,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2445,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 28,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2448,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 32,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2450,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 34,
+    "original": "关于异测会",
+    "parts": [
+      "关于异测会"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Arrival} == true and {Ch1.PrivateChat.Wu.Removed.AnomalySociety} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2456,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 39,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Asked.Lighthouse} == true and {Ch1.PrivateChat.Wu.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2468,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 51,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Wu.Door} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2472,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 55,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Wu.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2477,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 60,
+    "original": "关于沙化事件",
+    "parts": [
+      "关于沙化事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Sand} == true and {Ch2.SecondPrivate.Wu.Sand} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2485,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 68,
+    "original": "关于白色的盒子",
+    "parts": [
+      "关于白色的盒子"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_wu_1} == true and {Ch2.ThirdPrivate.Wu.Sandbox} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2489,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 72,
+    "original": "关于沙盘底的报纸",
+    "parts": [
+      "关于沙盘底的报纸"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Wu.Sandbox} == true and {Ch2.SourceEvidence.C_2_wu_1_13} == true and {Ch2.ThirdPrivate.Wu.Newspaper} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2495,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 76,
+    "original": "关于梦境笔记本",
+    "parts": [
+      "关于梦境笔记本"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Wu.DreamNotes} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2499,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 80,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2504,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2508,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 10,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2513,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 16,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2516,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 19,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2519,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 23,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2522,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 27,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2525,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 31,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2528,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 35,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2530,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 37,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Zhong.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2547,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 55,
+    "original": "关于世界之理",
+    "parts": [
+      "关于世界之理"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhong.Asked.Dead} == true and {Ch1.PrivateChat.Zhong.Removed.WorldTheory} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2550,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 57,
+    "original": "想知道",
+    "parts": [
+      "想知道"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2561,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 68,
+    "original": "算了",
+    "parts": [
+      "算了"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2565,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 72,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhong.Research} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2569,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 76,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhong.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2574,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 81,
+    "original": "关于研究所内的线索",
+    "parts": [
+      "关于研究所内的线索"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2576,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 83,
+    "original": "关于巨大的光球",
+    "parts": [
+      "关于巨大的光球"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2579,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 87,
+    "original": "关于工作清单",
+    "parts": [
+      "关于工作清单"
+    ],
+    "condition": "{Ch2.SourceEvidence.WorkList} == true and {Ch2.SecondPrivate.Zhong.WorkList} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 2586,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 95,
+    "original": "关于钟岳的笔记本",
+    "parts": [
+      "关于钟岳的笔记本"
+    ],
+    "condition": "{Ch2.SourceEvidence.Notebook} == true and {Ch2.SecondPrivate.Zhong.Notebook} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 2591,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 100,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2593,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 102,
+    "original": "关于红色的线",
+    "parts": [
+      "关于红色的线"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhong.Orb} == true and {Ch2.SecondPrivate.Zhong.RedString} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2601,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 110,
+    "original": "关于床底下的纸团",
+    "parts": [
+      "关于床底下的纸团"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhong_1} == true and {Ch2.ThirdPrivate.Zhong.Papers} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2605,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 114,
+    "original": "关于病号服",
+    "parts": [
+      "关于病号服"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhong_2} == true and {Ch2.ThirdPrivate.Zhong.Clothes} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2609,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 118,
+    "original": "关于病号服口袋里的纸",
+    "parts": [
+      "关于病号服口袋里的纸"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhong_2_14} == true and {Ch2.ThirdPrivate.Zhong.Pages} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2613,
+    "file": "assets/dialogues/ch2_deepening/2_5_zhong.dtl",
+    "line": 122,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2620,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_flower.dtl",
+    "line": 7,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2622,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_flower.dtl",
+    "line": 9,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2624,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_flower.dtl",
+    "line": 11,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2628,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_flower.dtl",
+    "line": 15,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2631,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_flower.dtl",
+    "line": 18,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2633,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_flower.dtl",
+    "line": 20,
+    "original": "管家",
+    "parts": [
+      "管家"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2635,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_flower.dtl",
+    "line": 22,
+    "original": "我自己",
+    "parts": [
+      "我自己"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2652,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_cube.dtl",
+    "line": 7,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2655,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_cube.dtl",
+    "line": 10,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2659,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_cube.dtl",
+    "line": 14,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2663,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_cube.dtl",
+    "line": 18,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2666,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_cube.dtl",
+    "line": 21,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2669,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_cube.dtl",
+    "line": 24,
+    "original": "管家",
+    "parts": [
+      "管家"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2672,
+    "file": "assets/dialogues/ch2_deepening/source_recreate_cube.dtl",
+    "line": 27,
+    "original": "我自己",
+    "parts": [
+      "我自己"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2686,
+    "file": "assets/dialogues/ch2_deepening/2_6_memory_fragments.dtl",
+    "line": 7,
+    "original": "告诉她书房里的名言",
+    "parts": [
+      "告诉她书房里的名言"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2687,
+    "file": "assets/dialogues/ch2_deepening/2_6_memory_fragments.dtl",
+    "line": 8,
+    "original": "读书不是为了雄辩和驳斥，也不是为了轻信和盲从，而是为了思考和权衡。",
+    "parts": [
+      "读书不是为了雄辩和驳斥，也不是为了轻信和盲从，",
+      "而是为了思考和权衡。"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2689,
+    "file": "assets/dialogues/ch2_deepening/2_6_memory_fragments.dtl",
+    "line": 10,
+    "original": "自由不是在黑与白中做出选择，而是可以放弃这样被规定好的选择。",
+    "parts": [
+      "自由不是在黑与白中做出选择，",
+      "而是可以放弃这样被规定好的选择。"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2691,
+    "file": "assets/dialogues/ch2_deepening/2_6_memory_fragments.dtl",
+    "line": 13,
+    "original": "真正可怕的，并不是那种人人都难以避免的一念之差，而是那种深入习俗、盘踞于人心深处的谬误与偏见。",
+    "parts": [
+      "真正可怕的，并不是那种人人都难以避免的一念之差，",
+      "而是那种深入习俗、盘踞于人心深处的谬误与偏见。"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2693,
+    "file": "assets/dialogues/ch2_deepening/2_6_memory_fragments.dtl",
+    "line": 15,
+    "original": "让她放平心态",
+    "parts": [
+      "让她放平心态"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2695,
+    "file": "assets/dialogues/ch2_deepening/2_6_memory_fragments.dtl",
+    "line": 17,
+    "original": "询问她原因",
+    "parts": [
+      "询问她原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2855,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2860,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 11,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2864,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 16,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2867,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 19,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2870,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 23,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2873,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 27,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2876,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 31,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2879,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 35,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2881,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 37,
+    "original": "关于信仰",
+    "parts": [
+      "关于信仰"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Removed.Faith} != true and {Ch1.NPCIntro.Mu.Selected2} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2884,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 39,
+    "original": "请详细说说",
+    "parts": [
+      "请详细说说"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2894,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 49,
+    "original": "有所耳闻",
+    "parts": [
+      "有所耳闻"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2898,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 53,
+    "original": "林玖说你是她的远房亲戚",
+    "parts": [
+      "林玖说你是她的远房亲戚"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Mu.Removed.LinRelative} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2903,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 57,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Mu.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2908,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 61,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Mu.Scene} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2916,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 70,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Mu.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2920,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 74,
+    "original": "关于衣柜中的长袍",
+    "parts": [
+      "关于衣柜中的长袍"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_mu_2} == true and {Ch2.ThirdPrivate.Mu.Robe} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2924,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 78,
+    "original": "关于教义复古运动",
+    "parts": [
+      "关于教义复古运动"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_mu_1_8} == true and {Ch2.ThirdPrivate.Mu.Revival} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2931,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 85,
+    "original": "关于先知伊斯",
+    "parts": [
+      "关于先知伊斯"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_mu_1_8} == true and {Ch2.ThirdPrivate.Mu.Prophet} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2941,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 95,
+    "original": "关于笔记本的内容",
+    "parts": [
+      "关于笔记本的内容"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_mu_1_9} == true and {Ch2.ThirdPrivate.Mu.Sayings} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2949,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 103,
+    "original": "关于林羽的信",
+    "parts": [
+      "关于林羽的信"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_mu_3} == true and {Ch2.ThirdPrivate.Mu.Letter} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2956,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 110,
+    "original": "关于报纸头条的事故",
+    "parts": [
+      "关于报纸头条的事故"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Mu.Robe} == true and {Ch2.SourceEvidence.C_2_mu_1_10} == true and {Ch2.ThirdPrivate.Mu.Fire} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2970,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 125,
+    "original": "关于建构师",
+    "parts": [
+      "关于建构师"
+    ],
+    "condition": "{SourcePlot.MuArchitect} != true and {Ch3.Route.Correction} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 2974,
+    "file": "assets/dialogues/ch3_transcend/3_source_mu.dtl",
+    "line": 129,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2979,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2982,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 8,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Zhou} <= 70",
+    "depth": 0
+  },
+  {
+    "paragraph": 2986,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 12,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Zhou} >= 71",
+    "depth": 0
+  },
+  {
+    "paragraph": 2990,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 17,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 2993,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 20,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2996,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 24,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 2999,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 28,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3002,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 32,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3005,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 36,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3007,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 38,
+    "original": "关于背包里的工具",
+    "parts": [
+      "关于背包里的工具"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhou.Removed.Tools} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3012,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 42,
+    "original": "关于“认识”的梅塔",
+    "parts": [
+      "关于“认识”的梅塔"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhou.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Zhou.Removed.KnownMeta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3019,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 48,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Zhou.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3024,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 53,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Scene} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3028,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 58,
+    "original": "对梦境的了解",
+    "parts": [
+      "对梦境的了解"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Scene} == true and {Ch2.SecondPrivate.Zhou.Rules} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3034,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 64,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3040,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 70,
+    "original": "关于研究所内的线索",
+    "parts": [
+      "关于研究所内的线索"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Scene} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3043,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 72,
+    "original": "关于实验床上的女子",
+    "parts": [
+      "关于实验床上的女子"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Woman} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3049,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 78,
+    "original": "关于梦境规则",
+    "parts": [
+      "关于梦境规则"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.DreamRules} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3056,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 85,
+    "original": "关于时今的死",
+    "parts": [
+      "关于时今的死"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Woman} == true and {Ch2.SecondPrivate.Zhou.DreamRules} == true and {Ch2.SecondPrivate.Zhou.Shijin} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3076,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 105,
+    "original": "关于提线木偶",
+    "parts": [
+      "关于提线木偶"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Puppet} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3082,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 112,
+    "original": "关于研究所储物间的装置",
+    "parts": [
+      "关于研究所储物间的装置"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhou.Shijin} == true and {Ch2.SecondPrivate.Zhou.Device} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3087,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 117,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3089,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 119,
+    "original": "关于捐赠记录",
+    "parts": [
+      "关于捐赠记录"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhou_1} == true and {Ch2.ThirdPrivate.Zhou.Donation} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3094,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 124,
+    "original": "关于林羽的名片",
+    "parts": [
+      "关于林羽的名片"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhou_2} == true and {Ch2.ThirdPrivate.Zhou.Card} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3098,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 128,
+    "original": "关于花名册",
+    "parts": [
+      "关于花名册"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhou_3_6} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3102,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 131,
+    "original": "少了什么",
+    "parts": [
+      "少了什么"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3103,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 132,
+    "original": "少了人",
+    "parts": [
+      "少了人"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3105,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 134,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 3109,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 138,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 3112,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 141,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 3115,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 144,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Zhou.MissingWu} != true",
+    "depth": 3
+  },
+  {
+    "paragraph": 3124,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 153,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 3128,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 157,
+    "original": "少了日期",
+    "parts": [
+      "少了日期"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3132,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 161,
+    "original": "没问题",
+    "parts": [
+      "没问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3134,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 163,
+    "original": "关于建构师",
+    "parts": [
+      "关于建构师"
+    ],
+    "condition": "{SourcePlot.ZhouArchitect} != true and {Ch3.Route.Correction} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3138,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhou.dtl",
+    "line": 167,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3143,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 5,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3146,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 9,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Lin} <= 70",
+    "depth": 0
+  },
+  {
+    "paragraph": 3150,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 13,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "{Affinity.Lin} >= 71",
+    "depth": 0
+  },
+  {
+    "paragraph": 3154,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 18,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3157,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 21,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3160,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 25,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3163,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 29,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3166,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 33,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3169,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 37,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3171,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 39,
+    "original": "关于异测会",
+    "parts": [
+      "关于异测会"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Asked.DeadTrusted} == true and {Ch1.PrivateChat.Lin.Removed.AnomalySociety} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3176,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 43,
+    "original": "穆执说他对你不是很了解",
+    "parts": [
+      "穆执说他对你不是很了解"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.Asked.Lin} == true and {Ch1.PrivateChat.Lin.Asked.Mu} == true and {Ch1.PrivateChat.Lin.Removed.MuNotKnow} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3181,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 47,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3189,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 55,
+    "original": "关于五芒星图案",
+    "parts": [
+      "关于五芒星图案"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Removed.Pentagram} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3196,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 62,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Lab} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3200,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 67,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3206,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 73,
+    "original": "关于沙化事件",
+    "parts": [
+      "关于沙化事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Meta} == true and {Ch2.SecondPrivate.Lin.Sand} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3211,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 78,
+    "original": "关于研究所内的线索",
+    "parts": [
+      "关于研究所内的线索"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Lab} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3214,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 80,
+    "original": "关于文件袋",
+    "parts": [
+      "关于文件袋"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3216,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 82,
+    "original": "关于黑门事件",
+    "parts": [
+      "关于黑门事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.BlackDoor} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 3220,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 86,
+    "original": "关于异数0373",
+    "parts": [
+      "关于异数0373"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Abismo0373} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 3224,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 90,
+    "original": "关于沙化事件",
+    "parts": [
+      "关于沙化事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.SandFile} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 3229,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 95,
+    "original": "关于异数0564",
+    "parts": [
+      "关于异数0564"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Abismo0564} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 3235,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 101,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3237,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 103,
+    "original": "关于协会宣言",
+    "parts": [
+      "关于协会宣言"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Declaration} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3241,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 106,
+    "original": "告诉她书房里的名言",
+    "parts": [
+      "告诉她书房里的名言"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3242,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 107,
+    "original": "读书不是为了雄辩和驳斥，也不是为了轻信和盲从，而是为了思考和权衡。",
+    "parts": [
+      "读书不是为了雄辩和驳斥，也不是为了轻信和盲从，",
+      "而是为了思考和权衡。"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 3245,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 110,
+    "original": "自由不是在黑与白中做出选择，而是可以放弃这样被规定好的选择。",
+    "parts": [
+      "自由不是在黑与白中做出选择，",
+      "而是可以放弃这样被规定好的选择。"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 3248,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 113,
+    "original": "真正可怕的，并不是那种人人都难以避免的一念之差，而是那种深入习俗、盘踞于人心深处的谬误与偏见。",
+    "parts": [
+      "真正可怕的，并不是那种人人都难以避免的一念之差，",
+      "而是那种深入习俗、盘踞于人心深处的谬误与偏见。"
+    ],
+    "condition": "",
+    "depth": 3
+  },
+  {
+    "paragraph": 3252,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 119,
+    "original": "保持沉默",
+    "parts": [
+      "保持沉默"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3254,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 122,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3256,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 124,
+    "original": "关于贴有封条的门",
+    "parts": [
+      "关于贴有封条的门"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_lin_2} == true and {Ch2.ThirdPrivate.Lin.DoorStarted} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3263,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 130,
+    "original": "当然",
+    "parts": [
+      "当然"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3270,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 138,
+    "original": "这取决于你",
+    "parts": [
+      "这取决于你"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3274,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 143,
+    "original": "逃避并不可耻",
+    "parts": [
+      "逃避并不可耻"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3277,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 146,
+    "original": "关于调查结果",
+    "parts": [
+      "关于调查结果"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Lin.DoorReady} == true and {Ch2.ThirdPrivate.Lin.Home} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3286,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 155,
+    "original": "关于故居内的线索",
+    "parts": [
+      "关于故居内的线索"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Lin.Home} == true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3289,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 157,
+    "original": "关于母女的合照",
+    "parts": [
+      "关于母女的合照"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Lin.Mother} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3314,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 175,
+    "original": "关于古旧的书",
+    "parts": [
+      "关于古旧的书"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Lin.Book} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3326,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 185,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3328,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 187,
+    "original": "关于白色的盒子",
+    "parts": [
+      "关于白色的盒子"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_lin_3} == true and {Ch2.ThirdPrivate.Lin.Sandbox} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3333,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 192,
+    "original": "关于木雕工具箱",
+    "parts": [
+      "关于木雕工具箱"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_lin_4} == true and {Ch2.ThirdPrivate.Lin.Tools} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3338,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 197,
+    "original": "关于箱底的纸",
+    "parts": [
+      "关于箱底的纸"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_lin_4_12} == true and {Ch2.ThirdPrivate.Lin.Tools} == true and {Ch2.ThirdPrivate.Lin.Paper} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3346,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 205,
+    "original": "关于建构师",
+    "parts": [
+      "关于建构师"
+    ],
+    "condition": "{SourcePlot.LinArchitect} != true and {Ch3.Route.Correction} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3350,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 209,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3355,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 6,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3358,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 10,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3361,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 14,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3364,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 17,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3367,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 21,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3370,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 25,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3373,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 29,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3376,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 33,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3378,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 35,
+    "original": "关于异测会",
+    "parts": [
+      "关于异测会"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Arrival} == true and {Ch1.PrivateChat.Wu.Removed.AnomalySociety} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3384,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 40,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.Asked.Lighthouse} == true and {Ch1.PrivateChat.Wu.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3396,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 52,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Wu.Door} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3400,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 56,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Wu.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3405,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 61,
+    "original": "关于沙化事件",
+    "parts": [
+      "关于沙化事件"
+    ],
+    "condition": "{Ch2.SecondPrivate.Lin.Sand} == true and {Ch2.SecondPrivate.Wu.Sand} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3413,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 69,
+    "original": "关于白色的盒子",
+    "parts": [
+      "关于白色的盒子"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_wu_1} == true and {Ch2.ThirdPrivate.Wu.Sandbox} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3417,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 73,
+    "original": "关于沙盘底的报纸",
+    "parts": [
+      "关于沙盘底的报纸"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Wu.Sandbox} == true and {Ch2.SourceEvidence.C_2_wu_1_13} == true and {Ch2.ThirdPrivate.Wu.Newspaper} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3423,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 77,
+    "original": "关于梦境笔记本",
+    "parts": [
+      "关于梦境笔记本"
+    ],
+    "condition": "{Ch2.ThirdPrivate.Wu.DreamNotes} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3427,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 81,
+    "original": "关于全家福",
+    "parts": [
+      "关于全家福"
+    ],
+    "condition": "{SourcePlot.HasPhoto} == true and {SourcePlot.WuPhoto} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3431,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 85,
+    "original": "关于笔记本",
+    "parts": [
+      "关于笔记本"
+    ],
+    "condition": "{Ch3.Route.Correction} == true and {SourcePlot.WuPhoto} == true and {SourcePlot.HasCycle} == true and {SourcePlot.WuNotebook} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3440,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 90,
+    "original": "关于房间内的其它线索",
+    "parts": [
+      "关于房间内的其它线索"
+    ],
+    "condition": "({Ch3.Route.Correction} == true and {SourcePlot.WuNotebook} == true) or ({Ch3.Route.Correction} != true and {SourcePlot.WuPhoto} == true)",
+    "depth": 0
+  },
+  {
+    "paragraph": 3446,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 95,
+    "original": "关于报纸",
+    "parts": [
+      "关于报纸"
+    ],
+    "condition": "{SourcePlot.HasPaper} == true and {SourcePlot.WuPaper} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3452,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 101,
+    "original": "箱庭计划是什么？",
+    "parts": [
+      "箱庭计划是什么？"
+    ],
+    "condition": "{SourcePlot.WuSandbox} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 3458,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 105,
+    "original": "解构学是什么？",
+    "parts": [
+      "解构学是什么？"
+    ],
+    "condition": "{SourcePlot.WuDeconstruction} != true",
+    "depth": 2
+  },
+  {
+    "paragraph": 3465,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 109,
+    "original": "关于花海合照",
+    "parts": [
+      "关于花海合照"
+    ],
+    "condition": "{SourcePlot.HasFlowerPhoto} == true and {SourcePlot.WuFlower} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3471,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 113,
+    "original": "关于留言纸",
+    "parts": [
+      "关于留言纸"
+    ],
+    "condition": "{SourcePlot.HasLetter} == true and {SourcePlot.WuLetter} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3477,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 118,
+    "original": "关于笔记本",
+    "parts": [
+      "关于笔记本"
+    ],
+    "condition": "{Ch3.Route.Correction} != true and {SourcePlot.HasCycle} == true and {SourcePlot.WuNotebook} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3485,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 122,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3487,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 124,
+    "original": "关于管家",
+    "parts": [
+      "关于管家"
+    ],
+    "condition": "{Ch3.Route.Correction} == true and {SourcePlot.WuButler} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3493,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 128,
+    "original": "关于建构师",
+    "parts": [
+      "关于建构师"
+    ],
+    "condition": "{Ch3.Route.Correction} != true and {SourcePlot.WuButler} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3499,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 132,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3504,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 6,
+    "original": "来到别墅的原因",
+    "parts": [
+      "来到别墅的原因"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3508,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 11,
+    "original": "与死者的关系",
+    "parts": [
+      "与死者的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3513,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 17,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3516,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 20,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3519,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 24,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3522,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 28,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3525,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 32,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3528,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 36,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3530,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 38,
+    "original": "关于灯塔木雕",
+    "parts": [
+      "关于灯塔木雕"
+    ],
+    "condition": "{Ch1.PrivateChat.Wu.Asked.Lighthouse} == true and {Ch1.PrivateChat.Zhong.Removed.Lighthouse} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3547,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 56,
+    "original": "关于世界之理",
+    "parts": [
+      "关于世界之理"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhong.Asked.Dead} == true and {Ch1.PrivateChat.Zhong.Removed.WorldTheory} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3550,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 58,
+    "original": "想知道",
+    "parts": [
+      "想知道"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3561,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 69,
+    "original": "算了",
+    "parts": [
+      "算了"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3565,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 73,
+    "original": "储物间暗门下的东西",
+    "parts": [
+      "储物间暗门下的东西"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhong.Research} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3569,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 77,
+    "original": "关于梅塔",
+    "parts": [
+      "关于梅塔"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhong.Meta} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3574,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 82,
+    "original": "关于研究所内的线索",
+    "parts": [
+      "关于研究所内的线索"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3576,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 84,
+    "original": "关于巨大的光球",
+    "parts": [
+      "关于巨大的光球"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3579,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 88,
+    "original": "关于工作清单",
+    "parts": [
+      "关于工作清单"
+    ],
+    "condition": "{Ch2.SourceEvidence.WorkList} == true and {Ch2.SecondPrivate.Zhong.WorkList} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3586,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 96,
+    "original": "关于钟岳的笔记本",
+    "parts": [
+      "关于钟岳的笔记本"
+    ],
+    "condition": "{Ch2.SourceEvidence.Notebook} == true and {Ch2.SecondPrivate.Zhong.Notebook} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3591,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 101,
+    "original": "还有其他问题",
+    "parts": [
+      "还有其他问题"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3593,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 103,
+    "original": "关于红色的线",
+    "parts": [
+      "关于红色的线"
+    ],
+    "condition": "{Ch2.SecondPrivate.Zhong.Orb} == true and {Ch2.SecondPrivate.Zhong.RedString} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3601,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 111,
+    "original": "关于床底下的纸团",
+    "parts": [
+      "关于床底下的纸团"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhong_1} == true and {Ch2.ThirdPrivate.Zhong.Papers} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3605,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 115,
+    "original": "关于病号服",
+    "parts": [
+      "关于病号服"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhong_2} == true and {Ch2.ThirdPrivate.Zhong.Clothes} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3609,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 119,
+    "original": "关于病号服口袋里的纸",
+    "parts": [
+      "关于病号服口袋里的纸"
+    ],
+    "condition": "{Ch2.SourceEvidence.C_2_zhong_2_14} == true and {Ch2.ThirdPrivate.Zhong.Pages} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3613,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 123,
+    "original": "关于建构师",
+    "parts": [
+      "关于建构师"
+    ],
+    "condition": "{SourcePlot.ZhongArchitect} != true and {Ch3.Route.Correction} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3617,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 127,
+    "original": "我找到武器了",
+    "parts": [
+      "我找到武器了"
+    ],
+    "condition": "{SourcePlot.WeaponReady} == true and {Ch3.Weapon.Offered} != true and {Ch3.Route.Correction} != true",
+    "depth": 0
+  },
+  {
+    "paragraph": 3620,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 130,
+    "original": "答应",
+    "parts": [
+      "答应"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3622,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 132,
+    "original": "拒绝",
+    "parts": [
+      "拒绝"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3624,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 134,
+    "original": "答应",
+    "parts": [
+      "答应"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3627,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 137,
+    "original": "我不想这么做",
+    "parts": [
+      "我不想这么做"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3632,
+    "file": "assets/dialogues/ch3_transcend/3_source_zhong.dtl",
+    "line": 144,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3641,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 5,
+    "original": "关于死者",
+    "parts": [
+      "关于死者"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3644,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 8,
+    "original": "与其他人的关系",
+    "parts": [
+      "与其他人的关系"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3647,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 11,
+    "original": "关于别墅的客房",
+    "parts": [
+      "关于别墅的客房"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3651,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 15,
+    "original": "关于委托",
+    "parts": [
+      "关于委托"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3654,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 18,
+    "original": "询问委托的原因",
+    "parts": [
+      "询问委托的原因"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3657,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 21,
+    "original": "说出穆执的梦魇",
+    "parts": [
+      "说出穆执的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Mu.NightmareSolved} == true and {SourcePlot.ReportedMu} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3661,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 27,
+    "original": "说出周崇安的梦魇",
+    "parts": [
+      "说出周崇安的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhou.NightmareSolved} == true and {SourcePlot.ReportedZhou} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3665,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 33,
+    "original": "说出林玖的梦魇",
+    "parts": [
+      "说出林玖的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Lin.NightmareSolved} == true and {SourcePlot.ReportedLin} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3669,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 39,
+    "original": "说出钟歧的梦魇",
+    "parts": [
+      "说出钟歧的梦魇"
+    ],
+    "condition": "{Ch1.PrivateChat.Zhong.NightmareSolved} == true and {SourcePlot.ReportedZhong} != true",
+    "depth": 1
+  },
+  {
+    "paragraph": 3673,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 45,
+    "original": "还没有",
+    "parts": [
+      "还没有"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3675,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 47,
+    "original": "指认凶手",
+    "parts": [
+      "指认凶手"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3677,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 49,
+    "original": "是的",
+    "parts": [
+      "是的"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3679,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 51,
+    "original": "穆执",
+    "parts": [
+      "穆执"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3681,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 54,
+    "original": "周崇安",
+    "parts": [
+      "周崇安"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3683,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 57,
+    "original": "林玖",
+    "parts": [
+      "林玖"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3685,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 60,
+    "original": "乌停湘",
+    "parts": [
+      "乌停湘"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3687,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 63,
+    "original": "钟歧",
+    "parts": [
+      "钟歧"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3689,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 66,
+    "original": "我再想想",
+    "parts": [
+      "我再想想"
+    ],
+    "condition": "",
+    "depth": 2
+  },
+  {
+    "paragraph": 3691,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 69,
+    "original": "还是算了",
+    "parts": [
+      "还是算了"
+    ],
+    "condition": "",
+    "depth": 1
+  },
+  {
+    "paragraph": 3692,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 71,
+    "original": "暂时没有问题了",
+    "parts": [
+      "暂时没有问题了"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3696,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 77,
+    "original": "确定",
+    "parts": [
+      "确定"
+    ],
+    "condition": "",
+    "depth": 0
+  },
+  {
+    "paragraph": 3699,
+    "file": "assets/dialogues/ch3_transcend/3_source_butler.dtl",
+    "line": 81,
+    "original": "我再想想",
+    "parts": [
+      "我再想想"
+    ],
+    "condition": "",
+    "depth": 0
+  }
+]

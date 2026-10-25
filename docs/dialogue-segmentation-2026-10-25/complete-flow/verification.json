@@ -1,0 +1,30 @@
+{
+  "included_dialogue_events": 1874,
+  "included_choice_occurrences": 686,
+  "distinct_choice_labels": 173,
+  "choice_labels_with_linebreaks": 12,
+  "preserved_long_dialogues": 71,
+  "preserved_long_dialogue_segments": 246,
+  "original_dialogue_readback_equal": true,
+  "original_choice_labels_recombine_equal": true,
+  "original_reference_sha256": "09e89d1fd2f8060390be503838d7ed4c63cbfc92c29c5ac2c1eebf974ecf7d04",
+  "source_reference_unchanged": true,
+  "untranslated_condition_states": [],
+  "game_scripts_changed": false,
+  "output_sha256": "de686bc5fda887eab0037a097767686a35b543d58caa3cdf9991c7748bc9f7d6",
+  "pages": 155,
+  "all_distinct_choice_labels_found_in_render": true,
+  "no_out_of_page_text": true,
+  "no_replacement_characters": true,
+  "minimum_nonblank_font_pt": 9,
+  "long_option_pages": [
+    59,
+    60,
+    85,
+    99,
+    120
+  ],
+  "render_engine": "Microsoft Word native PDF export; PDFium PNG rasterization",
+  "visually_reviewed_pages": 155,
+  "visual_review_result": "All 155 pages inspected after final render; no clipped text, missing glyphs, overlapping text or broken option labels observed."
+}
