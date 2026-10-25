@@ -1,0 +1,24 @@
+{
+  "reference_sha256": "09e89d1fd2f8060390be503838d7ed4c63cbfc92c29c5ac2c1eebf974ecf7d04",
+  "format": "策划案四、游戏流程",
+  "entries": 71,
+  "original_segments": 246,
+  "added_connectors": 4,
+  "each_original_entry_once": true,
+  "docx_original_text_readback_equal": true,
+  "game_scripts_changed": false,
+  "context_events": 279,
+  "output_sha256": "139942861d1d9f62e728ff8f71c79e675c2f7d33a6212d76bf1999d218ae2998",
+  "pages": 30,
+  "reference_pages": 78,
+  "reference_pattern_pages": [
+    25,
+    53,
+    55,
+    61
+  ],
+  "render_engine": "Microsoft Word native PDF export; PDFium PNG rasterization",
+  "no_out_of_page_text": true,
+  "template_opaque_parts_preserved": 57,
+  "original_reference_unchanged": true
+}

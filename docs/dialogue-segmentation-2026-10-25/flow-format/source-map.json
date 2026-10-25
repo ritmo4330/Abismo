@@ -1,0 +1,4202 @@
+[
+  {
+    "paragraph": 6,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 2,
+    "segment": 0,
+    "text": "【谜题】\n女仆死了。在2006年12月20日。一个风雪交加的夜里。",
+    "record": "001"
+  },
+  {
+    "paragraph": 7,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 2,
+    "segment": 1,
+    "text": "这时海浪依然拍打着离岸的小岛。海里藏着幽暗的故事。",
+    "record": "001"
+  },
+  {
+    "paragraph": 8,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 2,
+    "segment": 2,
+    "text": "她的尸体仰躺在地上，血迹浸染了红木地板上的花纹，脑袋被巨大的斧头近乎劈开。斧头上映出的金属光泽昭示着这无疑是前厅的那把巨斧。",
+    "record": "001"
+  },
+  {
+    "paragraph": 9,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 2,
+    "segment": 3,
+    "text": "甲胄手中的武器。\n重五十斤的杀人利器。",
+    "record": "001"
+  },
+  {
+    "paragraph": 10,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "“所以……我们现在要怎么办？”女高中生低着头说道。",
+    "record": "002"
+  },
+  {
+    "paragraph": 11,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 9,
+    "segment": 1,
+    "text": "“和外界连接的唯一通路被破坏了，电话线也被切断了，我们现在根本没法联系上外界。”律师用手撑在桌上，眉头紧锁。",
+    "record": "002"
+  },
+  {
+    "paragraph": 12,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 9,
+    "segment": 2,
+    "text": "“到底是谁做的！赶紧站出来，否则我就一个一个的逼你出来。”壮汉捏紧了手中的拳头，朗声说道。",
+    "record": "002"
+  },
+  {
+    "paragraph": 13,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 9,
+    "segment": 3,
+    "text": "“冒昧打扰，不过像客人们这样下去，恐怕什么问题也解决不了。”穿着工作制服的女人正弯腰添着水，话语却有些不容置疑。",
+    "record": "002"
+  },
+  {
+    "paragraph": 14,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 9,
+    "segment": 4,
+    "text": "“不如这样，容在下来确认各位这段时间的行踪，讨论下各位的作案可能吧。”",
+    "record": "002"
+  },
+  {
+    "paragraph": 15,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 9,
+    "segment": 5,
+    "text": "“我没问题……”一直待在角落的眼镜男也举起了手，怯生生地搭上了话。",
+    "record": "002"
+  },
+  {
+    "paragraph": 16,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 9,
+    "segment": 6,
+    "text": "“啧，没别的办法了吗。”壮汉拧过头，看起来对这个决定相当不满。",
+    "record": "002"
+  },
+  {
+    "paragraph": 17,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 9,
+    "segment": 7,
+    "text": "这样的时刻，X却一点也不见担心，品尝着刚添上的茶点，“不过不管怎么样，我都没有嫌疑吧？”",
+    "record": "002"
+  },
+  {
+    "paragraph": 18,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 9,
+    "segment": 8,
+    "text": "点心掉到了地上，X“不好意思”地说着，有些费力地用左手够着掉落的东西，“毕竟，我的身体有问题嘛。”",
+    "record": "002"
+  },
+  {
+    "paragraph": 19,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 9,
+    "segment": 9,
+    "text": "“是啊，目前来看X的嫌疑很低。毕竟惯用手无法使用对行动的影响很大，这是毋庸置疑的。”女人鞠躬断言道。",
+    "record": "002"
+  },
+  {
+    "paragraph": 20,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 20,
+    "segment": 0,
+    "text": "2006年12月20日，不知道这是否是一个特殊的日子，至少过去不是。但，今后或许会变成一个特殊的日子。某人的祭日。",
+    "record": "003"
+  },
+  {
+    "paragraph": 21,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 20,
+    "segment": 1,
+    "text": "管家死了。",
+    "record": "003"
+  },
+  {
+    "paragraph": 22,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 20,
+    "segment": 2,
+    "text": "那个总是领导着我们的女人，死了。",
+    "record": "003"
+  },
+  {
+    "paragraph": 23,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 20,
+    "segment": 3,
+    "text": "踏上生活区去顶楼的楼梯。每走一步，好像便往深渊坠落了一分。",
+    "record": "003"
+  },
+  {
+    "paragraph": 24,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 20,
+    "segment": 4,
+    "text": "五层楼的距离，不算短，但也不长。如今却仿佛凌迟一般折磨。",
+    "record": "003"
+  },
+  {
+    "paragraph": 25,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 20,
+    "segment": 5,
+    "text": "终于到了。推开门……先是铺面的飞雪，然后是，血的腥气。",
+    "record": "003"
+  },
+  {
+    "paragraph": 26,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 20,
+    "segment": 6,
+    "text": "她的尸体被遗弃在天台的暴雪里，胸口插着一把匕首，血迹染上灰白色。隐没的日光也无法拯救她。",
+    "record": "003"
+  },
+  {
+    "paragraph": 27,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 28,
+    "segment": 0,
+    "text": "“所以……现在我们要怎么做？”眼镜男在角落里浑身颤抖着。",
+    "record": "004"
+  },
+  {
+    "paragraph": 28,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 28,
+    "segment": 1,
+    "text": "“还能怎么办。暴风雪下的太大了，我们必须在这等上几天。”律师习惯性地交叉起双手，盖在自己的额头上。",
+    "record": "004"
+  },
+  {
+    "paragraph": 29,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 28,
+    "segment": 2,
+    "text": "“而且电话线也……”女高中生坐在沙发上小声念叨着。",
+    "record": "004"
+  },
+  {
+    "paragraph": 30,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 28,
+    "segment": 3,
+    "text": "“这鬼地方到底怎么回事，又是暴风雪又是死人的，真晦气。”壮汉靠在墙边往地上啐了一口。",
+    "record": "004"
+  },
+  {
+    "paragraph": 31,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 28,
+    "segment": 4,
+    "text": "“那个，我应该不能作案吧。”X举起了手，所有人都看了过来。",
+    "record": "004"
+  },
+  {
+    "paragraph": 32,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 28,
+    "segment": 5,
+    "text": "“毕竟我的身体出了点问题嘛。”尽管如此，X依然无动于衷地吃着手中刚递上的肉饼。",
+    "record": "004"
+  },
+  {
+    "paragraph": 33,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 28,
+    "segment": 6,
+    "text": "“是啊，X如果作案的话，确实会比一般人困难呢。毕竟双腿残疾，根本无法独自进行复杂的行动。”律师放下交叉的手，微微点头。",
+    "record": "004"
+  },
+  {
+    "paragraph": 34,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_puzzle_story.dtl",
+    "line": 28,
+    "segment": 7,
+    "text": "“当然如此……毕竟，我不是凶手。”X露出了完美的微笑。",
+    "record": "004"
+  },
+  {
+    "paragraph": 35,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_challenge_rules.dtl",
+    "line": 2,
+    "segment": 0,
+    "text": "【挑战读者】\n挑战读者：\n1、故事中所有出场人物均已交代完毕，故事中不存在对没有提到过的人物的隐藏。",
+    "record": "005"
+  },
+  {
+    "paragraph": 36,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_challenge_rules.dtl",
+    "line": 2,
+    "segment": 1,
+    "text": "2、故事中不存在省力或可远程操控的机关，凶手的杀人行为均为亲力亲为。",
+    "record": "005"
+  },
+  {
+    "paragraph": 37,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_challenge_rules.dtl",
+    "line": 2,
+    "segment": 2,
+    "text": "3、故事中记录的内容一定为客观事实，不存在假死或虚构。",
+    "record": "005"
+  },
+  {
+    "paragraph": 38,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_challenge_rules.dtl",
+    "line": 2,
+    "segment": 3,
+    "text": "4、故事中有且仅有一个真凶，没有帮凶，而且可以直接告诉诸位读者，就是X。",
+    "record": "005"
+  },
+  {
+    "paragraph": 39,
+    "file": "assets/dialogues/ch1_snow_villa/1_1_challenge_rules.dtl",
+    "line": 2,
+    "segment": 4,
+    "text": "现在，请各位告诉我，X是如何完成以上两起案件的？",
+    "record": "005"
+  },
+  {
+    "paragraph": 48,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 158,
+    "segment": 0,
+    "text": "那是小时候的我和我的妈妈。在我很小的时候，父母离异，我跟着妈妈生活。",
+    "record": null
+  },
+  {
+    "paragraph": 49,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 159,
+    "segment": 0,
+    "text": "在我稍微懂事一点后，妈妈给我讲了一个关于神明的故事。",
+    "record": null
+  },
+  {
+    "paragraph": 50,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 160,
+    "segment": 0,
+    "text": "在很久很久以前，大概是地球上第一次出现生命的时候，便诞生了一种存在，我们称之为‘神明’。",
+    "record": "006"
+  },
+  {
+    "paragraph": 51,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 160,
+    "segment": 1,
+    "text": "确切来说，祂不是任何一种生物，而是一种力量。",
+    "record": "006"
+  },
+  {
+    "paragraph": 52,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 160,
+    "segment": 2,
+    "text": "祂附着在一个生物体内，使其拥有至高无上的能力，由此维护世界生态的秩序，并引导生物进化。",
+    "record": "006"
+  },
+  {
+    "paragraph": 53,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 161,
+    "segment": 0,
+    "text": "神明每百年更替一代，可以由上一代神明制定传授，也可交由自然选择。",
+    "record": "007"
+  },
+  {
+    "paragraph": 54,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 161,
+    "segment": 1,
+    "text": "每代神明不一定是同一种生物，但无一例外的是，每代神明都有一群追随者，他们是‘守灵族’和‘通灵族’。",
+    "record": "007"
+  },
+  {
+    "paragraph": 55,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 161,
+    "segment": 2,
+    "text": "这两个族群联系紧密，守灵族的职责是在新一代神明诞生后找到祂，并引导其觉醒；",
+    "record": "007"
+  },
+  {
+    "paragraph": 56,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 161,
+    "segment": 3,
+    "text": "通灵族的职责是通过一类既定的暗号与神明沟通，并借助神明的力量完成一些事件。",
+    "record": "007"
+  },
+  {
+    "paragraph": 57,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 162,
+    "segment": 0,
+    "text": "而我的妈妈，正是通灵族的一员。",
+    "record": "008"
+  },
+  {
+    "paragraph": 58,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 162,
+    "segment": 1,
+    "text": "我出生的那段时间，是通灵族人集会并询问神明关于下一代神明的事情的时候。",
+    "record": "008"
+  },
+  {
+    "paragraph": 59,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 162,
+    "segment": 2,
+    "text": "因为临近预产期，妈妈缺席了，却也因此躲过了警方的抓捕。",
+    "record": "008"
+  },
+  {
+    "paragraph": 60,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 162,
+    "segment": 3,
+    "text": "那一次集会被无关人士目击并报警，在场的族人全部以‘邪教集会’为名被逮捕。",
+    "record": "008"
+  },
+  {
+    "paragraph": 61,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 163,
+    "segment": 0,
+    "text": "那时我才知道，爸爸和妈妈离异的原因也是妈妈的身份。",
+    "record": null
+  },
+  {
+    "paragraph": 62,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 164,
+    "segment": 0,
+    "text": "讲完这段故事后，妈妈在桌上摆好通灵法阵，向神明祈求关于我未来的预言，于是就有了夹在相框中的那张纸——",
+    "record": null
+  },
+  {
+    "paragraph": 63,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 165,
+    "segment": 0,
+    "text": "只身赴往明日，却生踟蹰迷茫。哀鸣兮于幽谷，沉默兮于汪洋。黑白无须颠倒，善恶终将还偿。若使临渊待旦，必见朗朗天光。",
+    "record": null
+  },
+  {
+    "paragraph": 64,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 166,
+    "segment": 0,
+    "text": "还有一个玻璃制的千纸鹤吊坠，作为我的护身符。",
+    "record": null
+  },
+  {
+    "paragraph": 65,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 167,
+    "segment": 0,
+    "text": "我和妈妈约定好，传承通灵族的使命，用创造和给予回馈这个世界。",
+    "record": null
+  },
+  {
+    "paragraph": 66,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 168,
+    "segment": 0,
+    "text": "2012年的时空裂缝事件——用异测会的话来说叫黑门事件——我的妈妈为了借助神明的力量挽救危在旦夕的世界，试图布下覆盖整座城市的通灵法阵，却在过程中遇难……",
+    "record": null
+  },
+  {
+    "paragraph": 67,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 169,
+    "segment": 0,
+    "text": "我在神明的帮助下找到了妈妈的遗体，接过了她的遗愿，继续完成了所有法阵的布置。",
+    "record": null
+  },
+  {
+    "paragraph": 68,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 170,
+    "segment": 0,
+    "text": "在那之后，时空裂缝消失了，但在舆论认为我们是那教分子的情况下，我为了保全自己，不得不撇清我与妈妈的关系……",
+    "record": null
+  },
+  {
+    "paragraph": 69,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 171,
+    "segment": 0,
+    "text": "我不能说我知道她通灵族的身份，我不能说我布置了通灵法阵，我不能说我们借助神明的力量挽救了世界，我……我讨厌那样的自己……是我……是我背叛了妈妈……",
+    "record": null
+  },
+  {
+    "paragraph": 72,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 176,
+    "segment": 0,
+    "text": "那是记载了通灵法阵的使用方法的书，由通灵族代代相传。",
+    "record": "009"
+  },
+  {
+    "paragraph": 73,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 176,
+    "segment": 1,
+    "text": "常规的通灵法阵由五行祭品和中央祭品组成，先在纸上画下一个五芒星，",
+    "record": "009"
+  },
+  {
+    "paragraph": 74,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 176,
+    "segment": 2,
+    "text": "再把五行物品按照金、水、木、火、土的五行相生顺序，顺时针放在五芒星的五角，最后在五芒星中央放上中央祭品。",
+    "record": "009"
+  },
+  {
+    "paragraph": 75,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 177,
+    "segment": 0,
+    "text": "其中央祭品需要遵循‘求什么，就要献什么’的原则，献上与求祈价值相当的祭品。最后等待十分钟，火焰将在法阵上方燃起，这个时候向神明默祷，祈求就能得到回应。",
+    "record": null
+  },
+  {
+    "paragraph": 76,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 178,
+    "segment": 0,
+    "text": "你在别墅的房间里也布置了一个通灵法阵吧？能解释一下吗？",
+    "record": null
+  },
+  {
+    "paragraph": 77,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 179,
+    "segment": 0,
+    "text": "好……当时我看见梅塔的时候，很害怕，于是在房间里布下通灵法阵，想要寻求神明的帮助。但是明明时间已经足够十分钟了，法阵都没有任何反应。",
+    "record": null
+  },
+  {
+    "paragraph": 78,
+    "file": "assets/dialogues/ch2_deepening/2_5_lin.dtl",
+    "line": 180,
+    "segment": 0,
+    "text": "为什么法阵会没有反应呢？",
+    "record": null
+  },
+  {
+    "paragraph": 82,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 73,
+    "segment": 0,
+    "text": "这应该是我好久以前看到的报纸了，大概是黑门事件的时候。",
+    "record": "010"
+  },
+  {
+    "paragraph": 83,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 73,
+    "segment": 1,
+    "text": "当时有传言说黑门事件的始作俑者是1999年抓捕的那群邪教分子，所以我找来报纸了解了一下。",
+    "record": "010"
+  },
+  {
+    "paragraph": 84,
+    "file": "assets/dialogues/ch2_deepening/2_5_wu.dtl",
+    "line": 73,
+    "segment": 2,
+    "text": "不过我觉得这也太奇怪了。",
+    "record": "010"
+  },
+  {
+    "paragraph": 88,
+    "file": "assets/dialogues/source/source_nightmare_mu.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "火焰在木制的房梁与易燃的地毯上发了疯似的蔓延着，没过多久，你便停在了不可能再前进之处。",
+    "record": "069"
+  },
+  {
+    "paragraph": 89,
+    "file": "assets/dialogues/source/source_nightmare_mu.dtl",
+    "line": 3,
+    "segment": 1,
+    "text": "那扇先前紧闭着的门已经敞开，而从中冲出的却是炙热无比的火舌。",
+    "record": "069"
+  },
+  {
+    "paragraph": 90,
+    "file": "assets/dialogues/source/source_nightmare_mu.dtl",
+    "line": 3,
+    "segment": 2,
+    "text": "再稍往里的位置，有一扇关闭的门被坠落的房梁死死堵住，火势同样异常猛烈。",
+    "record": "069"
+  },
+  {
+    "paragraph": 91,
+    "file": "assets/dialogues/source/source_nightmare_mu.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "“为什么……还要回来？”女孩的声音混杂在火焰的迸裂声中，从身后传来。",
+    "record": "070"
+  },
+  {
+    "paragraph": 92,
+    "file": "assets/dialogues/source/source_nightmare_mu.dtl",
+    "line": 4,
+    "segment": 1,
+    "text": "你回头看去，时今不知何时出现在了你的身后。火光在她的脸上跳动，却无法照亮眉宇间的阴翳。",
+    "record": "070"
+  },
+  {
+    "paragraph": 93,
+    "file": "assets/dialogues/source/source_nightmare_mu.dtl",
+    "line": 4,
+    "segment": 2,
+    "text": "她面无表情地注视着你，并没有说什么额外的话，却无端地让处在火场中的你感到刺骨的严寒。",
+    "record": "070"
+  },
+  {
+    "paragraph": 94,
+    "file": "assets/dialogues/source/source_nightmare_mu.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "你上前拉住她的手，拽着她离开火场，但没跑几步，你们前方的路突然被坠落而下的房梁堵死，火焰继续在地毯上蔓延，向着你们一步步逼近。",
+    "record": null
+  },
+  {
+    "paragraph": 95,
+    "file": "assets/dialogues/source/source_nightmare_mu.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "“逃不掉的。”她淡淡地说，“为什么要回来呢？你不该尽早披上你那层虚伪的外衣扬长而去吗？为什么要回来呢？”",
+    "record": null
+  },
+  {
+    "paragraph": 96,
+    "file": "assets/dialogues/source/source_nightmare_mu.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "“假惺惺的善良，令人作呕。”下一秒，她猛得挣开你的手，朝着熊熊大火退去。",
+    "record": null
+  },
+  {
+    "paragraph": 97,
+    "file": "assets/dialogues/source/source_nightmare_mu.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "她的身影在火光中逐渐淡去，而接下来，在你的头顶，又一段房梁轰然坠下……",
+    "record": null
+  },
+  {
+    "paragraph": 99,
+    "file": "assets/dialogues/source/source_nightmare_zhou.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "那只提线木偶，就被挂在储物间的门前。",
+    "record": null
+  },
+  {
+    "paragraph": 100,
+    "file": "assets/dialogues/source/source_nightmare_zhou.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "“每个小人都有他的灵魂……”你想起了爷爷的话。",
+    "record": null
+  },
+  {
+    "paragraph": 101,
+    "file": "assets/dialogues/source/source_nightmare_zhou.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "“恐怕以后只能是植物人了……”你想到了已然五感尽失，如木偶般静静地躺在实验床上的时今。",
+    "record": null
+  },
+  {
+    "paragraph": 102,
+    "file": "assets/dialogues/source/source_nightmare_zhou.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "“我们，就如同提线木偶一般上演着一幕幕精彩的戏剧而不自知……”你想起了这个世界的真相。",
+    "record": null
+  },
+  {
+    "paragraph": 103,
+    "file": "assets/dialogues/source/source_nightmare_zhou.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "那只了无生机的木偶仿佛正用着空洞的眼神看着你，不知为何，你感受到了前所未有的恐惧——",
+    "record": null
+  },
+  {
+    "paragraph": 104,
+    "file": "assets/dialogues/source/source_nightmare_zhou.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "你害怕它的死寂，害怕缠绕在它身上的丝线，害怕它逆来顺受的命运……",
+    "record": null
+  },
+  {
+    "paragraph": 105,
+    "file": "assets/dialogues/source/source_nightmare_zhou.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "你冲上前去，把它从门上扯了下来，发了疯似的掰断了它的四肢，扯断了它身上的丝线，将它狠狠地摔在地上，一脚踹到了墙角。",
+    "record": null
+  },
+  {
+    "paragraph": 106,
+    "file": "assets/dialogues/source/source_nightmare_zhou.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "你喘着气，躲进了储物间。",
+    "record": null
+  },
+  {
+    "paragraph": 107,
+    "file": "assets/dialogues/source/source_nightmare_zhou.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "…………",
+    "record": null
+  },
+  {
+    "paragraph": 108,
+    "file": "assets/dialogues/source/source_nightmare_zhou.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "离开储物间时，你无意间瞥到了墙角提线木偶的残骸，逃也似的蒙着头跑出了休息间。",
+    "record": null
+  },
+  {
+    "paragraph": 110,
+    "file": "assets/dialogues/source/source_nightmare_lin.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "时间观念什么的已不再重要，你趴在妈妈的遗体上嚎啕大哭。",
+    "record": "068"
+  },
+  {
+    "paragraph": 111,
+    "file": "assets/dialogues/source/source_nightmare_lin.dtl",
+    "line": 3,
+    "segment": 1,
+    "text": "暗褐色的血液早已干涸，曾经带给你温暖的躯体已永远冰冷，芬芳的清香被空气中弥散的血腥味鸠占鹊巢。",
+    "record": "068"
+  },
+  {
+    "paragraph": 112,
+    "file": "assets/dialogues/source/source_nightmare_lin.dtl",
+    "line": 3,
+    "segment": 2,
+    "text": "你的脑海中浮现出无数的与妈妈在一起时的欢乐时光，而昔日有多么接近天堂，此刻就有多么逼似地狱。",
+    "record": "068"
+  },
+  {
+    "paragraph": 113,
+    "file": "assets/dialogues/source/source_nightmare_lin.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "空荡荡的废墟中，只有你一人的哭声不断回响，除此之外，只是凄厉地怒吼着的狂风。你感觉，你就像路边的那盏盏孤灯，从此再也无依无靠，只能落得被黑暗吞噬的命运。",
+    "record": null
+  },
+  {
+    "paragraph": 114,
+    "file": "assets/dialogues/source/source_nightmare_lin.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "你失去了唯一的至亲，也失去了一直定在心中的那根心锚……",
+    "record": null
+  },
+  {
+    "paragraph": 116,
+    "file": "assets/dialogues/source/source_nightmare_zhong.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "爷爷正站在那个被称为终极秘密的光球前，露出和蔼的笑容，向你伸出了一只手，似在邀请，又似在问好。",
+    "record": "071"
+  },
+  {
+    "paragraph": 117,
+    "file": "assets/dialogues/source/source_nightmare_zhong.dtl",
+    "line": 3,
+    "segment": 1,
+    "text": "但当你尝试着握住他的手时，他却惊吓般用力将你猛得一推，你向后倒去，",
+    "record": "071"
+  },
+  {
+    "paragraph": 118,
+    "file": "assets/dialogues/source/source_nightmare_zhong.dtl",
+    "line": 3,
+    "segment": 2,
+    "text": "而在你们中间，一面由无数根红线织成的墙挡在了你的面前。",
+    "record": "071"
+  },
+  {
+    "paragraph": 119,
+    "file": "assets/dialogues/source/source_nightmare_zhong.dtl",
+    "line": 3,
+    "segment": 3,
+    "text": "又是那种彻骨的恐惧席卷了你的心头，那一根根红线扭曲着向你扑来，似要将你吞噬。",
+    "record": "071"
+  },
+  {
+    "paragraph": 120,
+    "file": "assets/dialogues/source/source_nightmare_zhong.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "就在这时，你的后背接触到了冰凉的地面。梦，醒了。",
+    "record": null
+  },
+  {
+    "paragraph": 123,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "当你回到大厅时，看见乌停湘从会客厅的方向回来，一副心事重重的模样。",
+    "record": null
+  },
+  {
+    "paragraph": 124,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 13,
+    "segment": 0,
+    "text": "你们聊了什么？",
+    "record": null
+  },
+  {
+    "paragraph": 125,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 14,
+    "segment": 0,
+    "text": "没……没什么重要的，不用在意。我们接着找凶手吧。",
+    "record": null
+  },
+  {
+    "paragraph": 126,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 15,
+    "segment": 0,
+    "text": "她头也不回地走开了，你依稀听见她口中说出了“对不起”三个字。",
+    "record": null
+  },
+  {
+    "paragraph": 131,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 86,
+    "segment": 0,
+    "text": "你看到了啊，那我也没什么好隐瞒的了。",
+    "record": "023"
+  },
+  {
+    "paragraph": 132,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 86,
+    "segment": 1,
+    "text": "我都想起来了，我不来自任何一个平行世界，用你们的话来说，我来自上层世界。",
+    "record": "023"
+  },
+  {
+    "paragraph": 133,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 86,
+    "segment": 2,
+    "text": "我曾经负责管理伽马世界线，也就是这里的林玖所在的那个世界线。",
+    "record": "023"
+  },
+  {
+    "paragraph": 134,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 87,
+    "segment": 0,
+    "text": "但由于黑门事件的发生，我一遍又一遍地试图找到解决的办法，却徒劳无功。",
+    "record": "024"
+  },
+  {
+    "paragraph": 135,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 87,
+    "segment": 1,
+    "text": "老师最终还是发现了我的情况，不再让我接触箱庭，",
+    "record": "024"
+  },
+  {
+    "paragraph": 136,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 87,
+    "segment": 2,
+    "text": "为了治疗我的心理障碍采用了箱庭疗法，将我的意识投放到伽马世界线，让我在这一段人生阅历中有所成长。",
+    "record": "024"
+  },
+  {
+    "paragraph": 139,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 125,
+    "segment": 0,
+    "text": "管家没有什么奇怪的地方，他只是给我看了一封信，",
+    "record": "030"
+  },
+  {
+    "paragraph": 140,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 125,
+    "segment": 1,
+    "text": "至于信是哪里来的，他也不知道，估计只是这个梦境中的工具人吧。",
+    "record": "030"
+  },
+  {
+    "paragraph": 141,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 125,
+    "segment": 2,
+    "text": "信的内容让我回想起了我的记忆，不过上面写着阅后即焚，我在读完后就烧掉了。",
+    "record": "030"
+  },
+  {
+    "paragraph": 143,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 22,
+    "segment": 0,
+    "text": "当你回到大厅时，看见乌停湘从会客厅的方向回来，一副坚决的模样。",
+    "record": null
+  },
+  {
+    "paragraph": 144,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 23,
+    "segment": 0,
+    "text": "你们聊了什么？",
+    "record": null
+  },
+  {
+    "paragraph": 145,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 24,
+    "segment": 0,
+    "text": "我有话要和大家一起说。",
+    "record": null
+  },
+  {
+    "paragraph": 146,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 25,
+    "segment": 0,
+    "text": "于是在乌停湘的召集下，所有人聚在了一起，除了管家。",
+    "record": null
+  },
+  {
+    "paragraph": 147,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 26,
+    "segment": 0,
+    "text": "刚刚我想起来了一切，我想我有必要告诉你们。",
+    "record": null
+  },
+  {
+    "paragraph": 148,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 27,
+    "segment": 0,
+    "text": "是什么事？我还从来没见过你这么严肃的样子。",
+    "record": null
+  },
+  {
+    "paragraph": 149,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 28,
+    "segment": 0,
+    "text": "和我们也有关系吗？",
+    "record": null
+  },
+  {
+    "paragraph": 150,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 29,
+    "segment": 0,
+    "text": "嗯。我其实是来自上层世界的人。",
+    "record": null
+  },
+  {
+    "paragraph": 151,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 30,
+    "segment": 0,
+    "text": "上层世界……",
+    "record": null
+  },
+  {
+    "paragraph": 152,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 31,
+    "segment": 0,
+    "text": "用你的话来说，叫做神明之境——但我们并非是神。",
+    "record": "011"
+  },
+  {
+    "paragraph": 153,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 31,
+    "segment": 1,
+    "text": "上层世界的人创造了箱庭，同时开创了箱庭计划，旨在通过建构箱庭满足社会学等学科实验的需要。",
+    "record": "011"
+  },
+  {
+    "paragraph": 154,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 31,
+    "segment": 2,
+    "text": "箱庭计划中不止存在你们所在的这一个箱庭，你们所在的这个箱庭由我的老师建构，",
+    "record": "011"
+  },
+  {
+    "paragraph": 155,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 31,
+    "segment": 3,
+    "text": "而我曾经管理过伽马世界线，也就是林姐姐你所在的那个平行世界。",
+    "record": "011"
+  },
+  {
+    "paragraph": 156,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 32,
+    "segment": 0,
+    "text": "所以……时空裂缝事件是……",
+    "record": null
+  },
+  {
+    "paragraph": 157,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 33,
+    "segment": 0,
+    "text": "刚刚我才知道，我在管理伽马世界线的时候，由于过度介入，引发了能量不守恒的漏洞，时空裂缝就是因此产生的。",
+    "record": "012"
+  },
+  {
+    "paragraph": 158,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 33,
+    "segment": 1,
+    "text": "在那之后，我不断将世界在终结之前回溯，希望找到解决办法。",
+    "record": "012"
+  },
+  {
+    "paragraph": 159,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 33,
+    "segment": 2,
+    "text": "但当时的我没有选择求助老师，而是一遍又一遍回溯，以为这样终究可以找到出路……",
+    "record": "012"
+  },
+  {
+    "paragraph": 160,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 34,
+    "segment": 0,
+    "text": "但是一个能量守恒体系内的能量缺失，是不可能通过体系内部的因素解决的。",
+    "record": null
+  },
+  {
+    "paragraph": 161,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 35,
+    "segment": 0,
+    "text": "没错，所以一切都是徒劳无功。",
+    "record": "013"
+  },
+  {
+    "paragraph": 162,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 35,
+    "segment": 1,
+    "text": "直到将近一年后，老师发现了我的异常，不再让我接触箱庭。",
+    "record": "013"
+  },
+  {
+    "paragraph": 163,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 35,
+    "segment": 2,
+    "text": "那时的我有了严重的心理障碍，于是老师和零姐姐一起制定了箱庭疗法的计划，",
+    "record": "013"
+  },
+  {
+    "paragraph": 164,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 35,
+    "segment": 3,
+    "text": "把我的意识送入伽马世界线中，并用催眠的方式压抑住我在上层世界的记忆，让我在这段人生阅历中有所成长。",
+    "record": "013"
+  },
+  {
+    "paragraph": 165,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 36,
+    "segment": 0,
+    "text": "同时送入的还有时空裂缝的修补措施，也就是林姐姐你那天捡到的白色立方体。",
+    "record": null
+  },
+  {
+    "paragraph": 166,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 37,
+    "segment": 0,
+    "text": "原来如此……好多事情都说通了。",
+    "record": null
+  },
+  {
+    "paragraph": 167,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 38,
+    "segment": 0,
+    "text": "你跟我们说这些，应该不只是为了坦白自己的身份吧？",
+    "record": null
+  },
+  {
+    "paragraph": 168,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 39,
+    "segment": 0,
+    "text": "没错，我还有一件事要说……",
+    "record": null
+  },
+  {
+    "paragraph": 169,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 40,
+    "segment": 0,
+    "text": "各位，不好意思打扰一下——",
+    "record": null
+  },
+  {
+    "paragraph": 170,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 41,
+    "segment": 0,
+    "text": "管家突然出现在了大厅，打断了乌停湘的话。",
+    "record": null
+  },
+  {
+    "paragraph": 171,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 42,
+    "segment": 0,
+    "text": "刚刚我发现书房里上锁的那扇门被打开了，不过我从来没有在别墅里见过这样的房间。",
+    "record": null
+  },
+  {
+    "paragraph": 172,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 43,
+    "segment": 0,
+    "text": "……管家就是我的老师。",
+    "record": null
+  },
+  {
+    "paragraph": 173,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 44,
+    "segment": 0,
+    "text": "众人无不惊讶地看向管家，只见他仍然是那副从容不迫的模样。",
+    "record": null
+  },
+  {
+    "paragraph": 174,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 45,
+    "segment": 0,
+    "text": "好吧，乌停湘，你果然还是这么做了。重新自我介绍一下，我叫末雨，是一名建构师。用你们的话来说，我来自上层世界，也就是穆执认知中的神明之境。",
+    "record": null
+  },
+  {
+    "paragraph": 175,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 46,
+    "segment": 0,
+    "text": "钟歧冲到末雨面前，猛地向他的面门挥出一拳，却被他抬手挡下。",
+    "record": null
+  },
+  {
+    "paragraph": 176,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 47,
+    "segment": 0,
+    "text": "你到底有什么目的？",
+    "record": null
+  },
+  {
+    "paragraph": 177,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 48,
+    "segment": 0,
+    "text": "我来这里的目的有两个：其一，带走乌停湘；其二，修正异数，也就是你们。你们的存在威胁到了箱庭的稳定，而正巧有这么一个机会让你们聚集在这里，我便决定利用一下。",
+    "record": null
+  },
+  {
+    "paragraph": 178,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 49,
+    "segment": 0,
+    "text": "注意到了他说的话吗？“正巧有这么一个机会”",
+    "record": null
+  },
+  {
+    "paragraph": 179,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 50,
+    "segment": 0,
+    "text": "你的意思是梦境不是你构建的？",
+    "record": null
+  },
+  {
+    "paragraph": 180,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 51,
+    "segment": 0,
+    "text": "当然不是。不过为了保留一些悬念，我还是不把梦境的构建者说出来吧。接下来我们的推理游戏正常继续，你们依然可以向我指认凶手，在那之后我们就可以宣告结束了。",
+    "record": null
+  },
+  {
+    "paragraph": 181,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 52,
+    "segment": 0,
+    "text": "……我不想这样，我不想让他们被修正……",
+    "record": null
+  },
+  {
+    "paragraph": 182,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 53,
+    "segment": 0,
+    "text": "……对不起，乌停湘，不能由你这么任性。",
+    "record": null
+  },
+  {
+    "paragraph": 183,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 54,
+    "segment": 0,
+    "text": "说完后，建构师离开了大厅，往左边的走廊走去。林玖抱住了陷入痛苦的乌停湘，钟歧朝走廊的方向瞪了一眼，然后朝你走来",
+    "record": null
+  },
+  {
+    "paragraph": 184,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 55,
+    "segment": 0,
+    "text": "还有反制他的办法对吧？我记得梅塔潜意识房间里的笔记本提到过，他有能终结‘神’的武器！",
+    "record": null
+  },
+  {
+    "paragraph": 185,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 56,
+    "segment": 0,
+    "text": "到头来还要用到梅塔的计划，这倒是有些吊诡，不过如果能找到的话，不如试试看？",
+    "record": null
+  },
+  {
+    "paragraph": 187,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 65,
+    "segment": 0,
+    "text": "当你回到大厅时，看见乌停湘和管家一起从走廊的方向回来",
+    "record": null
+  },
+  {
+    "paragraph": 188,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 66,
+    "segment": 0,
+    "text": "你们聊了什么？",
+    "record": null
+  },
+  {
+    "paragraph": 189,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 67,
+    "segment": 0,
+    "text": "和大家一起说吧。",
+    "record": null
+  },
+  {
+    "paragraph": 190,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 68,
+    "segment": 0,
+    "text": "于是在乌停湘的召集下，所有人聚在了一起。",
+    "record": null
+  },
+  {
+    "paragraph": 191,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 69,
+    "segment": 0,
+    "text": "管家站在一旁，默默地注视着这一切",
+    "record": null
+  },
+  {
+    "paragraph": 192,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 70,
+    "segment": 0,
+    "text": "刚刚我想起来了一切，我想我有必要告诉你们。",
+    "record": null
+  },
+  {
+    "paragraph": 193,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 71,
+    "segment": 0,
+    "text": "是什么事？我还从来没见过你这么严肃的样子。",
+    "record": null
+  },
+  {
+    "paragraph": 194,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 72,
+    "segment": 0,
+    "text": "和我们也有关系吗？",
+    "record": null
+  },
+  {
+    "paragraph": 195,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 73,
+    "segment": 0,
+    "text": "嗯。我其实是来自上层世界的人。",
+    "record": null
+  },
+  {
+    "paragraph": 196,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 74,
+    "segment": 0,
+    "text": "上层世界……",
+    "record": null
+  },
+  {
+    "paragraph": 197,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 75,
+    "segment": 0,
+    "text": "用你的话来说，叫做神明之境——但我们并非是神。",
+    "record": "014"
+  },
+  {
+    "paragraph": 198,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 75,
+    "segment": 1,
+    "text": "上层世界的人创造了箱庭，同时开创了箱庭计划，旨在通过建构箱庭满足社会学等学科实验的需要。",
+    "record": "014"
+  },
+  {
+    "paragraph": 199,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 75,
+    "segment": 2,
+    "text": "箱庭计划中不止存在你们所在的这一个箱庭，你们所在的这个箱庭由我的老师建构，",
+    "record": "014"
+  },
+  {
+    "paragraph": 200,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 75,
+    "segment": 3,
+    "text": "而我曾经管理过伽马世界线，也就是林姐姐你所在的那个平行世界。",
+    "record": "014"
+  },
+  {
+    "paragraph": 201,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 76,
+    "segment": 0,
+    "text": "所以……时空裂缝事件是……",
+    "record": null
+  },
+  {
+    "paragraph": 202,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 77,
+    "segment": 0,
+    "text": "刚刚我才知道，我在管理伽马世界线的时候，由于过度介入，引发了能量不守恒的漏洞，时空裂缝就是因此产生的。",
+    "record": "015"
+  },
+  {
+    "paragraph": 203,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 77,
+    "segment": 1,
+    "text": "在那之后，我不断将世界在终结之前回溯，希望找到解决办法。",
+    "record": "015"
+  },
+  {
+    "paragraph": 204,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 77,
+    "segment": 2,
+    "text": "但当时的我没有选择求助老师，而是一遍又一遍回溯，以为这样终究可以找到出路……",
+    "record": "015"
+  },
+  {
+    "paragraph": 205,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 78,
+    "segment": 0,
+    "text": "但是一个能量守恒体系内的能量缺失，是不可能通过体系内部的因素解决的。",
+    "record": null
+  },
+  {
+    "paragraph": 206,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 79,
+    "segment": 0,
+    "text": "没错，所以一切都是徒劳无功。",
+    "record": "016"
+  },
+  {
+    "paragraph": 207,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 79,
+    "segment": 1,
+    "text": "直到将近一年后，老师发现了我的异常，不再让我接触箱庭。",
+    "record": "016"
+  },
+  {
+    "paragraph": 208,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 79,
+    "segment": 2,
+    "text": "那时的我有了严重的心理障碍，于是老师和零姐姐一起制定了箱庭疗法的计划，",
+    "record": "016"
+  },
+  {
+    "paragraph": 209,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 79,
+    "segment": 3,
+    "text": "把我的意识送入伽马世界线中，并用催眠的方式压抑住我在上层世界的记忆，让我在这段人生阅历中有所成长。",
+    "record": "016"
+  },
+  {
+    "paragraph": 210,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 80,
+    "segment": 0,
+    "text": "同时送入的还有时空裂缝的修补措施，也就是林姐姐你那天捡到的白色立方体。",
+    "record": null
+  },
+  {
+    "paragraph": 211,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 81,
+    "segment": 0,
+    "text": "原来如此……好多事情都说通了。",
+    "record": null
+  },
+  {
+    "paragraph": 212,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 82,
+    "segment": 0,
+    "text": "你跟我们说这些，应该不只是为了坦白自己的身份吧？",
+    "record": null
+  },
+  {
+    "paragraph": 213,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 83,
+    "segment": 0,
+    "text": "没错，我还有一件事要说……管家，就是我的老师。",
+    "record": null
+  },
+  {
+    "paragraph": 214,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 84,
+    "segment": 0,
+    "text": "众人无不惊讶地看向管家，只见他仍然是那副从容不迫的模样。",
+    "record": null
+  },
+  {
+    "paragraph": 215,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 85,
+    "segment": 0,
+    "text": "各位，重新自我介绍一下，我叫末雨，是一名建构师。用你们的话来说，我来自上层世界，也就是穆执认知中的神明之境。",
+    "record": null
+  },
+  {
+    "paragraph": 216,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 86,
+    "segment": 0,
+    "text": "钟歧冲到末雨面前，似乎想要给他一拳，却被乌停湘拦了下来。",
+    "record": null
+  },
+  {
+    "paragraph": 217,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 87,
+    "segment": 0,
+    "text": "请不要这样，有话好好说……",
+    "record": null
+  },
+  {
+    "paragraph": 218,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 88,
+    "segment": 0,
+    "text": "你到底有什么目的？",
+    "record": null
+  },
+  {
+    "paragraph": 219,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 89,
+    "segment": 0,
+    "text": "我来这里的目的有两个：其一，带走乌停湘；其二，修正异数，也就是你们。你们的存在威胁到了箱庭的稳定，而正巧有这么一个机会让你们聚集在这里，我便决定利用一下。",
+    "record": null
+  },
+  {
+    "paragraph": 220,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 90,
+    "segment": 0,
+    "text": "注意到了他说的话吗？“正巧有这么一个机会”",
+    "record": null
+  },
+  {
+    "paragraph": 221,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 91,
+    "segment": 0,
+    "text": "你的意思是梦境不是你构建的？",
+    "record": null
+  },
+  {
+    "paragraph": 222,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 92,
+    "segment": 0,
+    "text": "当然不是。不过为了保留一些悬念，我还是不把梦境的构建者说出来吧。接下来我们的推理游戏正常继续，你们依然可以向我指认凶手，在那之后我们就可以宣告结束了。",
+    "record": null
+  },
+  {
+    "paragraph": 223,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 93,
+    "segment": 0,
+    "text": "……我不想这样，我不想让你们被修正……老师给了我两个选择，要么帮助他修正异数，要么就是帮助你们对抗他。但我想为什么不能存在第三种选择，我想要让所有人幸福的结局！",
+    "record": null
+  },
+  {
+    "paragraph": 224,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 94,
+    "segment": 0,
+    "text": "乌停湘……",
+    "record": null
+  },
+  {
+    "paragraph": 225,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 95,
+    "segment": 0,
+    "text": "一直以来你都是这样，秉持着构建让所有人幸福的世界的理念。",
+    "record": "017"
+  },
+  {
+    "paragraph": 226,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 95,
+    "segment": 1,
+    "text": "但既然对你来说过了这么久，你依然没有放弃这样的理念，",
+    "record": "017"
+  },
+  {
+    "paragraph": 227,
+    "file": "assets/dialogues/ch3_transcend/3_1_route.dtl",
+    "line": 95,
+    "segment": 2,
+    "text": "那么我愿意为你尝试一次，用以证明这样的世界是否可能存在。",
+    "record": "017"
+  },
+  {
+    "paragraph": 235,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 158,
+    "segment": 0,
+    "text": "那是小时候的我和我的妈妈。在我很小的时候，父母离异，我跟着妈妈生活。",
+    "record": null
+  },
+  {
+    "paragraph": 236,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 159,
+    "segment": 0,
+    "text": "在我稍微懂事一点后，妈妈给我讲了一个关于神明的故事。",
+    "record": null
+  },
+  {
+    "paragraph": 237,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 160,
+    "segment": 0,
+    "text": "在很久很久以前，大概是地球上第一次出现生命的时候，便诞生了一种存在，我们称之为‘神明’。",
+    "record": "018"
+  },
+  {
+    "paragraph": 238,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 160,
+    "segment": 1,
+    "text": "确切来说，祂不是任何一种生物，而是一种力量。",
+    "record": "018"
+  },
+  {
+    "paragraph": 239,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 160,
+    "segment": 2,
+    "text": "祂附着在一个生物体内，使其拥有至高无上的能力，由此维护世界生态的秩序，并引导生物进化。",
+    "record": "018"
+  },
+  {
+    "paragraph": 240,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 161,
+    "segment": 0,
+    "text": "神明每百年更替一代，可以由上一代神明制定传授，也可交由自然选择。",
+    "record": "019"
+  },
+  {
+    "paragraph": 241,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 161,
+    "segment": 1,
+    "text": "每代神明不一定是同一种生物，但无一例外的是，每代神明都有一群追随者，他们是‘守灵族’和‘通灵族’。",
+    "record": "019"
+  },
+  {
+    "paragraph": 242,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 161,
+    "segment": 2,
+    "text": "这两个族群联系紧密，守灵族的职责是在新一代神明诞生后找到祂，并引导其觉醒；",
+    "record": "019"
+  },
+  {
+    "paragraph": 243,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 161,
+    "segment": 3,
+    "text": "通灵族的职责是通过一类既定的暗号与神明沟通，并借助神明的力量完成一些事件。",
+    "record": "019"
+  },
+  {
+    "paragraph": 244,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 162,
+    "segment": 0,
+    "text": "而我的妈妈，正是通灵族的一员。",
+    "record": "020"
+  },
+  {
+    "paragraph": 245,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 162,
+    "segment": 1,
+    "text": "我出生的那段时间，是通灵族人集会并询问神明关于下一代神明的事情的时候。",
+    "record": "020"
+  },
+  {
+    "paragraph": 246,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 162,
+    "segment": 2,
+    "text": "因为临近预产期，妈妈缺席了，却也因此躲过了警方的抓捕。",
+    "record": "020"
+  },
+  {
+    "paragraph": 247,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 162,
+    "segment": 3,
+    "text": "那一次集会被无关人士目击并报警，在场的族人全部以‘邪教集会’为名被逮捕。",
+    "record": "020"
+  },
+  {
+    "paragraph": 248,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 163,
+    "segment": 0,
+    "text": "那时我才知道，爸爸和妈妈离异的原因也是妈妈的身份。",
+    "record": null
+  },
+  {
+    "paragraph": 249,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 164,
+    "segment": 0,
+    "text": "讲完这段故事后，妈妈在桌上摆好通灵法阵，向神明祈求关于我未来的预言，于是就有了夹在相框中的那张纸——",
+    "record": null
+  },
+  {
+    "paragraph": 250,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 165,
+    "segment": 0,
+    "text": "只身赴往明日，却生踟蹰迷茫。哀鸣兮于幽谷，沉默兮于汪洋。黑白无须颠倒，善恶终将还偿。若使临渊待旦，必见朗朗天光。",
+    "record": null
+  },
+  {
+    "paragraph": 251,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 166,
+    "segment": 0,
+    "text": "还有一个玻璃制的千纸鹤吊坠，作为我的护身符。",
+    "record": null
+  },
+  {
+    "paragraph": 252,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 167,
+    "segment": 0,
+    "text": "我和妈妈约定好，传承通灵族的使命，用创造和给予回馈这个世界。",
+    "record": null
+  },
+  {
+    "paragraph": 253,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 168,
+    "segment": 0,
+    "text": "2012年的时空裂缝事件——用异测会的话来说叫黑门事件——我的妈妈为了借助神明的力量挽救危在旦夕的世界，试图布下覆盖整座城市的通灵法阵，却在过程中遇难……",
+    "record": null
+  },
+  {
+    "paragraph": 254,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 169,
+    "segment": 0,
+    "text": "我在神明的帮助下找到了妈妈的遗体，接过了她的遗愿，继续完成了所有法阵的布置。",
+    "record": null
+  },
+  {
+    "paragraph": 255,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 170,
+    "segment": 0,
+    "text": "在那之后，时空裂缝消失了，但在舆论认为我们是那教分子的情况下，我为了保全自己，不得不撇清我与妈妈的关系……",
+    "record": null
+  },
+  {
+    "paragraph": 256,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 171,
+    "segment": 0,
+    "text": "我不能说我知道她通灵族的身份，我不能说我布置了通灵法阵，我不能说我们借助神明的力量挽救了世界，我……我讨厌那样的自己……是我……是我背叛了妈妈……",
+    "record": null
+  },
+  {
+    "paragraph": 259,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 176,
+    "segment": 0,
+    "text": "那是记载了通灵法阵的使用方法的书，由通灵族代代相传。",
+    "record": "021"
+  },
+  {
+    "paragraph": 260,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 176,
+    "segment": 1,
+    "text": "常规的通灵法阵由五行祭品和中央祭品组成，先在纸上画下一个五芒星，",
+    "record": "021"
+  },
+  {
+    "paragraph": 261,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 176,
+    "segment": 2,
+    "text": "再把五行物品按照金、水、木、火、土的五行相生顺序，顺时针放在五芒星的五角，最后在五芒星中央放上中央祭品。",
+    "record": "021"
+  },
+  {
+    "paragraph": 262,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 177,
+    "segment": 0,
+    "text": "其中央祭品需要遵循‘求什么，就要献什么’的原则，献上与求祈价值相当的祭品。最后等待十分钟，火焰将在法阵上方燃起，这个时候向神明默祷，祈求就能得到回应。",
+    "record": null
+  },
+  {
+    "paragraph": 263,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 178,
+    "segment": 0,
+    "text": "你在别墅的房间里也布置了一个通灵法阵吧？能解释一下吗？",
+    "record": null
+  },
+  {
+    "paragraph": 264,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 179,
+    "segment": 0,
+    "text": "好……当时我看见梅塔的时候，很害怕，于是在房间里布下通灵法阵，想要寻求神明的帮助。但是明明时间已经足够十分钟了，法阵都没有任何反应。",
+    "record": null
+  },
+  {
+    "paragraph": 265,
+    "file": "assets/dialogues/ch3_transcend/3_source_lin.dtl",
+    "line": 180,
+    "segment": 0,
+    "text": "为什么法阵会没有反应呢？",
+    "record": null
+  },
+  {
+    "paragraph": 269,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 74,
+    "segment": 0,
+    "text": "这应该是我好久以前看到的报纸了，大概是黑门事件的时候。",
+    "record": "022"
+  },
+  {
+    "paragraph": 270,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 74,
+    "segment": 1,
+    "text": "当时有传言说黑门事件的始作俑者是1999年抓捕的那群邪教分子，所以我找来报纸了解了一下。",
+    "record": "022"
+  },
+  {
+    "paragraph": 271,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 74,
+    "segment": 2,
+    "text": "不过我觉得这也太奇怪了。",
+    "record": "022"
+  },
+  {
+    "paragraph": 274,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 82,
+    "segment": 0,
+    "text": "……没错，那是我的全家福。那个房间也是我的房间。",
+    "record": null
+  },
+  {
+    "paragraph": 279,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 96,
+    "segment": 0,
+    "text": "乌叙是我的爸爸，他是一名解构学专家。",
+    "record": null
+  },
+  {
+    "paragraph": 282,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 102,
+    "segment": 0,
+    "text": "箱庭计划是上层世界旨在通过建构箱庭来开展社会学等学科研究的计划，",
+    "record": "025"
+  },
+  {
+    "paragraph": 283,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 102,
+    "segment": 1,
+    "text": "上层世界的人利用前沿科技创造了箱庭世界，并将弦理论作为箱庭世界的底层逻辑。",
+    "record": "025"
+  },
+  {
+    "paragraph": 284,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 102,
+    "segment": 2,
+    "text": "你们所在的这个箱庭世界只是众多箱庭世界中的一个。",
+    "record": "025"
+  },
+  {
+    "paragraph": 287,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 106,
+    "segment": 0,
+    "text": "解构学是和建构学相对照的一门学科。",
+    "record": "026"
+  },
+  {
+    "paragraph": 288,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 106,
+    "segment": 1,
+    "text": "后者是构造箱庭的学科，前者则是解构世界的学科——",
+    "record": "026"
+  },
+  {
+    "paragraph": 289,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 106,
+    "segment": 2,
+    "text": "上层世界的人们创造了箱庭世界后，逐渐产生在我们的世界之外，是否还存在更上层的世界的疑问。",
+    "record": "026"
+  },
+  {
+    "paragraph": 290,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 106,
+    "segment": 3,
+    "text": "于是解构学的研究内容就是解构我们正可能生活在其中的箱庭。",
+    "record": "026"
+  },
+  {
+    "paragraph": 293,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 110,
+    "segment": 0,
+    "text": "那是我和零姐姐的合照。",
+    "record": "027"
+  },
+  {
+    "paragraph": 294,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 110,
+    "segment": 1,
+    "text": "她叫做零芝，是一名心理医生兼建构学家，也是她开创了箱庭疗法，主导着对我的治疗。",
+    "record": "027"
+  },
+  {
+    "paragraph": 295,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 110,
+    "segment": 2,
+    "text": "她对我说过，“假如每一朵花都是一个世界，那么这片花海应该是什么样的”，这也成了我对多重时空的第一印象。",
+    "record": "027"
+  },
+  {
+    "paragraph": 298,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 114,
+    "segment": 0,
+    "text": "我的爸爸妈妈都是解构学的专家，他们平常工作很忙，只能把我托给爷爷奶奶照顾。",
+    "record": "028"
+  },
+  {
+    "paragraph": 299,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 114,
+    "segment": 1,
+    "text": "小时候的我不理解他们的工作，于是他们把我送到了末老师家里照看一段时间，学习和箱庭计划以及建构学有关的知识。",
+    "record": "028"
+  },
+  {
+    "paragraph": 300,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 115,
+    "segment": 0,
+    "text": "末老师名叫末雨，和爸爸妈妈师出同门，是一名建构师。末老师教会了我很多知识，我也因为他认识了零姐姐。",
+    "record": null
+  },
+  {
+    "paragraph": 303,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 119,
+    "segment": 0,
+    "text": "这就是我说过的那段经历。",
+    "record": "029"
+  },
+  {
+    "paragraph": 304,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 119,
+    "segment": 1,
+    "text": "我曾经负责管理伽马世界线，也就是这里的林玖所在的那个世界线。",
+    "record": "029"
+  },
+  {
+    "paragraph": 305,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 119,
+    "segment": 2,
+    "text": "但由于黑门事件的发生，我一遍又一遍地试图找到解决的办法，却徒劳无功。",
+    "record": "029"
+  },
+  {
+    "paragraph": 306,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 119,
+    "segment": 3,
+    "text": "老师最终还是发现了我的情况，不再让我接触箱庭，",
+    "record": "029"
+  },
+  {
+    "paragraph": 307,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 119,
+    "segment": 4,
+    "text": "为了治疗我的心理障碍采用了箱庭疗法，将我的意识投放到伽马世界线，让我在这一段人生阅历中有所成长。",
+    "record": "029"
+  },
+  {
+    "paragraph": 310,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 129,
+    "segment": 0,
+    "text": "刚刚老师和我私聊的时候，帮我回想起了所有的记忆，",
+    "record": "031"
+  },
+  {
+    "paragraph": 311,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 129,
+    "segment": 1,
+    "text": "但我不想让大家被修正，明明大家都有自己的人生，都有未竟的心愿，为什么一定要做到这样的地步？",
+    "record": "031"
+  },
+  {
+    "paragraph": 312,
+    "file": "assets/dialogues/ch3_transcend/3_source_wu.dtl",
+    "line": 129,
+    "segment": 2,
+    "text": "但我也不知道应该如何阻止老师。",
+    "record": "031"
+  },
+  {
+    "paragraph": 315,
+    "file": "assets/dialogues/finale/4_1_ending_dust.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "不知何人宣告其开端，亦不知何人裁决其终结。",
+    "record": "032"
+  },
+  {
+    "paragraph": 316,
+    "file": "assets/dialogues/finale/4_1_ending_dust.dtl",
+    "line": 4,
+    "segment": 1,
+    "text": "纷纷的大雪骤降，掩盖未被窥探的一切。有的人遗忘其过往，有的人与此世诀别。",
+    "record": "032"
+  },
+  {
+    "paragraph": 317,
+    "file": "assets/dialogues/finale/4_1_ending_dust.dtl",
+    "line": 4,
+    "segment": 2,
+    "text": "希望之上的象牙塔坍塌，阴霾之下的花之海蒙尘。",
+    "record": "032"
+  },
+  {
+    "paragraph": 318,
+    "file": "assets/dialogues/finale/4_1_ending_dust.dtl",
+    "line": 4,
+    "segment": 3,
+    "text": "此刻，时针回复原速，世界仍在正轨。",
+    "record": "032"
+  },
+  {
+    "paragraph": 320,
+    "file": "assets/dialogues/finale/4_2_ending_godslayer.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "穿破时空的银色子弹，直取高高在上的神明。嘴角流露出的轻蔑，铺垫玉石俱焚的死局。",
+    "record": "033"
+  },
+  {
+    "paragraph": 321,
+    "file": "assets/dialogues/finale/4_2_ending_godslayer.dtl",
+    "line": 4,
+    "segment": 1,
+    "text": "真理尚未勘破，狂妄者背负弑神之名。一意孤行的罪果，即是遗忘与终结的命定。",
+    "record": "033"
+  },
+  {
+    "paragraph": 322,
+    "file": "assets/dialogues/finale/4_2_ending_godslayer.dtl",
+    "line": 4,
+    "segment": 2,
+    "text": "尔后，世界重赋定数，箱庭再构囹圄。",
+    "record": "033"
+  },
+  {
+    "paragraph": 324,
+    "file": "assets/dialogues/finale/4_3_ending_calm.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "神明打开了箱庭，朝内投下一瞥。梦境的碎片崩解，宣示棋局终焉。追寻真理的凡人，窥探认识的边界。不被认可的抉择，拟定命运的节点。此刻，时针回复原速，世界仍在正轨。",
+    "record": null
+  },
+  {
+    "paragraph": 326,
+    "file": "assets/dialogues/finale/4_4_ending_clear_snow.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "直面过往，创造未来；直面恐惧，重获新生。",
+    "record": "034"
+  },
+  {
+    "paragraph": 327,
+    "file": "assets/dialogues/finale/4_4_ending_clear_snow.dtl",
+    "line": 4,
+    "segment": 1,
+    "text": "过往的尘埃于斯拂去，恐惧的阴翳于斯祓除，真理的曙光于斯照耀，误会的凛冬于斯驱逐。",
+    "record": "034"
+  },
+  {
+    "paragraph": 328,
+    "file": "assets/dialogues/finale/4_4_ending_clear_snow.dtl",
+    "line": 4,
+    "segment": 2,
+    "text": "观测者为曾名异数之人致以敬意，世界向不失崇高之人就此敞开。",
+    "record": "034"
+  },
+  {
+    "paragraph": 329,
+    "file": "assets/dialogues/finale/4_4_ending_clear_snow.dtl",
+    "line": 4,
+    "segment": 3,
+    "text": "上下求索者追寻所失，命运拘束者破茧而还，人世相弃者重栖归宿，记忆沉眠者憧憬未来，箴言虔信者宣讲真理，初为人师者解开樊笼。",
+    "record": "034"
+  },
+  {
+    "paragraph": 330,
+    "file": "assets/dialogues/finale/4_4_ending_clear_snow.dtl",
+    "line": 4,
+    "segment": 4,
+    "text": "此后，平衡之理既定，异数已成历史；观测之念俱存，因果修正不再。",
+    "record": "034"
+  },
+  {
+    "paragraph": 334,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "你睁开眼睛，摘下头上颇有重量的头盔，发觉自己正身处一处陌生的、像是实验室的地方。你不知道自己为什么会从此处醒来，但你确定你没在做梦。",
+    "record": null
+  },
+  {
+    "paragraph": 335,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "旁边的一张床上还躺着一个人，你尝试叫醒他，却无济于事。",
+    "record": null
+  },
+  {
+    "paragraph": 336,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "这个地方的结构略有熟悉，但你能回忆起的只有离开这里的路。当你顺着记忆重见天日时，又忘却了返回的道路。",
+    "record": null
+  },
+  {
+    "paragraph": 337,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "就在这时，你的手机铃声响起。教会的人员通知你，教会突发了一场无名大火，你的房间跟着遭了殃。",
+    "record": null
+  },
+  {
+    "paragraph": 338,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "大火扑灭后，你清点起自己的损失。损失不大，只是靠近门的书架被烧得面目全非，所有的书都已化为灰烬。",
+    "record": "044"
+  },
+  {
+    "paragraph": 339,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 7,
+    "segment": 1,
+    "text": "这倒没什么大不了的，书没了还能再买。除此之外，也并没有失去什么重要的东西。",
+    "record": "044"
+  },
+  {
+    "paragraph": 340,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "这场莫名其妙的插曲过后，生活又重回正轨，你继续作为教会枢机卿处理着大大小小的事务。你谨遵教义与神明的授命，为迷途之人指点迷津。",
+    "record": null
+  },
+  {
+    "paragraph": 341,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "之后的某天，你突然收到一封信，送来的人声称是一名国外的教会成员托他交给你的。",
+    "record": "045"
+  },
+  {
+    "paragraph": 342,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 9,
+    "segment": 1,
+    "text": "信中，对方询问你对先知的《默示录》的看法。",
+    "record": "045"
+  },
+  {
+    "paragraph": 343,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 9,
+    "segment": 2,
+    "text": "但你从来没有见过什么《默示录》，你只知道先知的《启示录》如今分散在各大教会的图书馆中。",
+    "record": "045"
+  },
+  {
+    "paragraph": 344,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 9,
+    "segment": 3,
+    "text": "你不懂对方的意思，还是礼貌地回了信。",
+    "record": "045"
+  },
+  {
+    "paragraph": 345,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "生活平静而又充实，也足以让人满意了吧。",
+    "record": null
+  },
+  {
+    "paragraph": 346,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "但你总觉得还有什么事没有做完，好像是很重要的事。",
+    "record": null
+  },
+  {
+    "paragraph": 347,
+    "file": "assets/dialogues/finale/source/source_ending_mu_forget.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "但既然不记得，又怎么会重要呢？",
+    "record": null
+  },
+  {
+    "paragraph": 349,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "当你从梦境中醒来时，你看见了熟悉的研究所天花板。你取下头上的仪器，看了看身旁的梅塔，不出所料，他已经停止了呼吸。",
+    "record": null
+  },
+  {
+    "paragraph": 350,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "一切的真相已水落石出，包括梦境中的疑案，包括世界的真理。你成为了觐见神明的第一人，你亲身了解到了神明之境的存在。",
+    "record": null
+  },
+  {
+    "paragraph": 351,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "你回到教会，将你在梦境之中见到神明一事宣告，自此，你为教会揭开了上千年来未被知晓的神明的神秘面纱。",
+    "record": null
+  },
+  {
+    "paragraph": 352,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "神明立下了约定，将撤除因果的束缚，于是，教会中掀起了探索神明之境的浪潮。同时，你也没忘记神明提出的条件，为所有探索神明之境的行为立下规矩，规范人们的探索行为。",
+    "record": null
+  },
+  {
+    "paragraph": 353,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "另一个世界的周崇安研究出了通过梦境通道连接不同平行世界的方法，并联系上了你和另一个世界的钟歧，",
+    "record": "046"
+  },
+  {
+    "paragraph": 354,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 7,
+    "segment": 1,
+    "text": "你们一同创立了一个跨世界线的组织，旨在维护各平行世界的相对稳定，阻止各世界线中可能出现的跨世界线能量物质交换的行为。",
+    "record": "046"
+  },
+  {
+    "paragraph": 355,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "一系列翻天覆地的变化之后，一切尘埃落定。",
+    "record": "047"
+  },
+  {
+    "paragraph": 356,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 8,
+    "segment": 1,
+    "text": "不过周崇安还有一个遗憾，他想唤醒“时今”。你想到她是被梅塔杀死的，心怀愧疚，便也开始帮他想办法，",
+    "record": "047"
+  },
+  {
+    "paragraph": 357,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 8,
+    "segment": 2,
+    "text": "突然想起了梅塔说过的“在一步一步，探索世界的真相时，我们正在一步一步接近‘神’啊！”觉得有些道理，便告诉了他。",
+    "record": "047"
+  },
+  {
+    "paragraph": 358,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 8,
+    "segment": 3,
+    "text": "他茅塞顿开，又投入新的研究去了。",
+    "record": "047"
+  },
+  {
+    "paragraph": 359,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "你依然秉承着自己的心志，处理着教会的事务。这算是最好的结局了吧……",
+    "record": null
+  },
+  {
+    "paragraph": 360,
+    "file": "assets/dialogues/finale/source/source_ending_mu_perfect.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "……如果能从刚刚得到的这条线索找到时今的话……你从信封上抬起头，看了看眼前一处研究所的大门……",
+    "record": null
+  },
+  {
+    "paragraph": 362,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_death.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "四周别墅的图景骤然隐去，你被投入一片虚无。一束聚光灯自无尽的高处照下，照亮了你身旁的一切。",
+    "record": null
+  },
+  {
+    "paragraph": 363,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_death.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "你看见街道上川流不息的人群，看见缠绕在四肢百骸上鲜红的丝线，看见那些丝线似在被一双无形的手牵引，看见那些丝线又操控着人们的行动……",
+    "record": null
+  },
+  {
+    "paragraph": 364,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_death.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "你试图拨开拥挤的人群，试图逃离这样的现实，但人们堵住了你的去路，将你包围，",
+    "record": "064"
+  },
+  {
+    "paragraph": 365,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_death.dtl",
+    "line": 5,
+    "segment": 1,
+    "text": "有人钳住你的双臂，有人锁住你的双腿，有人用锋利的刀刃刺穿你的关节，有人为你系上提线木偶的银白色的丝线。",
+    "record": "064"
+  },
+  {
+    "paragraph": 366,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_death.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "你想要反抗，但你不想反抗；你想要屈服，但你不想屈服；你想要结束，但你不想结束。因为这世上的一切，早已不由你决定。",
+    "record": null
+  },
+  {
+    "paragraph": 367,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_death.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "“你知道提线木偶的线被剪断后，他会怎么样吗？”你听见空中传来声响。",
+    "record": null
+  },
+  {
+    "paragraph": 368,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_death.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "“它会获得自由？”那个声音似在自问自答。",
+    "record": null
+  },
+  {
+    "paragraph": 369,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_death.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "“不，它会被扔掉。”",
+    "record": null
+  },
+  {
+    "paragraph": 370,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_death.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "鲜血从全身流出，顺着紧紧缠绕的丝线延向有尽的远方。银白色的它们被渐渐染为鲜红，直到你最后的自由的灵魂被囚禁在被无数丝线茧缚的世界剧场之中。",
+    "record": null
+  },
+  {
+    "paragraph": 372,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "“周院长，时今怎么样了？”一天，穆执偶然拜访孤儿院，对你问道。",
+    "record": null
+  },
+  {
+    "paragraph": 373,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "“时今？”你依稀记得以前孤儿院里是有一个叫做时今的孩子，不过现在已经过去十多年了，她应该已经离开了吧。",
+    "record": null
+  },
+  {
+    "paragraph": 374,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "“您……不记得了？”穆执一脸不可思议，“她不是在……”",
+    "record": null
+  },
+  {
+    "paragraph": 375,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "“在……在哪？”你自信自己记得孤儿院里所有孩子的名字，前段时间和他们出游的时候还清点过人员，你确定时今不在这里。",
+    "record": null
+  },
+  {
+    "paragraph": 376,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "穆执的表情突然严肃起来，他希望你跟他去一个地方。你一头雾水，也只能一同前去。",
+    "record": null
+  },
+  {
+    "paragraph": 377,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "他带你来到一幢楼房，走进了地下室，打开一道暗门，走进一台电梯。",
+    "record": "065"
+  },
+  {
+    "paragraph": 378,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 8,
+    "segment": 1,
+    "text": "他输入一串密码后，电梯载着你们下行，当门打开时，映入眼帘的是一间实验室，",
+    "record": "065"
+  },
+  {
+    "paragraph": 379,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 8,
+    "segment": 2,
+    "text": "而实验室中央的实验床上，躺着一名少女，她的身上接满了维持生命的各种仪器。",
+    "record": "065"
+  },
+  {
+    "paragraph": 380,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "“您还……记得她吗？”穆执问。",
+    "record": null
+  },
+  {
+    "paragraph": 381,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "你走近几步，仔细端详了一番，却找不到记忆中的影子。“我为什么会认识她？这里是哪里？”",
+    "record": null
+  },
+  {
+    "paragraph": 382,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "他注视着你的双眼，你看不出他眼中复杂的情绪。",
+    "record": null
+  },
+  {
+    "paragraph": 383,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "你又仔细看了看那名少女，“你的意思是……她就是……”但无论如何，那个名字和眼前的人完全联系不到一起……但是，又为什么会有一种莫名的感觉？",
+    "record": null
+  },
+  {
+    "paragraph": 384,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_forget.dtl",
+    "line": 13,
+    "segment": 0,
+    "text": "“周院长……”穆执递给了你一张餐巾纸，你这才发现，你已泪流满面。",
+    "record": null
+  },
+  {
+    "paragraph": 386,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "那场梦境结束后，你从山顶醒来，先前安放的装置仍在原处，而没有任何暴风雪的迹象。",
+    "record": null
+  },
+  {
+    "paragraph": 387,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "一切的真相已水落石出，包括梦境中的疑案，包括世界的真理。",
+    "record": null
+  },
+  {
+    "paragraph": 388,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "之后，你回到研究所，将一切的经历告诉了仍在昏迷中的时今。",
+    "record": null
+  },
+  {
+    "paragraph": 389,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "此后，你研究出了通过梦境通道连接不同平行世界的方法，联系上了钟歧等人，主持成立了一个跨世界线的组织，",
+    "record": "066"
+  },
+  {
+    "paragraph": 390,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 6,
+    "segment": 1,
+    "text": "旨在维护各平行世界的相对稳定，阻止各世界线中跨世界线能量物质交换的行为。",
+    "record": "066"
+  },
+  {
+    "paragraph": 391,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "生活回到了平静，你仍是受人爱戴的孤儿院院长，同时也在秘密进行研究和组织活动。",
+    "record": null
+  },
+  {
+    "paragraph": 392,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "虽然已与上层世界的“神明”和解，但你还是把时今制作的所有装置安装在了相应的位置，并激活了装置。",
+    "record": "067"
+  },
+  {
+    "paragraph": 393,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 8,
+    "segment": 1,
+    "text": "激活的一瞬间，一扇黑色的门出现在了研究所的杂物间——",
+    "record": "067"
+  },
+  {
+    "paragraph": 394,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 8,
+    "segment": 2,
+    "text": "那本来是研究所初建时用于存放材料的房间，现在完全闲置。",
+    "record": "067"
+  },
+  {
+    "paragraph": 395,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 8,
+    "segment": 3,
+    "text": "黑色的门正好位于杂物间的一角，有微弱的引力。",
+    "record": "067"
+  },
+  {
+    "paragraph": 396,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "你去到了那扇门之后，见到了上层世界的情景，也又一次见到了乌停湘和末雨。",
+    "record": null
+  },
+  {
+    "paragraph": 397,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "时今的愿望已经实现，一切都在往好的方向发展，只是，时今还没有苏醒的迹象，这成为了你最后的遗憾。",
+    "record": null
+  },
+  {
+    "paragraph": 398,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "另一个世界的穆执告诉你，上界的神明影响世界的方法同样是操控弦，只是轻易得多，也许你也能用这样的方法重新唤醒时今的意识。",
+    "record": null
+  },
+  {
+    "paragraph": 399,
+    "file": "assets/dialogues/finale/source/source_ending_zhou_perfect.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "你茅塞顿开，又将自己投入到新的研究中去……",
+    "record": null
+  },
+  {
+    "paragraph": 401,
+    "file": "assets/dialogues/finale/source/source_ending_lin_death.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "四周的别墅骤然隐去，阴冷的狂风于四周暴起，黑色的空洞再度撕裂天空，建筑的坍塌声不绝于耳。",
+    "record": "037"
+  },
+  {
+    "paragraph": 402,
+    "file": "assets/dialogues/finale/source/source_ending_lin_death.dtl",
+    "line": 3,
+    "segment": 1,
+    "text": "一盏忽明忽暗的路灯下，你见到了昏迷不醒的妈妈，她的腹部被钢管洞穿，鲜血遍地，升起血色的雾影。",
+    "record": "037"
+  },
+  {
+    "paragraph": 403,
+    "file": "assets/dialogues/finale/source/source_ending_lin_death.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "你穿越血雾，向妈妈靠近，却突然被什么人野蛮地推倒在地。血雾之中，人群将你团团围住，你不知道他们在说什么，然而你的身体分明因那话语中的恶意正不住地颤抖。",
+    "record": null
+  },
+  {
+    "paragraph": 404,
+    "file": "assets/dialogues/finale/source/source_ending_lin_death.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "黑暗仍旧存在，黑暗从来没有消失，所谓异测会，正是这整个社会的黑暗的臆测的缩影。",
+    "record": null
+  },
+  {
+    "paragraph": 405,
+    "file": "assets/dialogues/finale/source/source_ending_lin_death.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "“这个丑陋的世界，不需要善意。”血雾中，有什么声音突然响起。",
+    "record": null
+  },
+  {
+    "paragraph": 406,
+    "file": "assets/dialogues/finale/source/source_ending_lin_death.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "“这个虚伪的社会，不需要真理。”血雾中，有什么身影突然靠近。",
+    "record": null
+  },
+  {
+    "paragraph": 407,
+    "file": "assets/dialogues/finale/source/source_ending_lin_death.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "你挣扎着爬起，向着妈妈跑去，脚下却不知被什么东西绊倒，你狠狠地摔在地上，而那个身影正一步步接近。",
+    "record": null
+  },
+  {
+    "paragraph": 408,
+    "file": "assets/dialogues/finale/source/source_ending_lin_death.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "用尽最后的力气，你向妈妈爬去，妈妈的身体似在发着微光，这残破世界的最后一缕微光。",
+    "record": null
+  },
+  {
+    "paragraph": 409,
+    "file": "assets/dialogues/finale/source/source_ending_lin_death.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "只要有光，就会被它们发现……你紧紧抱住了妈妈，想要遮盖住那唯一的光。",
+    "record": null
+  },
+  {
+    "paragraph": 410,
+    "file": "assets/dialogues/finale/source/source_ending_lin_death.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "“妈妈，我来了。”你哭诉着，“在那个世界，应该没有……”",
+    "record": null
+  },
+  {
+    "paragraph": 411,
+    "file": "assets/dialogues/finale/source/source_ending_lin_death.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "身后的身影走近，朝着你们，一根钢管猛然捅下……",
+    "record": null
+  },
+  {
+    "paragraph": 413,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "睁开眼睛时，第一眼看见的是一名满脸担忧的少女，大概是看见你醒来了，她松了一口气。",
+    "record": null
+  },
+  {
+    "paragraph": 414,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "你打量着身处的环境，这里有点像穆执的小木屋，你曾经来过，所以你记得这里的样子。",
+    "record": null
+  },
+  {
+    "paragraph": 415,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "但是眼前的少女是谁？你毫无印象。",
+    "record": null
+  },
+  {
+    "paragraph": 416,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "“林玖？”她叫出了你的名字，用迟疑的语气，“你……不记得我了？”",
+    "record": null
+  },
+  {
+    "paragraph": 417,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "你注视着她的面孔，想要从记忆中寻找蛛丝马迹，却只能摇头放弃。",
+    "record": null
+  },
+  {
+    "paragraph": 418,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "少女握住了你的双手，露出一个微笑，“没关系，你只要知道，我是你的朋友就行了。我叫安霖。”",
+    "record": null
+  },
+  {
+    "paragraph": 419,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "朋友？原来一直以来这么孤僻的自己还有朋友啊，这也是一件好事吧……",
+    "record": null
+  },
+  {
+    "paragraph": 420,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "和穆执道别后，安霖送你回到了孤儿院。你回到自己的房间，看着双层床久久出神，“我有跟谁住一个房间吗？安霖？”",
+    "record": null
+  },
+  {
+    "paragraph": 421,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "安霖愣了愣，郑重其事地走到你面前，严肃地对你说：“林玖，你的确遗忘了很多事，至于遗忘的原因，我应该猜到了。",
+    "record": "038"
+  },
+  {
+    "paragraph": 422,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 11,
+    "segment": 1,
+    "text": "如果你想要找回那些记忆，我可以帮助你，但是，我不能确定你找回那些记忆后会发生什么，",
+    "record": "038"
+  },
+  {
+    "paragraph": 423,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 11,
+    "segment": 2,
+    "text": "可能……会有危险。选择权交给你吧。”",
+    "record": "038"
+  },
+  {
+    "paragraph": 424,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "你不知道该如何选择，安霖的神情不像是在开玩笑，而你的大脑似乎在本能地抗拒她的提议。",
+    "record": null
+  },
+  {
+    "paragraph": 425,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 13,
+    "segment": 0,
+    "text": "“不，还是算了吧。”你回答道，“也许是一些不好的回忆。”",
+    "record": null
+  },
+  {
+    "paragraph": 426,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 14,
+    "segment": 0,
+    "text": "安霖点点头，表示尊重你的选择。",
+    "record": null
+  },
+  {
+    "paragraph": 427,
+    "file": "assets/dialogues/finale/source/source_ending_lin_forget.dtl",
+    "line": 15,
+    "segment": 0,
+    "text": "但为什么，心中却又有少了什么一样的悸痛？",
+    "record": null
+  },
+  {
+    "paragraph": 429,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "那场梦境结束后，你在穆执的小木屋醒来，身旁是一脸担心的安霖，她见你清醒，才松了一口气。",
+    "record": null
+  },
+  {
+    "paragraph": 430,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "一切的真相已水落石出，包括梦境中的疑案，包括世界的真理。",
+    "record": null
+  },
+  {
+    "paragraph": 431,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "安霖告诉你，沙化事件已经不再发生，你们的世界重回正轨。",
+    "record": "039"
+  },
+  {
+    "paragraph": 432,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 5,
+    "segment": 1,
+    "text": "这让你想起了乌停湘，她已经找回了自己的记忆，跟着老师回到了箱庭之外的世界。",
+    "record": "039"
+  },
+  {
+    "paragraph": 433,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 5,
+    "segment": 2,
+    "text": "你将乌停湘的事告诉了安霖，她听后若有所思，“看来……异测会好像有那么点道理。”",
+    "record": "039"
+  },
+  {
+    "paragraph": 434,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "虽然不太愿意承认，但异测会也许并非你一直以为的那样。",
+    "record": "040"
+  },
+  {
+    "paragraph": 435,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 6,
+    "segment": 1,
+    "text": "如果在梦境中看到的那些线索都来自于现实，那么其实异测会还是真心想办好事的一群人，",
+    "record": "040"
+  },
+  {
+    "paragraph": 436,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 6,
+    "segment": 2,
+    "text": "只不过也难免会出现一些错误，特别是实际上，他们并没有认可黑门事件是由通灵法阵造成的。",
+    "record": "040"
+  },
+  {
+    "paragraph": 437,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 6,
+    "segment": 3,
+    "text": "仔细想想，到头来，是你自己被谣言蒙蔽了双眼。",
+    "record": "040"
+  },
+  {
+    "paragraph": 438,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "那之后，你回到了孤儿院，看着房间内的双层床，又回想起了与乌停湘一同生活的时光。也许还能再见吧。",
+    "record": null
+  },
+  {
+    "paragraph": 439,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "在穆执的提议下，你迈出了与过往和解的第一步。",
+    "record": "041"
+  },
+  {
+    "paragraph": 440,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 8,
+    "segment": 1,
+    "text": "你回到昔日与妈妈一同生活的家中，将那段尘封的往事接纳。妈妈的音容宛在，创造与给予的真言仍在耳畔回响。",
+    "record": "041"
+  },
+  {
+    "paragraph": 441,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 8,
+    "segment": 2,
+    "text": "“若使临渊待旦，必见朗朗天光”，而如今，那道曙光终于穿破内心的阴翳，将前路照亮。",
+    "record": "041"
+  },
+  {
+    "paragraph": 442,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "后来，你辞去了孤儿院的工作，在本市的一处宁静的郊区买下了一套门面，靠制作木雕为生。",
+    "record": "042"
+  },
+  {
+    "paragraph": 443,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 9,
+    "segment": 1,
+    "text": "客人不多，但大多是回头客，要么就是被别人介绍来的。",
+    "record": "042"
+  },
+  {
+    "paragraph": 444,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 9,
+    "segment": 2,
+    "text": "你喜欢听他们说自己的故事，再从他们的故事中寻找灵感，雕刻出最适合他们的木雕。",
+    "record": "042"
+  },
+  {
+    "paragraph": 445,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "你知道另一个世界的周崇安已经研发出了梦境通道，能够沟通不同的平行世界，并邀请你加入他们维护各平行世界相对稳定的组织，但你谢绝了，平静安宁的生活才是你向往的归宿。",
+    "record": null
+  },
+  {
+    "paragraph": 446,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "在听你细说过异测会的事情后，安霖以普通人的身份与他们取得了联系，",
+    "record": "043"
+  },
+  {
+    "paragraph": 447,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 11,
+    "segment": 1,
+    "text": "在确认他们的立场后，她向异测会会长坦白了自己的身份，讲述了黑门事件的真相，并要求对方还通灵族与守灵族一个公道。",
+    "record": "043"
+  },
+  {
+    "paragraph": 448,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 11,
+    "segment": 2,
+    "text": "对方欣然应允，通灵族与守灵族和异测会的关系或将翻开新的一章。",
+    "record": "043"
+  },
+  {
+    "paragraph": 449,
+    "file": "assets/dialogues/finale/source/source_ending_lin_perfect.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "在你工作台的一角，那个灯塔形状的木雕依然矗立。你还是想将它送到本该拥有它的人手中，于是，你又一次设下了通灵法阵……",
+    "record": null
+  },
+  {
+    "paragraph": 451,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_forget.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "“钟歧，你爷爷来看你了。”护士的声音在门外响起。说着，一名白发苍苍的老者推开你所在的病房门出现在你面前，向你露出了熟悉的和蔼笑容。",
+    "record": null
+  },
+  {
+    "paragraph": 452,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_forget.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "“最近情况怎么样？”他对你问道。",
+    "record": null
+  },
+  {
+    "paragraph": 453,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_forget.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "你将这段时间在这所正规的精神卫生医院的治疗情况告诉了爷爷，你感觉自己有所好转，眼前那些红色的线也很少出现了。",
+    "record": null
+  },
+  {
+    "paragraph": 454,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_forget.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "然而，与此相反，你的失忆症状没有丝毫改善。",
+    "record": "060"
+  },
+  {
+    "paragraph": 455,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_forget.dtl",
+    "line": 6,
+    "segment": 1,
+    "text": "前段时间，爷爷等人将梅塔告上了最高人民法院，计划等你病情好转后出庭作证，",
+    "record": "060"
+  },
+  {
+    "paragraph": 456,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_forget.dtl",
+    "line": 6,
+    "segment": 2,
+    "text": "但你发觉自己只记得在“十七号精神卫生中心”待过的一年中接受的各项“治疗”，而对周叔叔说的“地下室”没有任何印象。",
+    "record": "060"
+  },
+  {
+    "paragraph": 457,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_forget.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "“你还记得什么是弦理论吗？”爷爷的表情突然变得严肃，却又带着一丝期盼。",
+    "record": null
+  },
+  {
+    "paragraph": 458,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_forget.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "“弦理论……是那个认为一切粒子都由弦产生的理论吧，好像还没被证实。”",
+    "record": null
+  },
+  {
+    "paragraph": 459,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_forget.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "爷爷长叹了一口气。在这声叹息中，你隐约察觉到自己好像放弃过什么事情，什么本不该放弃的事情。",
+    "record": null
+  },
+  {
+    "paragraph": 461,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "当你从梦境中醒来时，发现自己依然靠在那棵临时休息的大树下。",
+    "record": null
+  },
+  {
+    "paragraph": 462,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "一切的真相已水落石出，包括梦境中的疑案，包括世界的真理。",
+    "record": null
+  },
+  {
+    "paragraph": 463,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "你想起梅塔的人可能还在这座山上，便多留了一个心眼，在确定安全的情况下才回到了穆执的小木屋。",
+    "record": null
+  },
+  {
+    "paragraph": 464,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "总算是安全了，你松了一口气。",
+    "record": "061"
+  },
+  {
+    "paragraph": 465,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 6,
+    "segment": 1,
+    "text": "在梦境中，上层世界的建构者承诺，将解除因果，也就是说，就算是知晓世界之理也不会遭受世界的迫害了，但愿他能遵守自己的诺言。",
+    "record": "061"
+  },
+  {
+    "paragraph": 466,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 6,
+    "segment": 2,
+    "text": "如此一来，所谓命运，也和你逐渐和解了吧。",
+    "record": "061"
+  },
+  {
+    "paragraph": 467,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "后来，“十七号精神卫生中心”的事闹到了最高人民法院，这一回，梅塔的背后再没有腰可撑，他得到了应有的惩罚，",
+    "record": "062"
+  },
+  {
+    "paragraph": 468,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 7,
+    "segment": 1,
+    "text": "而“十七号精神卫生中心”也被查封，至于地下室中的那些大脑，检方也已经联系了家属协商处理。",
+    "record": "062"
+  },
+  {
+    "paragraph": 469,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 7,
+    "segment": 2,
+    "text": "好在梅塔并没有将他们的身体随手丢弃——检方在一个特制的冷藏室发现了他们的身体。",
+    "record": "062"
+  },
+  {
+    "paragraph": 470,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "也许会出现科学技术让他们重新恢复活动能力吧。",
+    "record": null
+  },
+  {
+    "paragraph": 471,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "很长的一段时间中，你在一所正规的精神卫生医院接受了精神分裂症的治疗，你的症状有所好转，那些红色的丝线也渐渐看不见了。",
+    "record": null
+  },
+  {
+    "paragraph": 472,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "另一个世界的周崇安研究出了通过梦境通道连接不同平行世界的方法，联系上了你和另一个世界的穆执，",
+    "record": "063"
+  },
+  {
+    "paragraph": 473,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 10,
+    "segment": 1,
+    "text": "你们成立了一个跨世界线的组织，旨在维护各平行世界的相对稳定，阻止各世界线中可能出现的跨世界线能量物质交换的行为。",
+    "record": "063"
+  },
+  {
+    "paragraph": 474,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "没有什么遗憾了吧。你看了一眼桌上立着的灯塔形状的木雕，阳光穿过病房的窗户，正将它轻盈地笼罩。",
+    "record": null
+  },
+  {
+    "paragraph": 475,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "“钟歧，有人来看你了。”护士的声音忽然在门外响起，“说是你以前的同学。”",
+    "record": null
+  },
+  {
+    "paragraph": 476,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 13,
+    "segment": 0,
+    "text": "你打开门，看见护士身边站着的那名年轻女子。她腼腆地微微一笑，轻声说道：“好久不见，钟歧。”",
+    "record": null
+  },
+  {
+    "paragraph": 477,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 14,
+    "segment": 0,
+    "text": "你稍稍一愣，也不觉露出了笑容。",
+    "record": null
+  },
+  {
+    "paragraph": 478,
+    "file": "assets/dialogues/finale/source/source_ending_zhong_perfect.dtl",
+    "line": 15,
+    "segment": 0,
+    "text": "“好久不见，林玖……”",
+    "record": null
+  },
+  {
+    "paragraph": 480,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "梦境的经历已经结束，你在箱庭中度过的时光亦已画上句点，你回到了自己的世界。",
+    "record": "054"
+  },
+  {
+    "paragraph": 481,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 3,
+    "segment": 1,
+    "text": "你全都想起来了，你只是一个十岁的小女孩，你的爸爸叫【乌叙】，妈妈叫【白忆】，",
+    "record": "054"
+  },
+  {
+    "paragraph": 482,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 3,
+    "segment": 2,
+    "text": "他们都是解构学的专家，由于工作忙碌，他们没有时间照顾你，于是让你跟随老师【末雨】学习建构学。",
+    "record": "054"
+  },
+  {
+    "paragraph": 483,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "在对箱庭世界的建构中，你过分执着于寻求“一个让所有人都幸福的世界”，导致自己陷入了情绪的大低谷。",
+    "record": "055"
+  },
+  {
+    "paragraph": 484,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 4,
+    "segment": 1,
+    "text": "为了挽救你抑郁的心态，老师提议让你接受【零芝】姐姐的“箱庭疗法”，于是便有了你在箱庭世界中的各种见闻。",
+    "record": "055"
+  },
+  {
+    "paragraph": 485,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "但你却选择了与老师对抗。",
+    "record": null
+  },
+  {
+    "paragraph": 486,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "你已经记不清自己当时为什么会做出这种选择了，也许是对箱庭中被命运纠缠的人们的怜悯，也许是对老师某些行为或理念的反对……但无论如何，你确实做出了这样的选择。",
+    "record": null
+  },
+  {
+    "paragraph": 487,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "无论心中有没有生气或内疚的情绪，你都决定与老师诀别了。",
+    "record": null
+  },
+  {
+    "paragraph": 488,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "“这只能说明，我是一个不称职的老师。”老师的话语犹在耳畔。",
+    "record": null
+  },
+  {
+    "paragraph": 489,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "你的爸爸妈妈最终还是尊重了你的决定，但他们的确没有时间陪伴你，只能继续拜托年迈的爷爷奶奶照顾你了。",
+    "record": null
+  },
+  {
+    "paragraph": 490,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "时不时地，你会回想起曾经见到的箱庭世界中的人。祝他们能过上幸福的生活吧……",
+    "record": null
+  },
+  {
+    "paragraph": 491,
+    "file": "assets/dialogues/finale/source/source_ending_wu_farewell.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "就算，让所有人都幸福的世界注定是不存在的……",
+    "record": null
+  },
+  {
+    "paragraph": 493,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "当你从梦境中醒来时，映入眼帘的是一个熟悉的房间，温暖的阳光越过窗沿，透进室内。",
+    "record": null
+  },
+  {
+    "paragraph": 494,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "你全都想起来了，你只是一个十岁的小女孩，你的爸爸叫【乌叙】，妈妈叫【白忆】，",
+    "record": "056"
+  },
+  {
+    "paragraph": 495,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 4,
+    "segment": 1,
+    "text": "他们都是解构学的专家，由于工作忙碌，他们没有时间照顾你，于是让你跟随老师【末雨】学习建构学。",
+    "record": "056"
+  },
+  {
+    "paragraph": 496,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 4,
+    "segment": 2,
+    "text": "在对箱庭世界的建构中，你过分执着于寻求“一个让所有人都幸福的世界”，导致自己陷入了情绪的大低谷。",
+    "record": "056"
+  },
+  {
+    "paragraph": 497,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "为了挽救你抑郁的情绪，老师提议让你接受“箱庭疗法”，于是便有了你在箱庭世界中的各种见闻。",
+    "record": null
+  },
+  {
+    "paragraph": 498,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "“回来啦？”一个明快的女声在旁边响起，你转过头，看见了【零芝】姐姐，她是箱庭疗法的开创者，这段时间应该也是她在为你治疗吧。",
+    "record": null
+  },
+  {
+    "paragraph": 499,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "仔细想来，箱庭世界中遇见的林医生，似乎确实有她的影子。",
+    "record": null
+  },
+  {
+    "paragraph": 500,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "“嗯。”你想从床上坐起来，却一阵头晕。",
+    "record": null
+  },
+  {
+    "paragraph": 501,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "“别着急，头晕的话是正常现象，”零姐姐关切地说，“现在你需要处理好你在箱庭世界中的记忆，不要和现实混淆，明白吗？”",
+    "record": null
+  },
+  {
+    "paragraph": 502,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "“嗯……老师呢？”你想起了在梦境中一直假扮着管家的老师。",
+    "record": null
+  },
+  {
+    "paragraph": 503,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "“比你醒得稍微早点，”一个沉稳的男声从另一侧传来，老师正站在门边，微笑着，“乌停湘，多亏你的努力，我们才能得到一个如此完美的结局啊。”",
+    "record": null
+  },
+  {
+    "paragraph": 504,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "你了解到，箱庭世界中的其他人都回到了自己的世界，没有被修正，也没有被强行删除记忆，",
+    "record": "057"
+  },
+  {
+    "paragraph": 505,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 12,
+    "segment": 1,
+    "text": "他们和老师立下了约定，老师撤除了因果的束缚，而他们成立了一个跨世界线的组织，",
+    "record": "057"
+  },
+  {
+    "paragraph": 506,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 12,
+    "segment": 2,
+    "text": "旨在维护各平行世界的相对稳定，阻止各世界线中可能出现的跨世界线能量物质交换的行为。",
+    "record": "057"
+  },
+  {
+    "paragraph": 507,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 12,
+    "segment": 3,
+    "text": "箱庭世界以另一种方式获得了秩序与和谐。",
+    "record": "057"
+  },
+  {
+    "paragraph": 508,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 13,
+    "segment": 0,
+    "text": "“所以说，一个人的力量再微小，只要坚定信念，也有可能给所有人带来最好的结局啊。”老师颇有感慨，你也顿有所悟。",
+    "record": null
+  },
+  {
+    "paragraph": 509,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 14,
+    "segment": 0,
+    "text": "“这种信念，或许就是‘大爱’吧。”零姐姐接着说道，",
+    "record": "058"
+  },
+  {
+    "paragraph": 510,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 14,
+    "segment": 1,
+    "text": "“你们在梦境中的经历我都看到了，无论乌停湘选择了帮助老师还是帮助箱庭世界中的人，都意味着放弃另一方。",
+    "record": "058"
+  },
+  {
+    "paragraph": 511,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 14,
+    "segment": 2,
+    "text": "但你选择了让所有人都幸福的结局。",
+    "record": "058"
+  },
+  {
+    "paragraph": 512,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 15,
+    "segment": 0,
+    "text": "我猜啊，幸福也许不一定来源于收获，如果我们能真心地为他人考虑，哪怕对方没能收获到什么，也会在内心中感到幸福吧。”",
+    "record": null
+  },
+  {
+    "paragraph": 513,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 16,
+    "segment": 0,
+    "text": "支持与关心、体谅与给予、平等与尊重，也许就是能造就一个“让所有人都幸福的世界”的“大爱”吧。",
+    "record": null
+  },
+  {
+    "paragraph": 514,
+    "file": "assets/dialogues/finale/source/source_ending_wu_perfect.dtl",
+    "line": 17,
+    "segment": 0,
+    "text": "像是积淀已久的心结终于化解，你发自内心地笑了笑，看见窗外万里无云的明澈天空。",
+    "record": null
+  },
+  {
+    "paragraph": 516,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "当你从梦境中醒来时，映入眼帘的是一个熟悉的房间，温暖的阳光越过窗沿，透进室内。",
+    "record": null
+  },
+  {
+    "paragraph": 517,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "你全都想起来了，你只是一个十岁的小女孩，你的爸爸叫【乌叙】，妈妈叫【白忆】，",
+    "record": "059"
+  },
+  {
+    "paragraph": 518,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 4,
+    "segment": 1,
+    "text": "他们都是解构学的专家，由于工作忙碌，他们没有时间照顾你，于是让你跟随老师【末雨】学习建构学。",
+    "record": "059"
+  },
+  {
+    "paragraph": 519,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 4,
+    "segment": 2,
+    "text": "在对箱庭世界的建构中，你过分执着于寻求“一个让所有人都幸福的世界”，导致自己陷入了情绪的大低谷。",
+    "record": "059"
+  },
+  {
+    "paragraph": 520,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "为了挽救你抑郁的情绪，老师提议让你接受“箱庭疗法”，于是便有了你在箱庭世界中的各种见闻。",
+    "record": null
+  },
+  {
+    "paragraph": 521,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "“回来啦？”一个明快的女声在旁边响起，你转过头，看见了【零芝】姐姐，她是箱庭疗法的开创者，这段时间应该也是她在为你治疗吧。",
+    "record": null
+  },
+  {
+    "paragraph": 522,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "仔细想来，箱庭世界中遇见的林医生，似乎确实有她的影子。",
+    "record": null
+  },
+  {
+    "paragraph": 523,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "“嗯。”你想从床上坐起来，却一阵头晕。",
+    "record": null
+  },
+  {
+    "paragraph": 524,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "“别着急，头晕的话是正常现象，”零姐姐关切地说，“现在你需要处理好你在箱庭世界中的记忆，不要和现实混淆，明白吗？”",
+    "record": null
+  },
+  {
+    "paragraph": 525,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "“醒了啊。”一个沉稳的男声从另一侧传来，老师正站在门边，微笑着，“乌停湘，这一次去了很久，你应该也看到了不少东西吧。”",
+    "record": null
+  },
+  {
+    "paragraph": 526,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "“嗯……”你想起了自己在箱庭世界中看见的种种悲哀，想起了在梦境中了解到的其他人的故事，“……有的人的幸福建立在别人的痛苦之上，有的人的幸福在于比别人更幸福。”",
+    "record": null
+  },
+  {
+    "paragraph": 527,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "老师看了零姐姐一眼，又继续对你说道：“的确，我们不得不承认，让所有人都幸福的世界是不存在的，但是，我们仍然可以通过自己的努力，让身边的人得到幸福。”",
+    "record": null
+  },
+  {
+    "paragraph": 528,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 13,
+    "segment": 0,
+    "text": "你没有理由推翻老师的说法，只能承认，也许曾经的自己过于理想主义了吧，现实可就是这样啊。",
+    "record": null
+  },
+  {
+    "paragraph": 529,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 14,
+    "segment": 0,
+    "text": "至少可以让身边的人得到幸福，这就够了吧。",
+    "record": null
+  },
+  {
+    "paragraph": 530,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 15,
+    "segment": 0,
+    "text": "箱庭世界的故事就此结束，现实中还将翻开新的篇章。虽然很不甘心就是了……",
+    "record": null
+  },
+  {
+    "paragraph": 531,
+    "file": "assets/dialogues/finale/source/source_ending_wu_wake.dtl",
+    "line": 16,
+    "segment": 0,
+    "text": "世界中的善意并非常存，而你只能选择独善其身……",
+    "record": null
+  },
+  {
+    "paragraph": 533,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "“你还是暴露了。”脑海中的声音再度出现。",
+    "record": null
+  },
+  {
+    "paragraph": 534,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "四周别墅的图景逐渐隐去，一片虚无之中只余下你站在原地。熟悉的声音从你的身后传来，“你好，{PlayerName}，我想和你们谈谈。”",
+    "record": null
+  },
+  {
+    "paragraph": 535,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "那个操控着这一切的人出现在你身后，面色严肃，像是在看着一个至为棘手的程序漏洞。",
+    "record": null
+  },
+  {
+    "paragraph": 536,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "“没关系，交给我吧，你可以回来了。”脑海中的声音传达了指令，一股意识的暖流融入你的大脑，你回到了名为“时今”的整体之中。",
+    "record": null
+  },
+  {
+    "paragraph": 537,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "“初次见面，上层世界的建构师。”时今微微一笑，“我们一直期待着这一天。”",
+    "record": null
+  },
+  {
+    "paragraph": 538,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "“你们的目的是什么？”对方完全笑不出来。",
+    "record": null
+  },
+  {
+    "paragraph": 539,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "“你的目的是什么？”时今反问道，“创造了四个平行世界，掌控着生杀予夺的大权，随意抹除探索世界之理的生命——你管那叫修正，对吧？难道只是为了满足你的上帝情结？”",
+    "record": null
+  },
+  {
+    "paragraph": 540,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "“这是箱庭计划的实验，你们只是我的观测对象，接触到世界之理的人会严重影响箱庭的稳定，异数必须被修正。",
+    "record": "048"
+  },
+  {
+    "paragraph": 541,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 10,
+    "segment": 1,
+    "text": "这一切本不该发生，如果穆执不盲信伊斯的《默示录》，如果林玖不和安霖直接联系，",
+    "record": "048"
+  },
+  {
+    "paragraph": 542,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 10,
+    "segment": 2,
+    "text": "如果钟歧不执着于弦的存在，如果周崇安没有看你们留下的视频，他们都不会出现在这里。”",
+    "record": "048"
+  },
+  {
+    "paragraph": 543,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "“所以这就是你观测到的东西？",
+    "record": "049"
+  },
+  {
+    "paragraph": 544,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 11,
+    "segment": 1,
+    "text": "你没有意识到人类的好奇心如何驱使他们不惧未知，人类的责任心如何策动他们挺身而出，",
+    "record": "049"
+  },
+  {
+    "paragraph": 545,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 11,
+    "segment": 2,
+    "text": "人类对真理的追求如何激发他们超越生死，人类对真情的重视如何导致他们不计代价。",
+    "record": "049"
+  },
+  {
+    "paragraph": 546,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 11,
+    "segment": 3,
+    "text": "我们已记不清活了多少个百年了，这样的人类每次都有，永远不会断绝。”",
+    "record": "049"
+  },
+  {
+    "paragraph": 547,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "建构师沉默了，或许在思考时今的话。",
+    "record": null
+  },
+  {
+    "paragraph": 548,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 13,
+    "segment": 0,
+    "text": "“还是说，你从来没有把我们当人类看？明明我们是一样的。{PlayerName}看到了你对乌停湘的关心，我们还以为你能听懂我们的话。”",
+    "record": null
+  },
+  {
+    "paragraph": 549,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 14,
+    "segment": 0,
+    "text": "“所以……你们的目的是什么？”对方又问了一遍。",
+    "record": null
+  },
+  {
+    "paragraph": 550,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 15,
+    "segment": 0,
+    "text": "“我们想要剪断缠绕在我们身上的弦，去到上层世界，和上层世界的人好好谈谈——现在约等于实现了吧。接下来，我们要求你解除因果，允许人类探索世界之理。”",
+    "record": null
+  },
+  {
+    "paragraph": 551,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 16,
+    "segment": 0,
+    "text": "“如果我拒绝呢？”",
+    "record": null
+  },
+  {
+    "paragraph": 552,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 17,
+    "segment": 0,
+    "text": "“意料之内。那么你还有两种选择：永久关闭箱庭，或者等到我们真正去到上层世界的那一天，我们再逼你解除因果。”",
+    "record": null
+  },
+  {
+    "paragraph": 553,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 18,
+    "segment": 0,
+    "text": "对方再次沉默，似乎在思考第二种情况的可能性。",
+    "record": null
+  },
+  {
+    "paragraph": 554,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 19,
+    "segment": 0,
+    "text": "“你可以杀死我，但无法杀死我们；你可以抹除我的记忆，但无法抹除我们的记忆。记忆的牵引，使得我们拥有聚沙成塔的权柄，在未来的某个时间，我们终将直面你的存在。”",
+    "record": null
+  },
+  {
+    "paragraph": 555,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 20,
+    "segment": 0,
+    "text": "对方皱了皱眉，突然笑了一声，“你们真是最有意思的观测对象，不过现在，该请你们休息了。”",
+    "record": "050"
+  },
+  {
+    "paragraph": 556,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 20,
+    "segment": 1,
+    "text": "建构师向后退了几步，转身欲走。",
+    "record": "050"
+  },
+  {
+    "paragraph": 557,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 20,
+    "segment": 2,
+    "text": "黑色的潮水开始涌入虚无的空间之中，让时今的意识逐渐模糊。",
+    "record": "050"
+  },
+  {
+    "paragraph": 558,
+    "file": "assets/dialogues/finale/source/source_ending_player_audience.dtl",
+    "line": 21,
+    "segment": 0,
+    "text": "“帮我带句话给乌停湘吧。”时今用最后的力气说道，“谢谢她在轮回中满足了我们那么多无理的要求。”",
+    "record": null
+  },
+  {
+    "paragraph": 560,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "“事情的经过就是这样，说实话，真是出乎我的意料。”显示屏上跳出一段字符。",
+    "record": null
+  },
+  {
+    "paragraph": 561,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "“这些，真的是切实发生在他们梦境中的事吗？”坐在显示屏前的女子对着麦克风说道，“或者说……你为什么要告诉我这些？”",
+    "record": null
+  },
+  {
+    "paragraph": 562,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "“第一，林羽博士，你是脑科学的专家，且正有一个正在研究的离体培养人脑，没有什么比借助他联系上别人更方便的选择了——梦境除外；",
+    "record": "051"
+  },
+  {
+    "paragraph": 563,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 5,
+    "segment": 1,
+    "text": "第二，在另一个平行世界里，你曾帮助过我，这算是一种回报吧。",
+    "record": "051"
+  },
+  {
+    "paragraph": 564,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 5,
+    "segment": 2,
+    "text": "当然，我不忍心让你成为‘异数’，若不是祂承诺废除因果，我也不会告诉你。”",
+    "record": "051"
+  },
+  {
+    "paragraph": 565,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "“这样吗……那故事里的人们，后来去了哪里？”",
+    "record": null
+  },
+  {
+    "paragraph": 566,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "“难以观测，但无非是回到了各自的世界，继续他们的生活。”",
+    "record": null
+  },
+  {
+    "paragraph": 567,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "“{PlayerName}呢？她是你安排的‘眼睛’，对吧？”",
+    "record": null
+  },
+  {
+    "paragraph": 568,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "“嗯。准确来说，是从‘时今’这个人格中解离出的一部分，她自然是带着梦境中的记忆，回到了人格整体中去。”",
+    "record": null
+  },
+  {
+    "paragraph": 569,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "“真是不可思议……”名为林羽的研究者喃喃道，“你的故事，又是从什么时候开始的呢？”",
+    "record": null
+  },
+  {
+    "paragraph": 570,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "“我的存在，是箱庭无法克服的‘痼疾’，也许自箱庭诞生之初，我就已经存在了，",
+    "record": "052"
+  },
+  {
+    "paragraph": 571,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 11,
+    "segment": 1,
+    "text": "但我的存在并没有合适的载体，直到人脑以及书籍的出现。",
+    "record": "052"
+  },
+  {
+    "paragraph": 572,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 11,
+    "segment": 2,
+    "text": "我可以将知识与记忆存放在书中，等‘我们’中的其他人阅读后，相关的意识就会‘启动’，",
+    "record": "052"
+  },
+  {
+    "paragraph": 573,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 11,
+    "segment": 3,
+    "text": "我就会渐渐苏醒——汇集一切时间，集于当今，故名‘时今’。”",
+    "record": "052"
+  },
+  {
+    "paragraph": 574,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "“这就是灯塔水母的童话吗？”",
+    "record": null
+  },
+  {
+    "paragraph": 575,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 13,
+    "segment": 0,
+    "text": "“嗯。我们在周而复始的探索中无限接近世界之理。这一次是我大胆的尝试，{PlayerName}带回了至关重要的信息，除了伽马世界线的沙化事件，一切谜团都已揭晓。”",
+    "record": null
+  },
+  {
+    "paragraph": 576,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 14,
+    "segment": 0,
+    "text": "“接下来你会怎么做？”",
+    "record": null
+  },
+  {
+    "paragraph": 577,
+    "file": "assets/dialogues/finale/source/source_ending_player_perfect.dtl",
+    "line": 15,
+    "segment": 0,
+    "text": "“确保那个叫末雨的建构者信守诺言，以及，我想亲自和祂谈一谈。今天就到这吧，我也累了。和你聊天很愉快。”",
+    "record": null
+  },
+  {
+    "paragraph": 579,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 3,
+    "segment": 0,
+    "text": "“事情的经过就是这样，没想到那些梦中人都没有发现{PlayerName}的端倪，这样一群‘异数’还真是让我失望。”",
+    "record": null
+  },
+  {
+    "paragraph": 580,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 4,
+    "segment": 0,
+    "text": "“终究还是逃不过玩物的命运么？不知道操控着一切的人为什么要设这样一个局。”",
+    "record": null
+  },
+  {
+    "paragraph": 581,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 5,
+    "segment": 0,
+    "text": "“没有人会向动物园里的动物解释它们为什么会在那里。”",
+    "record": null
+  },
+  {
+    "paragraph": 582,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "“呵，倒也是。”",
+    "record": null
+  },
+  {
+    "paragraph": 583,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "一阵沉默，被最先说话的人打破，“苏阂，你在想你女儿吗？”",
+    "record": null
+  },
+  {
+    "paragraph": 584,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 8,
+    "segment": 0,
+    "text": "“想啊……当然想啊。你的‘眼睛’见到了另一个平行世界的她，让我更想见一见我的那个她了。”",
+    "record": null
+  },
+  {
+    "paragraph": 585,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 9,
+    "segment": 0,
+    "text": "“唔……原谅我缺乏共情能力，我见过的生离死别太多了，早就习惯了，你也还是……”",
+    "record": null
+  },
+  {
+    "paragraph": 586,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "“这就是灯塔水母的故事吗？”",
+    "record": null
+  },
+  {
+    "paragraph": 587,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 11,
+    "segment": 0,
+    "text": "“……的确是其中的一部分。接下来，你要接着和我们合作吗？”",
+    "record": null
+  },
+  {
+    "paragraph": 588,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 12,
+    "segment": 0,
+    "text": "“不然呢？我们哪也去不了，只有唯一自由的思维依然活跃，我们探索出的一切世界之理，只能拜托你带到未来了。不落在那姓梅的手上就行。”",
+    "record": null
+  },
+  {
+    "paragraph": 589,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 13,
+    "segment": 0,
+    "text": "“只可惜{PlayerName}并不能为我带来足够明确的信息，对于上层世界几乎没什么进展……",
+    "record": "053"
+  },
+  {
+    "paragraph": 590,
+    "file": "assets/dialogues/finale/source/source_ending_player_return.dtl",
+    "line": 13,
+    "segment": 1,
+    "text": "我知道，我们最不缺的就是时间，或许是这次与目标失之交臂让我有些心急了吧。”",
+    "record": "053"
+  },
+  {
+    "paragraph": 593,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 6,
+    "segment": 0,
+    "text": "干的不错，侦探，看样子你已经知道了这些真相，真心为你感到高兴......",
+    "record": null
+  },
+  {
+    "paragraph": 594,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 7,
+    "segment": 0,
+    "text": "不过你似乎还漏了一件事……",
+    "record": null
+  },
+  {
+    "paragraph": 595,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 10,
+    "segment": 0,
+    "text": "关于我是谁？",
+    "record": null
+  },
+  {
+    "paragraph": 598,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 13,
+    "segment": 0,
+    "text": "回答错误，侦探，再好好想想吧",
+    "record": null
+  },
+  {
+    "paragraph": 600,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 15,
+    "segment": 0,
+    "text": "时今: 所以，你又是谁呢，侦探……我问的是你，那个不知处于何种状态，不知通过何种方式，看着这里发生的一切，操控着我们的主角的一举一动的你。",
+    "record": null
+  },
+  {
+    "paragraph": 601,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 16,
+    "segment": 0,
+    "text": "时今: 其实我早就注意到你了，你不会一直以为我在和主角对话吧？",
+    "record": null
+  },
+  {
+    "paragraph": 603,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 18,
+    "segment": 0,
+    "text": "时今: 那么总算可以坦诚相见了，这位在屏幕外的侦探，尽管这可能也并不是你的真名吧，但总比称呼那个主角名要好多了。",
+    "record": null
+  },
+  {
+    "paragraph": 604,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 19,
+    "segment": 0,
+    "text": "时今: 我想既然你已经能够来到这里 ，恐怕那些关于平行世界，箱庭世界，上层世界的设定对你不陌生。",
+    "record": null
+  },
+  {
+    "paragraph": 605,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 20,
+    "segment": 0,
+    "text": "时今: 既然如此，我能意识到你的存在也没什么惊讶的吧",
+    "record": null
+  },
+  {
+    "paragraph": 606,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 21,
+    "segment": 0,
+    "text": "时今: 你要知道箱庭世界是基于上层世界而存在的，而我可以保留箱庭世界回溯的记忆……",
+    "record": null
+  },
+  {
+    "paragraph": 607,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 22,
+    "segment": 0,
+    "text": "时今: 你知道这意味着什么吗……",
+    "record": "035"
+  },
+  {
+    "paragraph": 608,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 22,
+    "segment": 1,
+    "text": "如果出现了一段只有经历了一次才能知道的信息，但我并没有这段回溯的记忆，",
+    "record": "035"
+  },
+  {
+    "paragraph": 609,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 22,
+    "segment": 2,
+    "text": "也就是说这段回溯它并不来自上层世界，而是来自超越上层世界的存在……",
+    "record": "035"
+  },
+  {
+    "paragraph": 610,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 23,
+    "segment": 0,
+    "text": "时今: 虽然我不知道你是用什么方式，但是有一种超越上层世界的力量引发了回溯。在你打开餐厅的门，输入那来自不同平行世界的四个符号时，就已经能解释很多了",
+    "record": null
+  },
+  {
+    "paragraph": 612,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 25,
+    "segment": 0,
+    "text": "时今: 还记得吗，好运侦探？你通过某种方式提前打开了乌停湘的笔记本，从那时候起我就开始意识到了你存在的可能",
+    "record": null
+  },
+  {
+    "paragraph": 613,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 26,
+    "segment": 0,
+    "text": "时今: 你发现了吗，在这之后，我一直试着在和你对话，你该不会一直以为我在和那个呆呆的主角对话吧（笑）",
+    "record": null
+  },
+  {
+    "paragraph": 614,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 27,
+    "segment": 0,
+    "text": "时今: ……",
+    "record": null
+  },
+  {
+    "paragraph": 615,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 28,
+    "segment": 0,
+    "text": "时今: 谢谢你，愿意听我说这么多，毕竟你来自一个比上层世界更高的维度，",
+    "record": "036"
+  },
+  {
+    "paragraph": 616,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 28,
+    "segment": 1,
+    "text": "我想你肯定有不止一种办法结束我们这段突兀的对话，",
+    "record": "036"
+  },
+  {
+    "paragraph": 617,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 28,
+    "segment": 2,
+    "text": "对于你而言，我们的存在又是什么呢……",
+    "record": "036"
+  },
+  {
+    "paragraph": 618,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 28,
+    "segment": 3,
+    "text": "你有没有想过，或许在你之上还有更高的一层世界……",
+    "record": "036"
+  },
+  {
+    "paragraph": 619,
+    "file": "assets/dialogues/finale/4_5_easter_egg.dtl",
+    "line": 29,
+    "segment": 0,
+    "text": "时今: 扯远了，你的存在真的帮我想通了很多事情，接下来不妨就让我们一起去见证最后的结局……",
+    "record": null
+  }
+]
