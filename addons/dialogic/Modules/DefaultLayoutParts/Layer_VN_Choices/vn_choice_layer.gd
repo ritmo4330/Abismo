@@ -1,7 +1,7 @@
 @tool
 extends DialogicLayoutLayer
 
-## A layer that allows showing up to 10 choices.
+## A scrollable layer for dialogue questions with many choices.
 ## Choices are positioned in the center of the screen.
 
 @export_group("Text")
@@ -41,11 +41,33 @@ extends DialogicLayoutLayer
 
 @export_group('Choices')
 @export_subgroup('Behavior')
-@export var maximum_choices: int = 10
+@export var maximum_choices: int = 32
 @export_file('*.tscn') var choices_custom_button: String = ""
 
+func _ready() -> void:
+	super._ready()
+	if Engine.is_editor_hint():
+		return
+	Dialogic.Choices.question_shown.connect(_on_question_shown)
+	Dialogic.Choices.choice_selected.connect(_on_choice_selected)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+
+
+func _on_question_shown(_info: Dictionary) -> void:
+	$ChoiceScroll.scroll_vertical = 0
+	$ChoiceScroll.mouse_filter = Control.MOUSE_FILTER_STOP
+
+
+func _on_choice_selected(_info: Dictionary) -> void:
+	$ChoiceScroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+func _on_timeline_ended() -> void:
+	$ChoiceScroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
 func get_choices() -> VBoxContainer:
-	return $Choices
+	return $ChoiceScroll/Choices
 
 
 func get_button_sound() -> DialogicNode_ButtonSound:
