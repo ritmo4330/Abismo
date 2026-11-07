@@ -22,6 +22,11 @@ func run() -> void:
 	var manual: Node = host.get_node("SuspicionPanel")
 	var clues: Node = host.get_node("CluePanel")
 	var workspace: RefCounted = manual._workspace
+	for question_id: String in workspace.NOVEL:
+		var qdef: Resource = data.get_suspicion_def(question_id)
+		var ordered: Array[String] = []
+		ordered.assign(workspace.NOVEL[question_id][1])
+		check(qdef != null and ReasoningSystem.validate(qdef, PackedStringArray(ordered)) and workspace.matches(question_id, ordered), "Novel prompt answers match the existing puzzle: " + question_id)
 	var id := "1_suspicion_x_disability"
 	data.discover_clue("1_study_1", "test", "workspace")
 	clues._open_interaction_panel({"display_type": "single", "clue_ids": ["1_study_1"]})
@@ -32,7 +37,9 @@ func run() -> void:
 	data.add_suspicion("1_suspicion_crime_info", "test", "workspace")
 	data.add_suspicion("1_suspicion_locked_room", "test", "workspace")
 	var definition: Resource = data.get_suspicion_def(id)
-	var required: PackedStringArray = definition.required_clue_ids
+	var required: PackedStringArray = PackedStringArray(workspace.NOVEL[id][1])
+	var swapped: Array[String] = [required[1], required[0], required[2]]
+	check(not workspace.matches(id, swapped), "Correct clues in incorrect blanks are rejected")
 	for clue: String in required: data.discover_clue(clue, "test", "workspace")
 	data.discover_clue("1_study_1", "test", "workspace")
 	clues._question_workspace.refresh()

@@ -212,7 +212,7 @@ func _on_reason_button_pressed() -> void:
 		return
 
 	_confirm_submitted_evidence(suspicion_def, selected_ids)
-	if not ReasoningSystem.validate(suspicion_def, PackedStringArray(selected_ids)):
+	if not ReasoningSystem.validate(suspicion_def, PackedStringArray(selected_ids)) or not _workspace.matches(_selected_suspicion_id, selected_ids):
 		_record_novel_failure(suspicion_def)
 		_update_reasoning_panel()
 		_show_reasoning_notice("已显示线索提示" if _novel_hint_label.visible else "还不对哦，再想想", "warning")
@@ -277,8 +277,12 @@ func _is_novel_evidence_fixed(suspicion_id: String, clue_id: String) -> bool:
 
 func _confirm_submitted_evidence(definition: SuspicionData, selected_ids: Array[String]) -> void:
 	# Called only by the confirmation action, after every slot is filled.
-	for clue_id: String in selected_ids:
-		if definition.required_clue_ids.has(clue_id):
+	for index: int in selected_ids.size():
+		var clue_id: String = selected_ids[index]
+		var correct: bool = definition.required_clue_ids.has(clue_id)
+		if _workspace.NOVEL.has(definition.id):
+			correct = clue_id == _workspace.answer(definition.id, index)
+		if correct:
 			DataManager.set_flag("reasoning_confirmed/%s/%s" % [definition.id, clue_id], true)
 
 

@@ -1,6 +1,26 @@
 extends RefCounted
 
 const STYLE = preload("res://scripts/UI/casebook_style.gd")
+const NOVEL := {
+ "1_suspicion_crime_info": ["【1】这一段的环境描写交代了案件发生的地点特征，但是【2】中的角色对话细节却不像是发生在这样的环境中", ["1_puzzle_maid_scene", "1_puzzle_first_discussion"]],
+ "1_suspicion_x_disability": ["在描述了X的残疾的段落中，【1】中的动作描写似乎表明X并没有【2】中所述的残疾，但是考虑到挑战读者部分提到的【3】，可以发现这其中必定有端倪", ["1_puzzle_x_impossible_2", "1_puzzle_x_impossible_1", "1_puzzle_challenge_rules"]],
+ "1_suspicion_strange_description": ["女仆死后，能完成【1】中添茶工作的人可以是管家；但是在【2】中，在管家也死亡之后，却仍有人承担了相似的工作", ["1_puzzle_x_impossible_1", "1_puzzle_x_impossible_2"]],
+ "1_suspicion_nonexistent_service": ["在女仆和管家死后，仍有人为X“递上肉饼”。从排除法的角度出发，【1】这一段能说明这些人都有自己的行动，似乎没有人能递上这块肉饼，但事情一定发生了。结合“挑战读者”中的【2】，或许能揭示出叙述性诡计的一角", ["1_puzzle_second_discussion", "1_puzzle_challenge_rules"]],
+ "1_suspicion_hidden_chars": ["根据已得出的结论【1】，再与【2】相对照，排除了一切不可能，剩下的无论多么离奇也是真相", ["1_conclusion_hidden_server", "1_puzzle_cast"]],
+ "1_suspicion_impossible_crime": ["根据已得出的结论，【1】能证明与X有关的怪异之处；【2】能证明与地点有关的怪异之处；【3】能证明与死者有关的怪异之处，而这些怪异之处都有某些共同特征", ["1_conclusion_disability_superposition", "1_conclusion_environment_paradox", "1_conclusion_dead_not_dead"]]
+}
+static func answer(question: String, index: int) -> String:
+	if not NOVEL.has(question): return ""
+	var answers: Array = NOVEL[question][1]
+	return String(answers[index]) if index >= 0 and index < answers.size() else ""
+static func matches(question: String, slots: Array[String]) -> bool:
+	if not NOVEL.has(question): return true
+	var answers: Array = NOVEL[question][1]
+	if slots.size() != answers.size(): return false
+	for i: int in slots.size():
+		if slots[i] != answers[i]: return false
+	return true
+
 var host: Node
 var catalog: Tree
 var search: LineEdit
@@ -125,6 +145,18 @@ func refresh() -> void:
 		if fixed and not button.text.begins_with("✓ "): button.text = "✓ " + button.text
 		button.add_theme_color_override("font_disabled_color", STYLE.INK)
 		button.tooltip_text = "已确认" if fixed else ("选择此证据位置" if editable else "")
+	if NOVEL.has(_question):
+		var prompt: String = NOVEL[_question][0]
+		for i: int in slots.size():
+			var marker := "【%d】" % (i + 1)
+			if not slots[i].is_empty():
+				prompt = prompt.replace(marker, marker + "《" + host._get_clue_title(slots[i]) + "》")
+			if i < host.slot_buttons.size() and slots[i].is_empty():
+				host.slot_buttons[i].text = marker
+		host.detail_body.text = prompt
+		host.find_child("ReasoningTitle", true, false).text = "推理填空"
+	else:
+		host.find_child("ReasoningTitle", true, false).text = "已选证据"
 	_refreshing = false
 
 func select_slot(index: int) -> void:
