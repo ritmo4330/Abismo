@@ -304,7 +304,8 @@ func _build_sidebar(parent: PanelContainer) -> void:
 	_task_body.add_theme_color_override("default_color", Color(0.08, 0.08, 0.085))
 	task_vbox.add_child(_task_body)
 
-	_add_action_button(column, "推理手册", _open_clue_manual)
+	_add_action_button(column, "线索手册", _open_clue_manual)
+	_add_action_button(column, "推理", _open_reasoning)
 	_add_action_button(column, "历史文本", _open_history)
 	_add_action_button(column, "保存进度", _save_game)
 	_add_action_button(column, "读取存档", _load_game)
@@ -529,6 +530,13 @@ func _open_history() -> void:
 	_history_overlay.show()
 	if InteractionFeedback != null:
 		InteractionFeedback.play_panel_toggle()
+
+
+func _open_reasoning() -> void:
+	_close_panel()
+	var reasoning := get_tree().current_scene.get_node_or_null("SuspicionPanel")
+	if reasoning != null:
+		reasoning._open_archive_panel()
 
 
 func _open_clue_manual() -> void:

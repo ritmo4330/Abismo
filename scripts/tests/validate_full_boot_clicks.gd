@@ -120,11 +120,11 @@ func complete_novel() -> void:
 				break
 		check(not next.is_empty(), "An original novel problem has all discoverable evidence")
 		if next.is_empty(): break
-		work._on_question_selected(work._questions.find(next))
+		manual._select_suspicion_in_tree(next)
 		var problem: Resource = data.get_suspicion_def(next)
 		for index: int in problem.required_clue_ids.size():
-			await click(manual.slot_row.get_child(index))
-			var id: String = problem.required_clue_ids[index]
+			manual.detail_body.meta_clicked.emit("blank:%d" % index)
+			var id: String = work.answer(next, index) if work.NOVEL.has(next) else problem.required_clue_ids[index]
 			work.search.text = data.get_clue_def(id).title
 			work.search.text_changed.emit(work.search.text)
 			await frames()

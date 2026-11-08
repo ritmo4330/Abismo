@@ -36,7 +36,6 @@ func run() -> void:
 	data.add_suspicion(id, "test", "workspace")
 	data.add_suspicion("1_suspicion_crime_info", "test", "workspace")
 	data.add_suspicion("1_suspicion_locked_room", "test", "workspace")
-	var definition: Resource = data.get_suspicion_def(id)
 	var required: PackedStringArray = PackedStringArray(workspace.NOVEL[id][1])
 	var swapped: Array[String] = [required[1], required[0], required[2]]
 	check(not workspace.matches(id, swapped), "Correct clues in incorrect blanks are rejected")
@@ -57,16 +56,18 @@ func run() -> void:
 	manual._selected_suspicion_id = id
 	manual._open_archive_panel()
 	await frames()
-	check(workspace.catalog.is_visible_in_tree() and not manual.suspicion_tree.is_visible_in_tree(), "Left page contains collected clues, not the old problem directory")
-	check(workspace.catalog.get_global_rect().end.x < workspace.question_select.get_global_rect().position.x, "Evidence stays left and questions stay right")
-	check(workspace._questions.size() == 2, "Right selector includes only discovered questions")
+	check(workspace.catalog.is_visible_in_tree() and manual.suspicion_tree.is_visible_in_tree(), "The evidence catalogue and doubt list are visible together")
+	check(workspace.catalog.get_global_rect().end.x < manual.suspicion_tree.get_global_rect().position.x and manual.suspicion_tree.get_global_rect().end.x < manual.detail_body.get_global_rect().position.x, "Evidence, doubts and the question occupy separate columns")
+	check(manual.panel_frame.get_global_rect().is_equal_approx(root.get_visible_rect()), "Reasoning fills the viewport")
+	check(manual._get_sorted_discovered_suspicion_ids().size() == 2, "Current list shows the two discovered questions for this phase")
 	workspace.search.text = "__no_matching_evidence__"
 	workspace.refresh()
 	check(workspace.selected_clue.is_empty() and workspace.add_button.disabled, "Empty search cannot submit hidden or unavailable evidence")
 	workspace.search.text = ""
 	workspace.refresh()
 	for index: int in required.size():
-		workspace.active_slot = index
+		manual.detail_body.meta_clicked.emit("blank:%d" % index)
+		check(workspace.active_slot == index, "Clicking a blank selects its position")
 		workspace.selected_clue = required[index]
 		workspace.refresh()
 		await click(workspace.add_button)
@@ -76,6 +77,10 @@ func run() -> void:
 	for clue: String in required:
 		check(not manual._is_novel_evidence_fixed(id, clue), "Filling a correct clue does not confirm it: " + clue)
 	await snapshot("reasoning-filled-before-confirm.png")
+	if OS.get_cmdline_user_args().has("--capture") and root.get_visible_rect().size == Vector2(1920, 1080):
+		# The filled second blank is in the second line of the captured prompt.
+		await click_at(manual.detail_body.get_global_rect().position + Vector2(295, 145))
+		check(workspace.active_slot == 1, "Mouse clicks select a blank inside the rendered sentence")
 	data.set_flag("novel_confirmed/%s/%s" % [id, required[0]], true)
 	check(not manual._is_novel_evidence_fixed(id, required[0]), "Legacy selection flags do not restore premature locks")
 	workspace.active_slot = 0
@@ -96,7 +101,7 @@ func run() -> void:
 	await click(manual.reason_button)
 	check(not data.is_suspicion_resolved(id), "One wrong clue does not solve the question")
 	check(manual._is_novel_evidence_fixed(id, required[0]) and manual._is_novel_evidence_fixed(id, required[1]), "Confirming three clues fixes only the submitted correct evidence")
-	check(not manual._is_novel_evidence_fixed(id, "1_study_1") and not manual.slot_buttons[2].disabled, "Submitted wrong evidence remains editable")
+	check(not manual._is_novel_evidence_fixed(id, "1_study_1") and manual.detail_body.text.contains("[url=blank:2]") and not manual.detail_body.text.contains("[url=blank:0]"), "Only unconfirmed blanks remain clickable")
 	await snapshot("reasoning-partial-after-confirm.png")
 	var confirmed_state: Dictionary = data.save_runtime_state().duplicate(true)
 	data.set_flag("reasoning_confirmed/%s/%s" % [id, required[0]], false)
@@ -121,18 +126,26 @@ func run() -> void:
 	workspace.refresh()
 	workspace._add_evidence()
 	check(not manual._is_novel_evidence_fixed(id, required[2]), "Replacement correct evidence waits for the next confirmation")
-	check(not workspace._questions.has("1_suspicion_locked_room"), "Novel page hides questions from later investigations")
-	var alternate: int = workspace._questions.find("1_suspicion_crime_info")
-	workspace._on_question_selected(alternate)
-	check(manual._selected_suspicion_id == "1_suspicion_crime_info", "Question selector switches the right-hand problem")
-	workspace._on_question_selected(workspace._questions.find(id))
+	check(not manual._get_sorted_discovered_suspicion_ids().has("1_suspicion_locked_room"), "Current list hides questions from other phases")
+	await click(manual.scope_button)
+	check(manual._get_sorted_discovered_suspicion_ids().has("1_suspicion_locked_room"), "All doubts view includes recorded doubts from other phases")
+	manual._select_suspicion_in_tree("1_suspicion_locked_room")
+	check(manual.reason_button.disabled and not manual.detail_body.text.contains("[url=blank:"), "Other phases are available to review without submitting")
+	await click(manual.scope_button)
+	var alternate: TreeItem = manual.suspicion_tree.get_root().get_first_child()
+	while alternate != null and alternate.get_metadata(0) != "1_suspicion_crime_info":
+		alternate = alternate.get_next()
+	manual.suspicion_tree.set_selected(alternate, 0)
+	manual.suspicion_tree.item_selected.emit()
+	check(manual._selected_suspicion_id == "1_suspicion_crime_info", "Selecting a doubt switches the displayed problem")
+	manual._select_suspicion_in_tree(id)
 	check(manual._get_slot_ids(id) == Array(required), "Switching questions preserves selected evidence")
 	manual._on_locked_suspicion_requested(id, "")
-	check(workspace.question_select.disabled and workspace.search.editable, "Locked reasoning locks the problem, not evidence search")
+	check(manual.scope_button.disabled and manual._get_sorted_discovered_suspicion_ids() == [id] and workspace.search.editable, "Locked reasoning keeps evidence search available for the required doubt")
 	manual._on_close_button_pressed()
 	check(manual.visible, "Locked reasoning cannot be bypassed by closing")
 	root.get_node("EventBus").clue_selection_requested.emit({"source": "suspicion_ui", "suspicion_id": id, "slot_index": 1})
-	check(manual.visible and not clues.visible and workspace.active_slot == 1, "Legacy evidence interaction routes into the same two-page workspace")
+	check(manual.visible and not clues.visible and workspace.active_slot == 2, "A confirmed blank cannot be reopened from an evidence interaction")
 	await frames()
 	await snapshot("reasoning-left-evidence-right-question.png")
 	root.size = Vector2i(1280, 720)
@@ -155,9 +168,13 @@ func frames() -> void:
 
 func click(button: Button) -> void:
 	await frames()
+	await click_at(button.get_global_rect().get_center())
+
+func click_at(position: Vector2) -> void:
+	await frames()
 	var event := InputEventMouseButton.new()
 	event.button_index = MOUSE_BUTTON_LEFT
-	event.position = button.get_global_rect().get_center()
+	event.position = position
 	event.pressed = true
 	var motion := InputEventMouseMotion.new()
 	motion.position = event.position

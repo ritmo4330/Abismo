@@ -1,165 +1,207 @@
 [gd_scene format=3 uid="uid://cg468jjv5h36v"]
+[ext_resource type="Script" uid="uid://cmukkj5omqjdv" path="res://scripts/UI/suspicion_ui.gd" id="1"]
 
-[ext_resource type="Script" uid="uid://cmukkj5omqjdv" path="res://scripts/UI/suspicion_ui.gd" id="1_suspicion_script"]
-[ext_resource type="Theme" uid="uid://d0gg4nn1gnmsa" path="res://assets/UI/default_theme.tres" id="2_m67eg"]
+[node name="SuspicionPanel" type="CanvasLayer"]
+layer = 125
+script = ExtResource("1")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-bg_color = Color(0.09, 0.09, 0.09, 0.96)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.86, 0.86, 0.86, 1)
-
-[node name="SuspicionPanel" type="CanvasLayer" unique_id=1199466945]
-script = ExtResource("1_suspicion_script")
-
-[node name="Dimmer" type="ColorRect" parent="." unique_id=901220393]
+[node name="Screen" type="Control" parent="."]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0.32)
 
-[node name="PanelRoot" type="Control" parent="." unique_id=1727893521]
-layout_mode = 3
+[node name="Background" type="ColorRect" parent="Screen"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+color = Color(0.905, 0.894, 0.852, 1)
 mouse_filter = 2
-theme = ExtResource("2_m67eg")
 
-[node name="PanelFrame" type="PanelContainer" parent="PanelRoot" unique_id=1022126734]
-layout_mode = 0
-offset_left = 180.0
-offset_top = 90.0
-offset_right = 1740.0
-offset_bottom = 990.0
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+[node name="Content" type="MarginContainer" parent="Screen"]
+unique_name_in_owner = true
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_bottom = 26
 
-[node name="FrameMargin" type="MarginContainer" parent="PanelRoot/PanelFrame" unique_id=1634397591]
+[node name="Page" type="VBoxContainer" parent="Screen/Content"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 14
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/separation = 18
 
-[node name="FrameVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin" unique_id=968983586]
+[node name="Header" type="HBoxContainer" parent="Screen/Content/Page"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="HeaderBar" type="HBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox" unique_id=58923618]
+[node name="ScreenTitle" type="Label" parent="Screen/Content/Page/Header"]
+unique_name_in_owner = true
 layout_mode = 2
-
-[node name="HeaderTitle" type="Label" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/HeaderBar" unique_id=1404407472]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "推理手册"
-
-[node name="ModeLabel" type="Label" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/HeaderBar" unique_id=373395592]
-layout_mode = 2
-text = "模式：推理手册"
-
-[node name="CloseButton" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/HeaderBar" unique_id=1263509277]
-custom_minimum_size = Vector2(48, 40)
-layout_mode = 2
-text = "X"
-
-[node name="HeaderSeparator" type="HSeparator" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox" unique_id=72341806]
-layout_mode = 2
-
-[node name="BodySplit" type="HSplitContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox" unique_id=1881706133]
-layout_mode = 2
-size_flags_vertical = 3
-split_offsets = PackedInt32Array(320)
-split_offset = 320
-
-[node name="LeftPane" type="PanelContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit" unique_id=1691828615]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-
-[node name="LeftVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane" unique_id=1755703991]
-layout_mode = 2
-
-[node name="SearchRow" type="HBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox" unique_id=178549401]
-layout_mode = 2
-
-[node name="SearchLineEdit" type="LineEdit" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SearchRow" unique_id=438105400]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.25
-placeholder_text = "搜索疑点标题、内容、标签"
-
-[node name="SortOptionButton" type="OptionButton" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SearchRow" unique_id=696304876]
-custom_minimum_size = Vector2(78, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
-
-[node name="SuspicionTree" type="Tree" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox" unique_id=71069816]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="RightPane" type="PanelContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit" unique_id=1939546553]
-layout_mode = 2
-
-[node name="RightVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane" unique_id=96311160]
-layout_mode = 2
-
-[node name="DetailTop" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox" unique_id=1887493963]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="DetailTitle" type="Label" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailTop" unique_id=1078778365]
-layout_mode = 2
-text = "疑点详情"
-
-[node name="DetailSeparator" type="HSeparator" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailTop" unique_id=1789572961]
-layout_mode = 2
-
-[node name="DetailBody" type="RichTextLabel" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailTop" unique_id=1050401931]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ReasoningPanel" type="PanelContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox" unique_id=83634682]
-custom_minimum_size = Vector2(0, 260)
-layout_mode = 2
-size_flags_vertical = 2
-
-[node name="ReasoningVBox" type="VBoxContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel" unique_id=664409296]
-layout_mode = 2
-
-[node name="ReasoningTitle" type="Label" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox" unique_id=857675304]
-layout_mode = 2
-text = "推理操作"
-
-[node name="SlotRow" type="HFlowContainer" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox" unique_id=120953275]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="SlotButton1" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow" unique_id=1252701356]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "线索位 1：点击选择"
-
-[node name="SlotButton2" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow" unique_id=1804528699]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "线索位 2：点击选择"
-
-[node name="SlotButton3" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow" unique_id=967770169]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "线索位 3：点击选择"
-
-[node name="ReasonButton" type="Button" parent="PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox" unique_id=505976238]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
+size_flags_horizontal = 1
 text = "推理"
+
+[node name="CaseTitle" type="Label" parent="Screen/Content/Page/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "本轮推理"
+
+[node name="CloseButton" type="Button" parent="Screen/Content/Page/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 52)
+text = "返回调查"
+
+[node name="HeaderRule" type="HSeparator" parent="Screen/Content/Page"]
+layout_mode = 2
+
+[node name="Columns" type="HBoxContainer" parent="Screen/Content/Page"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+
+[node name="EvidencePane" type="PanelContainer" parent="Screen/Content/Page/Columns"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(370, 0)
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.1
+
+[node name="Content" type="VBoxContainer" parent="Screen/Content/Page/Columns/EvidencePane"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="EvidenceHeading" type="Label" parent="Screen/Content/Page/Columns/EvidencePane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+text = "线索"
+
+[node name="EvidenceSearch" type="LineEdit" parent="Screen/Content/Page/Columns/EvidencePane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 48)
+placeholder_text = "搜索已收录线索"
+
+[node name="EvidenceCatalog" type="Tree" parent="Screen/Content/Page/Columns/EvidencePane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+hide_root = true
+
+[node name="EvidenceRule" type="HSeparator" parent="Screen/Content/Page/Columns/EvidencePane/Content"]
+layout_mode = 2
+
+[node name="EvidenceTitle" type="Label" parent="Screen/Content/Page/Columns/EvidencePane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+text = "线索详情"
+autowrap_mode = 3
+
+[node name="EvidenceDescription" type="RichTextLabel" parent="Screen/Content/Page/Columns/EvidencePane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AddEvidence" type="Button" parent="Screen/Content/Page/Columns/EvidencePane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 54)
+text = "填入当前空格"
+
+[node name="SuspicionPane" type="PanelContainer" parent="Screen/Content/Page/Columns"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(280, 0)
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.84
+
+[node name="Content" type="VBoxContainer" parent="Screen/Content/Page/Columns/SuspicionPane"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SuspicionHeading" type="Label" parent="Screen/Content/Page/Columns/SuspicionPane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+text = "疑点"
+
+[node name="ScopeButton" type="Button" parent="Screen/Content/Page/Columns/SuspicionPane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 48)
+text = "查看全部疑点"
+toggle_mode = true
+
+[node name="SuspicionTree" type="Tree" parent="Screen/Content/Page/Columns/SuspicionPane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+hide_root = true
+
+[node name="QuestionPane" type="PanelContainer" parent="Screen/Content/Page/Columns"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(450, 0)
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.1
+
+[node name="Content" type="VBoxContainer" parent="Screen/Content/Page/Columns/QuestionPane"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="QuestionHeading" type="Label" parent="Screen/Content/Page/Columns/QuestionPane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+text = "当前问题"
+
+[node name="DetailTitle" type="Label" parent="Screen/Content/Page/Columns/QuestionPane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+text = "暂无问题"
+autowrap_mode = 3
+
+[node name="QuestionRule" type="HSeparator" parent="Screen/Content/Page/Columns/QuestionPane/Content"]
+layout_mode = 2
+
+[node name="DetailBody" type="RichTextLabel" parent="Screen/Content/Page/Columns/QuestionPane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+meta_underlined = false
+
+[node name="ReasoningHint" type="Label" parent="Screen/Content/Page/Columns/QuestionPane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+text = ""
+autowrap_mode = 3
+
+[node name="Progress" type="Label" parent="Screen/Content/Page/Columns/QuestionPane/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+text = ""
+
+[node name="Actions" type="HBoxContainer" parent="Screen/Content/Page/Columns/QuestionPane/Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="RemoveEvidence" type="Button" parent="Screen/Content/Page/Columns/QuestionPane/Content/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 54)
+text = "清空当前空格"
+size_flags_horizontal = 3
+
+[node name="ReasonButton" type="Button" parent="Screen/Content/Page/Columns/QuestionPane/Content/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 54)
+text = "确认推理"
+size_flags_horizontal = 3

@@ -101,7 +101,7 @@ func run() -> void:
 	var manual: Node = host.get_node("SuspicionPanel")
 	manual._open_archive_panel()
 	await create_timer(0.3).timeout
-	check(manual.visible and manual.slot_row is HFlowContainer, "Book reasoning and wrapping evidence slots open")
+	check(manual.visible and manual.detail_body.text.contains("[url=blank:"), "Investigation menu opens the full-screen reasoning view with clickable blanks")
 	await snapshot("casebook-reasoning.png")
 	manual._close_panel()
 	for id: String in ["1_study_1", "1_study_2", "1_study_3"]: data.discover_clue(id, "test", "casebook")

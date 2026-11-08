@@ -92,8 +92,7 @@ func _run() -> void:
 	suspicions.set("_locked_suspicion_id", suspicion_id)
 	suspicions._update_lock_widgets()
 	_check(suspicions.close_button.disabled, "Locked reasoning still prevents closing")
-	var reasoning_tabs: Node = suspicions.find_child("ArchiveTabs", true, false)
-	_check((reasoning_tabs.get_child(0) as Button).disabled, "Archive tabs cannot bypass locked reasoning")
+	_check(suspicions.scope_button.disabled and suspicions._get_sorted_discovered_suspicion_ids() == [suspicion_id], "Locked reasoning exposes only the required doubt")
 	suspicions._on_close_button_pressed()
 	_check(suspicions.visible, "Locked reasoning remains open")
 	for index: int in required_ids.size():

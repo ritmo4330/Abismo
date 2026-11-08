@@ -121,7 +121,7 @@ func _refresh_actions() -> void:
 		return
 	if FlowManager.get_current_step_id() in ["ch1_1_puzzle", "ch1_5_initial_reasoning", "ch2_1_second_reasoning", "ch2_4_third_reasoning"]:
 		var button := Button.new()
-		button.text = "推理手册"
+		button.text = "进入推理"
 		button.custom_minimum_size = Vector2(220, 52)
 		button.focus_mode = Control.FOCUS_NONE
 		button.pressed.connect(_on_manual_pressed)

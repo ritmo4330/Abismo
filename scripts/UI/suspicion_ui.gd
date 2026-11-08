@@ -2,40 +2,31 @@ extends CanvasLayer
 
 const SuspicionState = preload("res://scripts/data/suspicion_state.gd")
 const ResolutionResult = preload("res://scripts/data/resolution_result.gd")
-const ArchivePresentation = preload("res://scripts/UI/archive_presentation.gd")
+const Cases = preload("res://scripts/UI/casebook_cases.gd")
+const Workspace = preload("res://scripts/UI/reasoning_workspace.gd")
 
-const PANEL_SIZE: Vector2 = Vector2(1800.0, 970.0)
+const MIN_SCREEN_SIZE := Vector2(1440, 810)
 const PANEL_ID: String = "suspicion_panel"
 const PANEL_PAUSE_TOKEN: String = "suspicion_panel"
-const ARCHIVE_SORT_DEFAULT: int = 0
-const ARCHIVE_SORT_DISCOVER: int = 1
 const MIN_SLOT_COUNT: int = 1
 
-@onready var panel_frame: PanelContainer = $PanelRoot/PanelFrame
-@onready var close_button: Button = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/HeaderBar/CloseButton
-@onready var search_line_edit: LineEdit = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SearchRow/SearchLineEdit
-@onready var sort_option_button: OptionButton = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SearchRow/SortOptionButton
-@onready var suspicion_tree: Tree = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/LeftPane/LeftVBox/SuspicionTree
-@onready var detail_title: Label = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailTop/DetailTitle
-@onready var detail_body: RichTextLabel = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/DetailTop/DetailBody
-@onready var slot_row: HFlowContainer = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow
-@onready var slot_buttons: Array[Button] = [
-	$PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow/SlotButton1,
-	$PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow/SlotButton2,
-	$PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/SlotRow/SlotButton3,
-]
-@onready var reason_button: Button = $PanelRoot/PanelFrame/FrameMargin/FrameVBox/BodySplit/RightPane/RightVBox/ReasoningPanel/ReasoningVBox/ReasonButton
+@onready var panel_frame: MarginContainer = %Content
+@onready var close_button: Button = %CloseButton
+@onready var suspicion_tree: Tree = %SuspicionTree
+@onready var scope_button: Button = %ScopeButton
+@onready var detail_title: Label = %DetailTitle
+@onready var detail_body: RichTextLabel = %DetailBody
+@onready var reason_button: Button = %ReasonButton
+@onready var _novel_hint_label: Label = %ReasoningHint
 
 var _is_open: bool = false
 var _suppress_tree_selected_callback: bool = false
 var _refresh_queued: bool = false
 var _selected_suspicion_id: String = ""
-var _archive_sort_mode: int = ARCHIVE_SORT_DEFAULT
 var _slot_ids_by_suspicion: Dictionary = {}
 var _locked_suspicion_id: String = ""
 var _locked_conclusion_followup_timeline: String = ""
 var _locked_suspicion_resolved: bool = false
-var _novel_hint_label: Label
 var _workspace: RefCounted
 var _success_layer: CanvasLayer
 
@@ -44,37 +35,11 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_process_input(true)
 	hide()
-	ArchivePresentation.apply(self, true)
-	_novel_hint_label = Label.new()
-	_novel_hint_label.name = "NovelReasoningHint"
-	_novel_hint_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_novel_hint_label.add_theme_font_size_override("font_size", 23)
-	_novel_hint_label.add_theme_color_override("font_color", Color("87443e"))
+	close_button.pressed.connect(_on_close_button_pressed)
+	scope_button.toggled.connect(_on_scope_toggled)
+	suspicion_tree.item_selected.connect(_on_suspicion_tree_item_selected)
+	reason_button.pressed.connect(_on_reason_button_pressed)
 	_novel_hint_label.hide()
-	reason_button.get_parent().add_child(_novel_hint_label)
-
-	suspicion_tree.hide_root = true
-	suspicion_tree.columns = 1
-	sort_option_button.clear()
-	sort_option_button.add_item("默认")
-	sort_option_button.add_item("按发现时间")
-	sort_option_button.select(ARCHIVE_SORT_DEFAULT)
-
-	if not close_button.pressed.is_connected(_on_close_button_pressed):
-		close_button.pressed.connect(_on_close_button_pressed)
-	if not search_line_edit.text_changed.is_connected(_on_search_text_changed):
-		search_line_edit.text_changed.connect(_on_search_text_changed)
-	if not sort_option_button.item_selected.is_connected(_on_sort_option_button_item_selected):
-		sort_option_button.item_selected.connect(_on_sort_option_button_item_selected)
-	if not suspicion_tree.item_selected.is_connected(_on_suspicion_tree_item_selected):
-		suspicion_tree.item_selected.connect(_on_suspicion_tree_item_selected)
-	if not reason_button.pressed.is_connected(_on_reason_button_pressed):
-		reason_button.pressed.connect(_on_reason_button_pressed)
-
-	for i: int in slot_buttons.size():
-		var slot_button: Button = slot_buttons[i]
-		if not slot_button.pressed.is_connected(_on_slot_button_pressed):
-			slot_button.pressed.connect(_on_slot_button_pressed.bind(i))
 
 	if get_viewport() != null and not get_viewport().size_changed.is_connected(_on_viewport_size_changed):
 		get_viewport().size_changed.connect(_on_viewport_size_changed)
@@ -91,7 +56,7 @@ func _ready() -> void:
 		EventBus.locked_suspicion_requested.connect(_on_locked_suspicion_requested)
 
 	_on_viewport_size_changed()
-	_workspace = preload("res://scripts/UI/reasoning_workspace.gd").new()
+	_workspace = Workspace.new()
 	_workspace.build(self)
 	DataManager.clue_updated.connect(_on_evidence_updated)
 	_render_empty_state("暂无可显示的疑点。")
@@ -141,12 +106,8 @@ func _on_close_button_pressed() -> void:
 	_close_panel()
 
 
-func _on_search_text_changed(_new_text: String) -> void:
-	_refresh_suspicion_tree()
-
-
-func _on_sort_option_button_item_selected(index: int) -> void:
-	_archive_sort_mode = index
+func _on_scope_toggled(show_all: bool) -> void:
+	scope_button.text = "只看本轮疑点" if show_all else "查看全部疑点"
 	_refresh_suspicion_tree()
 
 
@@ -180,27 +141,8 @@ func _on_suspicion_updated(_suspicion_id: String) -> void:
 	_queue_refresh()
 
 
-func _on_slot_button_pressed(slot_index: int) -> void:
-	if _selected_suspicion_id.is_empty():
-		return
-	if DataManager.is_suspicion_resolved(_selected_suspicion_id):
-		return
-	if _workspace != null:
-		_workspace.select_slot(slot_index)
-		return
-
-	var context: Dictionary = {
-		"source": "suspicion_ui",
-		"suspicion_id": _selected_suspicion_id,
-		"slot_index": slot_index,
-	}
-	EventBus.clue_selection_requested.emit(context)
-
-
 func _on_reason_button_pressed() -> void:
-	if _selected_suspicion_id.is_empty():
-		return
-	if DataManager.is_suspicion_resolved(_selected_suspicion_id):
+	if not _can_fill_question(_selected_suspicion_id) or is_instance_valid(_success_layer):
 		return
 
 	var selected_ids: Array[String] = _get_slot_ids(_selected_suspicion_id)
@@ -212,7 +154,7 @@ func _on_reason_button_pressed() -> void:
 		return
 
 	_confirm_submitted_evidence(suspicion_def, selected_ids)
-	if not ReasoningSystem.validate(suspicion_def, PackedStringArray(selected_ids)) or not _workspace.matches(_selected_suspicion_id, selected_ids):
+	if not ReasoningSystem.validate(suspicion_def, PackedStringArray(selected_ids)) or not Workspace.matches(_selected_suspicion_id, selected_ids):
 		_record_novel_failure(suspicion_def)
 		_update_reasoning_panel()
 		_show_reasoning_notice("已显示线索提示" if _novel_hint_label.visible else "还不对哦，再想想", "warning")
@@ -242,12 +184,12 @@ func _on_reason_button_pressed() -> void:
 func _on_clue_selected_for_reasoning(context: Dictionary, clue_id: String) -> void:
 	if String(context.get("source", "")) != "suspicion_ui":
 		return
-	if clue_id.is_empty():
+	if not DataManager.has_clue(clue_id):
 		return
 
 	var suspicion_id: String = String(context.get("suspicion_id", ""))
 	var slot_index: int = int(context.get("slot_index", -1))
-	if suspicion_id.is_empty():
+	if not _can_fill_question(suspicion_id) or is_instance_valid(_success_layer):
 		return
 	if slot_index < 0 or slot_index >= _get_required_slot_count(suspicion_id):
 		return
@@ -280,8 +222,8 @@ func _confirm_submitted_evidence(definition: SuspicionData, selected_ids: Array[
 	for index: int in selected_ids.size():
 		var clue_id: String = selected_ids[index]
 		var correct: bool = definition.required_clue_ids.has(clue_id)
-		if _workspace.NOVEL.has(definition.id):
-			correct = clue_id == _workspace.answer(definition.id, index)
+		if Workspace.NOVEL.has(definition.id):
+			correct = clue_id == Workspace.answer(definition.id, index)
 		if correct:
 			DataManager.set_flag("reasoning_confirmed/%s/%s" % [definition.id, clue_id], true)
 
@@ -317,18 +259,12 @@ func _on_locked_suspicion_requested(suspicion_id: String, conclusion_followup_ti
 
 
 func _on_viewport_size_changed() -> void:
-	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
+	var viewport_size := get_viewport().get_visible_rect().size
 	if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
 		return
-
-	var scale_ratio: float = min((viewport_size.x - 60) / PANEL_SIZE.x, (viewport_size.y - 60) / PANEL_SIZE.y)
-	scale_ratio = min(scale_ratio, 1.0)
-
-	panel_frame.size = PANEL_SIZE
-	panel_frame.scale = Vector2(scale_ratio, scale_ratio)
-
-	var scaled_size: Vector2 = PANEL_SIZE * scale_ratio
-	panel_frame.position = (viewport_size - scaled_size) * 0.5
+	var scale_ratio := minf(1.0, minf(viewport_size.x / MIN_SCREEN_SIZE.x, viewport_size.y / MIN_SCREEN_SIZE.y))
+	panel_frame.scale = Vector2.ONE * scale_ratio
+	panel_frame.size = viewport_size / scale_ratio
 
 
 func _open_archive_panel() -> bool:
@@ -347,7 +283,6 @@ func _open_locked_panel() -> bool:
 		return false
 
 	_selected_suspicion_id = _locked_suspicion_id
-	search_line_edit.text = ""
 	_open_panel()
 	_update_lock_widgets()
 	_refresh_suspicion_tree()
@@ -405,83 +340,44 @@ func _deferred_refresh_suspicion_tree() -> void:
 
 func _refresh_suspicion_tree() -> void:
 	suspicion_tree.clear()
-	var root: TreeItem = suspicion_tree.create_item()
-	if root == null:
-		_render_empty_state("疑点目录刷新失败，请重试。")
+	var root := suspicion_tree.create_item()
+	var selected_item: TreeItem
+	var first_item: TreeItem
+	var groups: Dictionary[String, TreeItem] = {}
+	var ids := _get_sorted_discovered_suspicion_ids()
+	for id: String in ids:
+		var definition := _get_suspicion_def(id)
+		if definition == null:
+			continue
+		var parent := root
+		if scope_button.button_pressed and not _is_locked_session_active():
+			var group_title := "本轮疑点" if Cases.visible_now(id) else "其他轮次"
+			if not groups.has(group_title):
+				var group := suspicion_tree.create_item(root)
+				group.set_text(0, group_title)
+				group.set_selectable(0, false)
+				groups[group_title] = group
+			parent = groups[group_title]
+		var item := suspicion_tree.create_item(parent)
+		item.set_metadata(0, id)
+		item.set_text(0, _build_suspicion_tree_title(id, definition))
+		item.set_tooltip_text(0, definition.title)
+		if first_item == null:
+			first_item = item
+		if id == _selected_suspicion_id:
+			selected_item = item
+
+	if first_item == null:
+		_render_empty_state("尚未收录疑点。")
 		return
-
-	var category_items: Dictionary[String, TreeItem] = {}
-	var first_suspicion_item: TreeItem = null
-	var suspicion_items_by_id: Dictionary[String, TreeItem] = {}
-	var filter_text: String = search_line_edit.text.strip_edges().to_lower()
-	var discovered_ids: Array[String] = _get_sorted_discovered_suspicion_ids()
-
-	for suspicion_id: String in discovered_ids:
-		var suspicion_def: SuspicionData = _get_suspicion_def(suspicion_id)
-		if suspicion_def == null:
-			continue
-		if _is_locked_session_active() and suspicion_id != _locked_suspicion_id:
-			continue
-		if not _is_suspicion_matching_filter(suspicion_id, suspicion_def, filter_text):
-			continue
-
-		var parent_item: TreeItem = root
-		var path_key: String = ""
-		var category_path: PackedStringArray = _get_normalized_category_path(suspicion_def)
-		for segment_raw: String in category_path:
-			var segment: String = segment_raw.strip_edges()
-			if segment.is_empty():
-				continue
-
-			if path_key.is_empty():
-				path_key = segment
-			else:
-				path_key = "%s/%s" % [path_key, segment]
-
-			if not category_items.has(path_key):
-				var category_item: TreeItem = suspicion_tree.create_item(parent_item)
-				if category_item == null:
-					continue
-				category_item.set_text(0, segment)
-				category_item.set_selectable(0, false)
-				category_items[path_key] = category_item
-
-			var next_parent: TreeItem = category_items.get(path_key, null)
-			if next_parent == null:
-				next_parent = root
-			parent_item = next_parent
-
-		var suspicion_item: TreeItem = suspicion_tree.create_item(parent_item)
-		if suspicion_item == null:
-			continue
-		suspicion_item.set_metadata(0, suspicion_id)
-		suspicion_item.set_text(0, _build_suspicion_tree_title(suspicion_id, suspicion_def))
-		suspicion_items_by_id[suspicion_id] = suspicion_item
-		if first_suspicion_item == null:
-			first_suspicion_item = suspicion_item
-
-	if first_suspicion_item == null:
-		_render_empty_state("未找到符合条件的疑点。")
-		return
-
-	var selected_item: TreeItem = null
-	if not _selected_suspicion_id.is_empty() and suspicion_items_by_id.has(_selected_suspicion_id):
-		selected_item = suspicion_items_by_id[_selected_suspicion_id]
-	else:
-		selected_item = first_suspicion_item
-
 	if selected_item == null:
-		_render_empty_state("未找到符合条件的疑点。")
-		return
-
-	var selected_suspicion_id_variant: Variant = selected_item.get_metadata(0)
-	if selected_suspicion_id_variant is String:
-		_selected_suspicion_id = String(selected_suspicion_id_variant)
-
+		selected_item = first_item
+	_selected_suspicion_id = String(selected_item.get_metadata(0))
 	_suppress_tree_selected_callback = true
 	suspicion_tree.set_selected(selected_item, 0)
+	suspicion_tree.ensure_cursor_is_visible()
 	_suppress_tree_selected_callback = false
-	_show_suspicion_detail(_selected_suspicion_id, false)
+	_show_suspicion_detail(_selected_suspicion_id)
 
 
 func _select_suspicion_in_tree(suspicion_id: String) -> void:
@@ -492,73 +388,25 @@ func _select_suspicion_in_tree(suspicion_id: String) -> void:
 
 
 func _show_suspicion_detail(suspicion_id: String, mark_read: bool = false) -> void:
-	var suspicion_def: SuspicionData = _get_suspicion_def(suspicion_id)
-	if suspicion_def == null:
-		detail_title.text = suspicion_id
-		detail_body.text = "未找到该疑点的数据定义。"
-		_update_reasoning_panel()
-		return
-
-	var title: String = suspicion_def.title
-	if title.is_empty():
-		title = suspicion_id
-	detail_title.text = title
-
-	var state: SuspicionState = DataManager.get_suspicion_state(suspicion_id)
-	var section_lines: PackedStringArray = PackedStringArray()
-	if state != null and state.resolved:
-		section_lines.append("状态：已解决")
-		var conclusion_clue_id: String = state.conclusion_clue_id
-		if conclusion_clue_id.is_empty():
-			conclusion_clue_id = suspicion_def.conclusion_clue_id
-		if not conclusion_clue_id.is_empty():
-			section_lines.append("结论：%s" % _get_clue_title(conclusion_clue_id))
-	else:
-		section_lines.append("状态：未解决")
-
-	var body: String = suspicion_def.description
-	if body.is_empty():
-		body = "（暂无疑点描述）"
-
-	if _workspace != null:
-		detail_body.text = body
-		if state != null and state.resolved and not section_lines.is_empty():
-			detail_body.text += "\n\n" + "\n".join(section_lines)
-	elif section_lines.is_empty():
-		detail_body.text = body
-	else:
-		detail_body.text = "%s\n\n%s" % ["\n".join(section_lines), body]
-
 	if mark_read:
 		DataManager.mark_suspicion_read(suspicion_id)
-
 	_update_reasoning_panel()
 
 
+func _can_fill_question(suspicion_id: String) -> bool:
+	if not DataManager.has_suspicion(suspicion_id) or DataManager.is_suspicion_resolved(suspicion_id):
+		return false
+	if _is_locked_session_active():
+		return suspicion_id == _locked_suspicion_id
+	return Cases.visible_now(suspicion_id)
+
+
 func _update_reasoning_panel() -> void:
-	var disabled: bool = _selected_suspicion_id.is_empty()
-	if not disabled:
-		disabled = DataManager.is_suspicion_resolved(_selected_suspicion_id)
-
-	var slot_count: int = _get_required_slot_count(_selected_suspicion_id)
-	_ensure_slot_button_count(slot_count)
-
-	var selected_ids: Array[String] = _get_slot_ids(_selected_suspicion_id, slot_count)
-	for i: int in slot_buttons.size():
-		var slot_button: Button = slot_buttons[i]
-		slot_button.visible = i < slot_count
-		if not slot_button.visible:
-			continue
-		slot_button.disabled = disabled
-		var clue_id: String = selected_ids[i]
-		if clue_id.is_empty():
-			slot_button.text = "＋  线索 %d" % (i + 1)
-		else:
-			slot_button.text = _get_clue_title(clue_id)
-
-	reason_button.disabled = disabled or not _are_all_slots_filled(selected_ids)
+	var selected_ids := _get_slot_ids(_selected_suspicion_id)
+	reason_button.disabled = not _can_fill_question(_selected_suspicion_id) or not _are_all_slots_filled(selected_ids)
 	_refresh_novel_hint()
-	if _workspace != null: _workspace.refresh()
+	if _workspace != null:
+		_workspace.refresh()
 
 
 func _novel_failure_count(suspicion_id: String) -> int:
@@ -607,11 +455,9 @@ func _handle_locked_suspicion_resolved(suspicion_id: String) -> void:
 
 
 func _update_lock_widgets() -> void:
-	var is_locked: bool = _is_locked_and_unresolved()
+	var is_locked := _is_locked_and_unresolved()
 	close_button.disabled = is_locked
-	search_line_edit.editable = not is_locked
-	sort_option_button.disabled = is_locked
-	ArchivePresentation.set_tabs_enabled(self, not is_locked)
+	scope_button.disabled = is_locked
 
 
 func _is_locked_session_active() -> bool:
@@ -634,9 +480,7 @@ func _clear_locked_suspicion() -> void:
 	_locked_conclusion_followup_timeline = ""
 	_locked_suspicion_resolved = false
 	close_button.disabled = false
-	search_line_edit.editable = true
-	sort_option_button.disabled = false
-	ArchivePresentation.set_tabs_enabled(self, true)
+	scope_button.disabled = false
 
 
 func _show_locked_notice() -> void:
@@ -647,23 +491,8 @@ func _show_locked_notice() -> void:
 
 func _render_empty_state(message: String) -> void:
 	_selected_suspicion_id = ""
-	detail_title.text = "疑点详情"
-	detail_body.text = message
 	_update_reasoning_panel()
-
-
-func _ensure_slot_button_count(slot_count: int) -> void:
-	slot_count = max(MIN_SLOT_COUNT, slot_count)
-	while slot_buttons.size() < slot_count:
-		var slot_button: Button = Button.new()
-		slot_button.name = "SlotButton%d" % (slot_buttons.size() + 1)
-		slot_button.custom_minimum_size = Vector2(0.0, 120.0)
-		slot_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		ArchivePresentation.style_slot(slot_button)
-		slot_row.add_child(slot_button)
-		var slot_index: int = slot_buttons.size()
-		slot_button.pressed.connect(_on_slot_button_pressed.bind(slot_index))
-		slot_buttons.append(slot_button)
+	detail_body.text = message
 
 
 func _get_required_slot_count(suspicion_id: String) -> int:
@@ -692,20 +521,14 @@ func _show_reasoning_notice(message: String, notice_type: String) -> void:
 
 func _get_sorted_discovered_suspicion_ids() -> Array[String]:
 	var ids: Array[String] = []
-	for suspicion_id: String in DataManager.get_discovered_suspicion_ids():
-		if suspicion_id == _locked_suspicion_id or preload("res://scripts/UI/casebook_cases.gd").visible_now(suspicion_id):
-			ids.append(suspicion_id)
-
-	if _archive_sort_mode == ARCHIVE_SORT_DISCOVER:
-		ids.sort_custom(_sort_suspicions_by_discover_order)
-		return ids
-
+	for id: String in DataManager.get_discovered_suspicion_ids():
+		if _is_locked_session_active():
+			if id == _locked_suspicion_id:
+				ids.append(id)
+		elif scope_button.button_pressed or Cases.visible_now(id):
+			ids.append(id)
 	ids.sort_custom(_sort_suspicions_by_default_order)
 	return ids
-
-
-func _sort_suspicions_by_discover_order(a: String, b: String) -> bool:
-	return _get_discover_order(a) < _get_discover_order(b)
 
 
 func _sort_suspicions_by_default_order(a: String, b: String) -> bool:
@@ -742,35 +565,6 @@ func _build_suspicion_tree_title(suspicion_id: String, suspicion_def: SuspicionD
 	if state != null and state.read:
 		return title
 	return "● %s" % title
-
-
-func _get_normalized_category_path(suspicion_def: SuspicionData) -> PackedStringArray:
-	if suspicion_def == null:
-		return PackedStringArray(["未分类"])
-	if suspicion_def.category_path.is_empty():
-		return PackedStringArray(["未分类"])
-	return suspicion_def.category_path
-
-
-func _is_suspicion_matching_filter(suspicion_id: String, suspicion_def: SuspicionData, filter_text: String) -> bool:
-	if filter_text.is_empty():
-		return true
-
-	var title: String = suspicion_id.to_lower()
-	var description: String = ""
-	var tags_text: String = ""
-	var category_text: String = ""
-
-	if suspicion_def != null:
-		title = suspicion_def.title.to_lower()
-		description = suspicion_def.description.to_lower()
-		tags_text = ",".join(suspicion_def.tags).to_lower()
-		category_text = "/".join(suspicion_def.category_path).to_lower()
-
-	return title.contains(filter_text) \
-		or description.contains(filter_text) \
-		or tags_text.contains(filter_text) \
-		or category_text.contains(filter_text)
 
 
 func _get_suspicion_def(suspicion_id: String) -> SuspicionData:
@@ -834,13 +628,6 @@ func _are_all_slots_filled(selected_ids: Array[String]) -> bool:
 	return true
 
 
-func _get_discover_order(suspicion_id: String) -> int:
-	var state: SuspicionState = DataManager.get_suspicion_state(suspicion_id)
-	if state == null:
-		return 999999
-	return state.discover_order
-
-
 func _safe_to_int(value: String, fallback: int) -> int:
 	if value.is_valid_int():
 		return int(value)
@@ -891,4 +678,4 @@ func _is_manual_access_unlocked() -> bool:
 func _show_manual_locked_notice() -> void:
 	if ToastManager == null:
 		return
-	ToastManager.show_notice("进入书房后才能打开推理手册。", "warning", 1.8)
+	ToastManager.show_notice("进入书房后才能打开推理界面。", "warning", 1.8)
