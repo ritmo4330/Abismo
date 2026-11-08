@@ -1,5 +1,6 @@
 extends Node
 
+const BodySearchSummary = preload("res://scripts/data/body_search_summary.gd")
 const ContentRegistry = preload("res://scripts/data/content_registry.gd")
 const GameStateStore = preload("res://scripts/data/game_state_store.gd")
 const ClueService = preload("res://scripts/data/clue_service.gd")
@@ -53,6 +54,7 @@ func save_runtime_state() -> Dictionary:
 
 func load_runtime_state(data: Dictionary) -> void:
 	_store.from_dict(data)
+	_reconcile_body_search_summary()
 	for clue_id: String in _store.clue_states.keys():
 		clue_updated.emit(clue_id)
 	for suspicion_id: String in _store.suspicion_states.keys():
@@ -96,7 +98,15 @@ func get_suspicion_def(suspicion_id: String) -> SuspicionData:
 
 
 func discover_clue(clue_id: String, source_type: String = "scene", source_id: String = "") -> bool:
-	return _clues.discover_clue(clue_id, source_type, source_id)
+	var added := _clues.discover_clue(clue_id, source_type, source_id)
+	if added and BodySearchSummary.is_part(clue_id):
+		_reconcile_body_search_summary()
+	return added
+
+
+func _reconcile_body_search_summary() -> void:
+	if BodySearchSummary.has_first(self) and not _clues.has_clue(BodySearchSummary.SUMMARY_ID):
+		_clues.discover_clue(BodySearchSummary.SUMMARY_ID, "body_search", "summary")
 
 
 func add_clue(clue_id: String, source_type: String = "scene", source_id: String = "") -> bool:

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClueData" format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/interactable/clue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "1_body_search_summary"
+title = "搜身线索"
+description = ""
+chapter_id = "1"
+room_id = "hall"
+category_path = PackedStringArray("雪墅", "搜身线索")
+tags = PackedStringArray("chapter_1", "snow_villa", "body_search_summary")
+clue_type = "scene_evidence"

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const BodySearchSummary = preload("res://scripts/data/body_search_summary.gd")
+
 const ClueState = preload("res://scripts/data/clue_state.gd")
 const ArchivePresentation = preload("res://scripts/UI/archive_presentation.gd")
 
@@ -614,6 +616,9 @@ func _show_clue_detail(clue_id: String, mark_read: bool = false) -> void:
 		section_lines.append("类型：结论线索")
 
 	var body: String = clue_def.description
+	detail_body.bbcode_enabled = clue_id == BodySearchSummary.SUMMARY_ID or clue_id == "2_wu_dream_notes"
+	if clue_id == BodySearchSummary.SUMMARY_ID:
+		body = BodySearchSummary.render(DataManager)
 	if clue_id == "2_wu_dream_notes":
 		detail_body.bbcode_enabled = true
 		body = preload("res://scripts/flow/services/source_text.gd").notebook_body()
@@ -675,6 +680,7 @@ func _get_archive_category_path(clue_def: ClueData) -> PackedStringArray:
 func _get_archive_sorted_discovered_ids() -> Array[String]:
 	var ids: Array[String] = []
 	for clue_id: String in DataManager.get_discovered_clue_ids():
+		if BodySearchSummary.is_part(clue_id): continue
 		ids.append(clue_id)
 	return _sort_clue_ids_for_archive(ids)
 
