@@ -62,6 +62,7 @@ label 选择
 		zhong_qi: 而这种反应叫做“修正”，修正的对象即那些世界之理的人，这类人被梅塔称为“异数”。
 		zhong_qi: 你可以理解为，我们的身上也有弦，它们看不见摸不着，却能反映你的一举一动与一切思想。
 		zhong_qi: 而反过来，操控弦也就能操控你的一举一动与一切思想。很好，现在你也是异数了，祝你好运。
+		do DataManager.set_flag("cards/zhong/world_theory", true)
 		set {Affinity.Zhong} += 5
 		set {Ch1.PrivateChat.Zhong.Removed.WorldTheory} = true
 		jump 选择

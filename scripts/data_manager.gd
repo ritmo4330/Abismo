@@ -42,6 +42,7 @@ func _ready() -> void:
 	for error: String in registry_errors:
 		push_error(error)
 	preload("res://scripts/flow/services/source_text.gd").configure_clues()
+	preload("res://scripts/data/evidence_card_catalog.gd").configure()
 
 
 func reset_runtime_state() -> void:

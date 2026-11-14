@@ -81,6 +81,7 @@ var _archive_refresh_queued: bool = false
 var _interaction_refresh_queued: bool = false
 var _archive_selected_clue_id: String = ""
 var _archive_sort_mode: int = ARCHIVE_SORT_DISCOVER
+var _cards: CanvasLayer
 var _question_workspace: RefCounted
 
 
@@ -125,6 +126,15 @@ func _ready() -> void:
 	_question_workspace = preload("res://scripts/UI/clue_question_workspace.gd").new()
 	_question_workspace.build(self)
 	DataManager.suspicion_updated.connect(_on_question_updated)
+	_cards = preload("res://scripts/UI/evidence_card_browser.gd").new()
+	add_child(_cards)
+	_cards.closed.connect(_close_panel)
+	_cards.open_reasoning.connect(_enter_card_reasoning)
+	var card_button := Button.new()
+	card_button.text = "卡片浏览"
+	card_button.pressed.connect(func() -> void: _cards.open(0, _archive_selected_clue_id, _mode == MODE_ARCHIVE))
+	close_button.get_parent().add_child(card_button)
+	close_button.get_parent().move_child(card_button, close_button.get_index())
 	_render_empty_state("暂无可显示的线索。")
 
 func _on_question_updated(_id: String) -> void:
@@ -194,6 +204,8 @@ func _on_clue_updated(_clue_id: String) -> void:
 	if not _is_open:
 		return
 
+	if _cards != null and _cards.visible:
+		_cards.call_deferred("_refresh")
 	if _is_archive_like_mode():
 		_queue_archive_refresh()
 		return
@@ -297,6 +309,7 @@ func _open_archive_panel() -> bool:
 	_open_panel()
 	_update_mode_widgets()
 	_refresh_archive_tree()
+	_cards.open(0, _archive_selected_clue_id)
 	return true
 
 
@@ -346,6 +359,7 @@ func _close_panel() -> void:
 		followup_timeline = String(_interaction_payload.get("followup_timeline", ""))
 
 	_is_open = false
+	if _cards != null: _cards.hide()
 	hide()
 	EventBus.ui_panel_closed.emit(PANEL_ID)
 	if GameManager != null and GameManager.has_method("release_pause"):
@@ -870,3 +884,15 @@ func _show_manual_locked_notice() -> void:
 	if ToastManager == null:
 		return
 	ToastManager.show_notice("进入书房后才能打开线索手册。", "warning", 1.8)
+
+
+func _enter_card_reasoning(id: String) -> void:
+	if _mode == MODE_INTERACTION and not str(_interaction_payload.get("followup_timeline", "")).is_empty():
+		return
+	var reasoning := get_tree().current_scene.get_node_or_null("SuspicionPanel")
+	if reasoning == null or not reasoning._can_open_panel():
+		return
+	if not id.is_empty():
+		reasoning._selected_suspicion_id = id
+	_close_panel()
+	reasoning._open_archive_panel()

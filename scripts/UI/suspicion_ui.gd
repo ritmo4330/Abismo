@@ -29,6 +29,7 @@ var _locked_conclusion_followup_timeline: String = ""
 var _locked_suspicion_resolved: bool = false
 var _workspace: RefCounted
 var _success_layer: CanvasLayer
+var _cards: CanvasLayer
 
 
 func _ready() -> void:
@@ -59,6 +60,24 @@ func _ready() -> void:
 	_workspace = Workspace.new()
 	_workspace.build(self)
 	DataManager.clue_updated.connect(_on_evidence_updated)
+	_cards = preload("res://scripts/UI/evidence_card_browser.gd").new()
+	add_child(_cards)
+	_cards.use_evidence.connect(_use_card_evidence)
+	_cards.open_reasoning.connect(func(id: String) -> void:
+		if not id.is_empty() and (not _is_locked_session_active() or id == _locked_suspicion_id):
+			_select_suspicion_in_tree(id)
+		_cards.hide()
+	)
+	var clues := Button.new()
+	clues.text = "线索卡片"
+	clues.pressed.connect(func() -> void: _cards.open(0, _workspace.selected_clue, false, true))
+	%CloseButton.get_parent().add_child(clues)
+	%CloseButton.get_parent().move_child(clues, %CloseButton.get_index())
+	var doubts := Button.new()
+	doubts.text = "疑点卡片"
+	doubts.pressed.connect(func() -> void: _cards.open(1, "suspicion/" + _selected_suspicion_id, false))
+	%CloseButton.get_parent().add_child(doubts)
+	%CloseButton.get_parent().move_child(doubts, %CloseButton.get_index())
 	_render_empty_state("暂无可显示的疑点。")
 
 func _on_evidence_updated(_id: String) -> void:
@@ -69,6 +88,11 @@ func _on_evidence_updated(_id: String) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if _cards != null and _cards.visible:
+		if _is_close_input(event) or _is_toggle_input(event):
+			_cards.hide()
+			get_viewport().set_input_as_handled()
+		return
 	if is_instance_valid(_success_layer):
 		if event is InputEventKey: get_viewport().set_input_as_handled()
 		return
@@ -303,6 +327,7 @@ func _close_panel() -> void:
 		return
 
 	_is_open = false
+	if _cards != null: _cards.hide()
 	hide()
 	EventBus.ui_panel_closed.emit(PANEL_ID)
 	if GameManager != null and GameManager.has_method("release_pause"):
@@ -679,3 +704,12 @@ func _show_manual_locked_notice() -> void:
 	if ToastManager == null:
 		return
 	ToastManager.show_notice("进入书房后才能打开推理界面。", "warning", 1.8)
+
+
+func _use_card_evidence(clue_id: String) -> void:
+	if not _can_fill_question(_selected_suspicion_id) or not DataManager.has_clue(clue_id):
+		return
+	_workspace.selected_clue = clue_id
+	_workspace.refresh()
+	_workspace._add_evidence()
+	_cards.hide()

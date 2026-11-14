@@ -263,7 +263,8 @@ func _update_preview() -> void:
 			preview_body.bbcode_enabled = true
 			preview_body.text = SourceText.notebook_body()
 		_:
-			preview_body.text = definition.description
+			var source_cards := preload("res://scripts/data/evidence_card_catalog.gd").clue_cards(PackedStringArray([selected_clue]))
+			preview_body.text = "\n\n".join(source_cards[0].paragraphs) if source_cards.size() == 1 else definition.description
 
 
 func _on_evidence_selected() -> void:

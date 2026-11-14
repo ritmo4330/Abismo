@@ -1,0 +1,442 @@
+{
+  "1_testimony_3_all/0": {
+    "id": "1_testimony_3_all/0",
+    "evidence_id": "1_testimony_3_all",
+    "title": "案发前后的见闻",
+    "source": "陈述人：穆执",
+    "paragraphs": [
+      "案发之前，我一个人待在被分配给我的房间里——因为管家要求所有人待在自己房间。",
+      "后来听到一声惊叫声，我还在犹豫是否要出门查看情况时，又听见房门外传来一个人一边呼喊“林玖”，一边敲门的声音，紧接着又变成撞门声。",
+      "几声后门似乎被撞开了，我又听见有人打开房门跑了出来，这才下定决心走出了自己的房间。",
+      "随后就和大家一起目击到了案发现场。"
+    ],
+    "portrait": "",
+    "bullets": true
+  },
+  "1_testimony_3_all/1": {
+    "id": "1_testimony_3_all/1",
+    "evidence_id": "1_testimony_3_all",
+    "title": "案发前后的见闻",
+    "source": "陈述人：周崇安",
+    "paragraphs": [
+      "案发之前，管家说过，当他宣布“休息时间到了”的时候，所有人都不能在房间外走动，于是在管家说休息时间到了之后，我就回到了自己的房间。",
+      "不知道过了多久，我听见房间外传来一声惊叫，我不敢出门查看情况，于是贴在房门上听着外面的动静。",
+      "我先是听见有人从我隔壁的房间冲了出去，跑向对面的房间，急促地敲着门，并喊着林玖的名字。",
+      "很快敲门变成了撞门，两三下后，门似乎被撞开了。",
+      "没过多久，对面的另一扇房门被打开了，又有人跑了出来。",
+      "接下来，又是一声开门声，同时传来有人上楼的脚步声。",
+      "我听见似乎所有人都出来并集中在了我斜对面的房间，这才决定出门，到达现场时其他人都已经到了，我也看见了衣柜里的尸体。"
+    ],
+    "portrait": "",
+    "bullets": true
+  },
+  "1_testimony_3_all/2": {
+    "id": "1_testimony_3_all/2",
+    "evidence_id": "1_testimony_3_all",
+    "title": "案发前后的见闻",
+    "source": "陈述人：林玖",
+    "paragraphs": [
+      "案发之前，我和乌停湘一起待在她的房间里，她可以作证。",
+      "因为管家说休息时间到了不能离开房间，所以我们一直待在房间里没有出门。",
+      "过了很久，我们听见隔壁房间传来了一声惊叫，吓了一跳，不知道如何是好。",
+      "这时钟歧从他的房间冲出来，跑到隔壁房间一边敲门一边喊我的名字。哦对了，隔壁房间原本是安排给我的，可能他误以为我在里面吧。",
+      "后来他撞开了房门，我和乌停湘意识到事情不对劲，于是一起跑出房间查看情况。",
+      "我们先是在我房间看到了钟歧，然后就在衣柜里看到了……一具尸体。"
+    ],
+    "portrait": "",
+    "bullets": true
+  },
+  "1_testimony_3_all/3": {
+    "id": "1_testimony_3_all/3",
+    "evidence_id": "1_testimony_3_all",
+    "title": "案发前后的见闻",
+    "source": "陈述人：乌停湘",
+    "paragraphs": [
+      "案件发生前，我和林姐姐待在一起。",
+      "管家说休息时间不能在房间外走动，但是我们又不太安心，所以决定一起待在安排给我的房间。",
+      "不知道过了多久，从隔壁传来了一声惊叫，我和林姐姐没敢出门。",
+      "但随即听见有人从对面的某个房间冲了出来，跑到隔壁房门前，一边用力敲门一边喊着林姐姐的名字。",
+      "应该是没有听到回应，所以那个人开始撞门，最后是撞开了。",
+      "我跟林姐姐说还是出去看一下情况吧，我们这才从房间出来，然后在隔壁看见了钟歧，以及柜子里的尸体。",
+      "按照目前的情况来看，这应该是间密室吧……"
+    ],
+    "portrait": "",
+    "bullets": true
+  },
+  "1_testimony_3_all/4": {
+    "id": "1_testimony_3_all/4",
+    "evidence_id": "1_testimony_3_all",
+    "title": "案发前后的见闻",
+    "source": "陈述人：钟歧",
+    "paragraphs": [
+      "我应该是案发现场的第一发现人。",
+      "当时那个管家要求所有人不能离开房间，于是我待在自己的房间里。",
+      "突然听见从对面林玖房间的方向传来一声惊叫，我担心她是不是遇到了什么危险，于是直接冲出了房间。",
+      "她的房门被上了锁，敲门也没有回应，我只能把门撞开。",
+      "成功撞开后，门内空无一人，我注意到地毯上的拖曳状血迹指向衣柜，于是走到衣柜前打开门，发现梅塔的尸体就在里面。",
+      "发现尸体后，乌停湘、林玖、穆执、管家和周崇安先后赶到现场，管家确认了梅塔的死亡，并声称凶手就在我们五人之中。"
+    ],
+    "portrait": "",
+    "bullets": true
+  },
+  "1_testimony_4_all": {
+    "id": "1_testimony_4_all",
+    "evidence_id": "1_testimony_4_all",
+    "title": "最后一次见到死者的时间",
+    "source": "",
+    "paragraphs": [
+      "钟歧：休息时间之前，具体时间不清楚，当时应该所有人都在。梅塔从自己的卧室走出来，喊了一声管家。再之后，我看见穆执和他走进了餐厅，此后就再也没有见到他了。",
+      "周崇安：他说的没错，梅塔喊管家的时候我们都看见了他。在那之后我就没有见过他了，只从管家口中听说过梅塔和穆执在餐厅用过餐。",
+      "林玖：我知道的和周院长一样，不过我倒是不知道梅塔和穆执用过餐这件事。",
+      "乌停湘：我和林姐姐基本上一直待在一起，也只在主卧门口见到过他一次。",
+      "穆执：我的确和梅塔在餐厅用过餐，是他主动邀请我的。我想着承蒙关照，不太好拒绝主人的邀请。用餐后我们就分开了，各自回到自己的房间，再也没有见过。",
+      "管家：我可以证明穆先生的说法属实。主人和穆先生从餐厅出来并回到房间后，我才宣布休息时间到，这个时候我可以确认主人还活着。"
+    ],
+    "portrait": "",
+    "bullets": true
+  },
+  "1_testimony_2_butler": {
+    "id": "1_testimony_2_butler",
+    "evidence_id": "1_testimony_2_butler",
+    "title": "尸检线索",
+    "source": "调查人：管家",
+    "paragraphs": [
+      "尸体的左后胸有一处贯穿伤，是出血量最大的位置，此外没有别的伤口或痕迹，可以判断为致命伤。",
+      "凶器已经被拔出，暂未找到。",
+      "死者的衣服一角有擦拭状的血迹。",
+      "死者口袋里有一把可以打开别墅内所有门的万能钥匙。"
+    ],
+    "portrait": "",
+    "bullets": true
+  },
+  "2_dream_rules": {
+    "id": "2_dream_rules",
+    "evidence_id": "2_dream_rules",
+    "title": "梦境七大规则",
+    "source": "陈述人：周崇安",
+    "paragraphs": [
+      "一、梦境中的场景必须以现实中的场景为蓝本，或是多个不同场景的融合",
+      "二、梦境中的场景能随梦中人心意的改变而改变，且无需过渡",
+      "三、在梦境中，无论多么荒诞不经的事情，都有可能发生",
+      "四、梦境中的物品能随梦中人心意的改变而出现，但出现的过程不可被观测",
+      "五、梦境中受到的伤害不会使梦中人死亡，但会使恐惧值不断累加",
+      "六、脱离梦境的方法有两种：一种为接收到足以唤醒梦中人的神经兴奋，来源包括梦境内与梦境外；另一种为恐惧值达到一定阈值而被惊醒，这将造成难以逆转的精神损害，此类精神损害简称“梦魇”",
+      "七、梦境中的时间流速远慢于现实，现实中的一单位时间约为梦境中十二单位时间"
+    ],
+    "portrait": "",
+    "bullets": true
+  },
+  "suspicion/1_suspicion_butler_request": {
+    "id": "suspicion/1_suspicion_butler_request",
+    "suspicion_id": "1_suspicion_butler_request",
+    "title": "穆执的委托",
+    "source": "疑点",
+    "paragraphs": [],
+    "portrait": "",
+    "table": [
+      [
+        "",
+        "林玖",
+        "周崇安",
+        "钟歧"
+      ],
+      [
+        "梦魇",
+        "",
+        "",
+        ""
+      ],
+      [
+        "成为神选者的原因",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "person/mu": {
+    "id": "person/mu",
+    "title": "穆执",
+    "source": "人物信息",
+    "paragraphs": [
+      "温文尔雅的年轻男子",
+      "似乎有着自己的信仰"
+    ],
+    "entries": [
+      {
+        "text": "住处就在这座山上。作为教徒参加礼拜返回时突遇暴风雪",
+        "gate": [
+          "intro",
+          "Mu"
+        ]
+      },
+      {
+        "text": "没有见过梅塔，只知道他囚禁过钟歧，后者逃脱后暂住在穆执的小木屋里",
+        "gate": [
+          "var",
+          "Ch1.PrivateChat.Mu.Asked.Zhong"
+        ]
+      },
+      {
+        "text": "信仰上界教派，主张神明创生世界，以命运之线作为万物统一与发展的根源，以因果之理规定可知论的边界",
+        "gate": [
+          "var",
+          "Ch1.PrivateChat.Mu.Removed.Faith"
+        ]
+      }
+    ],
+    "portrait": "res://assets/art/evidence_cards/person_mu.png",
+    "person": "mu"
+  },
+  "person/zhou": {
+    "id": "person/zhou",
+    "title": "周崇安",
+    "source": "人物信息",
+    "paragraphs": [
+      "心事重重的中年男人",
+      "管理着本市的孤儿院"
+    ],
+    "entries": [
+      {
+        "text": "因事来到山上，下山时突遇暴风雪",
+        "gate": [
+          "intro",
+          "Zhou"
+        ]
+      },
+      {
+        "text": "声称认识梅塔，但死者不一定是自己认识的那个梅塔",
+        "gate": [
+          "var",
+          "Ch1.PrivateChat.Zhou.Asked.Dead"
+        ]
+      },
+      {
+        "text": "对梦境有所研究，提出如今身处的环境为梦境，提出梦境七大规则",
+        "gate": [
+          "clue",
+          "2_dream_rules"
+        ]
+      }
+    ],
+    "portrait": "res://assets/art/evidence_cards/person_zhou.png",
+    "person": "zhou"
+  },
+  "person/lin": {
+    "id": "person/lin",
+    "title": "林玖",
+    "source": "人物信息",
+    "paragraphs": [
+      "谨小慎微的年轻女子",
+      "担任孤儿院学前教师"
+    ],
+    "entries": [
+      {
+        "text": "带乌停湘上山找穆执时突遇暴风雪",
+        "gate": [
+          "intro",
+          "Lin"
+        ]
+      },
+      {
+        "text": "声称不认识死者",
+        "gate": [
+          "var",
+          "Ch1.PrivateChat.Lin.Asked.Dead"
+        ]
+      },
+      {
+        "text": "声称死者来自异测会，一个以探寻超自然现象为职责，力求为有记录的超自然现象寻求科学解释的组织",
+        "gate": [
+          "var",
+          "Ch1.PrivateChat.Lin.Removed.AnomalySociety"
+        ]
+      },
+      {
+        "text": "亲手制作过一个灯塔形状的木雕",
+        "gate": [
+          "var",
+          "Ch1.PrivateChat.Lin.Asked.Lighthouse"
+        ]
+      },
+      {
+        "text": "声称有一个朋友说过平行世界是存在的，不同平行世界之间有差异，也有相似之处",
+        "gate": [
+          "var",
+          "Ch2.SecondPrivate.Enabled"
+        ]
+      }
+    ],
+    "portrait": "res://assets/art/evidence_cards/person_lin.png",
+    "person": "lin",
+    "portrait_crop": [
+      0.22537,
+      0.15576,
+      0.10762,
+      0.0
+    ]
+  },
+  "person/wu": {
+    "id": "person/wu",
+    "title": "乌停湘",
+    "source": "人物信息",
+    "paragraphs": [
+      "自称失忆的女高中生",
+      "和林玖在孤儿院长大"
+    ],
+    "entries": [
+      {
+        "text": "林玖声称异测会要来抓乌停湘，带着她离开孤儿院，在山上突遇暴风雪",
+        "gate": [
+          "intro",
+          "Wu"
+        ]
+      },
+      {
+        "text": "声称不认识死者",
+        "gate": [
+          "var",
+          "Ch1.PrivateChat.Wu.Asked.Dead"
+        ]
+      },
+      {
+        "text": "声称异测会是一个致力于为超自然现象寻求科学解释的组织，已经成为了一个权威机构，但他们的研究也不一定全是对的",
+        "gate": [
+          "var",
+          "Ch1.PrivateChat.Wu.Removed.AnomalySociety"
+        ]
+      },
+      {
+        "text": "见过林玖亲手制作过一个灯塔形状的木雕，一直放在书桌上",
+        "gate": [
+          "var",
+          "Ch1.PrivateChat.Wu.Asked.Lighthouse"
+        ]
+      }
+    ],
+    "portrait": "res://assets/art/evidence_cards/person_wu.png",
+    "person": "wu",
+    "portrait_crop": [
+      0.22868,
+      0.1924,
+      0.07153,
+      0.0
+    ]
+  },
+  "person/zhong": {
+    "id": "person/zhong",
+    "title": "钟歧",
+    "source": "人物信息",
+    "paragraphs": [
+      "性格直率的年轻男子",
+      "物理学科助理研究员"
+    ],
+    "entries": [
+      {
+        "text": "声称梅塔要来抓自己，为躲避梅塔进入山深处并突遇暴风雪",
+        "gate": [
+          "intro",
+          "Zhong"
+        ]
+      },
+      {
+        "text": "声称梅塔是一个疯子，暗中抓捕并囚禁有能力探索世界之理的人，最终将他们的大脑离体培养，成为为他思考的机器",
+        "gate": [
+          "var",
+          "Ch1.PrivateChat.Zhong.Asked.Dead"
+        ]
+      },
+      {
+        "text": "和林玖是初中同学，声称林玖在初中毕业时送给他一个灯塔形状的木雕，和案发现场发现的木雕很像",
+        "gate": [
+          "var",
+          "Ch1.PrivateChat.Zhong.Asked.Lighthouse"
+        ]
+      },
+      {
+        "text": "声称世界之理是这个世界的本质特征，即弦理论，弦产生粒子、构成世界，而一种特殊的弦会修正知晓世界之理的人",
+        "gate": [
+          "flag",
+          "cards/zhong/world_theory"
+        ]
+      },
+      {
+        "text": "在爷爷钟岳团队的海底研究所担任助理研究员，而那座研究所居然出现在了别墅的地下室里",
+        "gate": [
+          "var",
+          "Ch1.SecondSearch.Finished"
+        ]
+      }
+    ],
+    "portrait": "res://assets/art/evidence_cards/person_zhong.png",
+    "person": "zhong",
+    "portrait_crop": [
+      0.16842,
+      0.13175,
+      0.0,
+      0.0
+    ]
+  },
+  "person/meta": {
+    "id": "person/meta",
+    "title": "梅塔",
+    "source": "人物信息",
+    "paragraphs": [
+      "不幸遇害的壮年男子",
+      "暴风雪中别墅的主人"
+    ],
+    "entries": [],
+    "portrait": "res://assets/art/evidence_cards/person_meta.png",
+    "person": "meta",
+    "portrait_crop": [
+      0.0,
+      0.07937,
+      0.0,
+      0.0
+    ]
+  },
+  "person/butler": {
+    "id": "person/butler",
+    "title": "管家",
+    "source": "人物信息",
+    "paragraphs": [
+      "彬彬有礼的年轻男子",
+      "管理别墅的人工智能"
+    ],
+    "entries": [
+      {
+        "text": "声称客房的初始陈设是一模一样的，比如床头柜的抽屉里都有剪刀，衣柜里面都有衣架，窗边都挂着一盆吊兰",
+        "gate": [
+          "clue",
+          "1_testimony_10_butler"
+        ]
+      }
+    ],
+    "portrait": "res://assets/art/evidence_cards/person_butler.png",
+    "person": "butler",
+    "portrait_crop": [
+      0.0,
+      0.05429,
+      0.0,
+      0.0
+    ]
+  },
+  "person/moyu": {
+    "id": "person/moyu",
+    "title": "末雨",
+    "source": "人物信息",
+    "paragraphs": [
+      "高高在上的傲慢神明",
+      "来自上层世界的建构师"
+    ],
+    "entries": [],
+    "portrait": "res://assets/art/evidence_cards/person_moyu.png",
+    "person": "moyu",
+    "portrait_crop": [
+      0.0,
+      0.05429,
+      0.0,
+      0.0
+    ]
+  }
+}
