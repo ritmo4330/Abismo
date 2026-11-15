@@ -31,6 +31,17 @@ var index_title: Label
 var index_counter: Label
 var book: Panel
 var _book_style: StyleBox
+var reading_area: Control
+var _reading_labels: Array[Control] = []
+var _heading_stack: VBoxContainer
+var _source_label: Label
+var _portrait: TextureRect
+var _table_cells: Array[PanelContainer] = []
+var _paragraph_columns: Array[VBoxContainer] = []
+var _fit_revision := 0
+var _fitted_revision := 0
+var _fit_scheduled := false
+var fitted_font_size := 28
 
 
 func _ready() -> void:
@@ -116,14 +127,17 @@ func build() -> void:
 	writing.content_margin_top = 10
 	card.add_theme_stylebox_override("panel", writing)
 	row.add_child(card)
-	var reading_scroll := ScrollContainer.new()
-	reading_scroll.name = "CardScroll"
-	reading_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	card.add_child(reading_scroll)
+	# A fixed page instead of a scrolling document. Its child minimum size
+	# must not stretch the whole notebook while text is being measured.
+	reading_area = Control.new()
+	reading_area.name = "ReadingPage"
+	reading_area.clip_contents = true
+	reading_area.resized.connect(_queue_page_fit)
+	card.add_child(reading_area)
 	content = VBoxContainer.new()
-	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	content.add_theme_constant_override("separation", 30)
-	reading_scroll.add_child(content)
+	content.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	content.add_theme_constant_override("separation", 12)
+	reading_area.add_child(content)
 	var footer := HBoxContainer.new()
 	footer.add_theme_constant_override("separation", 16)
 	column.add_child(footer)
@@ -171,6 +185,7 @@ func _layout() -> void:
 	# The fold follows the index width instead of crossing the reading text.
 	_book_style.set("seam_ratio", (46 + sidebar.custom_minimum_size.x + 24) / surface.size.x)
 	book.queue_redraw()
+	_queue_page_fit()
 
 
 func _refresh() -> void:
@@ -272,6 +287,13 @@ func _current() -> Dictionary:
 
 
 func _render() -> void:
+	_reading_labels.clear()
+	_table_cells.clear()
+	_paragraph_columns.clear()
+	_heading_stack = null
+	_source_label = null
+	_portrait = null
+	card_title = null
 	for child: Node in content.get_children():
 		content.remove_child(child)
 		child.queue_free()
@@ -286,11 +308,13 @@ func _render() -> void:
 	reason_button.disabled = card.is_empty()
 	if card.is_empty():
 		content.add_child(Style.label("暂无已收录的卡片", 32))
+		_queue_page_fit()
 		return
 	var top := HBoxContainer.new()
 	top.add_theme_constant_override("separation", 28)
 	content.add_child(top)
 	var headings := VBoxContainer.new()
+	_heading_stack = headings
 	headings.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	headings.add_theme_constant_override("separation", 20)
 	top.add_child(headings)
@@ -298,6 +322,7 @@ func _render() -> void:
 	card_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	headings.add_child(card_title)
 	var source := Style.label(str(card.get("source", "")), 29)
+	_source_label = source
 	source.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	headings.add_child(source)
 	var rule := HSeparator.new()
@@ -305,6 +330,7 @@ func _render() -> void:
 	headings.add_child(rule)
 	if not str(card.get("portrait", "")).is_empty():
 		var picture := TextureRect.new()
+		_portrait = picture
 		var texture: Texture2D = load(card.portrait)
 		var region := texture.get_image().get_used_rect()
 		region.size.y = mini(region.size.y, int(region.size.x * 0.95))
@@ -316,7 +342,37 @@ func _render() -> void:
 		picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		top.add_child(picture)
-	for paragraph: String in card.get("paragraphs", []):
+	var paragraphs: Array[String] = []
+	for original: String in card.get("paragraphs", []):
+		if original.contains("[table"):
+			paragraphs.append(original)
+		else:
+			for paragraph: String in original.split("\n\n", false):
+				paragraphs.append(paragraph)
+	var columns := 3 if paragraphs.size() > 40 else (2 if paragraphs.size() > 20 else 1)
+	var weights: Array[float] = []
+	var total_weight := 0.0
+	for paragraph: String in paragraphs:
+		var weight := ceilf(paragraph.length() / 35.0) + 0.4
+		weights.append(weight)
+		total_weight += weight
+	if columns > 1:
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 22)
+		content.add_child(row)
+		for i: int in columns:
+			var column := VBoxContainer.new()
+			column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			column.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+			row.add_child(column)
+			_paragraph_columns.append(column)
+	var column_index := 0
+	var column_weight := 0.0
+	for i: int in paragraphs.size():
+		var paragraph := paragraphs[i]
+		if columns > 1 and column_index < columns - 1 and column_weight > 0 and column_weight + weights[i] > total_weight / columns:
+			column_index += 1
+			column_weight = 0
 		var label := RichTextLabel.new()
 		label.fit_content = true
 		label.bbcode_enabled = bool(card.get("markup", false))
@@ -324,11 +380,17 @@ func _render() -> void:
 		label.add_theme_font_size_override("normal_font_size", 34)
 		label.text = paragraph
 		label.add_theme_constant_override("line_separation", 12)
-		content.add_child(label)
+		if columns > 1:
+			_paragraph_columns[column_index].add_child(label)
+		else:
+			content.add_child(label)
+		column_weight += weights[i]
+		_reading_labels.append(label)
 	for fact: String in card.get("facts", []):
 		var label := Style.label("• " + fact, 27)
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		content.add_child(label)
+		_reading_labels.append(label)
 	if card.has("table"):
 		var grid := GridContainer.new()
 		grid.columns = card.table[0].size()
@@ -342,10 +404,104 @@ func _render() -> void:
 				cell.add_theme_stylebox_override("panel", Style.surface(Color(1, 1, 1, 0.1), 18, Style.RULE))
 				cell.custom_minimum_size = Vector2(150, 110)
 				grid.add_child(cell)
+				_table_cells.append(cell)
 				var label := Style.label(value, 25)
 				label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 				cell.add_child(label)
-	content.get_parent().scroll_vertical = 0
+				_reading_labels.append(label)
+	_queue_page_fit()
+
+
+func _queue_page_fit() -> void:
+	if reading_area == null or not visible:
+		return
+	_fit_revision += 1
+	if _fit_scheduled:
+		return
+	_fit_scheduled = true
+	# Keep intermediate measurements out of view when turning a card.
+	content.modulate.a = 0.0
+	call_deferred("_fit_page")
+
+
+func is_page_fitted() -> bool:
+	return _fitted_revision == _fit_revision and not _fit_scheduled
+
+
+func _fit_page() -> void:
+	_fit_scheduled = false
+	var revision := _fit_revision
+	await get_tree().process_frame
+	if revision != _fit_revision or not visible:
+		return
+	if reading_area.size.x <= 0 or reading_area.size.y <= 0:
+		_queue_page_fit()
+		return
+	# Measure the actual wrapped labels, including BBCode tables and facts.
+	# Choose the largest size which fits, rather than hiding overflow.
+	var low := 8
+	var high := 28
+	var best := low
+	_apply_page_font(high)
+	if not await _settle_page(revision):
+		return
+	if content.get_combined_minimum_size().y <= reading_area.size.y - 2:
+		best = high
+		low = high + 1
+	else:
+		high -= 1
+	while low <= high:
+		var candidate := int((low + high) / 2)
+		_apply_page_font(candidate)
+		if not await _settle_page(revision):
+			return
+		if content.get_combined_minimum_size().y <= reading_area.size.y - 2:
+			best = candidate
+			low = candidate + 1
+		else:
+			high = candidate - 1
+	_apply_page_font(best)
+	if not await _settle_page(revision):
+		return
+	fitted_font_size = best
+	_fitted_revision = revision
+	content.modulate.a = 1.0
+
+
+func _settle_page(revision: int) -> bool:
+	# Nested text/column/container minimum sizes settle from the inside out.
+	for i: int in range(4):
+		await get_tree().process_frame
+		if revision != _fit_revision or not visible:
+			return false
+	return true
+
+
+func _apply_page_font(font_size: int) -> void:
+	content.add_theme_constant_override("separation", maxi(3, int(font_size * 0.45)))
+	for column: VBoxContainer in _paragraph_columns:
+		column.add_theme_constant_override("separation", maxi(2, int(font_size * 0.25)))
+	content.size = Vector2(reading_area.size.x, 0)
+	if card_title != null:
+		card_title.add_theme_font_size_override("font_size", clampi(font_size + 14, 24, 42))
+	if _heading_stack != null:
+		_heading_stack.add_theme_constant_override("separation", maxi(3, int(font_size * 0.3)))
+	if _source_label != null:
+		_source_label.add_theme_font_size_override("font_size", clampi(font_size, 12, 25))
+	for label: Control in _reading_labels:
+		if label is RichTextLabel:
+			for key: String in ["normal_font_size", "bold_font_size", "italics_font_size", "bold_italics_font_size", "mono_font_size"]:
+				label.add_theme_font_size_override(key, font_size)
+			label.add_theme_constant_override("line_separation", maxi(1, int(font_size * 0.16)))
+			label.add_theme_constant_override("paragraph_separation", maxi(2, int(font_size * 0.25)))
+		else:
+			label.add_theme_font_size_override("font_size", font_size)
+	if _portrait != null:
+		_portrait.custom_minimum_size = Vector2(font_size * 9, font_size * 6.5)
+	for cell: PanelContainer in _table_cells:
+		cell.custom_minimum_size = Vector2(100, font_size * 3)
+		cell.add_theme_stylebox_override("panel", Style.surface(Color(1, 1, 1, 0.1), maxi(4, int(font_size / 3)), Style.RULE))
+	content.queue_sort()
 
 
 func _step(offset: int) -> void:
