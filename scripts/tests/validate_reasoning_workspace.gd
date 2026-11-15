@@ -163,7 +163,7 @@ func run() -> void:
 		await frames()
 		var pane: Control = manual.get_node("%" + pane_name)
 		check(pane.is_visible_in_tree() and pane.get_global_rect().size.x > 1180, "Expand arrow dedicates the full row to " + pane_name)
-		check(workspace.expand_buttons[pane_name].is_visible_in_tree() and workspace.expand_buttons[pane_name].text.contains("收回"), "Expanded section keeps an explicit collapse arrow visible")
+		check(workspace.expand_buttons[pane_name].is_visible_in_tree() and workspace.expand_buttons[pane_name].text == "↙", "Expanded section keeps its arrow-only collapse control visible")
 		check(sample.get_theme_font_size(font_key) > original_size, "Expanded section enlarges its reading text")
 		for other_name: String in workspace.PANES:
 			if other_name != pane_name:

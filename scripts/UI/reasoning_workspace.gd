@@ -75,9 +75,9 @@ func _build_expand_controls() -> void:
 		column.move_child(row, 0)
 		heading.reparent(row)
 		heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		var arrow := STYLE.button("展开 ↗", _toggle_pane.bind(pane_name), 24)
+		var arrow := STYLE.button("↗", _toggle_pane.bind(pane_name), 30)
 		arrow.name = "Expand" + pane_name
-		arrow.custom_minimum_size = Vector2(116, 44)
+		arrow.custom_minimum_size = Vector2(60, 44)
 		arrow.tooltip_text = "单独查看" + heading.text
 		arrow.accessibility_name = "展开" + heading.text
 		row.add_child(arrow)
@@ -92,7 +92,7 @@ func _toggle_pane(pane_name: String) -> void:
 		var expanded := _focused_pane == name
 		_scale_pane_text(name, pane, expanded)
 		var arrow: Button = expand_buttons[name]
-		arrow.text = "↙ 收回" if expanded else "展开 ↗"
+		arrow.text = "↙" if expanded else "↗"
 		arrow.add_theme_stylebox_override("normal", STYLE.notebook("action", 8) if expanded else STYLE.surface(Color.TRANSPARENT, 8))
 		var title: String = host.get_node("%" + PANES[name]).text
 		arrow.tooltip_text = "收回，恢复三栏" if expanded else "单独查看" + title
