@@ -2,7 +2,10 @@
 
 ## Actual assets used
 
-- `ZhuqueFangsong-Regular.ttf`: 朱雀仿宋 (Zhuque Fangsong), TrionesType, v0.212, SIL Open Font License 1.1. Distributed with `ZhuqueFangsong-OFL.txt`. Official source: https://github.com/TrionesType/zhuque ; release: https://github.com/TrionesType/zhuque/releases/tag/v0.212 . Primary paper-interface typeface, based on historical movable-type letterforms. This release is a technical preview; Noto Serif SC remains a fallback for glyph coverage.
+- `LXGWWenKaiGB-Regular.ttf`: 霞鹜文楷 GB (LXGW WenKai GB), LXGW / Klee Project Authors, SIL Open Font License 1.1. Distributed unmodified with `LXGWWenKaiGB-OFL.txt`. Source: https://github.com/lxgw/LxgwWenkaiGB ; release: https://github.com/lxgw/LxgwWenkaiGB/releases/tag/v1.530 . Primary pen-style face with Chinese handwriting forms, without synthetic emboldening, for the notebook, cards, investigation papers, and reasoning UI.
+- `LXGWWenKai-Regular.ttf`: 霞鹜文楷 (LXGW WenKai), LXGW / Klee Project Authors, SIL Open Font License 1.1. Distributed unmodified with `LXGWWenKai-OFL.txt`. Official source: https://github.com/lxgw/LxgwWenKai ; font: https://raw.githubusercontent.com/lxgw/LxgwWenKai/main/fonts/TTF/LXGWWenKai-Regular.ttf . First missing-glyph fallback; Noto Serif SC is the final fallback.
+
+- `ZhuqueFangsong-Regular.ttf`: 朱雀仿宋 (Zhuque Fangsong), TrionesType, v0.212, SIL Open Font License 1.1. Distributed with `ZhuqueFangsong-OFL.txt`. Official source: https://github.com/TrionesType/zhuque ; release: https://github.com/TrionesType/zhuque/releases/tag/v0.212 . Retained from the previous printed-paper interface.
 - `NotoSerifSC-Variable.ttf`: Noto Serif Simplified Chinese, SIL Open Font License 1.1. Distributed with `NotoSerifSC-OFL.txt`. Source: https://github.com/google/fonts/tree/main/ofl/notoserifsc . Retained as a missing-glyph fallback; no proprietary system fonts redistributed.
 
 - `paper-scan-810-cc0.jpg`: **Old paper sheet texture**, author 810 / Yael Atletl Bueno Rojas. CC0. Source: https://opengameart.org/content/old-paper-sheet-texture ; original download: https://opengameart.org/sites/default/files/paper.jpg . A real document scan with erased text. Original source file retained unmodified; engine samples the blank center region with mipmapped filtering.

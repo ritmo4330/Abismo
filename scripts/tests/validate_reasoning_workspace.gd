@@ -156,10 +156,15 @@ func run() -> void:
 	var preserved_slots: Array[String] = manual._get_slot_ids(id).duplicate()
 	var preserved_clue: String = workspace.selected_clue
 	for pane_name: String in workspace.PANES:
+		var sample: Control = {"EvidencePane": workspace.preview_body, "SuspicionPane": manual.suspicion_tree, "QuestionPane": manual.detail_body}[pane_name]
+		var font_key := "normal_font_size" if sample is RichTextLabel else "font_size"
+		var original_size := sample.get_theme_font_size(font_key)
 		await click(workspace.expand_buttons[pane_name])
 		await frames()
 		var pane: Control = manual.get_node("%" + pane_name)
 		check(pane.is_visible_in_tree() and pane.get_global_rect().size.x > 1180, "Expand arrow dedicates the full row to " + pane_name)
+		check(workspace.expand_buttons[pane_name].is_visible_in_tree() and workspace.expand_buttons[pane_name].text.contains("收回"), "Expanded section keeps an explicit collapse arrow visible")
+		check(sample.get_theme_font_size(font_key) > original_size, "Expanded section enlarges its reading text")
 		for other_name: String in workspace.PANES:
 			if other_name != pane_name:
 				check(not manual.get_node("%" + other_name).is_visible_in_tree(), "Other section is hidden while expanded: " + other_name)
@@ -167,6 +172,7 @@ func run() -> void:
 		await click(workspace.expand_buttons[pane_name])
 		await frames()
 		check(workspace.PANES.keys().all(func(name: String) -> bool: return manual.get_node("%" + name).is_visible_in_tree()), "Collapse arrow restores all three sections")
+		check(sample.get_theme_font_size(font_key) == original_size, "Collapsing restores the original text size")
 	manual._on_reason_button_pressed()
 	check(data.is_suspicion_resolved(id), "Correct evidence still resolves the original problem")
 	check(manual._is_novel_evidence_fixed(id, required[2]), "The second confirmation fixes the corrected clue")

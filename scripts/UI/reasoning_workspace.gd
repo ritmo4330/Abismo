@@ -42,6 +42,7 @@ var _question := ""
 var _refreshing := false
 var _focused_pane := ""
 var expand_buttons: Dictionary = {}
+var _pane_typography: Dictionary = {}
 const PANES := {"EvidencePane": "EvidenceHeading", "SuspicionPane": "SuspicionHeading", "QuestionPane": "QuestionHeading"}
 
 
@@ -74,9 +75,9 @@ func _build_expand_controls() -> void:
 		column.move_child(row, 0)
 		heading.reparent(row)
 		heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		var arrow := STYLE.button("↗", _toggle_pane.bind(pane_name), 30)
+		var arrow := STYLE.button("展开 ↗", _toggle_pane.bind(pane_name), 24)
 		arrow.name = "Expand" + pane_name
-		arrow.custom_minimum_size = Vector2(52, 42)
+		arrow.custom_minimum_size = Vector2(116, 44)
 		arrow.tooltip_text = "单独查看" + heading.text
 		arrow.accessibility_name = "展开" + heading.text
 		row.add_child(arrow)
@@ -89,14 +90,46 @@ func _toggle_pane(pane_name: String) -> void:
 		var pane: Control = host.get_node("%" + name)
 		pane.visible = _focused_pane.is_empty() or name == _focused_pane
 		var expanded := _focused_pane == name
+		_scale_pane_text(name, pane, expanded)
 		var arrow: Button = expand_buttons[name]
-		arrow.text = "↙" if expanded else "↗"
+		arrow.text = "↙ 收回" if expanded else "展开 ↗"
+		arrow.add_theme_stylebox_override("normal", STYLE.notebook("action", 8) if expanded else STYLE.surface(Color.TRANSPARENT, 8))
 		var title: String = host.get_node("%" + PANES[name]).text
 		arrow.tooltip_text = "收回，恢复三栏" if expanded else "单独查看" + title
 		arrow.accessibility_name = "收回，恢复三栏" if expanded else "展开" + title
 	var paper: Panel = host.get_node("%Screen/HandwrittenNotebook")
 	paper.get_theme_stylebox("panel").set("seam_ratio", 0.022 if not _focused_pane.is_empty() else 0.27)
 	paper.queue_redraw()
+
+
+func _scale_pane_text(name: String, pane: Control, expanded: bool) -> void:
+	if not _pane_typography.has(name):
+		var values: Array[Dictionary] = []
+		var nodes: Array[Node] = [pane]
+		nodes.append_array(pane.find_children("*", "Control", true, false))
+		for node: Control in nodes:
+			var sizes: Array[String] = []
+			var constants: Array[String] = []
+			if node is RichTextLabel:
+				sizes = ["normal_font_size", "bold_font_size", "italics_font_size", "bold_italics_font_size", "mono_font_size"]
+				constants = ["line_separation", "paragraph_separation"]
+			elif node is Label or node is Button or node is LineEdit or node is Tree:
+				sizes = ["font_size"]
+				if node is Tree: constants = ["v_separation"]
+			for key: String in sizes:
+				values.append({"node": node, "key": key, "value": node.get_theme_font_size(key), "override": node.has_theme_font_size_override(key), "constant": false})
+			for key: String in constants:
+				values.append({"node": node, "key": key, "value": node.get_theme_constant(key), "override": node.has_theme_constant_override(key), "constant": true})
+		_pane_typography[name] = values
+	for entry: Dictionary in _pane_typography[name]:
+		var node: Control = entry.node
+		var value := int(round(float(entry.value) * (1.3 if expanded else 1.0)))
+		if entry.constant:
+			if expanded or entry.override: node.add_theme_constant_override(entry.key, value)
+			else: node.remove_theme_constant_override(entry.key)
+		else:
+			if expanded or entry.override: node.add_theme_font_size_override(entry.key, value)
+			else: node.remove_theme_font_size_override(entry.key)
 
 
 func _apply_style() -> void:
