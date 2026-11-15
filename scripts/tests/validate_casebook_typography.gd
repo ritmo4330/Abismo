@@ -22,7 +22,7 @@ func run() -> void:
 	var theme: Theme = BOOK.theme()
 	check(theme.get_font("normal_font", "RichTextLabel") == BOOK.reading_font(), "Rich text uses the same print face as paper controls")
 	check(theme.get_font("bold_font", "RichTextLabel").base_font == BOOK.FONT, "Emphasized text keeps the same letterforms")
-	check(BOOK.display_font(850).variation_embolden >= 0.35 and BOOK.display_font(850).variation_embolden <= 0.65, "Display headings use stronger ink without excessive bold")
+	check(is_zero_approx(BOOK.display_font(850).variation_embolden), "Reference pen headings retain natural strokes without synthetic bold")
 	check(theme.get_color("font_shadow_color", "Button").a == 0, "Paper typography has no pasted-on shadow")
 	check(BOOK.reading_font() == BOOK.reading_font(), "Reading font is shared consistently")
 	print("Casebook typography failures=", failures)

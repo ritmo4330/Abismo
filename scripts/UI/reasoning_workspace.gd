@@ -4,9 +4,9 @@ const STYLE = preload("res://scripts/UI/casebook_style.gd")
 const Cases = preload("res://scripts/UI/casebook_cases.gd")
 const BodySearchSummary = preload("res://scripts/data/body_search_summary.gd")
 const SourceText = preload("res://scripts/flow/services/source_text.gd")
-const ACCENT := Color("225b52")
-const CARD := Color("f7f3e9")
-const STROKE := Color("c9c5b4")
+const ACCENT := Color("aa5145")
+const CARD := Color("f5f1e8")
+const STROKE := Color("c8c9bf")
 
 const NOVEL := {
  "1_suspicion_crime_info": ["【1】这一段的环境描写交代了案件发生的地点特征，但是【2】中的角色对话细节却不像是发生在这样的环境中", ["1_puzzle_maid_scene", "1_puzzle_first_discussion"]],
@@ -40,6 +40,9 @@ var selected_clue := ""
 var active_slot := 0
 var _question := ""
 var _refreshing := false
+var _focused_pane := ""
+var expand_buttons: Dictionary = {}
+const PANES := {"EvidencePane": "EvidenceHeading", "SuspicionPane": "SuspicionHeading", "QuestionPane": "QuestionHeading"}
 
 
 func build(owner_screen: Node) -> void:
@@ -52,6 +55,7 @@ func build(owner_screen: Node) -> void:
 	remove_button = host.get_node("%RemoveEvidence")
 	progress = host.get_node("%Progress")
 	_apply_style()
+	_build_expand_controls()
 	search.text_changed.connect(func(_text: String) -> void: refresh())
 	catalog.item_selected.connect(_on_evidence_selected)
 	catalog.item_activated.connect(_add_evidence)
@@ -60,21 +64,63 @@ func build(owner_screen: Node) -> void:
 	host.detail_body.meta_clicked.connect(_on_blank_clicked)
 
 
+func _build_expand_controls() -> void:
+	for pane_name: String in PANES:
+		var heading: Label = host.get_node("%" + PANES[pane_name])
+		var column := heading.get_parent()
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 10)
+		column.add_child(row)
+		column.move_child(row, 0)
+		heading.reparent(row)
+		heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var arrow := STYLE.button("↗", _toggle_pane.bind(pane_name), 30)
+		arrow.name = "Expand" + pane_name
+		arrow.custom_minimum_size = Vector2(52, 42)
+		arrow.tooltip_text = "单独查看" + heading.text
+		arrow.accessibility_name = "展开" + heading.text
+		row.add_child(arrow)
+		expand_buttons[pane_name] = arrow
+
+
+func _toggle_pane(pane_name: String) -> void:
+	_focused_pane = "" if _focused_pane == pane_name else pane_name
+	for name: String in PANES:
+		var pane: Control = host.get_node("%" + name)
+		pane.visible = _focused_pane.is_empty() or name == _focused_pane
+		var expanded := _focused_pane == name
+		var arrow: Button = expand_buttons[name]
+		arrow.text = "↙" if expanded else "↗"
+		var title: String = host.get_node("%" + PANES[name]).text
+		arrow.tooltip_text = "收回，恢复三栏" if expanded else "单独查看" + title
+		arrow.accessibility_name = "收回，恢复三栏" if expanded else "展开" + title
+	var paper: Panel = host.get_node("%Screen/HandwrittenNotebook")
+	paper.get_theme_stylebox("panel").set("seam_ratio", 0.022 if not _focused_pane.is_empty() else 0.27)
+	paper.queue_redraw()
+
+
 func _apply_style() -> void:
 	var theme := STYLE.theme()
-	var highlight := STYLE.surface(Color("dce9e1"), 7, Color("a8c5b8"))
+	var highlight := STYLE.surface(Color(0.94, 0.75, 0.35, 0.20), 7)
 	for state: String in ["selected", "selected_focus"]:
 		theme.set_stylebox(state, "Tree", highlight)
 	theme.set_color("font_selected_color", "Tree", ACCENT)
 	theme.set_constant("v_separation", "Tree", 15)
 	theme.set_font_size("font_size", "Tree", 24)
 	theme.set_constant("line_separation", "RichTextLabel", 12)
-	theme.set_stylebox("normal", "Button", STYLE.surface(Color("eee9dc"), 12))
+	theme.set_stylebox("normal", "Button", STYLE.surface(Color.TRANSPARENT, 12))
 	theme.set_stylebox("hover", "Button", highlight)
 	theme.set_stylebox("pressed", "Button", highlight)
 	host.get_node("%Screen").theme = theme
+	var paper := Panel.new()
+	paper.name = "HandwrittenNotebook"
+	paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	paper.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	paper.add_theme_stylebox_override("panel", STYLE.notebook("book", 0))
+	host.get_node("%Screen").add_child(paper)
+	host.get_node("%Screen").move_child(paper, 1)
 	for name: String in ["EvidencePane", "SuspicionPane", "QuestionPane"]:
-		host.get_node("%" + name).add_theme_stylebox_override("panel", STYLE.surface(CARD, 20, STROKE))
+		host.get_node("%" + name).add_theme_stylebox_override("panel", STYLE.notebook("writing", 20))
 	for name: String in ["ScreenTitle", "EvidenceHeading", "SuspicionHeading", "QuestionHeading", "DetailTitle", "EvidenceTitle"]:
 		var heading: Label = host.get_node("%" + name)
 		heading.add_theme_font_override("font", STYLE.display_font(700))
@@ -86,11 +132,11 @@ func _apply_style() -> void:
 	preview_body.add_theme_font_size_override("normal_font_size", 23)
 	host.detail_body.add_theme_font_size_override("normal_font_size", 30)
 	for button: Button in [add_button, host.reason_button]:
-		button.add_theme_stylebox_override("normal", STYLE.surface(ACCENT, 12))
-		button.add_theme_stylebox_override("hover", STYLE.surface(Color("2d7165"), 12))
-		button.add_theme_stylebox_override("pressed", STYLE.surface(Color("19453e"), 12))
+		button.add_theme_stylebox_override("normal", STYLE.notebook("action", 12))
+		button.add_theme_stylebox_override("hover", STYLE.notebook("active_tab", 12))
+		button.add_theme_stylebox_override("pressed", highlight)
 		for color_name: String in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color"]:
-			button.add_theme_color_override(color_name, Color.WHITE)
+			button.add_theme_color_override(color_name, ACCENT)
 
 
 func refresh() -> void:
@@ -165,11 +211,11 @@ func _render_blanks(template: String, slots: Array[String], editable: bool) -> S
 		var fixed: bool = host._is_novel_evidence_fixed(_question, slots[i])
 		var label := "【%d  待填】" % (i + 1) if slots[i].is_empty() else "【%s%s】" % ["✓ " if fixed else "", host._get_clue_title(slots[i])]
 		if editable and not fixed:
-			var accent := "#ffffff" if i == active_slot else "#225b52"
-			var background := "#225b52" if i == active_slot else "#dce9e1"
+			var accent := "#aa5145" if i == active_slot else "#293541"
+			var background := "#f1dfb0" if i == active_slot else "#e9e5d9"
 			text += "[url=blank:%d][bgcolor=%s][color=%s][b]%s[/b][/color][/bgcolor][/url]" % [i, background, accent, _escape_bbcode(label)]
 		else:
-			text += "[color=#53685d]%s[/color]" % _escape_bbcode(label)
+			text += "[color=#6c736f]%s[/color]" % _escape_bbcode(label)
 		cursor = position + marker.length()
 	return text + _escape_bbcode(template.substr(cursor))
 

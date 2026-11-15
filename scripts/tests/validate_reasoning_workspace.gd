@@ -78,8 +78,7 @@ func run() -> void:
 		check(not manual._is_novel_evidence_fixed(id, clue), "Filling a correct clue does not confirm it: " + clue)
 	await snapshot("reasoning-filled-before-confirm.png")
 	if OS.get_cmdline_user_args().has("--capture") and root.get_visible_rect().size == Vector2(1920, 1080):
-		# The filled second blank is in the second line of the captured prompt.
-		await click_at(manual.detail_body.get_global_rect().position + Vector2(295, 145))
+		await click_text(manual.detail_body, manual._get_clue_title(required[1]))
 		check(workspace.active_slot == 1, "Mouse clicks select a blank inside the rendered sentence")
 	data.set_flag("novel_confirmed/%s/%s" % [id, required[0]], true)
 	check(not manual._is_novel_evidence_fixed(id, required[0]), "Legacy selection flags do not restore premature locks")
@@ -154,6 +153,20 @@ func run() -> void:
 	check(workspace.add_button.get_global_rect().end.y <= 720 and manual.reason_button.get_global_rect().end.y <= 720, "Both evidence and confirmation actions fit 1280x720")
 	check(manual.reason_button.get_global_rect().end.x <= 1281, "Right problem and confirmation stay within small viewport")
 	await snapshot("reasoning-left-evidence-right-question-1280.png")
+	var preserved_slots: Array[String] = manual._get_slot_ids(id).duplicate()
+	var preserved_clue: String = workspace.selected_clue
+	for pane_name: String in workspace.PANES:
+		await click(workspace.expand_buttons[pane_name])
+		await frames()
+		var pane: Control = manual.get_node("%" + pane_name)
+		check(pane.is_visible_in_tree() and pane.get_global_rect().size.x > 1180, "Expand arrow dedicates the full row to " + pane_name)
+		for other_name: String in workspace.PANES:
+			if other_name != pane_name:
+				check(not manual.get_node("%" + other_name).is_visible_in_tree(), "Other section is hidden while expanded: " + other_name)
+		check(manual._get_slot_ids(id) == preserved_slots and workspace.selected_clue == preserved_clue and not data.is_suspicion_resolved(id), "Expanding preserves evidence and unsubmitted progress")
+		await click(workspace.expand_buttons[pane_name])
+		await frames()
+		check(workspace.PANES.keys().all(func(name: String) -> bool: return manual.get_node("%" + name).is_visible_in_tree()), "Collapse arrow restores all three sections")
 	manual._on_reason_button_pressed()
 	check(data.is_suspicion_resolved(id), "Correct evidence still resolves the original problem")
 	check(manual._is_novel_evidence_fixed(id, required[2]), "The second confirmation fixes the corrected clue")
@@ -169,6 +182,18 @@ func frames() -> void:
 func click(button: Button) -> void:
 	await frames()
 	await click_at(button.get_global_rect().get_center())
+
+func click_text(body: RichTextLabel, text: String) -> void:
+	await frames()
+	var parsed := body.get_parsed_text()
+	var character := parsed.find(text) + int(text.length() / 2)
+	var line := body.get_character_line(character)
+	var start := body.get_line_range(line).x
+	var font := body.get_theme_font("normal_font")
+	var font_size := body.get_theme_font_size("normal_font_size")
+	var x := font.get_string_size(parsed.substr(start, character - start), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
+	var y := body.get_line_offset(line) + body.get_line_height(line) * 0.5
+	await click_at(body.get_global_transform() * Vector2(x, y))
 
 func click_at(position: Vector2) -> void:
 	await frames()

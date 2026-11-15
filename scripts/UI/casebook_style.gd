@@ -1,35 +1,44 @@
 extends RefCounted
 
-const FONT = preload("res://assets/art/casebook/ZhuqueFangsong-Regular.ttf")
+const FONT = preload("res://assets/art/casebook/LXGWWenKaiGB-Regular.ttf")
+const HANDWRITTEN_FALLBACK = preload("res://assets/art/casebook/LXGWWenKai-Regular.ttf")
 const FALLBACK_FONT = preload("res://assets/art/casebook/NotoSerifSC-Variable.ttf")
 const TITLE_FONT = FONT
 const MATERIAL = preload("res://scripts/UI/casebook_material.gd")
-const INK := Color("302820")
-const MUTED := Color("6b5947")
-const RED := Color("87443e")
-const PAPER := Color("eee7d9")
-const RULE := Color("b8ac96")
+const NOTEBOOK = preload("res://scripts/UI/notebook_paper.gd")
+const INK := Color("202b43")
+const MUTED := Color("6c736f")
+const RED := Color("aa5145")
+const PAPER := Color("f7f3eb")
+const RULE := Color("c8c9bf")
 const ART_ROOT := "res://assets/art/casebook/"
 static var _reading_font: FontVariation
 static var _display_fonts: Dictionary = {}
 
-# Keep text live and searchable; use real print letterforms, not textured glyphs.
+# Bundle the handwritten face so every machine renders the same live text.
 static func reading_font() -> FontVariation:
 	if _reading_font == null:
 		_reading_font = FontVariation.new()
 		_reading_font.base_font = FONT
-		_reading_font.fallbacks = [FALLBACK_FONT]
-		_reading_font.variation_embolden = 0.32
+		_reading_font.fallbacks = [HANDWRITTEN_FALLBACK, FALLBACK_FONT]
+		_reading_font.variation_embolden = 0.0
 	return _reading_font
 
 static func paper_style(book: bool = false, newspaper: bool = false) -> StyleBox:
-	var style := MATERIAL.new()
-	style.scan = load(ART_ROOT + "paper-scan-810-cc0.jpg")
-	style.kind = "book" if book else ("newspaper" if newspaper else "sheet")
+	var style := notebook("book" if book else "page")
+	style.seam_ratio = 0.5
 	style.content_margin_left = 54 if book else 32
 	style.content_margin_right = 54 if book else 32
 	style.content_margin_top = 48 if book else (38 if newspaper else 24)
 	style.content_margin_bottom = 64 if book else (30 if newspaper else 24)
+	return style
+
+static func notebook(role: String, padding := 16.0) -> StyleBox:
+	var style := NOTEBOOK.new()
+	style.role = role
+	style.scan = preload("res://assets/art/casebook/paper-scan-810-cc0.jpg")
+	style.set_content_margin_all(padding)
+	if role == "search": style.content_margin_left = 50
 	return style
 
 static func cut_style(kind: String) -> StyleBox:
@@ -99,8 +108,8 @@ static func theme() -> Theme:
 	result.set_color("guide_color", "Tree", Color(0.4, 0.35, 0.3, 0.12))
 	result.set_constant("v_separation", "Tree", 18)
 	result.set_constant("h_separation", "Tree", 10)
-	result.set_stylebox("normal", "LineEdit", surface(Color(1, 1, 1, 0.26), 12, RULE))
-	result.set_stylebox("focus", "LineEdit", surface(Color(1, 1, 1, 0.5), 12, RED))
+	result.set_stylebox("normal", "LineEdit", notebook("search", 12))
+	result.set_stylebox("focus", "LineEdit", notebook("search", 12))
 	result.set_color("font_placeholder_color", "LineEdit", MUTED)
 	result.set_stylebox("panel", "PopupMenu", surface(PAPER, 12, RULE))
 	result.set_stylebox("hover", "PopupMenu", surface(Color("ded0b8"), 10))
@@ -135,9 +144,10 @@ static func display_font(weight: float = 650.0) -> FontVariation:
 		return _display_fonts[weight]
 	var font := FontVariation.new()
 	font.base_font = TITLE_FONT
-	font.fallbacks = [FALLBACK_FONT]
-	# A restrained impression of ink, rather than the former heavy display face.
-	font.variation_embolden = clampf(0.35 + (weight - 450.0) / 1800.0, 0.35, 0.58)
+	font.fallbacks = [HANDWRITTEN_FALLBACK, FALLBACK_FONT]
+	# The reference uses fine pen strokes. Preserve the real outline instead
+	# of turning it into a bold face through synthetic emboldening.
+	font.variation_embolden = 0.0
 	_display_fonts[weight] = font
 	return font
 

@@ -25,6 +25,12 @@ var _built := false
 var _allow_reasoning := true
 var _allow_evidence := false
 var _clue_ids: PackedStringArray = []
+var category_tabs: Array[Button] = []
+var sidebar: VBoxContainer
+var index_title: Label
+var index_counter: Label
+var book: Panel
+var _book_style: StyleBox
 
 
 func _ready() -> void:
@@ -38,14 +44,16 @@ func build() -> void:
 	if _built:
 		return
 	_built = true
-	var background := ColorRect.new()
-	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	background.color = Color("e9e6de")
-	add_child(background)
+	book = Panel.new()
+	book.name = "HandwrittenNotebook"
+	book.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+	_book_style = Style.notebook("book", 0)
+	book.add_theme_stylebox_override("panel", _book_style)
+	add_child(book)
 	surface = MarginContainer.new()
 	surface.theme = Style.theme()
 	for edge: String in ["left", "right", "top", "bottom"]:
-		surface.add_theme_constant_override("margin_" + edge, 28)
+		surface.add_theme_constant_override("margin_" + edge, 46 if edge in ["left", "right"] else 30)
 	add_child(surface)
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 18)
@@ -53,26 +61,44 @@ func build() -> void:
 	var header := HBoxContainer.new()
 	header.add_theme_constant_override("separation", 18)
 	column.add_child(header)
-	var title := Style.label("线索与疑点", 34, true)
-	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	header.add_child(title)
+	var title_paper := PanelContainer.new()
+	title_paper.add_theme_stylebox_override("panel", Style.notebook("heading", 4))
+	header.add_child(title_paper)
+	var title := Style.label("线索与疑点", 48, true)
+	title_paper.add_child(title)
+	var title_space := Control.new()
+	title_space.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	header.add_child(title_space)
 	kind = OptionButton.new()
-	for label: String in ["线索卡片", "疑点卡片", "人物卡片"]:
+	for label: String in ["线索", "疑点", "人物"]:
 		kind.add_item(label)
+		var tab_index := category_tabs.size()
+		var tab := Style.button(label, func() -> void: kind.select(tab_index); search.clear(); _refresh(), 28)
+		tab.toggle_mode = true
+		tab.add_theme_color_override("font_pressed_color", Style.INK)
+		tab.custom_minimum_size = Vector2(112, 62)
+		tab.add_theme_stylebox_override("normal", Style.notebook("tab", 12))
+		tab.add_theme_stylebox_override("hover", Style.notebook("active_tab", 12))
+		tab.add_theme_stylebox_override("pressed", Style.notebook("active_tab", 12))
+		category_tabs.append(tab)
+		header.add_child(tab)
 	kind.item_selected.connect(func(_index: int) -> void: search.clear(); _refresh())
-	header.add_child(kind)
-	close_button = Style.button("返回", close, 25)
+	kind.hide()
+	add_child(kind)
+	close_button = Style.button("返回调查", close, 25)
 	header.add_child(close_button)
 	var row := HBoxContainer.new()
 	row.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	row.add_theme_constant_override("separation", 24)
+	row.add_theme_constant_override("separation", 48)
 	column.add_child(row)
-	var sidebar := VBoxContainer.new()
-	sidebar.custom_minimum_size.x = 310
+	sidebar = VBoxContainer.new()
+	sidebar.custom_minimum_size.x = 320
 	sidebar.add_theme_constant_override("separation", 14)
 	row.add_child(sidebar)
+	index_title = Style.label("线索索引", 34, true)
+	sidebar.add_child(index_title)
 	search = LineEdit.new()
-	search.placeholder_text = "搜索卡片"
+	search.placeholder_text = "搜索线索…"
 	search.text_changed.connect(func(_query: String) -> void: _filter())
 	sidebar.add_child(search)
 	var scroll := ScrollContainer.new()
@@ -86,7 +112,9 @@ func build() -> void:
 	var card := PanelContainer.new()
 	card.name = "ReadingCard"
 	card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	card.add_theme_stylebox_override("panel", Style.surface(Color.WHITE, 32, Color("c5c1b6")))
+	var writing := Style.notebook("reading", 28)
+	writing.content_margin_top = 10
+	card.add_theme_stylebox_override("panel", writing)
 	row.add_child(card)
 	var reading_scroll := ScrollContainer.new()
 	reading_scroll.name = "CardScroll"
@@ -94,22 +122,26 @@ func build() -> void:
 	card.add_child(reading_scroll)
 	content = VBoxContainer.new()
 	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	content.add_theme_constant_override("separation", 24)
+	content.add_theme_constant_override("separation", 30)
 	reading_scroll.add_child(content)
 	var footer := HBoxContainer.new()
 	footer.add_theme_constant_override("separation", 16)
 	column.add_child(footer)
-	previous_button = Style.button("上一张", func() -> void: _step(-1), 25)
+	index_counter = Style.label("", 24)
+	footer.add_child(index_counter)
+	previous_button = Style.button("← 上一张", func() -> void: _step(-1), 25)
 	footer.add_child(previous_button)
 	counter = Style.label("", 23)
 	counter.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	counter.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	footer.add_child(counter)
-	next_button = Style.button("下一张", func() -> void: _step(1), 25)
+	next_button = Style.button("下一张 →", func() -> void: _step(1), 25)
 	footer.add_child(next_button)
 	use_button = Style.button("填入当前空格", _use, 25)
 	footer.add_child(use_button)
 	reason_button = Style.button("进入推理", _reason, 25)
+	reason_button.add_theme_stylebox_override("normal", Style.notebook("action", 14))
+	reason_button.add_theme_stylebox_override("hover", Style.notebook("active_tab", 14))
 	footer.add_child(reason_button)
 	_layout()
 
@@ -133,13 +165,25 @@ func _layout() -> void:
 	var ratio := minf(1.0, minf(view.x / 1440.0, view.y / 900.0))
 	surface.scale = Vector2.ONE * ratio
 	surface.size = view / ratio
+	book.size = view
+	sidebar.custom_minimum_size.x = (surface.size.x - 92) * 0.24
+	index_counter.custom_minimum_size.x = sidebar.custom_minimum_size.x + 32
+	# The fold follows the index width instead of crossing the reading text.
+	_book_style.set("seam_ratio", (46 + sidebar.custom_minimum_size.x + 24) / surface.size.x)
+	book.queue_redraw()
 
 
 func _refresh() -> void:
+	for i: int in category_tabs.size():
+		category_tabs[i].set_pressed_no_signal(i == kind.selected)
+	index_title.text = ["线索索引", "疑点索引", "人物索引"][kind.selected]
+	search.placeholder_text = ["搜索线索…", "搜索疑点…", "搜索人物…"][kind.selected]
 	match kind.selected:
 		0: cards = Catalog.clue_cards(_clue_ids)
 		1: cards = Catalog.suspicion_cards()
 		2: cards = Catalog.person_cards()
+	if kind.selected == 0 and not cards.is_empty() and cards.all(func(card: Dictionary) -> bool: return card.get("evidence_id", "") == "1_testimony_3_all"):
+		index_title.text = "见闻索引"
 	_filter()
 
 
@@ -163,13 +207,46 @@ func _filter() -> void:
 		selected_id = str(filtered[0].id) if not filtered.is_empty() else ""
 	for card: Dictionary in filtered:
 		var tile := Button.new()
-		tile.text = card.title + "\n" + str(card.get("source", ""))
+		tile.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		tile.add_theme_color_override("font_pressed_color", Style.INK)
+		var source := str(card.get("source", ""))
+		tile.text = source.trim_prefix("陈述人：") + "\n" + str(card.title) if source.begins_with("陈述人：") else str(card.title)
 		tile.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		tile.custom_minimum_size = Vector2(0, 105)
+		tile.custom_minimum_size = Vector2(0, 96)
 		tile.toggle_mode = true
 		tile.button_pressed = card.id == selected_id
-		tile.add_theme_stylebox_override("normal", Style.surface(Color("f9f7f0"), 14, Color("cbc4b6")))
-		tile.add_theme_stylebox_override("pressed", Style.surface(Color("dae7df"), 14, Color("567a68")))
+		tile.add_theme_stylebox_override("normal", Style.notebook("index", 14))
+		var selection := Style.notebook("selected", 14)
+		selection.set("mark_y", 32.0 if tile.text.contains("\n") else 48.0)
+		var name_width := Style.reading_font().get_string_size(tile.text.get_slice("\n", 0), HORIZONTAL_ALIGNMENT_LEFT, -1, 25).x
+		selection.set("mark_x", 14 + name_width * 0.5)
+		selection.set("mark_radius", name_width * 0.55 + 10)
+		tile.add_theme_stylebox_override("hover", selection)
+		tile.add_theme_stylebox_override("pressed", selection)
+		if source.begins_with("陈述人："):
+			# A larger handwritten name above a quieter record title, as in the
+			# approved notebook index; both labels leave input to their button.
+			tile.text = ""
+			var inset := MarginContainer.new()
+			inset.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			inset.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+			inset.offset_left = 14
+			inset.offset_right = -14
+			inset.offset_top = 8
+			inset.offset_bottom = -8
+			tile.add_child(inset)
+			var captions := VBoxContainer.new()
+			captions.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			captions.alignment = BoxContainer.ALIGNMENT_CENTER
+			captions.add_theme_constant_override("separation", 0)
+			inset.add_child(captions)
+			captions.add_child(Style.label(source.trim_prefix("陈述人："), 33))
+			var caption := Style.label(str(card.title), 24)
+			caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			captions.add_child(caption)
+			var width := Style.reading_font().get_string_size(source.trim_prefix("陈述人："), HORIZONTAL_ALIGNMENT_LEFT, -1, 33).x
+			selection.set("mark_x", 14 + width * 0.5)
+			selection.set("mark_radius", width * 0.55 + 10)
 		tile.pressed.connect(_select.bind(card.id))
 		list.add_child(tile)
 		if card.id == selected_id:
@@ -201,6 +278,7 @@ func _render() -> void:
 	var card := _current()
 	var index := filtered.find(card)
 	counter.text = "%d / %d" % [index + 1, filtered.size()] if index >= 0 else "0 / 0"
+	index_counter.text = "%s / %d" % [["见闻记录" if index_title.text == "见闻索引" else "线索记录", "疑点记录", "人物记录"][kind.selected], filtered.size()]
 	previous_button.disabled = index <= 0
 	next_button.disabled = index < 0 or index == filtered.size() - 1
 	use_button.visible = _allow_evidence and not str(card.get("evidence_id", "")).is_empty()
@@ -216,12 +294,15 @@ func _render() -> void:
 	headings.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	headings.add_theme_constant_override("separation", 20)
 	top.add_child(headings)
-	card_title = Style.label(card.title, 42, true)
+	card_title = Style.label(card.title, 52, true)
 	card_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	headings.add_child(card_title)
-	var source := Style.label(str(card.get("source", "")), 25)
+	var source := Style.label(str(card.get("source", "")), 29)
 	source.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	headings.add_child(source)
+	var rule := HSeparator.new()
+	rule.add_theme_stylebox_override("separator", Style.notebook("ink_rule", 2))
+	headings.add_child(rule)
 	if not str(card.get("portrait", "")).is_empty():
 		var picture := TextureRect.new()
 		var texture: Texture2D = load(card.portrait)
@@ -240,8 +321,9 @@ func _render() -> void:
 		label.fit_content = true
 		label.bbcode_enabled = bool(card.get("markup", false))
 		label.scroll_active = false
-		label.add_theme_font_size_override("normal_font_size", 27)
-		label.text = ("• " if card.get("bullets", false) else "") + paragraph
+		label.add_theme_font_size_override("normal_font_size", 34)
+		label.text = paragraph
+		label.add_theme_constant_override("line_separation", 12)
 		content.add_child(label)
 	for fact: String in card.get("facts", []):
 		var label := Style.label("• " + fact, 27)
@@ -257,7 +339,7 @@ func _render() -> void:
 			for value: String in row:
 				var cell := PanelContainer.new()
 				cell.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-				cell.add_theme_stylebox_override("panel", Style.surface(Color.WHITE, 18, Color("5a5a5a")))
+				cell.add_theme_stylebox_override("panel", Style.surface(Color(1, 1, 1, 0.1), 18, Style.RULE))
 				cell.custom_minimum_size = Vector2(150, 110)
 				grid.add_child(cell)
 				var label := Style.label(value, 25)
